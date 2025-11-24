@@ -29,33 +29,33 @@ import { ConfessionTimesModal } from '@/components/confession-times-modal';
 export type Theme = 'theme-default' | 'theme-dark-gray' | 'theme-light-gray' | 'theme-red';
 
 const LoadingScreen = ({ isLoading }: { isLoading: boolean }) => (
-    <div
-        className={cn(
-            'fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500',
-            isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        )}
-        style={{ backgroundImage: 'linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #c3c3c3 50%, #949da4 100%)' }}
-    >
-        <div className={cn('transform transition-all duration-700 ease-in-out', isLoading ? 'scale-100 animate-pulse-and-shrink' : 'scale-0')}>
-            <Image 
-                src="https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png" 
-                alt="Logo Corações Sagrados" 
-                width={448} 
-                height={166}
-                className="w-full max-w-md rounded-md"
-                priority
-            />
-        </div>
+  <div
+    className={cn(
+      'fixed inset-0 z-50 flex items-center justify-center transition-opacity duration-500',
+      isLoading ? 'opacity-100' : 'opacity-0 pointer-events-none'
+    )}
+    style={{ backgroundImage: 'linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #c3c3c3 50%, #949da4 100%)' }}
+  >
+    <div className={cn('transform transition-all duration-700 ease-in-out', isLoading ? 'scale-100 animate-pulse-and-shrink' : 'scale-0')}>
+      <Image
+        src="https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png"
+        alt="Logo Corações Sagrados"
+        width={448}
+        height={166}
+        className="w-full max-w-md rounded-md"
+        priority
+      />
     </div>
+  </div>
 );
 
 const marianDevotions = [
-    { 
-        name: 'N. S. do Rosário', 
-        imageUrl: 'https://i.postimg.cc/2669v1gr/nsr.jpg',
-        novenaId: 'rosario',
-        feastDay: '07 de Outubro',
-        description: `
+  {
+    name: 'N. S. do Rosário',
+    imageUrl: 'https://i.postimg.cc/2669v1gr/nsr.jpg',
+    novenaId: 'rosario',
+    feastDay: '07 de Outubro',
+    description: `
             <h4>1. Origem da Devoção do Rosário</h4>
             <p>A devoção a Nossa Senhora do Rosário remonta ao século XIII, ligada tradicionalmente a <strong>São Domingos de Gusmão</strong>, que teria recebido o Rosário da própria Virgem Maria como uma arma espiritual para combater as heresias. A festa de 7 de outubro comemora a <strong>Vitória de Lepanto</strong> (1571), atribuída à intercessão da Virgem através do Rosário.</p>
 
@@ -68,16 +68,19 @@ const marianDevotions = [
             <h4>4. O Santuário e a Devoção em Pompeia</h4>
             <p>Em 1875, Bartolo Longo adquiriu um quadro deteriorado da Virgem do Rosário. Após ser restaurado, a devoção cresceu rapidamente devido a inúmeros milagres. Isso levou à construção do imponente <strong>Santuário de Nossa Senhora do Rosário de Pompeia</strong>. Bartolo Longo também fundou importantes obras de caridade, estabelecendo-se como o "Apóstolo do Rosário".</p>
         `
-    },
-    { name: 'N. S. Aparecida', imageUrl: 'https://i.postimg.cc/Lsyj4XMh/4011bde1376c5422265a41f3a652c540.jpg', novenaId: 'aparecida', feastDay: '12 de Outubro' },
-    { name: 'Apresentação de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', novenaId: 'apresentacao_ns', feastDay: '21 de Novembro' },
-    { name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', novenaId: 'ns_saude', feastDay: '21 de Novembro' },
-    { name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', novenaId: 'gracas', feastDay: '27 de Novembro' },
-    { name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', novenaId: 'imaculada_conceicao', feastDay: '08 de Dezembro' },
+  },
+  { name: 'N. S. Aparecida', imageUrl: 'https://i.postimg.cc/Lsyj4XMh/4011bde1376c5422265a41f3a652c540.jpg', novenaId: 'aparecida', feastDay: '12 de Outubro' },
+  { name: 'Apresentação de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', novenaId: 'apresentacao_ns', feastDay: '21 de Novembro' },
+  { name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', novenaId: 'ns_saude', feastDay: '21 de Novembro' },
+  { name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', novenaId: 'gracas', feastDay: '27 de Novembro' },
+  { name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', novenaId: 'imaculada_conceicao', feastDay: '08 de Dezembro' },
 ]
 
 
+import { useRouter } from 'next/navigation';
+
 export default function Home() {
+  const router = useRouter();
   const [selectedMonth, setSelectedMonth] = useState<string>(months[new Date().getMonth()]);
   const [selectedSaintId, setSelectedSaintId] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -111,7 +114,7 @@ export default function Home() {
       if (isMarianDialogOpen) {
         setIsMarianDialogOpen(false);
       }
-       if (showJoseNovenaDialog) {
+      if (showJoseNovenaDialog) {
         setShowJoseNovenaDialog(false);
       }
     };
@@ -130,14 +133,14 @@ export default function Home() {
     if (isMarianDialogOpen) {
       window.history.pushState({ modal: 'mariano' }, '');
     }
-     if (showJoseNovenaDialog) {
-        window.history.pushState({ modal: 'joseNovena' }, '');
+    if (showJoseNovenaDialog) {
+      window.history.pushState({ modal: 'joseNovena' }, '');
     }
   }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog]);
 
 
   const { toast } = useToast();
-  
+
   useEffect(() => {
     const today = new Date();
     // Use UTC methods to avoid timezone issues
@@ -161,52 +164,52 @@ export default function Home() {
       initialMonth = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
       initialNovenaId = saintFromHash.id;
     } else {
-        const currentYear = getYear(todayUTC);
-        const closestSaint = saints.reduce((closest, saint) => {
-            try {
-                const startDate = parse(`${saint.startDate}/${currentYear}`, 'dd/MM/yyyy', new Date());
-                const startDateUTC = new Date(Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()));
+      const currentYear = getYear(todayUTC);
+      const closestSaint = saints.reduce((closest, saint) => {
+        try {
+          const startDate = parse(`${saint.startDate}/${currentYear}`, 'dd/MM/yyyy', new Date());
+          const startDateUTC = new Date(Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()));
 
-                if (isNaN(startDateUTC.getTime())) return closest;
+          if (isNaN(startDateUTC.getTime())) return closest;
 
-                const diff = Math.abs(differenceInDays(startDateUTC, todayUTC));
+          const diff = Math.abs(differenceInDays(startDateUTC, todayUTC));
 
-                if (!closest || diff < closest.diff) {
-                    return { saint, diff };
-                }
-            } catch (e) {
-                // Ignore invalid date formats
-            }
-            return closest;
-        }, null as { saint: Saint; diff: number } | null);
-
-        if (closestSaint) {
-            initialNovenaId = closestSaint.saint.id;
-            initialMonth = closestSaint.saint.month;
-        } else {
-            const firstSaint = saints[0];
-            if (firstSaint) {
-                initialNovenaId = firstSaint.id;
-                initialMonth = firstSaint.month;
-            }
+          if (!closest || diff < closest.diff) {
+            return { saint, diff };
+          }
+        } catch (e) {
+          // Ignore invalid date formats
         }
+        return closest;
+      }, null as { saint: Saint; diff: number } | null);
+
+      if (closestSaint) {
+        initialNovenaId = closestSaint.saint.id;
+        initialMonth = closestSaint.saint.month;
+      } else {
+        const firstSaint = saints[0];
+        if (firstSaint) {
+          initialNovenaId = firstSaint.id;
+          initialMonth = firstSaint.month;
+        }
+      }
     }
 
     if (initialMonth && initialNovenaId) {
-        setSelectedMonth(initialMonth);
-        setSelectedSaintId(initialNovenaId);
+      setSelectedMonth(initialMonth);
+      setSelectedSaintId(initialNovenaId);
     }
 
     if (todayUTC.getUTCDay() === 5) {
-        toast({
-            description: (
-                <div className="flex items-center gap-2 font-semibold">
-                    <AlertCircle className="text-primary h-5 w-5" />
-                    Hoje é dia de abstinência de carne.
-                </div>
-            ),
-            className: 'top-4 right-4 absolute bg-background/80 backdrop-blur-sm',
-        });
+      toast({
+        description: (
+          <div className="flex items-center gap-2 font-semibold">
+            <AlertCircle className="text-primary h-5 w-5" />
+            Hoje é dia de abstinência de carne.
+          </div>
+        ),
+        className: 'top-4 right-4 absolute bg-background/80 backdrop-blur-sm',
+      });
     }
 
     // Delay hydration to allow loading animation to play
@@ -278,14 +281,14 @@ export default function Home() {
   const handleSelectSaint = (id: string) => {
     setSelectedSaintId(id);
     const saint = saints.find(s => s.id === id);
-    if(saint) setSelectedMonth(saint.month);
+    if (saint) setSelectedMonth(saint.month);
   };
-  
+
   const handleMonthChange = (month: string) => {
     setSelectedMonth(month);
     const saintsInNewMonth = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(month));
     if (selectedSaintId && !saintsInNewMonth.some(s => s.id === selectedSaintId)) {
-        setSelectedSaintId(null);
+      setSelectedSaintId(null);
     }
   }
 
@@ -293,8 +296,8 @@ export default function Home() {
     setIsSaintOfTheDayOpen(false); // Close accordion before navigating
     // Add a small delay to allow the accordion to close before changing the slide
     setTimeout(() => {
-        saintOfTheDayRef.current?.navigate(direction);
-        saintOfTheDaySectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      saintOfTheDayRef.current?.navigate(direction);
+      saintOfTheDaySectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }, 200);
   }
 
@@ -302,13 +305,14 @@ export default function Home() {
     setShowJoseNovenaDialog(false);
     setIsJoseDialogOpen(false);
     setIsMarianDialogOpen(false);
+
     const saint = saints.find(s => s.id === saintId);
-    if(saint) {
-        setSelectedMonth(saint.month);
-        setSelectedSaintId(saintId);
-        // Aguarda o fechamento do diálogo (animação) antes de rolar
-        // para garantir que a rolagem com comportamento 'smooth' fique visível.
-        setTimeout(() => setShouldScrollToNovena(true), 220);
+    if (saint) {
+      setSelectedMonth(saint.month);
+      setSelectedSaintId(saintId);
+      // Aguarda o fechamento do diálogo (animação) antes de rolar
+      // para garantir que a rolagem com comportamento 'smooth' fique visível.
+      setTimeout(() => setShouldScrollToNovena(true), 220);
     }
   }
 
@@ -337,162 +341,162 @@ export default function Home() {
 
           <Header />
           <WeeklyDevotions />
-          
+
           <div className="relative" ref={saintOfTheDaySectionRef}>
             <h2 className="text-xl font-brand text-center text-gray-700 mt-8">
               Santo do Dia
             </h2>
-            <SaintOfTheDay 
-              ref={saintOfTheDayRef} 
+            <SaintOfTheDay
+              ref={saintOfTheDayRef}
               triggerTheme={theme}
               isOpenInitially={isSaintOfTheDayOpen}
               onToggle={setIsSaintOfTheDayOpen}
             />
-            <div 
+            <div
               className={cn(
                 "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex items-center justify-center gap-2 z-20"
               )}
             >
-                <Button
-                  variant="outline"
-                  className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border" 
-                  onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('prev'); }}
-                >
-                  Dia anterior
-                </Button>
-                <Button 
-                  variant="outline"
-                  className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border" 
-                  onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('next'); }}
-                >
-                  Próximo dia
-                </Button>
+              <Button
+                variant="outline"
+                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('prev'); }}
+              >
+                Dia anterior
+              </Button>
+              <Button
+                variant="outline"
+                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('next'); }}
+              >
+                Próximo dia
+              </Button>
             </div>
           </div>
-          
+
           <div className="mt-16 w-full flex flex-col sm:flex-row items-center justify-center gap-4">
             <Dialog open={isJoseDialogOpen} onOpenChange={setIsJoseDialogOpen}>
-                <DialogTrigger asChild>
-                    <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-green-800/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                      <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={24} height={24} className="w-6 h-6 object-contain" />
-                      <span className="font-brand text-sm text-center font-semibold">Espaço São José</span>
-                    </button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-[625px] bg-green-800/95 text-white border-green-600/50 [&>button:not(.custom-close-button)]:hidden">
-                    <button 
-                        onClick={() => setIsJoseDialogOpen(false)} 
-                        className="custom-close-button absolute top-16 right-4 p-1.5 text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-200 z-50 bg-green-800/80 backdrop-blur-sm shadow-md"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    <DialogHeader>
-                        <DialogTitle className="font-brand text-xl text-white flex items-center gap-2"><LilyIcon className="w-6 h-6 text-green-200/50" />Espaço São José</DialogTitle>
-                    </DialogHeader>
-                    <div className="p-4 pt-2">
-                        <div className="flex flex-col sm:flex-row items-center gap-4">
-                            <Image src="https://i.postimg.cc/9QfFWvTB/image.png" alt="São José" width={100} height={100} className="w-24 h-24 rounded-lg object-cover border-2 border-green-200/50 shadow-md flex-shrink-0" />
-                            <Tabs defaultValue="francisco" className="w-full">
-                                <TabsList className="grid w-full grid-cols-2 bg-green-900/50">
-                                    <TabsTrigger value="francisco">Oração do Papa Francisco</TabsTrigger>
-                                    <TabsTrigger value="tradicional">Oração Tradicional</TabsTrigger>
-                                </TabsList>
-                                <TabsContent value="francisco" className="prose prose-sm text-green-100 max-w-none mt-4 text-left">
-                                    <p>Salve, guardião do Redentor e esposo da Virgem Maria!<br/>A vós, Deus confiou o seu Filho; em vós, Maria depositou a sua confiança; convosco, Cristo tornou-Se homem.</p>
-                                    <p>Ó Bem-aventurado José, mostrai-vos pai também para nós e guiai-nos no caminho da vida. Alcançai-nos graça, misericórdia e coragem, e defendei-nos de todo o mal. Amen.</p>
-                                    <p className="text-right italic text-green-200/80 text-xs">- Papa Francisco, Patris Corde</p>
-                                </TabsContent>
-                                <TabsContent value="tradicional" className="prose prose-sm text-green-100 max-w-none mt-4 text-left">
-                                    <p>Glorioso São José, que fostes exaltado pelo Eterno Pai, obedecido pelo Verbo Encarnado, favorecido pelo Espírito Santo e amado pela Virgem Maria; louvo e bendigo a Santíssima Trindade pelos privilégios e méritos com que vos enriqueceu. Sois poderosíssimo e jamais se ouviu dizer que alguém tenha recorrido a vós e fosse por vós desamparado.</p>
-                                    <p>Sois o consolador dos aflitos, o amparo dos míseros e o advogado dos pecadores. Acolhei, pois, com bondade paternal a quem vos invoca com filial confiança e alcançai-me as graças que vos peço. Sede, depois de Jesus e Maria, minha consolação, meu refúgio, meu guia e meu pai. Obtende-me, finalmente, uma boa e santa morte.</p>                                </TabsContent>
-                            </Tabs>
-                        </div>
-                        <div className="text-center mt-4">
-                            <Button onClick={() => setShowJoseNovenaDialog(true)} size="sm" className="bg-green-200 text-green-900 hover:bg-white">
-                                Conheça também a novena a São José
-                            </Button>
-                        </div>
-                    </div>
-                </DialogContent>
+              <DialogTrigger asChild>
+                <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-green-800/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                  <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={24} height={24} className="w-6 h-6 object-contain" />
+                  <span className="font-brand text-sm text-center font-semibold">Espaço São José</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-[625px] bg-green-800/95 text-white border-green-600/50 [&>button:not(.custom-close-button)]:hidden">
+                <button
+                  onClick={() => setIsJoseDialogOpen(false)}
+                  className="custom-close-button absolute top-16 right-4 p-1.5 text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-200 z-50 bg-green-800/80 backdrop-blur-sm shadow-md"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <DialogHeader>
+                  <DialogTitle className="font-brand text-xl text-white flex items-center gap-2"><LilyIcon className="w-6 h-6 text-green-200/50" />Espaço São José</DialogTitle>
+                </DialogHeader>
+                <div className="p-4 pt-2">
+                  <div className="flex flex-col sm:flex-row items-center gap-4">
+                    <Image src="https://i.postimg.cc/9QfFWvTB/image.png" alt="São José" width={100} height={100} className="w-24 h-24 rounded-lg object-cover border-2 border-green-200/50 shadow-md flex-shrink-0" />
+                    <Tabs defaultValue="francisco" className="w-full">
+                      <TabsList className="grid w-full grid-cols-2 bg-green-900/50">
+                        <TabsTrigger value="francisco">Oração do Papa Francisco</TabsTrigger>
+                        <TabsTrigger value="tradicional">Oração Tradicional</TabsTrigger>
+                      </TabsList>
+                      <TabsContent value="francisco" className="prose prose-sm text-green-100 max-w-none mt-4 text-left">
+                        <p>Salve, guardião do Redentor e esposo da Virgem Maria!<br />A vós, Deus confiou o seu Filho; em vós, Maria depositou a sua confiança; convosco, Cristo tornou-Se homem.</p>
+                        <p>Ó Bem-aventurado José, mostrai-vos pai também para nós e guiai-nos no caminho da vida. Alcançai-nos graça, misericórdia e coragem, e defendei-nos de todo o mal. Amen.</p>
+                        <p className="text-right italic text-green-200/80 text-xs">- Papa Francisco, Patris Corde</p>
+                      </TabsContent>
+                      <TabsContent value="tradicional" className="prose prose-sm text-green-100 max-w-none mt-4 text-left">
+                        <p>Glorioso São José, que fostes exaltado pelo Eterno Pai, obedecido pelo Verbo Encarnado, favorecido pelo Espírito Santo e amado pela Virgem Maria; louvo e bendigo a Santíssima Trindade pelos privilégios e méritos com que vos enriqueceu. Sois poderosíssimo e jamais se ouviu dizer que alguém tenha recorrido a vós e fosse por vós desamparado.</p>
+                        <p>Sois o consolador dos aflitos, o amparo dos míseros e o advogado dos pecadores. Acolhei, pois, com bondade paternal a quem vos invoca com filial confiança e alcançai-me as graças que vos peço. Sede, depois de Jesus e Maria, minha consolação, meu refúgio, meu guia e meu pai. Obtende-me, finalmente, uma boa e santa morte.</p>                                </TabsContent>
+                    </Tabs>
+                  </div>
+                  <div className="text-center mt-4">
+                    <Button onClick={() => setShowJoseNovenaDialog(true)} size="sm" className="bg-green-200 text-green-900 hover:bg-white">
+                      Conheça também a novena a São José
+                    </Button>
+                  </div>
+                </div>
+              </DialogContent>
             </Dialog>
 
             <Dialog open={isMarianDialogOpen} onOpenChange={setIsMarianDialogOpen}>
-                <DialogTrigger asChild>
-                    <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                      <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
-                      <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
-                    </button>
-                </DialogTrigger>
-                <DialogContent className="sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-blue-900/95 text-white border-blue-700/50 [&>button:not(.custom-close-button)]:hidden">
-                     <button 
-                        onClick={() => setIsMarianDialogOpen(false)} 
-                        className="custom-close-button absolute top-16 right-4 p-1.5 text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-200 z-50 bg-blue-900/80 backdrop-blur-sm shadow-md"
-                    >
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                        </svg>
-                    </button>
-                    <DialogHeader className="sticky top-0 z-10 bg-blue-900/95 p-6 rounded-t-lg">
-                       <DialogTitle className="font-brand text-xl text-center text-white">Espaço Mariano</DialogTitle>
-                    </DialogHeader>
-                    <div className="max-h-[calc(90vh-100px)] overflow-y-auto">
-                      <Carousel setApi={setMarianCarouselApi} className="w-full max-w-xs mx-auto">
-                          <CarouselContent>
-                              {marianDevotions.map((devotion, index) => (
-                              <CarouselItem key={index}>
-                                  <div className="p-1">
-                                    <Collapsible open={devotion.novenaId === 'rosario' ? isRosarioDescriptionOpen : undefined} onOpenChange={devotion.novenaId === 'rosario' ? setIsRosarioDescriptionOpen : undefined}>
-                                      <div className="flex flex-col items-center justify-center p-4 bg-blue-900/50 rounded-lg relative">
-                                          <Image 
-                                              src={devotion.imageUrl}
-                                              alt={devotion.name}
-                                              width={150}
-                                              height={150}
-                                              className="w-36 h-36 rounded-full object-cover border-4 border-blue-400/50 shadow-lg"
-                                          />
-                                          <h3 className="mt-4 text-xl font-brand text-white">{devotion.name}</h3>
-                                          <p className="text-sm text-blue-200">Festa: {devotion.feastDay}</p>
-                                          
-                                          {devotion.description && (
-                                            <div className="flex gap-2 mt-3">
-                                              <CollapsibleTrigger asChild>
-                                                <Button variant="outline" size="sm" className="bg-blue-800/70 border-blue-600 text-white hover:bg-blue-700 hover:text-white">
-                                                  <BookOpen className="mr-2 h-4 w-4"/>
-                                                  Ver História
-                                                </Button>
-                                              </CollapsibleTrigger>
-                                              {devotion.novenaId && (
-                                              <Button onClick={() => handleNavigateToNovena(devotion.novenaId)} size="sm" className="bg-blue-200 text-blue-900 hover:bg-white">
-                                                Rezar Novena
-                                              </Button>
-                                              )}
-                                            </div>
-                                          )}
-                                      </div>
-                                       {devotion.description && (
-                                          <CollapsibleContent>
-                                            <ScrollArea className="h-96 w-full rounded-b-lg -mt-2 bg-blue-950/80">
-                                              <div
-                                                className="p-4 text-blue-200/90 prose prose-lg max-w-none prose-p:my-2 prose-h4:text-blue-100 prose-h4:font-bold prose-h4:mb-1 prose-strong:text-blue-100"
-                                                dangerouslySetInnerHTML={{ __html: devotion.description }}
-                                              />
-                                             </ScrollArea>
-                                          </CollapsibleContent>
-                                      )}
-                                    </Collapsible>
+              <DialogTrigger asChild>
+                <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                  <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
+                  <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-blue-900/95 text-white border-blue-700/50 [&>button:not(.custom-close-button)]:hidden">
+                <button
+                  onClick={() => setIsMarianDialogOpen(false)}
+                  className="custom-close-button absolute top-16 right-4 p-1.5 text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-200 z-50 bg-blue-900/80 backdrop-blur-sm shadow-md"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+                <DialogHeader className="sticky top-0 z-10 bg-blue-900/95 p-6 rounded-t-lg">
+                  <DialogTitle className="font-brand text-xl text-center text-white">Espaço Mariano</DialogTitle>
+                </DialogHeader>
+                <div className="max-h-[calc(90vh-100px)] overflow-y-auto">
+                  <Carousel setApi={setMarianCarouselApi} className="w-full max-w-xs mx-auto">
+                    <CarouselContent>
+                      {marianDevotions.map((devotion, index) => (
+                        <CarouselItem key={index}>
+                          <div className="p-1">
+                            <Collapsible open={devotion.novenaId === 'rosario' ? isRosarioDescriptionOpen : undefined} onOpenChange={devotion.novenaId === 'rosario' ? setIsRosarioDescriptionOpen : undefined}>
+                              <div className="flex flex-col items-center justify-center p-4 bg-blue-900/50 rounded-lg relative">
+                                <Image
+                                  src={devotion.imageUrl}
+                                  alt={devotion.name}
+                                  width={150}
+                                  height={150}
+                                  className="w-36 h-36 rounded-full object-cover border-4 border-blue-400/50 shadow-lg"
+                                />
+                                <h3 className="mt-4 text-xl font-brand text-white">{devotion.name}</h3>
+                                <p className="text-sm text-blue-200">Festa: {devotion.feastDay}</p>
+
+                                {devotion.description && (
+                                  <div className="flex gap-2 mt-3">
+                                    <CollapsibleTrigger asChild>
+                                      <Button variant="outline" size="sm" className="bg-blue-800/70 border-blue-600 text-white hover:bg-blue-700 hover:text-white">
+                                        <BookOpen className="mr-2 h-4 w-4" />
+                                        Ver História
+                                      </Button>
+                                    </CollapsibleTrigger>
+                                    {devotion.novenaId && (
+                                      <Button onClick={() => handleNavigateToNovena(devotion.novenaId)} size="sm" className="bg-blue-200 text-blue-900 hover:bg-white">
+                                        Rezar Novena
+                                      </Button>
+                                    )}
                                   </div>
-                              </CarouselItem>
-                              ))}
-                          </CarouselContent>
-                           <CarouselPrevious className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -left-8', !marianCarouselApi?.canScrollPrev() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
-                           <CarouselNext className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -right-8', !marianCarouselApi?.canScrollNext() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
-                      </Carousel>
-                       <div className="py-2 text-center text-sm text-blue-200">
-                          {marianCarouselApi && `Devoção ${marianCarouselCurrent + 1} de ${marianCarouselApi.scrollSnapList().length}`}
-                      </div>
-                    </div>
-                </DialogContent>
+                                )}
+                              </div>
+                              {devotion.description && (
+                                <CollapsibleContent>
+                                  <ScrollArea className="h-96 w-full rounded-b-lg -mt-2 bg-blue-950/80">
+                                    <div
+                                      className="p-4 text-blue-200/90 prose prose-lg max-w-none prose-p:my-2 prose-h4:text-blue-100 prose-h4:font-bold prose-h4:mb-1 prose-strong:text-blue-100"
+                                      dangerouslySetInnerHTML={{ __html: devotion.description }}
+                                    />
+                                  </ScrollArea>
+                                </CollapsibleContent>
+                              )}
+                            </Collapsible>
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    <CarouselPrevious className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -left-8', !marianCarouselApi?.canScrollPrev() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
+                    <CarouselNext className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -right-8', !marianCarouselApi?.canScrollNext() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
+                  </Carousel>
+                  <div className="py-2 text-center text-sm text-blue-200">
+                    {marianCarouselApi && `Devoção ${marianCarouselCurrent + 1} de ${marianCarouselApi.scrollSnapList().length}`}
+                  </div>
+                </div>
+              </DialogContent>
             </Dialog>
           </div>
 
@@ -523,7 +527,7 @@ export default function Home() {
           <Footer />
         </div>
       </div>
-       <AlertDialog open={showJoseNovenaDialog} onOpenChange={setShowJoseNovenaDialog}>
+      <AlertDialog open={showJoseNovenaDialog} onOpenChange={setShowJoseNovenaDialog}>
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>Qual novena a São José você gostaria de rezar?</AlertDialogTitle>
@@ -533,10 +537,10 @@ export default function Home() {
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction onClick={() => handleNavigateToNovena('sao_jose')}>
-                São José, Esposo da Virgem Maria (19 de Março)
+              São José, Esposo da Virgem Maria (19 de Março)
             </AlertDialogAction>
             <AlertDialogAction onClick={() => handleNavigateToNovena('sao_jose_operario')}>
-                São José Operário (1 de Maio)
+              São José Operário (1 de Maio)
             </AlertDialogAction>
             <AlertDialogCancel>Cancelar</AlertDialogCancel>
           </AlertDialogFooter>
