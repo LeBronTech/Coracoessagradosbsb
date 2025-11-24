@@ -1826,8 +1826,8 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
 ];
 
 export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
-  { day: 1, month: 'Dezembro', saints: [{ name: 'Santo Elói (ou Elígio)', imageUrl: '', story: '<p>Patrono dos ourives e ferreiros.</p>' }] },
-  { day: 2, month: 'Dezembro', saints: [{ name: 'Santa Bibiana', imageUrl: '', story: '<p>Mártir e virgem.</p>', isMartyr: true }] },
+  { day: 1, month: 'Dezembro', saints: [{ name: 'Santo Elói (ou Elígio)', imageUrl: '/images/santo_eloi.png', story: '<p>Patrono dos ourives e ferreiros.</p>' }] },
+  { day: 2, month: 'Dezembro', saints: [{ name: 'Santa Bibiana', imageUrl: '/images/santa_bibiana.png', story: '<p>Mártir e virgem.</p>', isMartyr: true }] },
   { day: 3, month: 'Dezembro', saints: [{ name: 'São Francisco Xavier', imageUrl: '', story: '<p>Um dos fundadores da Companhia de Jesus, grande missionário.</p>' }] },
   { day: 4, month: 'Dezembro', saints: [{ name: 'Santa Bárbara', imageUrl: '', story: '<p>Padroeira contra raios e tempestades, muito venerada em várias culturas.</p>' }] },
   { day: 5, month: 'Dezembro', saints: [{ name: 'São Sabas', imageUrl: '', story: '<p>Abade, um dos pilares do monasticismo oriental.</p>' }] },
