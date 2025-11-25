@@ -396,6 +396,35 @@ export const confessionData = [
     ]
   },
   {
+    city: 'Paranoá',
+    parishes: [
+      {
+        name: 'Paróquia Santa Maria dos Pobres',
+        address: 'Paranoá',
+        times: 'Terça, quinta e sexta: de 16:00 às 18:00. Sábado: de 10:00 às 12:00',
+        instagram: 'https://www.instagram.com/santamariadospobres'
+      },
+      {
+        name: 'Paróquia Nossa Senhora Aparecida',
+        address: 'Paranoá',
+        times: 'Quinta: de 15:00 às 17:00. Sexta: de 15:00 às 17:00 e depois da missa. Sábado: de 09:00 às 12:00',
+        instagram: 'https://www.instagram.com/paroquian.sraaparecidapadf'
+      },
+      {
+        name: 'Paróquia São José de Anchieta',
+        address: 'Paranoá',
+        times: 'Terça a sexta: de 17:30 às 19:00',
+        instagram: 'https://www.instagram.com/paroquiasaojosedeanchieta'
+      },
+      {
+        name: 'Paróquia Nossa Senhora Auxiliadora',
+        address: 'Paranoá',
+        times: 'Terça a sexta: de 18:00 às 18:50',
+        instagram: 'https://www.instagram.com/auxiliadoragomel'
+      }
+    ]
+  },
+  {
     city: 'Taguatinga',
     parishes: [
       {
