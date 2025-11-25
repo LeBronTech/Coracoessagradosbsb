@@ -1828,35 +1828,271 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
 export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
   { day: 1, month: 'Dezembro', saints: [{ name: 'Santo Elói (ou Elígio)', imageUrl: '/images/santo_eloi.png', story: '<p>Patrono dos ourives e ferreiros.</p>' }] },
   { day: 2, month: 'Dezembro', saints: [{ name: 'Santa Bibiana', imageUrl: '/images/santa_bibiana.png', story: '<p>Mártir e virgem.</p>', isMartyr: true }] },
-  { day: 3, month: 'Dezembro', saints: [{ name: 'São Francisco Xavier', imageUrl: '', story: '<p>Um dos fundadores da Companhia de Jesus, grande missionário.</p>' }] },
-  { day: 4, month: 'Dezembro', saints: [{ name: 'Santa Bárbara', imageUrl: '', story: '<p>Padroeira contra raios e tempestades, muito venerada em várias culturas.</p>' }] },
-  { day: 5, month: 'Dezembro', saints: [{ name: 'São Sabas', imageUrl: '', story: '<p>Abade, um dos pilares do monasticismo oriental.</p>' }] },
-  { day: 6, month: 'Dezembro', saints: [{ name: 'São Nicolau de Mira (ou de Bari)', imageUrl: '', story: '<p>O santo que inspirou a figura do Papai Noel; bispo e protetor.</p>' }] },
-  { day: 7, month: 'Dezembro', saints: [{ name: 'Santo Ambrósio', imageUrl: '', story: '<p>Bispo e Doutor da Igreja.</p>' }] },
-  { day: 8, month: 'Dezembro', saints: [{ name: 'Imaculada Conceição de Maria', imageUrl: '', story: '<p>Solennidade e Feriado Religioso.</p>' }] },
-  { day: 9, month: 'Dezembro', saints: [{ name: 'São João Diego Cuauhtlatoatzin', imageUrl: '', story: '<p>Vidente de Nossa Senhora de Guadalupe.</p>' }] },
-  { day: 10, month: 'Dezembro', saints: [{ name: 'São Melquíades (Papa)', imageUrl: '', story: '<p>Papa e mártir, reinou no início da paz de Constantino.</p>', isMartyr: true }] },
-  { day: 11, month: 'Dezembro', saints: [{ name: 'São Dâmaso I (Papa)', imageUrl: '', story: '<p>Papa que incentivou a tradução da Bíblia (Vulgata).</p>' }] },
-  { day: 12, month: 'Dezembro', saints: [{ name: 'Nossa Senhora de Guadalupe', imageUrl: 'https://iili.io/ffgFDXV.png', story: '<p>Padroeira da América, muito importante no continente.</p>' }] },
-  { day: 13, month: 'Dezembro', saints: [{ name: 'Santa Luzia (ou Lúcia)', imageUrl: 'https://iili.io/ffgqFiN.png', story: '<p>Padroeira dos olhos e da visão; figura popular no Nordeste.</p>' }] },
-  { day: 14, month: 'Dezembro', saints: [{ name: 'São João da Cruz', imageUrl: 'https://iili.io/ffgFMWN.jpg', story: '<p>Místico, poeta, Doutor da Igreja e reformador carmelita.</p>' }] },
-  { day: 15, month: 'Dezembro', saints: [{ name: 'Santa Maria Vitória de Fornari Strata', imageUrl: '', story: '<p>Fundadora da Ordem da Visitação.</p>' }] },
-  { day: 16, month: 'Dezembro', saints: [{ name: 'Santa Adelaide', imageUrl: '', story: '<p>Imperatriz e regente, conhecida por sua caridade.</p>' }] },
-  { day: 17, month: 'Dezembro', saints: [{ name: 'São Lázaro de Betânia', imageUrl: '', story: '<p>Amigo de Jesus, ressuscitado por Ele.</p>' }] },
-  { day: 18, month: 'Dezembro', saints: [{ name: 'Nossa Senhora do Bom Parto', imageUrl: '', story: '<p>Título mariano de especial devoção.</p>' }] },
-  { day: 19, month: 'Dezembro', saints: [{ name: 'Beato Urbano V (Papa)', imageUrl: '', story: '<p>Papa, conhecido por tentar retornar de Avignon a Roma.</p>' }] },
-  { day: 20, month: 'Dezembro', saints: [{ name: 'São Domingos de Silos', imageUrl: '', story: '<p>Abade e patrono dos partos difíceis.</p>' }] },
-  { day: 21, month: 'Dezembro', saints: [{ name: 'São Pedro Canísio', imageUrl: '', story: '<p>Doutor da Igreja, jesuíta, importante para a Contrarreforma.</p>' }] },
-  { day: 22, month: 'Dezembro', saints: [{ name: 'Santa Francisca Xavier Cabrini', imageUrl: '', story: '<p>Fundadora e padroeira dos imigrantes.</p>' }] },
-  { day: 23, month: 'Dezembro', saints: [{ name: 'São João Câncio', imageUrl: '', story: '<p>Sacerdote e professor.</p>' }] },
-  { day: 24, month: 'Dezembro', saints: [{ name: 'Santa Paula Isabel Cerioli', imageUrl: '', story: '<p>Fundadora das Irmãs da Sagrada Família.</p>' }] },
-  { day: 25, month: 'Dezembro', saints: [{ name: 'NATAL de N. S. JESUS CRISTO', imageUrl: 'https://iili.io/ffgFVsI.jpg', story: '<p>Solennidade Máxima e Feriado Nacional.</p>' }] },
-  { day: 26, month: 'Dezembro', saints: [{ name: 'Santo Estevão', imageUrl: '', story: '<p>Diácono e o primeiro mártir cristão (protomártir).</p>', isMartyr: true }] },
-  { day: 27, month: 'Dezembro', saints: [{ name: 'São João Apóstolo e Evangelista', imageUrl: '', story: '<p>Apóstolo, autor do quarto Evangelho.</p>' }] },
-  { day: 28, month: 'Dezembro', saints: [{ name: 'Santos Inocentes', imageUrl: '', story: '<p>Crianças mártires de Belém.</p>', isMartyr: true }] },
-  { day: 29, month: 'Dezembro', saints: [{ name: 'São Tomás Becket', imageUrl: '', story: '<p>Bispo e mártir.</p>', isMartyr: true }] },
-  { day: 30, month: 'Dezembro', saints: [{ name: 'Sagrada Família (Jesus, Maria e José)', imageUrl: '', story: '<p>Festa importante da Igreja Católica (Pode ser transferida para o domingo entre Natal e Ano Novo).</p>' }] },
-  { day: 31, month: 'Dezembro', saints: [{ name: 'São Silvestre I (Papa)', imageUrl: '', story: '<p>Papa, cujo dia encerra o ano civil (Réveillon).</p>' }] },
+  {
+    day: 3,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Francisco Xavier',
+      imageUrl: '/images/sao_francisco_xavier.png',
+      story: `<h4>O Gigante das Missões</h4><p>São Francisco Xavier, nascido em Navarra em 1506, foi um dos primeiros companheiros de Santo Inácio de Loyola e co-fundador da Companhia de Jesus. Enviado para o Oriente, tornou-se o maior missionário dos tempos modernos. Percorreu a Índia, o Japão e outras ilhas, batizando milhares de pessoas e operando inúmeros milagres. Seu zelo pela salvação das almas era tão ardente que ele exclamava: "Senhor, dai-me almas e ficai com o resto!". Morreu às portas da China, consumido pela fadiga e pelo amor a Deus.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que pela pregação e milagres de São Francisco Xavier trouxestes para a vossa Igreja os povos do Oriente, concedei-nos que, imitando as suas virtudes, possamos também nós trabalhar incansavelmente pela propagação da fé.</p><p class="mt-2 italic">São Francisco Xavier, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 4,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Bárbara',
+      imageUrl: '/images/santa_barbara.png',
+      story: `<h4>A Mártir da Torre</h4><p>Santa Bárbara viveu no século III e é uma das santas mais populares da Igreja. Segundo a tradição, foi trancada numa torre pelo seu pai para a proteger dos pretendentes. Lá, converteu-se ao cristianismo e mandou abrir uma terceira janela em honra da Santíssima Trindade. Furioso, o pai denunciou-a e ela foi martirizada. É invocada contra raios, tempestades e morte repentina, sendo a padroeira dos artilheiros e mineiros.</p><p class="mt-4"><b>Oração:</b> Ó Santa Bárbara, que sois mais forte que a violência dos furacões e o poder das fortalezas, estai sempre ao nosso lado, para que possamos enfrentar com serenidade todas as tempestades da vida.</p><p class="mt-2 italic">Santa Bárbara, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 5,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Sabas',
+      imageUrl: '/images/sao_sabas.png',
+      story: `<h4>O Pai dos Monges</h4><p>São Sabas, nascido na Capadócia no ano 439, foi um dos patriarcas do monaquismo oriental. Buscando a solidão do deserto, fundou a Grande Lavra na Palestina, um mosteiro que se tornou um centro de espiritualidade e teologia. Defensor intrépido da fé católica contra as heresias de seu tempo, sua vida foi marcada pela oração, penitência e milagres. Sua influência moldou a liturgia e a vida monástica bizantina.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no abade São Sabas nos destes um modelo de vida consagrada ao vosso serviço, concedei-nos, por sua intercessão, a graça de buscar sempre as coisas do alto.</p><p class="mt-2 italic">São Sabas, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 6,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Nicolau de Mira',
+      imageUrl: '/images/sao_nicolau.png',
+      story: `<h4>O Bispo da Caridade</h4><p>São Nicolau, bispo de Mira (na atual Turquia) no século IV, é um dos santos mais amados da cristandade. Famoso por sua generosidade e amor aos pobres, a lenda conta que ele salvou três irmãs da prostituição atirando bolsas de ouro pela janela de sua casa, origem da tradição dos presentes de Natal. Defensor da fé no Concílio de Niceia, é protetor das crianças, dos marinheiros e dos inocentes.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fizestes o bispo São Nicolau ilustre por inúmeros milagres e pela sua caridade para com os pobres, concedei-nos, por seus méritos e preces, sermos livres das chamas do inferno e de todos os perigos.</p><p class="mt-2 italic">São Nicolau, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 7,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santo Ambrósio',
+      imageUrl: '/images/santo_ambrosio.png',
+      story: `<h4>O Doutor da Melíflua Eloquência</h4><p>Santo Ambrósio, bispo de Milão no século IV, foi um gigante da Igreja. Aclamado bispo pelo povo when ainda era catecúmeno, tornou-se um pastor exemplar, teólogo profundo e defensor da liberdade da Igreja frente ao poder imperial. Suas pregações, doces como o mel (daí o símbolo da colmeia), foram decisivas para a conversão de Santo Agostinho. É um dos quatro grandes Doutores da Igreja Latina.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fizestes do bispo Santo Ambrósio um doutor da fé católica e um exemplo de coragem apostólica, suscitai na vossa Igreja homens segundo o vosso coração.</p><p class="mt-2 italic">Santo Ambrósio, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 8,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Imaculada Conceição',
+      imageUrl: 'https://iili.io/KpAtISf.png',
+      story: `<h4>A Toda Pura</h4><p>A Solenidade da Imaculada Conceição celebra o dogma de fé definido pelo Papa Pio IX em 1854: a Virgem Maria, desde o primeiro instante de sua concepção, por singular graça e privilégio de Deus onipotente, em vista dos méritos de Jesus Cristo, Salvador do gênero humano, foi preservada imune de toda mancha de pecado original. Ela é a "Cheia de Graça", a nova Eva, a aurora da salvação.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que pela Imaculada Conceição da Virgem preparastes uma digna morada para o vosso Filho, nós vos rogamos que, assim como a preservastes de toda mancha pela previsão da morte de vosso Filho, nos concedais também a nós chegar até vós purificados por sua intercessão.</p><p class="mt-2 italic">Ó Maria concebida sem pecado, rogai por nós que recorremos a vós.</p>`
+    }]
+  },
+  {
+    day: 9,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São João Diego',
+      imageUrl: '',
+      story: `<h4>O Mensageiro da Virgem</h4><p>São João Diego Cuauhtlatoatzin, índio asteca convertido, foi o escolhido por Nossa Senhora de Guadalupe para ser seu mensageiro em 1531. Humilde e simples, ele presenciou as aparições no monte Tepeyac e levou ao bispo as rosas de Castela e a sua tilma (manto) onde ficou impressa milagrosamente a imagem da Virgem. Sua vida foi marcada pela devoção e pelo serviço ao santuário que se ergueu.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que por meio de São João Diego mostrastes o amor de vossa Mãe pelos mais humildes, concedei-nos a graça de ouvir com coração atento a vossa palavra e de servir aos nossos irmãos com generosidade.</p><p class="mt-2 italic">São João Diego, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 10,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Melquíades',
+      imageUrl: '',
+      story: `<h4>O Papa da Paz</h4><p>São Melquíades, papa de origem africana, governou a Igreja num momento crucial: a transição da era das perseguições para a liberdade religiosa, com o Edito de Milão em 313. Enfrentou o início da heresia donatista, buscando sempre a unidade e a paz. Morreu considerado mártir pelos sofrimentos que suportou anteriormente pela fé.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes ao Papa São Melquíades trabalhar pela paz e unidade da Igreja, dai-nos a graça de sermos construtores de concórdia em nossos lares e comunidades.</p><p class="mt-2 italic">São Melquíades, rogai por nós.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 11,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Dâmaso I',
+      imageUrl: '',
+      story: `<h4>O Papa das Catacumbas</h4><p>São Dâmaso I, papa do século IV, foi um grande defensor da fé e da memória dos mártires. Foi ele quem encarregou São Jerônimo de traduzir a Bíblia para o latim (a Vulgata) e quem restaurou e identificou os túmulos dos mártires nas catacumbas romanas, compondo belos epitáfios em verso. Fortaleceu a autoridade da Sé de Pedro.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Papa São Dâmaso nos destes um exemplo de amor à vossa Palavra e aos vossos santos, concedei-nos venerar a memória dos que nos precederam na fé e seguir seus exemplos.</p><p class="mt-2 italic">São Dâmaso, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 12,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Nossa Senhora de Guadalupe',
+      imageUrl: 'https://iili.io/ffgFDXV.png',
+      story: `<h4>A Imperatriz da América</h4><p>Nossa Senhora de Guadalupe apareceu em 1531 ao índio Juan Diego no México. Deixou sua imagem impressa no manto do vidente, uma imagem repleta de simbolismos que falavam diretamente ao coração dos povos indígenas e espanhóis, unindo-os na mesma fé. É a Padroeira de toda a América, símbolo da evangelização inculturada e do amor maternal de Maria que nos diz: "Não estou eu aqui, que sou tua Mãe?".</p><p class="mt-4"><b>Oração:</b> Ó Deus, Pai de misericórdia, que colocastes o vosso povo sob a especial proteção da Sempre Virgem Maria de Guadalupe, concedei a todos os vossos filhos a graça de se unirem na fé e na caridade.</p><p class="mt-2 italic">Nossa Senhora de Guadalupe, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 13,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Luzia',
+      imageUrl: 'https://iili.io/ffgqFiN.png',
+      story: `<h4>A Portadora da Luz</h4><p>Santa Luzia, cujo nome significa "Luz", foi uma virgem e mártir de Siracusa no século IV. Consagrou sua virgindade a Deus e distribuiu seus bens aos pobres. Denunciada como cristã, sofreu terríveis torturas, mas permaneceu firme. A tradição invoca sua proteção contra as doenças dos olhos e a cegueira, tanto física quanto espiritual.</p><p class="mt-4"><b>Oração:</b> Ó Santa Luzia, que preferistes que vossos olhos fossem vazados e arrancados antes de negar a fé e contaminar vossa alma; e Deus, com um milagre extraordinário, vos devolveu outros dois olhos sãos e perfeitos para recompensar vossa virtude e vossa fé, e vos constituiu protetora contra as doenças dos olhos, eu recorro a vós.</p><p class="mt-2 italic">Santa Luzia, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 14,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São João da Cruz',
+      imageUrl: 'https://iili.io/ffgFMWN.jpg',
+      story: `<h4>O Místico do Carmelo</h4><p>São João da Cruz, frade carmelita espanhol, foi o grande reformador da Ordem do Carmo junto com Santa Teresa d'Ávila. Poeta sublime e teólogo profundo, descreveu como ninguém a "Noite Escura" da alma e a subida ao Monte Carmelo para a união de amor com Deus. Doutor da Igreja, ensina que "ao entardecer desta vida, seremos examinados no amor".</p><p class="mt-4"><b>Oração:</b> Ó Deus, que guiastes São João da Cruz à santa montanha que é Cristo através da noite escura da renúncia e do amor ardente, concedei-nos seguir seus passos para chegarmos à glória da vossa face.</p><p class="mt-2 italic">São João da Cruz, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 15,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Maria Vitória',
+      imageUrl: '',
+      story: `<h4>A Viúva Consagrada</h4><p>Santa Maria Vitória de Fornari Strata, após ficar viúva, decidiu consagrar-se inteiramente a Deus. Fundou a Ordem da Anunciação Celeste (conhecidas como Irmãs Azuis), dedicando-se à oração e à vida contemplativa. Exemplo de esposa, mãe e religiosa, mostrou que a santidade é possível em todos os estados de vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Maria Vitória a buscar a perfeição na caridade e na oração, concedei-nos, por sua intercessão, vivermos com fidelidade a nossa vocação cristã.</p><p class="mt-2 italic">Santa Maria Vitória, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 16,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Adelaide',
+      imageUrl: '',
+      story: `<h4>A Imperatriz da Caridade</h4><p>Santa Adelaide, imperatriz do Sacro Império Romano-Germânico no século X, teve uma vida marcada por reviravoltas, exílios e sofrimentos. No entanto, nunca perdeu a fé nem a bondade. Usou seu poder para construir igrejas, mosteiros e, principalmente, para socorrer os pobres e necessitados. Terminou seus dias num mosteiro, em oração.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ornastes Santa Adelaide com a coroa da glória eterna por sua humildade e caridade, ajudai-nos a usar nossos dons para o bem do próximo e para a vossa glória.</p><p class="mt-2 italic">Santa Adelaide, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 17,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Lázaro',
+      imageUrl: '',
+      story: `<h4>O Amigo de Jesus</h4><p>São Lázaro, irmão de Marta e Maria, vivia em Betânia e hospedava Jesus em sua casa. É conhecido pelo milagre de sua ressurreição, when Jesus o chamou para fora do túmulo após quatro dias de morto. A tradição conta que, após a Ascensão de Jesus, tornou-se bispo e morreu mártir. Sua vida nos lembra que Jesus é a Ressurreição e a Vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Lázaro a graça de ser chamado amigo de vosso Filho e de ser por Ele ressuscitado, dai-nos crer firmemente na vida eterna e na vitória sobre a morte.</p><p class="mt-2 italic">São Lázaro, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 18,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Nossa Senhora do Bom Parto',
+      imageUrl: '',
+      story: `<h4>A Esperança das Mães</h4><p>A devoção a Nossa Senhora do Bom Parto é muito antiga e querida pelas gestantes. Invoca-se a Virgem Maria, que deu à luz o Salvador, para que proteja as mães e seus filhos no momento do nascimento, concedendo um parto feliz e seguro. É um título que celebra a maternidade divina e a proteção de Maria sobre toda vida nascente.</p><p class="mt-4"><b>Oração:</b> Ó Maria, Virgem Mãe, que no parto de Jesus sentistes as alegrias da maternidade divina, olhai com bondade para todas as gestantes e concedei-lhes um bom parto e filhos saudáveis para a glória de Deus.</p><p class="mt-2 italic">Nossa Senhora do Bom Parto, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 19,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Beato Urbano V',
+      imageUrl: '',
+      story: `<h4>O Papa Reformador</h4><p>O Beato Urbano V, papa beneditino do século XIV, foi um homem de grande santidade e cultura. Esforçou-se para reformar os costumes do clero, promover o estudo e, principalmente, trazer a sede do papado de volta a Roma, que estava exilada em Avignon. Embora tenha tido que retornar à França, seu pontificado foi marcado pelo zelo pastoral e pela caridade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Beato Urbano V nos destes um exemplo de zelo pela vossa casa e de amor à Igreja, concedei-nos trabalhar sempre pela unidade e santidade do vosso povo.</p><p class="mt-2 italic">Beato Urbano V, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 20,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Domingos de Silos',
+      imageUrl: '',
+      story: `<h4>O Abade Libertador</h4><p>São Domingos de Silos, abade beneditino espanhol do século XI, foi um grande reformador monástico. Transformou o mosteiro de Silos num centro de espiritualidade e cultura. É famoso pelos milagres de libertação de cristãos cativos dos mouros (daí as correntes em sua iconografia) e é invocado como patrono dos partos difíceis.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Domingos de Silos a graça de libertar os cativos e socorrer as mães em perigo, ouvi as nossas preces e livrai-nos de todo mal.</p><p class="mt-2 italic">São Domingos de Silos, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 21,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Pedro Canísio',
+      imageUrl: '',
+      story: `<h4>O Segundo Apóstolo da Alemanha</h4><p>São Pedro Canísio, jesuíta holandês e Doutor da Igreja, foi uma figura chave da Contrarreforma católica. Percorreu a Alemanha pregando, fundando colégios e escrevendo catecismos populares que ajudaram a preservar e restaurar a fé católica em muitas regiões. Dizia que "não se deve combater os hereges com palavras ásperas, mas com a caridade e a verdade".</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fortalecestes o sacerdote São Pedro Canísio com a sabedoria e a coragem para defender a fé católica, concedei-nos a graça de buscar a verdade com alegria e testemunhá-la com amor.</p><p class="mt-2 italic">São Pedro Canísio, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 22,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Francisca Xavier Cabrini',
+      imageUrl: '',
+      story: `<h4>A Mãe dos Imigrantes</h4><p>Santa Francisca Xavier Cabrini, primeira cidadã americana a ser canonizada, nasceu na Itália. Fundou as Missionárias do Sagrado Coração e, a pedido do Papa, foi para os Estados Unidos servir os imigrantes italianos. Construiu escolas, orfanatos e hospitais, cruzando o oceano inúmeras vezes. Sua vida foi uma entrega total aos mais necessitados.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que em Santa Francisca Xavier Cabrini nos destes um modelo de caridade incansável para com os migrantes e necessitados, ensinai-nos a ver o Cristo no irmão que sofre e a servi-lo com generosidade.</p><p class="mt-2 italic">Santa Francisca Xavier Cabrini, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 23,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São João Câncio',
+      imageUrl: '',
+      story: `<h4>O Professor Santo</h4><p>São João Câncio, sacerdote polonês, foi professor de teologia na Universidade de Cracóvia. Destacou-se não apenas pela sua erudição, mas principalmente pela sua profunda humildade, vida de oração e caridade para com os estudantes pobres. Partilhava tudo o que tinha, ensinando que o saber deve levar ao amor.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fizestes de São João Câncio um modelo de perfeição sacerdotal e acadêmica, concedei-nos progredir na ciência dos santos e na prática da caridade.</p><p class="mt-2 italic">São João Câncio, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 24,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santa Paula Isabel Cerioli',
+      imageUrl: '',
+      story: `<h4>A Mãe dos Órfãos</h4><p>Santa Paula Isabel Cerioli, nobre italiana, experimentou a dor da perda de seus filhos e do marido. Transformou seu luto em amor materno universal, dedicando sua vida e fortuna a acolher crianças órfãs e camponesas, fundando as Irmãs da Sagrada Família. Encontrou na caridade o consolo e a santidade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Paula Isabel a ver nos órfãos e pobres a imagem de vosso Filho Jesus, concedei-nos um coração compassivo e generoso para com os que sofrem.</p><p class="mt-2 italic">Santa Paula Isabel Cerioli, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 25,
+    month: 'Dezembro',
+    saints: [{
+      name: 'NATAL de N. S. JESUS CRISTO',
+      imageUrl: 'https://iili.io/ffgFVsI.jpg',
+      story: `<h4>O Verbo se Fez Carne</h4><p>Hoje celebramos o mistério do amor infinito de Deus: o Nascimento de Nosso Senhor Jesus Cristo. O Filho de Deus se fez homem, nascido da Virgem Maria, para nos salvar e nos tornar filhos de Deus. É a festa da luz que dissipa as trevas, da paz que o mundo não pode dar e da alegria que enche os corações. "Glória a Deus nas alturas e paz na terra aos homens por Ele amados!"</p><p class="mt-4"><b>Oração:</b> Ó Deus, que admiravelmente criastes o ser humano e mais admiravelmente ainda o restabelecestes em sua dignidade, concedei-nos participar da divindade daquele que se dignou assumir a nossa humanidade.</p><p class="mt-2 italic">Vinde, adoremos o Salvador!</p>`
+    }]
+  },
+  {
+    day: 26,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santo Estevão',
+      imageUrl: '',
+      story: `<h4>O Protomártir</h4><p>Santo Estevão foi o primeiro mártir cristão, um dos sete primeiros diáconos escolhidos pelos Apóstolos. Cheio de fé e do Espírito Santo, realizava grandes prodígios. Ao ser apedrejado até a morte, viu o céu aberto e Jesus à direita de Deus, e morreu perdoando seus assassinos, imitando perfeitamente o Mestre. Seu sangue foi semente de novos cristãos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, concedei-nos a graça de imitar o que veneramos, para que aprendamos a amar também os nossos inimigos, pois celebramos o dia natalício daquele que soube rezar pelos seus perseguidores.</p><p class="mt-2 italic">Santo Estevão, rogai por nós.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 27,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São João Evangelista',
+      imageUrl: '',
+      story: `<h4>O Discípulo Amado</h4><p>São João, apóstolo e evangelista, é conhecido como "o discípulo que Jesus amava". Autor do quarto Evangelho, de três epístolas e do Apocalipse, foi quem reclinou a cabeça no peito do Mestre na Última Ceia e quem acolheu Maria como mãe aos pés da cruz. Sua teologia voa alto como a águia, contemplando o mistério do Verbo de Deus.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que pelo apóstolo São João nos revelastes os mistérios do vosso Verbo, tornai-nos capazes de compreender e amar o que ele nos ensinou com tanta excelência.</p><p class="mt-2 italic">São João Evangelista, rogai por nós.</p>`
+    }]
+  },
+  {
+    day: 28,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Santos Inocentes',
+      imageUrl: '',
+      story: `<h4>As Flores dos Mártires</h4><p>Os Santos Inocentes são as crianças de Belém, de dois anos para baixo, que foram mortas por ordem do rei Herodes, que buscava eliminar o Menino Jesus. São considerados as "primícias dos mártires", pois deram a vida por Cristo não com palavras, mas com o próprio sangue, antes mesmo de poderem falar. A Igreja os venera como tenras flores cortadas antes do tempo.</p><p class="mt-4"><b>Oração:</b> Ó Deus, cujos louvores os mártires Inocentes proclamaram hoje não com palavras, mas com a morte, mortificai em nós os vícios, para que a nossa vida testemunhe a fé que a nossa língua professa.</p><p class="mt-2 italic">Santos Inocentes, rogai por nós.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 29,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Tomás Becket',
+      imageUrl: '',
+      story: `<h4>O Defensor da Liberdade da Igreja</h4><p>São Tomás Becket, arcebispo de Cantuária e chanceler da Inglaterra, passou de amigo do rei Henrique II a seu opositor when se tratou de defender os direitos e a liberdade da Igreja. Exilado e depois retornado, foi brutalmente assassinado na sua própria catedral por cavaleiros do rei. Seu martírio comoveu a Europa e tornou seu túmulo um grande centro de peregrinação.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que destes a São Tomás Becket a grandeza de alma para dar a vida por vossa Igreja, concedei-nos, por sua intercessão, que, perdendo a vida por Cristo neste mundo, a encontremos no céu.</p><p class="mt-2 italic">São Tomás Becket, rogai por nós.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 30,
+    month: 'Dezembro',
+    saints: [{
+      name: 'Sagrada Família',
+      imageUrl: '',
+      story: `<h4>O Modelo de Nossos Lares</h4><p>A festa da Sagrada Família nos apresenta Jesus, Maria e José como o modelo santíssimo de vida doméstica. Na casa de Nazaré, reinava o amor, o trabalho, a oração, a obediência e o silêncio. É a escola do Evangelho, onde aprendemos a viver em comunhão e a buscar a vontade de Deus em todas as coisas. É o ícone da Igreja doméstica.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que nos destes a Sagrada Família como exemplo, concedei-nos imitar em nossos lares as suas virtudes e o seu amor, para que, um dia, possamos nos alegrar na vossa casa eterna.</p><p class="mt-2 italic">Jesus, Maria e José, a nossa família vossa é!</p>`
+    }]
+  },
+  {
+    day: 31,
+    month: 'Dezembro',
+    saints: [{
+      name: 'São Silvestre I',
+      imageUrl: '',
+      story: `<h4>O Papa da Liberdade</h4><p>São Silvestre I foi o papa que governou a Igreja logo após o Edito de Milão, que deu liberdade aos cristãos. Seu longo pontificado viu a construção das grandes basílicas romanas (São João de Latrão, São Pedro) e a organização da vida litúrgica pública da Igreja. É o santo que encerra o ano civil, convidando-nos a agradecer a Deus pelos benefícios recebidos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, vinde em auxílio do vosso povo, que se alegra com a intercessão do Papa São Silvestre, para que, passando esta vida sob a vossa direção, possa chegar à vida que não tem fim.</p><p class="mt-2 italic">São Silvestre, rogai por nós.</p>`
+    }]
+  },
 ];
 
 // Merge December saints into the main array

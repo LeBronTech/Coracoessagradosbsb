@@ -330,11 +330,32 @@ export default function Home() {
             </SheetTrigger>
             <SheetContent side="left" className="w-[380px] sm:w-[540px] bg-gray-100 p-0">
               <SheetHeader className="p-6 bg-white shadow-sm">
-                <SheetTitle className="text-xl font-brand text-gray-800">Santo do Dia</SheetTitle>
-                <SheetDescription className="sr-only">Navegue para ver o santo de cada dia do mês.</SheetDescription>
+                <SheetTitle className="text-xl font-brand text-gray-800">Menu</SheetTitle>
+                <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
               </SheetHeader>
-              <div className="h-[calc(100vh-80px)] overflow-y-auto">
-                <SaintOfTheDay triggerTheme={theme} isOpenInitially={isSaintOfTheDayOpen} onToggle={setIsSaintOfTheDayOpen} />
+              <div className="flex flex-col gap-4 p-6">
+                <ConfessionTimesModal>
+                  <Button className="w-full justify-start gap-2 bg-red-600 hover:bg-red-700 text-white">
+                    <AlertCircle className="h-5 w-5" />
+                    Horários de Confissão
+                  </Button>
+                </ConfessionTimesModal>
+
+                <Button
+                  onClick={() => setIsJoseDialogOpen(true)}
+                  className="w-full justify-start gap-2 bg-green-800 hover:bg-green-900 text-white"
+                >
+                  <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
+                  Espaço São José
+                </Button>
+
+                <Button
+                  onClick={() => setIsMarianDialogOpen(true)}
+                  className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
+                >
+                  <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
+                  Espaço Mariano
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
