@@ -253,12 +253,15 @@ export function getLiturgicalInfo(date: Date): LiturgicalInfo {
         '11-23': { color: 'white', season: 'Cristo Rei' }, // Updated for 2024
         '11-30': { color: 'red', season: 'S. André, Apóstolo' },
         '12-8': { color: 'white', season: 'Imaculada Conceição' },
+        '12-10': { color: 'white', season: 'N.S. de Loreto' },
         '12-12': { color: 'white', season: 'N.S. Guadalupe' },
         '12-13': { color: 'red', season: 'Sta. Luzia, Mártir' },
+        '12-14': { color: 'white', season: 'S. João da Cruz' },
+        '12-18': { color: 'white', season: 'N.S. do Bom Parto' },
         '12-25': { color: 'white', season: 'Natal do Senhor' },
         '12-26': { color: 'red', season: 'S. Estêvão, Mártir' },
         '12-27': { color: 'white', season: 'S. João, Apóstolo' },
-        '12-28': { color: 'white', season: 'Sagrada Família' },
+        '12-30': { color: 'white', season: 'Sagrada Família' },
     };
 
     if (today >= firstSundayOfAdventCurrent && today < christmas) {

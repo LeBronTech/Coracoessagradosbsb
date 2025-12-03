@@ -46,17 +46,17 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
         const loopedDist = Math.min(dist, totalSlides - dist);
 
         if (loopedDist === 1) {
-            if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
-                state = 'next1';
-            } else {
-                state = 'prev1';
-            }
+          if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
+            state = 'next1';
+          } else {
+            state = 'prev1';
+          }
         } else if (loopedDist === 2) {
-             if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
-                state = 'next2';
-            } else {
-                state = 'prev2';
-            }
+          if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
+            state = 'next2';
+          } else {
+            state = 'prev2';
+          }
         }
       }
       newSlideStates[index] = state;
@@ -68,7 +68,7 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
   useEffect(() => {
     if (!emblaApi) return;
     const initialIndex = months.indexOf(selectedMonth);
-    if(initialIndex !== -1) {
+    if (initialIndex !== -1) {
       emblaApi.scrollTo(initialIndex, true);
     }
     onSelect(emblaApi);
@@ -82,9 +82,9 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
       }
     };
   }, [emblaApi, months, selectedMonth, onSelect]);
-  
+
   const handleMonthClick = (index: number) => {
-    if(emblaApi) emblaApi.scrollTo(index);
+    if (emblaApi) emblaApi.scrollTo(index);
   }
 
   return (
@@ -128,7 +128,7 @@ function SaintSelector({
   return (
     <section className="w-full">
       <MonthCarousel months={months} selectedMonth={selectedMonth} onMonthChange={onMonthChange} />
-      
+
       <div
         key={selectedMonth}
         className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4 animate-fade-in"
@@ -139,7 +139,7 @@ function SaintSelector({
               key={saint.id}
               className={cn(
                 'saint-nav-item flex flex-col items-center gap-1 text-center opacity-70 hover:opacity-100 hover:scale-105 transform-gpu transition-all duration-200 w-[100px] shrink-0 cursor-pointer',
-                selectedSaintId === saint.id && 'opacity-100'
+                (selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'))) && 'opacity-100'
               )}
               onClick={() => onSaintSelect(saint.id)}
               role="button"
@@ -153,7 +153,7 @@ function SaintSelector({
                 height={80}
                 className={cn(
                   'w-20 h-20 rounded-full object-cover shadow-md border-4 border-transparent transition-all duration-300',
-                  selectedSaintId === saint.id && 'border-primary shadow-lg'
+                  (selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'))) && 'border-primary shadow-lg'
                 )}
               />
               <p className="text-sm font-semibold text-gray-700 font-brand leading-tight mt-1">{saint.name}</p>
@@ -166,12 +166,12 @@ function SaintSelector({
         ) : (
           <div className="w-full flex justify-center">
             <Card className="w-full max-w-sm bg-gray-200/50 border-dashed">
-                <CardContent className="p-6 text-center">
-                    <Heart className="mx-auto h-12 w-12 text-primary/50 mb-4" strokeWidth={1} />
-                    <p className="font-semibold text-gray-600">
-                        Logo logo teremos novenas aqui. Salve Maria!
-                    </p>
-                </CardContent>
+              <CardContent className="p-6 text-center">
+                <Heart className="mx-auto h-12 w-12 text-primary/50 mb-4" strokeWidth={1} />
+                <p className="font-semibold text-gray-600">
+                  Logo logo teremos novenas aqui. Salve Maria!
+                </p>
+              </CardContent>
             </Card>
           </div>
         )}
@@ -181,23 +181,23 @@ function SaintSelector({
 }
 
 SaintSelector.Skeleton = function SaintSelectorSkeleton() {
-    return (
-        <section className="w-full">
-            <div className="py-4 flex justify-center">
-                <Skeleton className="h-8 w-32" />
-            </div>
-            <div className="flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                    <div key={i} className="flex flex-col items-center gap-1 w-[100px] shrink-0">
-                        <Skeleton className="w-20 h-20 rounded-full" />
-                        <Skeleton className="h-4 w-16 mt-1" />
-                        <Skeleton className="h-3 w-12" />
-                        <Skeleton className="h-5 w-10 mt-1 rounded-full" />
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
+  return (
+    <section className="w-full">
+      <div className="py-4 flex justify-center">
+        <Skeleton className="h-8 w-32" />
+      </div>
+      <div className="flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <div key={i} className="flex flex-col items-center gap-1 w-[100px] shrink-0">
+            <Skeleton className="w-20 h-20 rounded-full" />
+            <Skeleton className="h-4 w-16 mt-1" />
+            <Skeleton className="h-3 w-12" />
+            <Skeleton className="h-5 w-10 mt-1 rounded-full" />
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default SaintSelector;

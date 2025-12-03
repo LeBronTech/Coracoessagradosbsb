@@ -1078,69 +1078,832 @@ export const novenaData: Record<string, Novena> = {
   },
   guadalupe: {
     saintName: 'Nossa Senhora de Guadalupe',
-    novenaTitle: 'Novena a Nossa Senhora de Guadalupe',
+    novenaTitle: 'Novena de Nossa Senhora de Guadalupe',
     description: 'Padroeira das Américas. Reze pedindo proteção e consolo maternal.',
     image: 'https://iili.io/ffgFDXV.png',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da novena a Nossa Senhora de Guadalupe.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <p class="italic">Pelo Sinal da Santa Cruz ♱<br/>Vinde Espírito Santo ❦</p>
+        <h4 class="section-title">Oração inicial para todos os dias</h4>
+        <div class="prayer-block">
+            <p>Lembre-se ó bondosa Virgem de Guadalupe, que em vossa celestial aparição, prometestes mostrar vossa compaixão e piedade a todos que amam e creem em vós, procurando vosso auxílio e vos chamando em suas necessidades e aflições. Vós prometestes ouvir com atenção as nossas súplicas, enxugar nossas lágrimas e nos dar consolo e alívio. Nunca se soube que quem buscasse vossa proteção e implorasse vosso socorro ou procurasse vossa intercessão, mesmo nos pedidos de prosperidade, ou ansiedades pessoais, não fosse por vós atendidos. Inspirada por esta confiança venho até vós ó doce e sempre Virgem Maria, Mãe do Deus Verdadeiro!</p>
+            <p>Sofrendo sob o peso dos nossos pecados, nós vimos nos prostrar diante de vossa augusta presença, certos de que vós ireis realizar vossas misericordiosas promessas. Nós estamos cheios de esperança, que sob vosso manto e proteção nada nos será problema ou aflição, nem temeremos as doenças e infortúnios, ou qualquer outro pesar.</p>
+            <p>Vós quisestes permanecer conosco através da vossa admirável imagem, pois sois nossa Mãe, nossa saúde e nossa vida. Colocando-nos sob o vosso maternal olhar e recorrendo a vós em todas as nossas necessidades, não precisamos de mais nada. Ó Santa Mãe de Deus, não despreze nossos pedidos, mas por vossa misericórdia, ouvi-nos e respondei-nos. Amém.</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oração Final</h4>
+        <div class="prayer-block">
+            <p>Ó gloriosa Mãe de Deus, Nossa Senhora de Guadalupe, padroeira das Américas, Tu és nossa mãe compassiva, Curai nossas penas, Nossas misérias e dores, Acolhei-nos no aconchego do Teu manto, Escutai mãe as nossas preces.</p>
+            <p>Amparai os doentes e desempregados, Abençoai nossas casas e as nossas famílias, Protegei nossos filhos, Livrando-os das maldades e dos perigos desse mundo, Guardai nossos lares, Escondendo-os dos olhos dos maus, Que neles o nome de Deus seja sempre invocado com respeito e amor, Que os seus mandamentos sejam observados com fidelidade, Que Vosso bendito nome, ó Mãe querida, Seja sempre lembrado com muita devoção, Que a palavra de Deus seja sempre meditada, E seguida todos os dias da nossa vida. Que a nossa obediência a Teu Filho Jesus, Exale tal qual rosa um perfume de santidade. Amém.</p>
+        </div>
+        <p class="mt-4 font-semibold">(Rezar Pai Nosso, Ave-Maria, Glória ao Pai)</p>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <p>As palavras de Nossa Senhora de Guadalupe ditas ao índio S. Juan Diego a 9 de dezembro de 1531: “Meu querido filho a quem amo ternamente, saiba que eu sou a Virgem Maria, Mãe do Deus Verdadeiro. É Ele quem dá e mantém a vida, Criador de todas as coisas Senhor do céu e da terra, que está em todos os lugares. Eu desejo um templo a ser erguido aqui, onde possa manifestar a compaixão que tenho pelos nativos e por todos que solicitarem meu auxílio”.</p>
+            <p>Estas vossas palavras, minha Mãe celestial, enchem meu coração de amor e gratidão com renovada fé, porque elas foram direcionadas à mim também. Por isso eu venho a vos, confiante de obter a vossa intercessão, a graça que me tornará capaz de viver de acordo com os ensinamentos do vosso Divino Filho, Jesus, a quem desejo amar de todo coração.</p>
+            <p>Vós compartilhastes com todo o sofrimento do meu Salvador por mim, portanto, eu também vos pertenço, e vós sois minha amada Mãe. Não me abandone neste vale de lágrimas; tende piedade, eu vos procuro na minha pobreza e necessidade; tenha compaixão das minhas ansiedades e inquietações; assista-me nas minhas enfermidades e misérias.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <p>As misericordiosas palavras ditas na quarta e última visita a Juan Diego: “Não deixe nada afligir você, e não tenha medo das doenças, acidentes ou dores. Não estou aqui eu que sou sua Mãe? você não está sob meu manto e proteção? você necessita de mais alguma coisa?”</p>
+            <p>Essas vossas palavras foram também dirigidas a mim e elas enchem meu coração de alegria e esperança. Volva então, vossos olhos misericordiosos a mim; aperfeiçoa meu amor a vós.</p>
+            <p>Por este amor, que seja possível eu colocar aos vossos pés, todos os meus problemas e preocupações, sabendo que vós ireis se lembrar porque sois minha Mãe, que sob vosso manto e proteção, obtereis para mim a consolação que tanto necessito.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <p>Quando visitastes, Juan Bernardino, o tio moribundo de Juan Diego, curando-o e dizendo o vosso nome: “Imaculada Virgem Maria que esmagou a cabeça da serpente”, vós enchestes os corações dos Índios Nativos de alegria. Dissestes que eles não precisariam mais fazer sacrifícios humanos aos ídolos pagãos.</p>
+            <p>Salve Rainha Mãe de misericórdia. Nossa vida, nossa doçura e nossa esperança! Permita-me juntar-me com cânticos e louvores à esta nação, onde muitos vieram de longe, a ofertar ao vosso trono, presentes e preces neste dia.</p>
+            <p>Rogai por nós Santa Mãe de Deus, eliminando a serpente do mal de nossas vidas, que possamos ser dignos das promessas de Cristo vosso Divino Filho.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <p>Quando os índios viram a admirável imagem dela deixada no poncho de Juan Diego, eles reconheceram que aquela pintura impressa continha uma mensagem celestial dirigida a eles. Sua régia figura na forma de uma mulher, ensinou-lhes que a sua moradia naquele momento era necessária que fosse na terra.</p>
+            <p>Os raios de sol, as nuvens rodeando seu corpo, as estrelas sobre seu manto, a lua crescente sob seus pés, os anjos que a transportam pelo espaço, tudo denota que sua atual permanência é no céu e chama a atenção deles para a imortalidade da alma humana.</p>
+            <p>Ó Santa Maria, como a vossa imagem no poncho de Juan Diego ensinou aos índios, ensina-me também nunca esquecer da imortalidade da minha alma, que o céu é meu objetivo e minha herança. No meio das tentações e das misérias desta vida, deixa-me sempre pensar nesta morada de paz, de glória e eterna felicidade.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <p>Por séculos os nativos do México adoraram o sol como deus, sacrificando inúmeros seres humanos em sua honra. Mas quando eles contemplaram a bela imagem onde somente os raios eram bem visíveis, eles entenderam a lição a que estavam sendo conduzidos. Depois dos índios terem ouvido a vossa mensagem e lido o que a vossa imagem contém, eles abandonaram seus falsos deuses e abraçaram a amada doutrina do vosso Divino Filho.</p>
+            <p>Nunca eles cessaram de agradecer pela grande misericórdia que o Deus Todo Poderoso lhes mostrou quando Ele vos enviou a eles para ser sua Rainha, sua Mãe e sua mestra.</p>
+            <p>Oh Santa Maria, pelo mistério da Encarnação do vosso amado Filho, Nosso Senhor Jesus Cristo, onde nossa salvação começou, conceda-nos luz para entender a grandeza do benefício por Ele a nós concedido tornando-se nosso irmão e nos dando a vossa venerável mãe, para ser também a nossa mãe.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <p>O fogo que ardeu nos altares dos falsos deuses, se extinguiu para sempre depois que os índios contemplaram vossa imagem e viram vosso manto como o firmamento coberto de estrelas.</p>
+            <p>Isto lhes mostrou que as estrelas foram criadas pelo Deus Invisível para servir a humanidade e, portanto não poderiam ser por eles divinizadas, adoradas e dadas em sacrifício.</p>
+            <p>Santíssima Virgem Maria, que através da imagem estampada no poncho do Índio, trouxe milhões de pagãos à luz da verdadeira fé; eu peço a Vós obter-me a graça do entendimento que esta mensagem contém. Derrama sobre mim a luz do vosso semblante; dirija e santifica meus empreendimentos.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <p>O emblema de nossa redenção estampado sobre o broche dourado preso sobre vossa túnica serviu para dizer aos índios que a religião que eles haviam abraçado era a mesma que a dos seus conquistadores; a cruz sobre a bandeira de Hernando Cortez e a do broche eram as mesmas. Quando eles a viram sobre a imagem, se juntaram ao redor do missionário espanhol ansiosos para saber seu significado.</p>
+            <p>Eles lhes contaram como o Salvador veio do céu para redimir a raça humana através da sua morte na cruz e como a Virgem Mãe da Divina Vítima associou a ele no mistério da nossa redenção.</p>
+            <p>Feliz a nação a quem Ele se revelou a si mesmo e a Deus. Santa Virgem Maria de Guadalupe, minha rainha e mãe, mais de 400 anos se passaram desde que falastes com S. Juan Diego, e até agora um pequeno número de seus filhos em outras terras ficaram cientes do propósito da vossa imagem sobre o altar do vosso santuário. Inspira-nos então a ver nesta miraculosa pintura, o instrumento para a conversão de todos à Fé Católica e Apostólica, vós que sois a adorável Rainha e Mãe dos Apóstolos e Missionários.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <p>Depois que S. Juan Diego cortou as flores que brotaram repentinamente naquela desoladora colina, ele as trouxe a Vós, no pé da montanha onde o aguardavas. Com vossas próprias mãos, vós as colocastes no poncho dele, atando-o no seu pescoço, dizendo-lhe que as levasse ao bispo Zumarraga, que este sinal o induziria a iniciar a construção do templo. As últimas palavras que ele ouviu dos vossos adoráveis lábios foram: “você é meu embaixador digno de confiança, vá em paz”</p>
+            <p>A sagrada pintura sobre aquele poncho de qualidade inferior não poderia ter sido pintada por mãos humanas. Ela convenceu o bispo como convenceu a todas as pessoas que a viram, que a mensagem de Juan Diego era verdadeira.</p>
+            <p>Humildemente eu vos imploro, minha Rainha e Mãe, deixa-me ser vossa embaixatriz como Juan Diego, a divulgar a doutrina contida na vossa imagem, a todos meus amigos e convence-los também, acreditem eles ou não.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <p>Óh, Santa Virgem, entronizada no coração de uma nação de idólatras, vós fizestes um maravilhoso trabalho de conversão.</p>
+            <p>Depois de verem a vossa imagem sobre o poncho de Juan Diego, os índios tiraram de seus templos, todos os ídolos, construíram belas igrejas em cujas torres as cruzes brilhavam à luz do sol, e os enormes tambores que em inúmeras vezes anunciaram sacrifícios humanos em honra aos seus deuses, não se ouviu nunca mais.</p>
+            <p>Como nos remanescentes 17 anos de sua vida, Juan Diego divulgou a mensagem aos índios, permita-me minha amada Mãe, ajudar a humanidade a conhecer vossa celestial mensagem entre os meus conterrâneos. Anima e abençoa a todos os que se juntarem neste Apostolado e Novena, a fim de propagar a religião Católica entre seus amigos, tendo como bandeira vossa admirável imagem sobre o poncho de Juan Diego, junto com a cruz, emblema de nossa redenção.</p>
+            <p class="italic mt-4">(Coloque suas intenções)</p>
+        </div>`
+      }
+    ]
   },
   santa_luzia: {
     saintName: 'Santa Luzia',
     novenaTitle: 'Novena a Santa Luzia',
     description: 'Padroeira dos olhos. Peça pela saúde da visão física e espiritual.',
     image: 'https://iili.io/ffgqFiN.png',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da novena a Santa Luzia.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Oração Preparatória</h4>
+        <p class="italic mb-4">Reza-se no início de todos os dias da novena, antes da meditação.</p>
+        <div class="prayer-block">
+            <p>Soberano e Altíssimo Deus e Senhor nosso, que levais a bem e Vos apraz, que honremos os Vossos servos, que depois de nos terem dado exemplo neste mundo de todas as virtudes cristãs, reinam hoje convosco na eterna bem-aventurança. Louvores eternos Vos sejam dados, pois Vós nos mostrais que nos não é impossível a prática dos Vossos mandamentos, e até mesmo sofrer por Vós os tormentos e a morte. Vós, Senhor, no-lo mostrais na gloriosa donzela S. Luzia, a quem destes o ânimo varonil que é necessário para o martírio.</p>
+            <p>Dignai-vos, Senhor, vir em nosso auxílio, quando nestes nove dias queremos meditar nas suas ações, e tomá-la por nossa advogada diante de Vós. Fazei com que nos envergonhemos da nossa fraqueza, e falta de ânimo. E, pois, que nos é fácil, hoje, em um país católico, a prática das obrigações cristãs, sem os perigos dos tormentos, dai-nos zelo e ânimo para a observância de vossos mandamentos, pela intercessão desta santa virgem, perdoando-nos primeiro quanto nos serve de obstáculo a imitar os Vossos santos. Amém</p>
+        </div>
+        <p class="mt-4 font-semibold">(Reza-se três Pai-Nossos, Ave-Marias e Glórias ao Pai.)</p>
+        <h4 class="section-title mt-6">Jaculatória</h4>
+        <p>℣. Santa Luzia, mártir verdadeira.</p>
+        <p>℟. Fazei que sigamos a vossa carreira.</p>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oferecimento</h4>
+        <div class="prayer-block">
+            <p>℣. Ora pro nobis, beáta Lúcia.</p>
+            <p>℟. Ut digni efficiámur promissiónibus Christi.</p>
+            <p><strong>Oremus:</strong> Exáudi nos, Deus salutáris noster, ut, sicut de beátae Lúciae, Vírginis et Martyris tuae, festivitáte gaudémus, ita piae devotiónis erudiámur afféctu. Per Christum Dominum Nostrum. Ámen.</p>
+            <hr class="my-4 border-gray-300 dark:border-gray-700" />
+            <p>℣. Rogai por nós, Bem-aventurada Luzia.</p>
+            <p>℟. Para que sejamos dignos das promessas de Cristo.</p>
+            <p><strong>Oremos:</strong> Ouvi-nos, ó Deus Salvador nosso, e fazei que, celebrando com alegria a festividade da Bem-aventurada Luzia, Vossa virgem e mártir, nos inflamemos em piedosos afetos de devoção. Por Nosso Senhor Jesus Cristo. Amém.</p>
+        </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos que sendo S. Luzia nobre por geração, muito mais o foi pelo seu amor à virgindade, e pelo desprezo dos gostos e delícias deste mundo. Foi a santa virgem em companhia de sua mãe visitar o sepulcro de S. Águeda, para pedirem por intercessão daquela santa o remédio para uma grave enfermidade que sofria a mãe da nossa santa. Deus Nosso Senhor despachou favoravelmente a sua súplica e a enferma foi curada. “Pedi, que haveis de receber, procurai, que haveis de achar, batei, que vos hão de abrir,” diz Nosso Senhor. Tendo Nosso Senhor assim empenhado a Sua palavra, que é palavra de rei, se o que pedirmos não nos for oposto a nossa salvação, Deus nos há de conceder o que pedirmos.</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como tendo a mãe da nossa santa impetrado a sua saúde, que pedia por sua intercessão e de S. Águeda, pediu S. Luzia à sua boa mãe uma graça, em oposição ao que qualquer outra moça faria em tais circunstâncias. “Minha boa mãe”, diz a santa, “rogo-vos uma graça, a maior que me podereis fazer, e vem a ser que me entregueis desde já o dote que me tínheis destinado para o meu consórcio, quero distribuí-lo de um melhor e mais útil modo: dar-lhe-ei o destino que Jesus Cristo aconselhou a um moço desse as suas riquezas; sou moça, também tomarei, como dito a mim, este conselho que o Redentor deu ao moço.”. Esta petição foi sumamente agradável à boa mãe, que cedeu de boa mente aos rogos de sua santa filha.</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como, recebendo S. Luzia o abundante dote que sua mãe lhe deu, que destino lhe daria a santa moça? Outra qualquer da mesma idade o gastaria em joias e adereços preciosos, que poderiam servir-lhe de laços a sua castidade. Mas a nossa santa tem outros sentimentos. Ela reduz tudo a dinheiro e lhe dá o mesmo destino que S. Lourenço deu às pratas e ouro da igreja, quando o presidente gentio lhas pediu: repartiu tudo com os pobres que é o conselho que Jesus Cristo deu ao moço, que é o mesmo que mandar tudo antecipadamente para o Céu pela mão dos pobres, para lá receber principal e juros abundantes em outro gênero de bens, espirituais e eternos, sólidos e verdadeiros. Parabéns a S. Luzia.</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como, chegando à notícia do moço a quem estava prometida em casamento S. Luzia por seus pais, ainda que contra vontade dela, e exasperado o moço com a resolução da que tinha já por sua prometida esposa, tomou a resolução de a acusar e levá-la até o cadafalso. Era o tempo em que nessa região era crime ser cristão. O mancebo dirige-se ao governador da terra e acusa a Luzia de ser cristã. Infeliz moço, que quando pensava vingar-se da santa, lhe procurou a maior felicidade. Geme ele no Inferno eternamente, se morreu assim como viveu: e a santa goza da eterna felicidade que lhe conseguiu a virgindade e o martírio.</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como, acusada S. Luzia de ser cristã, citada para comparecer perante o governador, aonde depois de muito boas promessas, afagos, vendo o presidente que nada conseguia, diz: “Deixemos palavras, vamos aos tormentos”. A santa responde: “Aos servos de Deus nunca lhe podem faltar palavras, pois que o Espírito Santo que mora neles lhes inspirará o que devem falar”. Então, o tirano disse: “Eu te mandarei para a casa da prostituição, para que o Espírito Santo saia de ti e te desampare.”. Mandou, então, que a santa fosse conduzida para uma dessas casas da maldição, onde mora o Demônio e suas amigas. Que será da nossa santa em tal casa? Não temamos, pois Deus nunca desamparou os Seus servos.</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos hoje uma grande maravilha de Nosso Senhor a favor de Sua serva S. Luzia. O tirano a mandou levar para uma casa má, para ali perder a virgindade. Até quanto pode chegar a barbaridade humana! Mas o Senhor deu ao santo corpo de Sua serva um dote de imobilidade, que nenhuma força humana foi capaz de fazer andar um passo: parecia como um esteio pregado e fincado até o profundo, ou uma barra de ferro, ou um rochedo vivo, que forças humanas não podiam abalar. Bendito seja Deus, que assim acode a seus servos. Como estaria, então, a alma da santa, vendo o que Deus obrava em seu favor!</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como se verifica o que o Espírito Santo diz: “Um abismo chama por outro abismo.”. A imobilidade de S. Luzia, que era tão visível milagre e suficiente prova da religião para o tirano gentio cego pela sua seita, cada vez o cegou e exasperou mais, e o Demônio lhe sugeriu o pensamento de a queimar viva no mesmo lugar, de que seu corpo não podia ser abalado: manda cercá-la de muita lenha e matérias combustíveis, untado tudo com pez, resina e azeite, e que a tudo se pegasse fogo. Eis uma delicada moça no meio das labaredas. Que será dela? Deus seja louvado para sempre. Quem a fez imóvel no mesmo lugar, também a livrou das chamas, como noutro tempo aos meninos de Babilônia. Ó poder admirável de Deus! Ó obstinação dos gentios e pecadores! Ó efeitos da divina proteção!</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como, não conseguindo o tirano nem que a santa renegasse da fé, nem que o fogo lhe tirasse a vida, continua, mas em vão, a atormentá-la com suplícios que os demônios lhe faziam vir à cabeça, até que, perdendo toda a esperança, lhe manda atravessar a garganta com uma espada, e tirar-lhe a vida, quando ela estava profetizando a paz que Deus estava para dar à Sua Igreja pela morte de Domiciano e Maximiano, que tantos centos e milhares de cristãos martirizaram. Voa a bem-aventurada alma de Luzia para o Céu, aonde agora goza da eterna felicidade para sempre. Bendita santa, olhai para os vossos devotos, dai-lhes constância nos trabalhos deste mundo, e a vossa companhia na terra dos viventes.</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Meditação</h4>
+            <p>Consideremos como o povo cristão, tomando a diversos santos para advogados em diversas moléstias corporais, tem tomado a nossa santa por protetora nas doenças dos olhos, e certamente o não faria, se a experiência lhe não mostrasse que é valiosa a sua proteção. Convém, porém, advertirmos, que os benefícios corporais se devem pedir a Deus por intercessão de seus servos, sempre debaixo da condição que eles sejam úteis à nossa salvação. Muitos cegos se salvaram que, se tivessem vista, se perderiam. S. Luzia, que tanta glória conseguiu no Céu por seus relevantes merecimentos, nos consiga que vejamos a Terra como lugar de desterro, e cheia de laços, que o Demônio arma aos pobres filhos de Adão, e vejamos ao Céu como nossa pátria, lugar de eterno descanso, casa de Deus, onde Jesus Cristo, com Seus merecimentos, nos tem preparado um lugar.</p>
+        </div>`
+      }
+    ]
   },
   joao_cruz: {
     saintName: 'São João da Cruz',
     novenaTitle: 'Novena a São João da Cruz',
     description: 'Doutor da Igreja. Mestre da vida espiritual na busca pela união com Deus.',
     image: 'https://iili.io/ffgFMWN.jpg',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da novena a São João da Cruz.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Oração Inicial</h4>
+        <div class="prayer-block">
+            <p>Ó Deus, que inspirastes a São João da Cruz, nosso pai, um extraordinário amor da Cruz e uma perfeita abnegação de si mesmo, concedei-nos a graça que vos pedimos… e fazei que, iluminados por sua doutrina, caminhemos para vós na fé, na esperança e na caridade, para chegarmos a perfeita liberdade dos vossos filhos. Por Nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo. Amém.</p>
+            <p class="mt-2">℣. Rogai por nós Nosso Pai, São João da Cruz,</p>
+            <p>℟. Para que sejamos dignos das promessas de Cristo.</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Ladainha de São João da Cruz</h4>
+        <div class="prayer-block">
+            <p>Senhor, tende piedade de nós!<br/>
+            Jesus Cristo, tende piedade de nós!<br/>
+            Senhor, tende piedade de nós!</p>
+
+            <p class="mt-2">Jesus Cristo, ouvi-nos!<br/>
+            Jesus Cristo, atendei-nos!</p>
+
+            <p class="mt-2">Deus Pai do Céu, tende piedade de nós!<br/>
+            Deus Filho, Redentor do mundo, tende piedade de nós!<br/>
+            Deus Espírito Santo, tende piedade de nós!</p>
+
+            <p class="mt-2">Ssma. Trindade que sois Um só Deus, tende piedade de nós!<br/>
+            Nossa Senhora do Monte Carmelo, rogai por nós!<br/>
+            São José, patrono do Carmelo, rogai por nós!<br/>
+            Santa Madre Teresa de Jesus, rogai por nós!<br/>
+            São João da Cruz, nosso pai, rogai por nós!</p>
+
+            <p class="mt-2">Doutor Místico, rogai…<br/>
+            Cantor dos Amores de Deus,<br/>
+            Pai do Carmelo Descalço,<br/>
+            Modelo de Carmelita,<br/>
+            Sacerdote de Deus Altíssimo,<br/>
+            Serafim de piedade,<br/>
+            Mártir de amor,<br/>
+            Mestre de espiritualidade,<br/>
+            Imagem do Cristo Sofredor,</p>
+
+            <p class="mt-2">Santo da oração e penitência,<br/>
+            Santo da desnudez espiritual,<br/>
+            Santo do despojamento,</p>
+
+            <p class="mt-2">Glória da Santa Igreja,<br/>
+            Glória da Espanha,</p>
+
+            <p class="mt-2">São João da Cruz obedientíssimo,<br/>
+            São João da Cruz casto e pobre,<br/>
+            São João da Cruz pacientíssimo,</p>
+
+            <p class="mt-2">Cordeiro de Deus, que tirais o pecado do mundo:<br/>
+            Perdoai-nos, Senhor!<br/>
+            Cordeiro de Deus, que tirais o pecado do mundo:<br/>
+            Ouvi-nos, Senhor!<br/>
+            Cordeiro de Deus, que tirais o pecado do mundo:<br/>
+            Tende piedade de nós!</p>
+
+            <p class="mt-2">℣. Rogai por nós, Nosso Pai São João da Cruz!<br/>
+            ℟. Para que sejamos dignos das promessas de Cristo!</p>
+            
+            <hr class="my-4 border-gray-300 dark:border-gray-700" />
+            
+            <p><strong>℣. Oremos:</strong><br/>
+            Ó Deus que guiastes São João da Cruz, nosso Pai, à santa Montanha que é Cristo, através da noite escura da renúncia e do amor ardente à Cruz, concedei-nos segui-lo como mestre de vida espiritual para atingir a contemplação da vossa glória. Por Cristo, Nosso Senhor.</p>
+            <p>℟. Amém.</p>
+        </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Amor de Deus / Amor do Próximo</h4>
+            <p>«Ame muito aos que a contradizem e não a amam, porque nisso se gera amor no peito onde não o há, como faz Deus conosco, que nos ama mediante o amor que nos tem» (Ct 33*) … «Porque o verdadeiro amante só está contente quando tudo o que ele é, vale, tem e recebe, o emprega no Amado, e quanto mais é tudo isso, tanto mais gosto tem em lho dar» (CH III, 1).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Obediência</h4>
+            <p>«Perguntando alguém um dia ao venerável Padre João da Cruz como era que uma pessoa se arrebatava, respondeu: negando a sua vontade e fazendo a de Deus, porque o êxtase não é senão sair a alma de si mesma e arrebatar-se em Deus, e isto faz o que obedece porque é sair de si e do seu próprio querer e assim aliviado submerge-se em Deus» (A 65**).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Castidade</h4>
+            <p>«Pensam que, por ter estado tão mudo, as perco de vista e deixo de andar vendo como com grande facilidade podem ser santas e com muito gosto e seguro amparo andar em delícias do Amado Esposo? Pois aí irei e então hão-de ver como não me esquecia e veremos as riquezas ganhas no amor puro e sendas de vida eterna e os passos formosos que dão em Cristo, cujas delícias e coroas são as suas esposas…» (Ct 7*/Ct 5**).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Pobreza</h4>
+            <p>«Dizia-se pobre (o rei David, no salmo 87, 16, numa tradução acomodatícia), bem que na verdade fosse rico, porque não tinha nas riquezas a sua vontade e assim era como se na realidade fosse pobre. Mas fosse ele realmente pobre, e a vontade o não fora, não seria verdadeiramente pobre; pois a alma estaria rica e cheia no apetite. Por isso chamamos a esta desnudez noite para a alma, porque não tratamos aqui da carência das coisas, porque isso não despe a alma, se delas tem apetite; senão da desnudez do gosto e apetite delas, pois é o que deixa a alma livre e vazia delas, mesmo que as tenha…» (S I, III, 4).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Assistência ao Coro</h4>
+            <p>«Também disto temos figura muito ao vivo no Génesis, onde se lê que o Patriarca Jacob querendo subir ao monte de Betel a fim de aí erguer um altar a Deus, para Lhe oferecer sacrifício, ordenou primeiramente três coisas a toda a sua gente: a primeira, que rejeitassem todos os deuses estranhos, a segunda que se purificassem e a terceira que mudassem as vestes (Gn 35, 2). Por estas três coisas dá-se a entender a toda a alma que quer subir a este monte a fazer de si mesma altar onde ofereça a Deus sacrifício de puro amor, louvor e reverência pura, que antes que suba ao cimo do monte, há-de cumprir perfeitamente as três coisas já referidas» (S I, V, 6-7).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Penitência / Mortificação</h4>
+            <p>«Por isso é muito para chorar a ignorância de alguns que se sobrecarregam de penitências extraordinárias (…) e pensam que lhes bastará isto e aquilo para chegar à união com a Sabedoria Divina, e não é assim, se com diligência não procurarem negar os apetites (…) Porque assim como é necessário lavrar a terra para ela dar fruto, e se não for lavrada não produz senão ervas más, assim é necessária a mortificação dos apetites para que haja proveito na alma» (S I, VIII, 4).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Humildade</h4>
+            <p>«A alma enamorada é suave, mansa, humilde e paciente» (D 28*/D 27**) «e, para se enamorar de uma alma, não põe Deus os olhos na grandeza dela, mas na grandeza da sua humildade» (PA, D 102*/ PA 24**).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Oração</h4>
+            <p>«’Buscai primeiro o reino de Deus e a sua justiça, e tudo o mais se vos dará por acréscimo’. Porque esta é a pretensão e petição mais a Seu gosto; e para alcançar as petições que temos no nosso coração, não há melhor meio de que pôr a força da nossa oração naquilo que é mais do gosto de Deus; porque então, não só nos dará o que Lhe pedimos, que é a salvação, como ainda o que vê que nos convém e nos é bom, embora não Lho peçamos» (S III, XLIV, 1-2); «procure, pois, ser contínuo na oração e no meio dos exercícios exteriores não a deixe. Quer coma, quer beba, quer trate com os de fora, quer faça qualquer outra coisa ande sempre desejando a Deus, pondo n’Ele o afecto do seu coração» (Cons. Rel. 9). «Quem foge da oração, foge de todo o bem» (OA, D 170*/OA, A 11**).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Silêncio / Paz</h4>
+            <p>«Veja aquele saber infinito, aquele segredo escondido! Que paz, que amor, que silêncio não está naquele peito divino, que ciência tão elevada a que Deus ali ensina» (PA, D138*/PA 60**), … «em todas as coisas, pois, por adversas que sejam, nos devemos alegrar em vez de perturbar, para não perder o bem maior que toda a prosperidade, isto é, a tranquilidade de ânimo e paz em todas as coisas adversas ou prósperas, levando a todas de igual maneira» (SIII, VI, 4), «pondo todo o cuidado em coisa mais alta que é buscar o reino de Deus isto é, em não faltar a Deus, porque o demais, como Sua Majestade disse, nos será dado por acréscimo, pois não se há-de esquecer de nós Aquele que cuida dos animais. Com isto se adquirirá silêncio e paz» (2ª Cautela contra o mundo).</p>
+            <p class="mt-4 font-semibold">(Pai Nosso, Ave-Maria, Glória)</p>
+        </div>`
+      }
+    ]
   },
-  natal: {
-    saintName: 'Menino Jesus',
-    novenaTitle: 'Novena de Natal',
-    description: 'Prepare a manjedoura do seu coração para o nascimento do Menino Jesus.',
+  natal_sao_leao: {
+    saintName: 'São Leão Magno',
+    novenaTitle: 'Novena de Natal (São Leão Magno)',
+    description: 'Prepare-se para o Natal com as meditações profundas de São Leão Magno.',
     image: 'https://iili.io/ffgFVsI.jpg',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da Novena de Natal.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Oração Inicial</h4>
+        <div class="prayer-block">
+            <p>Senhor, mostra o Teu poder e vem, a fim de que sejamos protegidos contra os perigos a que nossos pecados nos expõem. Tu que, sendo Deus, vives e reinas com o Pai, na unidade do Espírito Santo, pelos séculos dos séculos. Amém.</p>
+            <p class="mt-4 font-semibold">(3 Ave-Marias; 1 Pai-Nosso; 1 Glória)</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oração Final</h4>
+        <div class="prayer-block">
+            <p>Ó Menino Jesus, a Vós recorro e Vos suplico, pela intercessão de Vossa Mãe Santíssima: assisti-me nesta necessidade, porque creio firmemente que a Vossa divindade pode me socorrer! Espero com toda a confiança obter a Vossa santa graça. Amo-vos de todo o meu coração e com todas as forças de minha alma. Proponho-me não mais Vos ofender e a Vós me ofereço, dispondo-me a sofrer antes de fazer-vos sofrer. Quero de agora em diante Vos servir com toda a fidelidade, e, pelo Vosso Amor, ó Menino Deus, amarei o meu próximo como a mim mesmo. Concedei-me, principalmente, a graça de Vos possuir eternamente na companhia de Maria Santíssima e de São José, para Vos adorar com todos os anjos na Corte Celestial. Amém.</p>
+        </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Tocai a trombeta em Sião, que o dia do Senhor se aproxima! Eis que Ele vem salvar-nos.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Caríssimos, deixemo-nos transportar de alegria e demos livre curso ao júbilo espiritual, pois raiou para nós o dia de uma redenção nova, dia longamente preparado, dia de felicidade eterna.</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Todo monte e colina serão arrasados; tornar-se-ão retos os caminhos tortuosos e planas as estradas. Vem, Senhor, e não tardes!</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Caríssimos, animados da confiança que nasce de tão grande esperança, permanecei firmes na fé sobre a qual fostes estabelecidos, para que o Tentador, de cujo domínio Cristo vos subtraiu, não vos seduza novamente com algumas de suas ciladas e não corrompa as alegrias próprias desse dia mediante a habilidade de suas mentiras.</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Tende o espírito alerta; o Senhor nosso Deus se aproxima.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Honrai com uma obediência santa e sincera o mistério sagrado e divino da restauração do gênero humano. Uni-vos a Cristo, nascido em nossa carne, a fim de merecerdes ver reinando em Sua majestade esse mesmo Deus de glória que, com o Pai e o Espírito Santo, permanece na unidade da divindade pelos séculos dos séculos.</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Sabei que o reino de Deus está próximo: sim, ele não tarda.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>O Filho de Deus, que é Deus como Seu Pai; que recebe do Pai, Criador e Senhor de tudo, Sua mesma natureza; que está presente em toda parte e transcende o universo inteiro na sequência dos tempos, os quais de Sua Providência dependem, escolheu para Si um dia, a fim de em prol da salvação do mundo nele nascer da Bem-aventurada Virgem Maria, conservando intacto o pudor de Sua mãe.</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Não temais: dentro de quatro dias virá o Senhor.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>O admirável parto da sagrada Virgem trouxe à luz uma Pessoa que, em Sua unicidade, era verdadeiramente humana e verdadeiramente divina, já que as duas naturezas não conservaram suas propriedades de modo tal que se pudessem distinguir como duas pessoas: não foi apenas ao modo de um habitador em seu habitáculo que o Criador assumiu a Sua criatura, mas, ao contrário, uma natureza como que se adicionou à outra. Embora duas naturezas, uma a assumente e outra a assumida, é tal a unidade que formam que um único e mesmo Filho poderá dizer-se, enquanto verdadeiro homem, menor que o Pai, e enquanto verdadeiro Deus, igual ao Pai.</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Eis chegada a plenitude dos tempos: Deus envia o Seu Filho à Terra.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Assim, para sermos novamente chamados dos grilhões originais e dos erros mundanos à eterna bem-aventurança, Aquele mesmo a quem não podíamos subir desceu até nós. Se realmente muitos eram os que amavam a verdade, a astúcia do Demônio iludia-os na incerteza de suas opiniões, e sua ignorância, ornada com o falso nome de ciência, arrastava-os a sentenças as mais diversas e opostas. A doutrina da Antiga Lei não era bastante para afastar essa ilusão que mantinha as inteligências no cativeiro do soberbo Demônio. Nem tampouco as exortações dos profetas lograriam realizar a restauração de nossa natureza. Era necessário que se acrescentasse às instituições morais uma verdadeira redenção, era necessário que uma natureza corrompida desde os primórdios renascesse em novo início.</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Eis que se cumpriram todas as coisas que o anjo anunciou à Virgem Maria.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Considerai atentamente, caríssimos, sob a luz do Espírito Santo, quem nos recebeu consigo e quem recebemos conosco: sim, como o Senhor se tornou carne nossa nascendo, também nós nos tornamos Seu Corpo renascendo. Somos membros de Cristo e templos do Espírito Santo, e é por isso que o Apóstolo diz: “Glorificai e trazei a Deus no vosso corpo”.</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">Hoje sabereis que o Senhor virá, e amanhã vereis a Sua glória.</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Com efeito, o Senhor Jesus Cristo veio para eliminar nossa corrupção, não para ser sua vítima; para trazer remédio aos nossos vícios, não para ser sua presa. Ele veio curar toda enfermidade, consequência de nossa corrupção, e todas as úlceras que manchavam nossas almas; como Ele trazia para nossos corpos humanos a graça nova de uma pureza sem mancha, foi necessário que Ele nascesse segundo um modo novo.</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Antífona Inicial</h4>
+            <p class="italic mb-4">O Anjo disse aos pastores: “Eu vos anuncio uma grande alegria. Nasceu para vós o Salvador do mundo.”</p>
+            <h4 class="section-title">Meditação de São Leão Magno</h4>
+            <p>Hoje, amados filhos, nasceu o nosso Salvador. Alegremo-nos. Não pode haver tristeza no dia em que nasce a vida; uma vida que, dissipando o temor da morte, enche-nos de alegria com a promessa da eternidade. Ninguém está excluído da participação nesta felicidade. A causa da alegria é comum a todos, porque Nosso Senhor, vencedor do pecado e da morte, não tendo encontrado ninguém isento de culpa, veio libertar a todos. Exulte o justo, porque se aproxima da vitória; rejubile o pecador, porque lhe é oferecido o perdão; reanime-se o pagão, porque é chamado à vida.</p>
+        </div>`
+      }
+    ]
+  },
+  natal_familia: {
+    saintName: 'Sagrada Família',
+    novenaTitle: 'Novena de Natal em Família',
+    description: 'Reúna sua família para celebrar o nascimento de Jesus com meditações diárias.',
+    image: 'https://iili.io/ffgFVsI.jpg',
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Oração Inicial</h4>
+        <div class="prayer-block">
+            <p>Deus benigno de infinita caridade que nos amastes tanto e que nos destes em vosso Filho a melhor oferta de vosso amor, para que, encarnado e feito nosso irmão no seio da Virgem, nascesse em um presépio para nossa saúde e remédio; vos damos graças por tão imenso benefício. De volta vos oferecemos, Senhor, o esforço sincero para fazer deste vosso mundo e nosso, um mundo mais justo, mais fiel ao grande mandamento de nos amarmos como irmãos. Conceda-nos, Senhor, vossa ajuda para poder realizá-lo. Pedimos-Vos que este Natal, festa de paz e alegria, seja para nossa comunidade um estímulo a fim de que, vivendo como irmãos, procuremos mais e mais os caminhos da verdade, da justiça, do amor e da paz. Amém.</p>
+            <p class="mt-2 font-semibold">(Rezar um Pai Nosso)</p>
+        </div>
+        <h4 class="section-title mt-4">Oração para a Família</h4>
+        <div class="prayer-block">
+            <p>Senhor, fazei de nosso lar um lugar de Vosso amor. Que não haja injúria porque nos dais compreensão. Que não haja amargura porque nos abençoais. Que não haja egoísmo porque nos alentais. Que não haja rancor porque nos dais o perdão. Que não haja abandono porque estais conosco. Que saibamos caminhar até vós em nosso viver cotidiano. Que cada manhã amanheça mais um dia de entrega e sacrifício. Que cada noite nos encontre com mais amor. Fazei Senhor com nossas vidas, que quisestes unir, uma página cheia de vós. Fazei, Senhor, de nossos filhos o que desejardes, ajudai-nos a educá-los, orientá-los pelo vosso caminho. Que nos esforcemos no apoio mútuo. Que façamos do amor um motivo para amar-vos mais. Que quando amanhecer o grande dia de ir a seu encontro conceda nos encontrarmos unidos para sempre em vós. Amém.</p>
+        </div>
+        <h4 class="section-title mt-4">Oração à Virgem</h4>
+        <div class="prayer-block">
+            <p>Soberana Maria, te pedimos por todas as famílias de nosso país; faz com que cada lar de nossa pátria e do mundo seja fonte de compreensão, de ternura, de verdadeira vida familiar. Que estas festas de Natal, que nos reúnem ao redor do presépio onde nasceu teu Filho, nos unam também no amor, que nos façam esquecer as ofensas e nos deem simplicidade para reconhecer os enganos que tenhamos cometido. Mãe de Deus e Nossa Mãe, intercedei por nós. Amém.</p>
+        </div>
+        <h4 class="section-title mt-4">Oração a São José</h4>
+        <div class="prayer-block">
+            <p>Santíssimo São José, esposo de Maria e pai adotivo do Senhor, foste escolhido para fazer as vezes de pai no lar de Nazaré. Ajudai os pais de família; que eles sejam sempre no lar a imagem do pai celestial, a teu exemplo; que cumpram a grande responsabilidade de educar e formar seus filhos, entregando-lhes, com um esforço contínuo, o melhor de si mesmos. Ajudai os filhos a entender e apreciar o abnegado esforço de seus pais. São José, modelo de marido e pai, intercedei por nós. Amém.</p>
+            <p class="mt-2 font-semibold">(Rezar um Pai Nosso)</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oração ao Menino Deus</h4>
+        <div class="prayer-block">
+            <p>Senhor, Natal é a lembrança de teu nascimento entre nós, é a presença de teu amor em nossa família e em nossa sociedade. Natal é certeza de que o Deus do céu e da terra é nosso Pai, que tu, Divino Menino, é nosso irmão. Que esta reunião junto a teu presépio nos aumente a fé em sua bondade, comprometa-nos a viver verdadeiramente como irmãos, nos dê valor para matar o ódio e semear a justiça e a paz. Ó Divino Menino, ensina-nos a compreender que onde há amor e justiça, ali estas tu e ali também é Natal. Amém.</p>
+            <p class="mt-2 font-semibold">(Rezar um Glória ao Pai)</p>
+        </div>
+        <h4 class="section-title mt-4">Novena de Natal – Gozos</h4>
+        <div class="prayer-block">
+            <p class="italic font-semibold mb-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Ó sapiência suma de Deus soberano que ao nível de um menino te rebaixaste. Ó Divino infante, vem para nos ensinar a prudência que faz verdadeiros sábios.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Menino do presépio nosso Deus e irmão, tu sabes e entendes da dor humana; que quando sofrermos dores e angústias sempre lembremos que tu nos salvaste.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Ó luz do oriente, sol de eternos raios que entre as trevas seu esplendor vejamos, Menino tão precioso, sorte do cristão, ilumina o sorriso de seus doces lábios.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Rei das nações, ilustre Emanuel, de Israel pastor. Menino que apascenta com suave cajado a ovelha arisca ou o cordeiro manso.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Abram-se os céus e chova do alto o bom orvalho, como santa irrigação. Venha belo menino, venha Deus encarnado; brilha bela estrela, brota a flor do campo.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Tu te fizeste Menino em uma família cheia de ternura e calor humano. Que vivam os lares aqui congregados o grande compromisso do amor cristão.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Do fraco és auxílio, do enfermo és amparo, consolo és do triste, luz do desterrado. Vida de minha vida, meu sonho adorado, meu constante amigo, meu divino irmão.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Vem diante de meus olhos por ti enamorados, ora beije teus pés, ora beije tuas mãos. Prosternado em terra, te estendo os braços e, mais do que minhas frases, te diz meu pranto.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Faz de nossa pátria uma grande família; semeia em nosso chão teu amor e tua paz, nos dê fé na vida, nos dê esperança e um sincero amor que nos una mais.</p>
+            <p class="italic font-semibold my-2">Meu doce Jesus, meu menino adorado! Vem a nossas almas! Vem, não demores tanto!</p>
+            <p>– Vem nosso Salvador, por quem suspiramos! Vem às nossas almas, vem, não demores tanto!</p>
+        </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '17 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Reconciliação</h4>
+            <p>Vamos avaliar nossos valores de modo que o Natal seja o que deve ser: uma festa dedicada à RECONCILIAÇÃO. Dedicada ao perdão generoso e compreensivo que aprenderemos com um Deus compassivo. Com o perdão do Espírito Santo podemos nos reconciliar com Deus e com os irmãos e andar em uma vida nova.</p>
+            <p>É a boa notícia que São Paulo exclamou em suas cartas, tal como lemos em sua epístola aos Romanos 5, 1-11.</p>
+            <p>Viver o Natal é apagar as ofensas se alguém nos ofendeu e é pedir perdão se tivermos ofendido a outros. Assim, do perdão nasce a harmonia e construímos essa paz que os anjos anunciam em Belém: paz na terra aos homens que amam ao Senhor e se amam entre si. Os seres humanos podem nos ofender com o ódio ou podemos ser felizes em um amor que reconcilia. E essa boa missão é para cada um de nós: ser agentes de reconciliação e não de discórdia, ser instrumento de paz e semeadores de irmandade.</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '18 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Compreensão</h4>
+            <p>O segundo dia é dedicado à COMPREENSÃO. Compreensão é uma nota distintiva de todo verdadeiro amor. Podemos dizer que a encarnação de um Deus que se faz homem pode ler-se em chave desse grande valor chamado compreensão. É um Deus que fica em nosso lugar, que rompe as distâncias e compartilha nossos afãs e nossas alegrias. É graças a esse amor compreensivo de um Deus pai que somos filhos de Deus e irmãos entre nós. Deus, como afirma São João, nos mostra a grandeza de seu amor e nos chama a viver como filhos dele.</p>
+            <p>Ler a primeira carta de João 3, 1-10.</p>
+            <p>Se de verdade atuarmos como filhos de Deus não imitamos Caim, mas “dermos a vida pelos irmãos” (3, 16). Com um amor compreensivo, somos capazes de ver as razões dos outros e ser tolerantes com suas falhas. Se o Natal nos tornar compreensivos será um excelente Natal. Feliz Natal é aprender a nos colocarmos no lugar dos demais.</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '19 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Respeito</h4>
+            <p>O terceiro dia é dedicado ao RESPEITO. Uma qualidade do amor que nos move a aceitar os outros tal como são. Graças ao respeito valorizamos a grande dignidade de toda pessoa humana feita à imagem e semelhança de Deus, embora essa pessoa esteja errada. O respeito é fonte de harmonia porque nos anima a valorizar as diferenças, como o faz um pintor com as cores ou um músico com as notas ou ritmos. Um amor respeitoso nos impede de julgar os outros, manipulá-los ou querer moldá-los a nosso modo.</p>
+            <p>Sempre que penso no respeito vejo Jesus conversando amavelmente com a mulher samaritana, tal como o narra São João no capítulo quarto de seu evangelho. É um diálogo sem recriminações, sem condenações e no qual brilha a luz de uma delicada tolerância. Jesus não aprova que a mulher não conviva com seu marido, mas em vez de julgá-la, a felicita por sua sinceridade. Atua como bom pastor e nos ensina a ser respeitosos se de verdade queremos nos entender com os demais.</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '20 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Sinceridade</h4>
+            <p>O quarto dia é dedicado à SINCERIDADE. Uma qualidade sem a qual o amor não pode subsistir, já que não há amor onde há mentira. Amar é andar na verdade, sem máscaras, sem o peso da hipocrisia e com a força de integridade.</p>
+            <p>Só na verdade somos livres como anunciou Jesus Cristo: João 8, 32. Só sobre a rocha firme da verdade pode se sustentar uma relação nas crises e nos problemas. Com a sinceridade ganhamos a confiança e com a confiança chegamos ao entendimento e à unidade. O amor ensina a não agir como os egoístas e os soberbos que acreditam que sua verdade é a verdade.</p>
+            <p>Se o Natal nos aproximar da verdade é um bom Natal, é uma festa em que acolhemos Jesus como luz verdadeira que vem a este mundo: João 1, 9. Luz verdadeira que nos afasta das trevas nos move a aceitar Deus como caminho, verdade e vida. Que nosso amor esteja sempre iluminado pela verdade, de modo que esteja também favorecido pela confiança.</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '21 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Diálogo</h4>
+            <p>O quinto dia é dedicado ao DIÁLOGO. Toda a Bíblia é um diálogo amoroso e salvífico de Deus com os homens. Um diálogo que leva a seu cume e sua plenitude quando a Palavra de Deus que é Seu Filho, se faz carne, se faz homem, tal como narra São João no primeiro capítulo de seu evangelho. De Deus apoiado na sinceridade, assegurado no respeito e enriquecido pela compreensão, é o que necessitamos em todas nossas relações. Um diálogo em que diariamente “nos revestimos de misericórdia, bondade, humildade, mansidão e paciência”. Colossenses 3, 12.</p>
+            <p>O diálogo sereno que brota de um sincero amor e de uma alma em paz é o melhor presente que podemos nos dar em dezembro. Assim evitamos que nossa casa seja lugar vazio de afeto onde andamos dispersos como estranhos sob o mesmo teto. Deus concede a todos o dom de nos comunicar sem ofensas, sem julgamentos, sem altivez, e sim com apreço que gera acolhida e aceitação mútua.</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '22 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Simplicidade</h4>
+            <p>O Sexto dia é para valorizar a SIMPLICIDADE. Simplicidade que é a virtude das almas grandes e das pessoas nobres. Simplicidade que foi o adorno de Maria de Nazaré tal como ela mesma o proclama em seu canto de Magnificat. “Meu espírito se alegra em Deus meu Salvador porque olhou a humildade de sua serva” (Lucas 1, 47-48).</p>
+            <p>Natal é uma boa época para desterrar o orgulho e tomar consciência de tantos males que conduzem a soberba. Nenhuma virtude nos aproxima tanto dos demais como a simplicidade e nenhum defeito nos afasta tanto como a arrogância. O amor só reina nos corações humildes, capazes de reconhecer suas limitações e de perdoar sua altivez. É graças à humildade que agimos com delicadeza, sem nos crer mais do que ninguém, imitando a simplicidade de um Deus que “se despojou de si mesmo e tomou a condição de servo” (Filipenses 2, 6-11).</p>
+            <p>Crescer em simplicidade é um admirável presente para nossas relações. Recordemos que nesta pequenez há verdadeira grandeza, e que o orgulho acaba com o amor.</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '23 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Generosidade</h4>
+            <p>Sétimo dia é para crescer em GENEROSIDADE. É a capacidade de dar com desinteresse onde o amor ganha a corrida do egoísmo. É na entrega generosa de nós mesmos que se mostra a profundidade de um amor que não se esgota nas palavras. E isso é o que celebramos no Natal: o gesto sem igual de um Deus que dá a si mesmo. Isso São Paulo destaca: “soberba também na generosidade… pois conheceis a generosidade de Nosso Senhor Jesus Cristo o qual sendo rico, por vós se fez pobre para que vos enriquecêsseis com sua pobreza”. É uma passagem bíblica em que o apóstolo convida aos Coríntios a compartilhar seus bens com os necessitados (2Cor 8, 7-15).</p>
+            <p>Sabemos amar quando sabemos compartilhar, sabemos amar quando damos o melhor de nós mesmos em lugar de dar apenas coisas. Tomemos, pois, a melhor decisão: dar carinho, afeto, ternura e perdão; dar tempo e dar alegria e esperança. São os presentes que mais valem e não custam dinheiro. Demos amor, como dizia São João da Cruz: onde não há amor coloques amor, e tirarás amor.</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '24 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Fé</h4>
+            <p>Oitavo dia é para assegurar a FÉ. Uma fé que é firme quando nasce de uma relação amistosa com o Senhor. Uma fé que é autêntica se está confirmada com as boas obras, de modo que a religião não seja apenas de rezas, ritos e tradições. Precisamos cultivar a fé com a Bíblia, a oração e a prática religiosa porque a fé é nosso melhor apoio na crise. Necessitamos de uma fé grande em nós mesmo, em Deus e nos demais. Uma fé sem vacilações como queria Jesus: Marcos 11, 23. Uma fé que ilumina o amor com a força da confiança, já que “o amor em tudo crê” (1Cor 13, 7).</p>
+            <p>A FÉ é a força da vida e sem ela andamos à deriva. De fato, aquele que perdeu a fé, já não tem mais nada a perder. Que bom que cuidamos de nossa fé como se cuida de um tesouro! Que bom que nos possam saudar como à Virgem: “Feliz és tu que acreditaste” (Lc 1, 45).</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '25 de Dezembro',
+        content: `<div class="day-specific-content">
+            <h4 class="section-title">Esperança e Amor</h4>
+            <p>Nono dia é para avivar a ESPERANÇA e o AMOR. O amor e a esperança sempre vão de mãos dadas com a fé. Por isso, em seu hino ao amor, São Paulo nos mostra que o amor crê sem limites e espera sem limites (1Cor 13, 7). Uma fé viva, um amor sem limites e uma esperança firme são o incenso, o ouro e a mirra que nos dão ânimo para viver e coragem para não cair.</p>
+            <p>É graças ao amor que sonhamos com altos ideais e é graças à esperança que os alcançamos. O amor e a esperança são as asas que nos elevam à grandeza, apesar dos obstáculos e das insipidezes. Se amarmos Deus, amamos nós mesmos e amamos os outros, podemos obter o que sugere São Pedro em sua primeira carta: “Estejam sempre dispostos a dar razão de sua esperança. Com doçura, respeito e com uma boa consciência” (3, 15-16). Se acendermos a chama da esperança e o fogo do amor, sua luz radiante brilhará no novo ano depois que se apaguem as luzes do Natal.</p>
+        </div>`
+      }
+    ]
   },
   maria_mae_deus: {
     saintName: 'Santa Maria Mãe de Deus',
     novenaTitle: 'Novena a Santa Maria Mãe de Deus',
     description: 'Comece o ano novo sob a proteção da Mãe de Deus e da Igreja.',
     image: 'https://iili.io/ffrKfol.png',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da novena a Santa Maria Mãe de Deus.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <p class="italic">Pelo Sinal da Santa Cruz ♱<br/>Em nome do Pai e do Filho e do Espírito Santo.</p>
+        <h4 class="section-title">Oração inicial para todos os dias</h4>
+        <div class="prayer-block">
+            <p>Deus, que enviastes do Céu o vosso Filho, palavra da salvação e pão da vida, ao seio da Santíssima Virgem, concedei que, a seu exemplo, recebamos a Cristo, conservando no coração as suas palavras e celebrando na fé os seus mistérios da salvação. Por Nosso Senhor Jesus Cristo, vosso Filho, que é Deus convosco na unidade do Espírito Santo. Amém.</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oração Final</h4>
+        <div class="prayer-block">
+            <p>Virgem Mãe de Deus, em vosso seio Se fez homem Aquele que não cabe em todo o universo. Salve, Santa Mãe, que destes à luz o Rei, que governa o céu e a terra pelos séculos dos séculos. Bendita seja a Virgem Maria, que trouxe em seu ventre o Filho de Deus Pai. Amém.</p>
+            <p class="mt-4"><b>Oremos:</b> Concedei, Senhor, que, assim como a Virgem Santa Maria concebeu em seu Espírito, antes de conceber em seu ventre, o seu Filho descido do Céu, também nós, tendo-O recebido na fé, O manifestemos com obras dignas de santidade. Ele que é Deus convosco na unidade do Espírito Santo. Amém.</p>
+        </div>
+        <p class="mt-4 font-semibold italic">Em nome do Pai e do Filho e do Espírito Santo.</p>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Ó Redentor do mundo, do eterno Pai gerado já antes do universo, qual Filho bem-amado. Do Pai luz e esplendor, nossa esperança eterna, ouvi dos Vossos servos a prece humilde e terna. A glória a Vós, Jesus, nascido de Maria com vosso Pai e o Espírito louvores cada dia.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, criança admirável e príncipe da paz, – dai a paz ao mundo inteiro.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Lembrai, autor da vida, nascido de Maria, que nossa forma humana tomastes, neste dia. A glória deste dia atesta um fato novo, que vós, do Pai descendo, salvastes vosso povo. A glória a Vós, Jesus, nascido de Maria com vosso Pai e o Espírito louvores cada dia.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, nosso Rei e nosso Deus, que pelo Vosso nascimento elevastes a natureza humana, – dai-nos a graça de Vos honrar todos os dias de nossa vida pela fé e pelas obras.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Saúdam vossa vinda o céu, a terra, o mar, e todo ser que vive entoa o seu cantar. E nós, por Vosso sangue remidos como povo, vos celebramos hoje, cantando um canto novo. A glória a Vós, Jesus, nascido de Maria com vosso Pai e o Espírito louvores cada dia.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, vós, que vos tornastes semelhantes a nós, – concedei que nos assemelhemos a Vós.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Eis do Senhor a porta aberta, de toda a graça portadora. Passou o Rei e permanece fechada, como sempre fora. Filho do Pai supremo, o Esposo e Redentor sai, triunfante, do seio virgem de Maria, numa corrida de gigante. Do Pai gerado como Deus, louvor a Vós, Cristo Jesus, a quem, fecunda pelo Espírito, a Virgem Mãe tem dado à luz.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, Vós, que Vos tornastes cidadão do nosso mundo, – tornai-nos cidadãos do Vosso reino Celeste.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Da Mãe sois honra e alegria, nossa esperança verdadeira, pedra que desce da montanha, de graça enchendo a terra inteira. Exulte toda a criatura, porque nos veio o Salvador. Para remir os que criara, nasceu do mundo o Criador. Do Pai gerado como Deus, louvor a vós, Cristo Jesus, a quem, fecunda pelo Espírito, a Virgem Mãe tem dado à luz.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, Vós concedestes a Maria as alegrias da maternidade; – fazei que todos os pais possam alegrar-se pelo dom dos filhos.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. Raiz judaica floresce, a virgem mãe dá à luz. Maria ao mundo oferece Quem vem salvá-lo: Jesus. No manto azul agasalha e envolve o Filho de Deus. Reclina em berço de palha quem com seu Pai fez os céus. Ao Pai e ao Espírito unido, Filho de Deus, luz da luz. Por virgem mãe concedido.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, rei pacífico, Vosso reino é justiça e paz; – dai-nos a graça de seguirmos o caminho da paz.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <p>Bendita sejais, ó Virgem Maria, trouxestes no ventre quem fez o universo; Vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo. O mesmo que lei nos dera, nasce debaixo da lei. O leite materno espera, escravo torna-se o rei. Desponta um sol mais fecundo, da morte funde os grilhões. Maria traz Deus ao mundo, vinde adorá-lO, nações! Ao Pai e ao Espírito unido, Filho de Deus, luz da luz. Por virgem mãe concedido, Vos adoramos, Jesus!</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, viestes fazer da humanidade o povo santo de Deus; – congregai todos os povos na unidade.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó Mãe do Redentor, do céu ó porta, ao povo que caiu, socorre e exorta, pois busca levantar-se, Virgem pura, nascendo o Criador da criatura: tem piedade de nós e ouve, suave, o anjo te saudando com seu Ave! Bendita sejais, ó Virgem Maria. trouxestes no ventre quem fez o universo; Vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, pelo Vosso nascimento santificastes a vida familiar; – promovei a paz e a união em todas as famílias.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <p>Salve Rainha mãe de Deus, és Senhora nossa mãe, nossa doçura, nossa luz, doce Virgem Maria. Nós a ti clamamos, filhos exilados, nós a ti voltamos nosso olhar confiante. Volta para nós, ó mãe, teu semblante de amor. Dá-nos teu Jesus, ó mãe, quando a noite passar. Salve Rainha Mãe de Deus, és auxílio dos cristãos, ó Mãe clemente, Mãe piedosa, doce Virgem Maria. Bendita sejais, ó Virgem Maria. que trouxestes no ventre quem fez o universo; vós destes a vida a quem nos criou e virgem sereis para sempre, ó Maria! Maria, alegra-te, ó cheia de graça, o Senhor é contigo.</p>
+            <p class="mt-4">℣. Cristo, nascido da Virgem Maria, quisestes nascer no tempo; – concedei aos falecidos nascerem para a vossa eternidade.</p>
+            <p>℟. Filho da Virgem Maria, tende piedade de nós!</p>
+        </div>`
+      }
+    ]
   },
   epifania: {
     saintName: 'Epifania do Senhor',
     novenaTitle: 'Novena da Epifania',
     description: 'Contemple a manifestação de Jesus aos Reis Magos e a todos os povos.',
     image: 'https://iili.io/ffgF6ge.jpg',
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: `Dia ${i + 1}`,
-      content: `<div class="day-specific-content"><p>Oração do ${i + 1}º dia da Novena da Epifania.</p></div>`
-    }))
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Oração para todos os dias</h4>
+        <div class="prayer-block">
+            <p>Em Vosso nascimento, ó Jesus, uma estrela de singular esplendor se apareceu no céu do Oriente e conduziu a Belém os reis, representantes dos longínquos povos pagãos, assim como o anjo radiante de luz havia convocado ao Vosso berço os pastores, representantes do povo eleito. Até os gentios, como os judeus, tiveram de reconhecer em Vós, um pobre e frágil infante, o onipotente Rei dos séculos, o Salvador da humanidade. Nem cetro, nem coroa demonstravam a Vossa dignidade real; nem doces melodias, nem coros de anjos pairando sobre Vosso lugar de repouso revelavam Sua natureza divina; mas a estrela radiante sobre o Vosso mísero teto assinalava o céu, a terra, o universo inteiro como Vossa possessão absoluta, e os reis, que pela inspiração da Vossa graça vieram prontamente desde longe, não curando dos perigos, vencendo dificuldades e abraçando todo sacrifício, chegaram aos Vossos pés, curvando seus joelhos e testas em reverência, adorando-vos e oferecendo-vos ouro, incenso e mirra. Sedentos de Deus, andaram afainados em busca de Vós; e Vós, de fato, Vos revelastes prodigiosamente ainda no berço, enchendo-os de inefável júbilo e transformando-os nos primeiros mensageiros de Vossa glória aos povos do Oriente.</p>
+            <p>Após a aparição da estrela, que bastou para tornar os reis Vossos ardentes seguidores, com quantos prodígios, ó Jesus, haveis demonstrado Vossa divindade! Contudo, quanta escuridão domina ainda a nossa pobre mente! Com quanta lentidão nossa vontade cede aos impulsos amorosos de Vossa graça, isso quando não resiste diretamente a Vós! Concede-nos, pois, ó Jesus, a força de responder sempre pronta e generosamente aos Vossos chamados e a deixar que a luz divina da fé, por Vós acesa sobre nós ainda no nosso berço, nos acompanhe sempre no caminho da vida, até que, bem-aventurados, possamos fixar as nossas pupilas em Vós no esplendor da glória.</p>
+            <p class="mt-4">℣. Cristo a nós se manifestou. Aleluia.<br/>
+            ℟. Vinde, adoremos. Aleluia.</p>
+            <p class="mt-4"><b>Oremos:</b> Deus eterno e Todo-poderoso, Senhor do Céu e da Terra, que se revela aos pequeninos, concedei-nos, Vos pedimos, que, venerando os mistérios sacrossantos do Vosso Filho, o divino Infante Jesus, e seguindo-os com digna imitação, possamos alcançar o reino dos céus prometido às criancinhas. Pelo mesmo Cristo, Nosso Senhor. Amém.</p>
+        </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Oração à Nossa Senhora da Epifania</h4>
+        <div class="prayer-block">
+            <p>Ó Senhora da Epifania, pelo vosso poder, glória e amor, mostrai-nos vossa salvação, Jesus Cristo. Assim como os pastores de Belém foram até Vós há tanto tempo, colocamo-nos diante de Vós neste momento. À Jesus Cristo, reinando em vossos braços, prostramo-nos em admiração. Ó Rainha e amiga íntima, lembrai-vos de nossa pobreza. Nós vos suplicamos, ó terna Mãe, tomai-nos pelas mãos e ouçais de perto os desejos e necessidades dos nossos corações. Maria, lembrai-vos … (mencionar intenção).</p>
+            <p>Prometemos reformar as nossas vidas. Pela vossa poderosa intercessão, alcançai-nos a magnífica manifestação de vosso divino Filho nas vidas daqueles pelos quais tanto rezamos. Mística, gloriosa mulher coroada de estrelas, alcançai os milagres e sinais celestiais que nossos queridos necessitam para encontrar e abraçar Jesus Cristo, o Rei dos reis. Vos imploramos, revelai a nós, vossos pobres filhos, os tesouros de vosso Coração nesta hora de necessidade. Amém.</p>
+        </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: '1º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, vivíeis em contínua expectativa do nascer da Estrela de Jacó, a qual anunciaria o nascimento do verdadeiro Sol da justiça; alcançai-nos um aumento da fé e da caridade, e a graça de viver em contínua esperança de contemplar um dia a luz da glória celestial e da alegria eterna.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: '2º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que ao primeiro sinal da maravilhosa estrela deixastes vossas pátrias para buscar ao recém-nascido Rei dos judeus, obtende-nos a graça de corresponder com vivacidade a toda inspiração divina.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: '3º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que não considerastes nem a severidade da estação, nem as inconveniências da viagem a fim de encontrarem o recém-nascido Messias, alcançai-nos a graça de não nos deixarmos desencorajar por quaisquer dificuldades que possamos nos deparar no caminho da salvação.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: '4º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que, quando desertados pela estrela na cidade de Jerusalém questionaram, humildemente e sem respeito humano, os chefes da Igreja, sobre o local onde poderiam descobrir o objeto de vossa jornada, obtende-nos a graça de fazer recurso, com fé e humildade, em todas as nossas dúvidas e perplexidades, ao conselho de nossos superiores, que fazem as vezes de Deus na Terra.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: '5º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que se alegraram com o reaparecimento da estrela que vos levou a Belém, alcançai-nos de Deus a graça de, permanecendo-lhe sempre fiéis nas aflições, sermos consolados neste século pela Sua graça, e na eternidade pela Sua glória.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: '6º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que adentrando cheios de fé no estábulo de Belém, prostraram-se por terra para adorar ao recém-nascido Rei dos judeus, apesar de cercado apenas por sinais de pobreza e fragilidade, alcançai-nos do Senhor uma fé viva na presença real de Jesus Cristo no Santíssimo Sacramento, o verdadeiro espírito da pobreza e uma caridade semelhante a de Cristo pelos pobres e aflitos.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: '7º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que ofereceram a Jesus Cristo ouro, incenso e mirra, reconhecendo-o assim como Rei, Deus e Homem, alcançai-nos a graça de nunca nos apresentarmos diante d’Ele com mãos vazias, mas que possamos sempre oferecer-lhe o ouro da caridade, o incenso da oração e a mirra da penitência e mortificação.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: '8º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que, avisados pelo anjo para não regressarem a Herodes, retornaram às suas pátrias por caminho diverso, alcançai-nos do Senhor a graça de, após O termos reencontrado na verdadeira contrição, possamos evitar os perigos de novamente O perdermos.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: '9º Dia',
+        content: `<div class="day-specific-content">
+            <p>Ó santos reis, que foram os primeiros dentre os gentios a serem chamados ao conhecimento de Jesus Cristo, e que perseveraram na fé até à morte, alcançai-nos do Senhor a graça de vivermos sempre em conformidade com as nossas promessas do batismo, sempre caminhando para uma vida de fé, para que, como vós, possamos alcançar a visão beatífica do Deus que agora é objeto de nossa fé.</p>
+            <p class="mt-4 font-semibold">(Glória ao Pai)</p>
+        </div>`
+      }
+    ]
   }
 };
 
@@ -1887,7 +2650,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Diego',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Mensageiro da Virgem</h4><p>São João Diego Cuauhtlatoatzin, índio asteca convertido, foi o escolhido por Nossa Senhora de Guadalupe para ser seu mensageiro em 1531. Humilde e simples, ele presenciou as aparições no monte Tepeyac e levou ao bispo as rosas de Castela e a sua tilma (manto) onde ficou impressa milagrosamente a imagem da Virgem. Sua vida foi marcada pela devoção e pelo serviço ao santuário que se ergueu.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que por meio de São João Diego mostrastes o amor de vossa Mãe pelos mais humildes, concedei-nos a graça de ouvir com coração atento a vossa palavra e de servir aos nossos irmãos com generosidade.</p><p class="mt-2 italic">São João Diego, rogai por nós.</p>`
     }]
   },
@@ -1895,10 +2658,13 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     day: 10,
     month: 'Dezembro',
     saints: [{
-      name: 'São Melquíades',
-      imageUrl: '',
-      story: `<h4>O Papa da Paz</h4><p>São Melquíades, papa de origem africana, governou a Igreja num momento crucial: a transição da era das perseguições para a liberdade religiosa, com o Edito de Milão em 313. Enfrentou o início da heresia donatista, buscando sempre a unidade e a paz. Morreu considerado mártir pelos sofrimentos que suportou anteriormente pela fé.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes ao Papa São Melquíades trabalhar pela paz e unidade da Igreja, dai-nos a graça de sermos construtores de concórdia em nossos lares e comunidades.</p><p class="mt-2 italic">São Melquíades, rogai por nós.</p>`,
-      isMartyr: true
+      name: 'Nossa Senhora de Loreto',
+      imageUrl: '/images/nossa_senhora_loreto.png',
+      story: `<h4>A Casa que Voou</h4><p>A devoção a Nossa Senhora de Loreto é uma das mais fascinantes da cristandade, centrada no milagre da "Santa Casa". Segundo uma antiga e piedosa tradição, a casa onde a Virgem Maria nasceu, recebeu o anúncio do Anjo Gabriel e onde Jesus viveu sua infância, foi milagrosamente transportada de Nazaré para evitar a profanação durante as invasões muçulmanas no século XIII.</p>
+      <h4>O Milagre do Transporte</h4><p>Conta-se que em 1291, anjos elevaram a casa pelos ares, levando-a primeiro para a Ilíria (atual Croácia) e, finalmente, em 1294, para um bosque de loureiros (daí o nome "Loreto") na Itália. Estudos arqueológicos confirmaram que as pedras e a argamassa da casa em Loreto são típicas da região de Nazaré e desconhecidas na Itália, além de a casa não possuir fundações próprias, estando simplesmente "apoiada" no chão, o que desafia as leis da arquitetura.</p>
+      <h4>Padroeira dos Aviadores</h4><p>Devido a este "voo" milagroso da Santa Casa, o Papa Bento XV declarou Nossa Senhora de Loreto a padroeira oficial dos aviadores e viajantes aéreos em 1920. É comum encontrar sua imagem em aeroportos e aviões por todo o mundo.</p>
+      <h4>Curiosidades</h4><p>Dentro da Basílica de Loreto, a oração do Ângelus é rezada de forma única: em vez de "O Verbo se fez carne e habitou entre nós", diz-se "O Verbo se fez carne e habitou <b>AQUI</b>", recordando que foi entre aquelas paredes que o mistério da Encarnação aconteceu. A imagem original da Virgem era negra (devido à fumaça das velas e lamparinas de séculos), mas foi destruída num incêndio em 1921, sendo substituída por uma réplica.</p>
+      <p class="mt-4"><b>Oração:</b> Ó Deus, que confiastes à proteção dos anjos a Santa Casa da Mãe do vosso Filho, concedei-nos, por intercessão de Nossa Senhora de Loreto, que sejamos protegidos em nossos caminhos e voos, e cheguemos seguros à morada eterna.</p><p class="mt-2 italic">Nossa Senhora de Loreto, rogai por nós.</p>`
     }]
   },
   {
@@ -1906,7 +2672,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Dâmaso I',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Papa das Catacumbas</h4><p>São Dâmaso I, papa do século IV, foi um grande defensor da fé e da memória dos mártires. Foi ele quem encarregou São Jerônimo de traduzir a Bíblia para o latim (a Vulgata) e quem restaurou e identificou os túmulos dos mártires nas catacumbas romanas, compondo belos epitáfios em verso. Fortaleceu a autoridade da Sé de Pedro.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Papa São Dâmaso nos destes um exemplo de amor à vossa Palavra e aos vossos santos, concedei-nos venerar a memória dos que nos precederam na fé e seguir seus exemplos.</p><p class="mt-2 italic">São Dâmaso, rogai por nós.</p>`
     }]
   },
@@ -1916,7 +2682,10 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     saints: [{
       name: 'Nossa Senhora de Guadalupe',
       imageUrl: 'https://iili.io/ffgFDXV.png',
-      story: `<h4>A Imperatriz da América</h4><p>Nossa Senhora de Guadalupe apareceu em 1531 ao índio Juan Diego no México. Deixou sua imagem impressa no manto do vidente, uma imagem repleta de simbolismos que falavam diretamente ao coração dos povos indígenas e espanhóis, unindo-os na mesma fé. É a Padroeira de toda a América, símbolo da evangelização inculturada e do amor maternal de Maria que nos diz: "Não estou eu aqui, que sou tua Mãe?".</p><p class="mt-4"><b>Oração:</b> Ó Deus, Pai de misericórdia, que colocastes o vosso povo sob a especial proteção da Sempre Virgem Maria de Guadalupe, concedei a todos os vossos filhos a graça de se unirem na fé e na caridade.</p><p class="mt-2 italic">Nossa Senhora de Guadalupe, rogai por nós.</p>`
+      story: `<h4>A Imperatriz da América</h4><p>Em dezembro de 1531, a Virgem Maria apareceu ao humilde índio Juan Diego na colina de Tepeyac, no México. Ela pediu que fosse construído um templo naquele local. O bispo, cético, pediu um sinal. A Virgem instruiu Juan Diego a colher rosas no topo da colina árida e em pleno inverno. Ele as encontrou, colheu-as e levou-as em sua tilma (manto) ao bispo. Ao abrir o manto, as rosas caíram e revelaram a imagem milagrosa de Nossa Senhora impressa no tecido.</p>
+      <h4>O Mistério da Tilma</h4><p>A tilma de Juan Diego, feita de fibra de cacto (ayate), deveria ter se desintegrado em poucos anos, mas permanece intacta há quase cinco séculos. Estudos científicos revelaram fatos impressionantes: a imagem não possui traços de pintura ou pinceladas; a temperatura do tecido mantém-se constante em 36,6°C (como o corpo humano); e nos olhos da Virgem, ampliações microscópicas revelaram o reflexo de 13 figuras humanas, correspondendo às pessoas presentes no momento do milagre.</p>
+      <h4>Curiosidades</h4><p>A disposição das estrelas no manto da Virgem corresponde exatamente à constelação do céu do México no dia da aparição, 12 de dezembro de 1531. Além disso, a imagem sobreviveu a um atentado a bomba em 1921, onde um crucifixo de metal se dobrou, mas o vidro e a tilma permaneceram intactos. Ela é a Padroeira das Américas e a maior devoção mariana do mundo.</p>
+      <p class="mt-4"><b>Oração:</b> Ó Deus, Pai de misericórdia, que colocastes o vosso povo sob a especial proteção da Sempre Virgem Maria de Guadalupe, concedei a todos os vossos filhos a graça de se unirem na fé e na caridade, e de serem protegidos por seu manto maternal.</p><p class="mt-2 italic">Nossa Senhora de Guadalupe, rogai por nós.</p>`
     }]
   },
   {
@@ -1925,7 +2694,10 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     saints: [{
       name: 'Santa Luzia',
       imageUrl: 'https://iili.io/ffgqFiN.png',
-      story: `<h4>A Portadora da Luz</h4><p>Santa Luzia, cujo nome significa "Luz", foi uma virgem e mártir de Siracusa no século IV. Consagrou sua virgindade a Deus e distribuiu seus bens aos pobres. Denunciada como cristã, sofreu terríveis torturas, mas permaneceu firme. A tradição invoca sua proteção contra as doenças dos olhos e a cegueira, tanto física quanto espiritual.</p><p class="mt-4"><b>Oração:</b> Ó Santa Luzia, que preferistes que vossos olhos fossem vazados e arrancados antes de negar a fé e contaminar vossa alma; e Deus, com um milagre extraordinário, vos devolveu outros dois olhos sãos e perfeitos para recompensar vossa virtude e vossa fé, e vos constituiu protetora contra as doenças dos olhos, eu recorro a vós.</p><p class="mt-2 italic">Santa Luzia, rogai por nós.</p>`
+      story: `<h4>A Portadora da Luz</h4><p>Santa Luzia (cujo nome deriva de "lux", luz) foi uma jovem mártir de Siracusa, na Itália, no século IV. Consagrou sua virgindade a Deus e distribuiu sua fortuna aos pobres, o que enfureceu seu pretendente pagão, que a denunciou. Durante seu julgamento, tentaram levá-la à força para um prostíbulo, mas seu corpo tornou-se tão pesado que nem uma junta de bois conseguiu movê-la.</p>
+      <h4>O Milagre dos Olhos</h4><p>A tradição mais famosa conta que, como parte de seu martírio, seus olhos foram arrancados (ou que ela mesma os arrancou para afastar o pretendente). Milagrosamente, Deus lhe restituiu a visão, dando-lhe olhos ainda mais belos antes de sua morte. Por isso, ela é invocada como a protetora da visão e das doenças oculares. Na arte, é frequentemente representada segurando uma bandeja com dois olhos.</p>
+      <h4>Curiosidades</h4><p>Santa Luzia é uma das poucas santas celebradas também pelos luteranos, especialmente na Escandinávia, onde sua festa marca o início das celebrações de Natal com procissões de meninas vestidas de branco portando velas (trazendo luz no inverno escuro). Dante Alighieri, na "Divina Comédia", atribui a ela a graça iluminadora que o auxiliou em sua jornada.</p>
+      <p class="mt-4"><b>Oração:</b> Ó Santa Luzia, que preferistes que vossos olhos fossem vazados e arrancados antes de negar a fé e contaminar vossa alma; e Deus, com um milagre extraordinário, vos devolveu outros dois olhos sãos e perfeitos para recompensar vossa virtude e vossa fé, e vos constituiu protetora contra as doenças dos olhos, eu recorro a vós.</p><p class="mt-2 italic">Santa Luzia, rogai por nós.</p>`
     }]
   },
   {
@@ -1942,7 +2714,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Maria Vitória',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>A Viúva Consagrada</h4><p>Santa Maria Vitória de Fornari Strata, após ficar viúva, decidiu consagrar-se inteiramente a Deus. Fundou a Ordem da Anunciação Celeste (conhecidas como Irmãs Azuis), dedicando-se à oração e à vida contemplativa. Exemplo de esposa, mãe e religiosa, mostrou que a santidade é possível em todos os estados de vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Maria Vitória a buscar a perfeição na caridade e na oração, concedei-nos, por sua intercessão, vivermos com fidelidade a nossa vocação cristã.</p><p class="mt-2 italic">Santa Maria Vitória, rogai por nós.</p>`
     }]
   },
@@ -1951,7 +2723,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Adelaide',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>A Imperatriz da Caridade</h4><p>Santa Adelaide, imperatriz do Sacro Império Romano-Germânico no século X, teve uma vida marcada por reviravoltas, exílios e sofrimentos. No entanto, nunca perdeu a fé nem a bondade. Usou seu poder para construir igrejas, mosteiros e, principalmente, para socorrer os pobres e necessitados. Terminou seus dias num mosteiro, em oração.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ornastes Santa Adelaide com a coroa da glória eterna por sua humildade e caridade, ajudai-nos a usar nossos dons para o bem do próximo e para a vossa glória.</p><p class="mt-2 italic">Santa Adelaide, rogai por nós.</p>`
     }]
   },
@@ -1960,7 +2732,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Lázaro',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Amigo de Jesus</h4><p>São Lázaro, irmão de Marta e Maria, vivia em Betânia e hospedava Jesus em sua casa. É conhecido pelo milagre de sua ressurreição, when Jesus o chamou para fora do túmulo após quatro dias de morto. A tradição conta que, após a Ascensão de Jesus, tornou-se bispo e morreu mártir. Sua vida nos lembra que Jesus é a Ressurreição e a Vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Lázaro a graça de ser chamado amigo de vosso Filho e de ser por Ele ressuscitado, dai-nos crer firmemente na vida eterna e na vitória sobre a morte.</p><p class="mt-2 italic">São Lázaro, rogai por nós.</p>`
     }]
   },
@@ -1969,7 +2741,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Nossa Senhora do Bom Parto',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>A Esperança das Mães</h4><p>A devoção a Nossa Senhora do Bom Parto é muito antiga e querida pelas gestantes. Invoca-se a Virgem Maria, que deu à luz o Salvador, para que proteja as mães e seus filhos no momento do nascimento, concedendo um parto feliz e seguro. É um título que celebra a maternidade divina e a proteção de Maria sobre toda vida nascente.</p><p class="mt-4"><b>Oração:</b> Ó Maria, Virgem Mãe, que no parto de Jesus sentistes as alegrias da maternidade divina, olhai com bondade para todas as gestantes e concedei-lhes um bom parto e filhos saudáveis para a glória de Deus.</p><p class="mt-2 italic">Nossa Senhora do Bom Parto, rogai por nós.</p>`
     }]
   },
@@ -1978,7 +2750,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Beato Urbano V',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Papa Reformador</h4><p>O Beato Urbano V, papa beneditino do século XIV, foi um homem de grande santidade e cultura. Esforçou-se para reformar os costumes do clero, promover o estudo e, principalmente, trazer a sede do papado de volta a Roma, que estava exilada em Avignon. Embora tenha tido que retornar à França, seu pontificado foi marcado pelo zelo pastoral e pela caridade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Beato Urbano V nos destes um exemplo de zelo pela vossa casa e de amor à Igreja, concedei-nos trabalhar sempre pela unidade e santidade do vosso povo.</p><p class="mt-2 italic">Beato Urbano V, rogai por nós.</p>`
     }]
   },
@@ -1987,7 +2759,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Domingos de Silos',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Abade Libertador</h4><p>São Domingos de Silos, abade beneditino espanhol do século XI, foi um grande reformador monástico. Transformou o mosteiro de Silos num centro de espiritualidade e cultura. É famoso pelos milagres de libertação de cristãos cativos dos mouros (daí as correntes em sua iconografia) e é invocado como patrono dos partos difíceis.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Domingos de Silos a graça de libertar os cativos e socorrer as mães em perigo, ouvi as nossas preces e livrai-nos de todo mal.</p><p class="mt-2 italic">São Domingos de Silos, rogai por nós.</p>`
     }]
   },
@@ -1996,7 +2768,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Pedro Canísio',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Segundo Apóstolo da Alemanha</h4><p>São Pedro Canísio, jesuíta holandês e Doutor da Igreja, foi uma figura chave da Contrarreforma católica. Percorreu a Alemanha pregando, fundando colégios e escrevendo catecismos populares que ajudaram a preservar e restaurar a fé católica em muitas regiões. Dizia que "não se deve combater os hereges com palavras ásperas, mas com a caridade e a verdade".</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fortalecestes o sacerdote São Pedro Canísio com a sabedoria e a coragem para defender a fé católica, concedei-nos a graça de buscar a verdade com alegria e testemunhá-la com amor.</p><p class="mt-2 italic">São Pedro Canísio, rogai por nós.</p>`
     }]
   },
@@ -2005,7 +2777,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Francisca Xavier Cabrini',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>A Mãe dos Imigrantes</h4><p>Santa Francisca Xavier Cabrini, primeira cidadã americana a ser canonizada, nasceu na Itália. Fundou as Missionárias do Sagrado Coração e, a pedido do Papa, foi para os Estados Unidos servir os imigrantes italianos. Construiu escolas, orfanatos e hospitais, cruzando o oceano inúmeras vezes. Sua vida foi uma entrega total aos mais necessitados.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que em Santa Francisca Xavier Cabrini nos destes um modelo de caridade incansável para com os migrantes e necessitados, ensinai-nos a ver o Cristo no irmão que sofre e a servi-lo com generosidade.</p><p class="mt-2 italic">Santa Francisca Xavier Cabrini, rogai por nós.</p>`
     }]
   },
@@ -2014,7 +2786,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Câncio',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Professor Santo</h4><p>São João Câncio, sacerdote polonês, foi professor de teologia na Universidade de Cracóvia. Destacou-se não apenas pela sua erudição, mas principalmente pela sua profunda humildade, vida de oração e caridade para com os estudantes pobres. Partilhava tudo o que tinha, ensinando que o saber deve levar ao amor.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fizestes de São João Câncio um modelo de perfeição sacerdotal e acadêmica, concedei-nos progredir na ciência dos santos e na prática da caridade.</p><p class="mt-2 italic">São João Câncio, rogai por nós.</p>`
     }]
   },
@@ -2023,7 +2795,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Paula Isabel Cerioli',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>A Mãe dos Órfãos</h4><p>Santa Paula Isabel Cerioli, nobre italiana, experimentou a dor da perda de seus filhos e do marido. Transformou seu luto em amor materno universal, dedicando sua vida e fortuna a acolher crianças órfãs e camponesas, fundando as Irmãs da Sagrada Família. Encontrou na caridade o consolo e a santidade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Paula Isabel a ver nos órfãos e pobres a imagem de vosso Filho Jesus, concedei-nos um coração compassivo e generoso para com os que sofrem.</p><p class="mt-2 italic">Santa Paula Isabel Cerioli, rogai por nós.</p>`
     }]
   },
@@ -2041,7 +2813,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santo Estevão',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Protomártir</h4><p>Santo Estevão foi o primeiro mártir cristão, um dos sete primeiros diáconos escolhidos pelos Apóstolos. Cheio de fé e do Espírito Santo, realizava grandes prodígios. Ao ser apedrejado até a morte, viu o céu aberto e Jesus à direita de Deus, e morreu perdoando seus assassinos, imitando perfeitamente o Mestre. Seu sangue foi semente de novos cristãos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, concedei-nos a graça de imitar o que veneramos, para que aprendamos a amar também os nossos inimigos, pois celebramos o dia natalício daquele que soube rezar pelos seus perseguidores.</p><p class="mt-2 italic">Santo Estevão, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2051,7 +2823,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Evangelista',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Discípulo Amado</h4><p>São João, apóstolo e evangelista, é conhecido como "o discípulo que Jesus amava". Autor do quarto Evangelho, de três epístolas e do Apocalipse, foi quem reclinou a cabeça no peito do Mestre na Última Ceia e quem acolheu Maria como mãe aos pés da cruz. Sua teologia voa alto como a águia, contemplando o mistério do Verbo de Deus.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que pelo apóstolo São João nos revelastes os mistérios do vosso Verbo, tornai-nos capazes de compreender e amar o que ele nos ensinou com tanta excelência.</p><p class="mt-2 italic">São João Evangelista, rogai por nós.</p>`
     }]
   },
@@ -2060,7 +2832,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santos Inocentes',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>As Flores dos Mártires</h4><p>Os Santos Inocentes são as crianças de Belém, de dois anos para baixo, que foram mortas por ordem do rei Herodes, que buscava eliminar o Menino Jesus. São considerados as "primícias dos mártires", pois deram a vida por Cristo não com palavras, mas com o próprio sangue, antes mesmo de poderem falar. A Igreja os venera como tenras flores cortadas antes do tempo.</p><p class="mt-4"><b>Oração:</b> Ó Deus, cujos louvores os mártires Inocentes proclamaram hoje não com palavras, mas com a morte, mortificai em nós os vícios, para que a nossa vida testemunhe a fé que a nossa língua professa.</p><p class="mt-2 italic">Santos Inocentes, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2070,7 +2842,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Tomás Becket',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Defensor da Liberdade da Igreja</h4><p>São Tomás Becket, arcebispo de Cantuária e chanceler da Inglaterra, passou de amigo do rei Henrique II a seu opositor when se tratou de defender os direitos e a liberdade da Igreja. Exilado e depois retornado, foi brutalmente assassinado na sua própria catedral por cavaleiros do rei. Seu martírio comoveu a Europa e tornou seu túmulo um grande centro de peregrinação.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que destes a São Tomás Becket a grandeza de alma para dar a vida por vossa Igreja, concedei-nos, por sua intercessão, que, perdendo a vida por Cristo neste mundo, a encontremos no céu.</p><p class="mt-2 italic">São Tomás Becket, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2080,7 +2852,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Sagrada Família',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Modelo de Nossos Lares</h4><p>A festa da Sagrada Família nos apresenta Jesus, Maria e José como o modelo santíssimo de vida doméstica. Na casa de Nazaré, reinava o amor, o trabalho, a oração, a obediência e o silêncio. É a escola do Evangelho, onde aprendemos a viver em comunhão e a buscar a vontade de Deus em todas as coisas. É o ícone da Igreja doméstica.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que nos destes a Sagrada Família como exemplo, concedei-nos imitar em nossos lares as suas virtudes e o seu amor, para que, um dia, possamos nos alegrar na vossa casa eterna.</p><p class="mt-2 italic">Jesus, Maria e José, a nossa família vossa é!</p>`
     }]
   },
@@ -2089,7 +2861,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Silvestre I',
-      imageUrl: '',
+      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
       story: `<h4>O Papa da Liberdade</h4><p>São Silvestre I foi o papa que governou a Igreja logo após o Edito de Milão, que deu liberdade aos cristãos. Seu longo pontificado viu a construção das grandes basílicas romanas (São João de Latrão, São Pedro) e a organização da vida litúrgica pública da Igreja. É o santo que encerra o ano civil, convidando-nos a agradecer a Deus pelos benefícios recebidos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, vinde em auxílio do vosso povo, que se alegra com a intercessão do Papa São Silvestre, para que, passando esta vida sob a vossa direção, possa chegar à vida que não tem fim.</p><p class="mt-2 italic">São Silvestre, rogai por nós.</p>`
     }]
   },

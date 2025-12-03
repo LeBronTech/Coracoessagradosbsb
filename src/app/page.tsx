@@ -97,6 +97,7 @@ export default function Home() {
   const [marianCarouselCurrent, setMarianCarouselCurrent] = useState(0)
   const [isRosarioDescriptionOpen, setIsRosarioDescriptionOpen] = useState(false);
   const [shouldScrollToNovena, setShouldScrollToNovena] = useState(false);
+  const [showNatalNovenaDialog, setShowNatalNovenaDialog] = useState(false);
 
   useEffect(() => {
     if (!marianCarouselApi) return
@@ -136,7 +137,10 @@ export default function Home() {
     if (showJoseNovenaDialog) {
       window.history.pushState({ modal: 'joseNovena' }, '');
     }
-  }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog]);
+    if (showNatalNovenaDialog) {
+      window.history.pushState({ modal: 'natalNovena' }, '');
+    }
+  }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog, showNatalNovenaDialog]);
 
 
   const { toast } = useToast();
@@ -274,11 +278,39 @@ export default function Home() {
   );
 
   const selectedSaint = useMemo(
-    () => saints.find(saint => saint.id === selectedSaintId) || null,
+    () => {
+      if (selectedSaintId === 'natal_sao_leao') {
+        return {
+          id: 'natal_sao_leao',
+          name: 'São Leão Magno',
+          imageUrl: 'https://iili.io/ffgFVsI.jpg',
+          month: 'Dezembro',
+          startDate: '17/12',
+          endDate: '25/12',
+          feastDay: '25 de Dezembro'
+        };
+      }
+      if (selectedSaintId === 'natal_familia') {
+        return {
+          id: 'natal_familia',
+          name: 'Sagrada Família',
+          imageUrl: 'https://iili.io/ffgFVsI.jpg',
+          month: 'Dezembro',
+          startDate: '17/12',
+          endDate: '25/12',
+          feastDay: '25 de Dezembro'
+        };
+      }
+      return saints.find(saint => saint.id === selectedSaintId) || null;
+    },
     [selectedSaintId]
   );
 
   const handleSelectSaint = (id: string) => {
+    if (id === 'natal') {
+      setShowNatalNovenaDialog(true);
+      return;
+    }
     setSelectedSaintId(id);
     const saint = saints.find(s => s.id === id);
     if (saint) setSelectedMonth(saint.month);
@@ -287,7 +319,14 @@ export default function Home() {
   const handleMonthChange = (month: string) => {
     setSelectedMonth(month);
     const saintsInNewMonth = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(month));
-    if (selectedSaintId && !saintsInNewMonth.some(s => s.id === selectedSaintId)) {
+
+    // Check if the current selected ID is valid for the new month
+    const isValidForMonth = saintsInNewMonth.some(s => s.id === selectedSaintId);
+
+    // Special case for Natal novenas which are not in the main saints list but belong to December
+    const isNatalNovena = (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia') && month === 'Dezembro';
+
+    if (selectedSaintId && !isValidForMonth && !isNatalNovena) {
       setSelectedSaintId(null);
     }
   }
@@ -303,6 +342,7 @@ export default function Home() {
 
   const handleNavigateToNovena = (saintId: string) => {
     setShowJoseNovenaDialog(false);
+    setShowNatalNovenaDialog(false);
     setIsJoseDialogOpen(false);
     setIsMarianDialogOpen(false);
 
@@ -312,6 +352,10 @@ export default function Home() {
       setSelectedSaintId(saintId);
       // Aguarda o fechamento do diálogo (animação) antes de rolar
       // para garantir que a rolagem com comportamento 'smooth' fique visível.
+      setTimeout(() => setShouldScrollToNovena(true), 220);
+    } else if (saintId === 'natal_sao_leao' || saintId === 'natal_familia') {
+      setSelectedMonth('Dezembro');
+      setSelectedSaintId(saintId);
       setTimeout(() => setShouldScrollToNovena(true), 220);
     }
   }
@@ -562,6 +606,26 @@ export default function Home() {
             </AlertDialogAction>
             <AlertDialogAction onClick={() => handleNavigateToNovena('sao_jose_operario')}>
               São José Operário (1 de Maio)
+            </AlertDialogAction>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={showNatalNovenaDialog} onOpenChange={setShowNatalNovenaDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Qual Novena de Natal você gostaria de rezar?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Escolha entre as meditações profundas de São Leão Magno ou a novena para rezar em família.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex-col gap-2 sm:flex-row">
+            <AlertDialogAction onClick={() => handleNavigateToNovena('natal_sao_leao')}>
+              Novena com São Leão Magno
+            </AlertDialogAction>
+            <AlertDialogAction onClick={() => handleNavigateToNovena('natal_familia')}>
+              Novena de Natal em Família
             </AlertDialogAction>
             <AlertDialogCancel>Cancelar</AlertDialogCancel>
           </AlertDialogFooter>
