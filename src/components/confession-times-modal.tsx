@@ -282,7 +282,7 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
                         <p className="text-sm break-words text-center font-medium leading-relaxed">{parish.times}</p>
                         <div className="flex items-center justify-center flex-wrap mt-4 gap-2">
                           <a
-                            href={parish.location}
+                            href={parish.location || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${parish.name} ${parish.address} DF`)}`}
                             target="_blank"
                             rel="noreferrer"
                             className={`px-3 py-1.5 text-xs font-bold uppercase tracking-wider rounded-md shadow-sm transition-colors duration-200 flex items-center gap-1 ${isRedBg ? 'bg-white text-red-800 hover:bg-gray-100' : 'bg-red-800 text-white hover:bg-red-700'}`}>
