@@ -2650,7 +2650,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Diego',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: '/images/sao_joao_diego.png',
       story: `<h4>O Mensageiro da Virgem</h4><p>São João Diego Cuauhtlatoatzin, índio asteca convertido, foi o escolhido por Nossa Senhora de Guadalupe para ser seu mensageiro em 1531. Humilde e simples, ele presenciou as aparições no monte Tepeyac e levou ao bispo as rosas de Castela e a sua tilma (manto) onde ficou impressa milagrosamente a imagem da Virgem. Sua vida foi marcada pela devoção e pelo serviço ao santuário que se ergueu.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que por meio de São João Diego mostrastes o amor de vossa Mãe pelos mais humildes, concedei-nos a graça de ouvir com coração atento a vossa palavra e de servir aos nossos irmãos com generosidade.</p><p class="mt-2 italic">São João Diego, rogai por nós.</p>`
     }]
   },
@@ -2672,7 +2672,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Dâmaso I',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: '/images/sao_damaso.jpg',
       story: `<h4>O Papa das Catacumbas</h4><p>São Dâmaso I, papa do século IV, foi um grande defensor da fé e da memória dos mártires. Foi ele quem encarregou São Jerônimo de traduzir a Bíblia para o latim (a Vulgata) e quem restaurou e identificou os túmulos dos mártires nas catacumbas romanas, compondo belos epitáfios em verso. Fortaleceu a autoridade da Sé de Pedro.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Papa São Dâmaso nos destes um exemplo de amor à vossa Palavra e aos vossos santos, concedei-nos venerar a memória dos que nos precederam na fé e seguir seus exemplos.</p><p class="mt-2 italic">São Dâmaso, rogai por nós.</p>`
     }]
   },
@@ -2713,9 +2713,9 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     day: 15,
     month: 'Dezembro',
     saints: [{
-      name: 'Santa Maria Vitória',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
-      story: `<h4>A Viúva Consagrada</h4><p>Santa Maria Vitória de Fornari Strata, após ficar viúva, decidiu consagrar-se inteiramente a Deus. Fundou a Ordem da Anunciação Celeste (conhecidas como Irmãs Azuis), dedicando-se à oração e à vida contemplativa. Exemplo de esposa, mãe e religiosa, mostrou que a santidade é possível em todos os estados de vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Maria Vitória a buscar a perfeição na caridade e na oração, concedei-nos, por sua intercessão, vivermos com fidelidade a nossa vocação cristã.</p><p class="mt-2 italic">Santa Maria Vitória, rogai por nós.</p>`
+      name: 'São Valeriano, Bispo',
+      imageUrl: '/images/sao_valeriano.jpg',
+      story: `<h4>O Bispo Confessor</h4><p>São Valeriano foi bispo de Abbenza, no norte da África, no século V. Durante a perseguição dos Vândalos, liderada pelo rei Genserico, que era ariano, Valeriano foi intimado a entregar os vasos sagrados da Igreja. O santo bispo recusou-se firmemente a profanar as coisas de Deus. Como punição, foi expulso da cidade aos 80 anos de idade, com a proibição de que alguém lhe desse abrigo ou alimento. Morreu ao relento, como um verdadeiro confessor da fé, preferindo perder a vida a trair o seu sagrado dever.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Valeriano a graça de defender com coragem os bens da vossa Igreja, dai-nos a força de proteger a nossa fé e de nunca ceder diante das pressões do mundo.</p><p class="mt-2 italic">São Valeriano, rogai por nós.</p>`
     }]
   },
   {
