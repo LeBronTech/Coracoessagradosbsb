@@ -285,8 +285,8 @@ export default function Home() {
           name: 'São Leão Magno',
           imageUrl: 'https://iili.io/ffgFVsI.jpg',
           month: 'Dezembro',
-          startDate: '17/12',
-          endDate: '25/12',
+          startDate: '16/12',
+          endDate: '24/12',
           feastDay: '25 de Dezembro'
         };
       }
@@ -296,8 +296,8 @@ export default function Home() {
           name: 'Sagrada Família',
           imageUrl: 'https://iili.io/ffgFVsI.jpg',
           month: 'Dezembro',
-          startDate: '17/12',
-          endDate: '25/12',
+          startDate: '16/12',
+          endDate: '24/12',
           feastDay: '25 de Dezembro'
         };
       }

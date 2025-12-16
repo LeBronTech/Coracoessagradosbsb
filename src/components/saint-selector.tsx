@@ -25,80 +25,100 @@ interface SaintSelectorProps {
 
 const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<SaintSelectorProps, 'months' | 'selectedMonth' | 'onMonthChange'>) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(OPTIONS);
-  const [slideStates, setSlideStates] = useState<{ [key: number]: string }>({});
 
   const onSelect = useCallback((api: EmblaApi) => {
     if (!api) return;
-
     const newSelectedIndex = api.selectedScrollSnap();
     onMonthChange(months[newSelectedIndex]);
-
-    const newSlideStates: { [key: number]: string } = {};
-    const totalSlides = api.scrollSnapList().length;
-
-    api.slideNodes().forEach((_, index) => {
-      let state = '';
-      if (index === newSelectedIndex) {
-        state = 'active';
-      } else {
-        const diff = index - newSelectedIndex;
-        const dist = Math.abs(diff);
-        const loopedDist = Math.min(dist, totalSlides - dist);
-
-        if (loopedDist === 1) {
-          if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
-            state = 'next1';
-          } else {
-            state = 'prev1';
-          }
-        } else if (loopedDist === 2) {
-          if ((diff > 0 && diff < totalSlides / 2) || (diff < 0 && diff < -totalSlides / 2)) {
-            state = 'next2';
-          } else {
-            state = 'prev2';
-          }
-        }
-      }
-      newSlideStates[index] = state;
-    });
-    setSlideStates(newSlideStates);
   }, [onMonthChange, months]);
 
+  const onScroll = useCallback((api: EmblaApi) => {
+    if (!api) return;
+
+    const viewportCenter = api.rootNode().getBoundingClientRect().width / 2;
+    const nodes = api.slideNodes();
+
+    nodes.forEach((node) => {
+      const nodeRect = node.getBoundingClientRect();
+      const nodeCenter = nodeRect.left + nodeRect.width / 2;
+      const parentRect = api.rootNode().getBoundingClientRect();
+
+      const relativeCenter = nodeCenter - parentRect.left;
+      const dist = Math.abs(viewportCenter - relativeCenter);
+
+      let scale = 0.7;
+      let opacity = 0.6;
+
+      // Adjusted thresholds for neighbors (approx 160px width)
+      if (dist < 100) {
+        scale = 1.1; // Active
+        opacity = 1;
+      } else if (dist < 260) {
+        scale = 0.85; // Immediate neighbors
+        opacity = 0.8;
+      }
+
+      node.style.transform = `scale(${scale})`;
+      node.style.opacity = `${opacity}`;
+    });
+  }, []);
 
   useEffect(() => {
     if (!emblaApi) return;
     const initialIndex = months.indexOf(selectedMonth);
-    if (initialIndex !== -1) {
+    const currentIndex = emblaApi.selectedScrollSnap();
+
+    if (initialIndex !== -1 && initialIndex !== currentIndex) {
       emblaApi.scrollTo(initialIndex, true);
     }
-    onSelect(emblaApi);
-    emblaApi.on('select', onSelect);
-    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, months, selectedMonth]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+
+    const handleEvents = () => {
+      onScroll(emblaApi);
+    }
+    const handleSelect = () => onSelect(emblaApi);
+
+    // Initial paint
+    handleEvents();
+
+    emblaApi.on('select', handleSelect);
+    emblaApi.on('scroll', handleEvents);
+    emblaApi.on('reInit', handleEvents);
+    emblaApi.on('reInit', handleSelect);
+
+    // IMPORTANT: Force re-layout after mount to position clones
+    setTimeout(() => {
+      emblaApi.reInit();
+    }, 100);
 
     return () => {
-      if (emblaApi) {
-        emblaApi.off('select', onSelect);
-        emblaApi.off('reInit', onSelect);
-      }
+      emblaApi.off('select', handleSelect);
+      emblaApi.off('scroll', handleEvents);
+      emblaApi.off('reInit', handleEvents);
+      emblaApi.off('reInit', handleSelect);
     };
-  }, [emblaApi, months, selectedMonth, onSelect]);
+  }, [emblaApi, onSelect, onScroll]);
 
   const handleMonthClick = (index: number) => {
     if (emblaApi) emblaApi.scrollTo(index);
   }
 
   return (
-    <div className="overflow-hidden month-carousel py-4" ref={emblaRef}>
-      <div className="flex">
+    <div className="overflow-hidden month-carousel py-4 w-full" ref={emblaRef} style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
+      <div className="flex touch-pan-y shadow-inner-top">
         {months.map((month, index) => (
           <div
-            className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative', `embla__slide--${slideStates[index]}`)}
+            className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative embla__slide select-none')}
             key={month + index}
+            style={{ transform: 'scale(0.7)', opacity: 0.6 }}
           >
             <button
               onClick={() => handleMonthClick(index)}
               className={cn(
-                'month-nav-btn text-lg font-brand text-gray-600 w-full',
+                'month-nav-btn text-lg font-brand text-gray-600 w-full cursor-pointer',
                 selectedMonth === month && 'active'
               )}
             >
@@ -129,15 +149,7 @@ function SaintSelector({
       // Helper to parse "DD/MM"
       const parseDate = (d: string) => {
         const [day, month] = d.split('/').map(Number);
-        // Treat months 11 and 12 as "later" in year than 01, but we need context of current month view.
-        // If sorting for "Dezembro" view, items from November should probably come first IF they overlap?
-        // Actually, let's just use a simple mock year.
-        // If the month is January (1), it's next year for Dezembro/Janeiro items.
-        // But for filtering by 'selectedMonth', we usually look at the period relevant to that month.
-
-        // Simple 2024/2025 logic:
-        // If month is > 6, it's late year. If < 6, early year.
-        // This holds for Nov/Dec/Jan range.
+        // Think about year logic for Dec/Jan crossover if needed
         const year = month > 6 ? 2024 : 2025;
         return new Date(year, month - 1, day).getTime();
       };
