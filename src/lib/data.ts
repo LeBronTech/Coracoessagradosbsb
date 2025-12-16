@@ -1907,31 +1907,61 @@ export const novenaData: Record<string, Novena> = {
   },
 
   // Janeiro Novenas
-  menino_jesus_praga: {
-    saintName: 'Menino Jesus de Praga',
-    novenaTitle: 'Novena ao Menino Jesus de Praga',
-    description: 'Devoção à infância de Jesus e suas virtudes.',
-    image: 'https://placehold.co/400x400?text=Menino+Jesus',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
-  },
+
   santo_antao: {
     saintName: 'Santo Antão',
     novenaTitle: 'Novena a Santo Antão',
-    description: 'Pai do monaquismo cristão e protetor contra tentações.',
-    image: 'https://placehold.co/400x400?text=Santo+Antao',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
+    description: 'Pai do monaquismo cristão e protetor contra as tentações.',
+    image: 'https://i.pinimg.com/736x/cf/a9/b6/cfa9b672576ad12bf372aecd49d2ef60.jpg',
+    initialPrayer: `<div class="initial-prayer-text"><div class="prayer-block"><p>Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div></div>`,
+    finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração Final</h4><div class="prayer-block"><p>Ó Deus, que permitistes que, mesmo na solidão de uma gruta, no deserto, o demónio perturbasse Santo Antão com violentas tentações, mas lhe destes força de vencê-las, enviai-me, do céu, o Vosso socorro, because eu vivo num ambiente minado de tentações que me agridem, pelo celular, rádio, televisão, novelas, bailes, cinemas, revistas, propagandas e maus companheiros.</p><p>Santo Antão, ficai sempre ao meu lado; vós que vencestes o demônio, na aparência de um bicho imundo, me dareis força na tentação. Amém.</p><p class="mt-4 font-semibold">Santo Antão, rogai por nós!</p></div></div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: 'A Vocação de Antão',
+        content: `<div class="day-specific-content"><p>Santo Antão nasceu em 251 na cidade de Conam no Egito. Seus pais eram de boa linhagem e abastados. Depois da morte de seus pais ficou só com sua única irmã, muito mais jovem. Tinha então uns dezoito a vinte anos, e tomou cuidado da casa e de sua irmã. Menos de seis meses depois da morte de seus pais, ia, como de costume, a caminho da igreja. Enquanto caminhava, ia meditando e refletia como os apóstolos deixaram tudo e seguiram o Salvador; como, segundo se refere nos Atos dos apóstolos, os fiéis vendiam o que tinham e o punham aos pés dos Apóstolos para distribuição entre os necessitados, e quão grande é a esperança prometida nos céus para os que assim fazem. Pensando estas coisas, entrou na igreja. Aconteceu que nesse momento se estava lendo o evangelho, e ouviu a passagem em que o Senhor disse ao jovem rico: “Se queres ser perfeito, vende o que tens e dá-o aos pobres, depois vem, segue-me e terás um tesouro no céu”.</p><p>Mas o demônio, que odeia e inveja o bem, não podia ver tal resolução num jovem, e se pôs a empregar suas velhas táticas também contra ele. Primeiro tratou de fazê-lo desertar da vida ascética, recordando-lhe sua propriedade, o cuidado de sua irmã, os apegos da parentela, o amor do dinheiro, o amor à glória, os inumeráveis prazeres da mesa e todas as demais coisas agradáveis da vida. Finalmente apresentou-lhe a austeridade e tudo o que se segue a essa virtude, sugerindo-lhe que o corpo é fraco e o tempo é longo. Em resumo, despertou em sua mente toda uma nuvem de argumentos, procurando fazê-lo abandonar seu firme propósito. O inimigo viu, no entanto, que era impotente em face da determinação de Antão, e que antes era ele que estava sendo vencido pela firmeza do homem, derrotado por sua sólida fé e sua constante oração.</p></div>`
+      },
+      {
+        day: '2º Dia',
+        title: 'Luta contra o Demônio',
+        content: `<div class="day-specific-content"><p>Santo Antão estava um dia lutando contra o Demônio e travava com ele uma verdadeira luta física. Então, invocou a presença de Nosso Senhor. Clamou por Jesus, dizendo: “Salvai-me, Senhor!” E, de tanto clamar: “Kyrie Eleison!”, o Demônio, então, se retirou. Naquele momento, que Antão finalmente conseguiu a vitória sobre o Demônio, Jesus apareceu.</p><p>Santo Antão ficou um pouco triste. Olhou para Jesus e disse:</p><p class="italic">“Senhor! Onde estáveis when eu mais necessitava de vós?”</p><p>Então, Jesus com um olhar de misericórdia, olhou para Antão e disse:</p><p class="italic">“Antão, meu filho, Eu estava aqui o tempo todo. Mas, Eu queria te ver lutar.”</p><p>Deus gosta de nos ver lutar. Mesmo que não tenhamos o grau de virtude e não tenhamos recebido esta eleição, a missão específica de lutar fisicamente com o demônio, todos nós temos a missão de lutar. Talvez essa seja a principal razão para que Deus permita isso com esses homens Santos.</p></div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'Servir a Deus hoje',
+        content: `<div class="day-specific-content"><p>“Nada mais útil pode ser ao Cristão do que pensar todos os dias: Estou começando a servir a Deus e o dia de hoje pode ser o meu último” – Santo Antão.</p><p>O demônio jactando-se de suas tentações carnais, pois são sua preferida artimanha contra os jovens, atacou o jovem molestando-o de noite e instigando-o de dia, de tal modo que até os que viam Antão podiam aperceber-se da luta que se travava entre os dois. O inimigo queria sugerir-lhe pensamentos baixos, mas ele os dissipava com orações; procurava incitá-lo ao prazer, mas Antão, envergonhado, cingia seu corpo com sua fé, orações e jejuns. Atreveu-se então o perverso demônio a disfarçar-se em mulher e fazer-se passar por ela em todas as formas possíveis durante a noite, só para enganar Antão.</p><p>Mas ele encheu seus pensamentos de Cristo, refletiu sobre a nobreza da alma criada por Ele, e sua espiritualidade, e assim apagou o carvão ardente da tentação. E when de novo o inimigo lhe sugeriu o encanto sedutor do prazer, Antão, enfadado com razão, e entristecido, manteve seus propósitos com a ameaça do fogo e dos vermes. Sustentando isto no alto, como escudo, passou por tudo sem se dobrar. Toda essa experiência levou o inimigo a envergonhar-se. Em verdade, ele, que pensara ser como Deus, fez-se louco ante a resistência de um homem. Ele que em sua presunção desdenhava carne e sangue, foi agora derrotado por um homem de carne em sua carne. Verdadeiramente o Senhor trabalhava com este homem, Ele que por nós tornou-se carne e deu a seu corpo a vitória sobre o demônio. Assim, todos os que combatem seriamente podem dizer:</p><p class="italic">“Não eu, mas a graça de Deus comigo”.</p></div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'Discernimento dos Espíritos',
+        content: `<div class="day-specific-content"><p>Santo Antão havia descido para visitar as celas exteriores. Quando convidado a subir a um barco e orar com os monges, só ele percebeu um mau cheiro horrível e sumamente penetrante. A tripulação disse que havia a bordo pescado e alimento salgado e que o cheiro vinha disso, mas ele insistiu que o odor era diferente.</p><p>Enquanto estava falando, um jovem que tinha um demônio e subira a bordo pouco antes como clandestino, soltou de repente um guincho. Repreendido em nome de nosso Senhor Jesus Cristo, foi-se o demônio, e o homem voltou à normalidade; todos então se aperceberam de que o mau cheiro vinha do demônio.</p></div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'Dons de Revelação',
+        content: `<div class="day-specific-content"><p>Dois dos irmãos da ordem de Santo Antão estavam em viagem para vê-lo, e no caminho a água acabou. Um morreu e o outro estava a ponto de morrer. Já não tinha forças para andar, mas jazia no chão esperando também a morte. Sentado na montanha, Antão chamou dois monges que casualmente estavam ali e os compeliu a se apressarem:</p><p class="italic">“Tomem um jarro d’água e corram descendo pelo caminho do Egito; vinham dois, um acaba de morrer e o outro também morrerá se vocês não se apressarem. Foi-me revelado isto agora na oração”.</p><p>Foram-se os monges, acharam um morto e o enterraram. Ao outro fizeram-no reviver com água e o levaram ao ancião. A distância era de um dia de viagem. Agora, se alguém pergunta porque não falou antes de morrer o outro, sua pergunta é injustificada. O decreto de morte não passou por Antão, mas por Deus que a determinou para um, enquanto revelava a condição do outro. Quanto a Antão, o admirável é que, enquanto estava na montanha com seu coração tranquilo, mostrou-lhe o Senhor coisas distantes.</p></div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'Vitória sobre a Vaidade',
+        content: `<div class="day-specific-content"><p>Finalmente, when o dragão não pôde conquistar o jovem Antão nem por estes últimos meios, mas viu-se arrojado de seu coração, rangendo seus dentes, como diz a Escritura, mudou, por assim dizer, sua pessoa. Tal como é seu coração, assim lhe apareceu: como um moço preto; e como inclinando-se diante dele, já não o molestou com pensamentos, pois o impostor tinha sido lançado fora, mas usando voz humana disse-lhe:</p><p>“A muitos enganei e venci; mas agora que te ataquei a ti e teus esforços, como fiz com tantos outros, mostrei-me demasiadamente fraco”. “Quem és tu que me falas assim?”, perguntou-lhe Antão.</p><p>Apressou-se o outro a replicar com a voz lastimosa:</p><p class="italic">“Sou o amante da fornicação. Minha missão é espreitar a juventude e seduzi-la. Chamam-me o espirito de fornicação. A quantos eu enganei, decididos que estavam a cuidar de seus sentidos! A quantas pessoas castas seduzi com minhas lisonjas! Eu sou aquele por cuja causa o profeta censura os decaídos: ‘Foram enganados pelo espírito da fornicação’. Sim, fui eu que os levei à queda. Fui eu que tanto te molestei e tão a miúdo fui vencido por ti”.</p><p>Antão deu, pois, graças ao Senhor e armando-se de coragem contra ele, disse:</p><p>“És então inteiramente desprezível; és negro em tua alma, e tão débil como um menino. Doravante já não me causas nenhuma preocupação, because o Senhor está comigo e me auxilia: ‘Verei a derrota dos meus adversários’ “.</p><p>Ouvindo isto, o negro desapareceu imediatamente, inclinando-se a tais palavras e temendo acercar-se do homem. Mesmo com essa primeira vitória de Antão sobre o demônio; ou melhor, digamos que este singular êxito em Antão foi do Salvador, que “condenou o pecado na carne, a fim de que a justificação, prescrita na Lei fosse realizada em nós, que vivemos não segundo a carne, mas segundo o Espírito”. Mas Antão não se descuidou nem se acreditou garantindo por si mesmo pelo simples fato de se ter o demônio lançado a seus pés; tampouco o inimigo, ainda que vencido no combate, deixou de estar-lhe à espreita. Andava dando voltas em redor, como um leão, buscando uma ocasião contra ele.</p></div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'Austeridade e Perseverança',
+        content: `<div class="day-specific-content"><p>Antão tendo aprendido nas Escrituras quão diversos são os enganos do maligno, praticou seriamente a vida ascética, tendo em conta que, se não pudesse seduzir seu coração pelo prazer do corpo, trataria certamente de enganá-lo por algum outro método; because o amor do demônio é o pecado. Resolveu, por isso, acostumar-se a um modo mais austero de vida. Mortificou seu corpo sem mais, e o sujeitou, para não acontecer que, tendo vencido uma ocasião, perdesse em outra. Muitos se maravilhavam de suas austeridades, porém ele próprio as suportava com facilidade. O zelo que havia penetrado sua alma por tanto tempo transformou-se pelo costume em segunda natureza, de modo que ainda a menor inspiração recebida de outros levava-o a responder com grande entusiasmo. Por exemplo, observava as vigílias noturnas com tal determinação, que a miúdo passava toda a noite sem dormir, e isso não só uma vez, mas muitas, para admiração de todos. Assim também comia só uma vez ao dia, depois do cair do sol; às vezes cada dois dias, e com frequência tomava seu alimento só depois de quatro dias. Sua alimentação consistia em pão e sal; como bebida tomava só água. Não necessitamos sequer mencionar carne ou vinho, because tais coisas tampouco se encontravam entre os demais ascetas. Contentava-se em dormir sobre uma esteira, embora regularmente o fizesse sobre o simples chão. Desprezava o uso de unguentos para a pele, dizendo que os jovens devem praticar a vida ascética com seriedade e não andar buscando coisas que amolecem o corpo; deviam antes acostumar-se ao trabalho duro, tendo em conta as palavras do Apóstolo: “É na fraqueza que se revela minha força”. Dizia que as energias da alma aumentam quanto mais débeis são os desejos do corpo.</p></div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'A Montanha Interior',
+        content: `<div class="day-specific-content"><p>Assim esteve sozinho na Montanha Interior, dando seu tempo à oração e à prática da vida ascética. Os irmãos que foram em sua busca rogaram-lhe que lhes permitisse ir cada mês e levar-lhe azeitonas, legumes e azeite, pois agora já era ancião. De seus visitantes soubemos quantos combates teve de suportar enquanto viveu ali, “não contra carne e sangue”, como está escrito, mas em luta com os demônios. Também ali ouviram tumultos e muitas vozes e clamor como de armas.</p><p>À noite viram a montanha encher-se de vida com animais selvagens. Viram-no também lutando como com inimigos visíveis, e orando contra eles. A um que o visitou falou-lhe palavras de alento enquanto ele próprio mantinha-se firme na contenda, de joelhos e orando ao Senhor. Era realmente notável que, sozinho como estava nesse despovoado, nunca desmaiasse ante os ataques dos demônios, nem tampouco, com todos os animais e répteis que havia, tivesse medo de sua ferocidade. Como está na Escritura, ele realmente “confiava no Senhor como o monte de Sião”, com ânimo inquebrantável e intrépido. Assim os demônios antes fugiam dele, e os animais selvagens fizeram paz com ele, como está escrito.</p></div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'Vitória Final',
+        content: `<div class="day-specific-content"><p>O mau pôs estreita guarda sobre Antão e rangeu os dentes contra ele, como o disse Davi no salmo, mas Antão foi animado pelo Salvador, não sendo danificado por essa vilania e sutil estratégia. Enviou-lhe animais selvagens enquanto estava em suas vigílias noturnas, e em plena noite todas as hienas do deserto saíram de suas tocas e o rodearam. Tendo-o no centro, abriam suas faces e ameaçavam mordê-lo. Ele, porém, conhecendo bem as manhas do inimigo, disse-lhes:</p><p>“Se receberam poder para fazer isto contra mim, estou disposto a ser devorado; mas se foram enviadas pelo demônio, saiam imediatamente, because sou servidor de Cristo”.</p><p>Enquanto Antão dizia isto, fugiram como açoitados pelo látego dessa palavra.</p><p>Poucos dias depois, enquanto estava trabalhando, because o trabalho sempre era parte de seu propósito, alguém chegou à porta e puxou a corda com que trabalhava. Estava fazendo cestos que dava a seus visitantes em troca do que lhe traziam. Levantou-se e viu um monstro que parecia homem até as coxas, mas com pernas e pés de asno. Antão fez simplesmente o sinal da cruz e disse:</p><p class="italic">“Sou servidor de Cristo. Se foste enviado contra mim, aqui estou”.</p><p>O monstro, porém, com seus demônios, fugiu tão rápido que sua própria rapidez o fez cair e morrer. A morte do monstro veio a significar o fracasso dos demônios: fizeram o que puderam para que saísse do deserto e não o conseguiram.</p></div>`
+      }
+    ]
   },
   sao_sebastiao: {
     saintName: 'São Sebastião',
@@ -2011,13 +2041,67 @@ export const novenaData: Record<string, Novena> = {
       content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
     }))
   },
+  menino_jesus_praga: {
+    saintName: 'Menino Jesus de Praga',
+    novenaTitle: 'Novena ao Menino Jesus de Praga',
+    description: 'Peça as graças da infância espiritual e a proteção do Divino Infante com esta poderosa novena.',
+    initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Inicial para todos os dias</h4><div class="prayer-block"><p>Ó Jesus, que dissestes no vosso Evangelho: “Pedi e recebereis, procurai e achareis, batei à porta e ela se abrirá”!</p><p>Por intermédio de Maria, vossa Mãe Santíssima, com fé e confiança eu bato à porta do vosso Coração e humildemente peço a vossa Divina Graça. Atendei, Senhor, à humilde prece que nesse dia vos dirijo.</p><p class="italic my-4 font-semibold text-center">(Mencione o seu pedido)</p><p>Ó Jesus, que prometestes: “Tudo que pedirdes ao Meu Pai em Meu Nome, Ele vo-lo concederá”!</p><p>A Deus, vosso Pai e Meu Pai celestial, apresento a minha Oração. Intercedei junto ao Pai de bondade e Deus de toda consolação para que Ele ouça nesta hora a minha súplica.</p><p class="italic my-4 font-semibold text-center">(Glória ao Pai)</p><p>Ó Jesus, que afirmastes: “Passarão o céu e a terra, mas as minhas palavras não passarão”!</p><p>Confio em vossa promessa, Senhor, e tenho a esperança de que vosso poder e imensa bondade me consolarão e me darão o que vos peço nesta momento.</p><p class="italic my-4 font-semibold text-center">(Glória ao Pai)</p><p class="mt-4 font-semibold">Em união com Jesus, rezar um pai-nosso a Deus e, em seguida, três ave-marias pedindo a intercessão de Nossa Senhora junto a Seu Filho, o Menino Jesus.</p></div></div>`,
+    finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração Final</h4><div class="prayer-block"><p>Por vossa Divina Infância, ó Jesus, concedei-me a graça que insistentemente vos peço, se for para o meu bem e conforme vossa vontade!</p><p class="italic my-4 font-semibold text-center">(Faça seu pedido)</p><p>Não olheis os meus pecados, mas a minha fé e a vossa grande misericórdia!</p></div><h4 class="section-title">Hino ao Santíssimo Nome de Jesus</h4><div class="prayer-block"><p>Jesus, doce memória,<br/>do coração harmonia,<br/>mais que o vinho, mais que tudo,<br/>tua presença é alegria.</p><p>Teu canto é o mais suave<br/>e o mais agradável ao ouvido;<br/>teu pensamento é o mais doce,<br/>Jesus, Filho de Deus e meu Rei.</p><p>Esperança do penitente,<br/>benigno com quem te invoca,<br/>bondoso com quem te busca,<br/>Como será o encontrar-te?</p><p>A língua não pode dizer,<br/>nem a palavra expressar,<br/>somente quem te encontrou,<br/>sabe o que é amar.</p><p>Jesus, és nossa alegria,<br/>és nosso prêmio eterno;<br/>em Ti está nossa glória<br/>agora e pelos séculos.<br/>Amém.</p><p>Bendito seja o nome do Senhor.<br/>Agora e por todo o sempre.</p></div><h4 class="section-title">Oração</h4><div class="prayer-block"><p>Ó Deus, que constituístes vosso Filho Unigênito como Salvador do gênero humano e lhe destes o nome de Jesus, concedei-nos um dia poder contemplar no céu Aquele cujo Santo Nome veneramos na terra. Amém.</p></div></div>`,
+    days: [
+      {
+        day: 'Primeiro Dia',
+        title: 'Oração do 1º Dia',
+        content: `<div class="day-specific-content"><p>Ó dulcíssimo Menino Jesus, consciente de minha pequenez, prostrado a vossos pés me dirijo a Vós, que sois todo meu. Tenho grande necessidade de vossa ajuda. Lançai-me o vosso olhar de piedade. Vós, que sois onipotente, vinde socorrer-me em minha necessidade!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Segundo Dia',
+        title: 'Oração do 2º Dia',
+        content: `<div class="day-specific-content"><p>Ó celeste esplendor do Pai, em quem brilha a divindade, profundamente vos adoro e vos confesso verdadeiro Filho de Deus! Ofereço-vos a humilde homenagem de todo o meu ser. Não permitais que jamais me separe de Vós, meu Sumo Bem!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Terceiro Dia',
+        title: 'Oração do 3º Dia',
+        content: `<div class="day-specific-content"><p>Ó Menino Jesus, ao contemplar a vossa face, sinto uma grande confiança em Vós. Sim, tudo espero de vossa bondade. Irradiai, ó Jesus, vossas graças sobre mim e meus entes queridos. Assim poderei cantar vossa infinita misericórdia.</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Quarto Dia',
+        title: 'Oração do 4º Dia',
+        content: `<div class="day-specific-content"><p>Ó Jesus, reconheço-vos como meu soberano absoluto. Não quero servir ao demônio, nem às minhas paixões e pecados. Reinai, ó Jesus, neste pobre coração e tornai-o vosso para sempre!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Quinto Dia',
+        title: 'Oração do 5º Dia',
+        content: `<div class="day-specific-content"><p>Eu vos contemplo, ó Dulcíssimo Redentor, revestido de um manto de púrpura. Este é o vosso uniforme real. Como me evoca o sangue, sangue derramado por mim! Fazei, ó Jesus, que eu corresponda a tamanho sacrifício e não recuse nenhum sofrimento por vossa causa.</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Sexto Dia',
+        title: 'Oração do 6º Dia',
+        content: `<div class="day-specific-content"><p>Ó amabilíssimo Menino, ao contemplar-vos segurando o mundo, meu coração se enche de alegria! Também a mim sustentais em todos os momentos de minha vida e me guardais como vossa propriedade. Cuidai de mim, ó Jesus, e socorrei-me em todas as minhas necessidades!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Sétimo Dia',
+        title: 'Oração do 7º Dia',
+        content: `<div class="day-specific-content"><p>Sobre vosso peito, ó Menino Jesus, brilha uma cruz; eis o estandarte de nossa redenção! Eu também tenho minha cruz, ó Divino Salvador, bem mais leve que a vossa, mas, ainda assim, ela me angustia. Ajudai-me a carregá-la, para que eu possa colher os seus frutos. Bem sabeis quanto sou fraco!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Oitavo Dia',
+        title: 'Oração do 8º Dia',
+        content: `<div class="day-specific-content"><p>Junto à Cruz, vislumbro sobre vosso peito, ó Menino Jesus, a imagem de vosso coração. Sois o verdadeiro Amigo, que generosamente vos repartis e imolais por todos os que são objeto de vosso amor. Enchei-me de caridade, ó Jesus, e ensinai-me a corresponder ao vosso Amor!</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      },
+      {
+        day: 'Nono Dia',
+        title: 'Oração do 9º Dia',
+        content: `<div class="day-specific-content"><p>Vossa Destra Onipotente, ó Menino Jesus, quantas bênçãos derrama sobre aqueles que vos honram e vos invocam! Abençoai-me também e bendizei toda a minha vida. Abençoai meus bons propósitos e socorrei-me em minhas necessidades. Escutai benigno os meus pedidos e bendirei o vosso Santo Nome cada dia de minha vida.</p><p class="mt-4 font-semibold">Pai nosso... Ave Maria... Glória ao Pai...</p></div>`
+      }
+    ]
+  },
 };
 
 
 export const saints: Saint[] = [
   // Janeiro
   { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://imgs.search.brave.com/aoWnxVzI3BjPCBND2O_ui_EIUAUfPJRxBcku8wbnUwE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9mL2ZlL0No/aWxkX0plc3VzX29m/X1ByYWd1ZV8lMjhv/cmlnaW5hbF9zdGF0/dWUlMjlfJTI4Y3Jv/cCUyOS5qcGcvNTEy/cHgtQ2hpbGRfSmVz/dXNfb2ZfUHJhZ3Vl/XyUyOG9yaWdpbmFs/X3N0YXR1ZSUyOV8l/Mjhjcm9wJTI5Lmpw/Zw', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' }, // Generic feast
-  { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://placehold.co/400x400?text=Santo+Antao', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
+  { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://i.pinimg.com/736x/cf/a9/b6/cfa9b672576ad12bf372aecd49d2ef60.jpg', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
   { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
   { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://placehold.co/400x400?text=Sao+Francisco', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
   { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://placehold.co/400x400?text=Santo+Tomas', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
@@ -2864,7 +2948,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Beato Urbano V',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/21/d5/23/21d523ab078177d84417ab52d2d3a9d5.jpg',
       story: `<h4>O Papa Reformador</h4><p>O Beato Urbano V, papa beneditino do século XIV, foi um homem de grande santidade e cultura. Esforçou-se para reformar os costumes do clero, promover o estudo e, principalmente, trazer a sede do papado de volta a Roma, que estava exilada em Avignon. Embora tenha tido que retornar à França, seu pontificado foi marcado pelo zelo pastoral e pela caridade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que no Beato Urbano V nos destes um exemplo de zelo pela vossa casa e de amor à Igreja, concedei-nos trabalhar sempre pela unidade e santidade do vosso povo.</p><p class="mt-2 italic">Beato Urbano V, rogai por nós.</p>`
     }]
   },
@@ -2873,7 +2957,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Domingos de Silos',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/4a/67/d4/4a67d4416911d4dbbbba777d0d17fd15.jpg',
       story: `<h4>O Abade Libertador</h4><p>São Domingos de Silos, abade beneditino espanhol do século XI, foi um grande reformador monástico. Transformou o mosteiro de Silos num centro de espiritualidade e cultura. É famoso pelos milagres de libertação de cristãos cativos dos mouros (daí as correntes em sua iconografia) e é invocado como patrono dos partos difíceis.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Domingos de Silos a graça de libertar os cativos e socorrer as mães em perigo, ouvi as nossas preces e livrai-nos de todo mal.</p><p class="mt-2 italic">São Domingos de Silos, rogai por nós.</p>`
     }]
   },
@@ -2882,7 +2966,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Pedro Canísio',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/89/af/2e/89af2ecc3b58cd0a30fcda8693d59250.jpg',
       story: `<h4>O Segundo Apóstolo da Alemanha</h4><p>São Pedro Canísio, jesuíta holandês e Doutor da Igreja, foi uma figura chave da Contrarreforma católica. Percorreu a Alemanha pregando, fundando colégios e escrevendo catecismos populares que ajudaram a preservar e restaurar a fé católica em muitas regiões. Dizia que "não se deve combater os hereges com palavras ásperas, mas com a caridade e a verdade".</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fortalecestes o sacerdote São Pedro Canísio com a sabedoria e a coragem para defender a fé católica, concedei-nos a graça de buscar a verdade com alegria e testemunhá-la com amor.</p><p class="mt-2 italic">São Pedro Canísio, rogai por nós.</p>`
     }]
   },
@@ -2891,7 +2975,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Francisca Xavier Cabrini',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/61/ff/b6/61ffb6d0e283cd9c099b77d5fa806982.jpg',
       story: `<h4>A Mãe dos Imigrantes</h4><p>Santa Francisca Xavier Cabrini, primeira cidadã americana a ser canonizada, nasceu na Itália. Fundou as Missionárias do Sagrado Coração e, a pedido do Papa, foi para os Estados Unidos servir os imigrantes italianos. Construiu escolas, orfanatos e hospitais, cruzando o oceano inúmeras vezes. Sua vida foi uma entrega total aos mais necessitados.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que em Santa Francisca Xavier Cabrini nos destes um modelo de caridade incansável para com os migrantes e necessitados, ensinai-nos a ver o Cristo no irmão que sofre e a servi-lo com generosidade.</p><p class="mt-2 italic">Santa Francisca Xavier Cabrini, rogai por nós.</p>`
     }]
   },
@@ -2900,7 +2984,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Câncio',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/a2/46/20/a24620abb59490786b9aea3bffbbb573.jpg',
       story: `<h4>O Professor Santo</h4><p>São João Câncio, sacerdote polonês, foi professor de teologia na Universidade de Cracóvia. Destacou-se não apenas pela sua erudição, mas principalmente pela sua profunda humildade, vida de oração e caridade para com os estudantes pobres. Partilhava tudo o que tinha, ensinando que o saber deve levar ao amor.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que fizestes de São João Câncio um modelo de perfeição sacerdotal e acadêmica, concedei-nos progredir na ciência dos santos e na prática da caridade.</p><p class="mt-2 italic">São João Câncio, rogai por nós.</p>`
     }]
   },
@@ -2909,7 +2993,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Paula Isabel Cerioli',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/27/9d/cb/279dcb90b4e313d30649cc53595dd205.jpg',
       story: `<h4>A Mãe dos Órfãos</h4><p>Santa Paula Isabel Cerioli, nobre italiana, experimentou a dor da perda de seus filhos e do marido. Transformou seu luto em amor materno universal, dedicando sua vida e fortuna a acolher crianças órfãs e camponesas, fundando as Irmãs da Sagrada Família. Encontrou na caridade o consolo e a santidade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que inspirastes Santa Paula Isabel a ver nos órfãos e pobres a imagem de vosso Filho Jesus, concedei-nos um coração compassivo e generoso para com os que sofrem.</p><p class="mt-2 italic">Santa Paula Isabel Cerioli, rogai por nós.</p>`
     }]
   },
@@ -2927,7 +3011,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santo Estevão',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/80/b9/87/80b98711d3acd0555d7633c7d9cf27c6.jpg',
       story: `<h4>O Protomártir</h4><p>Santo Estevão foi o primeiro mártir cristão, um dos sete primeiros diáconos escolhidos pelos Apóstolos. Cheio de fé e do Espírito Santo, realizava grandes prodígios. Ao ser apedrejado até a morte, viu o céu aberto e Jesus à direita de Deus, e morreu perdoando seus assassinos, imitando perfeitamente o Mestre. Seu sangue foi semente de novos cristãos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, concedei-nos a graça de imitar o que veneramos, para que aprendamos a amar também os nossos inimigos, pois celebramos o dia natalício daquele que soube rezar pelos seus perseguidores.</p><p class="mt-2 italic">Santo Estevão, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2937,7 +3021,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São João Evangelista',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/3d/10/ba/3d10ba329befc198324840c694cc4dc5.jpg',
       story: `<h4>O Discípulo Amado</h4><p>São João, apóstolo e evangelista, é conhecido como "o discípulo que Jesus amava". Autor do quarto Evangelho, de três epístolas e do Apocalipse, foi quem reclinou a cabeça no peito do Mestre na Última Ceia e quem acolheu Maria como mãe aos pés da cruz. Sua teologia voa alto como a águia, contemplando o mistério do Verbo de Deus.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que pelo apóstolo São João nos revelastes os mistérios do vosso Verbo, tornai-nos capazes de compreender e amar o que ele nos ensinou com tanta excelência.</p><p class="mt-2 italic">São João Evangelista, rogai por nós.</p>`
     }]
   },
@@ -2946,7 +3030,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santos Inocentes',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/50/f6/a4/50f6a4e3c37cbadcc21019cded0ef610.jpg',
       story: `<h4>As Flores dos Mártires</h4><p>Os Santos Inocentes são as crianças de Belém, de dois anos para baixo, que foram mortas por ordem do rei Herodes, que buscava eliminar o Menino Jesus. São considerados as "primícias dos mártires", pois deram a vida por Cristo não com palavras, mas com o próprio sangue, antes mesmo de poderem falar. A Igreja os venera como tenras flores cortadas antes do tempo.</p><p class="mt-4"><b>Oração:</b> Ó Deus, cujos louvores os mártires Inocentes proclamaram hoje não com palavras, mas com a morte, mortificai em nós os vícios, para que a nossa vida testemunhe a fé que a nossa língua professa.</p><p class="mt-2 italic">Santos Inocentes, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2956,7 +3040,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Tomás Becket',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/e8/05/3c/e8053c153e8ec23ae84ec51cd9473066.jpg',
       story: `<h4>O Defensor da Liberdade da Igreja</h4><p>São Tomás Becket, arcebispo de Cantuária e chanceler da Inglaterra, passou de amigo do rei Henrique II a seu opositor when se tratou de defender os direitos e a liberdade da Igreja. Exilado e depois retornado, foi brutalmente assassinado na sua própria catedral por cavaleiros do rei. Seu martírio comoveu a Europa e tornou seu túmulo um grande centro de peregrinação.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que destes a São Tomás Becket a grandeza de alma para dar a vida por vossa Igreja, concedei-nos, por sua intercessão, que, perdendo a vida por Cristo neste mundo, a encontremos no céu.</p><p class="mt-2 italic">São Tomás Becket, rogai por nós.</p>`,
       isMartyr: true
     }]
@@ -2966,7 +3050,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Sagrada Família',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/c1/b0/42/c1b0426b2a9ea9e6fd2a241a5be7c24b.jpg',
       story: `<h4>O Modelo de Nossos Lares</h4><p>A festa da Sagrada Família nos apresenta Jesus, Maria e José como o modelo santíssimo de vida doméstica. Na casa de Nazaré, reinava o amor, o trabalho, a oração, a obediência e o silêncio. É a escola do Evangelho, onde aprendemos a viver em comunhão e a buscar a vontade de Deus em todas as coisas. É o ícone da Igreja doméstica.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que nos destes a Sagrada Família como exemplo, concedei-nos imitar em nossos lares as suas virtudes e o seu amor, para que, um dia, possamos nos alegrar na vossa casa eterna.</p><p class="mt-2 italic">Jesus, Maria e José, a nossa família vossa é!</p>`
     }]
   },
@@ -2975,7 +3059,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Silvestre I',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/81/e6/49/81e649c6691404ba50c1311cdf8d695f.jpg',
       story: `<h4>O Papa da Liberdade</h4><p>São Silvestre I foi o papa que governou a Igreja logo após o Edito de Milão, que deu liberdade aos cristãos. Seu longo pontificado viu a construção das grandes basílicas romanas (São João de Latrão, São Pedro) e a organização da vida litúrgica pública da Igreja. É o santo que encerra o ano civil, convidando-nos a agradecer a Deus pelos benefícios recebidos.</p><p class="mt-4"><b>Oração:</b> Ó Deus, vinde em auxílio do vosso povo, que se alegra com a intercessão do Papa São Silvestre, para que, passando esta vida sob a vossa direção, possa chegar à vida que não tem fim.</p><p class="mt-2 italic">São Silvestre, rogai por nós.</p>`
     }]
   },
