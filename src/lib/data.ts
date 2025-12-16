@@ -1910,8 +1910,8 @@ export const novenaData: Record<string, Novena> = {
   menino_jesus_praga: {
     saintName: 'Menino Jesus de Praga',
     novenaTitle: 'Novena ao Menino Jesus de Praga',
-    description: 'Devoção à infância de Jesus e suas virtudes.',
-    image: 'https://placehold.co/400x400?text=Menino+Jesus',
+    description: 'Peça as graças da infância espiritual e a proteção do Divino Infante.',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg/1079px-Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg',
     initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
     finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
     days: Array.from({ length: 9 }, (_, i) => ({
@@ -2016,7 +2016,7 @@ export const novenaData: Record<string, Novena> = {
 
 export const saints: Saint[] = [
   // Janeiro
-  { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://placehold.co/400x400?text=Menino+Jesus', month: 'Janeiro', startDate: '01/01', endDate: '09/01', feastDay: '25/Jan' }, // Generic feast
+  { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg/1079px-Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' },
   { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://placehold.co/400x400?text=Santo+Antao', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
   { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
   { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://placehold.co/400x400?text=Sao+Francisco', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
