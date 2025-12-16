@@ -91,7 +91,7 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
 
       let matchesDay = true;
       if (selectedDay) {
-        const timesLower = parish.times.toLowerCase();
+        const timesLower = parish.times ? parish.times.toLowerCase() : "";
         const dayLower = selectedDay.toLowerCase();
 
         const daysMap: { [key: string]: number } = { 'segunda': 1, 'terça': 2, 'quarta': 3, 'quinta': 4, 'sexta': 5, 'sábado': 6, 'domingo': 0 };
