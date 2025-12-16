@@ -1905,11 +1905,126 @@ export const novenaData: Record<string, Novena> = {
       }
     ]
   }
+
+  // Janeiro Novenas
+  menino_jesus_praga: {
+    saintName: 'Menino Jesus de Praga',
+    novenaTitle: 'Novena ao Menino Jesus de Praga',
+    description: 'Devoção à infância de Jesus e suas virtudes.',
+    image: 'https://placehold.co/400x400?text=Menino+Jesus',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  santo_antao: {
+    saintName: 'Santo Antão',
+    novenaTitle: 'Novena a Santo Antão',
+    description: 'Pai do monaquismo cristão e protetor contra tentações.',
+    image: 'https://placehold.co/400x400?text=Santo+Antao',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  sao_sebastiao: {
+    saintName: 'São Sebastião',
+    novenaTitle: 'Novena a São Sebastião',
+    description: 'Mártir e defensor da fé contra a peste e a fome.',
+    image: 'https://placehold.co/400x400?text=Sao+Sebastiao',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  sao_francisco_sales: {
+    saintName: 'São Francisco de Sales',
+    novenaTitle: 'Novena a São Francisco de Sales',
+    description: 'Doutor da Igreja e padroeiro dos escritores e jornalistas.',
+    image: 'https://placehold.co/400x400?text=Sao+Francisco+Sales',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  santo_tomas_aquino: {
+    saintName: 'Santo Tomás de Aquino',
+    novenaTitle: 'Novena a Santo Tomás de Aquino',
+    description: 'Doutor Angélico, padroeiro dos estudantes e teólogos.',
+    image: 'https://placehold.co/400x400?text=Santo+Tomas',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  sao_joao_bosco: {
+    saintName: 'São João Bosco',
+    novenaTitle: 'Novena a São João Bosco',
+    description: 'Pai e mestre da juventude.',
+    image: 'https://placehold.co/400x400?text=Dom+Bosco',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  ns_candeias: {
+    saintName: 'Nossa Senhora das Candeias',
+    novenaTitle: 'Novena a N.S. das Candeias',
+    description: 'Celebração da Apresentação do Senhor e Purificação de Maria.',
+    image: 'https://placehold.co/400x400?text=NS+Candeias',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
+  sao_bras: {
+    saintName: 'São Brás',
+    novenaTitle: 'Novena a São Brás',
+    description: 'Protetor contra os males da garganta.',
+    image: 'https://placehold.co/400x400?text=Sao+Bras',
+    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
+    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: 'Meditação do Dia',
+      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
+    }))
+  },
 };
 
 
 export const saints: Saint[] = [
-  // Março
+  // Janeiro
+  { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://placehold.co/400x400?text=Menino+Jesus', month: 'Janeiro', startDate: '01/01', endDate: '09/01', feastDay: '25/Jan' }, // Generic feast
+  { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://placehold.co/400x400?text=Santo+Antao', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
+  { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
+  { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://placehold.co/400x400?text=Sao+Francisco', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
+  { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://placehold.co/400x400?text=Santo+Tomas', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
+  { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://placehold.co/400x400?text=Dom+Bosco', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
+  { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: 'https://placehold.co/400x400?text=NS+Candeias', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
+  { id: 'sao_bras', name: 'São Brás', imageUrl: 'https://placehold.co/400x400?text=Sao+Bras', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
+
   { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai' },
   // Outubro
   { id: 'teresinha', name: 'S. Teresinha', imageUrl: 'https://i.postimg.cc/G2y7k85b/image.png', month: 'Outubro', startDate: '22/09', endDate: '30/09', feastDay: '01/Out' },
