@@ -1904,7 +1904,7 @@ export const novenaData: Record<string, Novena> = {
         </div>`
       }
     ]
-  }
+  },
 
   // Janeiro Novenas
   menino_jesus_praga: {
