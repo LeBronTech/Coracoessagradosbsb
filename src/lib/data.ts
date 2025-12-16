@@ -1910,8 +1910,8 @@ export const novenaData: Record<string, Novena> = {
   menino_jesus_praga: {
     saintName: 'Menino Jesus de Praga',
     novenaTitle: 'Novena ao Menino Jesus de Praga',
-    description: 'Peça as graças da infância espiritual e a proteção do Divino Infante.',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg/1079px-Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg',
+    description: 'Devoção à infância de Jesus e suas virtudes.',
+    image: 'https://placehold.co/400x400?text=Menino+Jesus',
     initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
     finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
     days: Array.from({ length: 9 }, (_, i) => ({
@@ -2016,7 +2016,7 @@ export const novenaData: Record<string, Novena> = {
 
 export const saints: Saint[] = [
   // Janeiro
-  { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg/1079px-Child_Jesus_of_Prague_%28original_statue%29_%28crop%29.jpg', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' },
+  { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://imgs.search.brave.com/aoWnxVzI3BjPCBND2O_ui_EIUAUfPJRxBcku8wbnUwE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9mL2ZlL0No/aWxkX0plc3VzX29m/X1ByYWd1ZV8lMjhv/cmlnaW5hbF9zdGF0/dWUlMjlfJTI4Y3Jv/cCUyOS5qcGcvNTEy/cHgtQ2hpbGRfSmVz/dXNfb2ZfUHJhZ3Vl/XyUyOG9yaWdpbmFs/X3N0YXR1ZSUyOV8l/Mjhjcm9wJTI5Lmpw/Zw', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' }, // Generic feast
   { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://placehold.co/400x400?text=Santo+Antao', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
   { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
   { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://placehold.co/400x400?text=Sao+Francisco', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
@@ -2050,9 +2050,8 @@ export const saints: Saint[] = [
   { id: 'apresentacao_ns', name: 'Apres. de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
   { id: 'ns_saude', name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
   { id: 'santa_cecilia', name: 'S. Cecília', imageUrl: 'https://i.postimg.cc/4xDNjn2c/image.png', month: 'Novembro', startDate: '13/11', endDate: '21/11', feastDay: '22/Nov', isMartyr: true },
-  { id: 'cristo_rei', name: 'Cristo Rei', imageUrl: 'https://iili.io/KpYFw6G.jpg', month: 'Novembro', startDate: '14/11', endDate: '22/11', feastDay: '23/Nov' },
-  { id: 'catarina_alexandria', name: 'S. Catarina de Alexandria', imageUrl: 'https://i.postimg.cc/s2FFt7gs/image.png', month: 'Novembro', startDate: '16/11', endDate: '24/11', feastDay: '25/Nov', isMartyr: true },
   { id: 'gracas', name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', month: 'Novembro', startDate: '18/11', endDate: '26/11', feastDay: '27/Nov' },
+  { id: 'cristo_rei', name: 'Cristo Rei', imageUrl: 'https://iili.io/KpYFw6G.jpg', month: 'Novembro', startDate: '14/11', endDate: '22/11', feastDay: '23/Nov' },
   { id: 'imaculada_conceicao', name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', month: 'Novembro/Dezembro', startDate: '29/11', endDate: '07/12', feastDay: '08/Dez' },
   // Dezembro
   { id: 'guadalupe', name: 'N.S. de Guadalupe', imageUrl: 'https://iili.io/ffgFDXV.png', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '12/Dez' },
@@ -2838,7 +2837,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Santa Adelaide',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/a7/cc/bf/a7ccbf33c3c75910c8a59922ba576d1d.jpg',
       story: `<h4>A Imperatriz da Caridade</h4><p>Santa Adelaide, imperatriz do Sacro Império Romano-Germânico no século X, teve uma vida marcada por reviravoltas, exílios e sofrimentos. No entanto, nunca perdeu a fé nem a bondade. Usou seu poder para construir igrejas, mosteiros e, principalmente, para socorrer os pobres e necessitados. Terminou seus dias num mosteiro, em oração.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ornastes Santa Adelaide com a coroa da glória eterna por sua humildade e caridade, ajudai-nos a usar nossos dons para o bem do próximo e para a vossa glória.</p><p class="mt-2 italic">Santa Adelaide, rogai por nós.</p>`
     }]
   },
@@ -2847,7 +2846,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'São Lázaro',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/736x/a7/db/aa/a7dbaa1c33184d629e80982c736b8b1a.jpg',
       story: `<h4>O Amigo de Jesus</h4><p>São Lázaro, irmão de Marta e Maria, vivia em Betânia e hospedava Jesus em sua casa. É conhecido pelo milagre de sua ressurreição, when Jesus o chamou para fora do túmulo após quatro dias de morto. A tradição conta que, após a Ascensão de Jesus, tornou-se bispo e morreu mártir. Sua vida nos lembra que Jesus é a Ressurreição e a Vida.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Lázaro a graça de ser chamado amigo de vosso Filho e de ser por Ele ressuscitado, dai-nos crer firmemente na vida eterna e na vitória sobre a morte.</p><p class="mt-2 italic">São Lázaro, rogai por nós.</p>`
     }]
   },
@@ -2856,7 +2855,7 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     month: 'Dezembro',
     saints: [{
       name: 'Nossa Senhora do Bom Parto',
-      imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg',
+      imageUrl: 'https://i.pinimg.com/1200x/cc/80/b9/cc80b9f6815e1ec29ad8815d63103fbb.jpg',
       story: `<h4>A Esperança das Mães</h4><p>A devoção a Nossa Senhora do Bom Parto é muito antiga e querida pelas gestantes. Invoca-se a Virgem Maria, que deu à luz o Salvador, para que proteja as mães e seus filhos no momento do nascimento, concedendo um parto feliz e seguro. É um título que celebra a maternidade divina e a proteção de Maria sobre toda vida nascente.</p><p class="mt-4"><b>Oração:</b> Ó Maria, Virgem Mãe, que no parto de Jesus sentistes as alegrias da maternidade divina, olhai com bondade para todas as gestantes e concedei-lhes um bom parto e filhos saudáveis para a glória de Deus.</p><p class="mt-2 italic">Nossa Senhora do Bom Parto, rogai por nós.</p>`
     }]
   },

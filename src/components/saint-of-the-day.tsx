@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useCallback, forwardRef, useImperativeHan
 import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
+import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
 import { cn } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
@@ -141,6 +142,27 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     return saintsOfTheDay.filter(day => day.month === selectedMonth);
   }, [selectedMonth]);
 
+  // Calculate liturgical data early to respect hook order
+  // We need to derive dayData logic here or use a safe fallback
+  const liturgicalData = useMemo(() => {
+    if (!selectedMonth) return null;
+    const currentDayData = saintsForCurrentMonth[currentSlide];
+
+    if (!currentDayData) return null;
+
+    const monthIndex = allMonths.indexOf(currentDayData.month); // 0-11
+    if (monthIndex === -1) return null;
+
+    // Determine year based on month name for the available dataset (2025)
+    const year = 2025;
+
+    const monthStr = String(monthIndex + 1).padStart(2, '0');
+    const dayStr = String(currentDayData.day).padStart(2, '0');
+    const dateStr = `${year}-${monthStr}-${dayStr}`;
+
+    return liturgicalCalendar.find(d => d.date === dateStr);
+  }, [saintsForCurrentMonth, currentSlide, allMonths, selectedMonth]);
+
   const handleMonthChange = useCallback((monthIndex: number) => {
     const month = months[monthIndex];
     setSelectedMonth(month);
@@ -235,6 +257,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const isOpen = openAccordion;
   const currentSaintData = dayData.saints[isOpen ? selectedSaintInDayIndex : 0];
 
+  /* Removed useMemo from here */
+
   return (
     <div className="p-4 md:p-6 bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg mt-2 relative">
       <div className="flex items-center justify-between mb-2">
@@ -323,6 +347,60 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
               <div className="p-1">
                 {currentSaintData && <div className="prose prose-sm max-w-none pt-4" dangerouslySetInnerHTML={{ __html: currentSaintData.story }} />}
+
+                {liturgicalData && liturgicalData.readings && (
+                  <div className="mt-8 pt-6 border-t border-gray-200/50">
+                    <h3 className="font-brand text-lg font-bold mb-4 text-primary flex items-center gap-2">
+                      <span className="text-2xl">📖</span> Liturgia do Dia
+                    </h3>
+                    <div className="bg-white/50 rounded-lg p-4 space-y-4">
+                      {liturgicalData.description && (
+                        <p className="text-sm font-semibold text-gray-600 mb-2 italic">{liturgicalData.description}</p>
+                      )}
+
+                      {liturgicalData.readings.firstReading && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">1ª Leitura</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.firstReading}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.psalm && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">Salmo Responsorial</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.psalm}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.secondReading && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">2ª Leitura</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.secondReading}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.gospel && (
+                        <div className="border-l-4 border-primary pl-3 py-1 bg-primary/5 rounded-r-md">
+                          <span className="text-xs font-bold uppercase text-primary tracking-wider">Evangelho</span>
+                          <p className="font-bold text-gray-900 text-lg font-brand">{liturgicalData.readings.gospel}</p>
+                        </div>
+                      )}
+                      <div className="mt-2 text-center">
+                        <span className={cn(
+                          "text-xs px-2 py-1 rounded-full border",
+                          liturgicalData.color === 'Roxo' ? "border-purple-500 text-purple-700 bg-purple-50" :
+                            liturgicalData.color === 'Branco' ? "border-gray-300 text-gray-600 bg-white" :
+                              liturgicalData.color === 'Vermelho' ? "border-red-500 text-red-700 bg-red-50" :
+                                liturgicalData.color === 'Verde' ? "border-green-500 text-green-700 bg-green-50" :
+                                  liturgicalData.color === 'Rosa' ? "border-pink-500 text-pink-700 bg-pink-50" :
+                                    "border-gray-300 text-gray-600"
+                        )}>
+                          Cor Litúrgica: {liturgicalData.color}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           )}

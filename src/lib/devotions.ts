@@ -26,8 +26,8 @@ const dailyGospels: Record<string, string> = {
     '10-29': 'Lucas 13, 22-30',
     '10-30': 'Lucas 13, 31-35',
     '10-31': 'Lucas 14, 1-6',
-    '11-1': 'Mateus 5, 1-12a', 
-    '11-2': 'João 6, 37-40', 
+    '11-1': 'Mateus 5, 1-12a',
+    '11-2': 'João 6, 37-40',
     '11-3': 'Lucas 14, 12-14',
     '11-4': 'Lucas 14, 15-24',
     '11-5': 'Lucas 15, 1-10',
@@ -37,19 +37,19 @@ const dailyGospels: Record<string, string> = {
     '11-9': 'João 2, 13-22',
     '11-10': 'Lucas 17, 1-6',
     '11-11': 'Lucas 17, 7-10',
-    '11-12': 'Lc 17, 11-19', 
+    '11-12': 'Lc 17, 11-19',
     '11-13': 'Lc 17, 20-25',
     '11-14': 'Lc 17, 26-37',
-    '11-15': 'Lc 18, 1-8',   
-    '11-16': 'Lc 21, 5-19',  
-    '11-17': 'Lc 18, 35-43', 
-    '11-18': 'Lc 19, 1-10',  
-    '11-19': 'Lc 19, 11-28', 
-    '11-20': 'Lc 19, 41-44', 
+    '11-15': 'Lc 18, 1-8',
+    '11-16': 'Lc 21, 5-19',
+    '11-17': 'Lc 18, 35-43',
+    '11-18': 'Lc 19, 1-10',
+    '11-19': 'Lc 19, 11-28',
+    '11-20': 'Lc 19, 41-44',
     '11-21': 'Lc 19, 45-48',
     '11-22': 'Lc 20, 27-40',
     '11-23': 'Lc 23, 35-43',
-    '11-24': 'Lc 21, 1-4',  
+    '11-24': 'Lc 21, 1-4',
     '11-25': 'Lc 21, 5-11',
     '11-26': 'Lc 21, 12-19',
     '11-27': 'Lc 21, 20-28',
@@ -93,54 +93,54 @@ const dailyGospels: Record<string, string> = {
 
 export const weeklyDevotions: Devotion[] = [
     {
-      dayOfWeek: 0,
-      day: 'Domingo',
-      title: 'Domingo - Dia do Senhor',
-      devotion: 'Ressurreição de Cristo',
-      icon: 'sunday',
+        dayOfWeek: 0,
+        day: 'Domingo',
+        title: 'Domingo - Dia do Senhor',
+        devotion: 'Ressurreição de Cristo',
+        icon: 'sunday',
     },
     {
-      dayOfWeek: 1,
-      day: 'Segunda',
-      title: 'Segunda-feira',
-      devotion: 'Espírito Santo e Almas do Purgatório',
-      icon: 'monday',
+        dayOfWeek: 1,
+        day: 'Segunda',
+        title: 'Segunda-feira',
+        devotion: 'Espírito Santo e Almas do Purgatório',
+        icon: 'monday',
     },
     {
-      dayOfWeek: 2,
-      day: 'Terça',
-      title: 'Terça-feira',
-      devotion: 'Santos Anjos',
-      icon: 'tuesday',
+        dayOfWeek: 2,
+        day: 'Terça',
+        title: 'Terça-feira',
+        devotion: 'Santos Anjos',
+        icon: 'tuesday',
     },
     {
-      dayOfWeek: 3,
-      day: 'Quarta',
-      title: 'Quarta-feira',
-      devotion: 'dedicado a São José',
-      icon: 'wednesday',
+        dayOfWeek: 3,
+        day: 'Quarta',
+        title: 'Quarta-feira',
+        devotion: 'dedicado a São José',
+        icon: 'wednesday',
     },
     {
-      dayOfWeek: 4,
-      day: 'Quinta',
-      title: 'Quinta-feira',
-      devotion: 'Santíssimo Sacramento',
-      icon: 'thursday',
+        dayOfWeek: 4,
+        day: 'Quinta',
+        title: 'Quinta-feira',
+        devotion: 'Santíssimo Sacramento',
+        icon: 'thursday',
     },
     {
-      dayOfWeek: 5,
-      day: 'Sexta',
-      title: 'Sexta-feira',
-      devotion: 'Paixão de Cristo e Sagrado Coração',
-      icon: 'friday',
-      alert: 'Abstinência de carne',
+        dayOfWeek: 5,
+        day: 'Sexta',
+        title: 'Sexta-feira',
+        devotion: 'Paixão de Cristo e Sagrado Coração',
+        icon: 'friday',
+        alert: 'Abstinência de carne',
     },
     {
-      dayOfWeek: 6,
-      day: 'Sábado',
-      title: 'Sábado',
-      devotion: 'Nossa Senhora',
-      icon: 'saturday',
+        dayOfWeek: 6,
+        day: 'Sábado',
+        title: 'Sábado',
+        devotion: 'Nossa Senhora',
+        icon: 'saturday',
     },
 ];
 
@@ -160,9 +160,9 @@ export const monthlyDevotions: MonthlyDevotion[] = [
 ];
 
 const addDays = (date: Date, days: number): Date => {
-  const result = new Date(date);
-  result.setUTCDate(result.getUTCDate() + days);
-  return result;
+    const result = new Date(date);
+    result.setUTCDate(result.getUTCDate() + days);
+    return result;
 };
 
 const getEaster = (year: number): Date => {
@@ -196,11 +196,11 @@ const getFirstSundayOfAdvent = (year: number): Date => {
 const getLiturgicalYearCycle = (date: Date): { year: number; cycle: 'A' | 'B' | 'C' } => {
     const year = date.getUTCFullYear();
     const firstSundayOfAdventCurrentYear = getFirstSundayOfAdvent(year);
-    
+
     const liturgicalYear = date >= firstSundayOfAdventCurrentYear ? year : year - 1;
-    
+
     const cycleYear = date >= firstSundayOfAdventCurrentYear ? year : year - 1;
-    
+
     let cycle: 'A' | 'B' | 'C';
     const diff = cycleYear - 2022;
     const cycleIndex = ((diff % 3) + 3) % 3;
@@ -211,38 +211,83 @@ const getLiturgicalYearCycle = (date: Date): { year: number; cycle: 'A' | 'B' | 
         case 2: cycle = 'C'; break;
         default: cycle = 'A';
     }
-    
+
     return { year: liturgicalYear, cycle };
 }
 
 function isSameDay(d1: Date, d2: Date) {
     if (!d1 || !d2) return false;
     return d1.getUTCFullYear() === d2.getUTCFullYear() &&
-           d1.getUTCMonth() === d2.getUTCMonth() &&
-           d1.getUTCDate() === d2.getUTCDate();
+        d1.getUTCMonth() === d2.getUTCMonth() &&
+        d1.getUTCDate() === d2.getUTCDate();
 }
+
+import { liturgicalCalendar } from './liturgical-calendar';
 
 export function getLiturgicalInfo(date: Date): LiturgicalInfo {
     // Create a UTC date to avoid timezone issues.
     const today = new Date(Date.UTC(date.getFullYear(), date.getMonth(), date.getDate()));
-    
+
     const year = today.getUTCFullYear();
     const month = today.getUTCMonth(); // 0-11
     const dayOfMonth = today.getUTCDate();
     const dayKey = `${month + 1}-${dayOfMonth}`;
-    
+
     const { cycle } = getLiturgicalYearCycle(today);
-    
+
+    // Check if we have data in our detailed liturgical calendar
+    const monthStr = String(month + 1).padStart(2, '0');
+    const dayStr = String(dayOfMonth).padStart(2, '0');
+    const dateStr = `${year}-${monthStr}-${dayStr}`;
+
+    const detailedDay = liturgicalCalendar.find(d => d.date === dateStr);
+
+    if (detailedDay) {
+        let color: LiturgicalInfo['color'] = 'green';
+        switch (detailedDay.color) {
+            case 'Roxo': color = 'purple'; break;
+            case 'Branco': color = 'white'; break;
+            case 'Vermelho': color = 'red'; break;
+            case 'Verde': color = 'green'; break;
+            case 'Rosa': color = 'rose'; break;
+        }
+
+        // Map season to Portuguese if needed or keep mixed? 
+        // The original code used mixed 'Advento', 'Natal', 'Tempo Comum'.
+        // liturgicalCalendar uses English 'Advent', 'Christmas'.
+        // We should map to match the UI expectations if they expect Portuguese.
+        // Based on original code: 'Advento', 'Natal', 'Quaresma', 'Páscoa', 'Tempo Comum'.
+        let season = detailedDay.season as string;
+        if (detailedDay.season === 'Advent') season = 'Advento';
+        if (detailedDay.season === 'Christmas') season = 'Natal';
+        if (detailedDay.season === 'Ordinary Time') season = 'Tempo Comum';
+        if (detailedDay.season === 'Lent') season = 'Quaresma';
+        if (detailedDay.season === 'Easter') season = 'Páscoa';
+
+        // Detailed description is preferred if available for specific days
+        // but 'season' field is usually generic. 
+        // Let's use the explicit mapping above.
+
+        // Special override for "Domingo Gaudete" and "Domingo Laetare" if we want to preserve that detail
+        // detailedDay.description might contain it, but detailedDay.color handles the 'rose' part.
+
+        const verse = detailedDay.readings?.gospel || dailyGospels[dayKey] || 'Ev. do Dia';
+
+        return { color, season, verse, cycle };
+    }
+
+    // Fallback to algorithmic calculation if not in specific calendar
+
     const easter = getEaster(year);
     const ashWednesday = addDays(easter, -46);
     const pentecost = addDays(easter, 49);
-    
+
     const firstSundayOfAdventCurrent = getFirstSundayOfAdvent(year);
     const christmas = new Date(Date.UTC(year, 11, 25));
 
     let color: LiturgicalInfo['color'] = 'green';
     let season = 'Tempo Comum';
-    
+
     const specialDays: Record<string, { color: LiturgicalInfo['color'], season: string }> = {
         '11-1': { color: 'white', season: 'Todos os Santos' },
         '11-2': { color: 'purple', season: 'Fiéis Defuntos' },
@@ -250,7 +295,7 @@ export function getLiturgicalInfo(date: Date): LiturgicalInfo {
         '11-12': { color: 'red', season: 'S. Josafá, Mártir' },
         '11-21': { color: 'white', season: 'Apres. de N. Sra.' },
         '11-22': { color: 'red', season: 'Sta. Cecília, Mártir' },
-        '11-23': { color: 'white', season: 'Cristo Rei' }, // Updated for 2024
+        '11-23': { color: 'white', season: 'Cristo Rei' },
         '11-30': { color: 'red', season: 'S. André, Apóstolo' },
         '12-8': { color: 'white', season: 'Imaculada Conceição' },
         '12-10': { color: 'white', season: 'N.S. de Loreto' },
@@ -286,17 +331,17 @@ export function getLiturgicalInfo(date: Date): LiturgicalInfo {
         season = 'Páscoa';
         color = 'white';
     } else {
-       season = 'Tempo Comum';
-       color = 'green';
+        season = 'Tempo Comum';
+        color = 'green';
     }
-    
+
     // Solenidade de Cristo Rei - Last Sunday of Ordinary Time
     const lastSundayOfOrdinaryTime = addDays(getFirstSundayOfAdvent(year), -7);
-    if(isSameDay(today, lastSundayOfOrdinaryTime)) {
+    if (isSameDay(today, lastSundayOfOrdinaryTime)) {
         color = 'white';
         season = 'Cristo Rei';
     }
-    
+
     // Override with specific day colors if applicable
     if (specialDays[dayKey]) {
         color = specialDays[dayKey].color;

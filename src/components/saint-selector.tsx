@@ -123,7 +123,27 @@ function SaintSelector({
   onSaintSelect,
 }: SaintSelectorProps) {
 
-  const saintsForMonth = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth));
+  const saintsForMonth = saints
+    .filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth))
+    .sort((a, b) => {
+      // Helper to parse "DD/MM"
+      const parseDate = (d: string) => {
+        const [day, month] = d.split('/').map(Number);
+        // Treat months 11 and 12 as "later" in year than 01, but we need context of current month view.
+        // If sorting for "Dezembro" view, items from November should probably come first IF they overlap?
+        // Actually, let's just use a simple mock year.
+        // If the month is January (1), it's next year for Dezembro/Janeiro items.
+        // But for filtering by 'selectedMonth', we usually look at the period relevant to that month.
+
+        // Simple 2024/2025 logic:
+        // If month is > 6, it's late year. If < 6, early year.
+        // This holds for Nov/Dec/Jan range.
+        const year = month > 6 ? 2024 : 2025;
+        return new Date(year, month - 1, day).getTime();
+      };
+
+      return parseDate(a.startDate) - parseDate(b.startDate);
+    });
 
   return (
     <section className="w-full">
