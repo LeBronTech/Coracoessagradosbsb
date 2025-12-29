@@ -2142,13 +2142,312 @@ export const saints: Saint[] = [
   { id: 'santa_luzia', name: 'Santa Luzia', imageUrl: 'https://iili.io/ffgqFiN.png', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '13/Dez', isMartyr: true },
   { id: 'joao_cruz', name: 'S. João da Cruz', imageUrl: 'https://iili.io/ffgFMWN.jpg', month: 'Dezembro', startDate: '05/12', endDate: '13/12', feastDay: '14/Dez' },
   { id: 'natal', name: 'Novena de Natal', imageUrl: 'https://iili.io/ffgFVsI.jpg', month: 'Dezembro', startDate: '16/12', endDate: '24/12', feastDay: '25/Dez' },
-  { id: 'maria_mae_deus', name: 'S. Maria Mãe de Deus', imageUrl: 'https://iili.io/ffrKfol.png', month: 'Dezembro/Janeiro', startDate: '23/12', endDate: '31/12', feastDay: '01/Jan' },
+  { id: 'maria_mae_deus', name: 'S. Maria Mãe de Deus', imageUrl: '/images/santa-maria-mae-de-deus.jpg', month: 'Dezembro/Janeiro', startDate: '23/12', endDate: '31/12', feastDay: '01/Jan' },
   { id: 'epifania', name: 'Epifania', imageUrl: 'https://iili.io/ffgF6ge.jpg', month: 'Dezembro/Janeiro', startDate: '28/12', endDate: '05/01', feastDay: '06/Jan' },
 ];
 
 export const months: string[] = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'];
 
 export const saintsOfTheDay: SaintOfTheDayData[] = [
+  {
+    day: 1,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Maria, Mãe de Deus',
+      imageUrl: '/images/santa-maria-mae-de-deus.jpg',
+      story: `<h4>A Maternidade Divina</h4><p>Nesta solenidade, a Igreja celebra o dogma da Maternidade Divina de Maria, proclamado no Concílio de Éfeso em 431. Maria não é apenas a mãe do homem Jesus, mas a "Theotokos" (portadora de Deus), a Mãe de Deus feito homem. Através do seu "Sim" generoso, ela tornou-se a porta por onde a Salvação entrou no mundo. Esta festa recorda-nos que Jesus é verdadeiro Deus e verdadeiro Homem, e que Maria tem um papel único e central na história da redenção.</p><h4>Modelo de Escuta e Meditação</h4><p>O Evangelho deste dia destaca que "Maria guardava todas estas coisas, meditando-as no seu coração". Ela é o modelo da alma contemplativa, que sabe acolher os mistérios de Deus mesmo sem os compreender totalmente de imediato. A sua vida foi uma peregrinação de fé, desde a Anunciação até o pé da Cruz, ensinando-nos a confiar na Providência divina em todos os momentos.</p><h4>Mãe de toda a Igreja</h4><p>Ao celebrarmos Maria como Mãe de Deus, celebramos também a nossa Mãe espiritual. Na Cruz, Jesus confiou-nos a ela, e ela continua a interceder por nós com carinho materno. No início de um novo ano, colocamo-nos sob a sua proteção, pedindo que ela nos guie pelos caminhos da paz e nos conduza sempre mais perto do seu Filho.</p><p class="mt-4"><b>Oração:</b> Santa Maria, Mãe de Deus, rogai por nós pecadores, agora e na hora da nossa morte. Amém.</p>`
+    }]
+  },
+  {
+    day: 2,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santos Basilio Magno e Gregório de Nazianzo',
+      imageUrl: 'https://placehold.co/400x400?text=Basilio+e+Gregorio',
+      story: `<h4>Amigos na Fé e na Sabedoria</h4><p>Basílio e Gregório, dois dos "Padres Capadócios", viveram uma das amizades mais belas e produtivas da história da Igreja no século IV. Conheceram-se em Atenas, onde estudavam, e a sua união baseava-se no amor a Deus e na busca da verdade. "Tínhamos tudo em comum", escreveu Gregório, "especialmente a vontade de sermos cristãos". Juntos, lutaram contra as heresias de seu tempo, especialmente o arianismo, defendendo a divindade de Cristo e do Espírito Santo.</p><h4>Pilares da Igreja Oriental</h4><p>Basílio, conhecido como "Magno", foi um grande organizador, bispo de Cesareia e pai do monaquismo oriental. Suas regras monásticas ainda hoje guiam muitos monges. Gregório, chamado "o Teólogo", destacou-se pela sua profunda oração e eloqüência, sendo um dos maiores poetas e oradores da Igreja primitiva. A sua contribuição para a clarificação do dogma da Santíssima Trindade é inestimável.</p><h4>Legado de Santidade e Doutrina</h4><p>Apesar de personalidades diferentes - Basílio mais ativo e prático, Gregório mais contemplativo e sensível - ambos se dedicaram inteiramente ao serviço de Cristo e da sua Igreja. São Doutores da Igreja e modelos de como o estudo e a amizade podem ser caminhos de santidade. A sua festa conjunta recorda-nos que a fé se fortalece na comunhão e na defesa corajosa da Verdade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ilustrastes a vossa Igreja com os exemplos e a doutrina dos vossos santos bispos Basílio e Gregório, fazei que procuremos humildemente a vossa verdade e a pratiquemos fielmente pela caridade.</p>`
+    }]
+  },
+  {
+    day: 3,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santíssimo Nome de Jesus',
+      imageUrl: 'https://placehold.co/400x400?text=Nome+de+Jesus',
+      story: `<h4>O Nome acima de todo nome</h4><p>A celebração do Santíssimo Nome de Jesus recorda-nos o verso de São Paulo: "Para que ao nome de Jesus se dobre todo o joelho dos que estão nos céus, na terra e debaixo da terra". O nome "Jesus" significa "Deus salva", revelando a missão fundamental do Filho de Deus feito homem. É um nome de poder, de esperança e de salvação, invocado pelos cristãos desde o início da Igreja.</p><h4>Devoção de Grandes Santos</h4><p>Esta devoção foi grandemente difundida no século XV por São Bernardino de Sena e São João de Capistrano, que carregavam o monograma "IHS" (Jesus Homem Salvador) em suas pregações. Eles ensinavam que o nome de Jesus é um remédio contra o mal, uma luz para a mente e um fogo de amor para o coração. Pronunciar o nome de Jesus com fé é colocar-se sob a proteção direta do próprio Deus.</p><p class="mt-4"><b>Oração:</b> Senhor Jesus Cristo, concede-nos a graça de amar e honrar o Teu Santíssimo Nome, para que possamos experimentar na terra o poder da Tua salvação e cantar eternamente o Teu louvor no céu. Amém.</p>`
+    }]
+  },
+  {
+    day: 4,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Ângela de Foligno',
+      imageUrl: 'https://placehold.co/400x400?text=Angela+de+Foligno',
+      story: `<h4>A Mestra dos Teólogos</h4><p>Ângela de Foligno viveu no século XIII e é uma das maiores místicas da tradição franciscana. Após uma vida mundana, ela experimentou uma conversão radical após a perda de sua família, despojando-se de seus bens e ingressando na Ordem Terceira de São Francisco. Suas experiências espirituais foram registradas em seu "Livro de Visões e Instruções", que revela uma profundidade mística extraordinária.</p><h4>União com Cristo Sofredor</h4><p>O centro da espiritualidade de Ângela era a Paixão de Cristo. Ela contemplava incessantemente a humanidade sofredora de Jesus, vendo nela o caminho para a união divina. Sua vida foi marcada por intensas provações e consolações, sendo chamada por muitos de "Mestra dos Teólogos" devido à clareza com que descrevia os mistérios de Deus. Sua mensagem é um convite à humildade e ao amor total ao Amado.</p><p class="mt-4"><b>Oração:</b> Santa Ângela de Foligno, que encontraste no mistério da Cruz a luz e o amor infinitos de Deus, ajuda-nos a caminhar com coragem na via da conversão e a amar a Jesus acima de todas as coisas. Amém.</p>`
+    }]
+  },
+  {
+    day: 5,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São João Neumann',
+      imageUrl: 'https://placehold.co/400x400?text=Joao+Neumann',
+      story: `<h4>O Bispo Missionário</h4><p>João Neumann nasceu na Boêmia e sentiu um forte chamado missionário para os Estados Unidos. Ordenado sacerdote em Nova York, ele percorria vastas áreas rurais a pé ou a cavalo, levando os sacramentos aos imigrantes. Mais tarde, ingressou na Congregação dos Redentoristas e tornou-se o quarto Bispo de Filadélfia, onde se destacou por seu zelo incansável e sua simplicidade.</p><h4>Pai da Educação Católica</h4><p>Como bispo, ele fundou o primeiro sistema diocesano de escolas católicas nos EUA, entendendo a importância da formação integral da juventude. João era um homem de profunda oração e humildade, vivendo de forma austera para poder ajudar os pobres. Foi o primeiro bispo dos EUA a ser canonizado, sendo um exemplo de como a organização e o zelo pastoral podem transformar a vida de uma diocese.</p><p class="mt-4"><b>Oração:</b> São João Neumann, que dedicaste a tua vida ao serviço de Deus e dos irmãos com coragem e humildade, intercede por nós para que sejamos testemunhas autênticas do Evangelho em todas as circunstâncias. Amém.</p>`
+    }]
+  },
+  {
+    day: 6,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Epifania do Senhor',
+      imageUrl: 'https://placehold.co/400x400?text=Epifania',
+      story: `<h4>A Manifestação aos Povos</h4><p>A Epifania celebra a manifestação de Jesus como Salvador de todos os povos, representada pela visita dos Magos do Oriente. O ouro reconhece a sua realeza, o incenso a sua divindade e a mirra a sua humanidade destinada ao sofrimento redentor. É a festa da universalidade da salvação: Cristo não veio apenas para um povo, mas para toda a humanidade.</p><h4>A Estrela que nos Guia</h4><p>Os Magos seguiram uma estrela com coragem e determinação, buscando a Verdade. Sua jornada nos ensina que Deus se deixa encontrar por todos os que O buscam com um coração sincero. Ao adorarem o Menino Jesus, eles transformaram sua vida. A Epifania convida-nos a sermos também nós "estrelas" que apontam o caminho para Cristo através do nosso testemunho de alegria e de fé no mundo de hoje.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que hoje revelastes o vosso Filho único às nações, guia-nos na vossa luz para que, conhecendo-vos já pela fé, cheguemos a contemplar a beleza da vossa glória. Amém.</p>`
+    }]
+  },
+  {
+    day: 7,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Raimundo de Peñafort',
+      imageUrl: 'https://placehold.co/400x400?text=Raimundo+Penafort',
+      story: `<h4>O Mestre do Direito e da Misericórdia</h4><p>São Raimundo foi um dos primeiros membros da Ordem dos Pregadores (Dominicanos) e um jurista brilhante. A pedido do Papa Gregório IX, compilou o "Decretales", que foi a base do Direito Canônico por séculos. No entanto, sua grandeza não estava apenas na lei, mas na compaixão. Ajudou São Pedro Nolasco a fundar a Ordem das Mercês para o resgate de cativos cristãos.</p><h4>Um Farol de Sabedoria</h4><p>Eleito Mestre Geral dos Dominicanos, ele promoveu o estudo das línguas e das ciências para melhor evangelizar. Viveu até quase os 100 anos, sendo um exemplo de humildade e dedicação à Igreja. É o padroeiro dos canonistas e dos advogados, lembrando-nos que a justiça humana deve sempre estar a serviço do amor divino e da verdade que liberta.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Raimundo de Peñafort o espírito de sabedoria e de misericórdia para guiar os fiéis, ajuda-nos a caminhar no caminho da justiça e do amor. Amém.</p>`
+    }]
+  },
+  {
+    day: 8,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Severino de Nórica',
+      imageUrl: 'https://placehold.co/400x400?text=Severino',
+      story: `<h4>O Apóstolo das Fronteiras</h4><p>São Severino viveu num período de grande instabilidade, during a queda do Império Romano e as invasões bárbaras na região da atual Áustria. Ele surgiu como um farol de esperança e liderança, vivendo como um eremita, mas atuando como um protetor para as populações aterrorizadas. Sua autoridade moral era respeitada tanto pelos romanos quanto pelos líderes bárbaros.</p><h4>Defensor dos Pobres</h4><p>Severino organizou o resgate de prisioneiros, estabeleceu sistemas de caridade para alimentar os famintos e aconselhou governantes com coragem profética. Ele não tinha armas nem exércitos, mas seu poder vinha de sua profunda união com Deus. Sua vida demonstra que, mesmo nos momentos mais sombrios da história, a figura de um santo pode oferecer a estabilidade e a luz que a sociedade necessita.</p><p class="mt-4"><b>Oração:</b> São Severino, que foste força e refúgio para o povo em tempos de grande provação, intercede por nós para que nunca percamos a esperança e saibamos ser sinais da presença de Deus em nosso mundo. Amém.</p>`
+    }]
+  },
+  {
+    day: 9,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo André Corsini',
+      imageUrl: 'https://placehold.co/400x400?text=Andre+Corsini',
+      story: `<h4>De Jovem Rebelde a Bispo Santo</h4><p>André nasceu em Florença, numa família nobre. Na juventude, foi rebelde e mundano, mas a conversão veio through um profundo encontro com a graça de Deus e o amor de sua mãe, que o consagrou a Nossa Senhora. Ingressou na Ordem do Carmo e tornou-se um místico zeloso, sendo mais tarde nomeado Bispo de Fiesole, cargo que aceitou apenas por obediência.</p><h4>Anjo da Paz</h4><p>Como bispo, André destacou-se por sua caridade e, especialmente, por seu dom de reconciliador. Ele resolveu inúmeros conflitos civis e eclesiásticos, sendo chamado de "Anjo da Paz". Vivia com extrema simplicidade, lavando os pés dos pobres e cuidando pessoalmente dos doentes. Sua vida ensina que nunca é tarde para mudar o rumo do coração e que a humildade é a base de toda verdadeira liderança.</p><p class="mt-4"><b>Oração:</b> Santo André Corsini, que pelo Teu exemplo de conversão e paz inspiraste tantos corações, ajuda-nos a ser instrumentos de reconciliação em nossas famílias e em nossa sociedade. Amém.</p>`
+    }]
+  },
+  {
+    day: 10,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Gonçalo de Amarante',
+      imageUrl: 'https://placehold.co/400x400?text=Goncalo+de+Amarante',
+      story: `<h4>O Pregador das Pontes</h4><p>São Gonçalo é um dos santos mais populares de Portugal. Após peregrinar a Roma e Jerusalém, retornou a Portugal e sentiu o chamado para viver como eremita e, depois, como frade dominicano. Dedicou-se à pregação e ao cuidado espiritual do povo de Amarante, onde se tornou famoso não apenas por suas palavras, mas por suas obras em benefício da comunidade.</p><h4>Construtor e Protetor</h4><p>Diz a tradição que ele ajudou pessoalmente na construção da ponte sobre o rio Tâmega para ajudar o povo. Gonçalo unia a vida mística com uma ação social incansável. É venerado como protetor dos noivos e das famílias, e sua festa é marcada por uma profunda alegria popular. Ele nos lembra que a fé deve ser "edificante", construindo pontes entre as pessoas e entre o mundo e Deus.</p><p class="mt-4"><b>Oração:</b> São Gonçalo de Amarante, que uniste a oração fervorosa ao serviço generoso ao próximo, intercede por nós para que saibamos construir caminhos de fraternidade e paz em nossa vida. Amém.</p>`
+    }]
+  },
+  {
+    day: 11,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Vital de Gaza',
+      imageUrl: 'https://placehold.co/400x400?text=Vital+de+Gaza',
+      story: `<h4>A Caridade Oculta</h4><p>São Vital foi um monge do século VII que viveu uma missão de misericórdia extraordinária e mal compreendida. Ele dedicava suas noites a resgatar mulheres que viviam na prostituição, oferecendo-lhes os recursos para mudarem de vida, while ele mesmo era caluniado e julgado pela sociedade de Alexandria. Ele aceitava as críticas em silêncio, buscando apenas a glória de Deus e a salvação das almas.</p><h4>O Julgamento e a Verdade</h4><p>Apenas após sua morte, when as mulheres por ele resgatadas testemunharam a verdade, é que a sua santidade foi reconhecida por todos. Seu exemplo é um convite radical a não julgar pelas aparências e a viver uma caridade que não busca o aplauso humano. Vital reminds us that God sees the heart and that the highest form of love often acts in the shadows, longe dos holofotes do mundo.</p><p class="mt-4"><b>Oração:</b> São Vital de Gaza, que com coragem e silêncio viveste a caridade mais difícil, ajuda-nos a ter um coração puro e a ver o rosto de Cristo em todos os nossos irmãos, especialmente nos mais sofredores e julgados. Amém.</p>`
+    }]
+  },
+  {
+    day: 12,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Elredo de Rievaulx',
+      imageUrl: 'https://placehold.co/400x400?text=Elredo',
+      story: `<h4>O Mestre da Amizade Espiritual</h4><p>Elredo foi abade da grande abadia cisterciense de Rievaulx, na Inglaterra, no século XII. Conhecido como o "São Bernardo do Norte", ele era um líder amado por sua bondade e sabedoria. Sua obra mais famosa, "De Spirituali Amicitia" (Sobre a Amizade Espiritual), apresenta a amizade como um caminho sagrado para encontrar e amar a Deus: "Deus é Amizade".</p><h4>Um Coração Acolhedor</h4><p>Sob sua liderança, a abadia tornou-se um refúgio de paz para centenas de monges. Elredo ensinava que a vida comunitária deve ser baseada na caridade mútua e no respeito profundo. Apesar de sofrer de doenças crônicas, ele nunca perdeu a doçura e a paciência. Ele nos convida a cultivar relações autênticas e a ver na amizade cristã um reflexo do amor infinito da Santíssima Trindade.</p><p class="mt-4"><b>Oração:</b> Santo Elredo, que nos ensinaste a encontrar a Deus através do amor aos nossos amigos e irmãos, ajuda-nos a cultivar amizades que nos levem sempre mais perto do Senhor. Amém.</p>`
+    }]
+  },
+  {
+    day: 13,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Hilário de Poitiers',
+      imageUrl: 'https://placehold.co/400x400?text=Hilario',
+      story: `<h4>O Atanásio do Ocidente</h4><p>Hilário, Bispo de Poitiers no século IV, foi um dos maiores defensores da divindade de Cristo contra a heresia ariana. Por sua firmeza na fé, foi enviado para o exílio pelo imperador, onde aproveitou para estudar a teologia oriental e escrever sua grande obra "Sobre a Trindade". É chamado de "Doutor da Igreja" pela clareza de seu pensamento e sua coragem inabalável.</p><h4>Firmeza e Mansidão</h4><p>Apesar de sua luta rigorosa pela verdade doutrinária, Hilário era conhecido por sua mansidão e caráter conciliador. Ele entendia que a defesa da fé exige tanto a força da razão quanto a doçura da caridade. Sua vida mostra que o estudo profundo e a fidelidade à Igreja são fundamentais para navegar em tempos de confusão. Ele é um guia seguro para todos os que buscam aprofundar o mistério do Deus Trino.</p><p class="mt-4"><b>Oração:</b> Santo Hilário, fiel defensor da verdade, intercede por nós para que guardemos a fé com coragem e saibamos dar as razões de nossa esperança com mansidão e amor. Amém.</p>`
+    }]
+  },
+  {
+    day: 14,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Félix de Nola',
+      imageUrl: 'https://placehold.co/400x400?text=Felix+de+Nola',
+      story: `<h4>Confessor de Fé</h4><p>São Félix viveu no século III e foi um presbítero que sofreu intensamente during as perseguições. Diz a tradição que ele foi libertado da prisão milagrosamente por um anjo para cuidar de seu bispo doente. Félix passou o resto de sua vida vivendo em extrema pobreza, cultivando um pequeno jardim, mas sendo um farol de consolo espiritual para todo o povo de Nola.</p><h4>Venerado como Mártir</h4><p>Embora não tenha morrido no suplício, Félix é venerado como mártir devido aos imensos sofrimentos que suportou por Cristo. São Paulino de Nola, que escreveu sobre ele, descreve os inúmeros milagres que ocorriam em seu túmulo. Sua vida ensina que a verdadeira santidade consiste na fidelidade cotidiana e na aceitação alegre da vontade de Deus, mesmo sob as maiores provações. Ele é o padroeiro contra o perjúrio.</p><p class="mt-4"><b>Oração:</b> São Félix de Nola, cuja fé brilhou no meio das perseguições e da pobreza, ajuda-nos a ser fiéis a Cristo em todas as cirunstâncias de nossa vida e a encontrar Nele a nossa única riqueza. Amém.</p>`
+    }]
+  },
+  {
+    day: 15,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Amaro',
+      imageUrl: 'https://placehold.co/400x400?text=Santo+Amaro',
+      story: `<h4>O Discípulo Fiel</h4><p>Santo Amaro foi um dos primeiros e mais amados discípulos de São Bento, o pai do monaquismo ocidental. Desde criança, foi confiado pelos pais aos cuidados do mosteiro de Subiaco. Tornou-se um modelo de obediência e humildade, sendo o braço direito de São Bento em muitas missões. Diz a história que, por obediência, ele chegou a caminhar sobre as águas para salvar um colega de afogamento.</p><h4>Missionário na Gália</h4><p>Segundo a tradição, Amaro foi enviado por São Bento para a França (Gália), onde fundou o importante mosteiro de Glanfeuil. Ele introduziu a Regra de São Bento naquelas terras, sendo um dos pilares da evangelização da Europa medieval. Sua vida é um hino à simplicidade do "Ora et Labora" e à força que nasce da entrega total à vontade de Deus através da vida monástica.</p><p class="mt-4"><b>Oração:</b> Santo Amaro, modelo de obediência e entrega a Deus, ensina-nos a ouvir a voz do Senhor em nosso cotidiano e a servi-Lo com alegria e humildade. Amém.</p>`
+    }]
+  },
+  {
+    day: 16,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Marcelo I',
+      imageUrl: 'https://placehold.co/400x400?text=Marcelo+I',
+      story: `<h4>O Papa do Reerguimento</h4><p>Eleito Papa após um longo período de perseguição e vacância da Sé Romana, São Marcelo I enfrentou a difícil tarefa de reorganizar a Igreja. Ele estabeleceu 25 títulos (paróquias) em Roma para facilitar a administração dos sacramentos e o cuidado pastoral. Teve que lidar com a complexa questão dos "lapsi" (aqueles que haviam caído na fé during a perseguição), insistindo na necessidade de penitência.</p><h4>Mártir na Adversidade</h4><p>Por sua firmeza em defender a disciplina eclesiástica e a independência da Igreja, foi exilado pelo imperador Maxêncio. Diz a tradição que ele foi condenado a trabalhar nos estábulos públicos. Marcelo morreu como mártir, vítima dos maus tratos e do cansaço. Seu pontificado curto, mas decisivo, lembra-nos que a Igreja se fortalece na ordem e na coragem de seus pastores diante das tiranias do mundo.</p><p class="mt-4"><b>Oração:</b> Senhor, concede-nos que, pela intercessão do Papa São Marcelo, sejamos sempre fiéis à tua Igreja e saibamos defender a nossa fé com firmeza e coragem. Amém.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 17,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Antão',
+      imageUrl: 'https://placehold.co/400x400?text=Santo+Antao',
+      story: `<h4>O Pai dos Monges</h4><p>Santo Antão (ou Santo Antônio do Deserto) é considerado o fundador do monaquismo cristão. Nascido no Egito, ouviu no Evangelho o chamado de Jesus: "Vai, vende o que tens e dá-o aos pobres". Retirou-se para o deserto, onde viveu décadas em oração, jejum e combate espiritual. Sua fama de santidade atraiu milhares de discípulos, transformando o "deserto em uma cidade".</p><h4>O Combate da Fé</h4><p>Sua biografia, escrita por Santo Atanásio, relata suas famosas "tentações", vividas com uma coragem inabalável. Antão mostrou que o verdadeiro campo de batalha é o coração humano. Ele foi o guia espiritual de seu tempo, aconselhando tanto imperadores quanto camponeses. Sua vida é um convite radical à primazia de Deus e à busca do silêncio como espaço de encontro com o Absoluto. É o padroeiro dos animais.</p><p class="mt-4"><b>Oração:</b> Santo Antão, que encontraste no deserto a plenitude da união com Deus, ajuda-nos a vencer as tentações do mundo e a buscar sempre o que é eterno e verdadeiro. Amém.</p>`
+    }]
+  },
+  {
+    day: 18,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Margarida da Hungria',
+      imageUrl: 'https://placehold.co/400x400?text=Margarida+Hungria',
+      story: `<h4>A Princesa Consagrada</h4><p>Filha do Rei Bela IV da Hungria, Margarida foi oferecida a Deus por seus pais para a libertação do país das invasões mongóis. Desde os quatro anos viveu no mosteiro dominicano na Ilha das Lebres, no Danúbio. Recusou todas as propostas de casamento real, declarando pertencer apenas ao Rei dos Reis. Viveu com uma humildade extraordinária, realizando os serviços mais baixos.</p><h4>Vítima de Amor</h4><p>Margarida oferecia seus jejuns e orações pela paz em sua pátria e pela união das famílias. Sua vida foi marcada por uma penitência austera e um amor ardente pela Eucaristia. Faleceu com apenas 28 anos, mas sua fama de santidade espalhou-se rapidamente. Ela é um exemplo de como a verdadeira nobreza consiste no serviço amoroso a Deus e aos irmãos, independentemente das origens e títulos.</p><p class="mt-4"><b>Oração:</b> Santa Margarida da Hungria, que renunciaste às glórias do mundo pelo amor de Cristo, ajuda-nos a valorizar as coisas celestes e a servir a Deus com um coração despojado e humilde. Amém.</p>`
+    }]
+  },
+  {
+    day: 19,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Vulstano',
+      imageUrl: 'https://placehold.co/400x400?text=Vulstano',
+      story: `<h4>O Bispo do Povo</h4><p>São Vulstano foi o último bispo anglo-saxão da Inglaterra após a conquista normanda. Bispo de Worcester, ele era amado por sua simplicidade e por sua dedicação incansável ao povo. Embora fosse um homem de pouco brilho acadêmico, sua pregação era poderosa because vinha de um coração profundamente unido a Deus.</p><h4>Defensor da Liberdade</h4><p>Vulstano destacou-se por sua luta vigorosa contra o tráfico de escravos em Bristol, conseguindo a sua proibição. Ele foi um líder que soube unir a fidelidade às suas raízes com a obediência aos novos tempos, sempre buscando o bem comum. Sua vida demonstra que a verdadeira santidade brilha na integridade de caráter e na caridade ativa em favor dos mais oprimidos.</p><p class="mt-4"><b>Oração:</b> São Vulstano, fiel pastor do povo, intercede por nós para que tenhamos a coragem de defender a justiça e a dignidade de todas as pessoas com amor e humildade. Amém.</p>`
+    }]
+  },
+  {
+    day: 20,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Sebastião',
+      imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao',
+      story: `<h4>O Soldado de Cristo</h4><p>São Sebastião nasceu em Narbona e foi educado em Milão. Tornou-se capitão da guarda pretoriana em Roma, usando a sua posição influente para secretamente apoiar os cristãos perseguidos e converter muitos ao cristianismo. A sua vida era um equilíbrio corajoso entre o dever ao imperador e a fidelidade suprema a Deus, num dos períodos mais difíceis da Igreja primitiva.</p><h4>O Primeiro Martírio</h4><p>Descoberto como cristão, o Imperador Diocleciano condenou-o a ser morto por flechas. Amarrado a um poste e crivado de flechas, foi deixado como morto. No entanto, uma piedosa viúva chamada Irene encontrou-o vivo e cuidou das suas feridas. Em vez de fugir, Sebastião apresentou-se novamente diante do imperador para anunciar a injustiça das perseguições, demonstrando uma coragem inabalável que continua a inspirar os fiéis hoje.</p><h4>Defensor contra as Pestes</h4><p>Finalmente martirizado com pancadas, o seu corpo foi lançado na Cloaca Máxima, mas recuperado e sepultado nas catacumbas. Ao longo dos séculos, São Sebastião tem sido invocado como protetor contra a peste e as epidemias, e o seu culto espalhou-se por todo o mundo, sendo um dos santos mais populares, especialmente no Brasil, onde é padroeiro da cidade do Rio de Janeiro.</p><p class="mt-4"><b>Oração:</b> São Sebastião, valoroso soldado de Cristo, que com a vossa vida e morte destes testemunho de fé inabalável, intercedei por nós em nossas necessidades e livrai-nos de todos os males físicos e espirituais.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 21,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Inês',
+      imageUrl: 'https://placehold.co/400x400?text=Santa+Ines',
+      story: `<h4>A Pureza Corajosa</h4><p>Inês, cujo nome significa "pura" em grego e "cordeiro" em latim, é uma das mártires mais célebres de Roma. Com apenas 12 ou 13 anos, preferiu a morte a renunciar à sua virgindade consagrada a Cristo. Recusando-se a casar com o filho do prefeito romano, declarou: "O meu coração está entregue a outro Amante". O seu testemunho mostra que a força de Deus se manifesta mesmo na fragilidade de uma criança.</p><h4>Firmeza na Provação</h4><p>Submetida a humilhações e ameaçada com o fogo, Inês permaneceu imperturbável. A tradição conta que, ao ser levada para um lugar de pecado, o seu cabelo cresceu milagrosamente para cobrir a sua nudez e um anjo a protegeu. Diante do carrasco, ela não hesitou, vendo na morte a porta para o encontro definitivo com o seu Esposo celeste. O seu martírio causou profunda impressão em toda a cristandade de Roma.</p><h4>Símbolo de Virgindade e Martírio</h4><p>Desde os primeiros séculos, Santa Inês é celebrada como um modelo de pureza e fidelidade. Na sua festa, abençoam-se dois cordeiros, cuja lã é usada para tecer os pálios que o Papa entrega aos arcebispos metropolitanos, simbolizando a união com o Sucessor de Pedro. O seu exemplo recorda-nos que o amor a Deus vale mais do que a própria vida e que a pureza de coração é uma força invencível.</p><p class="mt-4"><b>Oração:</b> Santa Inês, que com a vossa juventude e pureza vencestes as ciladas do mundo e as torturas do martírio, alcançai-nos a graça de amarmos a Cristo sobre todas as coisas e de guardarmos um coração puro e fiel.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 22,
+    month: 'Janeiro',
+    saints: [
+      {
+        name: 'São Vicente de Saragoça',
+        imageUrl: 'https://placehold.co/400x400?text=Vicente+Saragoca',
+        story: `<h4>O Diácono de Ferro</h4><p>Vicente foi o diácono fiel do bispo Valério na Espanha do século IV. During a perseguição de Diocleciano, ele deu testemunho de uma eloquência e firmeza extraordinárias. Submetido a torturas inimagináveis, Vicente cantava hinos de louvor no meio das chamas, transformando sua cama de dor em um púlpito para pregar o amor de Cristo.</p>`,
+        isMartyr: true
+      },
+      {
+        name: 'Santa Blesila',
+        imageUrl: 'https://placehold.co/400x400?text=Blesila',
+        story: `<h4>Discípula de São Jerônimo</h4><p>Blesila era uma jovem viúva romana pertencente ao círculo de São Jerônimo. Em apenas alguns meses de intensa vida espiritual, ela aprendeu hebreu e dedicou-se ao estudo das Escrituras e à penitência. Faleceu muito jovem, sendo considerada um exemplo de como a graça pode transformar uma vida mundana em uma chama ardente de santidade em pouquíssimo tempo.</p>`
+      }
+    ]
+  },
+  {
+    day: 23,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Emerenciana',
+      imageUrl: 'https://placehold.co/400x400?text=Emerenciana',
+      story: `<h4>Mártir de Fé</h4><p>Santa Emerenciana era, segundo a tradição, irmã de leite de Santa Inês. Poucos dias após o martírio de Inês, Emerenciana foi encontrada rezando em seu túmulo e repreendendo os pagãos por sua crueldade. Por seu testemunho corajoso, foi apedrejada ali mesmo, recebendo o "batismo de sangue" antes mesmo de ser formalmente batizada com água.</p><h4>Coragem na Oração</h4><p>Seu exemplo mostra a força do vínculo sagrado que une os fiéis em Cristo. Ela preferiu morrer no lugar onde sua amiga deu a vida a viver em um mundo de injustiça. Emerenciana é invocada contra as dores de estômago e de cólicas, sendo um símbolo de fidelidade absoluta e de amizade que transcende a morte.</p><p class="mt-4"><b>Oração:</b> Santa Emerenciana, que com coragem testemunhaste a tua fé diante do túmulo de Santa Inês, ajuda-nos a ser fiéis aos nossos ideais e a testemunhar o amor de Cristo com desassombro. Amém.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 24,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São Francisco de Sales',
+      imageUrl: 'https://placehold.co/400x400?text=Francisco+de+Sales',
+      story: `<h4>O Doutor da Mansidão</h4><p>São Francisco de Sales foi Bispo de Genebra during a Reforma Protestante. Conhecido por sua paciência e doçura extrema, ele converteu milhares de almas não por debates agressivos, mas pelo amor: "Uma gota de mel atrai mais moscas que um barril de vinagre". É o autor do clássico "Introdução à Vida Devota", que ensina que a santidade é possível em todos os estados de vida.</p><h4>Padroeiro dos Jornalistas</h4><p>Francisco usou panfletos e a escrita para difundir a fé, sendo um pioneiro nos meios de comunicação. Ele entendia que a comunicação deve ser serva da verdade e da caridade. Sua mensagem de que o coração de Deus é misericórdia continua a ser um farol para a Igreja moderna. É um modelo de pastor que soube unir a firmeza doutrinária com a ternura de um pai.</p><p class="mt-4"><b>Oração:</b> São Francisco de Sales, mestre da mansidão e da caridade, ensina-nos a falar com amor e a buscar a santidade nas pequenas coisas do nosso dia a dia. Amém.</p>`
+    }]
+  },
+  {
+    day: 25,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Conversão de São Paulo',
+      imageUrl: 'https://placehold.co/400x400?text=Conversao+de+Sao+Paulo',
+      story: `<h4>De Perseguidor a Apóstolo</h4><p>A conversão de Saulo de Tarso no caminho de Damasco é um dos eventos mais importantes da história do cristianismo. Saulo, um fariseu zeloso que perseguia violentamente a Igreja, foi derrubado pelo brilho de uma luz celeste e ouviu a voz de Jesus: "Saulo, Saulo, porque me persegues?". Este encontro pessoal com o Ressuscitado transformou radicalmente o seu coração, transformando o perseguidor no maior missionário da fé.</p><h4>O Apóstolo das Nações</h4><p>Após o seu batismo por Ananias, Paulo dedicou o resto da sua vida a anunciar o Evangelho aos gentios. Percorreu milhares de quilômetros, fundou inúmeras comunidades e escreveu cartas que se tornaram a base da teologia cristã. Paulo entendeu que, em Cristo, não há distinção entre judeu e grego, escravo e livre, homem e mulher. A sua vida é um testemunho do poder irresistível da graça de Deus que pode transformar qualquer pecador.</p><h4>Consumação no Amor</h4><p>A vida de Paulo foi marcada por perseguições, prisões e sofrimentos, mas nada o separou do amor de Cristo. O seu lema, "Para mim o viver é Cristo", resume a sua total entrega. A festa de sua conversão encerra a Semana de Oração pela Unidade dos Cristãos, lembrando-nos que a verdadeira unidade nasce da conversão comum ao Senhor. São Paulo ensina-nos que nunca é tarde para recomeçar e que Deus tem uma missão para cada um de nós.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ensinastes ao mundo inteiro pela pregação do Apóstolo São Paulo, dai-nos, ao celebrar hoje a sua conversão, a graça de caminhar para Vós seguindo os seus exemplos, e de ser testemunhas da vossa verdade.</p>`
+    }]
+  },
+  {
+    day: 26,
+    month: 'Janeiro',
+    saints: [
+      {
+        name: 'Santa Paula de Roma',
+        imageUrl: 'https://placehold.co/400x400?text=Paula+de+Roma',
+        story: `<h4>Mãe e Discípula</h4><p>Paula era uma nobre matrona romana que, ao ficar viúva, dedicou sua vida aos pobres e ao estudo das Escrituras sob a guia de São Jerônimo. Fundou mosteiros em Belém, onde passou o resto de sua vida em oração e auxílio ao trabalho de tradução da Bíblia. É um exemplo de como a riqueza pode ser transformada em tesouro no céu através da caridade.</p>`
+      },
+      {
+        name: 'Santos Roberto, Alberico e Estevão',
+        imageUrl: 'https://placehold.co/400x400?text=Fundadores+Cister',
+        story: `<h4>Fundadores de Cister</h4><p>Estes três santos foram os fundadores da Ordem de Cister. Buscando a pureza da Regra de São Bento, eles fundaram o "Novo Mosteiro" no meio da floresta, focando no silêncio, na pobreza e no trabalho manual. Sua reforma renovou o monaquismo ocidental, focando na oração litúrgica e na vida contemplativa austera e bela.</p>`
+      }
+    ]
+  },
+  {
+    day: 27,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Angela Merici',
+      imageUrl: 'https://placehold.co/400x400?text=Angela+Merici',
+      story: `<h4>Pioneira na Educação</h4><p>Angela Merici fundou a Companhia de Santa Úrsula (Ursulinas), a primeira congregação religiosa feminina dedicada especificamente à educação de meninas fora dos mosteiros. Ela entendeu que transformar a família exige a formação completa das mulheres. Sua abordagem era baseada no amor, no respeito e na presença ativa no mundo.</p><h4>Visionária e Reformadora</h4><p>Em uma época em que o papel da mulher era muito restrito, Angela abriu novos horizontes, permitindo que as religiosas vivessem em suas próprias casas while serviam à comunidade. Sua espiritualidade era prática e profunda. Ela é a padroeira dos doentes e das pessoas que perderam a visão, lembrando-nos que o verdadeiro ensino é aquele que ilumina a alma com a luz da verdade divina.</p><p class="mt-4"><b>Oração:</b> Santa Angela Merici, que com sabedoria e coragem abriste caminhos para a educação e o serviço, ajuda-nos a ser promotores da verdade e do amor na educação das gerações futuras. Amém.</p>`
+    }]
+  },
+  {
+    day: 28,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Tomás de Aquino',
+      imageUrl: 'https://placehold.co/400x400?text=Santo+Tomas+de+Aquino',
+      story: `<h4>O Boi Mudo que Mugiu para o Mundo</h4><p>Tomás de Aquino, nascido em 1225, é considerado o maior filósofo e teólogo da Igreja Católica. Ingressou na Ordem Dominicana contra a vontade da família, buscando uma vida de estudo e oração. Os seus colegas chamavam-no de "boi mudo" devido ao seu silêncio e constituição robusta, mas o seu mestre, Santo Alberto Magno, profetizou que os seus mugidos seriam ouvidos em todo o mundo. A sua inteligência estava sempre ao serviço da fé.</p><h4>A Harmonia entre Fé e Razão</h4><p>A grande obra de Santo Tomás foi a "Suma Teológica", onde ele articulou com clareza e profundidade a harmonia entre a razão humana e a revelação divina. Ele ensinou que a fé não contradiz a razão, mas a eleva e a completa. Usando o pensamento de Aristóteles, construiu um sistema intelectual que continua a ser o fundamento dos estudos eclesiásticos. Para Tomás, o estudo era uma forma de adoração e uma busca incessante pela Verdade que é Deus.</p><h4>Mística e Humildade</h4><p>Apesar de sua imensa erudição, Santo Tomás era um homem profundamente místico e humilde. Foi ele quem compôs os belíssimos hinos para a festa de Corpus Christi, como o "Pange Lingua". Nos últimos meses de vida, após uma visão mística, parou de escrever, dizendo que tudo o que tinha escrito parecia "palha" diante do que tinha visto. Canonizado e declarado Doutor da Igreja, o "Doutor Angélico" é o padroeiro dos estudantes e das universidades católicas.</p><p class="mt-4"><b>Oração:</b> Deus eterno e todo-poderoso, que fizestes de Santo Tomás de Aquino um modelo de sabedoria e de procura da verdade, concedei-nos a graça de compreender o que ele ensinou e de imitar o que ele viveu.</p>`
+    }]
+  },
+  {
+    day: 29,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santo Andrei Rublev',
+      imageUrl: 'https://placehold.co/400x400?text=Andrei+Rublev',
+      story: `<h4>O Iconomógrafo de Deus</h4><p>Andrei Rublev foi o maior pintor de ícones da Rússia medieval. Como monge, ele entendia a arte como uma forma de liturgia e de oração. Seu ícone mais famoso, "A Trindade", é uma obra prima que expressa a unidade e o amor infinitos do Deus Trino através da beleza de cores e formas transcendentais.</p><h4>Beleza que Salva</h4><p>Para Rublev, pintar um ícone era janelas abertas para o Céu. Sua vida foi marcada pelo silêncio e pela contemplação da glória de Deus. Ele não buscava a fama artística, mas a glória do Senhor. Seu legado ensina-nos que a beleza é um caminho fundamental para a evangelização e que o artista cristão deve ser, antes de tudo, um homem de oração profunda.</p><p class="mt-4"><b>Oração:</b> Santo Andrei Rublev, que através da tua arte nos permitiste contemplar os mistérios divinos, ajuda-nos a buscar a beleza que conduz à Verdade e a fazer da nossa vida um ícone da glória de Deus. Amém.</p>`
+    }]
+  },
+  {
+    day: 30,
+    month: 'Janeiro',
+    saints: [{
+      name: 'Santa Martina',
+      imageUrl: 'https://placehold.co/400x400?text=Santa+Martina',
+      story: `<h4>Mártir de Roma</h4><p>Martina foi uma virgem romana do século III, filha de um cônsul cristão. Conhecida por sua imensa caridade para com os pobres, ela foi presa during a perseguição de Alexandre Severo. Condenada a adorar ídolos, Martina orava com tanta fé que as estátuas pagãs se despedaçavam. Foi submetida a várias torturas antes de ser decapitada.</p><h4>Testemunho de Fortaleza</h4><p>Sua vida é um hino à fortaleza cristã. Diz a tradição que, when foi lançada aos leões, as feras se deitaram a seus pés como gatinhos. Sua santidade impressionou até mesmo seus algozes. É uma das padroeiras de Roma e sua vida nos recorda que o verdadeiro poder reside na entrega total a Cristo, que fortalece os pequenos para confundir os grandes deste mundo.</p><p class="mt-4"><b>Oração:</b> Santa Martina, cuja fé moveu as montanhas da idolatria e do medo, intercede por nós para que tenhamos a coragem de testemunhar o Evangelho com alegria e firmeza. Amém.</p>`,
+      isMartyr: true
+    }]
+  },
+  {
+    day: 31,
+    month: 'Janeiro',
+    saints: [{
+      name: 'São João Bosco',
+      imageUrl: 'https://placehold.co/400x400?text=Dom+Bosco',
+      story: `<h4>O Pai e Mestre da Juventude</h4><p>João Bosco nasceu numa pobre família de camponeses no Piemonte, Itália. Desde cedo, sentiu a missão de dedicar a sua vida aos jovens, especialmente aos mais pobres e abandonados. Com o seu "Sistema Preventivo", baseado na razão, na religião e no amor (amorevolezza), transformou a vida de milhares de rapazes em Turim, oferecendo-lhes não apenas instrução e trabalho, mas um lar e uma família espiritual.</p><h4>Fundador e Visionário</h4><p>Para perpetuar a sua obra, fundou a Sociedade de São Francisco de Sales (Salesianos) e, com Santa Maria Domingas Mazzarello, as Filhas de Maria Auxiliadora. Dom Bosco era um homem de sonhos proféticos, mas também de uma ação prática e incansável. Ele entendeu que, para salvar a alma dos jovens, era preciso primeiro conquistar o seu coração através da bondade e da presença alegre entre eles. "Basta que sejais jovens para que eu vos ame", dizia ele.</p><h4>Devoção a Maria Auxiliadora</h4><p>Dom Bosco foi um grande propagador da devoção a Nossa Senhora Auxiliadora e da frequência aos sacramentos da Confissão e da Eucaristia. A sua vida foi marcada por inúmeros milagres e providências divinas que o ajudaram a construir escolas e igrejas sem recursos. Canonizado em 1934, é venerado como o padroeiro dos jovens, dos educadores e dos editores. O seu lema, "Da mihi animas, caetera tolle" (Dai-me almas e ficai com o resto), resume a sua paixão evangelizadora.</p><p class="mt-4"><b>Oração:</b> Senhor nosso Deus, que suscitastes São João Bosco para ser pai e mestre da juventude, fazei que, inflamados pelo mesmo amor, nos dediquemos à salvação dos irmãos e ao vosso serviço. Amém.</p>`
+    }]
+  },
   {
     day: 8,
     month: 'Fevereiro',

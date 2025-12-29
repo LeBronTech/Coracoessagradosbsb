@@ -113,7 +113,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const [hydrated, setHydrated] = useState(false);
   const [theme, setTheme] = useState<Theme>('light');
 
-  const months = useMemo(() => ['Outubro', 'Novembro', 'Dezembro'], []);
+  const months = useMemo(() => ['Janeiro', 'Fevereiro', 'Outubro', 'Novembro', 'Dezembro'], []);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const [monthCarouselRef, monthCarouselApi] = useEmblaCarousel(MONTH_CAROUSEL_OPTIONS);
 
@@ -153,8 +153,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     const monthIndex = allMonths.indexOf(currentDayData.month); // 0-11
     if (monthIndex === -1) return null;
 
-    // Determine year based on month name for the available dataset (2025)
-    const year = 2025;
+    // Determine year based on month name for the available dataset
+    const year = ['Janeiro', 'Fevereiro', 'Março', 'Abril'].includes(currentDayData.month) ? 2026 : 2025;
 
     const monthStr = String(monthIndex + 1).padStart(2, '0');
     const dayStr = String(currentDayData.day).padStart(2, '0');
@@ -193,7 +193,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     const today = new Date();
     const currentMonthName = allMonths[today.getMonth()];
 
-    let initialMonth = 'Outubro';
+    let initialMonth = 'Janeiro';
     if (months.includes(currentMonthName)) {
       initialMonth = currentMonthName;
     }
