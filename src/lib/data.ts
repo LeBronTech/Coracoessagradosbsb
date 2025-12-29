@@ -2102,10 +2102,10 @@ export const saints: Saint[] = [
   // Janeiro
   { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://imgs.search.brave.com/aoWnxVzI3BjPCBND2O_ui_EIUAUfPJRxBcku8wbnUwE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy90/aHVtYi9mL2ZlL0No/aWxkX0plc3VzX29m/X1ByYWd1ZV8lMjhv/cmlnaW5hbF9zdGF0/dWUlMjlfJTI4Y3Jv/cCUyOS5qcGcvNTEy/cHgtQ2hpbGRfSmVz/dXNfb2ZfUHJhZ3Vl/XyUyOG9yaWdpbmFs/X3N0YXR1ZSUyOV8l/Mjhjcm9wJTI5Lmpw/Zw', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' }, // Generic feast
   { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://i.pinimg.com/736x/cf/a9/b6/cfa9b672576ad12bf372aecd49d2ef60.jpg', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
-  { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
-  { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://placehold.co/400x400?text=Sao+Francisco', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
-  { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://placehold.co/400x400?text=Santo+Tomas', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
-  { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://placehold.co/400x400?text=Dom+Bosco', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
+  { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://iili.io/fWNLcba.png', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
+  { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://iili.io/fWNLRUP.png', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
+  { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://iili.io/fWNLA0B.png', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
+  { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://iili.io/fWNLufV.png', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
   { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: 'https://placehold.co/400x400?text=NS+Candeias', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
   { id: 'sao_bras', name: 'São Brás', imageUrl: 'https://placehold.co/400x400?text=Sao+Bras', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
 
@@ -2163,7 +2163,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santos Basilio Magno e Gregório de Nazianzo',
-      imageUrl: 'https://placehold.co/400x400?text=Basilio+e+Gregorio',
+      imageUrl: 'https://iili.io/fWNqqcF.png',
       story: `<h4>Amigos na Fé e na Sabedoria</h4><p>Basílio e Gregório, dois dos "Padres Capadócios", viveram uma das amizades mais belas e produtivas da história da Igreja no século IV. Conheceram-se em Atenas, onde estudavam, e a sua união baseava-se no amor a Deus e na busca da verdade. "Tínhamos tudo em comum", escreveu Gregório, "especialmente a vontade de sermos cristãos". Juntos, lutaram contra as heresias de seu tempo, especialmente o arianismo, defendendo a divindade de Cristo e do Espírito Santo.</p><h4>Pilares da Igreja Oriental</h4><p>Basílio, conhecido como "Magno", foi um grande organizador, bispo de Cesareia e pai do monaquismo oriental. Suas regras monásticas ainda hoje guiam muitos monges. Gregório, chamado "o Teólogo", destacou-se pela sua profunda oração e eloqüência, sendo um dos maiores poetas e oradores da Igreja primitiva. A sua contribuição para a clarificação do dogma da Santíssima Trindade é inestimável.</p><h4>Legado de Santidade e Doutrina</h4><p>Apesar de personalidades diferentes - Basílio mais ativo e prático, Gregório mais contemplativo e sensível - ambos se dedicaram inteiramente ao serviço de Cristo e da sua Igreja. São Doutores da Igreja e modelos de como o estudo e a amizade podem ser caminhos de santidade. A sua festa conjunta recorda-nos que a fé se fortalece na comunhão e na defesa corajosa da Verdade.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ilustrastes a vossa Igreja com os exemplos e a doutrina dos vossos santos bispos Basílio e Gregório, fazei que procuremos humildemente a vossa verdade e a pratiquemos fielmente pela caridade.</p>`
     }]
   },
@@ -2172,8 +2172,22 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santíssimo Nome de Jesus',
-      imageUrl: 'https://placehold.co/400x400?text=Nome+de+Jesus',
-      story: `<h4>O Nome acima de todo nome</h4><p>A celebração do Santíssimo Nome de Jesus recorda-nos o verso de São Paulo: "Para que ao nome de Jesus se dobre todo o joelho dos que estão nos céus, na terra e debaixo da terra". O nome "Jesus" significa "Deus salva", revelando a missão fundamental do Filho de Deus feito homem. É um nome de poder, de esperança e de salvação, invocado pelos cristãos desde o início da Igreja.</p><h4>Devoção de Grandes Santos</h4><p>Esta devoção foi grandemente difundida no século XV por São Bernardino de Sena e São João de Capistrano, que carregavam o monograma "IHS" (Jesus Homem Salvador) em suas pregações. Eles ensinavam que o nome de Jesus é um remédio contra o mal, uma luz para a mente e um fogo de amor para o coração. Pronunciar o nome de Jesus com fé é colocar-se sob a proteção direta do próprio Deus.</p><p class="mt-4"><b>Oração:</b> Senhor Jesus Cristo, concede-nos a graça de amar e honrar o Teu Santíssimo Nome, para que possamos experimentar na terra o poder da Tua salvação e cantar eternamente o Teu louvor no céu. Amém.</p>`
+      imageUrl: 'https://iili.io/fWNfHBI.png',
+      story: `<h4>O Nome Acima de Todo Nome</h4><p>A celebração do Santíssimo Nome de Jesus nos convida a meditar sobre o poder e a beleza do nome dado ao Filho de Deus quando foi circuncidado no oitavo dia após seu nascimento. Como diz São Paulo: <em>"Para que ao nome de Jesus se dobre todo o joelho dos que estão nos céus, na terra e debaixo da terra"</em> (Fl 2,10). O nome <strong>Jesus</strong> (em hebraico: Yeshua) significa <strong>"Javé salva"</strong> ou <strong>"Deus salva"</strong>, revelando perfeitamente a missão do Filho de Deus: salvar a humanidade do pecado e da morte.</p>
+
+<h4>O Monograma IHS</h4><p>O monograma <strong>IHS</strong> é uma das representações mais antigas e veneradas do Nome de Jesus. Este símbolo sagrado possui diferentes interpretações, todas profundamente significativas:</p><ul><li><strong>IHS</strong> são as três primeiras letras do nome de Jesus em grego (ΙΗΣΟΥΣ - Iesous)</li><li>Também interpretado como <em>Iesus Hominum Salvator</em> (Jesus Salvador dos Homens)</li><li>Ou <em>In Hoc Signo</em> (vinces) - "Neste sinal vencerás"</li></ul><p>Este monograma, frequentemente representado em um sol radiante, simboliza Cristo como a Luz do mundo, que dissipa as trevas do pecado e da morte.</p>
+
+<h4>O Poder do Santo Nome</h4><p>A Igreja sempre ensinou sobre o poder extraordinário do Santo Nome de Jesus:</p><ul><li><strong>São Pedro</strong> proclamou: <em>"Não existe debaixo do céu outro nome dado aos homens, pelo qual devamos ser salvos"</em> (At 4,12)</li><li><strong>Jesus mesmo</strong> prometeu: <em>"Tudo o que pedirdes ao Pai em meu nome, ele vo-lo concederá"</em> (Jo 16,23)</li><li>O Nome de Jesus é invocado para curar, libertar e santificar</li></ul>
+
+<h4>Devoção ao Santíssimo Nome</h4><p>Esta devoção foi especialmente promovida por grandes santos:</p><ul><li><strong>São Bernardino de Sena</strong> (1380-1444) - franciscano que difundiu o monograma IHS por toda a Itália, carregando uma tábua com o símbolo em suas pregações</li><li><strong>São João de Capistrano</strong> - discípulo de São Bernardino, continuou a propagar esta devoção</li><li><strong>Santo Inácio de Loyola</strong> - fundador da Companhia de Jesus (Jesuítas), colocou a ordem sob a proteção do Santo Nome</li></ul>
+
+<h4>A Festa Litúrgica</h4><p>Historicamente celebrada no domingo entre 1º e 6 de janeiro, ou no dia 2 de janeiro, esta festa foi fixada em 3 de janeiro após a reforma litúrgica do Concílio Vaticano II. É uma <strong>Memória Opcional</strong> no Tempo do Natal, celebrada com vestes brancas, cor da alegria e da divindade.</p>
+
+<h4>O Catecismo Ensina</h4><p>Como nos recorda o <strong>Catecismo da Igreja Católica</strong> (n. 2666-2668): <em>"O nome de Jesus está no coração da oração cristã. Todas as orações litúrgicas terminam com a fórmula 'Por Nosso Senhor Jesus Cristo'. A Ave-Maria culmina em 'e bendito é o fruto do vosso ventre, Jesus'. A oração do coração, habitual no Oriente cristão e chamada 'oração a Jesus', diz: 'Senhor Jesus Cristo, Filho de Deus, tende piedade de mim, pecador'. Muitos cristãos morrem, como Santa Joana d'Arc, tendo nos lábios uma única palavra: 'Jesus'."</em></p>
+
+<p class="mt-4"><b>Oração:</b> Ó Deus, que constituístes vosso Filho Unigênito Salvador do gênero humano e ordenastes que se chamasse Jesus, concedei propício que, venerando na terra o seu santo Nome, mereçamos também contemplá-lo no céu. Por Nosso Senhor Jesus Cristo, vosso Filho, na unidade do Espírito Santo. Amém.</p>
+
+<p class="mt-2 italic text-center">Que o Santíssimo Nome de Jesus seja sempre bendito, louvado e glorificado! ✝️</p>`
     }]
   },
   {
@@ -2181,7 +2195,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Ângela de Foligno',
-      imageUrl: 'https://placehold.co/400x400?text=Angela+de+Foligno',
+      imageUrl: 'https://iili.io/fWNIiEx.png',
       story: `<h4>A Mestra dos Teólogos</h4><p>Ângela de Foligno viveu no século XIII e é uma das maiores místicas da tradição franciscana. Após uma vida mundana, ela experimentou uma conversão radical após a perda de sua família, despojando-se de seus bens e ingressando na Ordem Terceira de São Francisco. Suas experiências espirituais foram registradas em seu "Livro de Visões e Instruções", que revela uma profundidade mística extraordinária.</p><h4>União com Cristo Sofredor</h4><p>O centro da espiritualidade de Ângela era a Paixão de Cristo. Ela contemplava incessantemente a humanidade sofredora de Jesus, vendo nela o caminho para a união divina. Sua vida foi marcada por intensas provações e consolações, sendo chamada por muitos de "Mestra dos Teólogos" devido à clareza com que descrevia os mistérios de Deus. Sua mensagem é um convite à humildade e ao amor total ao Amado.</p><p class="mt-4"><b>Oração:</b> Santa Ângela de Foligno, que encontraste no mistério da Cruz a luz e o amor infinitos de Deus, ajuda-nos a caminhar com coragem na via da conversão e a amar a Jesus acima de todas as coisas. Amém.</p>`
     }]
   },
@@ -2190,7 +2204,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São João Neumann',
-      imageUrl: 'https://placehold.co/400x400?text=Joao+Neumann',
+      imageUrl: 'https://iili.io/fWNI4Lb.png',
       story: `<h4>O Bispo Missionário</h4><p>João Neumann nasceu na Boêmia e sentiu um forte chamado missionário para os Estados Unidos. Ordenado sacerdote em Nova York, ele percorria vastas áreas rurais a pé ou a cavalo, levando os sacramentos aos imigrantes. Mais tarde, ingressou na Congregação dos Redentoristas e tornou-se o quarto Bispo de Filadélfia, onde se destacou por seu zelo incansável e sua simplicidade.</p><h4>Pai da Educação Católica</h4><p>Como bispo, ele fundou o primeiro sistema diocesano de escolas católicas nos EUA, entendendo a importância da formação integral da juventude. João era um homem de profunda oração e humildade, vivendo de forma austera para poder ajudar os pobres. Foi o primeiro bispo dos EUA a ser canonizado, sendo um exemplo de como a organização e o zelo pastoral podem transformar a vida de uma diocese.</p><p class="mt-4"><b>Oração:</b> São João Neumann, que dedicaste a tua vida ao serviço de Deus e dos irmãos com coragem e humildade, intercede por nós para que sejamos testemunhas autênticas do Evangelho em todas as circunstâncias. Amém.</p>`
     }]
   },
@@ -2199,7 +2213,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Epifania do Senhor',
-      imageUrl: 'https://placehold.co/400x400?text=Epifania',
+      imageUrl: 'https://iili.io/fWNIPBj.png',
       story: `<h4>A Manifestação aos Povos</h4><p>A Epifania celebra a manifestação de Jesus como Salvador de todos os povos, representada pela visita dos Magos do Oriente. O ouro reconhece a sua realeza, o incenso a sua divindade e a mirra a sua humanidade destinada ao sofrimento redentor. É a festa da universalidade da salvação: Cristo não veio apenas para um povo, mas para toda a humanidade.</p><h4>A Estrela que nos Guia</h4><p>Os Magos seguiram uma estrela com coragem e determinação, buscando a Verdade. Sua jornada nos ensina que Deus se deixa encontrar por todos os que O buscam com um coração sincero. Ao adorarem o Menino Jesus, eles transformaram sua vida. A Epifania convida-nos a sermos também nós "estrelas" que apontam o caminho para Cristo através do nosso testemunho de alegria e de fé no mundo de hoje.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que hoje revelastes o vosso Filho único às nações, guia-nos na vossa luz para que, conhecendo-vos já pela fé, cheguemos a contemplar a beleza da vossa glória. Amém.</p>`
     }]
   },
@@ -2208,7 +2222,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Raimundo de Peñafort',
-      imageUrl: 'https://placehold.co/400x400?text=Raimundo+Penafort',
+      imageUrl: 'https://iili.io/fWNGeea.png',
       story: `<h4>O Mestre do Direito e da Misericórdia</h4><p>São Raimundo foi um dos primeiros membros da Ordem dos Pregadores (Dominicanos) e um jurista brilhante. A pedido do Papa Gregório IX, compilou o "Decretales", que foi a base do Direito Canônico por séculos. No entanto, sua grandeza não estava apenas na lei, mas na compaixão. Ajudou São Pedro Nolasco a fundar a Ordem das Mercês para o resgate de cativos cristãos.</p><h4>Um Farol de Sabedoria</h4><p>Eleito Mestre Geral dos Dominicanos, ele promoveu o estudo das línguas e das ciências para melhor evangelizar. Viveu até quase os 100 anos, sendo um exemplo de humildade e dedicação à Igreja. É o padroeiro dos canonistas e dos advogados, lembrando-nos que a justiça humana deve sempre estar a serviço do amor divino e da verdade que liberta.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que concedestes a São Raimundo de Peñafort o espírito de sabedoria e de misericórdia para guiar os fiéis, ajuda-nos a caminhar no caminho da justiça e do amor. Amém.</p>`
     }]
   },
@@ -2217,7 +2231,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Severino de Nórica',
-      imageUrl: 'https://placehold.co/400x400?text=Severino',
+      imageUrl: 'https://iili.io/fWNGO5g.png',
       story: `<h4>O Apóstolo das Fronteiras</h4><p>São Severino viveu num período de grande instabilidade, during a queda do Império Romano e as invasões bárbaras na região da atual Áustria. Ele surgiu como um farol de esperança e liderança, vivendo como um eremita, mas atuando como um protetor para as populações aterrorizadas. Sua autoridade moral era respeitada tanto pelos romanos quanto pelos líderes bárbaros.</p><h4>Defensor dos Pobres</h4><p>Severino organizou o resgate de prisioneiros, estabeleceu sistemas de caridade para alimentar os famintos e aconselhou governantes com coragem profética. Ele não tinha armas nem exércitos, mas seu poder vinha de sua profunda união com Deus. Sua vida demonstra que, mesmo nos momentos mais sombrios da história, a figura de um santo pode oferecer a estabilidade e a luz que a sociedade necessita.</p><p class="mt-4"><b>Oração:</b> São Severino, que foste força e refúgio para o povo em tempos de grande provação, intercede por nós para que nunca percamos a esperança e saibamos ser sinais da presença de Deus em nosso mundo. Amém.</p>`
     }]
   },
@@ -2226,7 +2240,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo André Corsini',
-      imageUrl: 'https://placehold.co/400x400?text=Andre+Corsini',
+      imageUrl: 'https://iili.io/fWNGjg1.png',
       story: `<h4>De Jovem Rebelde a Bispo Santo</h4><p>André nasceu em Florença, numa família nobre. Na juventude, foi rebelde e mundano, mas a conversão veio through um profundo encontro com a graça de Deus e o amor de sua mãe, que o consagrou a Nossa Senhora. Ingressou na Ordem do Carmo e tornou-se um místico zeloso, sendo mais tarde nomeado Bispo de Fiesole, cargo que aceitou apenas por obediência.</p><h4>Anjo da Paz</h4><p>Como bispo, André destacou-se por sua caridade e, especialmente, por seu dom de reconciliador. Ele resolveu inúmeros conflitos civis e eclesiásticos, sendo chamado de "Anjo da Paz". Vivia com extrema simplicidade, lavando os pés dos pobres e cuidando pessoalmente dos doentes. Sua vida ensina que nunca é tarde para mudar o rumo do coração e que a humildade é a base de toda verdadeira liderança.</p><p class="mt-4"><b>Oração:</b> Santo André Corsini, que pelo Teu exemplo de conversão e paz inspiraste tantos corações, ajuda-nos a ser instrumentos de reconciliação em nossas famílias e em nossa sociedade. Amém.</p>`
     }]
   },
@@ -2326,7 +2340,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Sebastião',
-      imageUrl: 'https://placehold.co/400x400?text=Sao+Sebastiao',
+      imageUrl: 'https://iili.io/fWNLcba.png',
       story: `<h4>O Soldado de Cristo</h4><p>São Sebastião nasceu em Narbona e foi educado em Milão. Tornou-se capitão da guarda pretoriana em Roma, usando a sua posição influente para secretamente apoiar os cristãos perseguidos e converter muitos ao cristianismo. A sua vida era um equilíbrio corajoso entre o dever ao imperador e a fidelidade suprema a Deus, num dos períodos mais difíceis da Igreja primitiva.</p><h4>O Primeiro Martírio</h4><p>Descoberto como cristão, o Imperador Diocleciano condenou-o a ser morto por flechas. Amarrado a um poste e crivado de flechas, foi deixado como morto. No entanto, uma piedosa viúva chamada Irene encontrou-o vivo e cuidou das suas feridas. Em vez de fugir, Sebastião apresentou-se novamente diante do imperador para anunciar a injustiça das perseguições, demonstrando uma coragem inabalável que continua a inspirar os fiéis hoje.</p><h4>Defensor contra as Pestes</h4><p>Finalmente martirizado com pancadas, o seu corpo foi lançado na Cloaca Máxima, mas recuperado e sepultado nas catacumbas. Ao longo dos séculos, São Sebastião tem sido invocado como protetor contra a peste e as epidemias, e o seu culto espalhou-se por todo o mundo, sendo um dos santos mais populares, especialmente no Brasil, onde é padroeiro da cidade do Rio de Janeiro.</p><p class="mt-4"><b>Oração:</b> São Sebastião, valoroso soldado de Cristo, que com a vossa vida e morte destes testemunho de fé inabalável, intercedei por nós em nossas necessidades e livrai-nos de todos os males físicos e espirituais.</p>`,
       isMartyr: true
     }]
@@ -2373,7 +2387,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Francisco de Sales',
-      imageUrl: 'https://placehold.co/400x400?text=Francisco+de+Sales',
+      imageUrl: 'https://iili.io/fWNLRUP.png',
       story: `<h4>O Doutor da Mansidão</h4><p>São Francisco de Sales foi Bispo de Genebra during a Reforma Protestante. Conhecido por sua paciência e doçura extrema, ele converteu milhares de almas não por debates agressivos, mas pelo amor: "Uma gota de mel atrai mais moscas que um barril de vinagre". É o autor do clássico "Introdução à Vida Devota", que ensina que a santidade é possível em todos os estados de vida.</p><h4>Padroeiro dos Jornalistas</h4><p>Francisco usou panfletos e a escrita para difundir a fé, sendo um pioneiro nos meios de comunicação. Ele entendia que a comunicação deve ser serva da verdade e da caridade. Sua mensagem de que o coração de Deus é misericórdia continua a ser um farol para a Igreja moderna. É um modelo de pastor que soube unir a firmeza doutrinária com a ternura de um pai.</p><p class="mt-4"><b>Oração:</b> São Francisco de Sales, mestre da mansidão e da caridade, ensina-nos a falar com amor e a buscar a santidade nas pequenas coisas do nosso dia a dia. Amém.</p>`
     }]
   },
@@ -2416,7 +2430,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Tomás de Aquino',
-      imageUrl: 'https://placehold.co/400x400?text=Santo+Tomas+de+Aquino',
+      imageUrl: 'https://iili.io/fWNLA0B.png',
       story: `<h4>O Boi Mudo que Mugiu para o Mundo</h4><p>Tomás de Aquino, nascido em 1225, é considerado o maior filósofo e teólogo da Igreja Católica. Ingressou na Ordem Dominicana contra a vontade da família, buscando uma vida de estudo e oração. Os seus colegas chamavam-no de "boi mudo" devido ao seu silêncio e constituição robusta, mas o seu mestre, Santo Alberto Magno, profetizou que os seus mugidos seriam ouvidos em todo o mundo. A sua inteligência estava sempre ao serviço da fé.</p><h4>A Harmonia entre Fé e Razão</h4><p>A grande obra de Santo Tomás foi a "Suma Teológica", onde ele articulou com clareza e profundidade a harmonia entre a razão humana e a revelação divina. Ele ensinou que a fé não contradiz a razão, mas a eleva e a completa. Usando o pensamento de Aristóteles, construiu um sistema intelectual que continua a ser o fundamento dos estudos eclesiásticos. Para Tomás, o estudo era uma forma de adoração e uma busca incessante pela Verdade que é Deus.</p><h4>Mística e Humildade</h4><p>Apesar de sua imensa erudição, Santo Tomás era um homem profundamente místico e humilde. Foi ele quem compôs os belíssimos hinos para a festa de Corpus Christi, como o "Pange Lingua". Nos últimos meses de vida, após uma visão mística, parou de escrever, dizendo que tudo o que tinha escrito parecia "palha" diante do que tinha visto. Canonizado e declarado Doutor da Igreja, o "Doutor Angélico" é o padroeiro dos estudantes e das universidades católicas.</p><p class="mt-4"><b>Oração:</b> Deus eterno e todo-poderoso, que fizestes de Santo Tomás de Aquino um modelo de sabedoria e de procura da verdade, concedei-nos a graça de compreender o que ele ensinou e de imitar o que ele viveu.</p>`
     }]
   },
@@ -2444,7 +2458,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São João Bosco',
-      imageUrl: 'https://placehold.co/400x400?text=Dom+Bosco',
+      imageUrl: 'https://iili.io/fWNLufV.png',
       story: `<h4>O Pai e Mestre da Juventude</h4><p>João Bosco nasceu numa pobre família de camponeses no Piemonte, Itália. Desde cedo, sentiu a missão de dedicar a sua vida aos jovens, especialmente aos mais pobres e abandonados. Com o seu "Sistema Preventivo", baseado na razão, na religião e no amor (amorevolezza), transformou a vida de milhares de rapazes em Turim, oferecendo-lhes não apenas instrução e trabalho, mas um lar e uma família espiritual.</p><h4>Fundador e Visionário</h4><p>Para perpetuar a sua obra, fundou a Sociedade de São Francisco de Sales (Salesianos) e, com Santa Maria Domingas Mazzarello, as Filhas de Maria Auxiliadora. Dom Bosco era um homem de sonhos proféticos, mas também de uma ação prática e incansável. Ele entendeu que, para salvar a alma dos jovens, era preciso primeiro conquistar o seu coração através da bondade e da presença alegre entre eles. "Basta que sejais jovens para que eu vos ame", dizia ele.</p><h4>Devoção a Maria Auxiliadora</h4><p>Dom Bosco foi um grande propagador da devoção a Nossa Senhora Auxiliadora e da frequência aos sacramentos da Confissão e da Eucaristia. A sua vida foi marcada por inúmeros milagres e providências divinas que o ajudaram a construir escolas e igrejas sem recursos. Canonizado em 1934, é venerado como o padroeiro dos jovens, dos educadores e dos editores. O seu lema, "Da mihi animas, caetera tolle" (Dai-me almas e ficai com o resto), resume a sua paixão evangelizadora.</p><p class="mt-4"><b>Oração:</b> Senhor nosso Deus, que suscitastes São João Bosco para ser pai e mestre da juventude, fazei que, inflamados pelo mesmo amor, nos dediquemos à salvação dos irmãos e ao vosso serviço. Amém.</p>`
     }]
   },
