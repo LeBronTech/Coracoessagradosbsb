@@ -6,12 +6,24 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart } from "lucide-react";
+import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart, ExternalLink } from "lucide-react";
 import Link from "next/link";
 
 export default function SaoJosePage() {
     const [activeSection, setActiveSection] = useState<"novenas" | "consagracao">("novenas");
     const consagracaoContentRef = useRef<HTMLDivElement>(null);
+
+    const handleConsagracaoClick = () => {
+        setActiveSection("consagracao");
+        setTimeout(() => {
+            if (consagracaoContentRef.current) {
+                consagracaoContentRef.current.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }, 300);
+    };
 
     const scrollToConsagracaoContent = () => {
         setTimeout(() => {
@@ -63,7 +75,7 @@ export default function SaoJosePage() {
                     <Button
                         size="lg"
                         variant={activeSection === "consagracao" ? "default" : "outline"}
-                        onClick={() => setActiveSection("consagracao")}
+                        onClick={handleConsagracaoClick}
                         className="bg-green-700 hover:bg-green-800 text-white"
                     >
                         <BookOpen className="mr-2 h-5 w-5" />
@@ -86,15 +98,17 @@ export default function SaoJosePage() {
                         <CardContent className="pt-6">
                             <div className="grid md:grid-cols-2 gap-4">
                                 <a
-                                    href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view?usp=drive_link"
+                                    href={encodeURI("/CALLOWAY_2021_Consagração_a_São_José_as_glórias_de_nosso_pai_espiritual-1.pdf")}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all"
+                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all group"
+                                    title="Clique para fazer o download do livro completo"
                                 >
-                                    <BookOpen className="h-8 w-8 text-green-600" />
+                                    <BookOpen className="h-8 w-8 text-green-600 group-hover:scale-110 transition-transform" />
                                     <div>
                                         <p className="font-semibold text-green-900 dark:text-green-100">Livro de Consagração (PDF)</p>
                                         <p className="text-sm text-slate-600 dark:text-slate-400">Padre Donald Calloway</p>
+                                        <p className="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">📥 Clique para baixar</p>
                                     </div>
                                 </a>
 
@@ -285,8 +299,53 @@ function NovenasSaoJose() {
     );
 }
 
+// Helper function to extract YouTube video ID
+function getYouTubeVideoId(url: string): string | null {
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+    const match = url.match(regExp);
+    return (match && match[2].length === 11) ? match[2] : null;
+}
+
 // Component for Consagração Section
 function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consagracaoContentRef: React.RefObject<HTMLDivElement>; scrollToContent: () => void }) {
+
+    // Dados dos 33 dias com páginas do PDF
+    const diasConsagracao = [
+        { dia: 1, titulo: "Por que uma consagração a São José?", paginas: "27-28", paginaPdf: 27, video: "https://youtu.be/SlYCkv2V3GM?si=Geizwd3WCbjrJyMc" },
+        { dia: 2, titulo: "Ladainha de São José", paginas: "29-31", paginaPdf: 29, video: "https://youtu.be/oFKZPoaoFf0?si=7iqLnBzhCKZO-gLT" },
+        { dia: 3, titulo: "Deus Pai do céu, tende piedade de nós", paginas: "33-34", paginaPdf: 33, video: "https://youtu.be/PYlBIwrBPvo?si=Ct6GWi27afwBcRzH" },
+        { dia: 4, titulo: "Deus Filho Redentor do mundo", paginas: "35-37", paginaPdf: 35, video: "https://youtu.be/-_cPKDAnGk8?si=LwLoGYJFxjwPPf3t" },
+        { dia: 5, titulo: "Deus Espírito Santo", paginas: "39-41", paginaPdf: 39, video: "https://youtu.be/jzcnGDsUqC0?si=RJFvdIbqoZHWhYhc" },
+        { dia: 6, titulo: "Santíssima Trindade", paginas: "43-44", paginaPdf: 43, video: "https://youtu.be/7iylkxKggKs?si=5vFAc1hgTHEFzm2d" },
+        { dia: 7, titulo: "Santa Maria, rogai por nós", paginas: "45-47", paginaPdf: 45, video: "https://youtu.be/jKPYxNDK-as?si=fUrZChUsIBZX8Mhv" },
+        { dia: 8, titulo: "São José, rogai por nós", paginas: "49-50", paginaPdf: 49, video: "https://youtu.be/soIQ7iwbYe0?si=9R49tKT6xMLhyiA1" },
+        { dia: 9, titulo: "Ilustre Filho de Davi", paginas: "51-53", paginaPdf: 51, video: "https://youtu.be/v9vyQxi2f0k?si=93ypI61cV0On68gJ" },
+        { dia: 10, titulo: "Luz dos Patriarcas", paginas: "55-57", paginaPdf: 55, video: "https://youtu.be/rxDkkuJzGZw?si=3sgCJfFxYghB6a6n" },
+        { dia: 11, titulo: "Esposo da Mãe de Deus", paginas: "59-60", paginaPdf: 59, video: "https://youtu.be/EgJ_bAdaOKk?si=glcT5UiKtqm6ypdR" },
+        { dia: 12, titulo: "Casto guarda da Virgem", paginas: "61-62", paginaPdf: 61, video: "https://youtu.be/GoFg0QteH08?si=NHijOaJcGg52Crqq" },
+        { dia: 13, titulo: "Pai adotivo do Filho de Deus", paginas: "63-65", paginaPdf: 63, video: "https://youtu.be/6SEBJYV81F0?si=Jv1VtD9RH8E0CPbv" },
+        { dia: 14, titulo: "Zeloso defensor de Cristo", paginas: "67-69", paginaPdf: 67, video: "https://youtu.be/yjD-6vHcFMg?si=CKYMI0UKIj9GIOjr" },
+        { dia: 15, titulo: "Chefe da Sagrada Família", paginas: "71-72", paginaPdf: 71, video: "https://youtu.be/RvQZMCgXV50?si=b1Zfojz4yxRLJqVH" },
+        { dia: 16, titulo: "José Justíssimo", paginas: "73-75", paginaPdf: 73, video: "https://youtu.be/Up3Epb2B3ck?si=Gu2UNn8VLIUzg3i0" },
+        { dia: 17, titulo: "José Castíssimo", paginas: "77-78", paginaPdf: 77, video: "https://youtu.be/SpaOD7TDXTo?si=Q9wojP_SgqPBHb-p" },
+        { dia: 18, titulo: "José Prudentíssimo", paginas: "79-81", paginaPdf: 79, video: "https://youtu.be/4bRzlotHG8s?si=0ix69kcjiwNRRJ-x" },
+        { dia: 19, titulo: "José Fortíssimo", paginas: "83-85", paginaPdf: 83, video: "https://youtu.be/gVS_IWAiFOU?si=efvUu7IDogpBmQk6" },
+        { dia: 20, titulo: "José Obedientíssimo", paginas: "87-88", paginaPdf: 87, video: "https://youtu.be/Uu1YHtagM54?si=6SCIdYyguN3EWGKt" },
+        { dia: 21, titulo: "José Fidelíssimo", paginas: "91-92", paginaPdf: 91, video: "https://youtu.be/F9UnjYhXBUw?si=WKA8fYMyH60cJ-oz" },
+        { dia: 22, titulo: "Espelho de Paciência", paginas: "93-95", paginaPdf: 93, video: "https://youtu.be/FLrGFJoTDow?si=ivULePpIUx4JJcha" },
+        { dia: 23, titulo: "Amante da Pobreza", paginas: "97-99", paginaPdf: 97, video: "https://youtu.be/YKVijyMWY7s?si=F1XJ52U1qORfFoEv" },
+        { dia: 24, titulo: "Modelo dos trabalhadores", paginas: "101-103", paginaPdf: 101, video: "https://youtu.be/fGZ8_mPyPUQ?si=V9_Wh23Gc837RJot" },
+        { dia: 25, titulo: "Honra da vida de família", paginas: "105-106", paginaPdf: 105, video: "https://youtu.be/2msN0ElyMic?si=vluCiKZ1Ax3O20q4" },
+        { dia: 26, titulo: "Guarda das Virgens", paginas: "107-109", paginaPdf: 107, video: "https://youtu.be/tm_WYSJWGgI?si=sJ33PFBuGQL11vtP" },
+        { dia: 27, titulo: "Sustentáculo das Famílias", paginas: "111-113", paginaPdf: 111, video: "https://youtu.be/0pL7ooT5YD4?si=h3BjzMjqan26L2k8" },
+        { dia: 28, titulo: "Alívio dos miseráveis", paginas: "115-117", paginaPdf: 115, video: "https://youtu.be/ekEPW4k5vHc?si=bGCldBp7gzrIw-k3" },
+        { dia: 29, titulo: "Esperança dos Doentes", paginas: "119-120", paginaPdf: 119, video: "https://youtu.be/PQLrxEQzK98?si=NSbSDNOqKXteUYAq" },
+        { dia: 30, titulo: "Patrono dos moribundos", paginas: "121-123", paginaPdf: 121, video: "https://youtu.be/g-sUpYeTi-g?si=Pv8Li_Wl1CYSY7wD" },
+        { dia: 31, titulo: "Terror dos demônios", paginas: "125-127", paginaPdf: 125, video: "https://youtu.be/W9960fzskng?si=13psTBULuIL51GBB" },
+        { dia: 32, titulo: "Protetor da Santa Igreja", paginas: "129-131", paginaPdf: 129, video: "https://youtu.be/dPE8-alpwFE?si=xlEdlC2KL6cwgb4k" },
+        { dia: 33, titulo: "Dia da Consagração", paginas: "133-135", paginaPdf: 133, video: "https://youtu.be/bWSkt73pwqo" },
+    ];
+
     return (
         <div className="space-y-8">
             <div className="text-center mb-8">
@@ -336,100 +395,73 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consag
                         <Tabs defaultValue="dia-1" className="w-full" onValueChange={scrollToContent}>
                             <ScrollArea className="w-full whitespace-nowrap rounded-md border bg-white dark:bg-slate-900 p-1 mb-6">
                                 <TabsList className="flex w-full h-auto p-0 bg-transparent flex-wrap">
-                                    {Array.from({ length: 33 }).map((_, i) => (
+                                    {diasConsagracao.map((diaInfo) => (
                                         <TabsTrigger
-                                            key={i}
-                                            value={`dia-${i + 1}`}
+                                            key={diaInfo.dia}
+                                            value={`dia-${diaInfo.dia}`}
                                             className="min-w-[80px] py-2 px-3 data-[state=active]:bg-green-100 data-[state=active]:text-green-900 dark:data-[state=active]:bg-green-900/40 dark:data-[state=active]:text-green-100 rounded-md transition-all m-1"
                                         >
-                                            Dia {i + 1}
+                                            Dia {diaInfo.dia}
                                         </TabsTrigger>
                                     ))}
                                 </TabsList>
                             </ScrollArea>
 
-                            <TabsContent value="dia-1">
-                                <ConsagracaoDayCard
-                                    day="1º Dia"
-                                    title="Por que uma consagração a São José?"
-                                    reading="Páginas 27-28"
-                                    videoUrl="https://youtu.be/SlYCkv2V3GM?si=Geizwd3WCbjrJyMc"
-                                    content={
-                                        <>
-                                            <p className="mb-4">⚜️ Faça a oração do Vinde Espírito Santo</p>
-                                            <p className="mb-4">⚜️ Leitura das páginas 27-28</p>
-                                            <p className="font-semibold text-green-800 dark:text-green-300">
-                                                Refletimos hoje o porquê dessa consagração.
-                                            </p>
-                                        </>
-                                    }
-                                />
-                            </TabsContent>
+                            {diasConsagracao.map((diaInfo) => (
+                                <TabsContent key={diaInfo.dia} value={`dia-${diaInfo.dia}`}>
+                                    <ConsagracaoDayCard
+                                        day={`${diaInfo.dia}º Dia`}
+                                        title={diaInfo.titulo}
+                                        reading={`Páginas ${diaInfo.paginas}`}
+                                        paginaPdf={diaInfo.paginaPdf}
+                                        videoUrl={diaInfo.video}
+                                        content={
+                                            <>
+                                                <p className="mb-4">⚜️ Faça a oração do Vinde Espírito Santo</p>
+                                                <p className="mb-4">⚜️ Leitura das páginas {diaInfo.paginas}</p>
+                                                <p className="mb-4">⚜️ Ladainha de São José</p>
 
-                            <TabsContent value="dia-2">
-                                <ConsagracaoDayCard
-                                    day="2º Dia"
-                                    title="Ladainha de São José"
-                                    reading="Páginas 29-31"
-                                    videoUrl="https://youtu.be/oFKZPoaoFf0?si=7iqLnBzhCKZO-gLT"
-                                    content={
-                                        <>
-                                            <p className="mb-4">⚜️ Faça a oração do Vinde Espírito Santo</p>
-                                            <p className="mb-4">⚜️ Leitura das páginas 29-31</p>
-                                            <p className="mb-4">⚜️ Ladainha de São José (veja acima na seção de Novenas)</p>
+                                                {diaInfo.dia === 2 && (
+                                                    <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
+                                                        <p className="font-bold mb-2">⚜️ Memorare a São José</p>
+                                                        <p className="italic text-sm">
+                                                            Lembrai-vos, ó castíssimo Esposo da Virgem Maria, que nunca se ouviu dizer que algum daqueles que têm recorrido à vossa proteção, implorado a vossa assistência e reclamado vosso socorro, fosse por vós desamparado. Animado, pois, com igual confiança, a vós recorro, ó pai espiritual, e imploro a vossa proteção. Não rejeiteis as minhas súplicas, ó pai adotivo do Redentor, mas dignai-vos de as ouvir propiciamente e de me alcançar o que vos rogo. Amém.
+                                                        </p>
+                                                    </div>
+                                                )}
 
-                                            <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 rounded-lg">
-                                                <p className="font-bold mb-2">⚜️ Memorare a São José</p>
-                                                <p className="italic">
-                                                    Lembrai-vos, ó castíssimo Esposo da Virgem Maria, que nunca se ouviu dizer que algum daqueles que têm recorrido à vossa proteção, implorado a vossa assistência e reclamado vosso socorro, fosse por vós desamparado. Animado, pois, com igual confiança, a vós recorro, ó pai espiritual, e imploro a vossa proteção. Não rejeiteis as minhas súplicas, ó pai adotivo do Redentor, mas dignai-vos de as ouvir propiciamente e de me alcançar o que vos rogo. Amém.
-                                                </p>
-                                            </div>
-                                        </>
-                                    }
-                                />
-                            </TabsContent>
-
-                            <TabsContent value="dia-33">
-                                <ConsagracaoDayCard
-                                    day="33º Dia"
-                                    title="Dia da Consagração"
-                                    reading="Páginas 133-135"
-                                    videoUrl="https://youtu.be/bWSkt73pwqo"
-                                    content={
-                                        <>
-                                            <p className="mb-4">⚜️ Faça a oração do Vinde Espírito Santo</p>
-                                            <p className="mb-4">⚜️ Leitura das páginas 133-135</p>
-                                            <p className="mb-4">⚜️ Ladainha de São José</p>
-
-                                            <div className="mt-6 p-6 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40 rounded-lg border-2 border-green-400">
-                                                <p className="font-bold text-xl mb-4 text-green-900 dark:text-green-100">
-                                                    🎉 Dia da Consagração
-                                                </p>
-                                                <p className="mb-4 text-slate-700 dark:text-slate-300">
-                                                    Você conseguiu! Hoje será a sua consagração total a São José.
-                                                </p>
-                                                <p className="mb-4 text-slate-700 dark:text-slate-300">
-                                                    Um programa completo de consagração a São José há muito vem sendo preparado. Foram séculos até que a arma secreta da consagração a São José fosse desenvolvida. Agora ela é revelada e você foi escolhido por Deus para receber uma enorme bênção em sua vida espiritual.
-                                                </p>
-                                                <p className="font-semibold text-green-800 dark:text-green-300 mb-2">
-                                                    Reze o Ato de Consagração a São José (p. 315)
-                                                </p>
-                                                <a
-                                                    href="https://drive.google.com/file/d/1vj1OWZ6I1MvoBaTjfdk922LnuTu57Ruj/view?usp=sharing"
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="inline-block mt-4"
-                                                >
-                                                    <Button className="bg-green-700 hover:bg-green-800">
-                                                        <Download className="mr-2 h-4 w-4" />
-                                                        Baixar Ato de Consagração
-                                                    </Button>
-                                                </a>
-                                            </div>
-                                        </>
-                                    }
-                                />
-                            </TabsContent>
+                                                {diaInfo.dia === 33 && (
+                                                    <div className="mt-6 p-6 bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40 rounded-lg border-2 border-green-400">
+                                                        <p className="font-bold text-xl mb-4 text-green-900 dark:text-green-100">
+                                                            🎉 Dia da Consagração
+                                                        </p>
+                                                        <p className="mb-4 text-slate-700 dark:text-slate-300">
+                                                            Você conseguiu! Hoje será a sua consagração total a São José.
+                                                        </p>
+                                                        <p className="mb-4 text-slate-700 dark:text-slate-300">
+                                                            Um programa completo de consagração a São José há muito vem sendo preparado. Foram séculos até que a arma secreta da consagração a São José fosse desenvolvida. Agora ela é revelada e você foi escolhido por Deus para receber uma enorme bênção em sua vida espiritual.
+                                                        </p>
+                                                        <p className="font-semibold text-green-800 dark:text-green-300 mb-2">
+                                                            Reze o Ato de Consagração a São José (p. 315)
+                                                        </p>
+                                                        <a
+                                                            href="https://drive.google.com/file/d/1vj1OWZ6I1MvoBaTjfdk922LnuTu57Ruj/view?usp=sharing"
+                                                            target="_blank"
+                                                            rel="noopener noreferrer"
+                                                            className="inline-block mt-4"
+                                                        >
+                                                            <Button className="bg-green-700 hover:bg-green-800">
+                                                                <Download className="mr-2 h-4 w-4" />
+                                                                Baixar Ato de Consagração
+                                                            </Button>
+                                                        </a>
+                                                    </div>
+                                                )}
+                                            </>
+                                        }
+                                    />
+                                </TabsContent>
+                            ))}
                         </Tabs>
                     </CardContent>
                 </Card>
@@ -442,15 +474,22 @@ function ConsagracaoDayCard({
     day,
     title,
     reading,
+    paginaPdf,
     videoUrl,
     content
 }: {
     day: string;
     title: string;
     reading: string;
+    paginaPdf?: number;
     videoUrl?: string;
     content: React.ReactNode;
 }) {
+    const videoId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
+    const pdfUrl = paginaPdf
+        ? `/CALLOWAY_2021_Consagração_a_São_José_as_glórias_de_nosso_pai_espiritual-1.pdf#page=${paginaPdf}`
+        : null;
+
     return (
         <Card className="border-none shadow-md bg-white dark:bg-slate-900">
             <CardHeader className="pb-2">
@@ -459,24 +498,42 @@ function ConsagracaoDayCard({
             </CardHeader>
             <CardContent className="text-slate-700 dark:text-slate-300 leading-relaxed">
                 <div className="mb-4 p-3 bg-blue-50 dark:bg-blue-950/30 rounded border-l-4 border-blue-500">
-                    <p className="text-sm font-semibold text-blue-900 dark:text-blue-100">
-                        📖 {reading}
-                    </p>
+                    <div className="flex items-center justify-between flex-wrap gap-2">
+                        <p className="text-sm font-semibold text-blue-900 dark:text-blue-100">
+                            📖 {reading}
+                        </p>
+                        {pdfUrl && (
+                            <a
+                                href={encodeURI(pdfUrl)}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-1 text-xs font-medium text-blue-700 hover:text-blue-900 dark:text-blue-400 dark:hover:text-blue-200 underline transition-colors hover:scale-105"
+                                title="Clique para visualizar esta página no PDF"
+                            >
+                                <ExternalLink className="h-3 w-3" />
+                                📖 Ver no PDF
+                            </a>
+                        )}
+                    </div>
                 </div>
 
                 {content}
 
-                {videoUrl && (
+                {videoId && (
                     <div className="mt-6">
-                        <a
-                            href={videoUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-red-600 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 font-medium"
-                        >
-                            <Video className="h-5 w-5" />
-                            Assistir vídeo do dia
-                        </a>
+                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 flex items-center gap-2">
+                            <Video className="h-4 w-4 text-red-600" />
+                            Vídeo do dia:
+                        </p>
+                        <div className="relative w-full aspect-video rounded-lg overflow-hidden shadow-lg border-2 border-slate-200 dark:border-slate-700">
+                            <iframe
+                                src={`https://www.youtube.com/embed/${videoId}`}
+                                title={`Vídeo - ${day}`}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="absolute top-0 left-0 w-full h-full"
+                            ></iframe>
+                        </div>
                     </div>
                 )}
 
