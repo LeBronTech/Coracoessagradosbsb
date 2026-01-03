@@ -6,7 +6,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart, ExternalLink } from "lucide-react";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart, ExternalLink, ChevronDown } from "lucide-react";
 import Link from "next/link";
 
 export default function SaoJosePage() {
@@ -470,6 +471,87 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consag
     );
 }
 
+// Componente da Ladainha de São José (expansível)
+function LadainhaSaoJose() {
+    const [isOpen, setIsOpen] = useState(false);
+
+    return (
+        <Collapsible open={isOpen} onOpenChange={setIsOpen} className="mt-6">
+            <CollapsibleTrigger asChild>
+                <Button
+                    variant="outline"
+                    className="w-full justify-between bg-green-50 hover:bg-green-100 dark:bg-green-950/30 dark:hover:bg-green-950/50 border-green-300 dark:border-green-700"
+                >
+                    <span className="font-semibold text-green-800 dark:text-green-300">
+                        📿 Ladainha de São José
+                    </span>
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+                </Button>
+            </CollapsibleTrigger>
+            <CollapsibleContent className="mt-4 p-4 bg-green-50/50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-800">
+                <div className="text-slate-700 dark:text-slate-300 leading-relaxed space-y-2 text-sm">
+                    <p>Senhor, tende piedade de nós. <span className="italic text-green-700 dark:text-green-400">Jesus Cristo, tende piedade de nós.</span> Senhor, tende piedade de nós.</p>
+                    <p>Jesus Cristo, ouvi-nos. <span className="italic text-green-700 dark:text-green-400">Jesus Cristo, atendei-nos.</span></p>
+
+                    <Separator className="my-3" />
+
+                    <p>Deus, Pai dos Céus, <span className="italic">tende piedade de nós.</span></p>
+                    <p>Deus Filho, Redentor do mundo, <span className="italic">tende piedade de nós.</span></p>
+                    <p>Deus Espírito Santo, <span className="italic">tende piedade de nós.</span></p>
+                    <p>Santíssima Trindade, que sois um só Deus, <span className="italic">tende piedade de nós.</span></p>
+
+                    <Separator className="my-3" />
+
+                    <div className="grid md:grid-cols-2 gap-2">
+                        <p>Santa Maria, <span className="italic">rogai por nós.</span></p>
+                        <p>São José, <span className="italic">rogai por nós.</span></p>
+                        <p>Ilustre filho de Davi, <span className="italic">rogai por nós.</span></p>
+                        <p>Luz dos Patriarcas, <span className="italic">rogai por nós.</span></p>
+                        <p>Esposo da Mãe de Deus, <span className="italic">rogai por nós.</span></p>
+                        <p>Casto guarda da Virgem, <span className="italic">rogai por nós.</span></p>
+                        <p>Sustentador do Filho de Deus, <span className="italic">rogai por nós.</span></p>
+                        <p>Zeloso defensor de Jesus Cristo, <span className="italic">rogai por nós.</span></p>
+                        <p>Chefe da Sagrada Família, <span className="italic">rogai por nós.</span></p>
+                        <p>José justíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>José castíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>José prudentíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>José fortíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>José obedientíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>José fidelíssimo, <span className="italic">rogai por nós.</span></p>
+                        <p>Espelho de paciência, <span className="italic">rogai por nós.</span></p>
+                        <p>Amante da pobreza, <span className="italic">rogai por nós.</span></p>
+                        <p>Modelo dos operários, <span className="italic">rogai por nós.</span></p>
+                        <p>Honra da vida de família, <span className="italic">rogai por nós.</span></p>
+                        <p>Guarda das virgens, <span className="italic">rogai por nós.</span></p>
+                        <p>Sustentáculo das famílias, <span className="italic">rogai por nós.</span></p>
+                        <p>Alívio dos miseráveis, <span className="italic">rogai por nós.</span></p>
+                        <p>Esperança dos doentes, <span className="italic">rogai por nós.</span></p>
+                        <p>Patrono dos moribundos, <span className="italic">rogai por nós.</span></p>
+                        <p className="font-bold text-green-800 dark:text-green-300">Terror dos demônios, <span className="italic">rogai por nós.</span></p>
+                        <p>Protetor da Santa Igreja, <span className="italic">rogai por nós.</span></p>
+                    </div>
+
+                    <Separator className="my-3" />
+
+                    <p>Cordeiro de Deus, que tirais o pecado do mundo, <span className="italic">perdoai-nos, Senhor.</span></p>
+                    <p>Cordeiro de Deus, que tirais o pecado do mundo, <span className="italic">atendei-nos, Senhor.</span></p>
+                    <p>Cordeiro de Deus, que tirais o pecado do mundo, <span className="italic">tende piedade de nós.</span></p>
+
+                    <Separator className="my-3" />
+
+                    <p className="font-semibold">V. Ele constituiu-o senhor da sua casa.</p>
+                    <p className="font-semibold">R. E fê-lo príncipe de todos os seus bens.</p>
+
+                    <div className="mt-4 p-3 bg-green-100 dark:bg-green-950/40 rounded-lg">
+                        <p className="font-bold mb-2">Oremos:</p>
+                        <p>Ó Deus, que por inefável providência Vos dignastes escolher a São José por esposo de vossa Mãe Santíssima; concedei-nos, Vo-lo pedimos, que mereçamos ter por intercessor no Céu, aquele que veneramos na Terra como protetor. Vós que viveis e reinais por todos os séculos dos séculos. Amém.</p>
+                    </div>
+                </div>
+            </CollapsibleContent>
+        </Collapsible>
+    );
+}
+
 function ConsagracaoDayCard({
     day,
     title,
@@ -539,9 +621,8 @@ function ConsagracaoDayCard({
                 )}
 
                 <Separator className="my-6" />
-                <p className="text-sm text-slate-500 italic text-center">
-                    Após as leituras, rezar a Ladainha de São José
-                </p>
+
+                <LadainhaSaoJose />
             </CardContent>
         </Card>
     );
