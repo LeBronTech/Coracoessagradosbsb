@@ -21,11 +21,15 @@ export function SaoJoseTimeline() {
                             <p className="text-2xl font-bold text-green-800 dark:text-green-300">
                                 Fatos Históricos sobre São José
                             </p>
-                            <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                                Milagres e Devoções
-                            </p>
+                            <div className="flex items-center gap-2 mt-1">
+                                <p className="text-sm text-slate-600 dark:text-slate-400">
+                                    Milagres e Devoções
+                                </p>
+                                <span className="text-xs font-bold text-green-600 dark:text-green-400 bg-green-200/50 dark:bg-green-800/50 px-2 py-0.5 rounded-full animate-pulse">
+                                    Clique aqui
+                                </span>
+                            </div>
                         </div>
-                        <ChevronDown className={`h-6 w-6 transition-transform duration-200 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180' : ''}`} />
                     </Button>
                 </CollapsibleTrigger>
 
