@@ -395,13 +395,14 @@ export default function Home() {
                   </Button>
                 </Link>
 
-                <Button
-                  onClick={() => setIsMarianDialogOpen(true)}
-                  className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
-                >
-                  <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
-                  Espaço Mariano
-                </Button>
+                <Link href="/espaco-mariano" className="w-full">
+                  <Button
+                    className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
+                  >
+                    <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
+                    Espaço Mariano
+                  </Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
@@ -449,83 +450,12 @@ export default function Home() {
               </button>
             </Link>
 
-            <Dialog open={isMarianDialogOpen} onOpenChange={setIsMarianDialogOpen}>
-              <DialogTrigger asChild>
-                <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                  <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
-                  <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
-                </button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-xl md:max-w-2xl lg:max-w-3xl bg-blue-900/95 text-white border-blue-700/50 [&>button:not(.custom-close-button)]:hidden">
-                <button
-                  onClick={() => setIsMarianDialogOpen(false)}
-                  className="custom-close-button absolute top-16 right-4 p-1.5 text-white border-2 border-white rounded-full hover:bg-white/10 transition-colors duration-200 z-50 bg-blue-900/80 backdrop-blur-sm shadow-md"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                  </svg>
-                </button>
-                <DialogHeader className="sticky top-0 z-10 bg-blue-900/95 p-6 rounded-t-lg">
-                  <DialogTitle className="font-brand text-xl text-center text-white">Espaço Mariano</DialogTitle>
-                </DialogHeader>
-                <div className="max-h-[calc(90vh-100px)] overflow-y-auto">
-                  <Carousel setApi={setMarianCarouselApi} className="w-full max-w-xs mx-auto">
-                    <CarouselContent>
-                      {marianDevotions.map((devotion, index) => (
-                        <CarouselItem key={index}>
-                          <div className="p-1">
-                            <Collapsible open={devotion.novenaId === 'rosario' ? isRosarioDescriptionOpen : undefined} onOpenChange={devotion.novenaId === 'rosario' ? setIsRosarioDescriptionOpen : undefined}>
-                              <div className="flex flex-col items-center justify-center p-4 bg-blue-900/50 rounded-lg relative">
-                                <Image
-                                  src={devotion.imageUrl}
-                                  alt={devotion.name}
-                                  width={150}
-                                  height={150}
-                                  className="w-36 h-36 rounded-full object-cover border-4 border-blue-400/50 shadow-lg"
-                                />
-                                <h3 className="mt-4 text-xl font-brand text-white">{devotion.name}</h3>
-                                <p className="text-sm text-blue-200">Festa: {devotion.feastDay}</p>
-
-                                {devotion.description && (
-                                  <div className="flex gap-2 mt-3">
-                                    <CollapsibleTrigger asChild>
-                                      <Button variant="outline" size="sm" className="bg-blue-800/70 border-blue-600 text-white hover:bg-blue-700 hover:text-white">
-                                        <BookOpen className="mr-2 h-4 w-4" />
-                                        Ver História
-                                      </Button>
-                                    </CollapsibleTrigger>
-                                    {devotion.novenaId && (
-                                      <Button onClick={() => handleNavigateToNovena(devotion.novenaId)} size="sm" className="bg-blue-200 text-blue-900 hover:bg-white">
-                                        Rezar Novena
-                                      </Button>
-                                    )}
-                                  </div>
-                                )}
-                              </div>
-                              {devotion.description && (
-                                <CollapsibleContent>
-                                  <ScrollArea className="h-96 w-full rounded-b-lg -mt-2 bg-blue-950/80">
-                                    <div
-                                      className="p-4 text-blue-200/90 prose prose-lg max-w-none prose-p:my-2 prose-h4:text-blue-100 prose-h4:font-bold prose-h4:mb-1 prose-strong:text-blue-100"
-                                      dangerouslySetInnerHTML={{ __html: devotion.description }}
-                                    />
-                                  </ScrollArea>
-                                </CollapsibleContent>
-                              )}
-                            </Collapsible>
-                          </div>
-                        </CarouselItem>
-                      ))}
-                    </CarouselContent>
-                    <CarouselPrevious className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -left-8', !marianCarouselApi?.canScrollPrev() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
-                    <CarouselNext className={cn('text-white border-white/50 bg-transparent hover:bg-white/90 hover:text-blue-800 -right-8', !marianCarouselApi?.canScrollNext() && 'opacity-50 cursor-default hover:bg-transparent hover:text-white')} />
-                  </Carousel>
-                  <div className="py-2 text-center text-sm text-blue-200">
-                    {marianCarouselApi && `Devoção ${marianCarouselCurrent + 1} de ${marianCarouselApi.scrollSnapList().length}`}
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
+            <Link href="/espaco-mariano">
+              <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
+                <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
+              </button>
+            </Link>
           </div>
 
 
