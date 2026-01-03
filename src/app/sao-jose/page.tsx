@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart, ExternalLink, ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { SaoJoseTimeline } from "@/components/sao-jose-timeline";
 
 export default function SaoJosePage() {
     const [activeSection, setActiveSection] = useState<"novenas" | "consagracao">("novenas");
@@ -164,6 +165,9 @@ export default function SaoJosePage() {
                         </CardContent>
                     </Card>
                 </section>
+
+                {/* Timeline de Fatos Históricos e Datas */}
+                <SaoJoseTimeline />
 
                 {/* Content Sections */}
                 {activeSection === "novenas" && <NovenasSaoJose />}
