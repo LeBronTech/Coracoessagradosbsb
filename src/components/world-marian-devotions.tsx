@@ -339,23 +339,22 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                 <span className="sr-only">Fechar</span>
             </DialogClose>
 
-            <DialogHeader className={`px-2 transition-all duration-300 ${scrolled ? 'pt-8' : 'pt-12'}`}>
-                <div className="flex flex-col items-center mb-4">
-                    <div className={`relative transition-all duration-300 ${scrolled ? 'scale-75 opacity-80' : 'scale-100'}`}>
+            <DialogHeader className="px-2 pt-10 pb-4 relative flex-shrink-0">
+                <div className="flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
+                    <div className={`relative transition-all duration-500 ease-in-out ${scrolled ? 'scale-50 -translate-y-4' : 'scale-100'}`}>
                         <Image
                             src={devotion.imageUrl}
                             alt={devotion.name}
                             width={200}
                             height={200}
-                            className={`rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl transition-all duration-300 ${scrolled ? 'w-20 h-20' : 'w-32 h-32 sm:w-40 sm:h-40'
-                                }`}
+                            className="rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl w-32 h-32 sm:w-40 sm:h-40"
                         />
                     </div>
-                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-300 ${scrolled ? 'text-lg sm:text-xl mt-2' : 'text-xl sm:text-2xl md:text-3xl mt-6'
+                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-500 ease-in-out ${scrolled ? 'text-lg sm:text-xl -translate-y-8' : 'text-xl sm:text-2xl md:text-3xl mt-4'
                         }`}>
                         {devotion.name}
                     </DialogTitle>
-                    <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-300 ${scrolled ? 'mt-1 opacity-10' : 'mt-3 opacity-100 flex-col sm:flex-row'
+                    <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-500 ease-in-out ${scrolled ? 'opacity-0 scale-95 pointer-events-none h-0 mt-0' : 'opacity-100 mt-2'
                         }`}>
                         <div className="flex items-center gap-2">
                             <span className="text-2xl">{devotion.countryFlag}</span>
