@@ -197,7 +197,7 @@ export function RosarySection() {
     return (
         <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
             <h2 className="text-4xl font-bold text-blue-900 dark:text-blue-100 text-center mb-6 font-brand">
-                📿 Método de São Luís de Montfort 📿
+                Método de São Luís de Montfort
             </h2>
 
             <p className="text-center text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8 italic">

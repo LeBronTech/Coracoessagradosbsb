@@ -19,10 +19,10 @@ export function SaoJoseTimeline() {
                     >
                         <div className="text-left">
                             <p className="text-2xl font-bold text-green-800 dark:text-green-300">
-                                ✨ Fatos Históricos e Datas Importantes sobre São José ✨
+                                Fatos Históricos sobre São José
                             </p>
                             <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">
-                                Conheça a história, os mistérios e as celebrações do Terror dos Demônios
+                                Milagres e Devoções
                             </p>
                         </div>
                         <ChevronDown className={`h-6 w-6 transition-transform duration-200 flex-shrink-0 ml-4 ${isOpen ? 'rotate-180' : ''}`} />
@@ -68,10 +68,10 @@ export function SaoJoseTimeline() {
                     </Card>
 
                     {/* Timeline de Fatos Históricos */}
-                    <div className="relative">
+                    <div className="relative overflow-hidden max-w-full px-2">
                         <div className="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gradient-to-b from-green-300 via-green-500 to-green-700 dark:from-green-700 dark:via-green-600 dark:to-green-500"></div>
 
-                        <div className="space-y-8">
+                        <div className="space-y-8 max-w-full">
                             {/* Fato 1 */}
                             <TimelineFact
                                 side="right"
@@ -181,24 +181,24 @@ function TimelineFact({ side, icon, title, content, highlight = false }: Timelin
     const isLeft = side === "left";
 
     return (
-        <div className={`relative grid ${isCenter ? 'grid-cols-1' : 'md:grid-cols-2'} gap-8 items-center`}>
+        <div className={`relative grid ${isCenter ? 'grid-cols-1' : 'md:grid-cols-2'} gap-4 md:gap-8 items-center max-w-full`}>
             {!isCenter && isLeft && <div className="hidden md:block"></div>}
 
-            <div className={isCenter ? "max-w-3xl mx-auto" : ""}>
+            <div className={`${isCenter ? "max-w-3xl mx-auto w-full" : "w-full"} px-2`}>
                 <Card className={`shadow-lg hover:shadow-xl transition-all duration-300 ${highlight
-                        ? 'border-red-300 bg-gradient-to-br from-white to-red-50 dark:from-slate-900 dark:to-red-950/20 border-2'
-                        : 'border-green-300 bg-gradient-to-br from-white to-green-50 dark:from-slate-900 dark:to-green-950/20'
+                    ? 'border-red-300 bg-gradient-to-br from-white to-red-50 dark:from-slate-900 dark:to-red-950/20 border-2'
+                    : 'border-green-300 bg-gradient-to-br from-white to-green-50 dark:from-slate-900 dark:to-green-950/20'
                     }`}>
                     <CardHeader>
-                        <CardTitle className={`text-xl ${highlight
-                                ? 'text-red-800 dark:text-red-300'
-                                : 'text-green-800 dark:text-green-300'
-                            } flex items-center ${isCenter || !isLeft ? 'justify-start' : 'justify-end'} gap-2`}>
-                            <span>{icon} {title}</span>
+                        <CardTitle className={`text-lg md:text-xl ${highlight
+                            ? 'text-red-800 dark:text-red-300'
+                            : 'text-green-800 dark:text-green-300'
+                            } flex items-center ${isCenter || !isLeft ? 'justify-start' : 'md:justify-end justify-start'} gap-2 flex-wrap`}>
+                            <span className="break-words">{icon} {title}</span>
                         </CardTitle>
                     </CardHeader>
                     <CardContent>
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-sm md:text-base">
                             {content}
                         </p>
                     </CardContent>

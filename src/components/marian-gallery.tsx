@@ -1,9 +1,9 @@
 "use client";
 
-import React from "react";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import React, { useState, useEffect, useRef } from "react";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { BookOpen } from "lucide-react";
+import { BookOpen, X } from "lucide-react";
 import Image from "next/image";
 
 interface MarianDevotion {
@@ -149,66 +149,7 @@ export function MarianGallery() {
                                             </div>
                                         </DialogTrigger>
 
-                                        <DialogContent className="sm:max-w-2xl bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-none shadow-2xl">
-                                            <DialogHeader>
-                                                <div className="flex flex-col items-center mb-6 pt-4">
-                                                    <div className="relative">
-                                                        <Image
-                                                            src={devotion.imageUrl}
-                                                            alt={devotion.name}
-                                                            width={200}
-                                                            height={200}
-                                                            className="w-40 h-40 rounded-full object-cover border-4 border-blue-100 shadow-xl"
-                                                        />
-                                                    </div>
-                                                    <DialogTitle className="text-3xl font-bold text-blue-900 dark:text-blue-100 text-center mt-6 font-brand">
-                                                        {devotion.name}
-                                                    </DialogTitle>
-                                                    <div className="flex items-center gap-2 mt-2">
-                                                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
-                                                            {devotion.date}
-                                                        </span>
-                                                        <span className="text-slate-400">•</span>
-                                                        <span className="text-slate-600 dark:text-slate-400 font-medium">
-                                                            {devotion.month}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                            </DialogHeader>
-
-                                            <ScrollArea className="max-h-[50vh] pr-4">
-                                                <div className="space-y-6">
-                                                    <div className="bg-blue-50/50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
-                                                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic">
-                                                            "{devotion.description}"
-                                                        </p>
-                                                    </div>
-
-                                                    {devotion.fullDescription && (
-                                                        <div className="space-y-3">
-                                                            <h4 className="text-lg font-bold text-blue-800 dark:text-blue-200 flex items-center gap-2 px-1">
-                                                                <BookOpen className="w-5 h-5" />
-                                                                História e Significado
-                                                            </h4>
-                                                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm md:text-base">
-                                                                {devotion.fullDescription}
-                                                            </p>
-                                                        </div>
-                                                    )}
-
-                                                    {devotion.novenaId && (
-                                                        <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border border-green-100 dark:border-green-900/30 flex items-center gap-3">
-                                                            <div className="w-10 h-10 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center">
-                                                                <span className="text-xl">✨</span>
-                                                            </div>
-                                                            <p className="text-sm text-green-800 dark:text-green-200 font-semibold">
-                                                                Esta devoção possui novena disponível em nosso site!
-                                                            </p>
-                                                        </div>
-                                                    )}
-                                                </div>
-                                            </ScrollArea>
-                                        </DialogContent>
+                                        <DevotionDialog devotion={devotion} />
                                     </Dialog>
                                 ))}
                             </div>
@@ -216,6 +157,98 @@ export function MarianGallery() {
                     )
                 ))}
             </div>
-        </section>
+        </section >
+    );
+}
+
+// Componente helper para Dialog com scroll dinâmico
+function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
+    const [scrolled, setScrolled] = useState(false);
+    const scrollAreaRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const scrollContainer = scrollAreaRef.current?.querySelector('[data-radix-scroll-area-viewport]');
+
+        if (!scrollContainer) return;
+
+        const handleScroll = () => {
+            const scrollTop = scrollContainer.scrollTop;
+            setScrolled(scrollTop > 50);
+        };
+
+        scrollContainer.addEventListener('scroll', handleScroll);
+        return () => scrollContainer.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    return (
+        <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
+            {/* Botão Voltar Estilizado */}
+            <DialogClose className="absolute left-4 top-4 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <X className="h-5 w-5" />
+                <span className="sr-only">Fechar</span>
+            </DialogClose>
+
+            <DialogHeader className={`px-2 transition-all duration-300 ${scrolled ? 'pt-8' : 'pt-12'}`}>
+                <div className="flex flex-col items-center mb-4">
+                    <div className={`relative transition-all duration-300 ${scrolled ? 'scale-75 opacity-80' : 'scale-100'}`}>
+                        <Image
+                            src={devotion.imageUrl}
+                            alt={devotion.name}
+                            width={200}
+                            height={200}
+                            className={`rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl transition-all duration-300 ${scrolled ? 'w-20 h-20' : 'w-32 h-32 sm:w-40 sm:h-40'
+                                }`}
+                        />
+                    </div>
+                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-300 ${scrolled ? 'text-lg sm:text-xl mt-2' : 'text-xl sm:text-2xl md:text-3xl mt-6'
+                        }`}>
+                        {devotion.name}
+                    </DialogTitle>
+                    <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-300 ${scrolled ? 'mt-1 opacity-0 h-0 overflow-hidden' : 'mt-3 opacity-100'
+                        }`}>
+                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
+                            {devotion.date}
+                        </span>
+                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-600 dark:text-slate-400 font-medium">
+                            {devotion.month}
+                        </span>
+                    </div>
+                </div>
+            </DialogHeader>
+
+            <ScrollArea ref={scrollAreaRef} className="max-h-[60vh] px-3 sm:px-6">
+                <div className="space-y-6 pb-6">
+                    <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 sm:p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
+                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic text-sm sm:text-base break-words">
+                            "{devotion.description}"
+                        </p>
+                    </div>
+
+                    {devotion.fullDescription && (
+                        <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <h4 className="text-lg font-bold text-blue-800 dark:text-blue-200 flex items-center gap-2 px-1">
+                                <BookOpen className="w-5 h-5 flex-shrink-0" />
+                                História e Significado
+                            </h4>
+                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap">
+                                {devotion.fullDescription}
+                            </p>
+                        </div>
+                    )}
+
+                    {devotion.novenaId && (
+                        <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-xl border border-green-100 dark:border-green-900/30 flex items-center gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700">
+                            <div className="w-10 h-10 bg-green-100 dark:bg-green-900/50 rounded-full flex items-center justify-center flex-shrink-0">
+                                <span className="text-xl">✨</span>
+                            </div>
+                            <p className="text-sm text-green-800 dark:text-green-200 font-semibold break-words">
+                                Esta devoção possui novena disponível em nosso site!
+                            </p>
+                        </div>
+                    )}
+                </div>
+            </ScrollArea>
+        </DialogContent>
     );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Globe, AlertCircle, CheckCircle, Clock, X } from "lucide-react";
@@ -283,32 +283,34 @@ export function WorldMarianDevotions() {
                                         </div>
                                     </DialogTrigger>
 
-                                    <DialogContent className="sm:max-w-2xl bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-none shadow-2xl">
-                                        <DialogClose className="absolute right-4 top-4 z-50 rounded-full opacity-90 transition-all hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white dark:bg-slate-800 p-2 shadow-lg hover:shadow-xl hover:scale-110">
-                                            <X className="h-5 w-5 text-slate-700 dark:text-slate-200" />
+                                    <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
+                                        {/* Botão Voltar Estilizado */}
+                                        <DialogClose className="absolute left-4 top-4 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                                            <X className="h-5 w-5" />
                                             <span className="sr-only">Fechar</span>
                                         </DialogClose>
-                                        <DialogHeader>
-                                            <div className="flex flex-col items-center mb-6 pt-4">
+
+                                        <DialogHeader className="pt-12 px-2">
+                                            <div className="flex flex-col items-center mb-6">
                                                 <div className="relative">
                                                     <Image
                                                         src={devotion.imageUrl}
                                                         alt={devotion.name}
                                                         width={200}
                                                         height={200}
-                                                        className="w-40 h-40 rounded-full object-cover border-4 border-blue-100 shadow-xl"
+                                                        className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl"
                                                     />
                                                 </div>
-                                                <DialogTitle className="text-3xl font-bold text-blue-900 dark:text-blue-100 text-center mt-6 font-brand">
+                                                <DialogTitle className="text-xl sm:text-2xl md:text-3xl font-bold text-blue-900 dark:text-blue-100 text-center mt-6 font-brand px-2 break-words hyphens-auto">
                                                     {devotion.name}
                                                 </DialogTitle>
-                                                <div className="flex items-center gap-2 mt-2">
+                                                <div className="flex items-center gap-2 mt-3 flex-wrap justify-center px-2">
                                                     <span className="text-2xl">{devotion.countryFlag}</span>
                                                     <span className="text-slate-600 dark:text-slate-400 font-medium">
                                                         {devotion.country}
                                                     </span>
                                                 </div>
-                                                <div className="flex items-center gap-2 mt-2">
+                                                <div className="flex items-center gap-2 mt-2 flex-wrap justify-center">
                                                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
                                                         {devotion.date}
                                                     </span>
@@ -316,28 +318,28 @@ export function WorldMarianDevotions() {
                                             </div>
                                         </DialogHeader>
 
-                                        <ScrollArea className="max-h-[50vh] pr-4">
-                                            <div className="space-y-6">
-                                                <div className="bg-blue-50/50 dark:bg-blue-900/10 p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
-                                                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic">
+                                        <ScrollArea className="max-h-[55vh] px-3 sm:px-6">
+                                            <div className="space-y-6 pb-6">
+                                                <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 sm:p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
+                                                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic text-sm sm:text-base break-words">
                                                         "{devotion.description}"
                                                     </p>
                                                 </div>
 
-                                                <div className="space-y-3">
-                                                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm md:text-base">
+                                                <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                                                    <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap">
                                                         {devotion.fullDescription}
                                                     </p>
                                                 </div>
 
                                                 {devotion.status && (
-                                                    <div className={`p-4 rounded-xl border flex items-start gap-3 ${devotion.status === "approved"
+                                                    <div className={`p-4 rounded-xl border flex items-start gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 ${devotion.status === "approved"
                                                         ? "bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-900/30"
                                                         : devotion.status === "not-approved"
                                                             ? "bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-900/30"
                                                             : "bg-orange-50 dark:bg-orange-900/20 border-orange-100 dark:border-orange-900/30"
                                                         }`}>
-                                                        <div className="mt-0.5">
+                                                        <div className="mt-0.5 flex-shrink-0">
                                                             {getStatusIcon(devotion.status)}
                                                         </div>
                                                         <div>
