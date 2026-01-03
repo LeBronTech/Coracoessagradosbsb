@@ -98,7 +98,7 @@ export default function SaoJosePage() {
                         <CardContent className="pt-6">
                             <div className="grid md:grid-cols-2 gap-4">
                                 <a
-                                    href={encodeURI("/CALLOWAY_2021_Consagração_a_São_José_as_glórias_de_nosso_pai_espiritual-1.pdf")}
+                                    href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all group"
@@ -487,8 +487,9 @@ function ConsagracaoDayCard({
 }) {
     const videoId = videoUrl ? getYouTubeVideoId(videoUrl) : null;
     const pdfUrl = paginaPdf
-        ? `/CALLOWAY_2021_Consagração_a_São_José_as_glórias_de_nosso_pai_espiritual-1.pdf#page=${paginaPdf}`
+        ? `https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view#page=${paginaPdf}`
         : null;
+
 
     return (
         <Card className="border-none shadow-md bg-white dark:bg-slate-900">
