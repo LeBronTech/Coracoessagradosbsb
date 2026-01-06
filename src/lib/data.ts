@@ -2020,29 +2020,282 @@ export const novenaData: Record<string, Novena> = {
   },
   sao_sebastiao: {
     saintName: 'São Sebastião',
-    novenaTitle: 'Novena a São Sebastião',
-    description: 'Mártir e defensor da fé contra a peste e a fome.',
-    image: 'https://placehold.co/400x400?text=Sao+Sebastiao',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
+    novenaTitle: 'Novena de São Sebastião',
+    description: 'Novena em honra a São Sebastião, mártir da fé e protetor contra pestes e adversidades.',
+    image: 'https://iili.io/fWNLcba.png',
+    initialPrayer: `<div class="initial-prayer-text">
+      <div class="prayer-block">
+        <p>Em nome do Pai, do Filho e do Espirito Santo. Amém.</p>
+      </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+      <h4 class="section-title">Oração Final</h4>
+      <div class="prayer-block">
+        <p>Ó glorioso mártir, São Sebastião, exemplo vivo de fé, de caridade, de fortaleza, de lealdade e de fidelidade, alcançai-nos de Deus a graça de acolhermos com alegria as adversidades da vida. Queremos, a vosso exemplo, abandonar os ídolos deste mundo e servir somente a Deus, nosso único e verdadeiro Senhor e Rei. Conhecendo o vosso poder de intercessão junto de Deus, humildemente vos pedimos a graça que tanto desejamos (fazer o pedido). Por Cristo nosso Senhor. Amém.</p>
+        <p class="mt-4">São Sebastião, rogai por nós.</p>
+      </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: 'São Sebastião: verdadeiro adorador vivo de Deus',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Senhor", disse-lhe a mulher, "vejo que és profeta. Nossos pais adoraram neste monte, mas vós dizeis que em Jerusalém é o lugar onde se deve adorar". Jesus respondeu: "Mulher, acredita-me: vem a hora em que nem neste monte nem em Jerusalém adorareis o Pai... Mas vem a hora, e já chegou, em que os verdadeiros adoradores adorarão o Pai em espírito e em verdade. Porque são estes os adoradores que o Pai procura. Deus é espírito, e os que o adoram devem adorá-lo em espírito e em verdade" (Jo 4,19-24).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>No tempo em que Sebastião viveu, declarar-se cristão era assinar sua condenação à morte. Ele foi criado por uma mãe temente a Deus, na religião cristã; soube permanecer firme na fé e dar sua vida por ela. Um mártir é sempre uma testemunha, e seu exemplo é a afirmação da fé perante as pessoas. Contrariando as expectativas dos algozes, o mártir começa a ser admirado, venerado, e sua memória se perpetuará para sempre, como aconteceu com Sebastião e outros santos.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, que, para vos conservar fiel à fé de vosso batismo, enfrentastes a mais cruel perseguição e derramastes vosso sangue, alcançai-nos a graça de permanecermos fiéis às promessas do nosso batismo e que nunca nos acovardemos em professar a nossa fé. Por Cristo Nosso Senhor. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, confessor da fé, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: 'São Sebastião: pregador do Reino de Deus',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Proclamo com isenção de ânimo as virtudes que Deus, desde o princípio, colocou em suas obras com verdade anuncio o seu conhecimento" (Eclo 16,25b). "Ide pelo mundo inteiro! Pregai o Evangelho a toda a criatura" (Mc 16,15).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>São Sebastião foi um fervoroso anunciador da Boa-Nova, um trabalhador incansável da fé e um apaixonado pela Palavra viva de Deus. Ele aproveitava suas frequentes visitas às prisões para pregar o Evangelho e conquistar novos seguidores para Cristo, animando aqueles que estavam prestes a fraquejar diante do martírio.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, que fostes um apaixonado pelo Evangelho de Cristo Jesus e um batalhador da fé, suscitai, na nossa comunidade, zelosos missionários do Reino de Deus, para que Cristo seja mais bem conhecido e amado. Por Cristo Nosso Senhor. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, anunciador do Reino de Deus, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'São Sebastião: fortaleza de Deus',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Eu te amo, Senhor, minha força, Senhor, meu rochedo, minha fortaleza, meu libertador; meu Deus, minha rocha, na qual me refugio; meu escudo e baluarte, minha poderosa salvação" (Salmo 18, 2-3).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>São Sebastião foi um exemplo de firmeza em seus propósitos. Militar de caráter forte, ao se converter, o Espírito Santo transfigurou seus dons naturais pela graça, e ele colocou sua alma destemida a serviço do Reino. Mesmo diante de ameaças, nunca vacilou, confirmando os cristãos vacilantes em sua fé.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, que fostes exemplo de firmeza e de coragem, incansável em trazer novos irmãos à fé em Jesus, sustentai a nossa fé nos momentos de dúvida e de tentação. Alcançai-nos de Deus a graça de nunca renegarmos a fé e de servirmos somente a Ele, nosso Deus e Senhor. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, exemplo de fortaleza, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'São Sebastião: defensor dos perseguidos e injustiçados',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Não tenhas medo que fui eu quem te resgatou, chamei-te pelo próprio nome, tu és meu" (Is 43,1b).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>São Sebastião partilhou da perseguição injusta que atingiu a Igreja em seus primórdios. Fiel à sua consciência, ele não hesitou em usar sua posição militar para proteger e consolar os que eram perseguidos por causa da fé, tornando-se o padroeiro de todos os que sofrem injustiças.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Glorioso mártir São Sebastião, que sofrestes com alegria os sofrimentos da injusta perseguição, olhai para todas as pessoas que estão padecendo pela injustiça. Alcançai, para os que sofrem tais padecimentos, resignação e coragem, e para todos nós, a fortaleza no amor. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, protetor dos perseguidos, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'São Sebastião: perfeito soldado e patrono dos militares',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"E não temais os que matam o corpo e não podem matar a alma; temei, antes, aquele que pode fazer perecer no inferno a alma e o corpo" (Mt 10,28).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>Diz a tradição que Sebastião era muito querido pelos imperadores por sua lealdade e bravura, chegando a ser Capitão da Guarda. No entanto, sua maior fidelidade era dedicada a Cristo. Ele soube conciliar seus deveres militares com o serviço ao Rei dos Reis, sendo um modelo de honra e integridade.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, que soubestes conciliar vossos compromissos de soldado com a fé cristã, protegei nossos militares e todos os que se empenham na segurança e salvaguarda dos direitos dos cidadãos. Amparai-os na luta contra as forças do mal. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, soldado de Cristo, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'São Sebastião: protetor de nossas cidades e paróquias',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"O Senhor é o meu pastor, nada me falta. Em verdes pastagens me faz repousar. Para as águas de descanso me conduz, restaura minha alma. Guia-me pelas sendas da justiça por amor do seu nome" (Sl 23,1-3).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>São Sebastião é venerado como protetor de inúmeras cidades e paróquias ao redor do mundo. Em tempos de peste e calamidades, o povo sempre recorreu à sua intercessão, experimentando sua poderosa proteção. Ele é o guarda fiel que vigia nossos lares e comunidades.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, alcançai-nos de Deus a graça de imitar vossas virtudes. Olhai por nossas cidades e paróquias, afastando delas todo mal. Encorajai as pessoas que perderam o sentido da existência, dando-lhes uma nova razão para viver na fé. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, padroeiro de nossas comunidades, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'São Sebastião: modelo de leigo engajado',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Combati o bom combate, terminei a minha carreira, guardei a fé. Desde agora me está reservada a coroa da justiça, que o Senhor, justo Juiz, me dará naquele dia" (2 Tim 4,7-8).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>Sebastião não era sacerdote ou bispo, mas um leigo que vivia sua fé no meio do mundo. Ele nos ensina que todos os batizados são chamados a ser missionários e a testemunhar Cristo em seus ambientes de trabalho e convívio social, agindo como fermento na massa.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Ó glorioso mártir, São Sebastião, sustentai a fé e a coragem dos que se dedicam a propagar o Reino de Deus como leigos. Fazei que nos encorajemos na participação ativa da comunidade, dedicando-nos ao serviço dos irmãos e à propagação da fé viva. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, modelo de cristão leigo, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'São Sebastião: padroeiro contra as pestes e epidemias',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Porque ele te livrará do laço do caçador, e da peste perniciosa. Ele te cobrirá com as suas penas, e debaixo das suas asas te confiarás; a sua verdade será o teu escudo e broquel" (Sl 91,3-4).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>A piedade popular honra São Sebastião como padroeiro contra a fome, a peste e a guerra. Historicamente, sua intercessão foi buscada diante de epidemias devastadoras, e muitos milagres foram relatados. Ele é o refúgio seguro para os que sofrem com as doenças do corpo e da alma.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>São Sebastião das causas difíceis e urgentes, ajudai-nos a chegar junto de Jesus para que Ele afaste de nós os flagelos das epidemias e enfermidades. Que nossos campos sejam fecundos e que nunca falte o pão e a saúde aos que trabalham. Por Cristo Nosso Senhor. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, socorro nas pestes e epidemias, rogai por nós.</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'São Sebastião: esperança por um mundo melhor',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Leitura Bíblica</h4>
+          <p>"Não temas nada do que vais sofrer... Sê fiel até a morte e eu te darei a coroa da vida" (Ap 2,10).</p>
+          <h4 class="section-title mt-4">O exemplo de São Sebastião</h4>
+          <p>No encerramento desta novena, olhamos para São Sebastião como um modelo de superação. Ele sobreviveu ao primeiro martírio (as flechas) e, em vez de fugir, apresentou-se novamente diante do imperador para denunciar as injustiças, provando que o amor a Deus vence o medo da morte.</p>
+          <h4 class="section-title mt-4">Oração do dia</h4>
+          <p>Senhor Deus, pedimos que nos torneis mais generosos e disponíveis para o serviço. Infundi em nós os dons do Espírito Santo para que, a exemplo de São Sebastião, sejamos perseverantes no cumprimento de nossos deveres cristãos até o fim. Amém.</p>
+          <p class="mt-4">Pai Nosso, Ave Maria e Glória ao Pai.</p>
+          <p class="mt-2 italic font-semibold brand-border pl-4">São Sebastião, mártir por amor, rogai por nós.</p>
+        </div>`
+      }
+    ]
   },
   sao_francisco_sales: {
     saintName: 'São Francisco de Sales',
-    novenaTitle: 'Novena a São Francisco de Sales',
-    description: 'Doutor da Igreja e padroeiro dos escritores e jornalistas.',
-    image: 'https://placehold.co/400x400?text=Sao+Francisco+Sales',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
+    novenaTitle: 'Novena de São Francisco de Sales',
+    description: 'Doutor da Igreja, mestre da mansidão e padroeiro dos escritores.',
+    image: 'https://iili.io/fWNLRUP.png',
+    initialPrayer: `<div class="initial-prayer-text">
+      <div class="prayer-block">
+        <p>Ó bem-aventurado São Francisco de Sales, em tua vida sobressaíste em todas as virtudes, no amor à Deus e ao próximo, no exemplo de mansidão e amabilidade e no fervor missionário.</p>
+        <p class="mt-4">Inspirado nisto, eu recorro a ti e humildemente coloco-me sob a tua proteção imediata e direção espiritual, para obter de Deus a minha perfeita conversão.</p>
+        <p class="mt-4">A ti, que como bispo missionário promoveste a conversão de milhares de almas à Santa Igreja, peço tua oração pela conversão de meus familiares e amigos à fé católica.</p>
+        <p class="mt-4">Ensina-me, São Francisco de Sales, a fixar os olhos no Céu; que eu possa generosamente enfrentar todos os obstáculos que se apresentam no meu caminho, e atingir um dia a glória no Céu com o auxílio da tua intercessão.</p>
+        <p class="mt-4">Peço a tua amizade todos os dias aqui e na vida eterna. Sejas, para mim, um diretor espiritual e um amigo. Inspira-me com teu exemplo e ajuda-me a ser amável, humilde, brando e generoso. Ore sempre a Deus por mim. Amém.</p>
+      </div>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+      <h4 class="section-title">Orações Finais</h4>
+      <div class="prayer-block">
+        <p>Ó Deus, nosso Pai, que fizestes de São Francisco de Sales vosso confessor e bispo para a salvação de tantas almas, testemunhando com a sua vida que sois um Deus de ternura e de misericórdia, por sua intercessão, nós vos pedimos: enviai sobre nós o vosso Espírito Santo para que nos ensine a ternura, a compaixão, a misericórdia, e nos chame à reconciliação e à comunhão convosco e com nossos irmãos.</p>
+        <p class="mt-4">Pedimos para que o vosso amor impere em nossos corações e nos torne amáveis, benignos e generosos com todas as pessoas, especialmente aquelas que convivem dia a dia conosco.</p>
+        <p class="mt-4">Também por intercessão de São Francisco de Sales, vos pedimos a conversão de nossos entes familiares à fé católica. Por Cristo nosso Senhor. Amém.</p>
+      </div>
+      <p class="mt-6 font-semibold text-center">PAI NOSSO, AVE MARIA, GLÓRIA</p>
+      <div class="prayer-block mt-6 italic brand-border pl-4">
+        <p>“Senhor Jesus, em oração uma vez Vos pedi e pedirei sempre que faça eu a Vossa amorosa vontade todos os dias da minha miserável e frágil vida.</p>
+        <p>Nas Vossas mãos, bom Deus, entrego o meu espírito, o meu coração, a minha memória, o meu entendimento e toda a minha vontade.</p>
+        <p>Concedei, porém, que com tudo Vos sirva, Vos ame, Vos agrade e sempre Vos louve. Amém.”</p>
+      </div>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: 'O Amável Santo',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>“A figura de São Francisco de Sales não pertence àquelas que possam ser descritas em termos muito limitados. Eleva-se altaneira e clara diante de nosso espírito, mais alta do que as montanhas da Sabóia (região onde ele nasceu e viveu), mais clara do que o céu sorridente que se espelha nas águas azuis do pequeno lago de Annecy (onde morou como bispo). De Fato, São Francisco de Sales era the most amável entre os santos, e Deus o enviou ao mundo numa hora de tribulação”. Com isso, o Papa São João XXIII expressou o que já impressionava sumamente os contemporâneos de São Francisco de Sales.</p>
+          <p class="mt-4">Sua amabilidade discreta superou aos poucos a desconfiança dos homens intimidados no Chablais (onde SFS foi missionário por mais de cinco anos). Sua bondade indulgente atraía especialmente os pobres e marginalizados. Pela sua paciência amável sabia apaziguar inúmeros litígios e reconciliar entre si os adversários. “Com uma gota de mel se atrai mais moscas do que com um barril de vinagre”, dizia ele mesmo. Suportava com tranquilidade inabalável as injúrias e ofensas contra sua pessoa. Quando, certa vez, se encontrou com um caluniador malévolo, disse: “Mesmo que me tivesse arrancado uma vista, com a outra olharia amigavelmente para o senhor”.</p>
+          <p class="mt-4">Havia, no entanto, naquele tempo, como até hoje, quem interpretasse sua bondade como fraqueza, sua mansidão como um feliz dom natural, sua amabilidade como uma tática calculada. Na verdade, ela é uma virtude constantemente exercitada no seguimento de Jesus Cristo. “Quem for ao encontro do próximo com a bênção da suavidade”, diz ele, “será o mais perfeito seguidor de Nosso Senhor”; e “isto, no fundo, é tudo: um coração manso para o próximo e um coração humilde para Deus”.</p>
+        </div>`
+      },
+      {
+        day: '2º Dia',
+        title: 'O Solícito Cura de Almas',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>Desde sua infância, através de estudos aprimorados, São Francisco de Sales se preparara interiormente para colocar-se todo a serviço da Igreja e dos homens e mulheres. Quando se aproximou o dia da ordenação sacerdotal, apoderou-se do seu coração temor diante da responsabilidade “de segurar em suas mãos e de realizar pela sua palavra o que nem sequer os anjos são capazes de compreender e de enaltecer devidamente”, mas também alegria sobre a vocação imerecida ao santo serviço.</p>
+          <p class="mt-4">Sempre celebrava a Santa Missa com tanto respeito e recolhimento que edificava profundamente a todos os que o observavam. Assim que se aproximava do altar, todos os pensamentos de distração o deixavam. Queria dar a todos o acesso à riqueza do sacrifício da Missa e possibilitar-lhes a participação interior.</p>
+          <p class="mt-4">A meta de sua pregação era conseguir aquilo para o qual o Salvador veio ao mundo: “para que todos tivessem vida e a possuíssem em abundância”. Já como neo-sacerdote, aproveitava cada oportunidade para anunciar a palavra de Deus, a ponto que seu pai lhe dizia: “tu pregas demais!”. Mais tarde, ele declarou que lhe era mais fácil aceitar uma pregação do que rejeitar um convite de pregar. Ele mesmo avaliou o número de suas pregações em 4 mil, mais ou menos.</p>
+          <p class="mt-4">Como sacerdote e como bispo dedicava muito tempo da pastoral ao sacramento da Penitência. Com inesgotável paciência dedicava-se especialmente aos pobres e desajeitados. Mediante sua bondade, sabia conduzi-los ao arrependimento verdadeiro e à conversão. Incansavelmente exortava-os à comunhão mais frequente. Sua casa estava sempre aberta para todos os que procuravam um conselho e todos voltavam consolados e reanimados. Seu zelo apostólico o fez “tudo para todos”.</p>
+        </div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'O Defensor da Fé',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>A atividade de São Francisco de Sales se deu no pós-guerras religiosas, que na França seguiram o cisma ocidental e sacudiu também sua pátria Sabóia. Um ano depois de sua ordenação sacerdotal, partiu para reconquistar à Fé católica os habitantes do Chablais, que ele considerava irmãos desgarrados, e reconduzi-los à unidade da Igreja.</p>
+          <p class="mt-4">Segundo sua opinião teológica, cada um aceitará a Fé católica se vier a conhecê-la e a ser convencido da verdade dela. Por isso, Francisco exigiu, num memorial sobre a reunificação na Fé, que a pregação católica fosse permitiria em lugares e regiões heréticas.</p>
+          <p class="mt-4">Já no dia de sua chegada em Thonon, ele mesmo começou a pregar diante de poucos ouvintes. Apoiado na revelação da Sagrada Escritura e da Tradição, na doutrina dos Santos Padres e no Magistério da Igreja, expunha aos calvinistas as verdades fundamentais da Fé católica e as defendia contra as heresias. Mas porque a maioria do povo não ousava assistir às pregações dele, distribuía, além disso, os seus ensinamentos por meio de panfletos que, juntados, foram editados, após a sua morte, sob o título de “Controvérsias”.</p>
+          <p class="mt-4">Estas Controvérsias foram uma das razões pela qual São Francisco de Sales, em 1877, foi declarado Doutor da Igreja. Nelas “irradiam-se um admirável conhecimento de teologia, um excelente método, uma irresistível força de argumentos, tanto na refutação da heresia como na apresentação da verdade católica” (Pio IX).</p>
+          <p class="mt-4">Na defesa da fé conduziu-o tanto o seu amor pela Igreja como também seu zelo pela salvação dos homens. Francisco estava convencido de que “quem fala com amor, prega suficientemente contra a heresia”. No seu memorial mostra-se disposto a concessões amplas “desde que se conserve a Fé” a qual defende com toda força e com todo o amor.</p>
+        </div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'O Renovador da Igreja',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>No seu discurso inaugural como Preboste, Francisco de Sales confessou a culpa coletiva da Igreja no cisma: culpa coletiva pelos males entre o clero e a decadência na vida religiosa. Como bispo, trabalhava sistematicamente na reforma da Igreja, cujo efeito repercutia além das fronteiras de sua diocese.</p>
+          <p class="mt-4">Antes de tudo, exortava os sacerdotes ao estudo, pois, dizia ele: “A ciência é o oitavo sacramento para o clero”. Deu-lhes uma instrução fundamental sobre a administração do sacramento da Penitência e decretou, nos sínodos diocesanos, as diretrizes necessárias para a renovação da pastoral. Para a admissão à Ordem sacerdotal e para a transmissão de uma paróquia, ele insistia na aptidão necessária. Nomeava sacerdotes exemplares e capacitados para os cargos importantes e lhes dava a sua total confiança.</p>
+          <p class="mt-4">Seu empenho quanto à reforma dos mosteiros mundanizados foi lento e apenas parcialmente coroado de êxito. Tentava, especialmente ajudado por religiosos de boa vontade, reformar as comunidades interiormente. Apenas como meio extremo, ele usava de rigor, para excluir escândalos públicos e possibilitar um reinício.</p>
+          <p class="mt-4">Primeiramente Francisco catequizava pessoalmente na sé episcopal e organizava, mais tarde, a catequese em toda a diocese, para remediar a ignorância do povo. Ele promovia o ensino para todos, nomeando religiosos com o fim de fundarem e dirigirem escolas.</p>
+          <p class="mt-4">A força motriz mais eficaz da renovação era o exemplo de sua própria vida, que se distinguia fundamentalmente da conduta de muitos bispos daquela época. Nas suas visitas canônicas ele chegava aos lugares mais remotos de sua diocese. Ele pregava, administrava o sacramento da Crisma, mas também aconselhava e consolava. Assim, os fieis chegaram a conhecer, estimar e amar o seu bispo; e com isso o coração se lhes abriu para a renovação da vida cristã.</p>
+        </div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'O Guia da Perfeição',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>Vida verdadeiramente religiosa não pode restringir-se a cumprir mais ou menos os deveres religiosos e, fora disso, levar uma vida de ateu. Já antes de sua ordenação sacerdotal, Francisco fundara a confraria da Santa Cruz, que obrigava os seus membros à recepção mais frequente dos sacramentos, a prática da caridade fraterna e à ação apostólica. Mais tarde, graças a seus sermões, um número cada vez maior de fieis de diversos estados de vida, sentia-se atraído a uma vida religiosa mais intensa e lhe pedia instruções mais explícitas.</p>
+          <p class="mt-4">Apesar de todo o peso que lhe causaram os deveres do encargo de administrar e de reformar a diocese, o bispo assumiu pessoalmente a direção espiritual de tais pessoas, mediante escritos básicos, entrevistas e inúmeras cartas, demonstrava-lhes um caminho para a plenitude da vida cristã, apropriado para o estado e nas circunstâncias de vida em questão.</p>
+          <p class="mt-4">Das instruções gerais e dos conselhos pessoais à sua parenta, Senhora Charmoisy, originou-se a “Filoteia”, uma instrução para os que aspiram a perfeição cristã. Nela São Francisco de Sales demonstra o fato e a maneira como isso é possível em cada estado de vida e profissão, que se deve assumir, porém, em cada caso, formas diferentes. Então a piedade não pode prejudicar nenhuma profissão. Além disso, a devoção tornará a vida cristã atraente, amável e desejável a outros.</p>
+          <p class="mt-4">Para que, no entanto, cada um possa escolher o caminho que lhe é apropriado, Francisco recomenda insistentemente confiar-se a um guia espiritual experimentado, o qual poderá ser consultado conforme a necessidade. Francisco era o mais excelente guia para a perfeição.</p>
+          <p class="mt-4">Pela sua “Filoteia” Francisco de Sales é reconhecido como mestre de piedade. O Concílio Vaticano II confirmou sua doutrina sobre a vocação de todos à santidade. O Papa São Paulo VI o chama de “novo professor da vida espiritual”.</p>
+        </div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'O Doutor do Amor de Deus',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>“A devoção não é mais do que uma agilidade e vivacidade espiritual com que a caridade produz em nós as suas obras, ou nós as fazemos por ela, com prontidão e complacência”; ela é “um degrau mais alto do amor”. No “Tratado do Amor de Deus” Francisco de Sales fundamentou teologicamente e levou até o mais alto grau da mística esta constatação já apresentada no primeiro capítulo da Filoteia.</p>
+          <p class="mt-4">Fundamento de sua doutrina é, em contraposição à doutrina de Calvino, a imagem otimista de Deus e do homem. A essência de Deus é o amor, o imanente fluxo divino da vida. É próprio do amor difundir-se e comunicar-se. Por isso Deus criou o mundo como revelação de sua essência e o ser humano como sua coroação, conforme sua imagem e semelhança.</p>
+          <p class="mt-4">Por essa razão o ser humano está em íntima relação com Deus e tem por natureza a inclinação de amar a Deus sobre todas as coisas. “O homem é a perfeição do universo; o espírito a perfeição do homem; o amor, a do espírito; e a caridade é a perfeição do amor. Por isso o amor de Deus é o fim, a perfeição e a excelência do universo” (TAD X,1).</p>
+          <p class="mt-4">Por amor, Deus uniu-se à natureza humana na pessoa do Verbo encarnado. Mediante a graça santificante – Francisco de Sales a chama de ‘santo amor’ – que nos faz membros do seu Corpo Místico, seremos participantes da vida divina e capacitados a corresponder ao amor. “O amor de Deus foi derramado em nossos corações pelo Espírito Santo que nos foi dado” (Rm 5,5).</p>
+          <p class="mt-4">“Em que consiste a perfeição? É seguro que ela consiste no santo amor, que abrange o amor a Deus e ao próximo. No entanto, segundo opinião comum, não são chamados perfeitos aqueles que possuem o santo amor, mas somente os que o possuem num grau sublime e primoroso, quer dizer, aqueles que têm um excelente amor a Deus e ao próximo” (DA 12, 172).</p>
+        </div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'O Fundador de Ordem Religiosa',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>A aspiração à perfeição, na escola de São Francisco de Sales, despertava em algumas pessoas o desejo de se consagrarem exclusivamente a Deus na vida religiosa. Para homens haviam novas ordem florescentes. Mulheres, porém, idosas ou viúvas, moças de frágil constituição ou com defeitos corporais, não conseguiam ser admitidas nas Ordens existentes. Para elas Francisco de Sales, juntamente com Joana Francisca de Chantal, criou um “refúgio” na Visitação: sem austeridades externas e sem o Ofício prolongado no coro, porém com a abnegação radical ao amor próprio. Suas filhas espirituais deveriam ter “os pés calçados, porém o coração descalço”.</p>
+          <p class="mt-4">Na primeira fase da Visitação até a mudança em uma Ordem enclausurada, as Irmãs não fizeram votos solenes, mas, mediante uma simples oblação, dedicavam-se a Deus e ao serviço na comunidade. “Nós não temos nenhum outro vínculo senão o vínculo do amor”, escrevera o fundador no livro das profissões, “pois ele é o vínculo da perfeição”.</p>
+          <p class="mt-4">Antes de tudo, ele queria dar a Deus “Filhas de Oração”. E isso aconteceu. Elas progrediram muito na aspiração à perfeição e algumas aos mais elevados graus da oração. Assim, na pessoa de Santa Margarida Maria Alacoque, a Visitação estava preparada para receber e para guardar as revelações do Sagrado Coração de Jesus.</p>
+          <p class="mt-4">Conforme a intenção do Santo Fundador, as Irmãs deveriam unir o serviço de Maria aos pés do Mestre ao serviço de Marta. Por isso, nos primeiros tempos elas desempenhavam o serviço aos pobres e enfermos fora do mosteiro e aceitavam temporariamente algumas senhoras que aspiravam a uma vida cristã, para os exercícios na sua comunidade. Quando, por motivo da clausura papal, isso não foi mais possível, restava, pela prática do amor cordial entre as Irmãs, ainda bastante oportunidade para o serviço de Marta. Desde o início o espírito da Visitação era um espírito de humildade e suavidade.</p>
+        </div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'O Homem de Oração',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>O relacionamento entre Deus e o homem possibilita a “elevação do coração” a Deus na oração. Para Francisco de Sales a oração é expressão do amor e, juntamente com os sacramentos, o alimento principal para o seu crescimento.</p>
+          <p class="mt-4">Francisco de Sales apreciava todas as formas de oração comunitária, especialmente a oração litúrgica da Igreja. Ele louvava o Ofício solene do seu cabido e participava dele de boa vontade. Defendia a oração precatória e a invocação dos Santos, especialmente de Nossa Senhora. Pela sua intercessão, em Paris, viu-se livre de mais profunda angústia. Em agradecimento ele fez a promessa de rezar o rosário todos os dias, o que cumpriu até o fim da vida.</p>
+          <p class="mt-4">Na sua vida de oração e na sua doutrina sobre a vida espiritual, Francisco de Sales dá a preferência à oração interior. Para exercer-se nela, ele ofereceu um método simples. Nas dificuldades oferecia conselhos concretos, de maneira comum na “Filoteia” e, de modo individual, em muitas cartas. Pelo exercício fiel, sob a influência da graça, esse método pode ser simplificado ou até se tornar desnecessário; então, no diálogo do amor, a oração meditativa passa para a contemplativa. Francisco de Sales descreveu isso no “Tratado do Amor de Deus” em suas diversas formas e degraus.</p>
+          <p class="mt-4">A oração interior não deve ser isolada da vida, ela deve levar a uma convivência íntima com Deus no recolhimento espiritual, deve levar à expressão espontânea do amor na situação concreta da vida, por meio de pensamentos frequentes em Deus em curtas e fervorosas elevações do coração. “Ora, é neste exercício de recolhimento espiritual e das orações jaculatórias que se estriba a grande obra da devoção; pode suprir a falta de todas as outras orações, mas a falta dele quase não pode ser compensado por nenhum outro meio. Sem ele, não se pode seguir bem a vida contemplativa e nem tampouco desempenhar bem a vida ativa.”</p>
+        </div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'Todo Dedicado a Deus',
+        content: `<div class="day-specific-content">
+          <h4 class="section-title">Meditação</h4>
+          <p>O amor não apenas se manifesta na oração, enchendo-nos de “entusiasmo e de fogo abrasador de Deus”, mas, se ele for autêntico, “difundirá em nós a sólida resolução, a firmeza de ânimo e a inviolável obediência requerida para cumprir as determinações da Vontade divina” (TAD VI, 1). Francisco de Sales vivia de modo exemplar este amor ativo.</p>
+          <p class="mt-4">Ele não conhece apenas a vontade de Deus revelada nos mandamentos, conselhos e inspirações, que podemos aceitar ou rejeitar, mas também a Vontade do seu beneplácito, reconhecível nos acontecimentos, nos desígnios da Providência. “Contemplando o mal em si, certamente ninguém o pode amar; contemplando-o, no entanto, na sua origem, isto é, na Providência divina, então ele se torna infinitamente amável” (TAD IX, 8), pois a Vontade de Deus é sempre o seu amor”.</p>
+          <p class="mt-4">A entrega à Vontade de Deus capacita São Francisco de Sales, mesmo em momentos dolorosíssimos – como a morte de sua mãe extremamente amada – de dizer com perfeita resignação: “Deus seja bendito!”. Logo após a fundação da Visitação, quando a Madre Chantal adoecera gravissimamente, ele aguardava o desfecho da doença com santa resignação; estava disposto a aceitar a Vontade de Deus.</p>
+          <p class="mt-4">“Quando fui sagrado bispo”, confessa ele mais tarde, “Deus me tirou de mim mesmo, para me querer só para si; então ele me deu ao povo, quer dizer, ele me transformou de tal maneira que de lá por diante não vivia mais para mim”, porém para o seu povo. É esse o mais profundo mistério de sua santidade: o êxtase da ação ou da vida. Nisso ele vê realizada a palavra de São Paulo: “Eu vivo, mas já não sou eu, é Cristo que vive em mim” (Gl 2, 20).</p>
+        </div>`
+      }
+    ]
   },
   santo_tomas_aquino: {
     saintName: 'Santo Tomás de Aquino',

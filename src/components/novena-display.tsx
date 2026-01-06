@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Saint, Novena } from '@/lib/data';
 import type { Theme } from '@/app/page';
@@ -33,23 +33,23 @@ interface NovenaDisplayProps {
 }
 
 function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme) => void }) {
-    return (
-        <div className="absolute top-[-14px] right-5 flex gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
-            {(['theme-dark-gray', 'theme-default', 'theme-light-gray', 'theme-red'] as Theme[]).map((t) => (
-                <button
-                    key={t}
-                    onClick={() => setTheme(t)}
-                    title={`Tema ${t.split('-')[1]}`}
-                    className={cn(
-                        'w-5 h-5 rounded-full cursor-pointer transition-all duration-200 border-2 border-white/70 shadow-md',
-                        'hover:scale-115',
-                        theme === t ? 'scale-125 shadow-lg ring-2 ring-white/90 ring-offset-2 ring-offset-transparent' : '',
-                        themeDotClasses[t]
-                    )}
-                />
-            ))}
-        </div>
-    );
+  return (
+    <div className="absolute top-[-14px] right-5 flex gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
+      {(['theme-dark-gray', 'theme-default', 'theme-light-gray', 'theme-red'] as Theme[]).map((t) => (
+        <button
+          key={t}
+          onClick={() => setTheme(t)}
+          title={`Tema ${t.split('-')[1]}`}
+          className={cn(
+            'w-5 h-5 rounded-full cursor-pointer transition-all duration-200 border-2 border-white/70 shadow-md',
+            'hover:scale-115',
+            theme === t ? 'scale-125 shadow-lg ring-2 ring-white/90 ring-offset-2 ring-offset-transparent' : '',
+            themeDotClasses[t]
+          )}
+        />
+      ))}
+    </div>
+  );
 }
 
 function NovenaContent({ htmlContent }: { htmlContent: string }) {
@@ -91,7 +91,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       };
     }
   }, [saint, novena, api]);
-  
+
   useEffect(() => {
     if (!api) {
       return;
@@ -104,6 +104,52 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       api.off("select", onSelect);
     };
   }, [api, onSelect]);
+
+  const copyNovenaText = () => {
+    if (!novena) return;
+
+    const stripHtml = (html: string) => {
+      let text = html
+        .replace(/<p[^>]*>/g, '\n')
+        .replace(/<\/p>/g, '\n')
+        .replace(/<br\s*\/?>/g, '\n')
+        .replace(/<h4[^>]*>/g, '\n\n')
+        .replace(/<\/h4>/g, '\n')
+        .replace(/<[^>]*>/g, '');
+
+      text = text
+        .replace(/&nbsp;/g, ' ')
+        .replace(/&amp;/g, '&')
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&#39;/g, "'");
+
+      return text.split('\n').map(line => line.trim()).filter(line => line.length > 0).join('\n');
+    };
+
+    let fullText = `*${novena.novenaTitle.toUpperCase()}*\n\n`;
+
+    if (novena.initialPrayer) {
+      fullText += `*ORAÇÃO INICIAL*\n\n${stripHtml(novena.initialPrayer)}\n\n`;
+    }
+
+    novena.days.forEach((day, index) => {
+      fullText += `*${day.day.toUpperCase()} - ${day.title.toUpperCase()}*\n\n${stripHtml(day.content)}\n\n`;
+    });
+
+    if (novena.finalPrayer) {
+      fullText += `*ORAÇÃO FINAL*\n\n${stripHtml(novena.finalPrayer)}\n\n`;
+    }
+
+    fullText += `\n_Fonte: Portal Corações Sagrados_`;
+
+    navigator.clipboard.writeText(fullText).then(() => {
+      alert('Texto completo da novena copiado com sucesso!');
+    }).catch(err => {
+      console.error('Erro ao copiar texto:', err);
+    });
+  };
 
 
   if (!novena || !saint) {
@@ -119,19 +165,19 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   }
 
   const { novenaTitle, description, days, initialPrayer, finalPrayer } = novena;
-  
+
   const isLightTheme = theme === 'theme-light-gray' || theme === 'theme-default';
-  
+
   const getAnimationClass = () => {
-    switch(animationState) {
-        case 'out': return 'animate-fade-out';
-        case 'in': return 'animate-slide-up-fade-in';
-        default: return '';
+    switch (animationState) {
+      case 'out': return 'animate-fade-out';
+      case 'in': return 'animate-slide-up-fade-in';
+      default: return '';
     }
   }
 
-  const arrowClasses = isLightTheme 
-    ? "text-primary border-primary/50 hover:bg-primary hover:text-white" 
+  const arrowClasses = isLightTheme
+    ? "text-primary border-primary/50 hover:bg-primary hover:text-white"
     : "text-primary border-primary/50 hover:bg-primary hover:text-white";
 
   const isSpecialNovena = days.length === 2 && (days[0].title === 'Oração da Novena' || days[1].title === 'Breve história da Apresentação');
@@ -145,71 +191,54 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
 
   return (
-    <main 
-      id="main-card" 
+    <main
+      id="main-card"
       className={cn(
-        'main-card glass-card rounded-2xl p-6 md:p-10 relative shadow-2xl shadow-black/20', 
+        'main-card glass-card rounded-2xl p-6 md:p-10 relative shadow-2xl shadow-black/20',
         themeClasses[theme],
         theme,
         getAnimationClass()
-        )}
+      )}
     >
       <ThemeSelector theme={theme} setTheme={setTheme} />
-       <header id="novena-header" className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left">
-          <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold font-brand">{novenaTitle}</h2>
-            <p className={cn("italic mt-1",
-               isLightTheme ? 'text-stone-600' : 'text-white/90'
-            )}>
-              {description || ''}
-            </p>
-            {saint.startDate && (
-              <div className="mt-3 flex items-center justify-center sm:justify-start gap-2">
-                <span className={cn(
-                  "inline-block text-xs font-bold px-4 py-1 rounded-full",
-                   isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
-                )}>
-                  Novena: {saint.startDate} a {saint.endDate}
+      <header id="novena-header" className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left">
+        <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
+        <div>
+          <h2 className="text-3xl md:text-4xl font-bold font-brand">{novenaTitle}</h2>
+          <p className={cn("italic mt-1",
+            isLightTheme ? 'text-stone-600' : 'text-white/90'
+          )}>
+            {description || ''}
+          </p>
+          {saint.startDate && (
+            <div className="mt-3 flex items-center justify-center sm:justify-start gap-2">
+              <span className={cn(
+                "inline-block text-xs font-bold px-4 py-1 rounded-full",
+                isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
+              )}>
+                Novena: {saint.startDate} a {saint.endDate}
+              </span>
+              {saint.isMartyr && (
+                <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
+                  Mártir
                 </span>
-                {saint.isMartyr && (
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
-                    Mártir
-                  </span>
-                )}
-              </div>
-            )}
-          </div>
-       </header>
+              )}
+            </div>
+          )}
+        </div>
+      </header>
 
       <Carousel setApi={setApi} className="w-full">
-        <div className="flex justify-center flex-wrap gap-2 mb-4">
-            {days.map((day, index) => (
-                <button
-                    key={index}
-                    onClick={() => scrollTo(index)}
-                    className={cn(
-                        'px-3 py-1 text-sm font-semibold rounded-full transition-all duration-200',
-                        current === index
-                            ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                            : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
-                    )}
-                >
-                    {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
-                </button>
-            ))}
-        </div>
-
-        <div className="flex flex-col items-center justify-center gap-2 mb-4">
+        <div className="flex flex-col items-center justify-center gap-2 mb-6">
           <a
             href="https://chat.whatsapp.com/D08lyjhVqL8KyZfIovKYk5?mode=ems_copy_t"
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                'inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-200',
-                theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
+              'inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-200',
+              theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
             )}
-            >
+          >
             <Image src="https://i.postimg.cc/g24cJdKG/whatsapp-icone-5.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
             <span className="text-sm font-semibold">Novena também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
           </a>
@@ -218,13 +247,46 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             target="_blank"
             rel="noopener noreferrer"
             className={cn(
-                'inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-200',
-                theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
+              'inline-flex items-center gap-2 rounded-lg px-4 py-2 transition-all duration-200',
+              theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
             )}
-            >
+          >
             <Image src="https://iili.io/Kpy9S3P.png" alt="Instagram" width={20} height={20} className="w-5 h-5" />
             <span className="text-sm font-semibold">Segue a gente no Insta</span>
           </a>
+        </div>
+
+        <div className="flex justify-center flex-wrap gap-2 mb-6">
+          {days.map((day, index) => (
+            <button
+              key={index}
+              onClick={() => scrollTo(index)}
+              className={cn(
+                'px-3 py-1 text-sm font-semibold rounded-full transition-all duration-200',
+                current === index
+                  ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
+                  : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
+              )}
+            >
+              {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+            </button>
+          ))}
+        </div>
+
+        <div className="flex flex-col items-center justify-center gap-2 mb-8">
+          <Button
+            onClick={copyNovenaText}
+            variant="outline"
+            className={cn(
+              'inline-flex items-center gap-2 rounded-lg px-6 py-2 transition-all duration-200 shadow-sm border-2',
+              theme === 'theme-light-gray'
+                ? 'bg-white hover:bg-stone-50 text-stone-800 border-stone-200'
+                : 'bg-white/10 hover:bg-white/20 text-white border-white/20'
+            )}
+          >
+            <Copy className="w-4 h-4" />
+            <span className="text-sm font-bold uppercase tracking-wide">Copiar texto dos {days.length} dias</span>
+          </Button>
         </div>
 
         <CarouselContent>
@@ -238,28 +300,28 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     </div>
                   </div>
                 )}
-                  
+
                 {initialPrayer && <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>}
-                  
+
                 <div className="flex items-center justify-center gap-4 mb-8">
-                    <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
-                    <p className="text-sm font-bold">
-                        {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
-                    </p>
-                    <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
+                  <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
+                  <p className="text-sm font-bold">
+                    {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
+                  </p>
+                  <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
                 </div>
 
                 <div className={proseClasses}>
                   {day.day && !isSpecialNovena && <h3 className={cn("section-title text-2xl font-bold font-brand mb-2")}>{day.day}</h3>}
                   {day.title && <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{day.title}</h4>}
-                  
+
                   <div className="day-specific-content">
                     <NovenaContent htmlContent={day.content} />
                   </div>
                 </div>
-                  
+
                 {finalPrayer && (
-                   <div className={proseClasses}>
+                  <div className={proseClasses}>
                     <div className='final-prayer-text'>
                       <NovenaContent htmlContent={finalPrayer} />
                     </div>
@@ -270,11 +332,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           ))}
         </CarouselContent>
         <div className="flex items-center justify-center gap-4 mt-8">
-            <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
-             <p className="text-sm font-bold">
-                {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
-            </p>
-            <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
+          <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
+          <p className="text-sm font-bold">
+            {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
+          </p>
+          <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
         </div>
       </Carousel>
     </main>
