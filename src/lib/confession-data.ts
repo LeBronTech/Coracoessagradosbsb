@@ -1,5 +1,20 @@
 
-export const confessionData = [
+interface Parish {
+  name: string;
+  address: string;
+  times: string;
+  location?: string;
+  instagram?: string;
+}
+
+interface CityData {
+  city: string;
+  parishes: Parish[];
+  isGroup?: boolean;
+  subCities?: CityData[];
+}
+
+export const confessionData: CityData[] = [
   {
     city: 'Águas Claras',
     parishes: [
@@ -493,6 +508,121 @@ export const confessionData = [
         times: 'Segunda a sábado de 17.45 às 18:45',
         location: 'https://www.google.com/maps/search/?api=1&query=Paróquia+Jesus+Bom+Pastor+Estrutural',
         instagram: 'https://www.instagram.com/paroquiajbp_estrutural'
+      }
+    ]
+  },
+  {
+    city: 'Entorno (GO)',
+    parishes: [],
+    isGroup: true,
+    subCities: [
+      {
+        city: 'Cidade Ocidental',
+        parishes: [
+          {
+            name: 'Santuário Jardim da Imaculada',
+            address: 'Cidade Ocidental - GO',
+            times: 'Segunda, Quarta e Sexta: Às 19h (durante o horário da Santa Missa). Domingo: Durante as missas das 06:30, 09:00 e 16:00',
+            instagram: 'https://www.instagram.com/santuariojardimdaimaculada'
+          }
+        ]
+      },
+      {
+        city: 'Novo Gama',
+        parishes: [
+          {
+            name: 'Paróquia Nossa Senhora Imaculada Conceição',
+            address: 'Novo Gama - GO',
+            times: 'Sexta-feira: De 09:00 às 11:00, de 14:30 às 17:00 e de 19:00 às 21:00',
+            instagram: 'https://www.instagram.com/imaculadanovogama'
+          },
+          {
+            name: 'Paróquia Nossa Senhora do Perpétuo Socorro',
+            address: 'Novo Gama - GO',
+            times: 'Quarta, Quinta e Sexta: Às 18:00'
+          }
+        ]
+      },
+      {
+        city: 'Valparaíso de Goiás',
+        parishes: [
+          {
+            name: 'A Paróquia Franciscana (São Francisco de Assis)',
+            address: 'Valparaíso de Goiás - GO',
+            times: 'Quarta, Quinta e Sexta: Às 09:00 e às 15:00. Sábado: Às 09:00',
+            instagram: 'https://www.instagram.com/aparoquiafranciscana'
+          }
+        ]
+      },
+      {
+        city: 'Luziânia',
+        parishes: [
+          {
+            name: 'Paróquia Nossa Senhora de Lourdes',
+            address: 'Luziânia - GO',
+            times: 'Quarta e Sexta: De 14:00 às 17:00'
+          }
+        ]
+      },
+      {
+        city: 'Santo Antônio do Descoberto',
+        parishes: [
+          {
+            name: 'Paróquia Santo Antônio do Descoberto',
+            address: 'Santo Antônio do Descoberto - GO',
+            times: 'Quarta: De 14:00 às 16:00. Quinta: De 08:00 às 12:00'
+          }
+        ]
+      },
+      {
+        city: 'Águas Lindas de Goiás',
+        parishes: [
+          {
+            name: 'Paróquia São Maximiliano Maria Kolbe',
+            address: 'Águas Lindas de Goiás - GO',
+            times: 'Terça e Quarta: De 08:30 às 11:30 e de 14:30 às 16:30'
+          },
+          {
+            name: 'Paróquia São Francisco de Assis',
+            address: 'Águas Lindas de Goiás - GO',
+            times: 'Quarta a Sábado: De 17:30 às 19:00'
+          }
+        ]
+      },
+      {
+        city: 'Planaltina de Goiás',
+        parishes: [
+          {
+            name: 'Paróquia Divino Espírito Santo',
+            address: 'Planaltina de Goiás - GO',
+            times: 'Segunda: De 14:30 às 18:00. Terça: De 09:30 às 12:00 e de 14:30 às 18:00. Quinta: De 18:00 às 19:00. Sexta e Sábado: De 09:30 às 12:00'
+          },
+          {
+            name: 'Paróquia Santo Antônio',
+            address: 'Planaltina de Goiás - GO',
+            times: 'Quinta: De 15:00 às 17:00 e de 18:00 às 18:45. Outros horários por agendamento'
+          }
+        ]
+      },
+      {
+        city: 'Formosa',
+        parishes: [
+          {
+            name: 'Paróquia São Sebastião',
+            address: 'Formosa - GO',
+            times: 'Terça, Quarta e Quinta: De 20:00 às 22:00'
+          }
+        ]
+      },
+      {
+        city: 'Cristalina',
+        parishes: [
+          {
+            name: 'Paróquia Nossa Senhora Aparecida',
+            address: 'Cristalina - GO',
+            times: 'Confissões por agendamento na secretaria paroquial'
+          }
+        ]
       }
     ]
   },
@@ -1053,6 +1183,12 @@ export const confessionData = [
         address: 'Santa Maria',
         times: 'Terça, Quinta e Sexta: A partir de 18:00',
         instagram: 'https://www.instagram.com/paroquia_nsd'
+      },
+      {
+        name: 'Convento e Casa de Formação Santa Maria dos Anjos',
+        address: 'Santa Maria - DF',
+        times: 'Quarta-feira: De 14h às 16h. Sexta-feira: De 14h às 16h',
+        instagram: 'https://www.instagram.com/santamariadosanjos'
       }
     ]
   },

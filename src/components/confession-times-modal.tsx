@@ -16,11 +16,15 @@ interface ConfessionTimesModalProps {
 export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isExpanded, setIsExpanded] = useState(true);
+  const [selectedRegion, setSelectedRegion] = useState<'Brasília' | 'Entorno (GO)'>('Brasília');
   const [selectedCity, setSelectedCity] = useState('Arniqueiras & Riacho Fundo');
+  const [selectedGroup, setSelectedGroup] = useState<string | null>(null);
   const [selectedDay, setSelectedDay] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const regionNavRef = useRef<HTMLDivElement>(null);
   const saintsNavRef = useRef<HTMLDivElement>(null);
+  const subCitiesNavRef = useRef<HTMLDivElement>(null);
   const daysNavRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -69,10 +73,37 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [isExpanded]);
 
-  const handleCityChange = (city: string) => {
-    setSelectedCity(city);
-    setSelectedDay(null); // Reset day filter on city change
-    const selectedButton = saintsNavRef.current?.querySelector(`[data-city="${city}"]`);
+  const handleRegionChange = (region: 'Brasília' | 'Entorno (GO)') => {
+    setSelectedRegion(region);
+    setSelectedGroup(null);
+    setSelectedCity('');
+    setSelectedDay(null);
+
+    // Se mudar para Brasília, seleciona a primeira cidade
+    if (region === 'Brasília') {
+      const firstBrasCity = confessionData.find(d => !d.isGroup);
+      if (firstBrasCity) setSelectedCity(firstBrasCity.city);
+    }
+  };
+
+  const handleCityChange = (city: string, isGroup: boolean = false) => {
+    if (isGroup) {
+      // Se é um grupo, apenas marca o grupo como selecionado
+      setSelectedGroup(selectedGroup === city ? null : city);
+      setSelectedCity('');
+    } else {
+      // Se é uma cidade normal, seleciona a cidade
+      setSelectedCity(city);
+      const selectedButton = saintsNavRef.current?.querySelector(`[data-city="${city}"]`);
+      if (selectedButton) {
+        selectedButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }
+  };
+
+  const handleSubCityChange = (subCity: string) => {
+    setSelectedCity(subCity);
+    const selectedButton = subCitiesNavRef.current?.querySelector(`[data-city="${subCity}"]`);
     if (selectedButton) {
       selectedButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     }
@@ -83,7 +114,16 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
   }
 
   const filteredParishes = useMemo(() => {
-    const cityData = confessionData.find((data) => data.city === selectedCity);
+    let cityData = confessionData.find((data) => data.city === selectedCity);
+
+    // Se não encontrou diretamente, procura nas subCities do Entorno
+    if (!cityData && selectedRegion === 'Entorno (GO)') {
+      const entornoGroup = confessionData.find((data) => data.isGroup && data.city === 'Entorno (GO)');
+      if (entornoGroup?.subCities) {
+        cityData = entornoGroup.subCities.find((sub) => sub.city === selectedCity);
+      }
+    }
+
     if (!cityData) return [];
 
     return cityData.parishes.filter(parish => {
@@ -130,7 +170,17 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
 
       return matchesSearch && matchesDay;
     });
-  }, [selectedCity, searchQuery, selectedDay]);
+  }, [selectedCity, selectedRegion, searchQuery, selectedDay]);
+
+  // Filtrar cidades por região
+  const citiesByRegion = useMemo(() => {
+    if (selectedRegion === 'Brasília') {
+      return confessionData.filter(d => !d.isGroup);
+    } else {
+      const entornoGroup = confessionData.find(d => d.isGroup && d.city === 'Entorno (GO)');
+      return entornoGroup?.subCities || [];
+    }
+  }, [selectedRegion]);
 
   return (
     <>
@@ -232,15 +282,39 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
 
           <div className="p-4 w-full overflow-y-auto">
             <div className="mb-4 sticky top-0 z-40 bg-white/80 backdrop-blur-md py-2 -mx-4 px-4 shadow-sm">
+              <div className="mb-3">
+                <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Região</label>
+                <div className="overflow-x-auto pb-2 saints-nav-container hide-scrollbar" ref={regionNavRef}>
+                  <div className="flex flex-nowrap gap-2">
+                    <button
+                      onClick={() => handleRegionChange('Brasília')}
+                      className={`flex-shrink-0 px-4 py-2 text-sm rounded-full border-2 transition-colors duration-200 whitespace-nowrap font-semibold ${selectedRegion === 'Brasília'
+                        ? 'bg-red-800 text-white border-red-800 shadow-md'
+                        : 'text-gray-700 border-gray-400 hover:border-red-800 hover:text-red-800 bg-white'
+                        }`}>
+                      Brasília
+                    </button>
+                    <button
+                      onClick={() => handleRegionChange('Entorno (GO)')}
+                      className={`flex-shrink-0 px-4 py-2 text-sm rounded-full border-2 transition-colors duration-200 whitespace-nowrap font-semibold ${selectedRegion === 'Entorno (GO)'
+                        ? 'bg-red-800 text-white border-red-800 shadow-md'
+                        : 'text-gray-700 border-gray-400 hover:border-red-800 hover:text-red-800 bg-white'
+                        }`}>
+                      Entorno (GO)
+                    </button>
+                  </div>
+                </div>
+              </div>
+
               <div className="mb-2">
                 <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Cidades</label>
                 <div className="overflow-x-auto pb-2 saints-nav-container hide-scrollbar" ref={saintsNavRef}>
                   <div className="flex flex-nowrap">
-                    {confessionData.map((data) => (
+                    {citiesByRegion.map((data) => (
                       <button
                         key={data.city}
                         data-city={data.city}
-                        onClick={() => handleCityChange(data.city)}
+                        onClick={() => handleCityChange(data.city, data.isGroup)}
                         className={`flex-shrink-0 px-3 py-1.5 text-sm mr-2 rounded-full border transition-colors duration-200 whitespace-nowrap ${selectedCity === data.city ? 'bg-red-800 text-white border-red-800 font-semibold shadow-sm' : 'text-gray-600 border-gray-300 hover:border-red-800 hover:text-red-800'}`}>
                         {data.city}
                       </button>
@@ -248,6 +322,8 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
                   </div>
                 </div>
               </div>
+
+
 
               <div>
                 <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Dia da Semana</label>
