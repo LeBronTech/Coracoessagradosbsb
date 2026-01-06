@@ -22,6 +22,14 @@ const themeDotClasses: Record<Theme, string> = {
   'dark': 'bg-gray-700',
 };
 
+const seasonTranslation: Record<string, string> = {
+  'Advent': 'Advento',
+  'Christmas': 'Tempo do Natal',
+  'Ordinary Time': 'Tempo Comum',
+  'Lent': 'Quaresma',
+  'Easter': 'Tempo da Páscoa'
+};
+
 function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; isOpen: boolean; selectedIndex: number; }) {
   if (saints.length === 1) {
     return (
@@ -350,13 +358,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
                 {liturgicalData && liturgicalData.readings && (
                   <div className="mt-8 pt-6 border-t border-gray-200/50">
-                    <h3 className="font-brand text-lg font-bold mb-4 text-primary flex items-center gap-2">
-                      <span className="text-2xl">📖</span> Liturgia do Dia
-                    </h3>
-                    <div className="bg-white/50 rounded-lg p-4 space-y-4">
-                      {liturgicalData.description && (
-                        <p className="text-sm font-semibold text-gray-600 mb-2 italic">{liturgicalData.description}</p>
-                      )}
+                    <div className="mb-4">
+                      <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
+                        <span className="text-2xl">📖</span> Liturgia do Dia
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary uppercase tracking-wider border border-primary/20">
+                          {seasonTranslation[liturgicalData.season] || liturgicalData.season}
+                        </span>
+                        {liturgicalData.description && (
+                          <span className="text-sm font-medium text-gray-600 italic">
+                            {liturgicalData.description}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="bg-white/50 rounded-lg p-4 space-y-4 shadow-sm border border-gray-100/50">
 
                       {liturgicalData.readings.firstReading && (
                         <div>
