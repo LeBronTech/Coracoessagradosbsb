@@ -2445,6 +2445,60 @@ export const novenaData: Record<string, Novena> = {
       }
     ]
   },
+  sao_joao_bosco: {
+    saintName: 'São João Bosco',
+    novenaTitle: 'Novena a São João Bosco',
+    description: 'Pai e mestre da juventude, São João Bosco dedicou sua vida à educação e salvação dos jovens. Peça sua intercessão para a juventude e para todos que trabalham na educação.',
+    initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Inicial (todos os dias)</h4><div class="prayer-block"><p>Em nome do Pai e do Filho e do Espírito Santo. Amém.</p><p><strong>Vinde Espírito Santo</strong>,<br/>enchei os corações dos vossos fiéis<br/>e acendei neles o fogo do vosso amor.</p><p>℣. Enviai o vosso Espírito e tudo será criado,<br/>℟. E renovareis a face da terra.</p><p><strong>Oremos:</strong> Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, fazei que apreciemos retamente todas as coisas, segundo o mesmo Espírito, e gozemos sempre da sua consolação. Por Cristo Senhor Nosso. Amém.</p><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração a Dom Bosco</h4><p>Ó Glorioso São João Bosco, quando estáveis nesta terra, não havia ninguém que, acudindo a vós, não fosse por vós mesmo benignamente recebido, consolado e ajudado. Agora no céu, onde a caridade atinge a perfeição, quanto deve arder vosso grande coração em amor aos necessitados!</p><p>Vede, pois, as minhas presentes necessidades e ajudai-me, obtendo-me do Senhor a graça... <em>(pede-se a graça)</em>.</p><p>Também vós haveis experimentado durante a vida as privações, as enfermidades, as contradições, a incerteza do porvir, as ingratidões, as afrontas, as calúnias, as perseguições e sabeis que coisa é sofrer. Por isso, ó Dom Bosco santo, volvei até mim vosso bondoso olhar e obtende do Senhor quanto vos peço, se for vantajoso para minha alma; e se assim não o for, obtende alguma outra graça que me seja ainda mais útil e uma conformidade filial à divina vontade em todas as coisas, ao mesmo tempo que uma vida virtuosa e uma santa morte. Amém.</p></div></div>`,
+    finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-8 mx-auto"></div><h4 class="section-title">Oração Final (todos os dias)</h4><div class="prayer-block"><p>Deus, qui sanctum Joánnem Confessórem tuum<br/>adolescéntium patrem et magístrum excitásti,<br/>ac per eum, auxiliatríce Vírgine María,<br/>novas in Ecclésia tua famílias floréscere voluísti:<br/>concéde, quǽsumus;<br/>ut, eódem caritátis igne succénsi,<br/>ánimas quǽrere, tibíque soli servíre valeámus.<br/>Per Dóminum nostrum Iesum Christum, Filium tuum:<br/>Qui tecum vivit et regnat<br/>in unitáte Spíritus Sancti, Deus:<br/>per omnia sǽcula sǽculorum. ℟. Amen.</p><p>Ó Deus, que suscitaste São João, vosso Confessor, como pai e mestre dos jovens e por ele, auxiliado pela Virgem Maria, quisestes florescessem novas famílias em vossa Igreja, concedei, vos rogamos, que, inflamados pelo mesmo fogo da caridade, busquemos as almas e a vós somente sirvamos. Por nosso Senhor Jesus Cristo, vosso Filho, que convosco vive e reina na unidade do Espírito Santo. ℟. Amém.</p><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração a Nossa Senhora Auxiliadora</h4><p class="italic">(composta por São João Bosco)</p><p>O Maria, Vergine potente,<br/>Tu grande illustre presidio della Chiesa;<br/>Tu aiuto meraviglioso dei Cristiani;<br/>Tu terribile come esercito schierato a battaglia;<br/>Tu sola hai distrutto ogni eresia in tutto il mondo;<br/>Tu nelle angustie, nelle lotte, nelle strettezze<br/>difendici dal nemico e nell'ora della morte<br/>accogli l'anima nostra in Paradiso!<br/>Amen.</p><p>Ó Maria, Virgem poderosa, vós, grande e ilustre defensora da Igreja; vós, Auxílio maravilhoso dos cristãos, vós, terrível como um exército em ordem de batalha; vós, que, sozinha, destruístes toda heresia no mundo inteiro; nas angústias, nas lutas, nas aflições, defendei-nos do inimigo; e, na hora da morte, acolhei a nossa alma no Paraíso! Amém.</p></div></div>`,
+    days: [
+      {
+        day: 'Primeiro Dia',
+        title: 'Jesus Sacramentado',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Quereis que o Senhor vos conceda muitas graças? Visitai-o frequentemente. Quereis que Ele vos conceda poucas? Visitai-o raramente."</p></blockquote><p>Glorioso São João Bosco, pelo amor ardente que tivestes a Jesus Sacramentado e pelo zelo com que propagastes seu culto, sobretudo com a assistência da Santa Missa, com a Comunhão frequente e com a visita cotidiana ao Santíssimo Sacramento; alcançai-nos a graça de crescer cada vez mais no amor e na prática de tão santas devoções, e de terminar nossos dias fortalecidos e confortados pelo celestial alimento da Divina Eucaristia.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Segundo Dia',
+        title: 'Maria Auxiliadora',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Quem confia em Maria nunca ficará desiludido"</p></blockquote><p>Glorioso São João Bosco, pelo amor que tivestes à Virgem Auxiliadora, vossa mãe e mestra; alcançai-nos uma verdadeira e constante devoção a tão dulcíssima mãe, a fim de que, como filhos seus devotíssimos, possamos merecer seu valioso patrocínio nesta vida e de um modo especial na hora de nossa morte.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Terceiro Dia',
+        title: 'Amor à Igreja',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"A oração é o primeiro alimento, como o pão é o alimento do corpo. Há que rezar com uma ilimitada esperança de ser ouvidos"</p></blockquote><p>Glorioso São João Bosco, pelo amor filial que tivestes à Santa Igreja e ao Sumo Pontífice, a quem defendestes constantemente; alcançai-nos a graça de ser sempre dignos filhos da Igreja Católica, e de amar o Papa e venerar nele a infalibilidade de Vigário de Nosso Senhor Jesus Cristo.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Quarto Dia',
+        title: 'Amor à Juventude',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Em cada manhã entregai a Deus as ocupações do dia; e fazei cada coisa como se fosse a última da vossa vida"</p></blockquote><p>Glorioso São João Bosco, pelo grande amor com que amastes a juventude, fazendo-se pai e mestre dela, e pelos heroicos sacrifícios que fizestes por sua salvação; fazei que também nós amemos com um amor santo e generoso a esta porção eleita do Sagrado Coração de Jesus, e que em todo jovem contemplemos a pessoa adorável de nosso divino Salvador.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Quinto Dia',
+        title: 'Família Salesiana',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"A oração faz violência ao coração de Deus"</p></blockquote><p>Glorioso São João Bosco, vós que, a fim de continuar a estender sempre mais vosso santo apostolado, fundastes a Sociedade Salesiana e o Instituto das Filhas de Maria Auxiliadora; fazei que os membros destas duas famílias religiosas estejam sempre cheios de vosso espírito e sejam fiéis imitadores de vossas heroicas virtudes.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Sexto Dia',
+        title: 'Cooperadores Salesianos',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Dom Bosco, em sua vida, jamais será capaz de afastar quem lhe peça para ficar com ele"</p></blockquote><p>Glorioso São João Bosco, vós que a fim de obter no mundo mais abundantes frutos de exercício da fé e de terníssima caridade, instituístes a União dos Cooperadores Salesianos; fazei que estes sejam sempre modelos das virtudes cristãs e providenciais ajudantes de vossas obras.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Sétimo Dia',
+        title: 'Zelo pelas Almas',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Ajude sempre os seus colegas. Mesmo que lhe custe sacrifício. A santidade está toda aqui"</p></blockquote><p>Glorioso São João Bosco, vós que amastes com amor inefável a todas as almas, e que para salvá-las enviastes vossos filhos até os últimos confins da terra; fazei que também nós pensemos continuamente na salvação de nossas almas e cooperemos com todos os meios possíveis para salvar tantos pobres irmãos nossos.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Oitavo Dia',
+        title: 'Pureza',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Amem muito a castidade. Lembrem-se, para conservá-la é precioso trabalhar e rezar."</p></blockquote><p>Glorioso São João Bosco, vós que amastes com um amor de predileção a bela virtude da pureza, e a tomastes como exemplo, com a palavra e com os escritos; fazei que também nós, enamorados de tão indispensável virtude, a pratiquemos constantemente e a difundamos com todas nossas forças.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      },
+      {
+        day: 'Nono Dia',
+        title: 'Perseverança Final',
+        content: `<div class="day-specific-content"><blockquote class="brand-border pl-4 italic"><p>"Quem perseverar até o fim, será salvo"</p></blockquote><p>Glorioso São João Bosco, vós que fostes sempre tão compassivo com as humanas desventuras, dirigi um olhar a nós, tão necessitados de vosso auxílio. Fazei descer sobre nós e sobre nossas famílias as maternais bênçãos de Maria Auxiliadora; alcançai-nos todas aquelas graças espirituais e temporais de que necessitamos: intercedei por nós na vida e na morte, a fim de que possamos cantar eternamente as divinas misericórdias no Paraíso Celestial.</p><p class="mt-4 font-semibold">Pai-Nosso, Ave-Maria e Glória.</p></div>`
+      }
+    ]
+  },
 };
 
 
