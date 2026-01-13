@@ -2369,27 +2369,210 @@ export const novenaData: Record<string, Novena> = {
     saintName: 'Nossa Senhora das Candeias',
     novenaTitle: 'Novena a N.S. das Candeias',
     description: 'Celebração da Apresentação do Senhor e Purificação de Maria.',
-    image: 'https://placehold.co/400x400?text=NS+Candeias',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
+    image: '/images/ns_candeias.png',
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Como rezar esta Novena</h4>
+        <p>Inicia-se com o Sinal da Cruz: Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+        <p>Reza-se todos os dias as 3 saudações e jaculatórias;</p>
+        <p>Reza-se a Ladainha à Nossa Senhora das Candeias;</p>
+        <p>Finaliza-se com o Sinal da Cruz.</p>
+        <div class="w-16 h-px bg-white/20 my-6 mx-auto"></div>
+        <h4 class="section-title">Saudações Diárias</h4>
+        <p><b>I. Saudação:</b> Saudamos-vos Senhora das Candeias, doce Mãe de Deus, por aquela ardente caridade com que quiseste manifestar as misericórdias do vosso Filho, aparecendo em uma gruta deserta cuja as águas milagrosas servem de remédio para os enfermos. Nós vos pedimos a graça de fazerdes brilhar na obscuridade do nosso pobre coração a misericórdia de Jesus, concedendo-vos a graça que imploramos… <i>(peça a graça especial que deseja alcançar)</i> Para a honra do mesmo Senhor Nosso, Jesus Cristo. Amém.</p>
+        <p class="mt-4"><b>Jaculatória:</b> Ó Virgem Mãe das Candeias, estrela resplandecente, livrai-nos de todas as trevas que cercam a nossa mente. <i>Ave Maria.</i></p>
+        <p class="mt-4"><b>II. Saudação:</b> Saudamos-vos Senhora das Candeias, doce Mãe de Deus, por aquela profunda humildade com que quiseste estar, por espaço de trezentos anos em um lugar assim pobre, longe de todo o bulício e rodeadas de pobres choupanas, para nos mostrar ainda uma vez, vosso amor, a vossa simplicidade e vosso desapego do mundo. Por este belo exemplo que nos dais, pedimos que desapegueis o nosso coração de todas as vaidades da terra e o conformeis de tudo com a divina vontade, para mais facilmente alcançar a graça que imploramos… <i>(peça a graça especial que deseja alcançar)</i> Por amor do vosso bendito filho. Amém!</p>
+        <p class="mt-4"><b>Jaculatória:</b> Das vossas divinas graças, nossas almas estão cheias, por vossa misericórdia, ó Mãe de Deus das Candeias. <i>Ave Maria.</i></p>
+        <p class="mt-4"><b>III. Saudação:</b> Saudamos-vos, Senhora das Candeias, doce Mãe de Deus, por bondade satisfazeis aos romeiros que de todas as partes acorrem aos vossos pés, para pedir as graças desejadas, e a todos atendei com entranhas de Mãe extremosa. Por essa grande do vosso materno coração, fazei que entreguemos a Deus, sem reservas e obtenhamos a graça de que vos pedimos nesta Novena… <i>(peça a graça especial que deseja alcançar)</i> Para o bem da nossa alma e para a glória do vosso bendito Filho. Amém.</p>
+        <p class="mt-4"><b>Jaculatória:</b> Por vossos grandes milagres, rogamos Mãe de Jesus, que nos livreis do pecado e nos deis a vossa Luz. <i>Ave Maria.</i></p>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Ladainha a Nossa Senhora</h4>
+        <p>Senhor, tende piedade de nós.<br>
+        Jesus Cristo, tende piedade de nós.<br>
+        Senhor, tende piedade de nós.<br>
+        Jesus Cristo, ouvi-nos.<br>
+        Jesus Cristo, atendei-nos.<br>
+        Pai celeste que sois Deus, tende piedade de nós.<br>
+        Filho, Redentor do mundo, que sois Deus, tende piedade de nós.<br>
+        Espírito Santo, que sois Deus, tende piedade de nós.<br>
+        Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
+        <p class="mt-4">Santa Maria, <i>rogai por nós.</i><br>
+        Santa Mãe de Deus, <i>rogai por nós.</i><br>
+        Santa Virgem das Virgens, <i>rogai por nós.</i><br>
+        Mãe de Jesus Cristo, <i>rogai por nós.</i><br>
+        Mãe da divina graça, <i>rogai por nós.</i><br>
+        Mãe puríssima, <i>rogai por nós.</i><br>
+        Mãe castíssima, <i>rogai por nós.</i><br>
+        Mãe imaculada, <i>rogai por nós.</i><br>
+        Mãe intacta, <i>rogai por nós.</i><br>
+        Mãe amável, <i>rogai por nós.</i><br>
+        Mãe admirável, <i>rogai por nós.</i><br>
+        Mãe do bom conselho, <i>rogai por nós.</i><br>
+        Mãe do Criador, <i>rogai por nós.</i><br>
+        Mãe do Salvador, <i>rogai por nós.</i><br>
+        Mãe da Igreja, <i>rogai por nós.</i><br>
+        Virgem prudentíssima, <i>rogai por nós.</i><br>
+        Virgem venerável, <i>rogai por nós.</i><br>
+        Virgem louvável, <i>rogai por nós.</i><br>
+        Virgem poderosa, <i>rogai por nós.</i><br>
+        Virgem clemente, <i>rogai por nós.</i><br>
+        Virgem fiel, <i>rogai por nós.</i><br>
+        Espelho de justiça, <i>rogai por nós.</i><br>
+        Sede de sabedoria, <i>rogai por nós.</i><br>
+        Causa da nossa alegria, <i>rogai por nós.</i><br>
+        Vaso espiritual, <i>rogai por nós.</i><br>
+        Vaso honorífico, <i>rogai por nós.</i><br>
+        Vaso insigne de devoção, <i>rogai por nós.</i><br>
+        Rosa mística, <i>rogai por nós.</i><br>
+        Torre de Davi, <i>rogai por nós.</i><br>
+        Torre de marfim, <i>rogai por nós.</i><br>
+        Casa de ouro, <i>rogai por nós.</i><br>
+        Arca da aliança, <i>rogai por nós.</i><br>
+        Porta do céu, <i>rogai por nós.</i><br>
+        Estrela da manhã, <i>rogai por nós.</i><br>
+        Saúde dos enfermos, <i>rogai por nós.</i><br>
+        Refúgio dos pecadores, <i>rogai por nós.</i><br>
+        Consoladora dos aflitos, <i>rogai por nós.</i><br>
+        Auxílio dos cristãos, <i>rogai por nós.</i><br>
+        Rainha dos anjos, <i>rogai por nós.</i><br>
+        Rainha dos patriarcas, <i>rogai por nós.</i><br>
+        Rainha dos profetas, <i>rogai por nós.</i><br>
+        Rainha dos apóstolos, <i>rogai por nós.</i><br>
+        Rainha dos mártires, <i>rogai por nós.</i><br>
+        Rainha dos confessores, <i>rogai por nós.</i><br>
+        Rainha das virgens, <i>rogai por nós.</i><br>
+        Rainha de todos os santos, <i>rogai por nós.</i><br>
+        Rainha concebida sem pecado original, <i>rogai por nós.</i><br>
+        Rainha elevada ao céu em corpo e alma, <i>rogai por nós.</i><br>
+        Rainha do sacratíssimo Rosário, <i>rogai por nós.</i><br>
+        Rainha da paz, <i>rogai por nós.</i></p>
+        <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <i>perdoai-nos Senhor.</i><br>
+        Cordeiro de Deus, que tirais os pecados do mundo, <i>ouvi-nos Senhor.</i><br>
+        Cordeiro de Deus, que tirais os pecados do mundo, <i>tende piedade de nós.</i></p>
+        <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br>
+        ℟. Para que sejamos dignos das promessas de Cristo.</p>
+        <p class="mt-4"><b>Oremos:</b> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+    </div>`,
+    days: [
+      {
+        day: 'Todos os Dias',
+        title: 'Todos os Dias',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>Nossa Senhora das Candeias, também conhecida como Nossa Senhora da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de Nossa Senhora e a Apresentação do Senhor, que deu origem à devoção a Nossa Senhora das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de Nossa Senhora nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de Nossa Senhora da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para Nossa Senhora das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a Nossa Senhora das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar Nossa Senhora. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">Nossa Senhora das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de Nossa Senhora das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">Nossa Senhora das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de Nossa Senhora das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      }
+    ]
   },
   sao_bras: {
     saintName: 'São Brás',
     novenaTitle: 'Novena a São Brás',
     description: 'Protetor contra os males da garganta.',
-    image: 'https://placehold.co/400x400?text=Sao+Bras',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
+    image: '/images/saints/sao-bras.jpg',
+    initialPrayer: `<div class="initial-prayer-text">
+        <h4 class="section-title">Como rezar esta Novena</h4>
+        <p>Inicia-se com o Sinal da Cruz: Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+        <p>Reza-se todos os dias a oração inicial;</p>
+        <p>Faz-se a meditação do dia e depois reza-se três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade;</p>
+        <p>Reza-se a oração final.</p>
+        <p>Finaliza-se com o Sinal da Cruz.</p>
+        <div class="w-16 h-px bg-white/20 my-6 mx-auto"></div>
+        <h4 class="section-title">Oração inicial para todos os dias da Novena</h4>
+        <p>Creio fiel e verdadeiramente no mistério da Santíssima Trindade, Pai, filho e Espírito Santo, três pessoas distintas e um só Deus verdadeiro, em quem confio firmissimamente conseguir a perfeição da dor que tenho de ter ofendido Sua Majestade Santíssima, intercedendo aos méritos de meu Senhor Jesus Cristo, os de sua Santíssima Mãe e os de meu glorioso advogado São Brás, suplicando ao Senhor que conserve em mim sempre esta fé viva, me dê o perdão de minhas culpas, o remédio de minhas necessidades, e o que peço nesta Novena <i>(fazer o pedido)</i>, sendo para honra sua e bem de minha alma. Se não, vivo resignado em Sua santa vontade, como coisa que mais me convém. Amém.</p>
+    </div>`,
+    finalPrayer: `<div class="final-prayer-text">
+        <h4 class="section-title">Orações finais para todos os dias</h4>
+        <p>Santíssimo Pontífice de Deus, São Brás, protetor sagrado dos que vos invocam, dado por Deus para que em nossas aflições e quebrantos nos valhamos de vosso poderoso patrocínio.</p>
+        <p>Eu vos suplico e rogo, me alcanceis da piedade e divina, o remédio em minha necessidade, favor que vos peço nesta Novena, e que seja exaltada sua santíssima fé, que dê saúde ao Sumo Pontífice, refrigério às Almas do Purgatório, remissão aos que estão em pecado mortal, perseverança na fé, e nos conserve em sua graça, para que possa fazer-vos companhia, cantando as divinas adorações pelos séculos dos séculos. Amém.</p>
+        <div class="w-16 h-px bg-white/20 my-6 mx-auto"></div>
+        <p>Altíssimo e misericordioso Deus que estimaste tanto a humildade, que quiseste que vosso Filho Jesus Cristo viesse ao mundo desconhecido, e vivesse depreciado de Seu mesmo povo, eu Vos ofereço os méritos de Vossa humildade e desapreço, de Vosso invicto mártir São Brás, que se retirando oculto, viveu apartado dos olhos do mundo, conhecido somente das feras, e Vos suplico que me apartes de todos os perigos que no mundo me ameaçam, e das delícias aparentes que me oferecem para que Vos sirva com maior perfeição, querendo somente as delícias da glória. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+    </div>`,
+    days: [
+      {
+        day: '1º Dia',
+        title: 'Primeiro Dia',
+        content: `<div class="day-specific-content">
+                <p>Oh! Pai de misericórdias e Deus de todo esperança, que o comunicas às almas que te buscam na solidão e retiro, e nos ensinaste com o exemplo de Vosso Filho Jesus Cristo, que se retirava a orar na solidão e no deserto, eu Vos ofereço os méritos de Sua elevada Oração, e os de Vosso esclarecido mártir São Brás, que no retiro da cova se ocupava dia e noite na contemplação das coisas divinas, e em pedir a paz à Vossa Igreja. Vos suplico que me dês um total desapego deste mundo, para que livre e sem ruído, possa no retiro de meu coração adorar a Deus, e aproveitar de Vossa santa conversação. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '2º Dia',
+        title: 'Segundo Dia',
+        content: `<div class="day-specific-content">
+                <p>Senhor, Deus forte e poderoso, que ostentas o poderoso infinito de Vossa fortaleza, Vos ofereço os méritos de Vosso valoroso mártir São Brás, a fortaleza ea  constância com que se ofereceu aos ministros do tirano que o buscavam, a imitação de Vosso Filho Jesus Cristo, que no horto saiu ao encontro e Se ofereceu aos judeus que vinham a prendê-Lo, eu Vos suplico me dês uma firme constância para imitar seus passos e uma constante fortaleza para fazer face aos perigos que possa ter no mundo. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'Terceiro Dia',
+        content: `<div class="day-specific-content">
+                <p>Único Senhor da Criação, Deus zeloso das almas, eu Vos ofereço os méritos de Vosso Filho Jesus Cristo, que levado do seio de Vossa casa, veneração e culto de Vosso nome, enfrentou os sacrílegos que profanavam Vosso templo, e, à Sua imitação, Vosso esforçado mártir São Brás desprezou os ídolos do tirano, confessando a Vós como Deus único e verdadeiro; eu Vos suplico pelos méritos de Vosso valente mártir, que me dês a graça para confessar Vosso Santo Nome, e saúde na garganta para bendizer e cantar Vossos louvores. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'Quarto Dia',
+        content: `<div class="day-specific-content">
+                <p>Pacientíssimo Deus e Senhor meu, que Por Vossa infinita caridade enviaste a Vosso Unigênito Filho a redimir ao mundo a custa de tormentos, açoites e afrontas em uma cruz, eu Vos ofereço o Sangue que derramou em toda a Sua Paixão, e os tormentos e açoites que padeceu Vosso escolhido mártir São Brás, quando colocado em uma cruz riam e maltratavam seu corpo, gloriando-se de padecer pela confissão da fé; eu Vos suplico que me dês paciência em meus tormentos, para que meus sacrifícios sejam meritórios e aceitos em Vosso amor, até chegar à pátria celeste. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'Quinto Dia',
+        content: `<div class="day-specific-content">
+                <p>Liberalíssimo Senhor e Deus de toda a Criação, que com altíssima providência repartistes os tesouros que encerras em Vossas mãos, eu Vos ofereço os méritos de Vosso agradecido mártir São Brás, que preso no cárcere, aceitou a ajuda da pobre viúva, oferecendo favorecer aos que celebrassem Vossa memória, a exemplo de Vosso Filho Jesus Cristo, que agradecido ao obsequio das irmãs de Lázaro, encheu a casa de bênçãos, confortando-as em sua aflição. Eu Vos suplico, seja eu agradecido a Vossos favores, para que me empenhando em fazer bem aos pobres e necessitados, receba de Vossas mãos os tesouros do Céu. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'Sexto Dia',
+        content: `<div class="day-specific-content">
+                <p>Onipotente Senhor do céu e da terra, que para mostrar o domínio que tem sobre os elementos, mandaste a Vosso Apóstolo São Pedro vir a Vós seguro sobre as água, eu Vos ofereço os méritos de Vosso glorioso mártir São Brás, que armado com o sinal da cruz, andava sobre as água como por terra firme, manifestando Vossa virtude e poder. Eu Vos suplico, que de tal sorte me adorne com esta sagrada insígnia, que me livre dos afogos que me oferece o mar tempestuoso deste mundo, e respire em Vós, descanso único em minha peregrinação. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'Sétimo Dia',
+        content: `<div class="day-specific-content">
+                <p>Misericordiosíssimo Deus e Senhor meu, que no Nome de Jesus, Vosso Filho, nos deixaste universal medicina para todas nossas doenças, oferecendo a seus Apóstolos que com a invocação deste dulcíssimo nome, curariam todas as enfermidades, eu Vos ofereço os méritos de Vosso esforçado mártir São Brás, a quem concedeste estando próximo à morte, o pedido que Vos fez de favorecer a todos os que em suas enfermidades e afogos invocassem Vosso nome. Eu Vos suplico, que me concedas a graça de ter sempre em meus lábios a invocação deste Santo Nome, para que menosprezando as amarguras do mundo, consiga a saúde da alma e corpo. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'Oitavo Dia',
+        content: `<div class="day-specific-content">
+                <p>Senhor Deus das bem-aventuranças, que com a morte de Vosso Unigênito Filho Vos tendes por satisfeito dos agravos e injúrias da linhagem humana, eu Vos ofereço os méritos de Vossa morte e os de Vosso esclarecido mártir São Brás, que pela confissão de Vosso Nome ofereceu sua vida em holocausto. Eu Vos suplico, que me assistais com Vossa graça, para que cortando a cabeça de meus vícios e paixões, possa oferecer-me como sacrifício em odor de suavidade no altar da glória. Também Vos suplico que me concedas o que Vos peço nesta Novena para Vossa maior honra e glória. Amém.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'Nono Dia',
+        content: `<div class="day-specific-content">
+                <h4>História de São Brás</h4>
+                <p>São Brás, bispo de Sebaste, foi martirizado em 316 e é conhecido por interceder em curas milagrosas, especialmente em doenças de garganta. Sua devoção se espalhou no Ocidente após a transladação de suas relíquias durante as cruzadas.</p>
+                <p>Em sua festa, celebrada em 3 de fevereiro, é comum a bênção de São Brás para proteção da saúde. O santo é invocado especialmente para proteção contra males da garganta, devido ao milagre de ter salvado uma criança que estava sufocando com uma espinha de peixe.</p>
+                <p class="mt-4 italic">São Brás viveu como eremita em uma caverna, onde os animais selvagens o visitavam e ele os curava. Quando foi descoberto e preso por ser cristão, manteve sua fé até o martírio, tornando-se um exemplo de coragem e confiança em Deus.</p>
+                <p class="mt-4 font-semibold">Rezar três Pais-nossos e Ave-Maria em reverência a Santíssima Trindade.</p>
+            </div>`
+      }
+    ]
   },
   menino_jesus_praga: {
     saintName: 'Menino Jesus de Praga',
@@ -2510,8 +2693,8 @@ export const saints: Saint[] = [
   { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://iili.io/fWNLRUP.png', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
   { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://iili.io/fWNLA0B.png', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
   { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://iili.io/fWNLufV.png', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
-  { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: 'https://placehold.co/400x400?text=NS+Candeias', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
-  { id: 'sao_bras', name: 'São Brás', imageUrl: 'https://placehold.co/400x400?text=Sao+Bras', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
+  { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: '/images/ns_candeias.png', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
+  { id: 'sao_bras', name: 'São Brás', imageUrl: '/images/saints/sao-bras.jpg', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
 
   // Março
   { id: 'sao_jose_19_marco', name: 'São José', imageUrl: 'https://iili.io/fj7jrtj.png', month: 'Março', startDate: '10/03', endDate: '18/03', feastDay: '19/Mar' },
@@ -2702,7 +2885,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Amaro',
-      imageUrl: 'https://placehold.co/400x400?text=Santo+Amaro',
+      imageUrl: '/images/saints/santo-amaro.png',
       story: `<h4>O Discípulo Fiel</h4><p>Santo Amaro foi um dos primeiros e mais amados discípulos de São Bento, o pai do monaquismo ocidental. Desde criança, foi confiado pelos pais aos cuidados do mosteiro de Subiaco. Tornou-se um modelo de obediência e humildade, sendo o braço direito de São Bento em muitas missões. Diz a história que, por obediência, ele chegou a caminhar sobre as águas para salvar um colega de afogamento.</p><h4>Missionário na Gália</h4><p>Segundo a tradição, Amaro foi enviado por São Bento para a França (Gália), onde fundou o importante mosteiro de Glanfeuil. Ele introduziu a Regra de São Bento naquelas terras, sendo um dos pilares da evangelização da Europa medieval. Sua vida é um hino à simplicidade do "Ora et Labora" e à força que nasce da entrega total à vontade de Deus através da vida monástica.</p><p class="mt-4"><b>Oração:</b> Santo Amaro, modelo de obediência e entrega a Deus, ensina-nos a ouvir a voz do Senhor em nosso cotidiano e a servi-Lo com alegria e humildade. Amém.</p>`
     }]
   },
@@ -2711,7 +2894,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Marcelo I',
-      imageUrl: 'https://placehold.co/400x400?text=Marcelo+I',
+      imageUrl: '/images/saints/sao-marcelo-i.png',
       story: `<h4>O Papa do Reerguimento</h4><p>Eleito Papa após um longo período de perseguição e vacância da Sé Romana, São Marcelo I enfrentou a difícil tarefa de reorganizar a Igreja. Ele estabeleceu 25 títulos (paróquias) em Roma para facilitar a administração dos sacramentos e o cuidado pastoral. Teve que lidar com a complexa questão dos "lapsi" (aqueles que haviam caído na fé during a perseguição), insistindo na necessidade de penitência.</p><h4>Mártir na Adversidade</h4><p>Por sua firmeza em defender a disciplina eclesiástica e a independência da Igreja, foi exilado pelo imperador Maxêncio. Diz a tradição que ele foi condenado a trabalhar nos estábulos públicos. Marcelo morreu como mártir, vítima dos maus tratos e do cansaço. Seu pontificado curto, mas decisivo, lembra-nos que a Igreja se fortalece na ordem e na coragem de seus pastores diante das tiranias do mundo.</p><p class="mt-4"><b>Oração:</b> Senhor, concede-nos que, pela intercessão do Papa São Marcelo, sejamos sempre fiéis à tua Igreja e saibamos defender a nossa fé com firmeza e coragem. Amém.</p>`,
       isMartyr: true
     }]
@@ -2721,7 +2904,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Antão',
-      imageUrl: 'https://placehold.co/400x400?text=Santo+Antao',
+      imageUrl: '/images/saints/santo-antao.png',
       story: `<h4>O Pai dos Monges</h4><p>Santo Antão (ou Santo Antônio do Deserto) é considerado o fundador do monaquismo cristão. Nascido no Egito, ouviu no Evangelho o chamado de Jesus: "Vai, vende o que tens e dá-o aos pobres". Retirou-se para o deserto, onde viveu décadas em oração, jejum e combate espiritual. Sua fama de santidade atraiu milhares de discípulos, transformando o "deserto em uma cidade".</p><h4>O Combate da Fé</h4><p>Sua biografia, escrita por Santo Atanásio, relata suas famosas "tentações", vividas com uma coragem inabalável. Antão mostrou que o verdadeiro campo de batalha é o coração humano. Ele foi o guia espiritual de seu tempo, aconselhando tanto imperadores quanto camponeses. Sua vida é um convite radical à primazia de Deus e à busca do silêncio como espaço de encontro com o Absoluto. É o padroeiro dos animais.</p><p class="mt-4"><b>Oração:</b> Santo Antão, que encontraste no deserto a plenitude da união com Deus, ajuda-nos a vencer as tentações do mundo e a buscar sempre o que é eterno e verdadeiro. Amém.</p>`
     }]
   },
@@ -2730,7 +2913,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Margarida da Hungria',
-      imageUrl: 'https://placehold.co/400x400?text=Margarida+Hungria',
+      imageUrl: '/images/saints/santa-margarida-hungria.png',
       story: `<h4>A Princesa Consagrada</h4><p>Filha do Rei Bela IV da Hungria, Margarida foi oferecida a Deus por seus pais para a libertação do país das invasões mongóis. Desde os quatro anos viveu no mosteiro dominicano na Ilha das Lebres, no Danúbio. Recusou todas as propostas de casamento real, declarando pertencer apenas ao Rei dos Reis. Viveu com uma humildade extraordinária, realizando os serviços mais baixos.</p><h4>Vítima de Amor</h4><p>Margarida oferecia seus jejuns e orações pela paz em sua pátria e pela união das famílias. Sua vida foi marcada por uma penitência austera e um amor ardente pela Eucaristia. Faleceu com apenas 28 anos, mas sua fama de santidade espalhou-se rapidamente. Ela é um exemplo de como a verdadeira nobreza consiste no serviço amoroso a Deus e aos irmãos, independentemente das origens e títulos.</p><p class="mt-4"><b>Oração:</b> Santa Margarida da Hungria, que renunciaste às glórias do mundo pelo amor de Cristo, ajuda-nos a valorizar as coisas celestes e a servir a Deus com um coração despojado e humilde. Amém.</p>`
     }]
   },
@@ -2739,7 +2922,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Vulstano',
-      imageUrl: 'https://placehold.co/400x400?text=Vulstano',
+      imageUrl: '/images/saints/sao-vulstano.png',
       story: `<h4>O Bispo do Povo</h4><p>São Vulstano foi o último bispo anglo-saxão da Inglaterra após a conquista normanda. Bispo de Worcester, ele era amado por sua simplicidade e por sua dedicação incansável ao povo. Embora fosse um homem de pouco brilho acadêmico, sua pregação era poderosa because vinha de um coração profundamente unido a Deus.</p><h4>Defensor da Liberdade</h4><p>Vulstano destacou-se por sua luta vigorosa contra o tráfico de escravos em Bristol, conseguindo a sua proibição. Ele foi um líder que soube unir a fidelidade às suas raízes com a obediência aos novos tempos, sempre buscando o bem comum. Sua vida demonstra que a verdadeira santidade brilha na integridade de caráter e na caridade ativa em favor dos mais oprimidos.</p><p class="mt-4"><b>Oração:</b> São Vulstano, fiel pastor do povo, intercede por nós para que tenhamos a coragem de defender a justiça e a dignidade de todas as pessoas com amor e humildade. Amém.</p>`
     }]
   },
