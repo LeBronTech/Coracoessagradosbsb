@@ -334,7 +334,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     return (
         <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
             {/* Botão Voltar Estilizado */}
-            <DialogClose className="absolute left-6 top-8 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <DialogClose className="absolute left-8 top-12 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
                 <X className="h-5 w-5" />
                 <span className="sr-only">Fechar</span>
             </DialogClose>
