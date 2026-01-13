@@ -2657,7 +2657,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Gonçalo de Amarante',
-      imageUrl: 'https://placehold.co/400x400?text=Goncalo+de+Amarante',
+      imageUrl: '/images/saints/sao-goncalo-amarante.png',
       story: `<h4>O Pregador das Pontes</h4><p>São Gonçalo é um dos santos mais populares de Portugal. Após peregrinar a Roma e Jerusalém, retornou a Portugal e sentiu o chamado para viver como eremita e, depois, como frade dominicano. Dedicou-se à pregação e ao cuidado espiritual do povo de Amarante, onde se tornou famoso não apenas por suas palavras, mas por suas obras em benefício da comunidade.</p><h4>Construtor e Protetor</h4><p>Diz a tradição que ele ajudou pessoalmente na construção da ponte sobre o rio Tâmega para ajudar o povo. Gonçalo unia a vida mística com uma ação social incansável. É venerado como protetor dos noivos e das famílias, e sua festa é marcada por uma profunda alegria popular. Ele nos lembra que a fé deve ser "edificante", construindo pontes entre as pessoas e entre o mundo e Deus.</p><p class="mt-4"><b>Oração:</b> São Gonçalo de Amarante, que uniste a oração fervorosa ao serviço generoso ao próximo, intercede por nós para que saibamos construir caminhos de fraternidade e paz em nossa vida. Amém.</p>`
     }]
   },
@@ -2666,7 +2666,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Vital de Gaza',
-      imageUrl: 'https://placehold.co/400x400?text=Vital+de+Gaza',
+      imageUrl: '/images/saints/sao-vital-gaza.jpg',
       story: `<h4>A Caridade Oculta</h4><p>São Vital foi um monge do século VII que viveu uma missão de misericórdia extraordinária e mal compreendida. Ele dedicava suas noites a resgatar mulheres que viviam na prostituição, oferecendo-lhes os recursos para mudarem de vida, while ele mesmo era caluniado e julgado pela sociedade de Alexandria. Ele aceitava as críticas em silêncio, buscando apenas a glória de Deus e a salvação das almas.</p><h4>O Julgamento e a Verdade</h4><p>Apenas após sua morte, when as mulheres por ele resgatadas testemunharam a verdade, é que a sua santidade foi reconhecida por todos. Seu exemplo é um convite radical a não julgar pelas aparências e a viver uma caridade que não busca o aplauso humano. Vital reminds us that God sees the heart and that the highest form of love often acts in the shadows, longe dos holofotes do mundo.</p><p class="mt-4"><b>Oração:</b> São Vital de Gaza, que com coragem e silêncio viveste a caridade mais difícil, ajuda-nos a ter um coração puro e a ver o rosto de Cristo em todos os nossos irmãos, especialmente nos mais sofredores e julgados. Amém.</p>`
     }]
   },
@@ -2675,7 +2675,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Elredo de Rievaulx',
-      imageUrl: 'https://placehold.co/400x400?text=Elredo',
+      imageUrl: '/images/saints/santo-elredo-rievaulx.png',
       story: `<h4>O Mestre da Amizade Espiritual</h4><p>Elredo foi abade da grande abadia cisterciense de Rievaulx, na Inglaterra, no século XII. Conhecido como o "São Bernardo do Norte", ele era um líder amado por sua bondade e sabedoria. Sua obra mais famosa, "De Spirituali Amicitia" (Sobre a Amizade Espiritual), apresenta a amizade como um caminho sagrado para encontrar e amar a Deus: "Deus é Amizade".</p><h4>Um Coração Acolhedor</h4><p>Sob sua liderança, a abadia tornou-se um refúgio de paz para centenas de monges. Elredo ensinava que a vida comunitária deve ser baseada na caridade mútua e no respeito profundo. Apesar de sofrer de doenças crônicas, ele nunca perdeu a doçura e a paciência. Ele nos convida a cultivar relações autênticas e a ver na amizade cristã um reflexo do amor infinito da Santíssima Trindade.</p><p class="mt-4"><b>Oração:</b> Santo Elredo, que nos ensinaste a encontrar a Deus através do amor aos nossos amigos e irmãos, ajuda-nos a cultivar amizades que nos levem sempre mais perto do Senhor. Amém.</p>`
     }]
   },
@@ -2684,7 +2684,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Hilário de Poitiers',
-      imageUrl: 'https://placehold.co/400x400?text=Hilario',
+      imageUrl: '/images/saints/santo-hilario-poitiers.jpg',
       story: `<h4>O Atanásio do Ocidente</h4><p>Hilário, Bispo de Poitiers no século IV, foi um dos maiores defensores da divindade de Cristo contra a heresia ariana. Por sua firmeza na fé, foi enviado para o exílio pelo imperador, onde aproveitou para estudar a teologia oriental e escrever sua grande obra "Sobre a Trindade". É chamado de "Doutor da Igreja" pela clareza de seu pensamento e sua coragem inabalável.</p><h4>Firmeza e Mansidão</h4><p>Apesar de sua luta rigorosa pela verdade doutrinária, Hilário era conhecido por sua mansidão e caráter conciliador. Ele entendia que a defesa da fé exige tanto a força da razão quanto a doçura da caridade. Sua vida mostra que o estudo profundo e a fidelidade à Igreja são fundamentais para navegar em tempos de confusão. Ele é um guia seguro para todos os que buscam aprofundar o mistério do Deus Trino.</p><p class="mt-4"><b>Oração:</b> Santo Hilário, fiel defensor da verdade, intercede por nós para que guardemos a fé com coragem e saibamos dar as razões de nossa esperança com mansidão e amor. Amém.</p>`
     }]
   },
@@ -2693,7 +2693,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'São Félix de Nola',
-      imageUrl: 'https://placehold.co/400x400?text=Felix+de+Nola',
+      imageUrl: '/images/saints/sao-felix-nola.png',
       story: `<h4>Confessor de Fé</h4><p>São Félix viveu no século III e foi um presbítero que sofreu intensamente during as perseguições. Diz a tradição que ele foi libertado da prisão milagrosamente por um anjo para cuidar de seu bispo doente. Félix passou o resto de sua vida vivendo em extrema pobreza, cultivando um pequeno jardim, mas sendo um farol de consolo espiritual para todo o povo de Nola.</p><h4>Venerado como Mártir</h4><p>Embora não tenha morrido no suplício, Félix é venerado como mártir devido aos imensos sofrimentos que suportou por Cristo. São Paulino de Nola, que escreveu sobre ele, descreve os inúmeros milagres que ocorriam em seu túmulo. Sua vida ensina que a verdadeira santidade consiste na fidelidade cotidiana e na aceitação alegre da vontade de Deus, mesmo sob as maiores provações. Ele é o padroeiro contra o perjúrio.</p><p class="mt-4"><b>Oração:</b> São Félix de Nola, cuja fé brilhou no meio das perseguições e da pobreza, ajuda-nos a ser fiéis a Cristo em todas as cirunstâncias de nossa vida e a encontrar Nele a nossa única riqueza. Amém.</p>`
     }]
   },
