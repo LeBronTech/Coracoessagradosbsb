@@ -2941,7 +2941,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Inês',
-      imageUrl: 'https://placehold.co/400x400?text=Santa+Ines',
+      imageUrl: '/images/saints/santa-ines.png',
       story: `<h4>A Pureza Corajosa</h4><p>Inês, cujo nome significa "pura" em grego e "cordeiro" em latim, é uma das mártires mais célebres de Roma. Com apenas 12 ou 13 anos, preferiu a morte a renunciar à sua virgindade consagrada a Cristo. Recusando-se a casar com o filho do prefeito romano, declarou: "O meu coração está entregue a outro Amante". O seu testemunho mostra que a força de Deus se manifesta mesmo na fragilidade de uma criança.</p><h4>Firmeza na Provação</h4><p>Submetida a humilhações e ameaçada com o fogo, Inês permaneceu imperturbável. A tradição conta que, ao ser levada para um lugar de pecado, o seu cabelo cresceu milagrosamente para cobrir a sua nudez e um anjo a protegeu. Diante do carrasco, ela não hesitou, vendo na morte a porta para o encontro definitivo com o seu Esposo celeste. O seu martírio causou profunda impressão em toda a cristandade de Roma.</p><h4>Símbolo de Virgindade e Martírio</h4><p>Desde os primeiros séculos, Santa Inês é celebrada como um modelo de pureza e fidelidade. Na sua festa, abençoam-se dois cordeiros, cuja lã é usada para tecer os pálios que o Papa entrega aos arcebispos metropolitanos, simbolizando a união com o Sucessor de Pedro. O seu exemplo recorda-nos que o amor a Deus vale mais do que a própria vida e que a pureza de coração é uma força invencível.</p><p class="mt-4"><b>Oração:</b> Santa Inês, que com a vossa juventude e pureza vencestes as ciladas do mundo e as torturas do martírio, alcançai-nos a graça de amarmos a Cristo sobre todas as coisas e de guardarmos um coração puro e fiel.</p>`,
       isMartyr: true
     }]
@@ -2952,7 +2952,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     saints: [
       {
         name: 'São Vicente de Saragoça',
-        imageUrl: 'https://placehold.co/400x400?text=Vicente+Saragoca',
+        imageUrl: '/images/saints/sao-vicente-saragoca.jpg',
         story: `<h4>O Diácono de Ferro</h4><p>Vicente foi o diácono fiel do bispo Valério na Espanha do século IV. During a perseguição de Diocleciano, ele deu testemunho de uma eloquência e firmeza extraordinárias. Submetido a torturas inimagináveis, Vicente cantava hinos de louvor no meio das chamas, transformando sua cama de dor em um púlpito para pregar o amor de Cristo.</p>`,
         isMartyr: true
       },
@@ -2968,7 +2968,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Emerenciana',
-      imageUrl: 'https://placehold.co/400x400?text=Emerenciana',
+      imageUrl: '/images/saints/santa-emerenciana.png',
       story: `<h4>Mártir de Fé</h4><p>Santa Emerenciana era, segundo a tradição, irmã de leite de Santa Inês. Poucos dias após o martírio de Inês, Emerenciana foi encontrada rezando em seu túmulo e repreendendo os pagãos por sua crueldade. Por seu testemunho corajoso, foi apedrejada ali mesmo, recebendo o "batismo de sangue" antes mesmo de ser formalmente batizada com água.</p><h4>Coragem na Oração</h4><p>Seu exemplo mostra a força do vínculo sagrado que une os fiéis em Cristo. Ela preferiu morrer no lugar onde sua amiga deu a vida a viver em um mundo de injustiça. Emerenciana é invocada contra as dores de estômago e de cólicas, sendo um símbolo de fidelidade absoluta e de amizade que transcende a morte.</p><p class="mt-4"><b>Oração:</b> Santa Emerenciana, que com coragem testemunhaste a tua fé diante do túmulo de Santa Inês, ajuda-nos a ser fiéis aos nossos ideais e a testemunhar o amor de Cristo com desassombro. Amém.</p>`,
       isMartyr: true
     }]
