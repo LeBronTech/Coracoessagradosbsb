@@ -101,7 +101,7 @@ export function WorldMarianDevotions() {
                     country: "Vietnã",
                     countryFlag: "🇻🇳",
                     date: "15 de Agosto",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/T%C6%B0%E1%BB%A3ng_%C4%90%E1%BB%A9c_M%E1%BA%B9_La_Vang.JPG",
+                    imageUrl: "/images/ns_la_vang.png",
                     description: "Símbolo da resistência católica vietnamita",
                     fullDescription: "Em 1798, católicos vietnamitas fugiam de uma perseguição brutal e se esconderam na floresta de La Vang. Doentes e com medo, viram uma senhora com um manto dourado segurando um menino, que os consolou e ensinou a usar folhas locais como remédio. É o símbolo máximo da resistência católica vietnamita. Não é uma 'aparição' com mensagens longas, mas uma consolação divina em momento de extrema necessidade.",
                     status: "approved"
@@ -112,7 +112,7 @@ export function WorldMarianDevotions() {
                     country: "Filipinas",
                     countryFlag: "🇵🇭",
                     date: "12 de Setembro",
-                    imageUrl: "https://via.placeholder.com/200?text=Lipa",
+                    imageUrl: "/images/ns_filipinas.png",
                     description: "Fenômeno das pétalas de rosas (1948)",
                     fullDescription: "Foi um fenômeno massivo nas Filipinas em 1948, com chuvas de pétalas de rosas. Houve uma aprovação inicial nos anos 50, depois revogada. Recentemente (2024), o Vaticano reafirmou que os eventos não têm origem sobrenatural. Apesar disso, a imagem e a devoção popular à 'Mediadora' são gigantescas nas Filipinas.",
                     status: "not-approved",
@@ -124,7 +124,7 @@ export function WorldMarianDevotions() {
                     country: "Japão",
                     countryFlag: "🇯🇵",
                     date: "13 de Outubro",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Virgin_Mary_of_Akita_Japan.jpg",
+                    imageUrl: "/images/ns_akita.png",
                     description: "Continuação de Fátima - Estátua que chorou lágrimas e sangue",
                     fullDescription: "Aprovada pelo bispo local e reconhecida como continuação das mensagens de Fátima. Uma estátua de madeira chorou lágrimas humanas e sangue (cientificamente comprovado) mais de 100 vezes, testemunhado por não-cristãos e até pela TV japonesa. As mensagens são severas sobre o futuro da humanidade e a crise na Igreja. A última mensagem crucial foi em 13 de outubro de 1973.",
                     status: "approved"
@@ -135,7 +135,7 @@ export function WorldMarianDevotions() {
                     country: "China",
                     countryFlag: "🇨🇳",
                     date: "24 de Maio",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/0/0e/Our_Lady_of_Sheshan%2C_Help_of_Christians.webp",
+                    imageUrl: "/images/ns_sheshan.png",
                     description: "Auxiliadora dos Cristãos - Ponto focal da fé católica chinesa",
                     fullDescription: "O Papa Bento XVI compôs uma oração específica para esta Nossa Senhora, pedindo proteção para a Igreja na China. O santuário em Xangai é o ponto focal da identidade católica chinesa, muitas vezes em tensão com o governo comunista. Representa a esperança e a perseverança da Igreja perseguida.",
                     status: "approved"
@@ -152,7 +152,7 @@ export function WorldMarianDevotions() {
                     country: "Ruanda",
                     countryFlag: "🇷🇼",
                     date: "28 de Novembro",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Our_Lady_of_Kibeho.jpg",
+                    imageUrl: "/images/ns_kibeho.png",
                     description: "Mãe do Verbo - Única aparição aprovada na África",
                     fullDescription: "É a única aparição plenamente aprovada pelo Vaticano no continente africano. Maria apareceu para adolescentes em 1981 com mensagens de amor, mas também com visões terríveis (rios de sangue) que foram interpretadas como uma profecia do genocídio de Ruanda que ocorreu anos depois. As mensagens enfatizam a conversão, a oração e a penitência.",
                     status: "approved"
@@ -163,7 +163,7 @@ export function WorldMarianDevotions() {
                     country: "Egito",
                     countryFlag: "🇪🇬",
                     date: "2 de Abril",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/8/8f/Our_Lady_of_Zeitun.jpg",
+                    imageUrl: "/images/ns_zeitoun.png",
                     description: "A Virgem de Luz - Aparição pública mais espetacular",
                     fullDescription: "Talvez a aparição pública mais espetacular da história moderna. Durante meses em 1968, Maria apareceu fisicamente e luminosa sobre o domo de uma igreja Copta no Cairo. Foi vista por multidões de centenas de milhares de pessoas: católicos, ortodoxos, muçulmanos, ateus e até pelo presidente do Egito. Foi aprovada pelo Patriarca da Igreja Ortodoxa Copta.",
                     status: "approved",
@@ -181,7 +181,7 @@ export function WorldMarianDevotions() {
                     country: "Estados Unidos",
                     countryFlag: "🇺🇸",
                     date: "9 de Outubro",
-                    imageUrl: "https://via.placeholder.com/200?text=Champion",
+                    imageUrl: "/images/ns_bom_socorro.png",
                     description: "Única aparição aprovada nos EUA (1859)",
                     fullDescription: "É a única aparição aprovada pela Igreja nos Estados Unidos. Maria apareceu em 1859 a uma jovem imigrante belga no meio da floresta de Wisconsin e deu uma missão muito específica: 'Ensine as crianças o catecismo e como fazer o sinal da cruz, elas estão se perdendo por falta de conhecimento'. É uma devoção muito focada na educação religiosa.",
                     status: "approved"
@@ -192,7 +192,7 @@ export function WorldMarianDevotions() {
                     country: "Equador",
                     countryFlag: "🇪🇨",
                     date: "21 de Novembro",
-                    imageUrl: "https://upload.wikimedia.org/wikipedia/commons/b/b5/Virgen_del_Quinche.jpg",
+                    imageUrl: "/images/ns_quinche.jpg",
                     description: "Padroeira do Equador - Proteção contra terremotos",
                     fullDescription: "Padroeira do Equador, é uma imagem de madeira do século XVI extremamente popular nos Andes. A devoção está ligada à proteção contra terremotos e desastres naturais, e a peregrinação anual reúne centenas de milhares de pessoas nas montanhas. Representa a fé andina profundamente enraizada.",
                     status: "approved"
