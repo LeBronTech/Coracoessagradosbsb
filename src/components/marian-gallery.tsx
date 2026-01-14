@@ -222,9 +222,10 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                                 <BookOpen className="w-5 h-5 flex-shrink-0" />
                                 História e Significado
                             </h4>
-                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap">
-                                {devotion.fullDescription}
-                            </p>
+                            <div
+                                className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words prose prose-slate dark:prose-invert max-w-none prose-h4:text-blue-700 dark:prose-h4:text-blue-300 prose-h4:font-bold prose-h4:text-base prose-h4:mt-4 prose-h4:mb-2 prose-p:my-2 prose-strong:text-blue-800 dark:prose-strong:text-blue-200"
+                                dangerouslySetInnerHTML={{ __html: devotion.fullDescription }}
+                            />
                         </div>
                     )}
 
