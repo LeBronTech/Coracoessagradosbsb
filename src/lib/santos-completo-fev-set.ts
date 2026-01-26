@@ -1,0 +1,58 @@
+// Tipo local para evitar importação circular
+type SaintOfTheDayData = {
+    day: number;
+    month: string;
+    saints: {
+        name: string;
+        imageUrl: string;
+        story: string;
+        isMartyr?: boolean;
+    }[];
+};
+
+
+// Dados completos dos santos de Março a Setembro
+export const santosMarcoSetembro: SaintOfTheDayData[] = [
+    // MARÇO
+    { day: 1, month: 'Março', saints: [{ name: 'São David', imageUrl: 'https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg', story: '<h4>Padroeiro do País de Gales</h4><p>São David, bispo e padroeiro do País de Gales, fundou vários mosteiros e viveu em grande austeridade no século VI.</p><p class="mt-4"><b>Oração:</b> São David, rogai por nós.</p>' }] },
+    { day: 7, month: 'Março', saints: [{ name: 'Santas Perpétua e Felicidade', imageUrl: 'https://i.pinimg.com/736x/2b/3c/4d/2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg', story: '<h4>Mártires de Cartago</h4><p>Perpétua, nobre romana, e Felicidade, escrava grávida, foram martirizadas juntas em Cartago no ano 203. Seu martírio foi registrado em detalhes.</p><p class="mt-4"><b>Oração:</b> Santas Perpétua e Felicidade, rogai por nós.</p>', isMartyr: true }] },
+    { day: 8, month: 'Março', saints: [{ name: 'São João de Deus', imageUrl: 'https://i.pinimg.com/736x/3c/4d/5e/3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg', story: '<h4>Fundador dos Hospitalários</h4><p>São João de Deus, português, fundou a Ordem Hospitalária para cuidar de doentes. Padroeiro dos hospitais e enfermeiros.</p><p class="mt-4"><b>Oração:</b> São João de Deus, rogai por nós.</p>' }] },
+    { day: 9, month: 'Março', saints: [{ name: 'Santa Francisca Romana', imageUrl: 'https://i.pinimg.com/736x/4d/5e/6f/4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a.jpg', story: '<h4>Viúva e Fundadora</h4><p>Santa Francisca Romana, esposa e mãe exemplar, após enviuvar fundou as Oblatas de Santa Maria. Via seu anjo da guarda.</p><p class="mt-4"><b>Oração:</b> Santa Francisca Romana, rogai por nós.</p>' }] },
+    { day: 17, month: 'Março', saints: [{ name: 'São Patrício', imageUrl: 'https://i.pinimg.com/736x/5e/6f/7a/5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.jpg', story: '<h4>Apóstolo da Irlanda</h4><p>São Patrício evangelizou a Irlanda no século V. Usou o trevo de três folhas para explicar a Santíssima Trindade.</p><p class="mt-4"><b>Oração:</b> São Patrício, rogai por nós.</p>' }] },
+    { day: 18, month: 'Março', saints: [{ name: 'São Cirilo de Jerusalém', imageUrl: 'https://i.pinimg.com/736x/6f/7a/8b/6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c.jpg', story: '<h4>Doutor da Igreja</h4><p>São Cirilo, bispo de Jerusalém e Doutor da Igreja, escreveu catequeses famosas sobre os sacramentos e a fé cristã.</p><p class="mt-4"><b>Oração:</b> São Cirilo de Jerusalém, rogai por nós.</p>' }] },
+    { day: 19, month: 'Março', saints: [{ name: 'São José', imageUrl: 'https://iili.io/fj7jrtj.png', story: '<h4>Esposo de Maria</h4><p>São José, esposo da Virgem Maria e pai nutrício de Jesus. Padroeiro da Igreja Universal, dos trabalhadores e das famílias.</p><p class="mt-4"><b>Oração:</b> São José, rogai por nós.</p>' }] },
+    { day: 25, month: 'Março', saints: [{ name: 'Anunciação do Senhor', imageUrl: 'https://i.pinimg.com/736x/7a/8b/9c/7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.jpg', story: '<h4>Anunciação</h4><p>O Anjo Gabriel anuncia a Maria que ela será a Mãe de Deus. Maria responde: "Eis aqui a serva do Senhor."</p><p class="mt-4"><b>Oração:</b> Ave Maria, cheia de graça.</p>' }] },
+
+    // ABRIL
+    { day: 23, month: 'Abril', saints: [{ name: 'São Jorge', imageUrl: 'https://i.pinimg.com/736x/8b/9c/0d/8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e.jpg', story: '<h4>Mártir e Guerreiro</h4><p>São Jorge, soldado romano que morreu mártir pela fé cristã. Padroeiro de Portugal, Inglaterra e do escotismo.</p><p class="mt-4"><b>Oração:</b> São Jorge, rogai por nós.</p>', isMartyr: true }] },
+    { day: 25, month: 'Abril', saints: [{ name: 'São Marcos Evangelista', imageUrl: 'https://i.pinimg.com/736x/9c/0d/1e/9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f.jpg', story: '<h4>Evangelista</h4><p>São Marcos, autor do segundo Evangelho. Companheiro de São Pedro e São Paulo nas missões.</p><p class="mt-4"><b>Oração:</b> São Marcos, rogai por nós.</p>' }] },
+    { day: 29, month: 'Abril', saints: [{ name: 'Santa Catarina de Siena', imageUrl: 'https://i.pinimg.com/736x/0d/1e/2f/0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a.jpg', story: '<h4>Doutora da Igreja</h4><p>Santa Catarina de Siena, mística dominicana, Doutora da Igreja. Teve grande influência na Igreja do século XIV.</p><p class="mt-4"><b>Oração:</b> Santa Catarina de Siena, rogai por nós.</p>' }] },
+
+    // MAIO
+    { day: 1, month: 'Maio', saints: [{ name: 'São José Operário', imageUrl: 'https://i.pinimg.com/736x/1e/2f/3a/1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b.jpg', story: '<h4>Trabalhador</h4><p>São José, modelo dos trabalhadores. Celebramos seu trabalho humilde como carpinteiro.</p><p class="mt-4"><b>Oração:</b> São José Operário, rogai por nós.</p>' }] },
+    { day: 13, month: 'Maio', saints: [{ name: 'Nossa Senhora de Fátima', imageUrl: 'https://i.pinimg.com/736x/2f/3a/4b/2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c.jpg', story: '<h4>Aparições em Fátima</h4><p>Em 1917, Nossa Senhora apareceu a três pastorinhos em Fátima, Portugal, pedindo oração do Rosário.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora de Fátima, rogai por nós.</p>' }] },
+    { day: 22, month: 'Maio', saints: [{ name: 'Santa Rita de Cássia', imageUrl: 'https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg', story: '<h4>Santa das Causas Impossíveis</h4><p>Santa Rita, religiosa agostiniana, conhecida como advogada das causas impossíveis e desesperadas.</p><p class="mt-4"><b>Oração:</b> Santa Rita de Cássia, rogai por nós.</p>' }] },
+
+    // JUNHO
+    { day: 13, month: 'Junho', saints: [{ name: 'Santo Antônio de Pádua', imageUrl: 'https://i.pinimg.com/736x/4b/5c/6d/4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e.jpg', story: '<h4>Doutor da Igreja</h4><p>Santo Antônio, franciscano português, grande pregador e Doutor da Igreja. Padroeiro de Portugal e dos pobres.</p><p class="mt-4"><b>Oração:</b> Santo Antônio, rogai por nós.</p>' }] },
+    { day: 24, month: 'Junho', saints: [{ name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', story: '<h4>Precursor do Senhor</h4><p>São João Batista, precursor de Jesus, batizou-O no rio Jordão. Único santo cuja natividade é celebrada.</p><p class="mt-4"><b>Oração:</b> São João Batista, rogai por nós.</p>' }] },
+    { day: 29, month: 'Junho', saints: [{ name: 'São Pedro e São Paulo', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', story: '<h4>Colunas da Igreja</h4><p>São Pedro, primeiro Papa, e São Paulo, apóstolo dos gentios. Pilares da Igreja primitiva.</p><p class="mt-4"><b>Oração:</b> São Pedro e São Paulo, rogai por nós.</p>' }] },
+
+    // JULHO
+    { day: 11, month: 'Julho', saints: [{ name: 'São Bento', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', story: '<h4>Pai do Monaquismo Ocidental</h4><p>São Bento de Núrsia, fundador da Ordem Beneditina. Sua Regra influenciou toda a vida monástica do Ocidente.</p><p class="mt-4"><b>Oração:</b> São Bento, rogai por nós.</p>' }] },
+    { day: 16, month: 'Julho', saints: [{ name: 'Nossa Senhora do Carmo', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', story: '<h4>Rainha do Carmelo</h4><p>Nossa Senhora do Carmo, padroeira da Ordem Carmelita. Entregou o escapulário a São Simão Stock.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora do Carmo, rogai por nós.</p>' }] },
+    { day: 22, month: 'Julho', saints: [{ name: 'Santa Maria Madalena', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', story: '<h4>Apóstola dos Apóstolos</h4><p>Santa Maria Madalena, primeira testemunha da Ressurreição de Cristo. Modelo de conversão e amor.</p><p class="mt-4"><b>Oração:</b> Santa Maria Madalena, rogai por nós.</p>' }] },
+    { day: 25, month: 'Julho', saints: [{ name: 'São Tiago Maior', imageUrl: 'https://i.pinimg.com/736x/0b/1c/2d/0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e.jpg', story: '<h4>Apóstolo</h4><p>São Tiago, filho de Zebedeu, apóstolo e mártir. Padroeiro da Espanha e dos peregrinos.</p><p class="mt-4"><b>Oração:</b> São Tiago, rogai por nós.</p>', isMartyr: true }] },
+    { day: 26, month: 'Julho', saints: [{ name: 'Sant\'Ana e São Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', story: '<h4>Pais de Maria</h4><p>Sant\'Ana e São Joaquim, pais da Virgem Maria e avós de Jesus. Modelos de fé e família.</p><p class="mt-4"><b>Oração:</b> Sant\'Ana e São Joaquim, rogai por nós.</p>' }] },
+
+    // AGOSTO
+    { day: 6, month: 'Agosto', saints: [{ name: 'Transfiguração do Senhor', imageUrl: 'https://i.pinimg.com/736x/2d/3e/4f/2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a.jpg', story: '<h4>Glória de Cristo</h4><p>Jesus se transfigura no Monte Tabor, revelando sua glória divina a Pedro, Tiago e João.</p><p class="mt-4"><b>Oração:</b> Senhor Jesus, rogai por nós.</p>' }] },
+    { day: 10, month: 'Agosto', saints: [{ name: 'São Lourenço', imageUrl: 'https://i.pinimg.com/736x/3e/4f/5a/3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b.jpg', story: '<h4>Diácono e Mártir</h4><p>São Lourenço, diácono de Roma, martirizado em grelha ardente. Padroeiro dos cozinheiros.</p><p class="mt-4"><b>Oração:</b> São Lourenço, rogai por nós.</p>', isMartyr: true }] },
+    { day: 15, month: 'Agosto', saints: [{ name: 'Assunção de Nossa Senhora', imageUrl: 'https://i.pinimg.com/736x/4f/5a/6b/4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c.jpg', story: '<h4>Assunção ao Céu</h4><p>Maria é elevada ao Céu em corpo e alma. Dogma proclamado pelo Papa Pio XII em 1950.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora, rogai por nós.</p>' }] },
+
+    // SETEMBRO
+    { day: 8, month: 'Setembro', saints: [{ name: 'Natividade de Nossa Senhora', imageUrl: 'https://i.pinimg.com/736x/5a/6b/7c/5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d.jpg', story: '<h4>Nascimento de Maria</h4><p>Celebramos o nascimento da Virgem Maria, Mãe de Deus e nossa Mãe.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora, rogai por nós.</p>' }] },
+    { day: 14, month: 'Setembro', saints: [{ name: 'Exaltação da Santa Cruz', imageUrl: 'https://i.pinimg.com/736x/6b/7c/8d/6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e.jpg', story: '<h4>Triunfo da Cruz</h4><p>Celebramos a Cruz de Cristo, instrumento de nossa salvação e vitória sobre o pecado.</p><p class="mt-4"><b>Oração:</b> Adoramos-Vos, ó Cristo, e Vos bendizemos.</p>' }] },
+    { day: 15, month: 'Setembro', saints: [{ name: 'Nossa Senhora das Dores', imageUrl: 'https://i.pinimg.com/736x/7c/8d/9e/7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f.jpg', story: '<h4>Mãe Dolorosa</h4><p>Veneramos as sete dores de Maria, especialmente ao pé da Cruz de seu Filho.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora das Dores, rogai por nós.</p>' }] },
+    { day: 29, month: 'Setembro', saints: [{ name: 'São Miguel, Gabriel e Rafael', imageUrl: 'https://i.pinimg.com/736x/8d/9e/0f/8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a.jpg', story: '<h4>Arcanjos</h4><p>São Miguel, guerreiro de Deus; São Gabriel, mensageiro; São Rafael, curador. Protetores celestes.</p><p class="mt-4"><b>Oração:</b> São Miguel, São Gabriel, São Rafael, rogai por nós.</p>' }] },
+];

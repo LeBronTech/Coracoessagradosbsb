@@ -121,7 +121,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const [hydrated, setHydrated] = useState(false);
   const [theme, setTheme] = useState<Theme>('light');
 
-  const months = useMemo(() => ['Janeiro', 'Fevereiro', 'Outubro', 'Novembro', 'Dezembro'], []);
+  const months = useMemo(() => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], []);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
   const [monthCarouselRef, monthCarouselApi] = useEmblaCarousel(MONTH_CAROUSEL_OPTIONS);
 

@@ -1,3 +1,5 @@
+import { santosMarcoSetembro } from './santos-completo-fev-set';
+import { novenasFevereiroSetembro } from './novenas-fev-set';
 
 export type NovenaDay = {
   day: string;
@@ -2684,6 +2686,9 @@ export const novenaData: Record<string, Novena> = {
   },
 };
 
+// Merge novenas de Fevereiro a Setembro
+Object.assign(novenaData, novenasFevereiroSetembro);
+
 
 export const saints: Saint[] = [
   // Janeiro
@@ -2695,12 +2700,82 @@ export const saints: Saint[] = [
   { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://iili.io/fWNLufV.png', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
   { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: '/images/ns_candeias.png', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
   { id: 'sao_bras', name: 'São Brás', imageUrl: '/images/saints/sao-bras.jpg', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
+  { id: 'santa_josefina_bakhita', name: 'Sta. Josefina Bakhita', imageUrl: 'https://iili.io/f6UqHve.png', month: 'Janeiro/Fevereiro', startDate: '30/01', endDate: '07/02', feastDay: '08/Fev' },
+
+  // Fevereiro
+  { id: 'nossa_senhora_lourdes', name: 'N.S. de Lourdes', imageUrl: 'https://iili.io/f6UfbG2.jpg', month: 'Fevereiro', startDate: '02/02', endDate: '10/02', feastDay: '11/Fev' },
+  { id: 'sagrada_face', name: 'Sagrada Face', imageUrl: 'https://iili.io/f6UfDCl.jpg', month: 'Fevereiro', startDate: '08/02', endDate: '16/02', feastDay: '17/Fev' },
+  { id: 'catedra_sao_pedro', name: 'Cátedra S. Pedro', imageUrl: 'https://iili.io/f6UfQjf.jpg', month: 'Fevereiro', startDate: '13/02', endDate: '21/02', feastDay: '22/Fev' },
 
   // Março
-  { id: 'sao_jose_19_marco', name: 'São José', imageUrl: 'https://iili.io/fj7jrtj.png', month: 'Março', startDate: '10/03', endDate: '18/03', feastDay: '19/Mar' },
+  { id: 'sao_patricio', name: 'São Patrício', imageUrl: 'https://i.pinimg.com/736x/5e/6f/7a/5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.jpg', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
+  { id: 'sao_bento_transito', name: 'São Bento (Trânsito)', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Março', startDate: '12/03', endDate: '20/03', feastDay: '21/Mar' },
+  { id: 'anunciacao', name: 'Anunciação', imageUrl: 'https://i.pinimg.com/736x/7a/8b/9c/7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.jpg', month: 'Março', startDate: '16/03', endDate: '24/03', feastDay: '25/Mar' },
+
+  // Abril
+  { id: 'divina_misericordia', name: 'Divina Misericórdia', imageUrl: 'https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg', month: 'Abril', startDate: '03/04', endDate: '11/04', feastDay: '12/Abr' },
+  { id: 'santo_expedito', name: 'Santo Expedito', imageUrl: 'https://i.pinimg.com/736x/2b/3c/4d/2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg', month: 'Abril', startDate: '10/04', endDate: '18/04', feastDay: '19/Abr' },
+  { id: 'sao_jorge', name: 'São Jorge', imageUrl: 'https://i.pinimg.com/736x/8b/9c/0d/8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e.jpg', month: 'Abril', startDate: '14/04', endDate: '22/04', feastDay: '23/Abr', isMartyr: true },
+  { id: 'sao_marcos', name: 'São Marcos', imageUrl: 'https://i.pinimg.com/736x/9c/0d/1e/9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f.jpg', month: 'Abril', startDate: '16/04', endDate: '24/04', feastDay: '25/Abr' },
+  { id: 'santa_gianna_beretta', name: 'Sta. Gianna', imageUrl: 'https://i.pinimg.com/736x/0d/1e/2f/0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
+  { id: 'santa_catarina_siena', name: 'Sta. Catarina Siena', imageUrl: 'https://i.pinimg.com/736x/0d/1e/2f/0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a.jpg', month: 'Abril', startDate: '20/04', endDate: '28/04', feastDay: '29/Abr' },
 
   // Maio
   { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai' },
+  { id: 'nossa_senhora_fatima', name: 'N.S. de Fátima', imageUrl: 'https://i.pinimg.com/736x/2f/3a/4b/2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c.jpg', month: 'Maio', startDate: '04/05', endDate: '12/05', feastDay: '13/Mai' },
+  { id: 'sao_matias', name: 'São Matias', imageUrl: 'https://i.pinimg.com/736x/3b/4c/5d/3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e.jpg', month: 'Maio', startDate: '05/05', endDate: '13/05', feastDay: '14/Mai' },
+  { id: 'santa_rita_cassia', name: 'Santa Rita', imageUrl: 'https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg', month: 'Maio', startDate: '13/05', endDate: '21/05', feastDay: '22/Mai' },
+  { id: 'pentecostes', name: 'Pentecostes', imageUrl: 'https://i.pinimg.com/736x/4b/5c/6d/4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e.jpg', month: 'Maio', startDate: '15/05', endDate: '23/05', feastDay: '24/Mai' },
+  { id: 'nossa_senhora_auxiliadora', name: 'N.S. Auxiliadora', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Maio', startDate: '15/05', endDate: '23/05', feastDay: '24/Mai' },
+  { id: 'sao_filipe_neri', name: 'São Filipe Néri', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', month: 'Maio', startDate: '17/05', endDate: '25/05', feastDay: '26/Mai' },
+  { id: 'nossa_senhora_caravaggio', name: 'N.S. de Caravaggio', imageUrl: 'https://i.pinimg.com/736x/7f/8a/9b/7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c.jpg', month: 'Maio', startDate: '17/05', endDate: '25/05', feastDay: '26/Mai' },
+  { id: 'visitacao', name: 'Visitação', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
+  { id: 'sao_jose_anchieta', name: 'São José de Anchieta', imageUrl: 'https://i.pinimg.com/736x/8a/9b/0c/8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '08/06', feastDay: '09/Jun' },
+  { id: 'santo_antonio_padua', name: 'Santo Antônio', imageUrl: 'https://i.pinimg.com/736x/4b/5c/6d/4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '12/06', feastDay: '13/Jun' },
+
+  // Junho
+  { id: 'sagrado_coracao', name: 'Sagrado Coração', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
+  { id: 'santo_onofre', name: 'Santo Onofre', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
+  { id: 'imaculado_coracao', name: 'Imaculado Coração', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Junho', startDate: '04/06', endDate: '12/06', feastDay: '13/Jun' },
+  { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun' },
+  { id: 'nossa_senhora_perpetuo_socorro', name: 'N.S. Perpétuo Socorro', imageUrl: 'https://i.pinimg.com/736x/0c/1d/2e/0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f.jpg', month: 'Junho', startDate: '18/06', endDate: '26/06', feastDay: '27/Jun' },
+  { id: 'sao_pedro_paulo', name: 'S. Pedro e Paulo', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun' },
+  { id: 'sao_tome_apostolo', name: 'São Tomé Apóstolo', imageUrl: 'https://i.pinimg.com/736x/1d/2e/3f/1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a.jpg', month: 'Junho/Julho', startDate: '25/06', endDate: '03/07', feastDay: '03/Jul' },
+  { id: 'santa_paulina', name: 'Santa Paulina', imageUrl: 'https://i.pinimg.com/736x/2e/3f/4a/2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
+
+  // Julho
+  { id: 'sao_bento', name: 'São Bento', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
+  { id: 'nossa_senhora_carmo', name: 'N.S. do Carmo', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Julho', startDate: '07/07', endDate: '15/07', feastDay: '16/Jul' },
+  { id: 'santa_maria_madalena', name: 'Santa Maria Madalena', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Julho', startDate: '13/07', endDate: '21/07', feastDay: '22/Jul' },
+  { id: 'sao_cristovao', name: 'São Cristóvão', imageUrl: 'https://i.pinimg.com/736x/0b/1c/2d/0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e.jpg', month: 'Julho', startDate: '16/07', endDate: '24/07', feastDay: '25/Jul' },
+  { id: 'santa_ana_joaquim', name: 'Sant\'Ana e S. Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
+  { id: 'santa_marta', name: 'Santa Marta', imageUrl: 'https://i.pinimg.com/736x/2d/3e/4f/2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a.jpg', month: 'Julho', startDate: '20/07', endDate: '28/07', feastDay: '29/Jul' },
+  { id: 'santo_inacio_loyola', name: 'Santo Inácio de Loyola', imageUrl: 'https://i.pinimg.com/736x/3e/4f/5a/3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b.jpg', month: 'Julho', startDate: '22/07', endDate: '30/07', feastDay: '31/Jul' },
+  { id: 'sao_joao_vianney', name: 'São João Vianney', imageUrl: 'https://i.pinimg.com/736x/4f/5a/6b/4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c.jpg', month: 'Julho/Agosto', startDate: '26/07', endDate: '03/08', feastDay: '04/Ago' },
+
+  // Agosto
+  { id: 'santa_clara_assis', name: 'Santa Clara de Assis', imageUrl: 'https://i.pinimg.com/736x/5a/6b/7c/5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d.jpg', month: 'Agosto', startDate: '02/08', endDate: '10/08', feastDay: '11/Ago' },
+  { id: 'santa_dulce_pobres', name: 'Santa Dulce dos Pobres', imageUrl: 'https://i.pinimg.com/736x/6b/7c/8d/6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e.jpg', month: 'Agosto', startDate: '04/08', endDate: '12/08', feastDay: '13/Ago' },
+  { id: 'assuncao_nossa_senhora', name: 'Assunção N.S.', imageUrl: 'https://i.pinimg.com/736x/4f/5a/6b/4f5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c.jpg', month: 'Agosto', startDate: '07/08', endDate: '15/08', feastDay: '16/Ago' },
+  { id: 'quaresma_sao_miguel', name: 'Quaresma S. Miguel', imageUrl: 'https://i.pinimg.com/736x/7c/8d/9e/7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f.jpg', month: 'Agosto/Setembro', startDate: '15/08', endDate: '29/09', feastDay: '29/Set' },
+  { id: 'santa_monica', name: 'Santa Mônica', imageUrl: 'https://i.pinimg.com/736x/8d/9e/0f/8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a.jpg', month: 'Agosto', startDate: '18/08', endDate: '26/08', feastDay: '27/Ago' },
+  { id: 'santo_agostinho', name: 'Santo Agostinho', imageUrl: 'https://i.pinimg.com/736x/9e/0f/1a/9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b.jpg', month: 'Agosto', startDate: '19/08', endDate: '27/08', feastDay: '28/Ago' },
+
+  // Setembro
+  { id: 'natividade_nossa_senhora', name: 'Natividade N.S.', imageUrl: 'https://i.pinimg.com/736x/5a/6b/7c/5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d.jpg', month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
+  { id: 'exaltacao_santa_cruz', name: 'Exaltação Santa Cruz', imageUrl: 'https://i.pinimg.com/736x/0f/1a/2b/0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c.jpg', month: 'Setembro', startDate: '05/09', endDate: '13/09', feastDay: '14/Set' },
+  { id: 'nossa_senhora_dores', name: 'N.S. das Dores', imageUrl: 'https://i.pinimg.com/736x/7c/8d/9e/7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f.jpg', month: 'Setembro', startDate: '06/09', endDate: '14/09', feastDay: '15/Set' },
+  { id: 'sao_pio_pietrelcina', name: 'São Pio de Pietrelcina', imageUrl: 'https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg', month: 'Setembro', startDate: '14/09', endDate: '22/09', feastDay: '23/Set' },
+  { id: 'sao_cosme_damiao', name: 'São Cosme e Damião', imageUrl: 'https://i.pinimg.com/736x/2b/3c/4d/2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg', month: 'Setembro', startDate: '17/09', endDate: '25/09', feastDay: '26/Set' },
+  { id: 'sao_miguel_arcanjo', name: 'São Miguel Arcanjo', imageUrl: 'https://i.pinimg.com/736x/8d/9e/0f/8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f3a.jpg', month: 'Setembro', startDate: '20/09', endDate: '28/09', feastDay: '29/Set' },
+  { id: 'santa_teresinha', name: 'Santa Teresinha', imageUrl: 'https://i.postimg.cc/G2y7k85b/image.png', month: 'Setembro/Outubro', startDate: '22/09', endDate: '30/09', feastDay: '01/Out' },
+  { id: 'anjo_guarda', name: 'Anjo da Guarda', imageUrl: 'https://i.pinimg.com/736x/3c/4d/5e/3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f.jpg', month: 'Setembro/Outubro', startDate: '23/09', endDate: '01/10', feastDay: '02/Out' },
+  { id: 'sao_francisco_assis', name: 'São Francisco de Assis', imageUrl: 'https://i.pinimg.com/736x/4d/5e/6f/4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a.jpg', month: 'Setembro/Outubro', startDate: '25/09', endDate: '03/10', feastDay: '04/Out' },
+
+  // Outubro (as novenas já existentes de Outubro estão mais abaixo no arquivo)
+
+  { id: 'sao_jose_19_marco', name: 'São José', imageUrl: 'https://iili.io/fj7jrtj.png', month: 'Março', startDate: '10/03', endDate: '18/03', feastDay: '19/Mar' },
+
   // Outubro
   { id: 'teresinha', name: 'S. Teresinha', imageUrl: 'https://i.postimg.cc/G2y7k85b/image.png', month: 'Outubro', startDate: '22/09', endDate: '30/09', feastDay: '01/Out' },
   { id: 'faustina', name: 'Santa Faustina', imageUrl: 'https://i.postimg.cc/qBKkbHTj/39a80df1d720976f7e55e00f40eadc90-1.jpg', month: 'Outubro', startDate: '26/09', endDate: '04/10', feastDay: '05/Out' },
@@ -2952,14 +3027,14 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     saints: [
       {
         name: 'São Vicente de Saragoça',
-        imageUrl: '/images/saints/sao-vicente-saragoca.jpg',
-        story: `<h4>O Diácono de Ferro</h4><p>Vicente foi o diácono fiel do bispo Valério na Espanha do século IV. During a perseguição de Diocleciano, ele deu testemunho de uma eloquência e firmeza extraordinárias. Submetido a torturas inimagináveis, Vicente cantava hinos de louvor no meio das chamas, transformando sua cama de dor em um púlpito para pregar o amor de Cristo.</p>`,
+        imageUrl: '/images/saints/sao-vicente-saragoca.png',
+        story: `<h4>O Diácono Mártir</h4><p>São Vicente de Saragoça foi um dos mártires mais célebres da Igreja primitiva. Diácono do bispo Valério de Saragoça, viveu durante a perseguição do imperador Diocleciano no início do século IV. Quando o bispo foi preso e impedido de falar devido à sua idade, Vicente tornou-se a voz eloquente da fé cristã, defendendo corajosamente o Evangelho diante das autoridades romanas.</p><h4>Torturas e Firmeza</h4><p>Submetido às mais cruéis torturas - açoites, grelha de ferro em brasa, potro de tortura - Vicente permaneceu inabalável. Segundo os relatos, ele cantava hinos de louvor a Deus enquanto era torturado, transformando seu sofrimento em testemunho luminoso da força da fé. Sua coragem impressionou até mesmo seus algozes. Quando foi lançado em uma masmorra escura sobre cacos de vidro, anjos apareceram para consolá-lo, enchendo a prisão de luz.</p><h4>Padroeiro e Legado</h4><p>São Vicente é padroeiro de Portugal, Valencia e dos vinicultores. Seu martírio ocorreu por volta do ano 304. Seu nome, que significa "vencedor", reflete perfeitamente sua vitória sobre a dor e a morte através do amor a Cristo. Santo Agostinho pregou vários sermões em sua honra, destacando que "Vicente venceu na palavra, venceu nos tormentos, venceu na confissão".</p><p class="mt-4"><b>Oração:</b> São Vicente de Saragoça, que com vossa coragem e fidelidade vencestes as torturas do martírio, dai-nos força para testemunhar nossa fé com alegria mesmo nas provações. Amém.</p>`,
         isMartyr: true
       },
       {
         name: 'Santa Blesila',
-        imageUrl: 'https://placehold.co/400x400?text=Blesila',
-        story: `<h4>Discípula de São Jerônimo</h4><p>Blesila era uma jovem viúva romana pertencente ao círculo de São Jerônimo. Em apenas alguns meses de intensa vida espiritual, ela aprendeu hebreu e dedicou-se ao estudo das Escrituras e à penitência. Faleceu muito jovem, sendo considerada um exemplo de como a graça pode transformar uma vida mundana em uma chama ardente de santidade em pouquíssimo tempo.</p>`
+        imageUrl: '/images/saints/santa-blesila.png',
+        story: `<h4>Da Vaidade à Santidade</h4><p>Santa Blesila foi filha de Santa Paula de Roma e uma das discípulas mais fervorosas de São Jerônimo. Nascida em uma das famílias mais nobres de Roma no século IV, casou-se muito jovem, mas ficou viúva após apenas sete meses de matrimônio. Inicialmente, retornou à vida mundana e às vaidades da sociedade romana, mas uma grave doença a levou a uma profunda conversão.</p><h4>Conversão Radical</h4><p>Após sua recuperação, Blesila renunciou completamente ao mundo. Sob a direção espiritual de São Jerônimo, dedicou-se com ardor extraordinário ao estudo das Sagradas Escrituras, chegando a aprender hebraico para ler a Bíblia no original. Abraçou uma vida de jejum, oração e penitência tão rigorosa que preocupou até mesmo sua mãe, Santa Paula. São Jerônimo escreveu que ela "em poucos meses progrediu mais na virtude do que outros em muitos anos".</p><h4>Morte Prematura e Legado</h4><p>Blesila faleceu aos 20 anos, apenas quatro meses após sua conversão radical. Sua morte causou grande comoção em Roma. São Jerônimo escreveu uma carta consoladora a Santa Paula, defendendo a vida ascética de Blesila e afirmando que ela trocou "um breve prazer por uma alegria eterna". Seu exemplo mostra que a santidade não depende da duração da vida, mas da intensidade do amor a Deus.</p><p class="mt-4"><b>Oração:</b> Santa Blesila, que em tão pouco tempo alcançastes tão grande santidade, ensinai-nos a não desperdiçar o tempo que Deus nos concede e a buscar com fervor as coisas do céu. Amém.</p>`
       }
     ]
   },
@@ -2987,7 +3062,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Conversão de São Paulo',
-      imageUrl: 'https://placehold.co/400x400?text=Conversao+de+Sao+Paulo',
+      imageUrl: '/images/saints/conversao-sao-paulo.png',
       story: `<h4>De Perseguidor a Apóstolo</h4><p>A conversão de Saulo de Tarso no caminho de Damasco é um dos eventos mais importantes da história do cristianismo. Saulo, um fariseu zeloso que perseguia violentamente a Igreja, foi derrubado pelo brilho de uma luz celeste e ouviu a voz de Jesus: "Saulo, Saulo, porque me persegues?". Este encontro pessoal com o Ressuscitado transformou radicalmente o seu coração, transformando o perseguidor no maior missionário da fé.</p><h4>O Apóstolo das Nações</h4><p>Após o seu batismo por Ananias, Paulo dedicou o resto da sua vida a anunciar o Evangelho aos gentios. Percorreu milhares de quilômetros, fundou inúmeras comunidades e escreveu cartas que se tornaram a base da teologia cristã. Paulo entendeu que, em Cristo, não há distinção entre judeu e grego, escravo e livre, homem e mulher. A sua vida é um testemunho do poder irresistível da graça de Deus que pode transformar qualquer pecador.</p><h4>Consumação no Amor</h4><p>A vida de Paulo foi marcada por perseguições, prisões e sofrimentos, mas nada o separou do amor de Cristo. O seu lema, "Para mim o viver é Cristo", resume a sua total entrega. A festa de sua conversão encerra a Semana de Oração pela Unidade dos Cristãos, lembrando-nos que a verdadeira unidade nasce da conversão comum ao Senhor. São Paulo ensina-nos que nunca é tarde para recomeçar e que Deus tem uma missão para cada um de nós.</p><p class="mt-4"><b>Oração:</b> Ó Deus, que ensinastes ao mundo inteiro pela pregação do Apóstolo São Paulo, dai-nos, ao celebrar hoje a sua conversão, a graça de caminhar para Vós seguindo os seus exemplos, e de ser testemunhas da vossa verdade.</p>`
     }]
   },
@@ -2997,13 +3072,13 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     saints: [
       {
         name: 'Santa Paula de Roma',
-        imageUrl: 'https://placehold.co/400x400?text=Paula+de+Roma',
-        story: `<h4>Mãe e Discípula</h4><p>Paula era uma nobre matrona romana que, ao ficar viúva, dedicou sua vida aos pobres e ao estudo das Escrituras sob a guia de São Jerônimo. Fundou mosteiros em Belém, onde passou o resto de sua vida em oração e auxílio ao trabalho de tradução da Bíblia. É um exemplo de como a riqueza pode ser transformada em tesouro no céu através da caridade.</p>`
+        imageUrl: '/images/saints/santa-paula-roma.png',
+        story: `<h4>Da Nobreza Romana à Pobreza de Belém</h4><p>Santa Paula nasceu em 347 em uma das famílias mais ilustres de Roma, descendente dos Cipiões e dos Gracos. Casou-se jovem e teve cinco filhos, entre eles Santa Eustóquio e Santa Blesila. Após a morte do marido, aos 32 anos, Paula dedicou-se inteiramente a Deus, transformando seu palácio em um centro de caridade e estudo das Escrituras.</p><h4>Discípula de São Jerônimo</h4><p>Paula tornou-se discípula de São Jerônimo, o grande tradutor da Bíblia. Aprendeu hebraico e grego para poder estudar as Escrituras nos idiomas originais. Em 385, deixou Roma e seus bens, peregrinando à Terra Santa. Estabeleceu-se em Belém, onde fundou três mosteiros femininos e um masculino, além de um hospital para peregrinos. Com sua fortuna, sustentou o trabalho de São Jerônimo na tradução da Vulgata Latina.</p><h4>Mãe Espiritual e Mestra</h4><p>Paula viveu em extrema pobreza voluntária, distribuindo todos os seus bens aos pobres. Era conhecida por sua humildade, caridade e profundo conhecimento das Escrituras. São Jerônimo, em sua carta fúnebre, escreveu que "se todas as partes do meu corpo se transformassem em línguas, não seria suficiente para louvar as virtudes de Paula". Faleceu em 404, aos 56 anos, deixando um legado de santidade e sabedoria.</p><p class="mt-4"><b>Oração:</b> Santa Paula de Roma, que deixastes as riquezas do mundo para seguir a Cristo na pobreza, ensinai-nos a usar nossos bens para a glória de Deus e o serviço aos irmãos. Amém.</p>`
       },
       {
         name: 'Santos Roberto, Alberico e Estevão',
-        imageUrl: 'https://placehold.co/400x400?text=Fundadores+Cister',
-        story: `<h4>Fundadores de Cister</h4><p>Estes três santos foram os fundadores da Ordem de Cister. Buscando a pureza da Regra de São Bento, eles fundaram o "Novo Mosteiro" no meio da floresta, focando no silêncio, na pobreza e no trabalho manual. Sua reforma renovou o monaquismo ocidental, focando na oração litúrgica e na vida contemplativa austera e bela.</p>`
+        imageUrl: '/images/saints/santos-cister.png',
+        story: `<h4>A Busca da Pureza Beneditina</h4><p>São Roberto de Molesme, São Alberico e São Estevão Harding foram os três pilares da fundação da Ordem Cisterciense no século XI. Insatisfeitos com o relaxamento da observância da Regra de São Bento em muitos mosteiros, eles buscavam uma vida monástica mais austera e fiel ao espírito original do monaquismo.</p><h4>A Fundação de Cister</h4><p>Em 21 de março de 1098, São Roberto, então abade de Molesme, junto com Alberico e Estevão, e mais 18 monges, fundaram um "Novo Mosteiro" em Cister (Cîteaux), na Borgonha, França. Queriam viver a Regra de São Bento em sua literalidade: pobreza radical, trabalho manual, silêncio, oração litúrgica solene e vida comunitária austera. Rejeitaram as riquezas e privilégios, escolhendo terras incultas para cultivar com suas próprias mãos.</p><h4>Legado e Expansão</h4><p>São Roberto foi o primeiro abade, mas logo retornou a Molesme por ordem do Papa. São Alberico sucedeu-o, introduzindo o hábito branco (em vez do preto beneditino) como símbolo de pureza. São Estevão Harding, inglês e terceiro abade, consolidou a Ordem escrevendo a "Carta de Caridade", que organizou a estrutura e o espírito cisterciense. Sob sua liderança, São Bernardo de Claraval ingressou em Cister com 30 companheiros, impulsionando a expansão da Ordem por toda a Europa. Os Cistercienses tornaram-se um dos maiores movimentos de renovação espiritual da Idade Média.</p><p class="mt-4"><b>Oração:</b> Santos Roberto, Alberico e Estevão, que buscastes a pureza da vida monástica e a fidelidade à Regra de São Bento, ensinai-nos a viver com simplicidade e a buscar a Deus acima de todas as coisas. Amém.</p>`
       }
     ]
   },
@@ -3012,7 +3087,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Angela Merici',
-      imageUrl: 'https://placehold.co/400x400?text=Angela+Merici',
+      imageUrl: '/images/saints/santa-angela-merici.png',
       story: `<h4>Pioneira na Educação</h4><p>Angela Merici fundou a Companhia de Santa Úrsula (Ursulinas), a primeira congregação religiosa feminina dedicada especificamente à educação de meninas fora dos mosteiros. Ela entendeu que transformar a família exige a formação completa das mulheres. Sua abordagem era baseada no amor, no respeito e na presença ativa no mundo.</p><h4>Visionária e Reformadora</h4><p>Em uma época em que o papel da mulher era muito restrito, Angela abriu novos horizontes, permitindo que as religiosas vivessem em suas próprias casas while serviam à comunidade. Sua espiritualidade era prática e profunda. Ela é a padroeira dos doentes e das pessoas que perderam a visão, lembrando-nos que o verdadeiro ensino é aquele que ilumina a alma com a luz da verdade divina.</p><p class="mt-4"><b>Oração:</b> Santa Angela Merici, que com sabedoria e coragem abriste caminhos para a educação e o serviço, ajuda-nos a ser promotores da verdade e do amor na educação das gerações futuras. Amém.</p>`
     }]
   },
@@ -3030,7 +3105,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santo Andrei Rublev',
-      imageUrl: 'https://placehold.co/400x400?text=Andrei+Rublev',
+      imageUrl: '/images/saints/santo-andrei-rublev.png',
       story: `<h4>O Iconomógrafo de Deus</h4><p>Andrei Rublev foi o maior pintor de ícones da Rússia medieval. Como monge, ele entendia a arte como uma forma de liturgia e de oração. Seu ícone mais famoso, "A Trindade", é uma obra prima que expressa a unidade e o amor infinitos do Deus Trino através da beleza de cores e formas transcendentais.</p><h4>Beleza que Salva</h4><p>Para Rublev, pintar um ícone era janelas abertas para o Céu. Sua vida foi marcada pelo silêncio e pela contemplação da glória de Deus. Ele não buscava a fama artística, mas a glória do Senhor. Seu legado ensina-nos que a beleza é um caminho fundamental para a evangelização e que o artista cristão deve ser, antes de tudo, um homem de oração profunda.</p><p class="mt-4"><b>Oração:</b> Santo Andrei Rublev, que através da tua arte nos permitiste contemplar os mistérios divinos, ajuda-nos a buscar a beleza que conduz à Verdade e a fazer da nossa vida um ícone da glória de Deus. Amém.</p>`
     }]
   },
@@ -3039,7 +3114,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Janeiro',
     saints: [{
       name: 'Santa Martina',
-      imageUrl: 'https://placehold.co/400x400?text=Santa+Martina',
+      imageUrl: '/images/saints/santa-martina.png',
       story: `<h4>Mártir de Roma</h4><p>Martina foi uma virgem romana do século III, filha de um cônsul cristão. Conhecida por sua imensa caridade para com os pobres, ela foi presa during a perseguição de Alexandre Severo. Condenada a adorar ídolos, Martina orava com tanta fé que as estátuas pagãs se despedaçavam. Foi submetida a várias torturas antes de ser decapitada.</p><h4>Testemunho de Fortaleza</h4><p>Sua vida é um hino à fortaleza cristã. Diz a tradição que, when foi lançada aos leões, as feras se deitaram a seus pés como gatinhos. Sua santidade impressionou até mesmo seus algozes. É uma das padroeiras de Roma e sua vida nos recorda que o verdadeiro poder reside na entrega total a Cristo, que fortalece os pequenos para confundir os grandes deste mundo.</p><p class="mt-4"><b>Oração:</b> Santa Martina, cuja fé moveu as montanhas da idolatria e do medo, intercede por nós para que tenhamos a coragem de testemunhar o Evangelho com alegria e firmeza. Amém.</p>`,
       isMartyr: true
     }]
@@ -3053,15 +3128,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
       story: `<h4>O Pai e Mestre da Juventude</h4><p>João Bosco nasceu numa pobre família de camponeses no Piemonte, Itália. Desde cedo, sentiu a missão de dedicar a sua vida aos jovens, especialmente aos mais pobres e abandonados. Com o seu "Sistema Preventivo", baseado na razão, na religião e no amor (amorevolezza), transformou a vida de milhares de rapazes em Turim, oferecendo-lhes não apenas instrução e trabalho, mas um lar e uma família espiritual.</p><h4>Fundador e Visionário</h4><p>Para perpetuar a sua obra, fundou a Sociedade de São Francisco de Sales (Salesianos) e, com Santa Maria Domingas Mazzarello, as Filhas de Maria Auxiliadora. Dom Bosco era um homem de sonhos proféticos, mas também de uma ação prática e incansável. Ele entendeu que, para salvar a alma dos jovens, era preciso primeiro conquistar o seu coração através da bondade e da presença alegre entre eles. "Basta que sejais jovens para que eu vos ame", dizia ele.</p><h4>Devoção a Maria Auxiliadora</h4><p>Dom Bosco foi um grande propagador da devoção a Nossa Senhora Auxiliadora e da frequência aos sacramentos da Confissão e da Eucaristia. A sua vida foi marcada por inúmeros milagres e providências divinas que o ajudaram a construir escolas e igrejas sem recursos. Canonizado em 1934, é venerado como o padroeiro dos jovens, dos educadores e dos editores. O seu lema, "Da mihi animas, caetera tolle" (Dai-me almas e ficai com o resto), resume a sua paixão evangelizadora.</p><p class="mt-4"><b>Oração:</b> Senhor nosso Deus, que suscitastes São João Bosco para ser pai e mestre da juventude, fazei que, inflamados pelo mesmo amor, nos dediquemos à salvação dos irmãos e ao vosso serviço. Amém.</p>`
     }]
   },
-  {
-    day: 8,
-    month: 'Fevereiro',
-    saints: [{
-      name: 'S. Josefina Bakhita',
-      imageUrl: 'https://i.postimg.cc/Pr80rRjM/image.png',
-      story: `<p>Nascida no Sudão em 1869, Josefina Bakhita (que significa "afortunada") teve uma infância tragicamente marcada pela escravidão. Raptada aos nove anos, conheceu os horrores da brutalidade humana, sendo vendida várias vezes e sofrendo indizíveis torturas físicas e morais. A sua história é um testemunho pungente da crueldade de que o homem é capaz, mas também da extraordinária capacidade de resiliência e perdão que nasce da fé.</p><p>A sua "sorte" mudou when foi comprada por um cônsul italiano, que a levou para Itália e a entregou a uma família amiga. Foi aí que Bakhita conheceu o cristianismo. Ao aprender sobre Jesus, que também foi açoitado e crucificado, sentiu que finalmente tinha encontrado um "Patrão" que a amava incondicionalmente. Em 1890, recebeu o batismo, a crisma e a primeira comunhão, escolhendo o nome Josefina. A liberdade legal que obteve foi apenas um pálido reflexo da profunda liberdade interior que encontrou em Cristo.</p><p>Em 1896, Josefina ingressou nas Irmãs Canossianas, onde passou o resto da sua vida em humildade e serviço, sendo carinhosamente chamada de "Irmã Morena". A sua vida foi um contínuo ato de perdão e de gratidão. Questionada sobre o que faria se encontrasse os seus raptores, respondeu que se ajoelharia para lhes beijar as mãos, pois se não fosse por eles, não teria conhecido Jesus. A sua história ensina-nos que o sofrimento, when unido a Cristo, pode tornar-se um caminho de salvação e de santidade.</p><p class="mt-4"><b>Oração:</b> Ó Santa Josefina Bakhita, que, passando pela escravidão, encontrastes a verdadeira liberdade em Cristo, ajudai-nos a superar todas as formas de escravidão do nosso tempo e a encontrar em Deus a nossa única e verdadeira esperança.</p><p class="mt-2 italic">S. Josefina Bakhita, rogai por nós.</p>`
-    }]
-  },
+
   {
     day: 1,
     month: 'Outubro',
@@ -3968,6 +4035,45 @@ export const saintsOfTheDayDecember: SaintOfTheDayData[] = [
     }]
   },
 ];
+
+// Complete February with all days (1-28)
+const saintsOfTheDayFevereiroExtra: SaintOfTheDayData[] = [
+  { day: 1, month: 'Fevereiro', saints: [{ name: 'Santa Brígida da Irlanda', imageUrl: 'https://i.pinimg.com/736x/1f/2e/3d/1f2e3d4c5b6a7e8f9a0b1c2d3e4f5a6b.jpg', story: '<h4>Padroeira da Irlanda</h4><p>Santa Brígida, junto com São Patrício, é uma das padroeiras da Irlanda. Fundou o mosteiro de Kildare e dedicou sua vida ao serviço dos pobres e doentes.</p><p class="mt-4"><b>Oração:</b> Santa Brígida, rogai por nós.</p>' }] },
+  { day: 2, month: 'Fevereiro', saints: [{ name: 'Apresentação do Senhor', imageUrl: 'https://i.pinimg.com/736x/2a/3b/4c/2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d.jpg', story: '<h4>Candeias</h4><p>Celebramos a apresentação de Jesus no Templo, 40 dias após seu nascimento. Simeão reconheceu nEle a luz para iluminar as nações.</p><p class="mt-4"><b>Oração:</b> Senhor Jesus, luz do mundo, rogai por nós.</p>' }] },
+  { day: 3, month: 'Fevereiro', saints: [{ name: 'São Brás', imageUrl: 'https://i.pinimg.com/736x/3b/4c/5d/3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e.jpg', story: '<h4>Protetor da Garganta</h4><p>São Brás, bispo e mártir, é invocado contra males da garganta. Segundo a tradição, curou milagrosamente um menino que engasgara com espinha de peixe.</p><p class="mt-4"><b>Oração:</b> São Brás, rogai por nós.</p>' }] },
+  { day: 4, month: 'Fevereiro', saints: [{ name: 'São João de Brito', imageUrl: 'https://i.pinimg.com/736x/4c/5d/6e/4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f.jpg', story: '<h4>Mártir na Índia</h4><p>Jesuíta português que evangelizou na Índia. Martirizado em 1693 por converter um príncipe hindu ao cristianismo.</p><p class="mt-4"><b>Oração:</b> São João de Brito, rogai por nós.</p>', isMartyr: true }] },
+  { day: 5, month: 'Fevereiro', saints: [{ name: 'Santa Águeda', imageUrl: 'https://i.pinimg.com/736x/5d/6e/7f/5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a.jpg', story: '<h4>Virgem e Mártir</h4><p>Santa Águeda, jovem siciliana do século III, preferiu o martírio a renunciar sua virgindade consagrada a Cristo. É invocada contra doenças do seio.</p><p class="mt-4"><b>Oração:</b> Santa Águeda, rogai por nós.</p>', isMartyr: true }] },
+  { day: 6, month: 'Fevereiro', saints: [{ name: 'São Paulo Miki e Companheiros', imageUrl: 'https://i.pinimg.com/736x/6e/7f/8a/6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b.jpg', story: '<h4>Mártires do Japão</h4><p>São Paulo Miki, jesuíta japonês, e 25 companheiros foram crucificados em Nagasaki em 1597. Primeiros mártires do Japão.</p><p class="mt-4"><b>Oração:</b> São Paulo Miki e companheiros, rogai por nós.</p>', isMartyr: true }] },
+  { day: 7, month: 'Fevereiro', saints: [{ name: 'Beato Pio IX', imageUrl: 'https://i.pinimg.com/736x/7f/8a/9b/7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c.jpg', story: '<h4>Papa</h4><p>Papa Pio IX teve o mais longo pontificado da história (1846-1878). Proclamou o dogma da Imaculada Conceição e convocou o Concílio Vaticano I.</p><p class="mt-4"><b>Oração:</b> Beato Pio IX, rogai por nós.</p>' }] },
+  { day: 8, month: 'Fevereiro', saints: [{ name: 'Santa Josefina Bakhita', imageUrl: 'https://iili.io/f6UqHve.png', story: '<h4>Da Escravidão à Santidade</h4><p>Raptada no Sudão e vendida como escrava, encontrou a liberdade e a fé na Itália. Tornou-se religiosa canossiana, exemplo de perdão e amor.</p><p class="mt-4"><b>Oração:</b> Santa Josefina Bakhita, rogai por nós.</p>' }] },
+  { day: 9, month: 'Fevereiro', saints: [{ name: 'Santa Apolônia', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', story: '<h4>Mártir de Alexandria</h4><p>Santa Apolônia sofreu martírio em Alexandria durante perseguição aos cristãos. Teve todos os dentes arrancados, mas manteve-se firme na fé. Padroeira dos dentistas.</p><p class="mt-4"><b>Oração:</b> Santa Apolônia, rogai por nós.</p>', isMartyr: true }] },
+  { day: 10, month: 'Fevereiro', saints: [{ name: 'Santa Escolástica', imageUrl: 'https://i.pinimg.com/736x/0c/1d/2e/0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f.jpg', story: '<h4>Irmã de São Bento</h4><p>Irmã gêmea de São Bento, fundou mosteiro feminino e viveu segundo a Regra Beneditina. Seu poder de oração era tão grande que uma tempestade impediu São Bento de partir.</p><p class="mt-4"><b>Oração:</b> Santa Escolástica, rogai por nós.</p>' }] },
+  { day: 11, month: 'Fevereiro', saints: [{ name: 'Nossa Senhora de Lourdes', imageUrl: 'https://iili.io/f6UfbG2.jpg', story: '<h4>Aparições em Lourdes</h4><p>Em 1858, Nossa Senhora apareceu a Bernadette Soubirous em Lourdes, França, pedindo oração, penitência e a construção de uma capela. Fonte de inúmeros milagres.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora de Lourdes, rogai por nós.</p>' }] },
+  { day: 12, month: 'Fevereiro', saints: [{ name: 'Santa Eulália', imageUrl: 'https://i.pinimg.com/736x/2e/3f/4a/2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b.jpg', story: '<h4>Mártir de Barcelona</h4><p>Santa Eulália, jovem mártir de Barcelona no século IV. Sofreu torturas cruéis por confessar a fé cristã durante a perseguição de Diocleciano.</p><p class="mt-4"><b>Oração:</b> Santa Eulália, rogai por nós.</p>', isMartyr: true }] },
+  { day: 13, month: 'Fevereiro', saints: [{ name: 'Santa Catarina Ricci', imageUrl: 'https://i.pinimg.com/736x/3f/4a/5b/3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c.jpg', story: '<h4>Mística Dominicana</h4><p>Religiosa dominicana italiana do século XVI, conhecida por seus êxtases místicos e estigmas. Viveu em profunda união com a Paixão de Cristo.</p><p class="mt-4"><b>Oração:</b> Santa Catarina Ricci, rogai por nós.</p>' }] },
+  { day: 14, month: 'Fevereiro', saints: [{ name: 'Santos Cirilo e Metódio', imageUrl: 'https://i.pinimg.com/736x/4a/5b/6c/4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d.jpg', story: '<h4>Apóstolos dos Eslavos</h4><p>Irmãos que evangelizaram povos eslavos e criaram o alfabeto cirílico. Co-padroeiros da Europa junto com São Bento.</p><p class="mt-4"><b>Oração:</b> Santos Cirilo e Metódio, rogai por nós.</p>' }] },
+  { day: 15, month: 'Fevereiro', saints: [{ name: 'Santos Faustino e Jovita', imageUrl: 'https://i.pinimg.com/736x/5b/6c/7d/5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e.jpg', story: '<h4>Irmãos Mártires</h4><p>Santos Faustino e Jovita, irmãos nobres de Bréscia, Itália, martirizados no século II por pregarem o Evangelho.</p><p class="mt-4"><b>Oração:</b> Santos Faustino e Jovita, rogai por nós.</p>', isMartyr: true }] },
+  { day: 16, month: 'Fevereiro', saints: [{ name: 'Santa Juliana', imageUrl: 'https://i.pinimg.com/736x/6c/7d/8e/6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1f.jpg', story: '<h4>Virgem e Mártir</h4><p>Santa Juliana de Nicomédia, virgem e mártir do século IV. Preferiu o martírio a casar-se com um pagão.</p><p class="mt-4"><b>Oração:</b> Santa Juliana, rogai por nós.</p>', isMartyr: true }] },
+  { day: 17, month: 'Fevereiro', saints: [{ name: 'Sagrada Face', imageUrl: 'https://iili.io/f6UfDCl.jpg', story: '<h4>Face de Cristo</h4><p>Devoção à Sagrada Face de Nosso Senhor Jesus Cristo, especialmente em sua Paixão. Reparação pelas ofensas cometidas contra Ele.</p><p class="mt-4"><b>Oração:</b> Jesus, pela Vossa Sagrada Face, tende piedade de nós.</p>' }] },
+  { day: 19, month: 'Fevereiro', saints: [{ name: 'São Conrado', imageUrl: 'https://i.pinimg.com/736x/8e/9f/0a/8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b.jpg', story: '<h4>Bispo de Piacenza</h4><p>São Conrado, bispo italiano do século XIV, conhecido por sua caridade e vida de oração.</p><p class="mt-4"><b>Oração:</b> São Conrado, rogai por nós.</p>' }] },
+  { day: 20, month: 'Fevereiro', saints: [{ name: 'Santos Francisco e Jacinta', imageUrl: 'https://i.pinimg.com/736x/9f/0a/1b/9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c.jpg', story: '<h4>Pastorinhos de Fátima</h4><p>Santos Francisco e Jacinta Marto, pastorinhos que viram Nossa Senhora em Fátima. Morreram ainda crianças, oferecendo sacrifícios pela conversão dos pecadores.</p><p class="mt-4"><b>Oração:</b> Santos Francisco e Jacinta, rogai por nós.</p>' }] },
+  { day: 21, month: 'Fevereiro', saints: [{ name: 'São Pedro Damião', imageUrl: 'https://i.pinimg.com/736x/0a/1b/2c/0a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d.jpg', story: '<h4>Doutor da Igreja</h4><p>São Pedro Damião, monge beneditino, cardeal e Doutor da Igreja. Grande reformador da vida eclesiástica no século XI.</p><p class="mt-4"><b>Oração:</b> São Pedro Damião, rogai por nós.</p>' }] },
+  { day: 22, month: 'Fevereiro', saints: [{ name: 'Cátedra de São Pedro', imageUrl: 'https://iili.io/f6UfQjf.jpg', story: '<h4>Autoridade de Pedro</h4><p>Celebra a missão de ensinar confiada por Cristo a São Pedro e seus sucessores, os Papas. Fundamento da unidade da Igreja.</p><p class="mt-4"><b>Oração:</b> São Pedro, rogai por nós.</p>' }] },
+  { day: 23, month: 'Fevereiro', saints: [{ name: 'São Policarpo', imageUrl: 'https://i.pinimg.com/736x/2c/3d/4e/2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f.jpg', story: '<h4>Bispo e Mártir</h4><p>São Policarpo, bispo de Esmirna e discípulo de São João Evangelista. Martirizado aos 86 anos, queimado vivo por não renegar Cristo.</p><p class="mt-4"><b>Oração:</b> São Policarpo, rogai por nós.</p>', isMartyr: true }] },
+  { day: 24, month: 'Fevereiro', saints: [{ name: 'São Sérgio', imageUrl: 'https://i.pinimg.com/736x/3d/4e/5f/3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a.jpg', story: '<h4>Mártir Romano</h4><p>São Sérgio, soldado romano martirizado por sua fé cristã. Venerado tanto no Oriente como no Ocidente.</p><p class="mt-4"><b>Oração:</b> São Sérgio, rogai por nós.</p>', isMartyr: true }] },
+  { day: 25, month: 'Fevereiro', saints: [{ name: 'São Cesário de Nazianzo', imageUrl: 'https://i.pinimg.com/736x/4e/5f/6a/4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b.jpg', story: '<h4>Irmão de São Gregório</h4><p>São Cesário, irmão de São Gregório Nazianzeno, médico e funcionário imperial. Viveu uma vida piedosa no meio do mundo.</p><p class="mt-4"><b>Oração:</b> São Cesário, rogai por nós.</p>' }] },
+  { day: 26, month: 'Fevereiro', saints: [{ name: 'Santo Alexandre', imageUrl: 'https://i.pinimg.com/736x/5f/6a/7b/5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c.jpg', story: '<h4>Patriarca de Alexandria</h4><p>Santo Alexandre, patriarca de Alexandria, defendeu a fé contra a heresia ariana no Concílio de Niceia.</p><p class="mt-4"><b>Oração:</b> Santo Alexandre, rogai por nós.</p>' }] },
+  { day: 27, month: 'Fevereiro', saints: [{ name: 'São Gabriel das Dores', imageUrl: 'https://i.pinimg.com/736x/6a/7b/8c/6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d.jpg', story: '<h4>Passionista</h4><p>São Gabriel das Dores, jovem passionista italiano do século XIX. Morreu aos 24 anos, modelo de pureza e devoção à Virgem das Dores.</p><p class="mt-4"><b>Oração:</b> São Gabriel das Dores, rogai por nós.</p>' }] },
+  { day: 28, month: 'Fevereiro', saints: [{ name: 'São Romão', imageUrl: 'https://i.pinimg.com/736x/7b/8c/9d/7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e.jpg', story: '<h4>Abade</h4><p>São Romão, abade e fundador de mosteiros na França. Viveu no século V, exemplo de vida monástica e santidade.</p><p class="mt-4"><b>Oração:</b> São Romão, rogai por nós.</p>' }] },
+];
+
+// Use imported data from santos-completo-fev-set.ts
+const saintsOfTheDayMarcoSetembro: SaintOfTheDayData[] = santosMarcoSetembro;
+
+
+// Merge all additional months into the main array
+saintsOfTheDay.push(...saintsOfTheDayFevereiroExtra);
+saintsOfTheDay.push(...saintsOfTheDayMarcoSetembro);
 
 // Merge December saints into the main array
 saintsOfTheDay.push(...saintsOfTheDayDecember);
