@@ -32,7 +32,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_knock.png",
                 description: "A Aparição Silenciosa (1879)",
                 fullDescription: "Em 1879, Maria, São José e São João Evangelista apareceram em uma parede da igreja de Knock. Não disseram uma palavra. A aparição silenciosa é interpretada como contemplação do Cordeiro de Deus (que também apareceu num altar). É o santuário nacional da Irlanda.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 1879; Reconhecida por São João Paulo II em 1979"
             },
             {
                 id: "beauraing",
@@ -43,7 +44,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_beauraing.png",
                 description: "A Virgem do Coração de Ouro (1932)",
                 fullDescription: "Apareceu a 5 crianças em 1932-1933. Mostrou seu Coração de Ouro e pediu: 'Eu converterei os pecadores'. A mensagem simples e a imagem do coração dourado atraem milhares de peregrinos.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 1949 pelo Bispo de Namur; confirmada pela Santa Sé"
             },
             {
                 id: "todas_nacoes",
@@ -55,7 +57,7 @@ export const worldMarianDevotions: Continent[] = [
                 description: "Aparição em Amsterdã - Mensagem de unidade",
                 fullDescription: "Aparições a Ida Peerdeman (1945-1959). Maria pediu o dogma de 'Corredentora, Medianeira e Advogada'. Embora o dogma não tenha sido proclamado, a devoção e a oração foram aprovadas pelo bispo local em 2002.",
                 status: "approved",
-                statusNote: "Devoção aprovada, dogma em estudo"
+                statusNote: "Devoção/Culto aprovado em 2002 pelo Bispo de Haarlem-Amsterdam"
             },
             {
                 id: "siluva",
@@ -66,7 +68,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_siluva.png",
                 description: "Primeira aparição mariana aprovada na Europa (1608)",
                 fullDescription: "É considerada a primeira aparição mariana aprovada na Europa, ocorrida em 1608. Em um período onde a Lituânia se tornava calvinista (protestante), Maria apareceu chorando, lamentando que seu Filho não era mais adorado naquele lugar. É o coração católico do Báltico.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Primeira aparição aprovada na Europa; Santuário confirmado pelo Papa Pio VI em 1775"
             },
             {
                 id: "walsingham",
@@ -101,7 +104,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_banneux.png",
                 description: "Virgem dos Pobres (1933)",
                 fullDescription: "Apareceu logo após Beauraing, em 1933, a uma menina pobre. Apresentou-se como 'A Virgem dos Pobres' e indicou uma fonte para 'aliviar o sofrimento'. Aprovada pela Igreja em 1949.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 1949 pelo Bispo de Liège; confirmada pela Santa Sé"
             },
             {
                 id: "pontmain",
@@ -112,7 +116,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_pontmain.png",
                 description: "Nossa Senhora da Esperança - 'Mas rezai, meus filhos...'",
                 fullDescription: "Em 17 de janeiro de 1871, durante a Guerra Franco-Prussiana, Maria apareceu no céu estrelado de Pontmain. A mensagem escrita no céu dizia: 'Mas rezai, meus filhos. Deus vos ouvirá em pouco tempo'. O armistício foi assinado dias depois.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 1872 pelo Bispo de Laval após o fim da guerra"
             },
             {
                 id: "pellevoisin",
@@ -123,7 +128,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_pellevoisin.png",
                 description: "Mãe Todo-Misericordiosa e o Escapulário do Sagrado Coração",
                 fullDescription: "Uma aparição aprovada que ocorreu em 1876. Maria apareceu a uma mulher doente que foi curada e pediu a divulgação do Escapulário do Sagrado Coração. Enfatiza a misericórdia através do Coração de Jesus.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Culto e Escapulário aprovados pelo Papa Pio IX em 1876"
             },
             {
                 id: "lagrimas_siracusa",
@@ -134,7 +140,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_lagrimas.png",
                 description: "Lágrimas humanas em uma imagem de gesso (1953)",
                 fullDescription: "Em 1953, em Siracusa, Sicília, uma imagem de gesso do Imaculado Coração de Maria derramou lágrimas humanas por quatro dias. O fenômeno foi confirmado cientificamente e aprovado pela Igreja.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Reconhecida pelos bispos da Sicília (1953); Mensagem abençoada por Pio XII em 1954"
             },
             {
                 id: "revelacao",
@@ -146,7 +153,7 @@ export const worldMarianDevotions: Continent[] = [
                 description: "Tre Fontane - Conversão de um anticlerical",
                 fullDescription: "Em 1947, Bruno Cornacchiola, um protestante radical que planejava matar o Papa, teve uma visão de Maria em Roma (Tre Fontane). Ela se apresentou como a 'Virgem da Revelação'. Ele se converteu instantaneamente. O Papa Pio XII abençoou a estátua.",
                 status: "approved",
-                statusNote: "Culto permitido (Santuário confiado aos Franciscanos)"
+                statusNote: "Culto abençoado por Pio XII em 1947; Santuário confiado aos Franciscanos"
             },
             {
                 id: "impossiveis",
@@ -241,7 +248,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_gietrzwald.png",
                 description: "Única aparição aprovada na Polônia (1877)",
                 fullDescription: "Maria apareceu falando polonês (idioma proibido pelos prussianos na época) pedindo a oração do Rosário. Fortaleceu a fé e a identidade nacional polonesa.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Única aparição na Polônia aprovada pela Santa Sé (1977)"
             },
             {
                 id: "lichen",
@@ -252,7 +260,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_lichen.png",
                 description: "Dolorosa Rainha da Polônia",
                 fullDescription: "Aparições a um soldado ferido em 1813 e depois a um pastor em 1850. O Santuário de Licheń é hoje a maior igreja da Polônia.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Devoção aprovada e imagem coroada pela Santa Sé em 1967"
             },
             {
                 id: "medjugorje",
@@ -264,7 +273,7 @@ export const worldMarianDevotions: Continent[] = [
                 description: "Centro de espiritualidade e conversão",
                 fullDescription: "As aparições iniciaram em 1981. O Papa Francisco autorizou peregrinações oficiais, reconhecendo os frutos espirituais, embora o estudo sobre as aparições continue.",
                 status: "complex",
-                statusNote: "Peregrinações autorizadas / Em estudo"
+                statusNote: "Peregrinações oficialmente autorizadas pelo Vaticano (2019); Aparições em estudo"
             },
             {
                 id: "garabandal",
@@ -299,7 +308,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_czestochowa.png",
                 description: "A Virgem Negra de Jasna Góra",
                 fullDescription: "Ícone bizantino venerado no mosteiro de Jasna Góra. A Virgem Negra é a Rainha e Padroeira da Polônia, símbolo de resistência e fé nacional. As cicatrizes no rosto da imagem lembram os ataques sofridos ao longo da história.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Coroada solenemente pelo Papa Clemente XI em 1717; Rainha da Polônia"
             },
             {
                 id: "laus",
@@ -310,7 +320,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_laus.png",
                 description: "Refúgio dos pecadores (1664-1718)",
                 fullDescription: "Aparições a Benoîte Rencurel que duraram 54 anos. Maria pediu um santuário para a conversão dos pecadores, oferecendo óleo da lâmpada do santuário como sinal de cura.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 2008 pelo Bispo de Gap após longo estudo histórico"
             },
             {
                 id: "vagos",
@@ -351,7 +362,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_la_vang.png",
                 description: "Símbolo da resistência católica vietnamita",
                 fullDescription: "Em 1798, Maria consolou católicos perseguidos na floresta de La Vang. É o grande santuário nacional do Vietnã.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Santuário elevado a Basílica pelo Papa João XXIII em 1961"
             },
             {
                 id: "akita",
@@ -362,7 +374,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_akita.png",
                 description: "Estátua que chorou (1973)",
                 fullDescription: "Aprovada pelo bispo local. Uma estátua chorou lágrimas e sangue 101 vezes. As mensagens alertam sobre a crise na fé e no mundo.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Reconhecida como sobrenatural pelo Bispo de Niigata em 1984"
             },
             {
                 id: "sheshan",
@@ -373,7 +386,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_sheshan.png",
                 description: "Auxiliadora dos Cristãos da China",
                 fullDescription: "O Santuário de Sheshan em Xangai é o centro da fé católica na China. Em 24 de maio, a Igreja universal reza pela Igreja na China.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Santuário nacional; oração pela China composta pelo Papa Bento XVI"
             },
             {
                 id: "velankanni",
@@ -408,7 +422,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_libano.png",
                 description: "Harissa - Rainha do Líbano",
                 fullDescription: "O santuário de Harissa, com a imensa estátua de Maria dominando a baía de Jounieh, é o símbolo da fé cristã no Líbano e local de peregrinação também para muçulmanos.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Santuário Nacional; Rainha do Líbano coroada em 1908"
             },
             {
                 id: "naju",
@@ -443,7 +458,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_tra_kieu.png",
                 description: "Proteção contra canhões (1885)",
                 fullDescription: "Durante a perseguição aos cristãos em 1885, a Virgem apareceu sobre a igreja de Trà Kiệu, protegendo-a dos ataques de canhão do exército inimigo. Os soldados viam uma 'mulher de branco' no telhado que impedia os projéteis de atingir o alvo.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Santuário Diocesano Milagroso"
             }
         ]
     },
@@ -460,7 +476,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_kibeho.png",
                 description: "Mãe do Verbo - Única aparição aprovada na África",
                 fullDescription: "Aparições (1981-1989) que profetizaram o genocídio de Ruanda. Mensagem urgente de conversão, oração e jejum.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovada em 2001 pelo Bispo de Gikongoro; única na África"
             },
             {
                 id: "zeitoun",
@@ -576,7 +593,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_guadalupe.png",
                 description: "Imperatriz das Américas",
                 fullDescription: "A aparição que mudou a história do continente em 1531. A imagem milagrosa na tilma de Juan Diego permanece inexplicável pela ciência.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Milagre de 1531; Padroeira das Américas declarada por diversos Papas"
             },
             {
                 id: "lujan",
@@ -587,7 +605,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_lujan.png",
                 description: "Padroeira da Argentina",
                 fullDescription: "A imagem que escolheu ficar na Argentina em 1630. Coração espiritual da nação vizinha.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Milagre de 1630; Imagem coroada pelo Pope Leão XIII em 1887"
             },
             {
                 id: "copacabana",
@@ -598,7 +617,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_copacabana.png",
                 description: "Rainha da Bolívia",
                 fullDescription: "Santuário no Lago Titicaca, unindo fé e cultura andina desde 1580.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Padroeira da Bolívia; imagem coroada em 1925"
             },
             {
                 id: "rosario_san_nicolas",
@@ -609,7 +629,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_san_nicolas.png",
                 description: "San Nicolás - Aparição recente (1983)",
                 fullDescription: "Mensagens dadas a Gladys Motta entre 1983-1990 sobre a esperança e a consagração. Aprovada em 2016.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Reconhecida como sobrenatural pelo Bispo de San Nicolás em 2016"
             },
             {
                 id: "bom_sucesso",
@@ -620,7 +641,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_bom_sucesso.png",
                 description: "Profecias de Quito",
                 fullDescription: "Aparições do século XVII com profecias impressionantes sobre a crise da fé no século XX.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Aprovação de culto secular; profecias históricas reconhecidas"
             },
             {
                 id: "quinche",
@@ -631,7 +653,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_quinche.jpg",
                 description: "Padroeira do Equador",
                 fullDescription: "Devoção popular equatoriana, protetora contra desastres naturais.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Padroeira do Equador; imagem coroada em 1943"
             },
             {
                 id: "coromoto",
@@ -642,7 +665,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_coromoto.png",
                 description: "Padroeira da Venezuela (1652)",
                 fullDescription: "Apareceu ao cacique Coromoto e sua família. Uma minúscula imagem ficou nas mãos do cacique. Símbolo da fé venezuelana.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Padroeira da Venezuela; declarada pelo Papa Pio XII em 1942"
             },
             {
                 id: "caridade",
@@ -653,7 +677,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_caridade_cobre.png",
                 description: "La Mambisa - Padroeira de Cuba",
                 fullDescription: "Encontrada no mar por três homens (dois índios e um escravo negro) em 1612. Símbolo de identidade e esperança para todos os cubanos.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Padroeira de Cuba; declarada pelo Papa Bento XV em 1916"
             },
             {
                 id: "caacupe",
@@ -664,7 +689,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_caacupe.png",
                 description: "Padroeira do Paraguai",
                 fullDescription: "Imagem esculpida por um índio guarani convertido em gratidão por ter sido salvo de inimigos.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Padroeira do Paraguai; visitada por São João Paulo II e Papa Francisco"
             },
             {
                 id: "champion",
@@ -675,7 +701,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_bom_socorro.png",
                 description: "Única aparição aprovada nos EUA",
                 fullDescription: "Em Wisconsin (1859), Maria pediu a educação religiosa das crianças. 'Rezem e ensinem'.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Primeira aparição nos EUA aprovada por um bispo (2010)"
             },
             {
                 id: "america",
@@ -698,7 +725,8 @@ export const worldMarianDevotions: Continent[] = [
                 imageUrl: "/images/ns_cuapa.png",
                 description: "Reconciliação e paz (1980)",
                 fullDescription: "Aparições a Bernardo Martinez, camponês e sacristão. Mensagem de paz numa Nicarágua dividida pela guerra civil. Aprovada pelos bispos.",
-                status: "approved"
+                status: "approved",
+                statusNote: "Reconhecida como sobrenatural pelos bispos da Nicarágua em 1982"
             },
             {
                 id: "itati",
