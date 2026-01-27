@@ -5,6 +5,7 @@ type Novena = {
     description: string;
     initialPrayer: string;
     finalPrayer: string;
+    image?: string;
     days: {
         day: string;
         title: string;
@@ -18,6 +19,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora de Lourdes",
         novenaTitle: "Novena a Nossa Senhora de Lourdes",
         description: "Novena em preparação à festa de Nossa Senhora de Lourdes (11 de fevereiro).",
+        image: "/images/ns_lourdes.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -190,6 +192,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora de Fátima",
         novenaTitle: "Novena a Nossa Senhora de Fátima",
         description: "Novena em preparação à festa de Nossa Senhora de Fátima (13 de maio).",
+        image: "/images/ns_fatima.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -229,6 +232,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora Auxiliadora",
         novenaTitle: "Novena a Nossa Senhora Auxiliadora",
         description: "Novena em honra a Nossa Senhora Auxiliadora (24 de maio).",
+        image: "/images/ns_auxiliadora.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -362,6 +366,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Assunção de Nossa Senhora",
         novenaTitle: "Novena da Assunção",
         description: "Novena em preparação à solenidade da Assunção de Nossa Senhora (15 de agosto).",
+        image: "/images/ns_assuncao.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -376,6 +381,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Natividade de Nossa Senhora",
         novenaTitle: "Novena da Natividade de Maria",
         description: "Novena em preparação à festa da Natividade de Nossa Senhora (8 de setembro).",
+        image: "/images/ns_natividade.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -389,6 +395,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora das Dores",
         novenaTitle: "Novena a Nossa Senhora das Dores",
         description: "Novena em honra a Nossa Senhora das Dores (15 de setembro).",
+        image: "/images/ns_dores_setembro.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -455,6 +462,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora de Caravaggio",
         novenaTitle: "Novena a N.S. de Caravaggio",
         description: "Aparição na Itália. Peça consolo nas aflições e bonança.",
+        image: "/images/ns_caravaggio.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -481,6 +489,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Nossa Senhora do Perpétuo Socorro",
         novenaTitle: "Novena a N.S. do Perpétuo Socorro",
         description: "O auxílio materno e constante em todas as aflições e necessidades.",
+        image: "/images/ns_perpetuo_socorro.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({

@@ -17,6 +17,18 @@ export function RosarySection() {
     const [expandedSection, setExpandedSection] = useState<string | null>(null);
     const [selectedMystery, setSelectedMystery] = useState<string | null>(null);
 
+    const scrollToSection = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
+
+    const handleSectionClick = (section: string) => {
+        setExpandedSection(section);
+        setTimeout(() => scrollToSection(section), 100);
+    };
+
     const mysteries: Mystery[] = [
         {
             name: "Mistérios Gozosos",
@@ -207,7 +219,7 @@ export function RosarySection() {
             {/* Botões de Seleção */}
             <div className="flex justify-center gap-4 mb-8 flex-wrap">
                 <button
-                    onClick={() => toggleSection("inicio")}
+                    onClick={() => handleSectionClick("inicio")}
                     className={`px-6 py-3 rounded-lg font-semibold transition-all ${expandedSection === "inicio"
                         ? "bg-blue-600 text-white shadow-lg scale-105"
                         : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-2 border-blue-200 hover:border-blue-400"
@@ -217,7 +229,7 @@ export function RosarySection() {
                     Como Iniciar
                 </button>
                 <button
-                    onClick={() => toggleSection("tradicional")}
+                    onClick={() => handleSectionClick("tradicional")}
                     className={`px-6 py-3 rounded-lg font-semibold transition-all ${expandedSection === "tradicional"
                         ? "bg-blue-600 text-white shadow-lg scale-105"
                         : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-2 border-blue-200 hover:border-blue-400"
@@ -226,7 +238,7 @@ export function RosarySection() {
                     Mistérios Tradicionais
                 </button>
                 <button
-                    onClick={() => toggleSection("misterios")}
+                    onClick={() => handleSectionClick("misterios")}
                     className={`px-6 py-3 rounded-lg font-semibold transition-all ${expandedSection === "misterios"
                         ? "bg-blue-600 text-white shadow-lg scale-105"
                         : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-2 border-blue-200 hover:border-blue-400"
@@ -235,7 +247,7 @@ export function RosarySection() {
                     Método de Montfort
                 </button>
                 <button
-                    onClick={() => toggleSection("final")}
+                    onClick={() => handleSectionClick("final")}
                     className={`px-6 py-3 rounded-lg font-semibold transition-all ${expandedSection === "final"
                         ? "bg-blue-600 text-white shadow-lg scale-105"
                         : "bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-2 border-blue-200 hover:border-blue-400"
@@ -247,7 +259,7 @@ export function RosarySection() {
 
             {/* Seção: Como Iniciar */}
             {expandedSection === "inicio" && (
-                <div className="space-y-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
+                <div id="inicio" className="space-y-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
                     <Card className="border-2 border-blue-200 shadow-xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20">
                         <CardHeader>
                             <CardTitle className="text-2xl text-blue-800 dark:text-blue-200">
@@ -346,7 +358,7 @@ export function RosarySection() {
 
             {/* Seção: Mistérios Tradicionais */}
             {expandedSection === "tradicional" && (
-                <div className="space-y-6 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
+                <div id="tradicional" className="space-y-6 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
                     <div className="p-6 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/30 dark:to-sky-950/30 rounded-2xl border-2 border-blue-200 dark:border-blue-800 shadow-lg mb-6">
                         <h3 className="text-2xl font-bold text-blue-900 dark:text-blue-100 mb-4 text-center">
                             📅 Dias da Semana para Cada Mistério
@@ -503,7 +515,7 @@ export function RosarySection() {
 
             {/* Seção: Mistérios */}
             {expandedSection === "misterios" && (
-                <div className="space-y-6 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
+                <div id="misterios" className="space-y-6 max-w-5xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
                     {Object.entries(groupedMysteries).map(([type, mysteryGroup]) => (
                         <Card
                             key={type}
@@ -566,7 +578,7 @@ export function RosarySection() {
 
             {/* Seção: Orações Finais */}
             {expandedSection === "final" && (
-                <div className="space-y-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
+                <div id="final" className="space-y-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
                     <Card className="border-2 border-blue-200 shadow-xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20">
                         <CardHeader>
                             <CardTitle className="text-2xl text-blue-800 dark:text-blue-200">

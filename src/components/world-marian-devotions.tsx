@@ -6,200 +6,10 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Globe, AlertCircle, CheckCircle, Clock, X } from "lucide-react";
 import Image from "next/image";
 
-interface MarianDevotion {
-    id: string;
-    name: string;
-    country: string;
-    countryFlag: string;
-    date: string;
-    imageUrl: string;
-    description: string;
-    fullDescription: string;
-    status?: "approved" | "pending" | "not-approved" | "complex";
-    statusNote?: string;
-}
-
-interface Continent {
-    name: string;
-    emoji: string;
-    devotions: MarianDevotion[];
-}
+import { worldMarianDevotions, MarianDevotion, Continent } from "@/lib/world-devotions-data";
 
 export function WorldMarianDevotions() {
-    const continents: Continent[] = [
-        {
-            name: "Europa",
-            emoji: "🇪🇺",
-            devotions: [
-                {
-                    id: "siluva",
-                    name: "Nossa Senhora de Šiluva",
-                    country: "Lituânia",
-                    countryFlag: "🇱🇹",
-                    date: "8 de Setembro",
-                    imageUrl: "/images/ns_siluva.png",
-                    description: "Primeira aparição mariana aprovada na Europa (1608)",
-                    fullDescription: "É considerada a primeira aparição mariana aprovada na Europa, ocorrida em 1608. Em um período onde a Lituânia se tornava calvinista (protestante), Maria apareceu chorando, lamentando que seu Filho não era mais adorado naquele lugar. É o coração católico do Báltico. A aparição marcou um momento crucial na preservação da fé católica na região.",
-                    status: "approved"
-                },
-                {
-                    id: "medjugorje",
-                    name: "Rainha da Paz",
-                    country: "Bósnia e Herzegovina",
-                    countryFlag: "🇧🇦",
-                    date: "25 de Junho",
-                    imageUrl: "/images/ns_medjugorje.png",
-                    description: "Centro de espiritualidade e conversão (desde 1981)",
-                    fullDescription: "As aparições iniciaram em 25 de junho de 1981. O Vaticano ainda não se pronunciou definitivamente sobre a natureza sobrenatural das aparições, pois elas alegadamente ainda ocorrem. No entanto, o Papa Francisco autorizou peregrinações oficiais ao local, reconhecendo-o como um importante centro de espiritualidade e conversão. É talvez o fenômeno mariano não-definitivo mais famoso do mundo hoje.",
-                    status: "complex",
-                    statusNote: "Peregrinações autorizadas, mas aparições ainda em estudo pelo Vaticano"
-                },
-                {
-                    id: "garabandal",
-                    name: "Nossa Senhora do Carmo de Garabandal",
-                    country: "Espanha",
-                    countryFlag: "🇪🇸",
-                    date: "18 de Junho",
-                    imageUrl: "/images/ns_garabandal.png",
-                    description: "Mensagens de conversão e avisos proféticos (anos 60)",
-                    fullDescription: "As aparições ocorreram nos anos 60, famosas pelos êxtases das meninas caminhando para trás. Não foram reconhecidas pelos bispos locais como sobrenaturais (Non constat de supernaturalitate). No entanto, as mensagens de conversão e os 'avisos' apocalípticos mantêm um grupo de devotos muito fervoroso e fiel ao redor do mundo, inclusive no Brasil.",
-                    status: "not-approved",
-                    statusNote: "Não aprovada pela Igreja local"
-                },
-                {
-                    id: "rosa_mistica",
-                    name: "Rosa Mística",
-                    country: "Itália",
-                    countryFlag: "🇮🇹",
-                    date: "13 de Julho / 8 de Dezembro",
-                    imageUrl: "/images/rosa_mistica.png",
-                    description: "Mãe da Igreja com três rosas (branca, vermelha e dourada)",
-                    fullDescription: "Primeira aparição em 1947 em Montichiari-Fontanelle. A diocese local não reconheceu a sobrenaturalidade dos eventos originais com a vidente Pierina Gilli. Contudo, em 2019, o bispo local reconheceu a localidade de Fontanelle como 'Santuário Diocesano', autorizando o culto e a peregrinação à 'Rosa Mística - Mãe da Igreja', focando na devoção e não nas aparições em si. É a imagem famosa de Maria com três rosas no peito (branca, vermelha e dourada).",
-                    status: "complex",
-                    statusNote: "Culto permitido, aparições não reconhecidas"
-                },
-                {
-                    id: "pellevoisin",
-                    name: "Nossa Senhora de Pellevoisin",
-                    country: "França",
-                    countryFlag: "🇫🇷",
-                    date: "19 de Fevereiro",
-                    imageUrl: "/images/ns_pellevoisin.png",
-                    description: "Mãe Todo-Misericordiosa e o Escapulário do Sagrado Coração",
-                    fullDescription: "Uma aparição aprovada que ocorreu em 1876, mas que ficou 'escondida' na França, ofuscada por Lourdes e La Salette. Maria apareceu a uma mulher doente que foi curada e pediu a divulgação do Escapulário do Sagrado Coração. A devoção enfatiza a misericórdia infinita de Deus através do Coração de Jesus.",
-                    status: "approved"
-                }
-            ]
-        },
-        {
-            name: "Ásia",
-            emoji: "🌏",
-            devotions: [
-                {
-                    id: "la_vang",
-                    name: "Nossa Senhora de La Vang",
-                    country: "Vietnã",
-                    countryFlag: "🇻🇳",
-                    date: "15 de Agosto",
-                    imageUrl: "/images/ns_la_vang.png",
-                    description: "Símbolo da resistência católica vietnamita",
-                    fullDescription: "Em 1798, católicos vietnamitas fugiam de uma perseguição brutal e se esconderam na floresta de La Vang. Doentes e com medo, viram uma senhora com um manto dourado segurando um menino, que os consolou e ensinou a usar folhas locais como remédio. É o símbolo máximo da resistência católica vietnamita. Não é uma 'aparição' com mensagens longas, mas uma consolação divina em momento de extrema necessidade.",
-                    status: "approved"
-                },
-                {
-                    id: "lipa",
-                    name: "Maria, Medianeira de Todas as Graças",
-                    country: "Filipinas",
-                    countryFlag: "🇵🇭",
-                    date: "12 de Setembro",
-                    imageUrl: "/images/ns_filipinas.png",
-                    description: "Fenômeno das pétalas de rosas (1948)",
-                    fullDescription: "Foi um fenômeno massivo nas Filipinas em 1948, com chuvas de pétalas de rosas. Houve uma aprovação inicial nos anos 50, depois revogada. Recentemente (2024), o Vaticano reafirmou que os eventos não têm origem sobrenatural. Apesar disso, a imagem e a devoção popular à 'Mediadora' são gigantescas nas Filipinas.",
-                    status: "not-approved",
-                    statusNote: "Julgamento negativo recente do Vaticano (2024)"
-                },
-                {
-                    id: "akita",
-                    name: "Nossa Senhora de Akita",
-                    country: "Japão",
-                    countryFlag: "🇯🇵",
-                    date: "13 de Outubro",
-                    imageUrl: "/images/ns_akita.png",
-                    description: "Continuação de Fátima - Estátua que chorou lágrimas e sangue",
-                    fullDescription: "Aprovada pelo bispo local e reconhecida como continuação das mensagens de Fátima. Uma estátua de madeira chorou lágrimas humanas e sangue (cientificamente comprovado) mais de 100 vezes, testemunhado por não-cristãos e até pela TV japonesa. As mensagens são severas sobre o futuro da humanidade e a crise na Igreja. A última mensagem crucial foi em 13 de outubro de 1973.",
-                    status: "approved"
-                },
-                {
-                    id: "sheshan",
-                    name: "Nossa Senhora de Sheshan",
-                    country: "China",
-                    countryFlag: "🇨🇳",
-                    date: "24 de Maio",
-                    imageUrl: "/images/ns_sheshan.png",
-                    description: "Auxiliadora dos Cristãos - Ponto focal da fé católica chinesa",
-                    fullDescription: "O Papa Bento XVI compôs uma oração específica para esta Nossa Senhora, pedindo proteção para a Igreja na China. O santuário em Xangai é o ponto focal da identidade católica chinesa, muitas vezes em tensão com o governo comunista. Representa a esperança e a perseverança da Igreja perseguida.",
-                    status: "approved"
-                }
-            ]
-        },
-        {
-            name: "África e Oriente Médio",
-            emoji: "🌍",
-            devotions: [
-                {
-                    id: "kibeho",
-                    name: "Nossa Senhora de Kibeho",
-                    country: "Ruanda",
-                    countryFlag: "🇷🇼",
-                    date: "28 de Novembro",
-                    imageUrl: "/images/ns_kibeho.png",
-                    description: "Mãe do Verbo - Única aparição aprovada na África",
-                    fullDescription: "É a única aparição plenamente aprovada pelo Vaticano no continente africano. Maria apareceu para adolescentes em 1981 com mensagens de amor, mas também com visões terríveis (rios de sangue) que foram interpretadas como uma profecia do genocídio de Ruanda que ocorreu anos depois. As mensagens enfatizam a conversão, a oração e a penitência.",
-                    status: "approved"
-                },
-                {
-                    id: "zeitoun",
-                    name: "Nossa Senhora de Zeitoun",
-                    country: "Egito",
-                    countryFlag: "🇪🇬",
-                    date: "2 de Abril",
-                    imageUrl: "/images/ns_zeitoun.png",
-                    description: "A Virgem de Luz - Aparição pública mais espetacular",
-                    fullDescription: "Talvez a aparição pública mais espetacular da história moderna. Durante meses em 1968, Maria apareceu fisicamente e luminosa sobre o domo de uma igreja Copta no Cairo. Foi vista por multidões de centenas de milhares de pessoas: católicos, ortodoxos, muçulmanos, ateus e até pelo presidente do Egito. Foi aprovada pelo Patriarca da Igreja Ortodoxa Copta.",
-                    status: "approved",
-                    statusNote: "Aprovada pela Igreja Ortodoxa Copta"
-                }
-            ]
-        },
-        {
-            name: "Américas",
-            emoji: "🌎",
-            devotions: [
-                {
-                    id: "champion",
-                    name: "Nossa Senhora do Bom Socorro",
-                    country: "Estados Unidos",
-                    countryFlag: "🇺🇸",
-                    date: "9 de Outubro",
-                    imageUrl: "/images/ns_bom_socorro.png",
-                    description: "Única aparição aprovada nos EUA (1859)",
-                    fullDescription: "É a única aparição aprovada pela Igreja nos Estados Unidos. Maria apareceu em 1859 a uma jovem imigrante belga no meio da floresta de Wisconsin e deu uma missão muito específica: 'Ensine as crianças o catecismo e como fazer o sinal da cruz, elas estão se perdendo por falta de conhecimento'. É uma devoção muito focada na educação religiosa.",
-                    status: "approved"
-                },
-                {
-                    id: "quinche",
-                    name: "Nossa Senhora do Quinche",
-                    country: "Equador",
-                    countryFlag: "🇪🇨",
-                    date: "21 de Novembro",
-                    imageUrl: "/images/ns_quinche.jpg",
-                    description: "Padroeira do Equador - Proteção contra terremotos",
-                    fullDescription: "Padroeira do Equador, é uma imagem de madeira do século XVI extremamente popular nos Andes. A devoção está ligada à proteção contra terremotos e desastres naturais, e a peregrinação anual reúne centenas de milhares de pessoas nas montanhas. Representa a fé andina profundamente enraizada.",
-                    status: "approved"
-                }
-            ]
-        }
-    ];
+    const continents: Continent[] = worldMarianDevotions;
 
     const getStatusIcon = (status?: string) => {
         switch (status) {
@@ -244,51 +54,96 @@ export function WorldMarianDevotions() {
             </div>
 
             <div className="space-y-12">
-                {continents.map((continent) => (
-                    <div
-                        key={continent.name}
-                        className="p-8 rounded-3xl shadow-lg border transition-all duration-500 bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100 dark:from-blue-950/20 dark:to-sky-950/20 dark:border-blue-900/30"
-                    >
-                        <h3 className="text-2xl font-bold mb-8 flex items-center gap-3 text-blue-800 dark:text-blue-300">
-                            <span className="text-3xl">{continent.emoji}</span>
-                            <span className="w-2 h-8 bg-current rounded-full"></span>
-                            {continent.name}
-                        </h3>
+                {continents.map((continent) => {
+                    // Agrupar devoções por país
+                    const devotionsByCountry: Record<string, MarianDevotion[]> = {};
 
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
-                            {continent.devotions.map((devotion) => (
-                                <Dialog key={devotion.id}>
-                                    <DialogTrigger asChild>
-                                        <div className="cursor-pointer group flex flex-col items-center">
-                                            <div className="relative w-full max-w-[140px]">
-                                                <Image
-                                                    src={devotion.imageUrl}
-                                                    alt={devotion.name}
-                                                    width={200}
-                                                    height={200}
-                                                    className="aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
-                                                />
-                                                <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
-                                                    <span className="inline-block px-3 py-1 text-white text-[10px] font-bold rounded-full shadow-sm bg-blue-600">
-                                                        {devotion.countryFlag}
-                                                    </span>
-                                                </div>
+                    continent.devotions.forEach(devotion => {
+                        const countryName = devotion.country; // Ex: "Brasil (Acre)" ou "França"
+                        // Simplifica o nome do país para agrupamento se desejar, ou usa o full name
+                        // Vamos usar o nome completo para garantir bandeiras corretas se estiverem "Brasil (MG)" etc.
+                        // Mas para agrupar melhor, talvez devêssemos normalizar.
+                        // Dado os dados atuais, "Brasil (Acre)", "Brasil (SP)" são distintos.
+                        // Se quisermos agrupar TUDO do Brasil, precisamos extrair a base.
+
+                        // Lógica de extração simples: Pegar o que está antes de parenteses ou o próprio nome
+                        // Ex: "Brasil (Acre)" -> "Brasil"
+                        let countryKey = countryName.split('(')[0].trim();
+
+                        // Exceções ou refinamentos se necessário. Por enquanto, agrupación por base do país.
+
+                        if (!devotionsByCountry[countryKey]) {
+                            devotionsByCountry[countryKey] = [];
+                        }
+                        devotionsByCountry[countryKey].push(devotion);
+                    });
+
+                    // Ordenar países alfabeticamente
+                    const sortedCountries = Object.keys(devotionsByCountry).sort();
+
+                    return (
+                        <div
+                            key={continent.name}
+                            className="p-8 rounded-3xl shadow-lg border transition-all duration-500 bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100 dark:from-blue-950/20 dark:to-sky-950/20 dark:border-blue-900/30"
+                        >
+                            <h3 className="text-3xl font-bold mb-8 flex items-center gap-3 text-blue-800 dark:text-blue-300 border-b pb-4 border-blue-200 dark:border-blue-800">
+                                <span className="text-4xl">{continent.emoji}</span>
+                                {continent.name}
+                            </h3>
+
+                            <div className="space-y-12">
+                                {sortedCountries.map(countryKey => {
+                                    const countryDevotions = devotionsByCountry[countryKey];
+                                    // Pega a bandeira do primeiro item para exibir no header do país
+                                    const flag = countryDevotions[0].countryFlag;
+
+                                    return (
+                                        <div key={countryKey} className="bg-white/50 dark:bg-slate-900/30 rounded-2xl p-6">
+                                            <h4 className="text-xl font-bold mb-6 text-slate-700 dark:text-slate-200 flex items-center gap-2">
+                                                <span className="text-2xl shadow-sm rounded-full bg-white px-2 py-1">{flag}</span>
+                                                {countryKey}
+                                            </h4>
+
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+                                                {countryDevotions.map((devotion) => (
+                                                    <Dialog key={devotion.id}>
+                                                        <DialogTrigger asChild>
+                                                            <div className="cursor-pointer group flex flex-col items-center">
+                                                                <div className="relative w-full max-w-[140px]">
+                                                                    <Image
+                                                                        src={devotion.imageUrl}
+                                                                        alt={devotion.name}
+                                                                        width={200}
+                                                                        height={200}
+                                                                        className="aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
+                                                                    />
+                                                                    {/* Bandeira removida daqui pois já está no header do grupo, ou mantemos pequena? Vamos manter para reforçar */}
+                                                                    <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
+                                                                        <span className="inline-block px-3 py-1 text-white text-[10px] font-bold rounded-full shadow-sm bg-blue-600">
+                                                                            {devotion.date}
+                                                                        </span>
+                                                                    </div>
+                                                                </div>
+                                                                <p className="text-center mt-6 text-sm font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 px-2 h-10 flex items-center justify-center">
+                                                                    {devotion.name}
+                                                                </p>
+                                                                <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                                                    {devotion.country}
+                                                                </p>
+                                                            </div>
+                                                        </DialogTrigger>
+
+                                                        <WorldDevotionDialog devotion={devotion} />
+                                                    </Dialog>
+                                                ))}
                                             </div>
-                                            <p className="text-center mt-6 text-sm font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 px-2 h-10 flex items-center justify-center">
-                                                {devotion.name}
-                                            </p>
-                                            <p className="text-center text-xs text-slate-500 dark:text-slate-400 mt-1">
-                                                {devotion.country}
-                                            </p>
                                         </div>
-                                    </DialogTrigger>
-
-                                    <WorldDevotionDialog devotion={devotion} />
-                                </Dialog>
-                            ))}
+                                    );
+                                })}
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             <div className="mt-8 p-6 bg-blue-50/50 dark:bg-blue-950/30 border-l-4 border-blue-600 rounded-r-lg">

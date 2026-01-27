@@ -57,7 +57,7 @@ export default function EspacoMarianoPage() {
                         className={`transition-all duration-300 ${activeSection === "rosario" ? "bg-blue-700 hover:bg-blue-800 shadow-lg scale-105" : "hover:bg-blue-50"}`}
                     >
                         <BookOpen className="mr-2 h-5 w-5" />
-                        Reze o Rosário
+                        Aprenda a Rezar o Terço
                     </Button>
                     <Button
                         size="lg"
