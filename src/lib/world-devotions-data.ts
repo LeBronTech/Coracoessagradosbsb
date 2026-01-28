@@ -25,7 +25,7 @@ export const worldMarianDevotions: Continent[] = [
             // PRIORIDADE ALTA / FASE 1 & 2
             {
                 id: "knock",
-                name: "Nossa Senhora de Knock",
+                name: "N.S. de Knock",
                 country: "Irlanda",
                 countryFlag: "🇮🇪",
                 date: "21 de Agosto",
@@ -37,7 +37,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "beauraing",
-                name: "Nossa Senhora de Beauraing",
+                name: "N.S. de Beauraing",
                 country: "Bélgica",
                 countryFlag: "🇧🇪",
                 date: "29 de Novembro",
@@ -49,7 +49,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "todas_nacoes",
-                name: "Nossa Senhora de Todas as Nações",
+                name: "N.S. de Todas as Nações",
                 country: "Holanda",
                 countryFlag: "🇳🇱",
                 date: "31 de Maio",
@@ -61,7 +61,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "siluva",
-                name: "Nossa Senhora de Šiluva",
+                name: "N.S. de Šiluva",
                 country: "Lituânia",
                 countryFlag: "🇱🇹",
                 date: "8 de Setembro",
@@ -73,7 +73,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "walsingham",
-                name: "Nossa Senhora de Walsingham",
+                name: "N.S. de Walsingham",
                 country: "Inglaterra",
                 countryFlag: "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
                 date: "24 de Setembro",
@@ -85,7 +85,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "kazan",
-                name: "Nossa Senhora de Kazan",
+                name: "N.S. de Kazan",
                 country: "Rússia",
                 countryFlag: "🇷🇺",
                 date: "4 de Novembro",
@@ -97,7 +97,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "banneux",
-                name: "Nossa Senhora de Banneux",
+                name: "N.S. de Banneux",
                 country: "Bélgica",
                 countryFlag: "🇧🇪",
                 date: "15 de Janeiro",
@@ -109,19 +109,19 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "pontmain",
-                name: "Nossa Senhora de Pontmain",
+                name: "N.S. de Pontmain",
                 country: "França",
                 countryFlag: "🇫🇷",
                 date: "17 de Janeiro",
                 imageUrl: "/images/ns_pontmain.png",
-                description: "Nossa Senhora da Esperança - 'Mas rezai, meus filhos...'",
+                description: "N.S. da Esperança - 'Mas rezai, meus filhos...'",
                 fullDescription: "Em 17 de janeiro de 1871, durante a Guerra Franco-Prussiana, Maria apareceu no céu estrelado de Pontmain. A mensagem escrita no céu dizia: 'Mas rezai, meus filhos. Deus vos ouvirá em pouco tempo'. O armistício foi assinado dias depois.",
                 status: "approved",
                 statusNote: "Aprovada em 1872 pelo Bispo de Laval após o fim da guerra"
             },
             {
                 id: "pellevoisin",
-                name: "Nossa Senhora de Pellevoisin",
+                name: "N.S. de Pellevoisin",
                 country: "França",
                 countryFlag: "🇫🇷",
                 date: "19 de Fevereiro",
@@ -133,7 +133,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "lagrimas_siracusa",
-                name: "Nossa Senhora das Lágrimas",
+                name: "N.S. das Lágrimas",
                 country: "Itália",
                 countryFlag: "🇮🇹",
                 date: "29 de Agosto",
@@ -145,7 +145,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "revelacao",
-                name: "Nossa Senhora da Revelação",
+                name: "N.S. da Revelação",
                 country: "Itália",
                 countryFlag: "🇮🇹",
                 date: "12 de Abril",
@@ -157,7 +157,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "impossiveis",
-                name: "Nossa Senhora dos Impossíveis",
+                name: "N.S. dos Impossíveis",
                 country: "Itália",
                 countryFlag: "🇮🇹",
                 date: "22 de Maio",
@@ -169,7 +169,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "rocio_espanha",
-                name: "Nossa Senhora do Rocio",
+                name: "N.S. do Rocio",
                 country: "Espanha",
                 countryFlag: "🇪🇸",
                 date: "Pentecostes",
@@ -181,7 +181,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "covadonga",
-                name: "Nossa Senhora de Covadonga",
+                name: "N.S. de Covadonga",
                 country: "Espanha",
                 countryFlag: "🇪🇸",
                 date: "8 de Setembro",
@@ -193,7 +193,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "macarena",
-                name: "Nossa Senhora da Esperança Macarena",
+                name: "N.S. da Esperança Macarena",
                 country: "Espanha",
                 countryFlag: "🇪🇸",
                 date: "18 de Dezembro",
@@ -205,7 +205,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "guia_portugal",
-                name: "Nossa Senhora da Guia",
+                name: "N.S. da Guia",
                 country: "Portugal",
                 countryFlag: "🇵🇹",
                 date: "02 de Fevereiro",
@@ -217,7 +217,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "sameiro",
-                name: "Nossa Senhora do Sameiro",
+                name: "N.S. do Sameiro",
                 country: "Portugal",
                 countryFlag: "🇵🇹",
                 date: "12 de Junho",
@@ -229,7 +229,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "luz_portugal",
-                name: "Nossa Senhora da Luz",
+                name: "N.S. da Luz",
                 country: "Portugal",
                 countryFlag: "🇵🇹",
                 date: "02 de Fevereiro",
@@ -241,7 +241,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "gietrzwald",
-                name: "Nossa Senhora de Gietrzwałd",
+                name: "N.S. de Gietrzwałd",
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "27 de Junho",
@@ -253,7 +253,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "lichen",
-                name: "Nossa Senhora de Licheń",
+                name: "N.S. de Licheń",
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "2 de Julho",
@@ -277,7 +277,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "garabandal",
-                name: "Nossa Senhora do Carmo de Garabandal",
+                name: "N.S. do Carmo de Garabandal",
                 country: "Espanha",
                 countryFlag: "🇪🇸",
                 date: "18 de Junho",
@@ -289,7 +289,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "bonate",
-                name: "Nossa Senhora de Bonate",
+                name: "N.S. de Bonate",
                 country: "Itália",
                 countryFlag: "🇮🇹",
                 date: "13 de Maio",
@@ -301,7 +301,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "czestochowa",
-                name: "Nossa Senhora de Częstochowa",
+                name: "N.S. de Częstochowa",
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "26 de Agosto",
@@ -313,7 +313,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "laus",
-                name: "Nossa Senhora de Laus",
+                name: "N.S. de Laus",
                 country: "França",
                 countryFlag: "🇫🇷",
                 date: "1 de Maio",
@@ -325,7 +325,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "vagos",
-                name: "Nossa Senhora de Vagos",
+                name: "N.S. de Vagos",
                 country: "Portugal",
                 countryFlag: "🇵🇹",
                 date: "Segunda-feira de Pentecostes",
@@ -337,7 +337,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "lapa_portugal",
-                name: "Nossa Senhora da Lapa",
+                name: "N.S. da Lapa",
                 country: "Portugal",
                 countryFlag: "🇵🇹",
                 date: "15 de Agosto",
@@ -355,7 +355,7 @@ export const worldMarianDevotions: Continent[] = [
         devotions: [
             {
                 id: "la_vang",
-                name: "Nossa Senhora de La Vang",
+                name: "N.S. de La Vang",
                 country: "Vietnã",
                 countryFlag: "🇻🇳",
                 date: "15 de Agosto",
@@ -367,7 +367,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "akita",
-                name: "Nossa Senhora de Akita",
+                name: "N.S. de Akita",
                 country: "Japão",
                 countryFlag: "🇯🇵",
                 date: "13 de Outubro",
@@ -379,7 +379,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "sheshan",
-                name: "Nossa Senhora de Sheshan",
+                name: "N.S. de Sheshan",
                 country: "China",
                 countryFlag: "🇨🇳",
                 date: "24 de Maio",
@@ -391,7 +391,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "velankanni",
-                name: "Nossa Senhora da Boa Saúde",
+                name: "N.S. da Boa Saúde",
                 country: "Índia",
                 countryFlag: "🇮🇳",
                 date: "8 de Setembro",
@@ -403,7 +403,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "soufanieh",
-                name: "Nossa Senhora de Soufanieh",
+                name: "N.S. de Soufanieh",
                 country: "Síria",
                 countryFlag: "🇸🇾",
                 date: "26 de Novembro",
@@ -415,7 +415,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "libano",
-                name: "Nossa Senhora do Líbano",
+                name: "N.S. do Líbano",
                 country: "Líbano",
                 countryFlag: "🇱🇧",
                 date: "1 de Maio",
@@ -427,7 +427,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "naju",
-                name: "Nossa Senhora de Naju",
+                name: "N.S. de Naju",
                 country: "Coreia do Sul",
                 countryFlag: "🇰🇷",
                 date: "19 de Outubro",
@@ -451,7 +451,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "tra_kieu",
-                name: "Nossa Senhora de Trà Kiệu",
+                name: "N.S. de Trà Kiệu",
                 country: "Vietnã",
                 countryFlag: "🇻🇳",
                 date: "31 de Maio",
@@ -469,7 +469,7 @@ export const worldMarianDevotions: Continent[] = [
         devotions: [
             {
                 id: "kibeho",
-                name: "Nossa Senhora de Kibeho",
+                name: "N.S. de Kibeho",
                 country: "Ruanda",
                 countryFlag: "🇷🇼",
                 date: "28 de Novembro",
@@ -481,7 +481,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "zeitoun",
-                name: "Nossa Senhora de Zeitoun",
+                name: "N.S. de Zeitoun",
                 country: "Egito",
                 countryFlag: "🇪🇬",
                 date: "2 de Abril",
@@ -493,13 +493,13 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "africa",
-                name: "Nossa Senhora da África",
+                name: "N.S. da África",
                 country: "Argélia",
                 countryFlag: "🇩🇿",
                 date: "30 de Abril",
                 imageUrl: "/images/ns_africa.png",
                 description: "Madame l'Afrique - Argel",
-                fullDescription: "A Basílica de Nossa Senhora da África em Argel traz a inscrição: 'Nossa Senhora da África, rogai por nós e pelos muçulmanos'. Símbolo de diálogo e proteção no norte da África.",
+                fullDescription: "A Basílica de N.S. da África em Argel traz a inscrição: 'N.S. da África, rogai por nós e pelos muçulmanos'. Símbolo de diálogo e proteção no norte da África.",
                 status: "approved",
                 statusNote: "Basílica Histórica"
             }
@@ -536,7 +536,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "mel",
-                name: "Nossa Senhora do Mel",
+                name: "N.S. do Mel",
                 country: "Brasil (Paraná)",
                 countryFlag: "🇧🇷",
                 date: "13 de Maio",
@@ -560,7 +560,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "cafe",
-                name: "Nossa Senhora do Café",
+                name: "N.S. do Café",
                 country: "Brasil (SP)",
                 countryFlag: "🇧🇷",
                 date: "9 de Agosto",
@@ -572,7 +572,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "escada",
-                name: "Nossa Senhora da Escada",
+                name: "N.S. da Escada",
                 country: "Brasil (Barueri/SP)",
                 countryFlag: "🇧🇷",
                 date: "21 de Novembro",
@@ -586,7 +586,7 @@ export const worldMarianDevotions: Continent[] = [
             // REINADO DAS AMÉRICAS
             {
                 id: "guadalupe",
-                name: "Nossa Senhora de Guadalupe",
+                name: "N.S. de Guadalupe",
                 country: "México",
                 countryFlag: "🇲🇽",
                 date: "12 de Dezembro",
@@ -598,7 +598,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "lujan",
-                name: "Nossa Senhora de Luján",
+                name: "N.S. de Luján",
                 country: "Argentina",
                 countryFlag: "🇦🇷",
                 date: "8 de Maio",
@@ -610,7 +610,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "copacabana",
-                name: "Nossa Senhora de Copacabana",
+                name: "N.S. de Copacabana",
                 country: "Bolívia",
                 countryFlag: "🇧🇴",
                 date: "5 de Agosto",
@@ -622,7 +622,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "rosario_san_nicolas",
-                name: "Nossa Senhora do Rosário",
+                name: "N.S. do Rosário",
                 country: "Argentina",
                 countryFlag: "🇦🇷",
                 date: "25 de Setembro",
@@ -634,7 +634,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "bom_sucesso",
-                name: "Nossa Senhora do Bom Sucesso",
+                name: "N.S. do Bom Sucesso",
                 country: "Equador",
                 countryFlag: "🇪🇨",
                 date: "2 de Fevereiro",
@@ -646,7 +646,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "quinche",
-                name: "Nossa Senhora do Quinche",
+                name: "N.S. do Quinche",
                 country: "Equador",
                 countryFlag: "🇪🇨",
                 date: "21 de Novembro",
@@ -658,7 +658,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "coromoto",
-                name: "Nossa Senhora de Coromoto",
+                name: "N.S. de Coromoto",
                 country: "Venezuela",
                 countryFlag: "🇻🇪",
                 date: "11 de Setembro",
@@ -670,7 +670,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "caridade",
-                name: "Nossa Senhora da Caridade",
+                name: "N.S. da Caridade",
                 country: "Cuba",
                 countryFlag: "🇨🇺",
                 date: "8 de Setembro",
@@ -682,7 +682,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "caacupe",
-                name: "Nossa Senhora de Caacupé",
+                name: "N.S. de Caacupé",
                 country: "Paraguai",
                 countryFlag: "🇵🇾",
                 date: "8 de Dezembro",
@@ -694,7 +694,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "champion",
-                name: "Nossa Senhora do Bom Socorro",
+                name: "N.S. do Bom Socorro",
                 country: "Estados Unidos",
                 countryFlag: "🇺🇸",
                 date: "9 de Outubro",
@@ -706,7 +706,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "america",
-                name: "Nossa Senhora da América",
+                name: "N.S. da América",
                 country: "Estados Unidos",
                 countryFlag: "🇺🇸",
                 date: "26 de Setembro",
@@ -718,7 +718,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "cuapa",
-                name: "Nossa Senhora de Cuapa",
+                name: "N.S. de Cuapa",
                 country: "Nicarágua",
                 countryFlag: "🇳🇮",
                 date: "8 de Maio",
@@ -730,7 +730,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "itati",
-                name: "Nossa Senhora de Itatí",
+                name: "N.S. de Itatí",
                 country: "Argentina",
                 countryFlag: "🇦🇷",
                 date: "9 de Julho",
@@ -764,7 +764,7 @@ export const worldMarianDevotions: Continent[] = [
             // BRASIL - MAIS TÍTULOS
             {
                 id: "itauna",
-                name: "Nossa Senhora de Itaúna",
+                name: "N.S. de Itaúna",
                 country: "Brasil (MG)",
                 countryFlag: "🇧🇷",
                 date: "27 de Julho",
@@ -776,18 +776,18 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "brotas",
-                name: "Nossa Senhora das Brotas",
+                name: "N.S. das Brotas",
                 country: "Brasil (PR/SP)",
                 countryFlag: "🇧🇷",
                 date: "27 de Dezembro",
                 imageUrl: "/images/ns_brotas.png",
                 description: "Padroeira do Gado e da Agricultura",
-                fullDescription: "Devoção trazida de Portugal para Piraí do Sul (PR). Um quadro de Nossa Senhora resistiu a um incêndio e foi encontrado intacto entre brotos verdes.",
+                fullDescription: "Devoção trazida de Portugal para Piraí do Sul (PR). Um quadro de N.S. resistiu a um incêndio e foi encontrado intacto entre brotos verdes.",
                 status: "approved"
             },
             {
                 id: "santa_cabeca",
-                name: "Nossa Senhora de Santa Cabeça",
+                name: "N.S. de Santa Cabeça",
                 country: "Brasil (SP)",
                 countryFlag: "🇧🇷",
                 date: "8 de Dezembro",
@@ -799,7 +799,7 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "bom_despacho",
-                name: "Nossa Senhora do Bom Despacho",
+                name: "N.S. do Bom Despacho",
                 country: "Brasil (MG)",
                 countryFlag: "🇧🇷",
                 date: "Mai",
