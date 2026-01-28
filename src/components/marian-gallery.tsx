@@ -156,33 +156,7 @@ export function MarianGallery() {
 
                             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
                                 {items.map((devotion) => (
-                                    <Dialog key={devotion.id}>
-                                        <DialogTrigger asChild>
-                                            <div className="cursor-pointer group flex flex-col items-center">
-                                                <div className="relative w-full max-w-[140px]">
-                                                    <Image
-                                                        src={devotion.imageUrl}
-                                                        alt={devotion.name}
-                                                        width={200}
-                                                        height={200}
-                                                        className={`aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 ${isPink ? 'border-pink-200 group-hover:border-pink-400' : 'border-blue-200 group-hover:border-blue-400'
-                                                            }`}
-                                                    />
-                                                    <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10`}>
-                                                        <span className={`inline-block px-3 py-1 text-white text-[10px] font-bold rounded-full shadow-sm ${isPink ? 'bg-pink-600' : 'bg-blue-600'
-                                                            }`}>
-                                                            {devotion.date}
-                                                        </span>
-                                                    </div>
-                                                </div>
-                                                <p className="text-center mt-6 text-sm font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 px-2 h-10 flex items-center justify-center">
-                                                    {devotion.name}
-                                                </p>
-                                            </div>
-                                        </DialogTrigger>
-
-                                        <DevotionDialog devotion={devotion} />
-                                    </Dialog>
+                                    <DevotionDialogWrapper key={devotion.id} devotion={devotion} isPink={isPink} />
                                 ))}
                             </div>
                         </div>
@@ -193,19 +167,75 @@ export function MarianGallery() {
     );
 }
 
+// Wrapper para gerenciar o estado do Dialog e histórico do navegador
+function DevotionDialogWrapper({ devotion, isPink }: { devotion: MarianDevotion; isPink: boolean }) {
+    const [open, setOpen] = useState(false);
+
+    // Controle de histórico do navegador
+    React.useEffect(() => {
+        if (open) {
+            // Adiciona uma entrada no histórico quando o modal abre
+            window.history.pushState({ modal: 'marianGallery' }, '');
+
+            // Handler para o botão voltar do navegador
+            const handlePopState = (event: PopStateEvent) => {
+                setOpen(false);
+            };
+
+            window.addEventListener('popstate', handlePopState);
+
+            return () => {
+                window.removeEventListener('popstate', handlePopState);
+            };
+        }
+    }, [open]);
+
+    return (
+        <Dialog open={open} onOpenChange={setOpen}>
+            <DialogTrigger asChild>
+                <div className="cursor-pointer group flex flex-col items-center">
+                    <div className="relative w-full max-w-[140px]">
+                        <Image
+                            src={devotion.imageUrl}
+                            alt={devotion.name}
+                            width={200}
+                            height={200}
+                            className={`aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 ${isPink ? 'border-pink-200 group-hover:border-pink-400' : 'border-blue-200 group-hover:border-blue-400'
+                                }`}
+                        />
+                        <div className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10`}>
+                            <span className={`inline-block px-3 py-1 text-white text-[10px] font-bold rounded-full shadow-sm ${isPink ? 'bg-pink-600' : 'bg-blue-600'
+                                }`}>
+                                {devotion.date}
+                            </span>
+                        </div>
+                    </div>
+                    <p className="text-center mt-6 text-sm font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 px-2 h-10 flex items-center justify-center">
+                        {devotion.name}
+                    </p>
+                </div>
+            </DialogTrigger>
+
+            <DevotionDialog devotion={devotion} />
+        </Dialog>
+    );
+}
+
 // Componente helper para Dialog com scroll dinâmico
 function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [scrolled, setScrolled] = useState(false);
+
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
         const scrollTop = e.currentTarget.scrollTop;
         setScrolled(scrollTop > 50);
     };
 
     return (
-        <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
-            {/* Botão Voltar Estilizado */}
-            {/* Botão Voltar Estilizado */}
-            <DialogClose className="absolute left-4 top-4 z-50 rounded-full bg-blue-600/90 hover:bg-blue-700 text-white px-4 py-2 shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 group">
+        <DialogContent
+            className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden"
+        >
+            {/* Botão Voltar Estilizado - Posição ajustada */}
+            <DialogClose className="absolute left-4 top-16 z-50 rounded-full bg-blue-600/90 hover:bg-blue-700 text-white px-4 py-2 shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 group">
                 <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
                 <span className="text-sm font-bold">Voltar</span>
             </DialogClose>
