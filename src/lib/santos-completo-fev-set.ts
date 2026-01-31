@@ -13,6 +13,12 @@ type SaintOfTheDayData = {
 
 // Dados completos dos santos de Março a Setembro
 export const santosMarcoSetembro: SaintOfTheDayData[] = [
+    // FEVEREIRO
+    { day: 1, month: 'Fevereiro', saints: [{ name: 'Santa Brígida', imageUrl: 'https://i.pinimg.com/736x/ab/cd/ef/abcdef1234567890.jpg', story: '<h4>Padroeira da Irlanda</h4><p>Santa Brígida de Kildare, fundadora de mosteiros na Irlanda, conhecida por sua caridade e milagres. Ao lado de São Patrício, é uma das padroeiras da Irlanda.</p><p class="mt-4"><b>Oração:</b> Santa Brígida, rogai por nós.</p>' }] },
+    { day: 2, month: 'Fevereiro', saints: [{ name: 'Apresentação do Senhor', imageUrl: 'https://i.pinimg.com/736x/cd/ef/12/cdef1234567890ab.jpg', story: '<h4>Luz das Nações</h4><p>Celebramos a Apresentação do Menino Jesus no Templo e a Purificação de Maria. Jesus é a "luz para iluminar as nações". Festa das Candeias.</p><p class="mt-4"><b>Oração:</b> Luz de Cristo, iluminai-nos.</p>' }] },
+    { day: 3, month: 'Fevereiro', saints: [{ name: 'São Brás', imageUrl: '/images/sao-bras.jpg', story: '<h4>Protetor da Garganta</h4><p>São Brás, bispo e mártir, realizou milagres de cura, especialmente salvando um menino engasgado com uma espinha de peixe. É invocado contra males da garganta.</p><p class="mt-4"><b>Oração:</b> São Brás, rogai por nós.</p>', isMartyr: true }] },
+    { day: 4, month: 'Fevereiro', saints: [{ name: 'São João de Brito', imageUrl: '/images/sao-joao-brito.png', story: '<h4>Mártir na Índia</h4><p>São João de Brito, jesuíta português, missionário na Índia. Adotou costumes locais para evangelizar (Pandara Swamy). Mártir da fé.</p><p class="mt-4"><b>Oração:</b> São João de Brito, rogai por nós.</p>', isMartyr: true }] },
+
     // MARÇO
     { day: 1, month: 'Março', saints: [{ name: 'São David', imageUrl: 'https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg', story: '<h4>Padroeiro do País de Gales</h4><p>São David, bispo e padroeiro do País de Gales, fundou vários mosteiros e viveu em grande austeridade no século VI.</p><p class="mt-4"><b>Oração:</b> São David, rogai por nós.</p>' }] },
     { day: 7, month: 'Março', saints: [{ name: 'Santas Perpétua e Felicidade', imageUrl: 'https://i.pinimg.com/736x/2b/3c/4d/2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e.jpg', story: '<h4>Mártires de Cartago</h4><p>Perpétua, nobre romana, e Felicidade, escrava grávida, foram martirizadas juntas em Cartago no ano 203. Seu martírio foi registrado em detalhes.</p><p class="mt-4"><b>Oração:</b> Santas Perpétua e Felicidade, rogai por nós.</p>', isMartyr: true }] },
