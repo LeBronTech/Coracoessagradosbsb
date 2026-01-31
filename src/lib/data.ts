@@ -2703,7 +2703,7 @@ export const saints: Saint[] = [
   { id: 'santa_josefina_bakhita', name: 'Sta. Josefina Bakhita', imageUrl: 'https://iili.io/f6UqHve.png', month: 'Janeiro/Fevereiro', startDate: '30/01', endDate: '07/02', feastDay: '08/Fev' },
 
   // Fevereiro
-  { id: 'nossa_senhora_lourdes', name: 'N.S. de Lourdes', imageUrl: 'https://iili.io/f6UfbG2.jpg', month: 'Fevereiro', startDate: '02/02', endDate: '10/02', feastDay: '11/Fev' },
+  { id: 'nossa_senhora_lourdes', name: 'N.S. de Lourdes', imageUrl: '/images/ns_lourdes.png', month: 'Fevereiro', startDate: '02/02', endDate: '10/02', feastDay: '11/Fev' },
   { id: 'sagrada_face', name: 'Sagrada Face', imageUrl: 'https://iili.io/f6UfDCl.jpg', month: 'Fevereiro', startDate: '08/02', endDate: '16/02', feastDay: '17/Fev' },
   { id: 'catedra_sao_pedro', name: 'Cátedra S. Pedro', imageUrl: 'https://iili.io/f6UfQjf.jpg', month: 'Fevereiro', startDate: '13/02', endDate: '21/02', feastDay: '22/Fev' },
 
@@ -2722,7 +2722,7 @@ export const saints: Saint[] = [
 
   // Maio
   { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai' },
-  { id: 'nossa_senhora_fatima', name: 'N.S. de Fátima', imageUrl: 'https://i.pinimg.com/736x/2f/3a/4b/2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c.jpg', month: 'Maio', startDate: '04/05', endDate: '12/05', feastDay: '13/Mai' },
+  { id: 'nossa_senhora_fatima', name: 'N.S. de Fátima', imageUrl: '/images/ns_fatima.png', month: 'Maio', startDate: '04/05', endDate: '12/05', feastDay: '13/Mai' },
   { id: 'sao_matias', name: 'São Matias', imageUrl: 'https://i.pinimg.com/736x/3b/4c/5d/3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e.jpg', month: 'Maio', startDate: '05/05', endDate: '13/05', feastDay: '14/Mai' },
   { id: 'santa_rita_cassia', name: 'Santa Rita', imageUrl: 'https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg', month: 'Maio', startDate: '13/05', endDate: '21/05', feastDay: '22/Mai' },
   { id: 'pentecostes', name: 'Pentecostes', imageUrl: 'https://i.pinimg.com/736x/4b/5c/6d/4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e.jpg', month: 'Maio', startDate: '15/05', endDate: '23/05', feastDay: '24/Mai' },

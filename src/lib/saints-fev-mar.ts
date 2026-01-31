@@ -6,7 +6,7 @@ export const saintsOfTheDayFevereiroComplete: SaintOfTheDayData[] = [
     // Adicionando dias 9-28 completos
     { day: 9, month: 'Fevereiro', saints: [{ name: 'Santa Apolônia', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Santa Apolônia</h4><p>Mártir de Alexandria, padroeira dos dentistas.</p>' }] },
     { day: 10, month: 'Fevereiro', saints: [{ name: 'Santa Escolástica', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Santa Escolástica</h4><p>Irmã de São Bento, fundadora de mosteiro feminino.</p>' }] },
-    { day: 11, month: 'Fevereiro', saints: [{ name: 'N. Sra. de Lourdes', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Nossa Senhora de Lourdes</h4><p>Aparições em Lourdes, França, em 1858.</p>' }] },
+    { day: 11, month: 'Fevereiro', saints: [{ name: 'N. Sra. de Lourdes', imageUrl: '/images/ns_lourdes.png', story: '<h4>Nossa Senhora de Lourdes</h4><p>Aparições em Lourdes, França, em 1858.</p>' }] },
     { day: 12, month: 'Fevereiro', saints: [{ name: 'Santa Eulália', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Santa Eulália</h4><p>Mártir cristã.</p>' }] },
     { day: 13, month: 'Fevereiro', saints: [{ name: 'Santa Catarina Ricci', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Santa Catarina Ricci</h4><p>Religiosa dominicana.</p>' }] },
     { day: 14, month: 'Fevereiro', saints: [{ name: 'Santos Cirilo e Metódio', imageUrl: 'https://i.pinimg.com/736x/placeholder.jpg', story: '<h4>Santos Cirilo e Metódio</h4><p>Apóstolos dos eslavos, co-padroeiros da Europa.</p>' }] },

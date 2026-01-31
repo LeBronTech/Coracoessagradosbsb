@@ -10,6 +10,8 @@ import { worldMarianDevotions, MarianDevotion, Continent } from "@/lib/world-dev
 
 export function WorldMarianDevotions() {
     const continents: Continent[] = worldMarianDevotions;
+    const [activeContinent, setActiveContinent] = useState<string>("");
+    const continentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
     const getStatusIcon = (status?: string) => {
         switch (status) {
@@ -41,6 +43,44 @@ export function WorldMarianDevotions() {
         }
     };
 
+    const scrollToContinent = (continentName: string) => {
+        const element = continentRefs.current[continentName];
+        if (element) {
+            const offset = 100; // Offset para compensar o menu fixo
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    };
+
+    useEffect(() => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '-20% 0px -70% 0px',
+            threshold: 0
+        };
+
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    setActiveContinent(entry.target.id);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        Object.values(continentRefs.current).forEach((ref) => {
+            if (ref) observer.observe(ref);
+        });
+
+        return () => observer.disconnect();
+    }, []);
+
     return (
         <section className="mb-12">
             <div className="text-center mb-10">
@@ -52,6 +92,38 @@ export function WorldMarianDevotions() {
                     Descubra devoções marianas de diferentes países, cada uma com sua história única e significado especial para os fiéis locais
                 </p>
             </div>
+
+            {/* Menu de Navegação por Continentes */}
+            <nav className="sticky top-20 z-40 mb-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-y border-blue-200 dark:border-blue-800 shadow-md py-4">
+                <div className="flex gap-2 sm:gap-4 justify-center items-center flex-wrap px-4">
+                    {continents.map((continent) => (
+                        <button
+                            key={continent.name}
+                            onClick={() => scrollToContinent(continent.name)}
+                            className={`group flex flex-col items-center gap-1 px-3 sm:px-4 py-2 rounded-xl transition-all duration-300 hover:scale-110 ${activeContinent === continent.name
+                                ? 'bg-blue-600 text-white shadow-lg scale-105'
+                                : 'bg-blue-50 dark:bg-blue-950/50 text-slate-700 dark:text-slate-300 hover:bg-blue-100 dark:hover:bg-blue-900/50'
+                                }`}
+                            aria-label={`Ir para ${continent.name}`}
+                        >
+                            {continent.iconUrl ? (
+                                <Image
+                                    src={continent.iconUrl}
+                                    alt={continent.name}
+                                    width={40}
+                                    height={40}
+                                    className="w-8 h-8 sm:w-10 sm:h-10 object-contain"
+                                />
+                            ) : (
+                                <span className="text-2xl sm:text-3xl">{continent.emoji}</span>
+                            )}
+                            <span className="text-xs sm:text-sm font-semibold whitespace-nowrap">
+                                {continent.name}
+                            </span>
+                        </button>
+                    ))}
+                </div>
+            </nav>
 
             <div className="space-y-12">
                 {continents.map((continent) => {
@@ -84,10 +156,22 @@ export function WorldMarianDevotions() {
                     return (
                         <div
                             key={continent.name}
+                            id={continent.name}
+                            ref={(el) => (continentRefs.current[continent.name] = el)}
                             className="p-8 rounded-3xl shadow-lg border transition-all duration-500 bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100 dark:from-blue-950/20 dark:to-sky-950/20 dark:border-blue-900/30"
                         >
                             <h3 className="text-3xl font-bold mb-8 flex items-center gap-3 text-blue-800 dark:text-blue-300 border-b pb-4 border-blue-200 dark:border-blue-800">
-                                <span className="text-4xl">{continent.emoji}</span>
+                                {continent.iconUrl ? (
+                                    <Image
+                                        src={continent.iconUrl}
+                                        alt={continent.name}
+                                        width={48}
+                                        height={48}
+                                        className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                                    />
+                                ) : (
+                                    <span className="text-4xl">{continent.emoji}</span>
+                                )}
                                 {continent.name}
                             </h3>
 

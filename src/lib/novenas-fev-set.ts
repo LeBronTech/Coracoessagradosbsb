@@ -536,5 +536,57 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             title: `Dia ${i + 1} - São José de Anchieta`,
             content: ""
         }))
+    },
+    nossa_senhora_lujan: {
+        saintName: "Nossa Senhora de Luján",
+        novenaTitle: "Novena a Nossa Senhora de Luján",
+        description: "Peça a intercessão da Padroeira da Argentina para suas necessidades.",
+        image: "/images/ns_lujan.png",
+        initialPrayer: "",
+        finalPrayer: "",
+        days: Array.from({ length: 9 }, (_, i) => ({
+            day: `Dia ${i + 1}`,
+            title: `Dia ${i + 1} - N.S. de Luján`,
+            content: ""
+        }))
+    },
+    nossa_senhora_itati: {
+        saintName: "Nossa Senhora de Itatí",
+        novenaTitle: "Novena a Nossa Senhora de Itatí",
+        description: "Novena em honra à Virgem de Itatí, Rainha do Rio Paraná.",
+        image: "/images/ns_itati.png",
+        initialPrayer: "",
+        finalPrayer: "",
+        days: Array.from({ length: 9 }, (_, i) => ({
+            day: `Dia ${i + 1}`,
+            title: `Dia ${i + 1} - N.S. de Itatí`,
+            content: ""
+        }))
+    },
+    nossa_senhora_copacabana: {
+        saintName: "Nossa Senhora de Copacabana",
+        novenaTitle: "Novena a Nossa Senhora de Copacabana",
+        description: "Peça o auxílio da Rainha da Bolívia e das Américas.",
+        image: "/images/ns_copacabana.png",
+        initialPrayer: "",
+        finalPrayer: "",
+        days: Array.from({ length: 9 }, (_, i) => ({
+            day: `Dia ${i + 1}`,
+            title: `Dia ${i + 1} - N.S. de Copacabana`,
+            content: ""
+        }))
+    },
+    nossa_senhora_rosario_san_nicolas: {
+        saintName: "Nossa Senhora do Rosário de San Nicolás",
+        novenaTitle: "Novena a N.S. do Rosário de San Nicolás",
+        description: "Novena em honra às aparições de Maria em San Nicolás de los Arroyos.",
+        image: "/images/ns_rosario_san_nicolas.png",
+        initialPrayer: "",
+        finalPrayer: "",
+        days: Array.from({ length: 9 }, (_, i) => ({
+            day: `Dia ${i + 1}`,
+            title: `Dia ${i + 1} - N.S. de San Nicolás`,
+            content: ""
+        }))
     }
 };
