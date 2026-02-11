@@ -174,6 +174,45 @@
     color: hsl(var(--primary-foreground));
   }
 
+  /* Cores do texto para temas claros */
+  .main-card.theme-light-gray .prose p,
+  .main-card.theme-default .prose p,
+  .main-card.theme-light-gray .day-specific-content p,
+  .main-card.theme-default .day-specific-content p,
+  .main-card.theme-light-gray .prayer-block p,
+  .main-card.theme-default .prayer-block p,
+  .main-card.theme-light-gray .initial-prayer-text p,
+  .main-card.theme-default .initial-prayer-text p,
+  .main-card.theme-light-gray .final-prayer-text p,
+  .main-card.theme-default .final-prayer-text p {
+    color: rgb(41 37 36) !important; /* stone-800 */
+  }
+
+  /* Cores do texto para temas escuros */
+  .main-card.theme-dark-gray .prose p,
+  .main-card.theme-red .prose p,
+  .main-card.theme-dark-gray .day-specific-content p,
+  .main-card.theme-red .day-specific-content p,
+  .main-card.theme-dark-gray .prayer-block p,
+  .main-card.theme-red .prayer-block p,
+  .main-card.theme-dark-gray .initial-prayer-text p,
+  .main-card.theme-red .initial-prayer-text p,
+  .main-card.theme-dark-gray .final-prayer-text p,
+  .main-card.theme-red .final-prayer-text p {
+    color: rgb(255 255 255) !important; /* white */
+  }
+
+  /* Cores para elementos strong */
+  .main-card.theme-light-gray .prose strong,
+  .main-card.theme-default .prose strong {
+    color: rgb(28 25 23) !important; /* stone-900 */
+  }
+
+  .main-card.theme-dark-gray .prose strong,
+  .main-card.theme-red .prose strong {
+    color: rgb(255 255 255) !important; /* white */
+  }
+
 
   /* Month Carousel Styles */
   .month-carousel .embla__slide {

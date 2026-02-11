@@ -2706,10 +2706,11 @@ export const saints: Saint[] = [
   { id: 'nossa_senhora_lourdes', name: 'N.S. de Lourdes', imageUrl: '/images/ns_lourdes.png', month: 'Fevereiro', startDate: '02/02', endDate: '10/02', feastDay: '11/Fev' },
   { id: 'sagrada_face', name: 'Sagrada Face', imageUrl: 'https://iili.io/f6UfDCl.jpg', month: 'Fevereiro', startDate: '08/02', endDate: '16/02', feastDay: '17/Fev' },
   { id: 'catedra_sao_pedro', name: 'Cátedra S. Pedro', imageUrl: 'https://iili.io/f6UfQjf.jpg', month: 'Fevereiro', startDate: '13/02', endDate: '21/02', feastDay: '22/Fev' },
+  { id: 'sao_casimiro', name: 'São Casimiro', imageUrl: '/images/sao_casimiro.png', month: 'Fevereiro/Março', startDate: '24/02', endDate: '03/03', feastDay: '04/Mar' },
 
   // Março
-  { id: 'sao_patricio', name: 'São Patrício', imageUrl: 'https://i.pinimg.com/736x/5e/6f/7a/5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a0b.jpg', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
-  { id: 'sao_bento_transito', name: 'São Bento (Trânsito)', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Março', startDate: '12/03', endDate: '20/03', feastDay: '21/Mar' },
+  { id: 'sao_patricio', name: 'São Patrício', imageUrl: '/images/sao_patricio.png', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
+  { id: 'sao_bento_transito', name: 'São Bento (Trânsito)', imageUrl: '/images/sao_bento.png', month: 'Março', startDate: '12/03', endDate: '20/03', feastDay: '21/Mar' },
   { id: 'anunciacao', name: 'Anunciação', imageUrl: 'https://i.pinimg.com/736x/7a/8b/9c/7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.jpg', month: 'Março', startDate: '16/03', endDate: '24/03', feastDay: '25/Mar' },
 
   // Abril
