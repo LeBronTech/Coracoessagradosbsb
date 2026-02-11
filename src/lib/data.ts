@@ -2711,7 +2711,7 @@ export const saints: Saint[] = [
   // Março
   { id: 'sao_patricio', name: 'São Patrício', imageUrl: '/images/sao_patricio.png', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
   { id: 'sao_bento_transito', name: 'São Bento (Trânsito)', imageUrl: '/images/sao_bento.png', month: 'Março', startDate: '12/03', endDate: '20/03', feastDay: '21/Mar' },
-  { id: 'anunciacao', name: 'Anunciação', imageUrl: 'https://i.pinimg.com/736x/7a/8b/9c/7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d.jpg', month: 'Março', startDate: '16/03', endDate: '24/03', feastDay: '25/Mar' },
+  { id: 'anunciacao', name: 'Anunciação', imageUrl: '/images/anunciacao.png', month: 'Março', startDate: '16/03', endDate: '24/03', feastDay: '25/Mar' },
 
   // Abril
   { id: 'divina_misericordia', name: 'Divina Misericórdia', imageUrl: 'https://i.pinimg.com/736x/1a/2b/3c/1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d.jpg', month: 'Abril', startDate: '03/04', endDate: '11/04', feastDay: '12/Abr' },

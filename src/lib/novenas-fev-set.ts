@@ -970,5 +970,61 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 content: `<div class="day-specific-content"><h4 class="section-title">Palavra de Deus</h4><p>"Jesus começou a percorrer as redondezas ensinando nos povoados. Chamou os doze discípulos, começou a enviá-los dois a dois e dava-lhes poder sobre os espíritos maus. Jesus recomendou que não levassem nada pelo caminho, além de um bastão; nem pão, nem sacola, nem dinheiro na cintura. Mandou que andassem de sandálias e que não levassem duas túnicas. E, Jesus disse ainda: 'Quando vocês entrarem numa casa, fiquem aí até partirem. Se vocês forem mal recebidos num lugar e o povo não escutar vocês, quando saírem, sacudam a poeira dos pés como protesto contra eles'. Então, os discípulos partiram e pregaram para que as pessoas se convertessem. Expulsavam muitos demônios e curavam muitos doentes, ungindo-os com óleo" (Mc 6,6b-13).</p><h4 class="section-title mt-4">Reflexão</h4><p>Os discípulos são enviados para continuar a missão de Jesus: pedir mudança radical da orientação de vida (conversão), desalienar as pessoas (libertar dos demônios), restaurar a vida humana (curas).</p><p class="mt-4">Os discípulos devem estar livres, ter bom senso e estar conscientes de que a missão vai provocar choque com os que não querem transformações.</p><h4 class="section-title mt-4">Conhecendo a Regra de São Bento</h4><p>Assim, como há um zelo mau de amargura que separa de Deus e conduz ao inferno, também existe o zelo bom que afasta dos vícios, conduz a Deus e à vida eterna.</p><p class="mt-4">Exerçam, portanto, os monges esse zelo com amor fraterno, isto é, antecipem-se uns aos outros em honra e atenções.</p><p class="mt-4">Tolerem com grande paciência as enfermidades de outrem, quer corporais, quer espirituais. Obedeçam uns aos outros à porfia. Nenhum procure aquilo que lhe parece vantajoso para si, mas sim, o que for útil para os outros.</p><p class="mt-4">Ponham em ação, castamente, a caridade fraterna. Temam a Deus. Amem seu abade com afeição humilde e sincera.</p><p class="mt-4">Nada, absolutamente nada, anteponham a Cristo, o qual se digne levar-nos, todos juntos, à vida eterna (cap.72, do bom zelo que os monges devem ter).</p></div>`
             }
         ]
+    },
+
+    anunciacao: {
+        saintName: "Anunciação do Senhor",
+        novenaTitle: "Novena da Anunciação do Senhor",
+        description: "Novena em preparação à Solenidade da Anunciação do Senhor (25 de março).",
+        image: "/images/anunciacao.png",
+        initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial para Todos os Dias</h4><p>Pelo sinal da Santa Cruz ✞ livrai-nos Deus de nossos inimigos.</p><p class="mt-4">✞ Em nome do Pai, ✞ do Filho e do ✞ Espírito Santo. Amém.</p><h4 class="section-title mt-6">Oração do Ângelus</h4><p>O Anjo do Senhor anunciou a Maria.</p><p class="italic">E ela concebeu do Espírito Santo.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Eis aqui a serva do Senhor.</p><p class="italic">Faça-se em mim segundo a vossa palavra.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">E o Verbo se fez carne.</p><p class="italic">E habitou entre nós.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Rogai por nós, Santa Mãe de Deus.</p><p class="italic">Para que sejamos dignos das promessas de Cristo.</p><h4 class="section-title mt-6">Oremos</h4><p>Infundi Senhor a vossa graça em nossos corações, para que, conhecendo, pela mensagem do Anjo, a encarnação do Cristo, vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição pela intercessão da Virgem Maria. Pelo mesmo Cristo, Senhor Nosso. Amém.</p><p class="mt-4">Bendito seja, ó Maria, o tão esperado momento no qual se iniciou a salvação humana com a Encarnação do Filho de Deus. Amém.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final para Todos os Dias</h4><p>Eis que desejando que o Filho de Deus que quis nascer em Vós, nasça também em meu coração e conceda-nos o perdão de nossos pecados, prostramo-nos aos vossos pés e vos imploro, com todo o fervor da alma, que vos digneis alcançar-nos, do vosso Filho, a graça que tanto necessitamos…<span class="italic">(colocar a graça)</span></p><p class="mt-4">Queremos ser gestados no ventre de Nossa Senhora, para assim, sermos homens novos, santos, como Jesus.</p><p class="mt-4 font-semibold">"Benditas sejam a Santa Gravidez e a Imaculada Conceição da bem-aventurada sempre virgem Maria, Mãe de Deus e nossa Mãe. Amém"</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Primeiro Dia",
+                content: `<div class="day-specific-content"><p>"Ó Maria, virgem Imaculada, Porta do Céu e causa da nossa alegria, respondendo com generosidade ao anúncio do Arcanjo São Gabriel, vós pudestes dar curso ao plano de Deus para nossa salvação.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Segundo Dia",
+                content: `<div class="day-specific-content"><p>Vós fostes, pela Providência Santíssima desde toda a eternidade, constituída vaso de eleição e moradia digna do Verbo Encarnado. Pelo vosso "sim" e fidelidade ao Pai celeste, o Espírito Santo teceu em vossas entranhas Jesus, nosso Senhor e Salvador.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Terceiro Dia",
+                content: `<div class="day-specific-content"><p>Ouvi minha súplica, ó Virgem Santíssima, Nossa Senhora de Caná e de Pentecostes, Vós que, perante o trono da Graça, sois a "Onipotência Suplicante", enquanto meditamos, com reverência e filial afeto, todos os momentos de dor e de alegria, de desolação e de providência, que vos acompanharam em vossa bendita e singular gestação, na qual trouxestes em vosso ventre por nove meses o Filho do Deus Altíssimo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Quarto Dia",
+                content: `<div class="day-specific-content"><p>Mãe da obediência e Medianeira de todas as graças, Vós esperastes o tempo necessário para trazer ao mundo o Rei do universo. Eis que, com fé e fidelidade, aguardamos a graça que vos suplicamos, embora pareça muito difícil de acontecer, impossível ou até demorada para chegar.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Quinto Dia",
+                content: `<div class="day-specific-content"><p>Ajudai-nos, pois, ó Mãe da ternura, virgem do silêncio e da escuta, a sofrer em santa espera o tempo e as demoras de Deus, com sobriedade de vida, alegria e perseverança. Fazei que jamais desanimemos ou sejamos vencidos pelo inimigo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Sexto Dia",
+                content: `<div class="day-specific-content"><p>Oh! Maria, que fostes escolhida por Deus entre todas as mulheres para serdes a Mãe do Redentor: Alcançai-nos a graça de pertencer ao número dos escolhidos, que hão de estar no céu tendo os frutos da Redenção.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Sétimo Dia",
+                content: `<div class="day-specific-content"><p>Oh! Maria, que sendo escolhida para Mãe de Deus, preferistes a esta excelsa dignidade a vossa virgindade, e só quando o Anjo vos assegurou com que ser Mãe não deixaríeis de ser Virgem anuístes à sua proposta: Concedei-nos um amor tão grande à pureza, que por nenhum bem deste mundo consintamos em perdê-la.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oitavo Dia",
+                content: `<div class="day-specific-content"><p>E se não bastassem os pecados, Ó Senhora dos Remédios, do Bom parto e do Perpétuo Socorro, ainda vos pedimos, em virtude dos vossos cuidados e suplícios para com Jesus em Vosso ventre, por todas as mães grávidas, para que tenham uma boa hora, e também por todas aquelas que passam por uma gestação delicada, pelas que são atormentadas pela ideia de abortar seus filhos e pelas que não podem ou não conseguem tê-los.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Nono Dia",
+                content: `<div class="day-specific-content"><p>Ó Senhora do Carmo, das Dores e da Defesa, mão e colo que embalaram Jesus, consolai todas as mães que rezam pela volta de seus filhos ao lar e aos bons costumes. Recompensai as mães que geram filhos para Deus, instruindo-os na fé e entregando-os a vida sacerdotal e religiosa.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+            }
+        ]
     }
 };
