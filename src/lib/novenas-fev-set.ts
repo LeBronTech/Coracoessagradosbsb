@@ -239,6 +239,118 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
+    sao_gabriel_dores: {
+        saintName: "São Gabriel das Dores",
+        novenaTitle: "Novena a São Gabriel de Nossa Senhora das Dores",
+        description: "Jovem passionista, modelo de obediência, desprendimento e amor à Paixão de Cristo. Intercessor da juventude. Reza-se de 18 a 26 de fevereiro, preparando a festa de 27 de fevereiro.",
+        image: "/images/sao_gabriel_dores.png",
+        initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Preparatória (todos os dias)</h4><p>Ó soberano Senhor e santificador das almas, prostrados ante a vossa infinita majestade, louvamos e bendizemos a incomparável grandeza e liberalidade com que elevastes São Gabriel ao supremo grau da perfeição, por meio de um amor fervorosíssimo à Rainha dos Mártires. Pelos méritos deste amantíssimo servo de Maria, pela glória de tão excelsa Senhora e de São Gabriel, imploramos a graça particular que por este exercício esperamos obter <em>(pedir a graça)</em> e principalmente a de imitarmos este admirável Santo, a fim de podermos conquistar a sua graça na terra e sua glória por toda eternidade. Amém.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Senhor, muitas vezes temos com os nossos pecados merecido a morte do pecador em vez da do justo, mas confiando na vossa infinita misericórdia, na vossa Paixão e Morte, nas dores de Maria, nos méritos de São Gabriel, imploramos misericórdia e perdão, agora mas principalmente na hora da nossa morte para gozarmos, eternamente, com São Gabriel, a glória que nos merecestes. Amém.</p><p class="mt-4 font-semibold">São Gabriel das Dores, rogai por nós!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Primeiro Dia - Obediência de São Gabriel",
+                content: `<div class="day-specific-content"><h4 class="section-title">Obediência de São Gabriel</h4><p>Maria ouviu a profecia de Simeão e o seu coração foi transpassado por uma grande dor. Submeteu-se, entretanto à Ssma. Vontade do Pai, aceitando a imolação e o sacrifício do seu divino Filho. Esta dor foi mais cruel e pungente do que a morte e acompanhou a Ssma. Mãe durante toda a sua vida.</p><p class="mt-4">Consideremos como São Gabriel, a exemplo de Maria, viveu profundamente esta virtude que é a obediência à vontade do Pai. Obedeceu em tudo e sempre, sem diferenciar o prazer do sofrimento, embora sentindo muitas vezes repugnância e dificuldade. Os Santos de ontem e de hoje, estão convictos destas verdades evangélicas e seguem sempre resolutos o caminho da crucifixão, que é caminho da glorificação e ressurreição com Cristo. Assim fez o nosso querido coirmão.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Segundo Dia - Desprendimento do Mundo",
+                content: `<div class="day-specific-content"><h4 class="section-title">Desprendimento do Mundo</h4><p>Numa pobre casa em Belém, acompanhada pelo seu esposo São José, Maria usufruía os carinhos do seu adorado Filho, quando uma ordem de Deus os obriga a deixar repentinamente sua casa e partir para o Egito. Deixa tudo e vai com Jesus e José.</p><p class="mt-4">São Gabriel, à semelhança de Maria, estando em plena mocidade, onde tudo lhe sorria, deixa tudo seguindo o chamado do seu Senhor.</p><p class="mt-4">Se desejarmos ter esta felicidade de São Gabriel, vivamos com fidelidade o amor, esquecendo-nos de tudo o que já renunciamos: ter, ser, poder, apegando-nos unicamente no Amado. No Crucificado, com quem nos comprometemos.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Terceiro Dia - Amor a Deus",
+                content: `<div class="day-specific-content"><h4 class="section-title">Amor a Deus</h4><p>Maria perdeu Jesus em Jerusalém e a grande diligência em procurá-lo foi a manifestação do seu imenso amor por Ele. Jesus era a vida de sua vida e ela não podia viver sem Ele, daí a pungente dor que a fez procurá-lo sem cessar, durante três dias. Inspirando-se na Mãe das Dores, Gabriel era um apaixonado por Deus, vivendo constantemente em sua presença. Estar em Deus era-lhe natural e isto o levou a perfeição da caridade com todos.</p><p class="mt-4">Com a graça de Deus e o seu esforço para praticar as santas virtudes, tornou-se um jovem caridoso e muito querido pelos coirmãos e por todos que dele se aproximavam.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Quarto Dia - Amor à Cruz e à Penitência",
+                content: `<div class="day-specific-content"><h4 class="section-title">Amor à Cruz e à Penitência</h4><p>Maria, quando soube que seu divino Filho, carregando a Cruz se dirigia para o Calvário, no mesmo instante saiu de casa e se encaminhou para o lugar onde Jesus deveria passar, a fim de revê-lo e participar das suas afrontas. Assim ela abraça espiritual e moralmente uma crucifixão bem mais dolorosa do que se a sofresse fisicamente.</p><p class="mt-4">Gabriel, apenas se conscientizou do chamado de Deus à Congregação da Paixão de Jesus Cristo, a mais austera que conhecia, aceitou o convite abraçando a Cruz.</p><p class="mt-4">A exemplo de São Gabriel abracemos com amor tudo aquilo que se nos apresenta no cotidiano de nossa vida, plasmando assim, a nova criatura que Deus quer para sua maior glória e bem da Igreja de Cristo que conta conosco.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Quinto Dia - Devoção de São Gabriel à Paixão de Cristo",
+                content: `<div class="day-specific-content"><h4 class="section-title">Devoção de São Gabriel à Paixão de Cristo</h4><p>O assunto predileto das meditações de São Gabriel foi sempre à presença intrépida de Maria, assistindo a terrível agonia e morte do seu divino Filho.</p><p class="mt-4">Este foi o segredo da sua santidade, a origem da sua perfeição e vida espiritual. Comprazia-se em acompanhar Maria até a Cruz e chorar com ela imersa no grande mar de dor e de amor de Jesus.</p><p class="mt-4">Gabriel era incansável no cumprimento do voto que fizera de propagar a Paixão de Cristo e as Dores de Maria Ssma. Em seu livro de Divino Ofício conservava estas duas imagens para beijá-las e não se esquecer da "Memória Passionis".</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Sexto Dia - Devoção de São Gabriel à Ssma. Virgem Maria",
+                content: `<div class="day-specific-content"><h4 class="section-title">Devoção de São Gabriel à Ssma. Virgem Maria</h4><p>Na 6ª dor contemplamos Maria tendo nos braços maternos o corpo de Jesus descido da Cruz. Esta dor constitui o quadro mais terno e capaz de converter até o coração mais endurecido.</p><p class="mt-4">Desde criança Gabriel tinha um singular amor à Mãe Dolorosa, amor que se tornou depois um abismo insondável... Quando alguém se apaixona por um grande ideal, não se contém e é impelido a se expandir. Gabriel foi o apóstolo de Maria, quando dela falava era com grande eloquência. A devoção à Mãe de Deus lhe imprimiu fisionomia de todo própria; o amor saiu dele para se fundir no amor de Maria, para formar um só coração.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Sétimo Dia - Vida Interior de São Gabriel",
+                content: `<div class="day-specific-content"><h4 class="section-title">Vida Interior de São Gabriel</h4><p>Maria, tendo a alma transpassada por pungentíssima dor, após as exéquias do seu divino Filho, retirou-se para casa, pensando sempre no seu Jesus, no suplício da crucifixão, lembranças que constituíam a vida do seu coração. De acordo com o sentir comum, pessoa ativa é a que se ocupa exclusivamente em obras exteriores. Descurando a atividade reflexiva, não se recolhe, não medita, não reza nem contempla a Deus.</p><p class="mt-4">Gabriel nos indica um caminho de vida interior profunda, vivida no interior do claustro e de todo voltada para o cumprimento dos seus deveres religiosos sendo fiel até nos mínimos detalhes.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oitavo Dia - Caridade Fraterna de São Gabriel",
+                content: `<div class="day-specific-content"><h4 class="section-title">Caridade Fraterna de São Gabriel</h4><p>Maria após a Paixão, Morte e Ressurreição de Jesus, levou uma vida oculta e a Bíblia pouco a nomeia. Em companhia do apóstolo São João, passou fazendo o bem e animando a comunidade da Igreja nascente, sem alarde e no silêncio da prece, considerando tudo o que sucedera na Paixão do seu divino Filho. Gabriel, seu devotado filho a imitou, perseverando na meditação da Paixão e praticando a virtude da caridade para com todos, em especial, com seus coirmãos.</p><p class="mt-4">A caridade maior é a que se exerce em prol da salvação dos irmãos, o apostolado. O comportamento virtuoso de Gabriel, seu porte humilde, modesto e recolhido estimulava a todos a prática da virtude e suas palavras eram um verdadeiro bálsamo para os corações.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Nono Dia - Morte Preciosa de São Gabriel",
+                content: `<div class="day-specific-content"><h4 class="section-title">Morte Preciosa de São Gabriel</h4><p>Maria, após uma vida santíssima, viu chegar a sua "hora", com o maior consolo e alegria. Foi o triunfo do Amor, a coroa de suas vitórias, o princípio do seu gozo eterno com o saudosíssimo Filho. São Gabriel sempre esteve a espera do seu Deus. Se o anúncio de sua chegada viesse na cama?... Continuaria a dormir. Se fosse enquanto comia?... Continuaria a comer, etc.</p><p class="mt-4">Com alegria Gabriel viu chegar a hora de sua morte. Os assistentes vendo-o tão jubiloso admiravam-se; estava tranquilo, feliz, com o pensamento em Deus e em Maria. Imóvel, extático, com o mesmo sorriso e olhar aberto, apertando ao peito a imagem do Crucificado e da Mãe Dolorosa, Gabriel espera a chegada do seu Deus e Senhor. Maria se antecipa, consolando-o e na quarta-feira de cinzas, dia 27 de fevereiro ele deixa este vale de lágrimas voando para o banquete das núpcias eternas com o seu Bem Amado.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p><p class="mt-4 font-semibold">São Gabriel das Dores, rogai por nós!</p></div>`
+            }
+        ]
+    },
+
+    sao_joao_de_deus: {
+        saintName: "São João de Deus",
+        novenaTitle: "Novena a São João de Deus",
+        description: "Confessor, Fundador da Ordem Hospitaleira, Padroeiro dos doentes, dos enfermeiros e dos hospitais. Reza-se de 27 de fevereiro a 7 de março, preparando a festa de 8 de março.",
+        image: "/images/sao_joao_de_deus.png",
+        initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial (todos os dias)</h4><p>Pelo sinal da Santa Cruz, livrai-me Deus nosso Senhor, dos nossos inimigos.</p><p>Em nome do Pai e do Filho e do Espírito Santo. Amém.</p><h5 class="font-semibold mt-4">Ato de Contrição</h5><p>Senhor meu, Jesus Cristo, Deus e homem verdadeiro, Criador e Redentor meu, por serdes Vós quem sois, sumamente bom e digno de ser amado sobre todas as coisas, e porque Vos amo e estimo, pesa-me, Senhor, de todo o meu coração, de Vos ter ofendido; pesa-me, também, de ter perdido o Céu e merecido o Inferno; e proponho-me firmemente, ajudado com o auxílio da vossa divina graça, emendar-me e nunca mais Vos tornar a ofender. Espero alcançar o perdão de minhas culpas pela vossa infinita misericórdia. Amém.</p><h5 class="font-semibold mt-4">Oração a São João de Deus</h5><p>A ti me dirijo, São João de Deus, Padroeiro dos Bombeiros. Tu que partilhaste os sofrimentos dos outros e que agora estás junto ao Salvador para intercederes por nós.</p><p class="mt-4">Senhor, nosso Pai, quantos males atingem a humanidade, quantos são os desvalidos que sofrem, são tão desprezados e muitos até excluídos. Perdoa nossa omissão, nossa falta de sensibilidade, nossa ignorância por separarmos os sofridos de vós.</p><p class="mt-4">Sabemos que a falta de amor agrava muitas doenças e acidentes, por isso pedimos, pelos méritos de São João de Deus, o dom da compaixão, da paciência para com os necessitados e, acima de tudo, que tenhamos um grande amor por eles.</p><p class="mt-4">Peço que me acompanhes sempre, São João de Deus, para que me lembre de pôr Deus no centro da minha vida, todos os dias.</p><p class="mt-4 font-semibold">São João de Deus, rogai por nós.<br/>São José, pai protetor, rogai por nós.<br/>Maria, Consoladora dos Aflitos, rogai por nós. Amém.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Senhor, que inflamastes São João de Deus no fogo da caridade – para que fosse na terra o Apóstolo dos pecadores, Socorro dos pobres e Saúde dos doentes – no céu o constituístes Alívio dos que sofrem e Padroeiro dos bombeiros.</p><p class="mt-4">Concedei-nos, por sua intercessão, a graça que neste momento vos pedimos <em>(pedir a graça)</em>, prometendo imitá-lo nas suas virtudes, na santidade, na construção do Vosso Reino de Paz, Justiça, Amor e Misericórdia. Por nosso Senhor Jesus Cristo Vosso Filho na unidade do Espírito Santo. Amém.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória ao Pai.</p><p>Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p><p class="mt-4 font-semibold">São João de Deus, rogai por nós!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Primeiro Dia - Fé de João de Deus em Cristo e na Igreja",
+                content: `<div class="day-specific-content"><h4 class="section-title">Fé de João de Deus em Cristo e na Igreja</h4><p>Para ti, São João, o Deus que te criou foi, desde a tua conversão, o centro da tua existência: "vendo a Deus todos os dias" e "sendo forte e constante ao seu serviço". Esse "Deus, preferido a todas as coisas do mundo" era Deus encarnado em Cristo, "a quem desejavas servir e agradar". Assim reafirmavas tua fé em Deus, por Cristo, com a Igreja: "aceitando tudo o que tinha e acreditava a Santa Madre Igreja; daqui não fugias, firmavas com o teu selo e fechavas com a tua chave". Esta era a tua fé feita vida. Concede-me que eu a compreenda e viva como tu. Amém.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Segundo Dia - Esperança feita confiança",
+                content: `<div class="day-specific-content"><h4 class="section-title">Esperança feita confiança</h4><p>Tu, São João de Deus, expressas assim a tua esperança: "o vosso irmão menor, João de Deus, se Deus quiser, morrendo, mas aceitando e em Deus esperando". Para ti, Deus é o Senhor, nosso destino: "Eu espero em Deus, que um dia será descanso para as nossas almas". A tua esperança era confiança existencial e salvífica em Deus e desconfiança em nós: "não confiar em si próprio, mas sim e só em Jesus Cristo, pois Ele conhece o meu coração e me dará a vida eterna". Com a tua esperança e a tua fé ajuda-me a ver Deus como pai e a confiar no seu amor. Amém.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Terceiro Dia - Caridade de João de Deus",
+                content: `<div class="day-specific-content"><h4 class="section-title">Caridade de João de Deus</h4><p>Tu, São João de Deus, escreveste isto: "tende sempre caridade, que onde não há caridade não há Deus". Esta caridade será misericordiosa: "se víssemos quão grande é a misericórdia de Deus, nunca deixaríamos de fazer o bem enquanto pudéssemos". A tua espiritualidade refere-se aos necessitados como representantes de Cristo sofredor. Que grande mistério e que grande fé! São João de Deus, ajuda-me a aceitá-lo, ainda que o não compreenda. Amém.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Quarto Dia - João de Deus e a salvação",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus e a salvação</h4><p>Tu, S. João de Deus, desejavas a salvação de todos como a tua própria. Essa salvação é dom: "Jesus Cristo vos guarde e salve"; e é responsabilidade do homem: "viver santamente para aquele que quer salvar-se". Para ti, "esta vida é uma contínua guerra com o mundo, o demônio e a carne"; e se "o Senhor nos julgará tal como nos encontrar, então será bom que nos emendemos enquanto é tempo". Ajuda-me, S. João de Deus, a dar sentido à minha vida. Amém.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Quinto Dia - João de Deus, pobre, mas confiado",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, pobre, mas confiado</h4><p>Que matemáticas eram as tuas? "Estou com muita necessidade, empenhado e cativo só por Jesus Cristo. São muitos os pobres, e como não os posso socorrer, estou muito triste". Mas depois acrescentas: "confio apenas em Jesus Cristo, que me desempenhará; Deus tudo mantém e a tudo provê em cada dia. Dar aqui, dar além, é sempre ganhar". Que eu aprenda a tua sensibilidade, o teu critério transcendente e saiba imitar-te. Amém.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Sexto Dia - João de Deus, esmoler de Deus",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, esmoler de Deus</h4><p>Em cada dia, João de Deus, o teu pregão era: "fazei o bem a vós próprios, dando esmola aos pobres". Para ti, a esmola enriquece quem dá e a quem recebe. "A esmola está diante de Jesus, rogando por vós; e os anjos escrevem-na no livro da tua vida. Quem não dá do que tem a este bendito mercador, que faz tão boa mercadoria!". São João de Deus, abre a minha mente, o meu coração e a minha mão. Amém.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Sétimo Dia - João de Deus, escravo de Jesus e Maria",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, escravo de Jesus e Maria</h4><p>Jesus e Maria estavam no centro do teu ser, São João: "em nome de Nosso Senhor, e de Nossa Senhora, o menor escravo de todos os escravos". Na tua vida, desejavas sempre servi-Los e agradar-Lhes: "seja tudo para o Seu serviço". Como ideal, querias tomar como exemplo a Virgem Maria, a qual tecia e trabalhava todo o dia e à noite e parte do dia rezava no seu retiro. São João de Deus, que eu saiba refugiar-me em Jesus e Maria e Eles sejam o meu ideal de cristão. Amém.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oitavo Dia - João de Deus, fundador para os pobres",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, fundador para os pobres</h4><p>Para ti, São João de Deus, pobres eram os maltratados, abandonados, enfermos, incuráveis, chagados, que, ao vê-los, te quebravam o coração. Escreveste: "desvelar-se em cuidar deles, fazer-lhes bem e caridade, vesti-los e curá-los". Do teu exemplo, nascem os teus Irmãos Hospitaleiros e surge a tua obra de caridade; e desde há 4 séculos que continuas entre os pobres por meio dos que continuam a tua missão. Que o teu exemplo não se desvirtue e os pobres possam contar com mãos e corações a seu lado. Amém.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Nono Dia - João de Deus, padroeiro dos bombeiros",
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, padroeiro dos bombeiros</h4><p>Deste o teu exemplo, São João de Deus, com tua coragem, abnegação e desapego da própria vida. Por isso fostes proclamado patrono dos bombeiros. Sê nosso intercessor, para que, antes dos interesses sociais, econômicos e políticos, sejamos anjos de resgate para aqueles que sofrem; que as nossas viaturas sejam santuários; e para que atuemos com responsabilidade e ética, com profissionalismo e técnica, com espírito de serviço, com respeito na defesa da vida. Amém.</p><p class="mt-4 font-semibold">São João de Deus, rogai por nós!</p></div>`
+            }
+        ]
+    },
+
     // MARÇO
     sao_patricio: {
         saintName: "São Patrício",
@@ -309,18 +421,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
 
-    anunciacao: {
-        saintName: "Anunciação do Senhor",
-        novenaTitle: "Novena da Anunciação",
-        description: "Novena em preparação à solenidade da Anunciação do Senhor (25 de março).",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Anunciação`,
-            content: ""
-        }))
-    },
+
 
     // ABRIL
     divina_misericordia: {
@@ -702,18 +803,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-    sao_bento_transito: {
-        saintName: "São Bento (Trânsito)",
-        novenaTitle: "Novena a São Bento (Trânsito)",
-        description: "Pai dos monges. Peça proteção contra o mal e ciladas do inimigo.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São Bento`,
-            content: ""
-        }))
-    },
+
 
     sao_matias: {
         saintName: "São Matias",
