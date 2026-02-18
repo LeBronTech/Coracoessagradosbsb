@@ -7,6 +7,15 @@ import { ComunidadesGallery } from '@/components/comunidades-gallery';
 import { regioesAdministrativas } from '@/lib/comunidades-data';
 
 export default function EncontreSeuLugarPage() {
+    // Calculando estatísticas para o cabeçalho
+    const stats = regioesAdministrativas.reduce((acc, r) => {
+        r.devocoes.forEach(d => {
+            if (d.tipo === 'paroquia') acc.paroquias++;
+            else acc.devocoes++;
+        });
+        return acc;
+    }, { paroquias: 0, devocoes: 0 });
+
     return (
         <div className="min-h-screen bg-gradient-to-br from-amber-50 via-white to-yellow-50">
             {/* ── Header ── */}
@@ -46,42 +55,25 @@ export default function EncontreSeuLugarPage() {
                         </p>
                     </div>
 
-                    {/* Estatísticas */}
-                    <div className="flex flex-wrap justify-center gap-6 mt-8">
-                        <div className="text-center">
-                            <p className="text-3xl font-bold text-white">4</p>
-                            <p className="text-amber-200 text-sm">Vicariatos</p>
-                        </div>
-                        <div className="w-px bg-amber-400/40 hidden sm:block" />
-                        <div className="text-center">
-                            <p className="text-3xl font-bold text-white">15</p>
-                            <p className="text-amber-200 text-sm">Setores Arquidiocese</p>
-                        </div>
-                        <div className="w-px bg-amber-400/40 hidden sm:block" />
-                        <div className="text-center">
-                            <p className="text-3xl font-bold text-white">15</p>
-                            <p className="text-amber-200 text-sm">Setores RCC DF</p>
-                        </div>
-                        <div className="w-px bg-amber-400/40 hidden sm:block" />
-                        <div className="text-center">
-                            <p className="text-3xl font-bold text-white">
-                                {regioesAdministrativas.reduce((acc, r) => acc + r.devocoes.length, 0) || '—'}
+                    <div className="flex flex-wrap justify-center gap-10 mt-8">
+                        <div className="text-center group">
+                            <p className="text-4xl font-black text-white group-hover:scale-110 transition-transform">
+                                {stats.paroquias}
                             </p>
-                            <p className="text-amber-200 text-sm">Devoções</p>
+                            <p className="text-amber-200 text-xs font-bold uppercase tracking-widest mt-1">Paróquias</p>
+                        </div>
+                        <div className="w-px h-12 bg-white/20 hidden sm:block self-center" />
+                        <div className="text-center group">
+                            <p className="text-4xl font-black text-white group-hover:scale-110 transition-transform">
+                                {stats.devocoes}
+                            </p>
+                            <p className="text-amber-200 text-xs font-bold uppercase tracking-widest mt-1">Devoções & Grupos</p>
                         </div>
                     </div>
                 </div>
             </header>
 
-            {/* ── Legenda dos Vicariatos ── */}
-            <div className="bg-white/80 border-b border-amber-100 shadow-sm">
-                <div className="container mx-auto max-w-7xl px-4 py-3 flex flex-wrap gap-3 justify-center text-xs font-semibold">
-                    <span className="px-3 py-1 rounded-full bg-amber-100 text-amber-800 border border-amber-300">🟡 Vicariato Centro</span>
-                    <span className="px-3 py-1 rounded-full bg-sky-100 text-sky-800 border border-sky-300">🔵 Vicariato Norte</span>
-                    <span className="px-3 py-1 rounded-full bg-green-100 text-green-800 border border-green-300">🟢 Vicariato Sul</span>
-                    <span className="px-3 py-1 rounded-full bg-rose-100 text-rose-800 border border-rose-300">🔴 Vicariato Leste</span>
-                </div>
-            </div>
+
 
             {/* ── Conteúdo Principal ── */}
             <main className="container mx-auto max-w-7xl px-4 py-10">

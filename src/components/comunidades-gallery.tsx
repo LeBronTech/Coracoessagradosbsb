@@ -22,6 +22,9 @@ import {
     Search,
     SlidersHorizontal,
     Users,
+    User,
+    Mail,
+    Shield,
 } from 'lucide-react';
 
 // Gera URL do Google Maps automaticamente a partir dos campos disponíveis
@@ -37,6 +40,7 @@ import {
     type Vicariato,
     tipoLabel,
     tipoColor,
+    vicariatosInfo,
 } from '@/lib/comunidades-data';
 
 type Props = {
@@ -270,12 +274,32 @@ export function ComunidadesGallery({ regioes }: Props) {
         setFiltroTipos((p) => { const n = new Set(p); n.has(t) ? n.delete(t) : n.add(t); return n; });
 
     const toggleVic = (v: Vicariato) =>
-        setFiltroVicariatos((p) => { const n = new Set(p); n.has(v) ? n.delete(v) : n.add(v); return n; });
+        setFiltroVicariatos((p) => {
+            const n = new Set<Vicariato>();
+            if (!p.has(v)) n.add(v);
+            return n;
+        });
 
     const limpar = () => { setFiltroTipos(new Set()); setFiltroVicariatos(new Set()); setBusca(''); };
 
     const totalAtivos = filtroTipos.size + filtroVicariatos.size + (busca ? 1 : 0);
     const filtrosAtivos = totalAtivos > 0;
+
+    // Cálculos de totais globais
+    const statsGlobais = useMemo(() => {
+        let paroquias = 0;
+        let devocoes = 0;
+        regioes.forEach(r => {
+            r.devocoes.forEach(d => {
+                if (d.tipo === 'paroquia') paroquias++;
+                else devocoes++;
+            });
+        });
+        return { paroquias, devocoes };
+    }, [regioes]);
+
+    const paroquiaSelecionada = filtroTipos.has('paroquia');
+    const apenasUmTipo = filtroTipos.size === 1;
 
     // Filtra regiões e devoções
     const regioesFiltradas = useMemo(() =>
@@ -285,6 +309,10 @@ export function ComunidadesGallery({ regioes }: Props) {
                 ...r,
                 devocoes: r.devocoes.filter((d) => {
                     const q = busca.toLowerCase();
+
+                    // Regra: Paróquias só aparecem se o filtro "paroquia" estiver ATIVO
+                    if (d.tipo === 'paroquia' && !paroquiaSelecionada) return false;
+
                     return (
                         (filtroTipos.size === 0 || filtroTipos.has(d.tipo)) &&
                         (!busca || d.nome.toLowerCase().includes(q) ||
@@ -293,30 +321,35 @@ export function ComunidadesGallery({ regioes }: Props) {
                     );
                 }),
             }))
-            // Quando há filtros ativos, oculta regiões sem resultados
+            // Quando há filtros ativos ou busca, oculta regiões sem resultados
             .filter((r) => !filtrosAtivos || r.devocoes.length > 0),
-        [regioes, filtroTipos, filtroVicariatos, busca, filtrosAtivos]
+        [regioes, filtroTipos, filtroVicariatos, busca, filtrosAtivos, paroquiaSelecionada]
     );
 
-    // Agrupa por vicariato (só mostra vicariatos com pelo menos 1 região visível)
+    // Agrupa por vicariato
     const porVicariato = useMemo(() =>
-        VICARIATOS_ORDER.map((vic) => ({
-            vic,
-            regioes: regioesFiltradas.filter((r) => r.vicariato === vic),
-        })).filter((g) => g.regioes.length > 0),
+        VICARIATOS_ORDER.map((vic) => {
+            const regs = regioesFiltradas.filter((r) => r.vicariato === vic);
+            const countParoquias = regs.reduce((a, r) => a + r.devocoes.filter(d => d.tipo === 'paroquia').length, 0);
+            return {
+                vic,
+                regioes: regs,
+                countParoquias
+            };
+        }).filter((g) => g.regioes.length > 0),
         [regioesFiltradas]
     );
-
-    const totalDevocoes = regioes.reduce((a, r) => a + r.devocoes.length, 0);
 
     return (
         <section className="mb-12">
             <h2 className="text-4xl font-bold text-amber-900 text-center mb-4 font-brand">
                 ✝ Encontre Seu Lugar ✝
             </h2>
-            <p className="text-center text-slate-600 max-w-2xl mx-auto mb-8">
-                Explore grupos jovens, movimentos, comunidades e devoções organizados por região do Distrito Federal.
-            </p>
+            <div className="flex flex-col items-center gap-2 mb-8">
+                <p className="text-center text-slate-600 max-w-2xl mx-auto">
+                    Explore grupos jovens, movimentos, comunidades e devoções organizados por região do Distrito Federal.
+                </p>
+            </div>
 
             {/* ── Busca + Filtros ── */}
             <div className="flex gap-3 mb-4">
@@ -392,7 +425,7 @@ export function ComunidadesGallery({ regioes }: Props) {
             )}
 
             {/* ── Resultado vazio ── */}
-            {totalDevocoes === 0 ? (
+            {(statsGlobais.paroquias + statsGlobais.devocoes) === 0 ? (
                 <div className="text-center py-20 text-amber-700/50">
                     <Users className="mx-auto h-14 w-14 mb-4 opacity-30" />
                     <p className="text-base font-semibold">Em breve os grupos serão cadastrados aqui!</p>
@@ -409,18 +442,56 @@ export function ComunidadesGallery({ regioes }: Props) {
             ) : (
                 /* ── Blocos por Vicariato — mesmo padrão da galeria mariana ── */
                 <div className="space-y-12">
-                    {porVicariato.map(({ vic, regioes: regs }) => {
+                    {porVicariato.map(({ vic, regioes: regs, countParoquias }) => {
                         const cfg = VICARIATO_CONFIG[vic];
                         return (
                             <div
                                 key={vic}
                                 className={`p-8 rounded-3xl shadow-lg border transition-all duration-500 ${cfg.gradient}`}
                             >
-                                {/* Título do Vicariato */}
-                                <h3 className={`text-2xl font-bold mb-8 flex items-center gap-3 ${cfg.titleColor}`}>
-                                    <span className="w-2 h-8 bg-current rounded-full" />
-                                    {cfg.emoji} Vicariato {vic}
-                                </h3>
+                                <div className="space-y-4">
+                                    <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 border-b border-white/50 pb-4">
+                                        <div className="flex items-center gap-4">
+                                            <div>
+                                                <h2 className={`text-3xl font-black flex items-center gap-3 ${cfg.titleColor}`}>
+                                                    <span className="text-4xl">{cfg.emoji}</span> Vicariato {vic}
+                                                </h2>
+                                                <div className="flex items-center gap-3 mt-1 ml-1">
+                                                    <p className="text-gray-600 font-medium text-sm">Arquidiocese de Brasília</p>
+                                                    {paroquiaSelecionada && (
+                                                        <span className={`px-2 py-0.5 rounded-full text-[10px] text-white font-bold ${cfg.badgeBg}`}>
+                                                            {countParoquias} Paróquias
+                                                        </span>
+                                                    )}
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Infocard do Vicariato - SÓ APARECE SE FILTRAR POR PARÓQUIA */}
+                                        {paroquiaSelecionada && vicariatosInfo[vic as Vicariato] && (
+                                            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-4 border border-white/80 shadow-inner text-xs space-y-2 min-w-[300px]">
+                                                <div className="flex items-center gap-2 text-gray-800">
+                                                    <Shield className="h-3.5 w-3.5 text-blue-600" />
+                                                    <span className="font-bold">Bispo:</span> {vicariatosInfo[vic as Vicariato].bispo}
+                                                </div>
+                                                <div className="flex items-center gap-2 text-gray-700">
+                                                    <User className="h-3.5 w-3.5 text-gray-500" />
+                                                    <span className="font-bold">Vigário Episcopal:</span> {vicariatosInfo[vic as Vicariato].vigario}
+                                                </div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1 border-t border-gray-200/50">
+                                                    <div className="flex items-center gap-2">
+                                                        <Phone className="h-3 w-3 text-green-600" />
+                                                        <span>{vicariatosInfo[vic as Vicariato].telefone} ({vicariatosInfo[vic as Vicariato].secretaria})</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-2">
+                                                        <Mail className="h-3 w-3 text-red-500" />
+                                                        <span className="truncate">{vicariatosInfo[vic as Vicariato].email}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                </div>
 
                                 {/* Sub-blocos por Região Administrativa */}
                                 <div className="space-y-10">
@@ -429,12 +500,16 @@ export function ComunidadesGallery({ regioes }: Props) {
                                             {/* Cabeçalho da RA */}
                                             <div className="flex items-center gap-3 mb-6 flex-wrap">
                                                 <h4 className={`text-lg font-bold ${cfg.titleColor}`}>{regiao.nome}</h4>
-                                                <span className={`text-xs font-bold text-white px-2 py-0.5 rounded-full ${cfg.badgeBg}`}>
-                                                    Setor {regiao.setorArquidiocese}
-                                                </span>
-                                                <span className={`text-xs font-medium ${cfg.titleColor} opacity-70`}>
-                                                    RCC {regiao.setorRCC}
-                                                </span>
+                                                {paroquiaSelecionada && (
+                                                    <span className={`text-xs font-bold text-white px-2 py-0.5 rounded-full ${cfg.badgeBg}`}>
+                                                        {regiao.devocoes.filter(d => d.tipo === 'paroquia').length} Paróquias
+                                                    </span>
+                                                )}
+                                                {!paroquiaSelecionada && (
+                                                    <span className={`text-xs font-bold text-white px-2 py-0.5 rounded-full ${cfg.badgeBg}`}>
+                                                        Setor RCC {regiao.setorRCC}
+                                                    </span>
+                                                )}
                                             </div>
 
                                             {/* Grid de círculos — mesmo formato da galeria mariana */}
