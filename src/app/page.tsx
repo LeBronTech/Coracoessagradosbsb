@@ -13,7 +13,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTr
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Menu, ChevronLeft, ChevronRight, BookOpen } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { parse, differenceInDays, getYear } from 'date-fns';
 import Image from 'next/image';
@@ -403,6 +403,15 @@ export default function Home() {
                     Espaço Mariano
                   </Button>
                 </Link>
+
+                <Link href="/encontre-seu-lugar" className="w-full">
+                  <Button
+                    className="w-full justify-start gap-2 bg-amber-600 hover:bg-amber-700 text-white"
+                  >
+                    <Users className="h-5 w-5" />
+                    Encontre Seu Lugar
+                  </Button>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
@@ -454,6 +463,13 @@ export default function Home() {
               <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
                 <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
                 <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
+              </button>
+            </Link>
+
+            <Link href="/encontre-seu-lugar">
+              <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-amber-600/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                <Users className="w-6 h-6" />
+                <span className="font-brand text-sm text-center font-semibold">Encontre Seu Lugar</span>
               </button>
             </Link>
           </div>
