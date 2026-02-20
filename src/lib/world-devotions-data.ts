@@ -93,8 +93,8 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇷🇺",
                 date: "4 de Novembro",
                 imageUrl: "/images/ns_kazan.png",
-                description: "Padroeira da Rússia - Ícone milagroso",
-                fullDescription: "O ícone mais venerado da Rússia, 'A Libertadora'. Salvou a Rússia de invasões polonesas e napoleônicas. Desapareceu em 1904 e uma cópia antiga foi devolvida por São João Paulo II à Igreja Ortodoxa Russa em 2004, num gesto histórico de ecumenismo.",
+                description: "A Libertadora da Rússia - Ícone milagroso encontrado sob as cinzas",
+                fullDescription: "O Ícone mais venerado da Rússia, conhecido como 'A Libertadora'. Sua história milagrosa começa em 1579, quando a Virgem Maria apareceu por três vezes à pequena Matrona, de 9 anos, em Kazan, após um incêndio devastador. Ela indicou o local exato onde o ícone estava enterrado sob as cinzas de uma casa. Ao cavar, encontraram o ícone embrulhado num trapo, resplandecente como se fosse novo.\n\nO ícone de Kazan tornou-se o principal símbolo de unidade e resistência nacional russa. Em 1612, acompanhou as tropas que libertaram Moscou dos invasores poloneses. O General Mikhail Kutuzov rezou diante dele antes de derrotar Napoleão em 1812. Em 1904, o original foi tragicamente roubado e destruído (ou possivelmente levado), mas cópias milagrosas continuaram a inspirar o povo. Uma dessas cópias, conhecida como o 'Kazan do Ocidente', foi comprada nos EUA, levada para Fátima e finalmente entregue em mãos ao Patriarca Aléxis II de Moscou por ordem de São João Paulo II em 2004, num gesto extraordinário de ecumenismo e fraternidade entre a Igreja Católica e a Ortodoxa Russa.",
                 status: "approved",
                 statusNote: "Ícone Ortodoxo e Católico"
             },
@@ -386,10 +386,10 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇯🇵",
                 date: "13 de Outubro",
                 imageUrl: "/images/ns_akita.png",
-                description: "Estátua que chorou (1973)",
-                fullDescription: "Aprovada pelo bispo local. Uma estátua chorou lágrimas e sangue 101 vezes. As mensagens alertam sobre a crise na fé e no mundo.",
+                description: "A Virgem que chorou no Japão - Mensagens de alerta e conversão",
+                fullDescription: "As aparições de Nossa Senhora de Akita (1973-1981) são um dos eventos marianos mais importantes do século XX, ocorridos no convento das Servas da Eucaristia em Yuzawadai, Japão. A vidente, Irmã Agnes Sasagawa, era uma religiosa convertida do budismo que sofria de surdez total.\n\nA MANIFESTAÇÃO DA ESTÁTUA\n\nUma estátua de madeira de Nossa Senhora, esculpida por um artista local, apresentou fenômenos inexplicáveis: verteu sangue de uma ferida em forma de cruz na mão direita, suou um perfume celestial e, o mais famoso, chorou lágrimas humanas por 101 vezes. Estes eventos foram testemunhados por centenas de pessoas, incluindo o bispo diocesano, e as análises científicas confirmaram que o sangue e as lágrimas eram de origem humana.\n\nAS MENSAGENS E A CURA\n\nMaria transmitiu três mensagens graves, alertando sobre uma crise profunda na Igreja ('cardeais contra cardeais, bispos contra bispos') e um castigo sobre a humanidade se não houvesse conversão. No dia 13 de outubro de 1974, a Irmã Agnes foi milagrosamente curada de sua surdez, conforme prometido pela Virgem. As aparições foram aprovadas pelo bispo de Niigata em 1984 e consideradas 'dignas de fé' pelo Cardeal Ratzinger (futuro Bento XVI) em 1988, que as viu como uma continuação da mensagem de Fátima.",
                 status: "approved",
-                statusNote: "Reconhecida como sobrenatural pelo Bispo de Niigata em 1984"
+                statusNote: "Reconhecida como sobrenatural pela Igreja em 1984 e pelo Vaticano em 1988"
             },
             {
                 id: "sheshan",
@@ -398,8 +398,8 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇨🇳",
                 date: "24 de Maio",
                 imageUrl: "/images/ns_sheshan.png",
-                description: "Auxiliadora dos Cristãos da China",
-                fullDescription: "O Santuário de Sheshan em Xangai é o centro da fé católica na China. Em 24 de maio, a Igreja universal reza pela Igreja na China.",
+                description: "Auxiliadora dos Cristãos e Padroeira da China",
+                fullDescription: "A 'Auxiliadora dos Cristãos' e Padroeira da China. A devoção nasceu no século XIX, quando missionários jesuítas construíram o primeiro santuário na colina de Sheshan, perto de Xangai. Durante a sangrenta Rebelião Taiping em 1870, o Superior da Missão prometeu construir uma grande basílica se Maria protegesse a diocese de Xangai do extermínio. A cidade foi milagrosamente poupada, e a promessa foi cumprida com a construção de uma magnífica basílica neogótica que domina o vale.\n\nNo topo do seu campanário, uma imponente estátua de bronze de 4 metros mostra Maria elevando o Menino Jesus ao céu, apresentando-O como o único Salvador. Em 1924, o Primeiro Concílio Chinês consagrou solenemente a nação a Maria. Sob o regime comunista, o santuário foi confiscado e fechado por décadas, mas a fé do povo permaneceu inquebrantável. Relatos de luzes sobrenaturais e aparições na colina em 1980 marcaram o renascimento das romarias. O Papa Bento XVI instituiu o dia 24 de maio (festa de Maria Auxiliadora) como o Dia Mundial de Oração pela Igreja na China, compondo uma belíssima oração a Nossa Senhora de Sheshan, pedindo que ela sustente os cristãos perseguidos e lhes dê força para testemunhar a fé com esperança e amor.",
                 status: "approved",
                 statusNote: "Santuário nacional; oração pela China composta pelo Papa Bento XVI"
             },
@@ -445,9 +445,10 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Coreia do Sul",
                 countryFlag: "🇰🇷",
                 date: "19 de Outubro",
-                imageUrl: "/images/ns_naju.png",
-                description: "Lágrimas de sangue e milagres eucarísticos",
-                fullDescription: "Fenômenos iniciados em 1985 com Julia Kim. A estátua chorou sangue e hóstias se transformaram em carne. A Igreja local (Arcebispo de Gwangju) emitiu decretos negativos, não reconhecendo a sobrenaturalidade.",
+                imageUrl: "/images/ns_naju.jpg",
+                images: ["/images/ns_naju.jpg", "/images/ns_naju_2.png"],
+                description: "Lágrimas de sangue e milagres eucarísticos na Coreia do Sul",
+                fullDescription: "Um dos fenômenos marianos mais impressionantes e debatidos do século XX, iniciado em 30 de junho de 1985 em Naju, Coreia do Sul. Julia Kim, mãe de quatro filhos e convertida ao catolicismo, viu sua pequena estátua de Nossa Senhora começar a verter lágrimas humanas, que posteriormente se tornaram lágrimas de sangue, por mais de 700 vezes até 1994.\n\nO local é palco de inúmeros fenômenos extraordinários, incluindo 33 milagres eucarísticos documentados, onde a hóstia sagrada transformou-se em carne e sangue reais (em forma de coração) sobre a língua de Julia Kim durante a comunhão. Maria apresenta-se em Naju como a 'Mãe de Misericórdia' que chora pelos pecados de seus filhos e pelo desprezo à Eucaristia. Ela pede oração, sacrifício e reparação, além de fidelidade ao Papa e ao clero.\n\nEmbora o Arcebispo de Gwangju tenha expressado reservas e cautela, multidões de fiéis e sacerdotes de todo o mundo visitam o local, testemunhando profundas conversões e curas espirituais. A mensagem de Naju é um chamado urgente de Maria para que o mundo retorne ao Coração de Deus antes que seja tarde demais.",
                 status: "not-approved",
                 statusNote: "Rejeitada pela Igreja Local"
             },
@@ -458,10 +459,10 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇵🇭",
                 date: "12 de Setembro",
                 imageUrl: "/images/ns_filipinas.png",
-                description: "Fenômeno das pétalas (1948)",
-                fullDescription: "Chuva de pétalas em 1948. Devoção imensa, mas o Vaticano declarou recentemente (2024) que não consta sobrenaturalidade.",
+                description: "A Medianeira de Todas as Graças e o Fenômeno das Pétalas de Rosa",
+                fullDescription: "A história de Nossa Senhora em Lipa, Filipinas (1948), é um dos relatos marianos mais fascinantes da Ásia, envolvendo a jovem noviça Teresita Castillo no Mosteiro Carmelita de Lipa. Maria apresentou-se com o título de 'Medianeira de Todas as Graças', trajando uma túnica branca e um cinto dourado.\n\nO MILAGRE DAS PÉTALAS\n\nO fenômeno que mais impressionou o mundo foi a 'chuva de pétalas de rosa' que caíam inexplicavelmente dentro e fora do convento. Muitas dessas pétalas, de beleza e perfume extraordinários, traziam imagens de Jesus e Maria gravadas em sua superfície. Milhares de peregrinos testemunharam o fenômeno, e inúmeras curas foram relatadas após o uso das pétalas.\n\nCONTROVÉRSIA E DEVOÇÃO\n\nApesar da imensa devoção popular, a história de Lipa é marcada por uma longa disputa eclesiástica. Inicialmente aprovado pelo bispo local, o caso foi suprimido em 1951. Décadas depois, houve novas tentativas de reconhecimento, mas em 2016 o Vaticano ratificou a decisão de não-sobrenaturalidade. Contudo, a Santa Sé permite a veneração privada, e Lipa continua sendo um dos maiores centros de fé das Filipinas, onde o povo recorre a Maria como a Mãe que intercede por todas as graças divinas.",
                 status: "not-approved",
-                statusNote: "Julgamento negativo do Vaticano (2024)"
+                statusNote: "Julgamento negativo do Vaticano (2024); Devoção popular permitida"
             },
             {
                 id: "tra_kieu",
