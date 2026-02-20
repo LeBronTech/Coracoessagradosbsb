@@ -137,7 +137,7 @@ export function MarianGallery() {
             <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10">
                 <div className="bg-white dark:bg-slate-800 px-6 py-3 rounded-2xl shadow-sm border border-blue-100 dark:border-blue-900/40 flex flex-col items-center min-w-[140px]">
                     <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">{devotions.length}</span>
-                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Títulos pelo Mundo</span>
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Devoção pelo Mundo</span>
                 </div>
                 <div className="bg-white dark:bg-slate-800 px-6 py-3 rounded-2xl shadow-sm border border-blue-100 dark:border-blue-900/40 flex flex-col items-center min-w-[140px]">
                     <span className="text-3xl font-bold text-green-600 dark:text-green-400">
