@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CheckCircle, Clock, AlertCircle, BookOpen, X, ArrowLeft } from "lucide-react";
+import { CheckCircle, Clock, AlertCircle, BookOpen, X, ArrowLeft, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Image from "next/image";
 
 interface MarianDevotion {
@@ -12,6 +12,7 @@ interface MarianDevotion {
     date: string;
     month: string;
     imageUrl: string;
+    images?: string[];
     description: string;
     fullDescription?: string;
     novenaId?: string;
@@ -231,50 +232,144 @@ function DevotionDialogWrapper({ devotion, isPink }: { devotion: MarianDevotion;
     );
 }
 
-// Componente helper para Dialog com scroll dinâmico
+// Componente helper para Dialog com scroll dinâmico e galeria
 function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [scrolled, setScrolled] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [lastInteractionTime, setLastInteractionTime] = useState(0);
+
+    // Usa `images` se disponível, senão usa imageUrl
+    const allImages = devotion.images && devotion.images.length > 0
+        ? devotion.images
+        : [devotion.imageUrl];
+
+    const hasMultipleImages = allImages.length > 1;
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const scrollTop = e.currentTarget.scrollTop;
-        setScrolled(scrollTop > 50);
+        const isScrolled = e.currentTarget.scrollTop > 50;
+        setScrolled(isScrolled);
+        if (isScrolled && isExpanded) setIsExpanded(false);
     };
+
+    const goTo = (idx: number) => {
+        setCurrentImageIndex((idx + allImages.length) % allImages.length);
+        setLastInteractionTime(Date.now());
+    };
+
+    const prevImage = (e?: React.MouseEvent | React.PointerEvent) => {
+        e?.stopPropagation();
+        goTo(currentImageIndex - 1);
+    };
+
+    const nextImage = (e?: React.MouseEvent | React.PointerEvent) => {
+        e?.stopPropagation();
+        goTo(currentImageIndex + 1);
+    };
+
+    // Slide automático
+    useEffect(() => {
+        if (!hasMultipleImages || paused) return;
+
+        const timer = setInterval(() => {
+            const now = Date.now();
+            if (now - lastInteractionTime > 5000) {
+                setCurrentImageIndex((p) => (p + 1) % allImages.length);
+            }
+        }, 4000);
+
+        return () => clearInterval(timer);
+    }, [hasMultipleImages, paused, allImages.length, lastInteractionTime]);
 
     return (
         <DialogContent
-            className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden"
+            className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden p-0 [&>button:last-child]:hidden"
         >
-            {/* Botão Voltar Estilizado - Posição ajustada */}
-            <DialogClose className="absolute left-4 top-16 z-50 rounded-full bg-blue-600/90 hover:bg-blue-700 text-white px-4 py-2 shadow-lg transition-all hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 flex items-center gap-2 group">
-                <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-                <span className="text-sm font-bold">Voltar</span>
+            {/* Botão Voltar/Fechar estilizado azul */}
+            <DialogClose className="absolute left-3 top-12 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-colors focus:outline-none">
+                <X className="h-4 w-4" />
+                <span className="sr-only">Fechar</span>
             </DialogClose>
 
-            <DialogHeader className="px-2 pt-10 pb-4 relative flex-shrink-0">
-                <div className="flex flex-col items-center justify-center min-h-[160px] sm:min-h-[200px]">
-                    <div className={`relative transition-all duration-500 ease-in-out ${scrolled ? 'scale-50 -translate-y-4' : 'scale-100'}`}>
-                        <Image
-                            src={devotion.imageUrl}
-                            alt={devotion.name}
-                            width={200}
-                            height={200}
-                            className="rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl w-32 h-32 sm:w-40 sm:h-40"
+            {/* ── Galeria/Imagem Principal ── */}
+            <div className={`flex-shrink-0 flex flex-col items-center transition-all duration-500 ease-in-out ${scrolled ? 'pt-2 pb-1' : 'pt-12 pb-0'}`}>
+                <div className="relative flex items-center justify-center w-full max-w-[500px] px-4">
+                    {hasMultipleImages && (
+                        <button
+                            type="button"
+                            className={`absolute left-4 sm:left-0 sm:relative z-20 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50/90 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 shadow-sm transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2 sm:mr-3'}`}
+                            onPointerDown={(e) => prevImage(e)}
+                            aria-label="Imagem anterior"
+                        >
+                            <ChevronLeft className="w-5 h-5" />
+                        </button>
+                    )}
+
+                    {/* Moldura dinâmica */}
+                    <div
+                        onClick={() => !scrolled && setIsExpanded(!isExpanded)}
+                        style={{
+                            borderRadius: scrolled ? '9999px' : '1rem',
+                            width: scrolled ? '72px' : isExpanded ? 'min(450px, 85vw)' : 'min(330px, 70vw)',
+                            height: scrolled ? '72px' : isExpanded ? 'min(450px, 85vw)' : 'min(330px, 70vw)',
+                            cursor: scrolled ? 'default' : 'pointer',
+                        }}
+                        className="relative overflow-hidden flex-shrink-0 border-2 border-blue-400 dark:border-blue-600 shadow-lg transition-all duration-500 z-10"
+                    >
+                        <img
+                            src={allImages[currentImageIndex]}
+                            alt=""
+                            className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70"
                         />
+                        <div className="absolute inset-0 bg-black/10 pointer-events-none" />
+                        <img
+                            src={allImages[currentImageIndex]}
+                            alt={devotion.name}
+                            className="absolute inset-0 w-full h-full object-contain z-10"
+                        />
+
+                        {hasMultipleImages && !scrolled && (
+                            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1">
+                                {allImages.map((_, idx) => (
+                                    <button
+                                        key={idx}
+                                        onPointerDown={(e) => { e.stopPropagation(); goTo(idx); }}
+                                        className={`h-0.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'w-6 bg-white' : 'w-3 bg-white/50'}`}
+                                    />
+                                ))}
+                            </div>
+                        )}
+
+                        {!scrolled && !isExpanded && (
+                            <div className="absolute top-2 right-2 z-20 bg-black/30 backdrop-blur-sm p-1.5 rounded-full text-white/80 opacity-0 group-hover:opacity-100 transition-opacity">
+                                <ZoomIn className="w-4 h-4" />
+                            </div>
+                        )}
                     </div>
-                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-500 ease-in-out ${scrolled ? 'text-lg sm:text-xl -translate-y-8' : 'text-xl sm:text-2xl md:text-3xl mt-4'
-                        }`}>
-                        {devotion.name}
-                    </DialogTitle>
-                    <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-500 ease-in-out ${scrolled ? 'opacity-0 scale-95 pointer-events-none h-0 mt-0' : 'opacity-100 mt-2'
-                        }`}>
-                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
-                            {devotion.date}
-                        </span>
-                        <span className="text-slate-400">•</span>
-                        <span className="text-slate-600 dark:text-slate-400 font-medium">
-                            {devotion.month}
-                        </span>
-                    </div>
+
+                    {hasMultipleImages && (
+                        <button
+                            type="button"
+                            className={`absolute right-4 sm:right-0 sm:relative z-20 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50/90 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 shadow-sm transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2 sm:ml-3'}`}
+                            onPointerDown={(e) => nextImage(e)}
+                            aria-label="Próxima imagem"
+                        >
+                            <ChevronRight className="w-5 h-5" />
+                        </button>
+                    )}
+                </div>
+            </div>
+
+            <DialogHeader className="px-5 pt-1 pb-0 flex-shrink-0">
+                <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand break-words transition-all duration-500 ${scrolled ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl md:text-3xl'}`}>
+                    {devotion.name}
+                </DialogTitle>
+                <div className={`flex items-center gap-2 flex-wrap justify-center mt-1 transition-all duration-500 ${scrolled ? 'opacity-0 h-0 pointer-events-none mt-0 overflow-hidden' : 'opacity-100'}`}>
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
+                        {devotion.date}
+                    </span>
+                    <span className="text-slate-400 font-medium text-sm">{devotion.month}</span>
                 </div>
             </DialogHeader>
 
@@ -296,7 +391,7 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                                 História e Significado
                             </h4>
                             <div
-                                className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words prose prose-slate dark:prose-invert max-w-none prose-h4:text-blue-700 dark:prose-h4:text-blue-300 prose-h4:font-bold prose-h4:text-base prose-h4:mt-4 prose-h4:mb-2 prose-p:my-2 prose-strong:text-blue-800 dark:prose-strong:text-blue-200"
+                                className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap"
                                 dangerouslySetInnerHTML={{ __html: devotion.fullDescription }}
                             />
                         </div>
@@ -311,9 +406,8 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                             }`}>
                             <div className="mt-0.5 flex-shrink-0">
                                 {devotion.status === "approved" && <CheckCircle className="w-4 h-4 text-green-600" />}
-                                {devotion.status === "traditional" && <CheckCircle className="w-4 h-4 text-blue-600" />}
+                                {(devotion.status === "traditional" || devotion.status === "complex") && <CheckCircle className="w-4 h-4 text-blue-600" />}
                                 {devotion.status === "pending" && <Clock className="w-4 h-4 text-orange-600" />}
-                                {devotion.status === "complex" && <AlertCircle className="w-4 h-4 text-orange-600" />}
                             </div>
                             <div>
                                 <p className={`text-sm font-semibold ${devotion.status === "approved"
@@ -323,15 +417,10 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                                         : "text-orange-800 dark:text-orange-200"
                                     }`}>
                                     {devotion.status === "approved" && "Aparição Aprovada pela Santa Sé"}
-                                    {devotion.status === "traditional" && devotion.statusNote}
+                                    {devotion.status === "traditional" && (devotion.statusNote || "Devoção Tradicional")}
                                     {devotion.status === "pending" && "Em Estudo/Reconhecimento"}
                                     {devotion.status === "complex" && "Status Complexo"}
                                 </p>
-                                {devotion.statusNote && devotion.status === "approved" && (
-                                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                                        {devotion.statusNote}
-                                    </p>
-                                )}
                             </div>
                         </div>
                     )}
