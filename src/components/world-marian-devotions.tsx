@@ -2,8 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-import { ScrollArea } from "@/components/ui/scroll-area";
-import { Globe, AlertCircle, CheckCircle, Clock, X } from "lucide-react";
+import { Globe, AlertCircle, CheckCircle, Clock, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Image from "next/image";
 
 import { worldMarianDevotions, MarianDevotion, Continent } from "@/lib/world-devotions-data";
@@ -13,47 +12,13 @@ export function WorldMarianDevotions() {
     const [activeContinent, setActiveContinent] = useState<string>("");
     const continentRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
-    const getStatusIcon = (status?: string) => {
-        switch (status) {
-            case "approved":
-                return <CheckCircle className="w-5 h-5 text-green-600" />;
-            case "pending":
-                return <Clock className="w-5 h-5 text-yellow-600" />;
-            case "complex":
-                return <AlertCircle className="w-5 h-5 text-orange-600" />;
-            case "not-approved":
-                return <AlertCircle className="w-5 h-5 text-red-600" />;
-            default:
-                return null;
-        }
-    };
-
-    const getStatusText = (status?: string) => {
-        switch (status) {
-            case "approved":
-                return "Aprovada pela Igreja";
-            case "pending":
-                return "Em análise";
-            case "complex":
-                return "Situação complexa";
-            case "not-approved":
-                return "Não aprovada";
-            default:
-                return "";
-        }
-    };
-
     const scrollToContinent = (continentName: string) => {
         const element = continentRefs.current[continentName];
         if (element) {
-            const offset = 100; // Offset para compensar o menu fixo
+            const offset = 100;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
-            });
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
         }
     };
 
@@ -73,7 +38,6 @@ export function WorldMarianDevotions() {
         };
 
         const observer = new IntersectionObserver(observerCallback, observerOptions);
-
         Object.values(continentRefs.current).forEach((ref) => {
             if (ref) observer.observe(ref);
         });
@@ -127,30 +91,16 @@ export function WorldMarianDevotions() {
 
             <div className="space-y-12">
                 {continents.map((continent) => {
-                    // Agrupar devoções por país
                     const devotionsByCountry: Record<string, MarianDevotion[]> = {};
 
                     continent.devotions.forEach(devotion => {
-                        const countryName = devotion.country; // Ex: "Brasil (Acre)" ou "França"
-                        // Simplifica o nome do país para agrupamento se desejar, ou usa o full name
-                        // Vamos usar o nome completo para garantir bandeiras corretas se estiverem "Brasil (MG)" etc.
-                        // Mas para agrupar melhor, talvez devêssemos normalizar.
-                        // Dado os dados atuais, "Brasil (Acre)", "Brasil (SP)" são distintos.
-                        // Se quisermos agrupar TUDO do Brasil, precisamos extrair a base.
-
-                        // Lógica de extração simples: Pegar o que está antes de parenteses ou o próprio nome
-                        // Ex: "Brasil (Acre)" -> "Brasil"
-                        let countryKey = countryName.split('(')[0].trim();
-
-                        // Exceções ou refinamentos se necessário. Por enquanto, agrupación por base do país.
-
+                        let countryKey = devotion.country.split('(')[0].trim();
                         if (!devotionsByCountry[countryKey]) {
                             devotionsByCountry[countryKey] = [];
                         }
                         devotionsByCountry[countryKey].push(devotion);
                     });
 
-                    // Ordenar países alfabeticamente
                     const sortedCountries = Object.keys(devotionsByCountry).sort();
 
                     return (
@@ -178,7 +128,6 @@ export function WorldMarianDevotions() {
                             <div className="space-y-12">
                                 {sortedCountries.map(countryKey => {
                                     const countryDevotions = devotionsByCountry[countryKey];
-                                    // Pega a bandeira do primeiro item para exibir no header do país
                                     const flag = countryDevotions[0].countryFlag;
 
                                     return (
@@ -201,12 +150,17 @@ export function WorldMarianDevotions() {
                                                                         height={200}
                                                                         className="aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
                                                                     />
-                                                                    {/* Bandeira removida daqui pois já está no header do grupo, ou mantemos pequena? Vamos manter para reforçar */}
                                                                     <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 z-10">
                                                                         <span className="inline-block px-3 py-1 text-white text-[10px] font-bold rounded-full shadow-sm bg-blue-600">
                                                                             {devotion.date}
                                                                         </span>
                                                                     </div>
+                                                                    {/* Badge de múltiplas imagens na thumbnail */}
+                                                                    {devotion.images && devotion.images.length > 1 && (
+                                                                        <div className="absolute top-0 right-0 bg-purple-600 text-white text-[10px] font-bold rounded-full w-5 h-5 flex items-center justify-center shadow-md border-2 border-white">
+                                                                            {devotion.images.length}
+                                                                        </div>
+                                                                    )}
                                                                 </div>
                                                                 <p className="text-center mt-6 text-sm font-semibold text-slate-700 dark:text-slate-300 line-clamp-2 px-2 h-10 flex items-center justify-center">
                                                                     {devotion.name}
@@ -243,6 +197,8 @@ export function WorldMarianDevotions() {
     );
 }
 
+// ─── Funções utilitárias de status ───────────────────────────────────────────
+
 const getStatusIcon = (status?: string) => {
     switch (status) {
         case "approved": return <CheckCircle className="w-4 h-4 text-green-600" />;
@@ -263,97 +219,241 @@ const getStatusText = (status?: string) => {
     }
 };
 
+// ─── Dialog da Devoção com Lightbox ──────────────────────────────────────────
+
 function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [scrolled, setScrolled] = useState(false);
+    const [lightboxOpen, setLightboxOpen] = useState(false);
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    // imageUrl é sempre a primeira; images[] são as extras
+    const allImages = devotion.images && devotion.images.length > 0
+        ? [devotion.imageUrl, ...devotion.images]
+        : [devotion.imageUrl];
+
+    const hasMultipleImages = allImages.length > 1;
+
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const scrollTop = e.currentTarget.scrollTop;
-        setScrolled(scrollTop > 50);
+        setScrolled(e.currentTarget.scrollTop > 50);
     };
 
-    return (
-        <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
-            {/* Botão Voltar Estilizado */}
-            <DialogClose className="absolute left-8 top-16 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <X className="h-5 w-5" />
-                <span className="sr-only">Fechar</span>
-            </DialogClose>
+    const openLightbox = () => {
+        setCurrentImageIndex(0);
+        setLightboxOpen(true);
+    };
 
-            <DialogHeader className="px-2 pt-10 pb-4 relative flex-shrink-0">
-                <div className="flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
-                    <div className={`relative transition-all duration-500 ease-in-out ${scrolled ? 'scale-50 -translate-y-4' : 'scale-100'}`}>
-                        <Image
-                            src={devotion.imageUrl}
-                            alt={devotion.name}
-                            width={200}
-                            height={200}
-                            className="rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl w-32 h-32 sm:w-40 sm:h-40"
-                        />
-                    </div>
-                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-500 ease-in-out ${scrolled ? 'text-lg sm:text-xl -translate-y-8' : 'text-xl sm:text-2xl md:text-3xl mt-4'
-                        }`}>
-                        {devotion.name}
-                    </DialogTitle>
-                    <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-500 ease-in-out ${scrolled ? 'opacity-0 scale-95 pointer-events-none h-0 mt-0' : 'opacity-100 mt-2'
-                        }`}>
-                        <div className="flex items-center gap-2">
-                            <span className="text-2xl">{devotion.countryFlag}</span>
-                            <span className="text-slate-600 dark:text-slate-400 font-medium">
-                                {devotion.country}
-                            </span>
+    const closeLightbox = () => setLightboxOpen(false);
+
+    const prevImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+    };
+
+    const nextImage = (e: React.MouseEvent) => {
+        e.stopPropagation();
+        setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+    };
+
+    // Navegação por teclado no lightbox
+    useEffect(() => {
+        if (!lightboxOpen) return;
+        const handleKey = (e: KeyboardEvent) => {
+            if (e.key === "Escape") closeLightbox();
+            if (e.key === "ArrowLeft" && hasMultipleImages)
+                setCurrentImageIndex((p) => (p - 1 + allImages.length) % allImages.length);
+            if (e.key === "ArrowRight" && hasMultipleImages)
+                setCurrentImageIndex((p) => (p + 1) % allImages.length);
+        };
+        window.addEventListener("keydown", handleKey);
+        return () => window.removeEventListener("keydown", handleKey);
+    }, [lightboxOpen, hasMultipleImages, allImages.length]);
+
+    return (
+        <>
+            {/* ── Modal Principal ── */}
+            <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
+                {/* Botão Fechar */}
+                <DialogClose className="absolute left-8 top-16 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <X className="h-5 w-5" />
+                    <span className="sr-only">Fechar</span>
+                </DialogClose>
+
+                <DialogHeader className="px-2 pt-10 pb-4 relative flex-shrink-0">
+                    <div className="flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
+                        {/* Imagem clicável para expandir */}
+                        <div className={`relative transition-all duration-500 ease-in-out ${scrolled ? 'scale-50 -translate-y-4' : 'scale-100'}`}>
+                            <button
+                                onClick={openLightbox}
+                                className="group relative focus:outline-none"
+                                title="Clique para ampliar"
+                            >
+                                <Image
+                                    src={allImages[0]}
+                                    alt={devotion.name}
+                                    width={200}
+                                    height={200}
+                                    className="rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl w-32 h-32 sm:w-40 sm:h-40 transition-transform duration-300 group-hover:scale-105 group-hover:border-blue-500"
+                                />
+                                {/* Ícone de zoom overlay */}
+                                <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/0 group-hover:bg-black/30 transition-all duration-300">
+                                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
+                                </div>
+                                {/* Badge de múltiplas imagens */}
+                                {hasMultipleImages && (
+                                    <div className="absolute -bottom-1 -right-1 bg-purple-600 text-white text-[10px] font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white">
+                                        {allImages.length}
+                                    </div>
+                                )}
+                            </button>
                         </div>
-                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
-                            {devotion.date}
-                        </span>
+
+                        <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-500 ease-in-out ${scrolled ? 'text-lg sm:text-xl -translate-y-8' : 'text-xl sm:text-2xl md:text-3xl mt-4'}`}>
+                            {devotion.name}
+                        </DialogTitle>
+
+                        <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-500 ease-in-out ${scrolled ? 'opacity-0 scale-95 pointer-events-none h-0 mt-0' : 'opacity-100 mt-2'}`}>
+                            <div className="flex items-center gap-2">
+                                <span className="text-2xl">{devotion.countryFlag}</span>
+                                <span className="text-slate-600 dark:text-slate-400 font-medium">{devotion.country}</span>
+                            </div>
+                            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
+                                {devotion.date}
+                            </span>
+                            {hasMultipleImages && (
+                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs font-semibold rounded-full flex items-center gap-1">
+                                    📸 {allImages.length} fotos • clique para ver
+                                </span>
+                            )}
+                        </div>
+                    </div>
+                </DialogHeader>
+
+                <div
+                    className="flex-1 overflow-y-auto px-3 sm:px-6 custom-scrollbar scroll-smooth"
+                    onScroll={handleScroll}
+                >
+                    <div className="space-y-6 pb-24 animate-in fade-in duration-700">
+                        <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 sm:p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
+                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic text-sm sm:text-base break-words">
+                                "{devotion.description}"
+                            </p>
+                        </div>
+
+                        <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
+                            <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap">
+                                {devotion.fullDescription}
+                            </p>
+                        </div>
+
+                        {devotion.status && (
+                            <div className={`p-4 rounded-xl border flex items-start gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 ${devotion.status === "approved"
+                                ? "bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-900/30"
+                                : devotion.status === "not-approved"
+                                    ? "bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-900/30"
+                                    : "bg-orange-50 dark:bg-orange-900/20 border-orange-100 dark:border-orange-900/30"
+                                }`}>
+                                <div className="mt-0.5 flex-shrink-0">
+                                    {getStatusIcon(devotion.status)}
+                                </div>
+                                <div>
+                                    <p className={`text-sm font-semibold ${devotion.status === "approved"
+                                        ? "text-green-800 dark:text-green-200"
+                                        : devotion.status === "not-approved"
+                                            ? "text-red-800 dark:text-red-200"
+                                            : "text-orange-800 dark:text-orange-200"
+                                        }`}>
+                                        {getStatusText(devotion.status)}
+                                    </p>
+                                    {devotion.statusNote && (
+                                        <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
+                                            {devotion.statusNote}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </div>
-            </DialogHeader>
+            </DialogContent>
 
-            <div
-                className="flex-1 overflow-y-auto px-3 sm:px-6 custom-scrollbar scroll-smooth"
-                onScroll={handleScroll}
-            >
-                <div className="space-y-6 pb-24 animate-in fade-in duration-700">
-                    <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 sm:p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic text-sm sm:text-base break-words">
-                            "{devotion.description}"
-                        </p>
+            {/* ── Lightbox de Imagem Expandida ── */}
+            {lightboxOpen && (
+                <div
+                    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200"
+                    onClick={closeLightbox}
+                >
+                    {/* Botão Fechar */}
+                    <button
+                        className="absolute top-10 right-4 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+                        onClick={closeLightbox}
+                        aria-label="Fechar imagem"
+                    >
+                        <X className="w-6 h-6" />
+                    </button>
+
+                    {/* Contador */}
+                    {hasMultipleImages && (
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                            {currentImageIndex + 1} / {allImages.length}
+                        </div>
+                    )}
+
+                    {/* Seta Esquerda */}
+                    {hasMultipleImages && (
+                        <button
+                            className="absolute left-4 sm:left-8 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+                            onClick={prevImage}
+                            aria-label="Imagem anterior"
+                        >
+                            <ChevronLeft className="w-8 h-8" />
+                        </button>
+                    )}
+
+                    {/* Imagem */}
+                    <div
+                        className="relative max-w-[88vw] max-h-[85vh] flex items-center justify-center"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <img
+                            src={allImages[currentImageIndex]}
+                            alt={`${devotion.name} — foto ${currentImageIndex + 1}`}
+                            className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300"
+                        />
+                        {/* Legenda */}
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl px-6 py-4">
+                            <p className="text-white font-bold text-center">{devotion.name}</p>
+                        </div>
                     </div>
 
-                    <div className="space-y-3 animate-in fade-in slide-in-from-bottom-4 duration-500">
-                        <p className="text-slate-700 dark:text-slate-300 leading-relaxed px-1 text-sm sm:text-base break-words whitespace-pre-wrap">
-                            {devotion.fullDescription}
-                        </p>
-                    </div>
+                    {/* Seta Direita */}
+                    {hasMultipleImages && (
+                        <button
+                            className="absolute right-4 sm:right-8 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
+                            onClick={nextImage}
+                            aria-label="Próxima imagem"
+                        >
+                            <ChevronRight className="w-8 h-8" />
+                        </button>
+                    )}
 
-                    {devotion.status && (
-                        <div className={`p-4 rounded-xl border flex items-start gap-3 animate-in fade-in slide-in-from-bottom-4 duration-700 ${devotion.status === "approved"
-                            ? "bg-green-50 dark:bg-green-900/20 border-green-100 dark:border-green-900/30"
-                            : devotion.status === "not-approved"
-                                ? "bg-red-50 dark:bg-red-900/20 border-red-100 dark:border-red-900/30"
-                                : "bg-orange-50 dark:bg-orange-900/20 border-orange-100 dark:border-orange-900/30"
-                            }`}>
-                            <div className="mt-0.5 flex-shrink-0">
-                                {getStatusIcon(devotion.status)}
-                            </div>
-                            <div>
-                                <p className={`text-sm font-semibold ${devotion.status === "approved"
-                                    ? "text-green-800 dark:text-green-200"
-                                    : devotion.status === "not-approved"
-                                        ? "text-red-800 dark:text-red-200"
-                                        : "text-orange-800 dark:text-orange-200"
-                                    }`}>
-                                    {getStatusText(devotion.status)}
-                                </p>
-                                {devotion.statusNote && (
-                                    <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">
-                                        {devotion.statusNote}
-                                    </p>
-                                )}
-                            </div>
+                    {/* Indicadores de ponto */}
+                    {hasMultipleImages && (
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                            {allImages.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
+                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${idx === currentImageIndex
+                                        ? 'bg-white scale-125'
+                                        : 'bg-white/50 hover:bg-white/80'
+                                        }`}
+                                    aria-label={`Foto ${idx + 1}`}
+                                />
+                            ))}
                         </div>
                     )}
                 </div>
-            </div>
-        </DialogContent>
+            )}
+        </>
     );
 }

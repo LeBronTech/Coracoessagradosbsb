@@ -5,6 +5,7 @@ export interface MarianDevotion {
     countryFlag: string;
     date: string;
     imageUrl: string;
+    images?: string[]; // múltiplas imagens para galeria
     description: string;
     fullDescription: string;
     status?: "approved" | "pending" | "not-approved" | "complex";
@@ -212,6 +213,11 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇵🇹",
                 date: "02 de Fevereiro",
                 imageUrl: "/images/ns_guia.png",
+                images: [
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2KLj5AsV5UIwqT8pExjPi6k8emqEYvaTi1w&s",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQskL9z31pYLsKuIDa6PjofqTQx8xuSCpVfIw&s",
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRt_cqIt0p-ATctX7BYuhs_Z57HXGNES9l3CQ&s"
+                ],
                 description: "Protetora dos navegantes",
                 fullDescription: "Título antigo, Estrela do Mar que guia os navegantes e as almas.",
                 status: "approved",
@@ -247,9 +253,9 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "27 de Junho",
-                imageUrl: "/images/ns_gietrzwald.png",
+                imageUrl: "https://upload.wikimedia.org/wikipedia/commons/9/92/Gietrzwald_09.jpg",
                 description: "Única aparição aprovada na Polônia (1877)",
-                fullDescription: "Maria apareceu falando polonês (idioma proibido pelos prussianos na época) pedindo a oração do Rosário. Fortaleceu a fé e a identidade nacional polonesa.",
+                fullDescription: "A Única aparição Aprovada na Polônia\n\nGietrzwałd, pequena aldeia na Warmía (nordeste da Polônia), foi o cenário das únicas aparições marianas aprovadas em solo polones pela Santa Sé. Em 1977, cem anos após os eventos, o Bispo de Warmía confirmou oficialmente a sobrenaturalidade das aparições.\n\nAS APARIÇÕES (1877)\n\nEntre 27 de junho e 16 de setembro de 1877, a Virgem Maria apareceu a duas meninas: Justina Szafryńska (12 anos) e Barbara Samulowska (13 anos). Maria sentava sobre uma cadeira de ouro, cercada de luz, sobre um bordo branco (planta local). Usando um vestido branco e um manto azul, segurava o Menino Jesus no colo. Ao redor havia anjos.\n\nA MENSAGEM E O IDIOMA POLONÊS\n\nA escolha do lugar e do idioma foi politicamente significativa: a região estava sob domínio prussiano, e o uso do polones nas escolas e na Igreja havia sido proibido pelo governo. Maria apareceu falando POLONÊS, fortalecendo a identidade nacional e religiosa do povo. A principal mensagem foi: \"Rezai o Rosário todos os dias.\" Uma fonte brotou no local, cujas águas produziram inumeráveis curas.\n\nFRUTOS HISTÓRICOS\n\nAs aparições provocaram uma grande renovação espiritual na Polônia. O Santuário de Gietrzwałd tornou-se um dos maiores centros de peregrinação do país, visitado por São João Paulo II em 1991. A imagem de N.S. de Gietrzwałd foi solenemente coroada pelo Primáz da Polônia.\n\nÓ Maria de Gietrzwałd, que falastepolones num tempo de opressão, ensinai-nos a preservar nossa identidade de filhos de Deus. Intercedei pela Polônia e por todos os povos que sofrem opressão. Amém.",
                 status: "approved",
                 statusNote: "Única aparição na Polônia aprovada pela Santa Sé (1977)"
             },
@@ -259,9 +265,9 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "2 de Julho",
-                imageUrl: "/images/ns_lichen.png",
+                imageUrl: "https://i.pinimg.com/564x/17/a9/61/17a9611565c00296f6034664e12b42a4.jpg",
                 description: "Dolorosa Rainha da Polônia",
-                fullDescription: "Aparições a um soldado ferido em 1813 e depois a um pastor em 1850. O Santuário de Licheń é hoje a maior igreja da Polônia.",
+                fullDescription: "A DOLOROSA RAINHA DA POLÔNIA\n\nNossa Senhora de Lichęń é uma das devoções marianas mais comoventes da Polônia. A história desta devoção abrange dois séculos e está ligada ao maior santuário do país.\n\nA PRIMEIRA APARIÇÃO - 1813\n\nDurante a Batalha de Leipzig (1813), um soldado polones gravemente ferido teve uma visão de Nossa Senhora. Ela segurava um escudo com a águia polonesa e prometeu proteger a Polônia se o povo fizesse penitência e se convertesse. O soldado sobreviveu e foi buscar a imagem que havia visto, encontrando-a no santuário de Charlupi.\n\nA SEGUNDA APARIÇÃO - 1850\n\nEm 1850, um pastor chamado Michał Sikatka teve várias aparições de uma Mulher Dolorosa na floresta de Grablin, próxima a Lichęń. Maria, com lágrimas nos olhos e as mãos abertas, pediu que sua imagem fosse encontrada e venerada. O pastor encontrou justamente o quadro do soldado, que havia sido guardado numa floresta. A imagem foi transladada para Lichęń em 1852 e os milagres se multiplicaram.\n\nO MAIOR SANTUÁRIO DA POLÔNIA\n\nO Santuário de Lichęń abriga a maior Basílica da Polônia, concluída em 2004, com capacidade para 7.000 fiéis. Anualmente recebe mais de 1 milhão de peregrinos. A imagem foi solenemente coroada com coroas papais em 1967 e 1999.\n\nÓ Nossa Senhora de Lichęń, Dolorosa Rainha da Polônia, que chorastes pelos pecados do povo, intercedei por toda a nação polonesa e pelos que recorrem a vós. Amém.",
                 status: "approved",
                 statusNote: "Devoção aprovada e imagem coroada pela Santa Sé em 1967"
             },
@@ -307,9 +313,9 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Polônia",
                 countryFlag: "🇵🇱",
                 date: "26 de Agosto",
-                imageUrl: "/images/ns_czestochowa.png",
-                description: "A Virgem Negra de Jasna Góra",
-                fullDescription: "Ícone bizantino venerado no mosteiro de Jasna Góra. A Virgem Negra é a Rainha e Padroeira da Polônia, símbolo de resistência e fé nacional. As cicatrizes no rosto da imagem lembram os ataques sofridos ao longo da história.",
+                imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSMeNMEJ1EF7ug6VhCbRR0FdKZww-rquE1wJQ&s",
+                description: "A Virgem Negra de Jasna Góra - Rainha da Polônia",
+                fullDescription: "A VIRGEM NEGRA DE JASNA GÓRA\n\nNossa Senhora de Częstochowa é a padroeira e Rainha da Polônia, venerada no mosteiro de Jasna Góra ('Montanha Luminosa'), em Częstochowa. É o maior santuário mariano do mundo eslavo.\n\nA SAGRADA IMAGEM\n\nO ícone é uma pintura de estilo bizant-oriental, representando Maria como Theotokos (Mãe de Deus) com o Menino Jesus. O rosto de Maria apresenta duas cicatrizes na bochecha direita, resultado de ataques de hussitas em 1430. Ao tentarem restaurar as marcas, os pintores perceberam que elas sempre voltavam, e a Igreja decidiu preservá-las como sinal da participação de Maria nos sofrimentos de seu povo.\n\nO DILÚvio SUECO E A VICTÓRIA MILAGROSA\n\nO episódio mais notável é o 'Dilúvio Sueco' (1655-1660): quando tropas suecas conquistaram quase toda a Polônia, o pequeno mosteiro de Jasna Góra, com apenas 70 soldados e 160 monges, resistiu a 3.000 soldados suecos por 40 dias. A vitória inesperada foi atribuída à intercessão de Nossa Senhora e gerou uma profunda renovação espiritual nacional.\n\nRAINHA DA POLÔNIA\n\nEnergizado pela vitória de Jasna Góra, o Rei João II Casimiro consagrou solenemente a Polônia a Nossa Senhora e a proclamou Rainha da Polônia em 1656. A imagem foi coroada com coroas de ouro pelo Papa Clemente XI em 1717. São João Paulo II, polones de nascimento, tinha profunda devoção à Virgem Negra e visitou o santuário várias vezes como Papa.\n\nÓ Nossa Senhora de Częstochowa, Rainha e Mãe da Polônia, que fostes luz e esperança do povo nos momentos mais escuros de sua história, intercedei por nós. Amém.",
                 status: "approved",
                 statusNote: "Coroada solenemente pelo Papa Clemente XI em 1717; Rainha da Polônia"
             },
