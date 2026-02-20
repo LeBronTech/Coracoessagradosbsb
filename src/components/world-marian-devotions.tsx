@@ -227,6 +227,8 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const [paused, setPaused] = useState(false);
+    const [isExpanded, setIsExpanded] = useState(false);
+    const [lastInteractionTime, setLastInteractionTime] = useState(0);
 
     // Usa `images` se disponível (a 1ª do array é sempre a principal), senão usa imageUrl
     const allImages = devotion.images && devotion.images.length > 0
@@ -236,7 +238,9 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const hasMultipleImages = allImages.length > 1;
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        setScrolled(e.currentTarget.scrollTop > 50);
+        const isScrolled = e.currentTarget.scrollTop > 50;
+        setScrolled(isScrolled);
+        if (isScrolled && isExpanded) setIsExpanded(false);
     };
 
     const openLightbox = () => {
@@ -249,7 +253,10 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
         setPaused(false);
     };
 
-    const goTo = (idx: number) => setCurrentImageIndex((idx + allImages.length) % allImages.length);
+    const goTo = (idx: number) => {
+        setCurrentImageIndex((idx + allImages.length) % allImages.length);
+        setLastInteractionTime(Date.now());
+    };
 
     const prevImage = (e?: React.MouseEvent | React.PointerEvent) => {
         e?.stopPropagation();
@@ -261,14 +268,19 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
         goTo(currentImageIndex + 1);
     };
 
-    // Slide automático a cada 4 segundos
+    // Slide automático a cada 4 segundos (vence pausa de 5s após interação)
     useEffect(() => {
         if (!hasMultipleImages || paused || lightboxOpen) return;
+
         const timer = setInterval(() => {
-            setCurrentImageIndex((p) => (p + 1) % allImages.length);
+            const now = Date.now();
+            if (now - lastInteractionTime > 5000) {
+                setCurrentImageIndex((p) => (p + 1) % allImages.length);
+            }
         }, 4000);
+
         return () => clearInterval(timer);
-    }, [hasMultipleImages, paused, lightboxOpen, allImages.length]);
+    }, [hasMultipleImages, paused, lightboxOpen, allImages.length, lastInteractionTime]);
 
     // Navegação por teclado no lightbox (só setas — Esc é tratado pelo DialogContent)
     useEffect(() => {
@@ -299,14 +311,14 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     <span className="sr-only">Fechar</span>
                 </DialogClose>
 
-                {/* ── Galeria: setas ao lado da moldura ── */}
+                {/* ── Galeria: container relativo para permitir overlay ── */}
                 <div className={`flex-shrink-0 flex flex-col items-center transition-all duration-500 ease-in-out ${scrolled ? 'pt-2 pb-1' : 'pt-12 pb-0'}`}>
-                    <div className="flex items-center gap-2 sm:gap-3">
-                        {/* Seta esquerda — fora da moldura */}
+                    <div className="relative flex items-center justify-center w-full max-w-[500px] px-4">
+                        {/* Seta esquerda — overlay no mobile, externa no SM */}
                         {hasMultipleImages && (
                             <button
                                 type="button"
-                                className={`flex-shrink-0 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2'}`}
+                                className={`absolute left-4 sm:left-0 sm:relative z-20 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50/90 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 shadow-sm transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2 sm:mr-3'}`}
                                 style={{ touchAction: 'manipulation' }}
                                 onPointerDown={(e) => prevImage(e)}
                                 aria-label="Imagem anterior"
@@ -315,14 +327,16 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                             </button>
                         )}
 
-                        {/* Moldura quadrada → círculo ao rolar */}
+                        {/* Moldura quadrada → círculo ao rolar (ou cresce ao expandir) */}
                         <div
+                            onClick={() => !scrolled && setIsExpanded(!isExpanded)}
                             style={{
                                 borderRadius: scrolled ? '9999px' : '1rem',
-                                width: scrolled ? '72px' : 'min(290px, 62vw)',
-                                height: scrolled ? '72px' : 'min(290px, 62vw)',
+                                width: scrolled ? '72px' : isExpanded ? 'min(450px, 85vw)' : 'min(350px, 75vw)',
+                                height: scrolled ? '72px' : isExpanded ? 'min(450px, 85vw)' : 'min(350px, 75vw)',
+                                cursor: scrolled ? 'default' : 'pointer',
                             }}
-                            className="relative overflow-hidden flex-shrink-0 border-2 border-blue-400 dark:border-blue-600 shadow-[0_0_0_3px_rgba(59,130,246,0.15)] transition-all duration-500"
+                            className="relative overflow-hidden flex-shrink-0 border-2 border-blue-400 dark:border-blue-600 shadow-[0_0_0_3px_rgba(59,130,246,0.15)] transition-all duration-500 z-10"
                         >
                             {/* Fundo borrado */}
                             <img
@@ -348,7 +362,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                                             key={idx}
                                             type="button"
                                             style={{ touchAction: 'manipulation' }}
-                                            onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
+                                            onPointerDown={(e) => { e.stopPropagation(); goTo(idx); }}
                                             className={`h-0.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'w-6 bg-white' : 'w-3 bg-white/50'}`}
                                             aria-label={`Foto ${idx + 1}`}
                                         />
@@ -357,11 +371,11 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                             )}
                         </div>
 
-                        {/* Seta direita — fora da moldura */}
+                        {/* Seta direita — overlay no mobile, externa no SM */}
                         {hasMultipleImages && (
                             <button
                                 type="button"
-                                className={`flex-shrink-0 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2'}`}
+                                className={`absolute right-4 sm:right-0 sm:relative z-20 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50/90 dark:bg-blue-900/60 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 shadow-sm transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2 sm:ml-3'}`}
                                 style={{ touchAction: 'manipulation' }}
                                 onPointerDown={(e) => nextImage(e)}
                                 aria-label="Próxima imagem"
