@@ -293,96 +293,87 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     }
                 }}
             >
-                {/* ── Galeria de Imagem ── */}
-                <div className={`relative w-full overflow-hidden flex-shrink-0 transition-all duration-500 ease-in-out ${scrolled ? 'h-28 sm:h-32' : 'h-52 sm:h-64 md:h-72'}`}>
+                {/* X azul — fora do frame, sempre visível */}
+                <DialogClose className="absolute left-3 top-12 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-colors focus:outline-none">
+                    <X className="h-4 w-4" />
+                    <span className="sr-only">Fechar</span>
+                </DialogClose>
 
-                    {/* Botão Fechar — X azul */}
-                    <DialogClose className="absolute left-3 top-3 z-30 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-colors focus:outline-none">
-                        <X className="h-4 w-4" />
-                        <span className="sr-only">Fechar</span>
-                    </DialogClose>
-
-                    {/* Fundo borrado com a mesma imagem */}
-                    <img
-                        src={allImages[currentImageIndex]}
-                        alt=""
-                        aria-hidden
-                        className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70"
-                        draggable={false}
-                    />
-                    <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-
-                    {/* Imagem atual (proporcional) */}
-                    <button
-                        type="button"
-                        className="absolute inset-0 w-full h-full focus:outline-none cursor-zoom-in"
-                        onClick={openLightbox}
-                        title="Clique para ampliar"
-                    >
-                        <img
-                            src={allImages[currentImageIndex]}
-                            alt={devotion.name}
-                            className="w-full h-full object-contain relative z-10 transition-opacity duration-500"
-                            draggable={false}
-                        />
-                        {/* Overlay gradiente inferior */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
-                        {/* Ícone zoom (hover) */}
-                        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-                            <div className="bg-black/40 rounded-full p-3">
-                                <ZoomIn className="w-7 h-7 text-white drop-shadow-lg" />
-                            </div>
-                        </div>
-                    </button>
-
-                    {/* Setas de navegação (só com múltiplas imagens) */}
-                    {hasMultipleImages && (
-                        <>
+                {/* ── Galeria: setas ao lado da moldura ── */}
+                <div className={`flex-shrink-0 flex flex-col items-center transition-all duration-500 ease-in-out ${scrolled ? 'pt-2 pb-1' : 'pt-12 pb-0'}`}>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        {/* Seta esquerda — fora da moldura */}
+                        {hasMultipleImages && (
                             <button
                                 type="button"
-                                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/25 hover:bg-black/50 active:bg-black/60 text-white rounded-full p-2 sm:p-3 transition-colors"
-                                style={{ touchAction: "manipulation" }}
+                                className={`flex-shrink-0 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2'}`}
+                                style={{ touchAction: 'manipulation' }}
                                 onPointerDown={(e) => prevImage(e)}
                                 aria-label="Imagem anterior"
                             >
-                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <ChevronLeft className="w-5 h-5" />
                             </button>
+                        )}
+
+                        {/* Moldura quadrada → círculo ao rolar */}
+                        <div
+                            style={{
+                                borderRadius: scrolled ? '9999px' : '1rem',
+                                width: scrolled ? '72px' : 'min(290px, 62vw)',
+                                height: scrolled ? '72px' : 'min(290px, 62vw)',
+                            }}
+                            className="relative overflow-hidden flex-shrink-0 border-2 border-blue-400 dark:border-blue-600 shadow-[0_0_0_3px_rgba(59,130,246,0.15)] transition-all duration-500"
+                        >
+                            {/* Fundo borrado */}
+                            <img
+                                src={allImages[currentImageIndex]}
+                                alt=""
+                                aria-hidden
+                                className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70"
+                                draggable={false}
+                            />
+                            <div className="absolute inset-0 bg-black/15 pointer-events-none" />
+                            {/* Imagem principal */}
+                            <img
+                                src={allImages[currentImageIndex]}
+                                alt={devotion.name}
+                                className="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-500"
+                                draggable={false}
+                            />
+                            {/* Barras indicadoras dentro da moldura */}
+                            {hasMultipleImages && !scrolled && (
+                                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-20 flex gap-1">
+                                    {allImages.map((_, idx) => (
+                                        <button
+                                            key={idx}
+                                            type="button"
+                                            style={{ touchAction: 'manipulation' }}
+                                            onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
+                                            className={`h-0.5 rounded-full transition-all duration-300 ${idx === currentImageIndex ? 'w-6 bg-white' : 'w-3 bg-white/50'}`}
+                                            aria-label={`Foto ${idx + 1}`}
+                                        />
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Seta direita — fora da moldura */}
+                        {hasMultipleImages && (
                             <button
                                 type="button"
-                                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/25 hover:bg-black/50 active:bg-black/60 text-white rounded-full p-2 sm:p-3 transition-colors"
-                                style={{ touchAction: "manipulation" }}
+                                className={`flex-shrink-0 rounded-full border border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/40 text-blue-600 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-800 transition-all duration-300 ${scrolled ? 'opacity-0 pointer-events-none p-1' : 'opacity-100 p-2'}`}
+                                style={{ touchAction: 'manipulation' }}
                                 onPointerDown={(e) => nextImage(e)}
                                 aria-label="Próxima imagem"
                             >
-                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <ChevronRight className="w-5 h-5" />
                             </button>
-                        </>
-                    )}
-
-                    {/* Barras indicadoras finas */}
-                    {hasMultipleImages && (
-                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
-                            {allImages.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    type="button"
-                                    style={{ touchAction: "manipulation" }}
-                                    onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
-                                    className={`h-1 rounded-full transition-all duration-300 ${idx === currentImageIndex
-                                        ? 'w-8 bg-white'
-                                        : 'w-4 bg-white/50 hover:bg-white/75'
-                                        }`}
-                                    aria-label={`Foto ${idx + 1}`}
-                                />
-                            ))}
-                        </div>
-                    )}
-
-
+                        )}
+                    </div>
                 </div>
 
                 {/* ── Título e detalhes ── */}
-                <DialogHeader className="px-5 pt-4 pb-2 flex-shrink-0">
+                <DialogHeader className="px-5 pt-1 pb-0 flex-shrink-0">
                     <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand break-words hyphens-auto transition-all duration-500 ${scrolled ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl md:text-3xl'}`}>
                         {devotion.name}
                     </DialogTitle>
@@ -445,92 +436,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                 </div>
             </DialogContent>
 
-            {/* ── Lightbox via Portal (fora do Dialog, sem interferência de eventos) ── */}
-            {lightboxOpen && typeof document !== "undefined" && createPortal(
-                <div
-                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm"
-                    style={{ touchAction: "none" }}
-                    onPointerDown={(e) => {
-                        // Fechar apenas se clicar no fundo (não nos botões ou imagem)
-                        if (e.currentTarget === e.target) closeLightbox();
-                    }}
-                >
-                    {/* Botão Fechar */}
-                    <button
-                        type="button"
-                        className="absolute top-10 right-4 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
-                        style={{ touchAction: "manipulation", minWidth: 52, minHeight: 52 }}
-                        onPointerDown={(e) => { e.stopPropagation(); closeLightbox(); }}
-                        aria-label="Fechar imagem"
-                    >
-                        <X className="w-6 h-6" />
-                    </button>
 
-                    {/* Contador */}
-                    {hasMultipleImages && (
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full pointer-events-none">
-                            {currentImageIndex + 1} / {allImages.length}
-                        </div>
-                    )}
-
-                    {/* Seta Esquerda */}
-                    {hasMultipleImages && (
-                        <button
-                            type="button"
-                            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
-                            style={{ touchAction: "manipulation", minWidth: 56, minHeight: 56 }}
-                            onPointerDown={(e) => { e.stopPropagation(); prevImage(e as any); }}
-                            aria-label="Imagem anterior"
-                        >
-                            <ChevronLeft className="w-8 h-8" />
-                        </button>
-                    )}
-
-                    {/* Imagem */}
-                    <div className="relative max-w-[84vw] max-h-[82vh] flex items-center justify-center">
-                        <img
-                            src={allImages[currentImageIndex]}
-                            alt={`${devotion.name} — foto ${currentImageIndex + 1}`}
-                            className="max-w-full max-h-[78vh] object-contain rounded-2xl shadow-2xl"
-                            draggable={false}
-                        />
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl px-6 py-4 pointer-events-none">
-                            <p className="text-white font-bold text-center">{devotion.name}</p>
-                        </div>
-                    </div>
-
-                    {/* Seta Direita */}
-                    {hasMultipleImages && (
-                        <button
-                            type="button"
-                            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
-                            style={{ touchAction: "manipulation", minWidth: 56, minHeight: 56 }}
-                            onPointerDown={(e) => { e.stopPropagation(); nextImage(e as any); }}
-                            aria-label="Próxima imagem"
-                        >
-                            <ChevronRight className="w-8 h-8" />
-                        </button>
-                    )}
-
-                    {/* Indicadores de ponto */}
-                    {hasMultipleImages && (
-                        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3">
-                            {allImages.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    type="button"
-                                    style={{ touchAction: "manipulation", minWidth: 28, minHeight: 28 }}
-                                    className={`rounded-full transition-all duration-200 flex items-center justify-center ${idx === currentImageIndex ? 'bg-white scale-125 w-3 h-3' : 'bg-white/50 w-2.5 h-2.5'
-                                        }`}
-                                    onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
-                                    aria-label={`Foto ${idx + 1}`}
-                                />
-                            ))}
-                        </div>
-                    )}
-                </div>,
-                document.body
-            )}
         </>
     );
 }
