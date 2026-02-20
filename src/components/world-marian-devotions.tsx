@@ -285,7 +285,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
         <>
             {/* ── Modal Principal ── */}
             <DialogContent
-                className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden p-0"
+                className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden p-0 [&>button:last-child]:hidden"
                 onEscapeKeyDown={(e) => {
                     if (lightboxOpen) {
                         e.preventDefault();
@@ -294,7 +294,13 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                 }}
             >
                 {/* ── Galeria de Imagem ── */}
-                <div className={`relative w-full overflow-hidden flex-shrink-0 transition-all duration-500 ease-in-out ${scrolled ? 'h-24 sm:h-28' : 'h-40 sm:h-52'}`}>
+                <div className={`relative w-full overflow-hidden flex-shrink-0 transition-all duration-500 ease-in-out ${scrolled ? 'h-28 sm:h-32' : 'h-52 sm:h-64 md:h-72'}`}>
+
+                    {/* Botão Fechar — X azul */}
+                    <DialogClose className="absolute left-3 top-3 z-30 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-colors focus:outline-none">
+                        <X className="h-4 w-4" />
+                        <span className="sr-only">Fechar</span>
+                    </DialogClose>
 
                     {/* Fundo borrado com a mesma imagem */}
                     <img
@@ -372,11 +378,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                         </div>
                     )}
 
-                    {/* Botão Fechar */}
-                    <DialogClose className="absolute left-3 top-3 z-30 rounded-full bg-black/30 hover:bg-black/60 text-white p-2 transition-colors focus:outline-none">
-                        <X className="h-4 w-4" />
-                        <span className="sr-only">Fechar</span>
-                    </DialogClose>
+
                 </div>
 
                 {/* ── Título e detalhes ── */}
