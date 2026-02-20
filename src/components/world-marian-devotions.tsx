@@ -107,7 +107,7 @@ export function WorldMarianDevotions() {
                         <div
                             key={continent.name}
                             id={continent.name}
-                            ref={(el) => (continentRefs.current[continent.name] = el)}
+                            ref={(el) => { continentRefs.current[continent.name] = el; }}
                             className="p-8 rounded-3xl shadow-lg border transition-all duration-500 bg-gradient-to-br from-blue-50 to-sky-50 border-blue-100 dark:from-blue-950/20 dark:to-sky-950/20 dark:border-blue-900/30"
                         >
                             <h3 className="text-3xl font-bold mb-8 flex items-center gap-3 text-blue-800 dark:text-blue-300 border-b pb-4 border-blue-200 dark:border-blue-800">
@@ -144,7 +144,7 @@ export function WorldMarianDevotions() {
                                                             <div className="cursor-pointer group flex flex-col items-center">
                                                                 <div className="relative w-full max-w-[140px]">
                                                                     <Image
-                                                                        src={devotion.imageUrl}
+                                                                        src={devotion.images?.[0] ?? devotion.imageUrl}
                                                                         alt={devotion.name}
                                                                         width={200}
                                                                         height={200}
@@ -226,9 +226,9 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-    // imageUrl é sempre a primeira; images[] são as extras
+    // Usa `images` se disponível (a 1ª do array é sempre a principal), senão usa imageUrl
     const allImages = devotion.images && devotion.images.length > 0
-        ? [devotion.imageUrl, ...devotion.images]
+        ? devotion.images
         : [devotion.imageUrl];
 
     const hasMultipleImages = allImages.length > 1;
@@ -254,11 +254,10 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
         setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
     };
 
-    // Navegação por teclado no lightbox
+    // Navegação por teclado no lightbox (só setas — Esc é tratado pelo DialogContent)
     useEffect(() => {
         if (!lightboxOpen) return;
         const handleKey = (e: KeyboardEvent) => {
-            if (e.key === "Escape") closeLightbox();
             if (e.key === "ArrowLeft" && hasMultipleImages)
                 setCurrentImageIndex((p) => (p - 1 + allImages.length) % allImages.length);
             if (e.key === "ArrowRight" && hasMultipleImages)
@@ -271,7 +270,15 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     return (
         <>
             {/* ── Modal Principal ── */}
-            <DialogContent className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden">
+            <DialogContent
+                className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden"
+                onEscapeKeyDown={(e) => {
+                    if (lightboxOpen) {
+                        e.preventDefault();
+                        closeLightbox();
+                    }
+                }}
+            >
                 {/* Botão Fechar */}
                 <DialogClose className="absolute left-8 top-16 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <X className="h-5 w-5" />
@@ -456,4 +463,4 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
             )}
         </>
     );
-}
+} ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''    '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''   '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
