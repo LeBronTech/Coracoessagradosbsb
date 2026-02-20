@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { Globe, AlertCircle, CheckCircle, Clock, X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import Image from "next/image";
@@ -225,6 +226,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const [scrolled, setScrolled] = useState(false);
     const [lightboxOpen, setLightboxOpen] = useState(false);
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    const [paused, setPaused] = useState(false);
 
     // Usa `images` se disponível (a 1ª do array é sempre a principal), senão usa imageUrl
     const allImages = devotion.images && devotion.images.length > 0
@@ -238,40 +240,52 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     };
 
     const openLightbox = () => {
-        setCurrentImageIndex(0);
+        setPaused(true);
         setLightboxOpen(true);
     };
 
-    const closeLightbox = () => setLightboxOpen(false);
-
-    const prevImage = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setCurrentImageIndex((prev) => (prev - 1 + allImages.length) % allImages.length);
+    const closeLightbox = () => {
+        setLightboxOpen(false);
+        setPaused(false);
     };
 
-    const nextImage = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setCurrentImageIndex((prev) => (prev + 1) % allImages.length);
+    const goTo = (idx: number) => setCurrentImageIndex((idx + allImages.length) % allImages.length);
+
+    const prevImage = (e?: React.MouseEvent | React.PointerEvent) => {
+        e?.stopPropagation();
+        goTo(currentImageIndex - 1);
     };
+
+    const nextImage = (e?: React.MouseEvent | React.PointerEvent) => {
+        e?.stopPropagation();
+        goTo(currentImageIndex + 1);
+    };
+
+    // Slide automático a cada 4 segundos
+    useEffect(() => {
+        if (!hasMultipleImages || paused || lightboxOpen) return;
+        const timer = setInterval(() => {
+            setCurrentImageIndex((p) => (p + 1) % allImages.length);
+        }, 4000);
+        return () => clearInterval(timer);
+    }, [hasMultipleImages, paused, lightboxOpen, allImages.length]);
 
     // Navegação por teclado no lightbox (só setas — Esc é tratado pelo DialogContent)
     useEffect(() => {
         if (!lightboxOpen) return;
         const handleKey = (e: KeyboardEvent) => {
-            if (e.key === "ArrowLeft" && hasMultipleImages)
-                setCurrentImageIndex((p) => (p - 1 + allImages.length) % allImages.length);
-            if (e.key === "ArrowRight" && hasMultipleImages)
-                setCurrentImageIndex((p) => (p + 1) % allImages.length);
+            if (e.key === "ArrowLeft" && hasMultipleImages) goTo(currentImageIndex - 1);
+            if (e.key === "ArrowRight" && hasMultipleImages) goTo(currentImageIndex + 1);
         };
         window.addEventListener("keydown", handleKey);
         return () => window.removeEventListener("keydown", handleKey);
-    }, [lightboxOpen, hasMultipleImages, allImages.length]);
+    }, [lightboxOpen, hasMultipleImages, currentImageIndex]);
 
     return (
         <>
             {/* ── Modal Principal ── */}
             <DialogContent
-                className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden"
+                className="sm:max-w-3xl max-w-[98vw] max-h-[95vh] flex flex-col bg-gradient-to-br from-white to-blue-50 dark:from-slate-900 dark:to-blue-950 border-2 border-blue-200 dark:border-blue-800 shadow-2xl overflow-hidden p-0"
                 onEscapeKeyDown={(e) => {
                     if (lightboxOpen) {
                         e.preventDefault();
@@ -279,59 +293,105 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     }
                 }}
             >
-                {/* Botão Fechar */}
-                <DialogClose className="absolute left-8 top-16 z-50 rounded-full bg-blue-600 hover:bg-blue-700 text-white p-2 shadow-lg transition-all hover:scale-110 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                    <X className="h-5 w-5" />
-                    <span className="sr-only">Fechar</span>
-                </DialogClose>
+                {/* ── Galeria de Imagem ── */}
+                <div className={`relative w-full overflow-hidden flex-shrink-0 transition-all duration-500 ease-in-out ${scrolled ? 'h-24 sm:h-28' : 'h-40 sm:h-52'}`}>
 
-                <DialogHeader className="px-2 pt-10 pb-4 relative flex-shrink-0">
-                    <div className="flex flex-col items-center justify-center min-h-[180px] sm:min-h-[220px]">
-                        {/* Imagem clicável para expandir */}
-                        <div className={`relative transition-all duration-500 ease-in-out ${scrolled ? 'scale-50 -translate-y-4' : 'scale-100'}`}>
-                            <button
-                                onClick={openLightbox}
-                                className="group relative focus:outline-none"
-                                title="Clique para ampliar"
-                            >
-                                <Image
-                                    src={allImages[0]}
-                                    alt={devotion.name}
-                                    width={200}
-                                    height={200}
-                                    className="rounded-full object-cover border-4 border-blue-300 dark:border-blue-600 shadow-xl w-32 h-32 sm:w-40 sm:h-40 transition-transform duration-300 group-hover:scale-105 group-hover:border-blue-500"
-                                />
-                                {/* Ícone de zoom overlay */}
-                                <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/0 group-hover:bg-black/30 transition-all duration-300">
-                                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
-                                </div>
-                                {/* Badge de múltiplas imagens */}
-                                {hasMultipleImages && (
-                                    <div className="absolute -bottom-1 -right-1 bg-purple-600 text-white text-[10px] font-bold rounded-full w-6 h-6 flex items-center justify-center shadow-lg border-2 border-white">
-                                        {allImages.length}
-                                    </div>
-                                )}
-                            </button>
-                        </div>
+                    {/* Fundo borrado com a mesma imagem */}
+                    <img
+                        src={allImages[currentImageIndex]}
+                        alt=""
+                        aria-hidden
+                        className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70"
+                        draggable={false}
+                    />
+                    <div className="absolute inset-0 bg-black/20 pointer-events-none" />
 
-                        <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand px-2 break-words hyphens-auto transition-all duration-500 ease-in-out ${scrolled ? 'text-lg sm:text-xl -translate-y-8' : 'text-xl sm:text-2xl md:text-3xl mt-4'}`}>
-                            {devotion.name}
-                        </DialogTitle>
-
-                        <div className={`flex items-center gap-2 flex-wrap justify-center px-2 transition-all duration-500 ease-in-out ${scrolled ? 'opacity-0 scale-95 pointer-events-none h-0 mt-0' : 'opacity-100 mt-2'}`}>
-                            <div className="flex items-center gap-2">
-                                <span className="text-2xl">{devotion.countryFlag}</span>
-                                <span className="text-slate-600 dark:text-slate-400 font-medium">{devotion.country}</span>
+                    {/* Imagem atual (proporcional) */}
+                    <button
+                        type="button"
+                        className="absolute inset-0 w-full h-full focus:outline-none cursor-zoom-in"
+                        onClick={openLightbox}
+                        title="Clique para ampliar"
+                    >
+                        <img
+                            src={allImages[currentImageIndex]}
+                            alt={devotion.name}
+                            className="w-full h-full object-contain relative z-10 transition-opacity duration-500"
+                            draggable={false}
+                        />
+                        {/* Overlay gradiente inferior */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
+                        {/* Ícone zoom (hover) */}
+                        <div className="absolute inset-0 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+                            <div className="bg-black/40 rounded-full p-3">
+                                <ZoomIn className="w-7 h-7 text-white drop-shadow-lg" />
                             </div>
-                            <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
-                                {devotion.date}
-                            </span>
-                            {hasMultipleImages && (
-                                <span className="px-3 py-1 bg-purple-100 dark:bg-purple-900/50 text-purple-700 dark:text-purple-300 text-xs font-semibold rounded-full flex items-center gap-1">
-                                    📸 {allImages.length} fotos • clique para ver
-                                </span>
-                            )}
                         </div>
+                    </button>
+
+                    {/* Setas de navegação (só com múltiplas imagens) */}
+                    {hasMultipleImages && (
+                        <>
+                            <button
+                                type="button"
+                                className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-black/25 hover:bg-black/50 active:bg-black/60 text-white rounded-full p-2 sm:p-3 transition-colors"
+                                style={{ touchAction: "manipulation" }}
+                                onPointerDown={(e) => prevImage(e)}
+                                aria-label="Imagem anterior"
+                            >
+                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                            <button
+                                type="button"
+                                className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-black/25 hover:bg-black/50 active:bg-black/60 text-white rounded-full p-2 sm:p-3 transition-colors"
+                                style={{ touchAction: "manipulation" }}
+                                onPointerDown={(e) => nextImage(e)}
+                                aria-label="Próxima imagem"
+                            >
+                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+                            </button>
+                        </>
+                    )}
+
+                    {/* Barras indicadoras finas */}
+                    {hasMultipleImages && (
+                        <div className="absolute bottom-2 left-1/2 -translate-x-1/2 z-20 flex gap-1.5">
+                            {allImages.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    type="button"
+                                    style={{ touchAction: "manipulation" }}
+                                    onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
+                                    className={`h-1 rounded-full transition-all duration-300 ${idx === currentImageIndex
+                                        ? 'w-8 bg-white'
+                                        : 'w-4 bg-white/50 hover:bg-white/75'
+                                        }`}
+                                    aria-label={`Foto ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+                    )}
+
+                    {/* Botão Fechar */}
+                    <DialogClose className="absolute left-3 top-3 z-30 rounded-full bg-black/30 hover:bg-black/60 text-white p-2 transition-colors focus:outline-none">
+                        <X className="h-4 w-4" />
+                        <span className="sr-only">Fechar</span>
+                    </DialogClose>
+                </div>
+
+                {/* ── Título e detalhes ── */}
+                <DialogHeader className="px-5 pt-4 pb-2 flex-shrink-0">
+                    <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand break-words hyphens-auto transition-all duration-500 ${scrolled ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl md:text-3xl'}`}>
+                        {devotion.name}
+                    </DialogTitle>
+                    <div className={`flex items-center gap-2 flex-wrap justify-center mt-1 transition-all duration-500 ${scrolled ? 'opacity-0 h-0 pointer-events-none mt-0 overflow-hidden' : 'opacity-100'}`}>
+                        <div className="flex items-center gap-2">
+                            <span className="text-2xl">{devotion.countryFlag}</span>
+                            <span className="text-slate-600 dark:text-slate-400 font-medium text-sm">{devotion.country}</span>
+                        </div>
+                        <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">
+                            {devotion.date}
+                        </span>
                     </div>
                 </DialogHeader>
 
@@ -383,16 +443,22 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                 </div>
             </DialogContent>
 
-            {/* ── Lightbox de Imagem Expandida ── */}
-            {lightboxOpen && (
+            {/* ── Lightbox via Portal (fora do Dialog, sem interferência de eventos) ── */}
+            {lightboxOpen && typeof document !== "undefined" && createPortal(
                 <div
-                    className="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 backdrop-blur-sm animate-in fade-in duration-200"
-                    onClick={closeLightbox}
+                    className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-sm"
+                    style={{ touchAction: "none" }}
+                    onPointerDown={(e) => {
+                        // Fechar apenas se clicar no fundo (não nos botões ou imagem)
+                        if (e.currentTarget === e.target) closeLightbox();
+                    }}
                 >
                     {/* Botão Fechar */}
                     <button
-                        className="absolute top-10 right-4 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
-                        onClick={closeLightbox}
+                        type="button"
+                        className="absolute top-10 right-4 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
+                        style={{ touchAction: "manipulation", minWidth: 52, minHeight: 52 }}
+                        onPointerDown={(e) => { e.stopPropagation(); closeLightbox(); }}
                         aria-label="Fechar imagem"
                     >
                         <X className="w-6 h-6" />
@@ -400,7 +466,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
 
                     {/* Contador */}
                     {hasMultipleImages && (
-                        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full">
+                        <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 text-white text-sm font-semibold px-4 py-2 rounded-full pointer-events-none">
                             {currentImageIndex + 1} / {allImages.length}
                         </div>
                     )}
@@ -408,8 +474,10 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     {/* Seta Esquerda */}
                     {hasMultipleImages && (
                         <button
-                            className="absolute left-4 sm:left-8 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
-                            onClick={prevImage}
+                            type="button"
+                            className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
+                            style={{ touchAction: "manipulation", minWidth: 56, minHeight: 56 }}
+                            onPointerDown={(e) => { e.stopPropagation(); prevImage(e as any); }}
                             aria-label="Imagem anterior"
                         >
                             <ChevronLeft className="w-8 h-8" />
@@ -417,17 +485,14 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     )}
 
                     {/* Imagem */}
-                    <div
-                        className="relative max-w-[88vw] max-h-[85vh] flex items-center justify-center"
-                        onClick={(e) => e.stopPropagation()}
-                    >
+                    <div className="relative max-w-[84vw] max-h-[82vh] flex items-center justify-center">
                         <img
                             src={allImages[currentImageIndex]}
                             alt={`${devotion.name} — foto ${currentImageIndex + 1}`}
-                            className="max-w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl animate-in zoom-in-95 duration-300"
+                            className="max-w-full max-h-[78vh] object-contain rounded-2xl shadow-2xl"
+                            draggable={false}
                         />
-                        {/* Legenda */}
-                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl px-6 py-4">
+                        <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent rounded-b-2xl px-6 py-4 pointer-events-none">
                             <p className="text-white font-bold text-center">{devotion.name}</p>
                         </div>
                     </div>
@@ -435,8 +500,10 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     {/* Seta Direita */}
                     {hasMultipleImages && (
                         <button
-                            className="absolute right-4 sm:right-8 z-10 bg-white/20 hover:bg-white/40 text-white rounded-full p-3 transition-all duration-200 hover:scale-110"
-                            onClick={nextImage}
+                            type="button"
+                            className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 z-10 bg-white/20 active:bg-white/50 hover:bg-white/40 text-white rounded-full p-4 transition-colors"
+                            style={{ touchAction: "manipulation", minWidth: 56, minHeight: 56 }}
+                            onPointerDown={(e) => { e.stopPropagation(); nextImage(e as any); }}
                             aria-label="Próxima imagem"
                         >
                             <ChevronRight className="w-8 h-8" />
@@ -445,21 +512,22 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
 
                     {/* Indicadores de ponto */}
                     {hasMultipleImages && (
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+                        <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3">
                             {allImages.map((_, idx) => (
                                 <button
                                     key={idx}
-                                    onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
-                                    className={`w-2.5 h-2.5 rounded-full transition-all duration-200 ${idx === currentImageIndex
-                                        ? 'bg-white scale-125'
-                                        : 'bg-white/50 hover:bg-white/80'
+                                    type="button"
+                                    style={{ touchAction: "manipulation", minWidth: 28, minHeight: 28 }}
+                                    className={`rounded-full transition-all duration-200 flex items-center justify-center ${idx === currentImageIndex ? 'bg-white scale-125 w-3 h-3' : 'bg-white/50 w-2.5 h-2.5'
                                         }`}
+                                    onPointerDown={(e) => { e.stopPropagation(); setCurrentImageIndex(idx); }}
                                     aria-label={`Foto ${idx + 1}`}
                                 />
                             ))}
                         </div>
                     )}
-                </div>
+                </div>,
+                document.body
             )}
         </>
     );
