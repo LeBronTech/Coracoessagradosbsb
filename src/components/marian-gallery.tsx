@@ -130,14 +130,23 @@ export function MarianGallery() {
     return (
         <section className="mb-12">
             <h2 className="text-4xl font-bold text-blue-900 dark:text-blue-100 text-center mb-6 font-brand">
-                🌹 Galeria de Devoções Marianas 🌹
+                🌹 Galeria de Devoções Marianas
             </h2>
 
-            <p className="text-center text-slate-600 dark:text-slate-400 max-w-2xl mx-auto mb-8">
-                Explore a riqueza das devoções marianas ao redor do mundo, organizadas pelo calendário litúrgico e histórico.
-            </p>
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-10">
+                <div className="bg-white dark:bg-slate-800 px-6 py-3 rounded-2xl shadow-sm border border-blue-100 dark:border-blue-900/40 flex flex-col items-center min-w-[140px]">
+                    <span className="text-3xl font-bold text-blue-600 dark:text-blue-400">{devotions.length}</span>
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Títulos pelo Mundo</span>
+                </div>
+                <div className="bg-white dark:bg-slate-800 px-6 py-3 rounded-2xl shadow-sm border border-blue-100 dark:border-blue-900/40 flex flex-col items-center min-w-[140px]">
+                    <span className="text-3xl font-bold text-green-600 dark:text-green-400">
+                        {devotions.filter(d => (d.description + d.fullDescription).includes("Brasil") || (d.description + d.fullDescription).includes("paranaense")).length}
+                    </span>
+                    <span className="text-xs font-semibold text-slate-500 uppercase tracking-wider">Títulos no Brasil</span>
+                </div>
+            </div>
 
-            <StatusLegend />
+
 
             <div className="space-y-12">
                 {devotionsByMonth.map(({ month, items, isPink }) => (
@@ -343,43 +352,3 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     );
 }
 
-function StatusLegend() {
-    return (
-        <div className="max-w-4xl mx-auto mb-12 p-6 bg-white dark:bg-slate-900/50 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm animate-in fade-in slide-in-from-bottom-4 duration-1000">
-            <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
-                <div className="w-1.5 h-4 bg-blue-600 rounded-full" />
-                Legenda de Aprovação
-            </h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-green-50/50 dark:bg-green-900/10 border border-green-100/50 dark:border-green-900/20">
-                    <CheckCircle className="w-4 h-4 text-green-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                        <p className="text-xs font-bold text-green-900 dark:text-green-100">Aprovada</p>
-                        <p className="text-[10px] text-green-700/70 dark:text-green-300/50">Reconhecida oficialmente pela Santa Sé.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-blue-50/50 dark:bg-blue-900/10 border border-blue-100/50 dark:border-blue-900/20">
-                    <CheckCircle className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                        <p className="text-xs font-bold text-blue-900 dark:text-blue-100">Tradicional</p>
-                        <p className="text-[10px] text-blue-700/70 dark:text-blue-300/50">Baseada em tradição bíblica ou litúrgica secular.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-orange-50/50 dark:bg-orange-900/10 border border-orange-100/50 dark:border-orange-900/20">
-                    <Clock className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                        <p className="text-xs font-bold text-orange-900 dark:text-orange-100">Em Estudo</p>
-                        <p className="text-[10px] text-orange-700/70 dark:text-orange-300/50">Processo de reconhecimento local ou em análise.</p>
-                    </div>
-                </div>
-                <div className="flex items-start gap-3 p-3 rounded-2xl bg-orange-50/50 dark:bg-orange-900/10 border border-orange-100/50 dark:border-orange-900/20">
-                    <AlertCircle className="w-4 h-4 text-orange-600 mt-0.5 flex-shrink-0" />
-                    <div>
-                        <p className="text-xs font-bold text-orange-900 dark:text-orange-100">Complexo</p>
-                        <p className="text-[10px] text-orange-700/70 dark:text-orange-300/50">Exige cautela e estudo sobre o status atual.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
