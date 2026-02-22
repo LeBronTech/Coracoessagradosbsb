@@ -3703,6 +3703,11 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
         name: 'Beato Tiago Alberione',
         imageUrl: 'https://iili.io/fHuD8ZP.jpg',
         story: '<p>O Beato Tiago Alberione, sacerdote italiano, foi um apóstolo moderno que compreendeu a importância de evangelizar através dos meios de comunicação. Fundou a Família Paulina, um conjunto de congregações religiosas e institutos seculares dedicados ao apostolado da imprensa, do cinema, da rádio e da televisão. Sua visão profética continua a inspirar a Igreja a usar todas as tecnologias modernas para anunciar o Evangelho a todos os povos.</p>'
+      },
+      {
+        name: 'Nossa Senhora de Soufanieh',
+        imageUrl: '/images/ns_soufanieh.jpg',
+        story: '<h4>O Milagre da Unidade</h4><p>Em 1982, em Damasco (Síria), um pequeno ícone e a vidente Myrna Nazzour começaram a exalar azeite puro. As mensagens de Maria pedem a unidade dos cristãos e a unificação da data da Páscoa.</p><p class="mt-4"><b>Oração:</b> Senhora de Soufanieh, fazei que as Igrejas que os homens dividiram sejam unidas. Amém.</p>'
       }
     ]
   },

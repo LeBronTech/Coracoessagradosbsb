@@ -415,9 +415,14 @@ export const worldMarianDevotions: Continent[] = [
                 country: "China",
                 countryFlag: "🇨🇳",
                 date: "24 de Maio",
-                imageUrl: "/images/ns_sheshan.png",
+                imageUrl: "/images/ns_sheshan_1.jpg",
+                images: [
+                    "/images/ns_sheshan_1.jpg",
+                    "/images/ns_sheshan_2.png",
+                    "/images/ns_sheshan_3.png"
+                ],
                 description: "Auxiliadora dos Cristãos e Padroeira da China",
-                fullDescription: "A 'Auxiliadora dos Cristãos' e Padroeira da China. A devoção nasceu no século XIX, quando missionários jesuítas construíram o primeiro santuário na colina de Sheshan, perto de Xangai. Durante a sangrenta Rebelião Taiping em 1870, o Superior da Missão prometeu construir uma grande basílica se Maria protegesse a diocese de Xangai do extermínio. A cidade foi milagrosamente poupada, e a promessa foi cumprida com a construção de uma magnífica basílica neogótica que domina o vale.\n\nNo topo do seu campanário, uma imponente estátua de bronze de 4 metros mostra Maria elevando o Menino Jesus ao céu, apresentando-O como o único Salvador. Em 1924, o Primeiro Concílio Chinês consagrou solenemente a nação a Maria. Sob o regime comunista, o santuário foi confiscado e fechado por décadas, mas a fé do povo permaneceu inquebrantável. Relatos de luzes sobrenaturais e aparições na colina em 1980 marcaram o renascimento das romarias. O Papa Bento XVI instituiu o dia 24 de maio (festa de Maria Auxiliadora) como o Dia Mundial de Oração pela Igreja na China, compondo uma belíssima oração a Nossa Senhora de Sheshan, pedindo que ela sustente os cristãos perseguidos e lhes dê força para testemunhar a fé com esperança e amor.",
+                fullDescription: "A AUXILIADORA DOS CRISTÃOS E O SANTUÁRIO DE SHESHAN\n\nNossa Senhora de Sheshan (ou Zose) é a padroeira da China e um dos símbolos mais fortes da resistência e da fé católica no gigante asiático. O seu santuário, localizado na colina de Sheshan, perto de Xangai, é o principal centro de peregrinação do país e um farol de esperança para a Igreja na China.\n\nORIGEM E O VOTO DOS JESUÍTAS\n\nA devoção nasceu no século XIX, quando missionários jesuítas construíram o primeiro pequeno santuário na colina em 1863. Durante a sangrenta Rebelião Taiping em 1870, que ameaçava dizimar a comunidade católica local, o Superior da Missão fez um voto solene: se Xangai fosse poupada, uma grande basílica seria erguida em honra de Maria Auxiliadora. A cidade foi milagrosamente protegida e a promessa foi cumprida com a construção de uma magnífica basílica neogótica que domina o vale.\n\nA ICONOGRAFIA DO MENINO ERGUIDO\n\nO destaque do santuário é a imensa estátua de bronze que coroa o campanário. Ela representa Maria elevando o Menino Jesus ao céu, com os braços estendidos em forma de cruz, apresentando-O ao mundo como o único Salvador. É uma das representações marianas mais singulares, simbolizando que Maria não apenas 'segura' Jesus, mas O 'oferece' para a salvação da humanidade.\n\nSÍMBOLO DE UNIDADE E PERSEGUIÇÃO\n\nEm 1924, o Primeiro Concílio Chinês consagrou solenemente a China a Maria. Sob o regime comunista, o santuário passou por tempos difíceis, sendo confiscado e fechado por décadas. No entanto, a devoção permaneceu viva no coração dos fiéis. Em 1980, o santuário foi devolvido à Igreja e as peregrinações foram retomadas com vigor. Em 2007, o Papa Bento XVI instituiu o dia 24 de maio (festa de Maria Auxiliadora) como o 'Dia Mundial de Oração pela Igreja na China', reafirmando o papel de N.S. de Sheshan como intercessora dos cristãos perseguidos.\n\nMENSAGEM ESPIRITUAL\n\nMaria, em Sheshan, nos convida à fortaleza na fé. Ela é a 'Dama dos Montes' que cuida de seus filhos em meio às provações ideológicas e políticas. Elevando Jesus, ela nos lembra que, por cima de qualquer império ou regime, Cristo reina para sempre. Ela é a esperança da Igreja silenciosa e o refúgio dos que sofrem por amor ao Evangelho.\n\nORAÇÃO\n\nSenhora de Sheshan, olha para o povo da China e protege a Igreja que ali floresce. Dá coragem aos que são perseguidos, força aos que vacilam e une todos os teus filhos sob o teu manto de Auxiliadora. Que o Menino Jesus, que tu ergues com amor, seja a luz que brilha sobre toda a nação chinesa. Amém.",
                 status: "approved",
                 statusNote: "Santuário nacional; oração pela China composta pelo Papa Bento XVI"
             },
@@ -439,11 +444,27 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Síria",
                 countryFlag: "🇸🇾",
                 date: "26 de Novembro",
-                imageUrl: "/images/ns_soufanieh.png",
-                description: "O milagre do azeite em Damasco (1982)",
-                fullDescription: "Fenômeno recente em Damasco. Um ícone e as mãos da vidente Myrna Nazzour exalam azeite puro. As mensagens pedem a unidade entre católicos e ortodoxos (a Páscoa unificada).",
-                status: "pending",
-                statusNote: "Aprovada pelos bispos locais (Católico e Ortodoxo)"
+                imageUrl: "/images/ns_soufanieh.jpg",
+                description: "O milagre do azeite em Damasco (1982) - Unidade e Paz",
+                fullDescription: "O MILAGRE DE SOUFANIEH E O AZEITE DE DAMASCO\n\nA devoção a Nossa Senhora de Soufanieh nasceu de um dos fenômenos místicos mais impressionantes e ecumênicos da era moderna. Tudo começou em 22 de novembro de 1982, na pequena casa de Myrna Nazzour, uma jovem católica melquita casada com um ortodoxo, em Soufanieh, um subúrbio de Damasco, na Síria.\n\nO FENÔMENO DO AZEITE\n\nEnquanto Myrna rezava com outras mulheres por uma cunhada doente, suas mãos começaram a brilhar e a exalar um óleo perfumado (azeite puro). Poucos dias depois, um pequeno ícone da Virgem Maria em sua casa também começou a verter azeite. O fenômeno, que foi testemunhado por milhares de pessoas e filmado diversas vezes, repetiu-se em datas significativas até recentemente. Milagres de cura foram relatados após o uso desse azeite milagroso, que análises científicas comprovaram ser azeite de oliva 100% puro, desafiando qualquer explicação natural.\n\nÊXTASE E ESTIGMAS\n\nAlém do fluxo de óleo, Myrna experimentou vários êxtases e os estigmas da Paixão de Cristo (chagas nas mãos, pés, testa e flanco). Curiosamente, as chagas se abriam principalmente nas Quintas-Feiras Santas em que as igrejas Católica e Ortodoxa celebravam a Páscoa na mesma data (o que ocorre ocasionalmente devido à diferença de calendários), reforçando a mensagem central da aparição.\n\nMENSAGEM DE UNIDADE\n\nA principal mensagem de Maria e de Jesus em Soufanieh é a UNIDADE DOS CRISTÃOS. Maria disse a Myrna: 'As Igrejas que os homens dividiram devem ser unidas'. Ela pediu que os cristãos se amassem, rezassem juntos e unificassem a data da celebração da Páscoa como um sinal de paz. A casa de Myrna tornou-se um local de peregrinação onde católicos, ortodoxos e até muçulmanos rezam lado a lado sob o olhar de Maria.\n\nMENSAGEM ESPIRITUAL\n\nNossa Senhora de Soufanieh nos lembra que o óleo é sinal de benção, cura e unção do Espírito Santo. Em uma Damasco marcada por conflitos históricos e religiosos, ela surge como a 'Mãe da Unidade', pedindo que superemos as divisões para sermos um só coração. Ela é a esperança da paz no Oriente Médio e em todo o mundo cristão.\n\nORAÇÃO\n\nÓ Maria, Senhora de Soufanieh, que fizeste brotar o óleo da benção em tuas mãos para curar os enfermos e unir os teus filhos. Intercede pela paz na Síria e por todos os cristãos, para que possamos em breve celebrar a vitória de Cristo em uma única fé e um só coração. Amém.",
+                status: "approved",
+                statusNote: "Aprovada pelos bispos locais (Católico e Ortodoxo); Fenômeno do Azeite"
+            },
+            {
+                id: "tra_kieu",
+                name: "N.S. de Trà Kiệu",
+                country: "Vietnã",
+                countryFlag: "🇻🇳",
+                date: "31 de Maio",
+                imageUrl: "/images/ns_tra_kieu_1.jpg",
+                images: [
+                    "/images/ns_tra_kieu_1.jpg",
+                    "/images/ns_tra_kieu_2.jpg"
+                ],
+                description: "Nossa Senhora Auxiliadora e Protetora dos Cristãos (1885)",
+                fullDescription: "A PROTEÇÃO DE TRÀ KIỆU E A SENHORA GENERAL\n\nA devoção a Nossa Senhora de Trà Kiệu é um testemunho vivo da proteção mariana sobre os cristãos perseguidos no Vietnã. O santuário, localizado no morro Bửu Châu, na província de Quảng Nam, é o centro mariano da Diocese de Đà Nẵng e marca um dos episódios mais heróicos da história da Igreja na Ásia.\n\nO MILAGRE DE 1885\n\nA região de Trà Kiệu recebeu o Evangelho no século XVII por missionários portugueses. No entanto, em 1885, durante a revolta do movimento Cần Vương, os católicos locais foram cercados e atacados por forças que buscavam erradicar o cristianismo. Com armas rudimentares e em minoria esmagadora, os fiéis refugiaram-se na igreja e rezaram pedindo a intercessão de Maria Auxiliadora.\n\nA VIRTUAL 'SENHORA GENERAL'\n\nDurante o cerco, os atacantes relataram ter visto uma bela Senhora vestida de branco no topo da igreja. Eles tentaram disparar canhões e flechas contra o local, mas os projéteis pareciam ser desviados ou 'varridos' pelo manto da Senhora. Os soldados pagãos, aterrorizados, chamavam-na de 'Senhora General', pois ela parecia comandar uma defesa invisível. Graças a esta proteção milagrosa, a comunidade foi poupada do extermínio.\n\nRECONHECIMENTO E SANTUÁRIO\n\nEm memória deste livramento, o Santuário de Nossa Senhora de Trà Kiệu foi construído e tornou-se um grande centro de peregrinação. A imagem de Maria em Trà Kiệu é frequentemente representada de forma majestosa, lembrando seu papel como protetora. Em 1971, o local foi oficialmente designado como o principal centro mariano da região, atraindo milhares de fiéis todos os anos, especialmente na solenidade de 31 de maio.\n\nMENSAGEM ESPIRITUAL\n\nNossa Senhora de Trà Kiệu nos ensina que, mesmo nas situações mais desesperadoras de perseguição e medo, a Mãe de Deus não abandona seus filhos. Ela é a 'Auxiliadora' que se coloca à frente da batalha para defender a fé. Sua presença em Trà Kiệu é um sinal de que a luz de Cristo brilha mesmo na escuridão das ideologias opressoras.\n\nORAÇÃO\n\nÓ Maria, Senhora de Trà Kiệu, que com vosso manto de luz protegestes os cristãos do Vietnã no momento da angústia. Olhai para nós hoje e defendei-nos de todos os perigos da alma e do corpo. Sede nossa General nas batalhas da vida e conduzi-nos sempre à vitória do vosso Filho Jesus. Amém.",
+                status: "approved",
+                statusNote: "Santuário Diocesano; Aparição de 1885"
             },
             {
                 id: "libano",
@@ -451,9 +472,14 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Líbano",
                 countryFlag: "🇱🇧",
                 date: "1 de Maio",
-                imageUrl: "/images/ns_libano.png",
-                description: "Harissa - Rainha do Líbano",
-                fullDescription: "O santuário de Harissa, com a imensa estátua de Maria dominando a baía de Jounieh, é o símbolo da fé cristã no Líbano e local de peregrinação também para muçulmanos.",
+                imageUrl: "/images/ns_libano_1.png",
+                images: [
+                    "/images/ns_libano_1.png",
+                    "/images/ns_libano_2.jpg",
+                    "/images/ns_libano_3.jpg"
+                ],
+                description: "Our Lady of Lebanon (Harissa) - Rainha do Líbano",
+                fullDescription: "A RAINHA DO LÍBANO E O SANTUÁRIO DE HARISSA\n\nNossa Senhora do Líbano (Notre-Dame du Liban) é a padroeira do Líbano e um dos títulos mais majestosos da Virgem Maria no Oriente Médio. O seu santuário em Harissa, localizado a 650 metros acima do nível do mar, oferece uma vista deslumbrante sobre a baía de Jounieh e é o coração espiritual do país, unindo cristãos de diferentes ritos e até muçulmanos em veneração.\n\nO MONUMENTO DE HARISSA\n\nO santuário foi fundado em 1904 para comemorar o 50º aniversário do Dogma da Imaculada Conceição. O destaque do local é a imensa estátua de bronze de Maria, com 8,5 metros de altura e pesando 15 toneladas, pintada de branco. Ela está sobre um pedestal em forma de cone que abriga uma pequena capela. Maria aparece com os braços estendidos em direção a Beirute, como se estivesse abraçando e protegendo toda a nação.\n\nSÍMBOLO DE UNIDADE E PAZ\n\nO Líbano é citado diversas vezes na Bíblia, especialmente pelos seus cedros majestosos, que simbolizam a força e a glória de Deus. Maria é frequentemente comparada ao 'Cedro do Líbano' na liturgia. O santuário de Harissa tornou-se um símbolo de unidade nacional em um país marcado por conflitos. É um dos poucos lugares no mundo onde cristãos (maronitas, melquitas, latinos) e muçulmanos rezam lado a lado, reconhecendo Maria como a Mãe Imaculada.\n\nVISITAS PAPAIS E RECONHECIMENTO\n\nO Santuário de Nossa Senhora do Líbano foi visitado por São João Paulo II em 1997, que ali assinou a Exortação Apostólica 'Uma Nova Esperança para o Líbano'. O Papa Bento XVI também visitou o local em 2012. A Rainha do Líbano foi solenemente coroada em 1908 por ordem da Santa Sé, consolidando sua importância como protetora do povo libanês e de toda a região.\n\nMENSAGEM ESPIRITUAL\n\nMaria, em Harissa, nos convida à paz e à concórdia. Do alto da montanha, ela nos ensina a olhar para o céu sem esquecer de estender as mãos para os irmãos na terra. Ela é a 'Dama de Branco' que traz esperança mesmo nos tempos de guerra e divisão, lembrando-nos que o amor de Deus é a única rocha inabalável.\n\nORAÇÃO\n\nÓ Maria, Rainha dos montes e dos mares, Senhora do nosso querido Líbano, cujo candor supera a neve e cujo perfume é como o das flores do Líbano. Vós que vos elevais majestosa como o cedro, protegei nossas famílias, abençoai nossa pátria e fazei de nós instrumentos de vossa paz. Amém.",
                 status: "approved",
                 statusNote: "Santuário Nacional; Rainha do Líbano coroada em 1908"
             },
@@ -481,18 +507,6 @@ export const worldMarianDevotions: Continent[] = [
                 fullDescription: "A história de Nossa Senhora em Lipa, Filipinas (1948), é um dos relatos marianos mais fascinantes da Ásia, envolvendo a jovem noviça Teresita Castillo no Mosteiro Carmelita de Lipa. Maria apresentou-se com o título de 'Medianeira de Todas as Graças', trajando uma túnica branca e um cinto dourado.\n\nO MILAGRE DAS PÉTALAS\n\nO fenômeno que mais impressionou o mundo foi a 'chuva de pétalas de rosa' que caíam inexplicavelmente dentro e fora do convento. Muitas dessas pétalas, de beleza e perfume extraordinários, traziam imagens de Jesus e Maria gravadas em sua superfície. Milhares de peregrinos testemunharam o fenômeno, e inúmeras curas foram relatadas após o uso das pétalas.\n\nCONTROVÉRSIA E DEVOÇÃO\n\nApesar da imensa devoção popular, a história de Lipa é marcada por uma longa disputa eclesiástica. Inicialmente aprovado pelo bispo local, o caso foi suprimido em 1951. Décadas depois, houve novas tentativas de reconhecimento, mas em 2016 o Vaticano ratificou a decisão de não-sobrenaturalidade. Contudo, a Santa Sé permite a veneração privada, e Lipa continua sendo um dos maiores centros de fé das Filipinas, onde o povo recorre a Maria como a Mãe que intercede por todas as graças divinas.",
                 status: "not-approved",
                 statusNote: "Julgamento negativo do Vaticano (2024); Devoção popular permitida"
-            },
-            {
-                id: "tra_kieu",
-                name: "N.S. de Trà Kiệu",
-                country: "Vietnã",
-                countryFlag: "🇻🇳",
-                date: "31 de Maio",
-                imageUrl: "/images/ns_tra_kieu.png",
-                description: "Proteção contra canhões (1885)",
-                fullDescription: "Durante a perseguição aos cristãos em 1885, a Virgem apareceu sobre a igreja de Trà Kiệu, protegendo-a dos ataques de canhão do exército inimigo. Os soldados viam uma 'mulher de branco' no telhado que impedia os projéteis de atingir o alvo.",
-                status: "approved",
-                statusNote: "Santuário Diocesano Milagroso"
             }
         ]
     },

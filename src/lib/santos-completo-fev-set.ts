@@ -36,10 +36,33 @@ export const santosMarcoSetembro: SaintOfTheDayData[] = [
     { day: 29, month: 'Abril', saints: [{ name: 'Santa Catarina de Siena', imageUrl: 'https://i.pinimg.com/736x/0d/1e/2f/0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a.jpg', story: '<h4>Doutora da Igreja</h4><p>Santa Catarina de Siena, mística dominicana, Doutora da Igreja. Teve grande influência na Igreja do século XIV.</p><p class="mt-4"><b>Oração:</b> Santa Catarina de Siena, rogai por nós.</p>' }] },
 
     // MAIO
-    { day: 1, month: 'Maio', saints: [{ name: 'São José Operário', imageUrl: 'https://i.pinimg.com/736x/1e/2f/3a/1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b.jpg', story: '<h4>Trabalhador</h4><p>São José, modelo dos trabalhadores. Celebramos seu trabalho humilde como carpinteiro.</p><p class="mt-4"><b>Oração:</b> São José Operário, rogai por nós.</p>' }] },
+    {
+        day: 1, month: 'Maio', saints: [
+            { name: 'São José Operário', imageUrl: 'https://i.pinimg.com/736x/1e/2f/3a/1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b.jpg', story: '<h4>Trabalhador</h4><p>São José, modelo dos trabalhadores. Celebramos seu trabalho humilde como carpinteiro.</p><p class="mt-4"><b>Oração:</b> São José Operário, rogai por nós.</p>' },
+            {
+                name: 'Nossa Senhora do Líbano',
+                imageUrl: '/images/ns_libano_1.png',
+                story: '<h4>Rainha do Líbano</h4><p>Nossa Senhora do Líbano é a padroeira do Líbano e um dos títulos mais majestosos da Virgem Maria no Oriente Médio. Seu santuário em Harissa é um símbolo de unidade e paz entre as religiões.</p><p class="mt-4"><b>Oração:</b> Ó Maria, Rainha do Líbano, protegei nossas famílias e fazei de nós instrumentos de vossa paz. Amém.</p>'
+            }
+        ]
+    },
     { day: 8, month: 'Maio', saints: [{ name: 'Nossa Senhora de Luján', imageUrl: '/images/ns_lujan.png', story: '<h4>Padroeira da Argentina</h4><p>Nossa Senhora de Luján é a padroeira da Argentina. Sua imagem escolheu milagrosamente permanecer em Luján em 1630, tornando-se o coração da fé argentina.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora de Luján, rogai por nós.</p>' }] },
     { day: 13, month: 'Maio', saints: [{ name: 'Nossa Senhora de Fátima', imageUrl: '/images/ns_fatima.png', story: '<h4>Aparições em Fátima</h4><p>Em 1917, Nossa Senhora apareceu a três pastorinhos em Fátima, Portugal, pedindo oração do Rosário.</p><p class="mt-4"><b>Oração:</b> Nossa Senhora de Fátima, rogai por nós.</p>' }] },
     { day: 22, month: 'Maio', saints: [{ name: 'Santa Rita de Cássia', imageUrl: 'https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg', story: '<h4>Santa das Causas Impossíveis</h4><p>Santa Rita, religiosa agostiniana, conhecida como advogada das causas impossíveis e desesperadas.</p><p class="mt-4"><b>Oração:</b> Santa Rita de Cássia, rogai por nós.</p>' }] },
+    {
+        day: 24, month: 'Maio', saints: [{
+            name: 'Nossa Senhora de Sheshan',
+            imageUrl: '/images/ns_sheshan_1.jpg',
+            story: '<h4>Auxiliadora dos Cristãos</h4><p>Nossa Senhora de Sheshan é a padroeira da China. Sua estátua no topo da basílica mostra Maria elevando o Menino Jesus, apresentando-O como o único Salvador. É um símbolo de esperança para os cristãos na Ásia.</p><p class="mt-4"><b>Oração:</b> Ó Senhora de Sheshan, auxiliai os cristãos e trazei a paz à China. Amém.</p>'
+        }]
+    },
+    {
+        day: 31, month: 'Maio', saints: [{
+            name: 'Nossa Senhora de Trà Kiệu',
+            imageUrl: '/images/ns_tra_kieu_1.jpg',
+            story: '<h4>Auxiliadora e Protetora</h4><p>Nossa Senhora de Trà Kiệu é a padroeira do Vietnã central. Em 1885, ela apareceu para proteger os católicos sitiados, desviando as balas e flechas dos atacantes, que a chamaram de "Senhora General".</p><p class="mt-4"><b>Oração:</b> Senhora de Trà Kiệu, protegei a Igreja e dai coragem aos vossos filhos. Amém.</p>'
+        }]
+    },
 
     // JUNHO
     { day: 13, month: 'Junho', saints: [{ name: 'Santo Antônio de Pádua', imageUrl: 'https://i.pinimg.com/736x/4b/5c/6d/4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e.jpg', story: '<h4>Doutor da Igreja</h4><p>Santo Antônio, franciscano português, grande pregador e Doutor da Igreja. Padroeiro de Portugal e dos pobres.</p><p class="mt-4"><b>Oração:</b> Santo Antônio, rogai por nós.</p>' }] },

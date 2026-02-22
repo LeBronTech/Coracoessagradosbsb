@@ -56,7 +56,7 @@ export function WorldMarianDevotions() {
             <div className="text-center mb-10">
                 <h2 className="text-4xl font-bold text-blue-900 dark:text-blue-100 mb-6 font-brand flex items-center justify-center gap-3">
                     <Globe className="w-10 h-10" />
-                    Espaço Mariano
+                    Outras Devoções pelo Mundo
                 </h2>
 
                 <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
