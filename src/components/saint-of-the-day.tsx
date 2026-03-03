@@ -40,6 +40,7 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
           width={64}
           height={64}
           className="saint-image"
+          style={{ objectPosition: (saints[0] as any).imageObjectPosition ?? 'center' }}
         />
       </div>
     );
@@ -59,6 +60,7 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
               "saint-image",
               isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
             )}
+            style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
           />
         ))}
       </div>
@@ -67,6 +69,7 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
 
   return null;
 }
+
 
 function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme) => void }) {
   return (
