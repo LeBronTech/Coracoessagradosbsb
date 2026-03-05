@@ -129,6 +129,19 @@ export const regioesAdministrativas: RegiaoAdministrativa[] = [
         setorRCC: 1,
         vicariato: 'Centro',
         devocoes: [
+            {
+                id: 'js_brasilia',
+                nome: 'JS Brasília — Jovens Sarados Brasília',
+                tipo: 'grupo_jovem',
+                imageUrl: 'https://iili.io/qCi3n87.png',
+                descricao: 'A nossa missão é salvar almas! 💙 Encontros quinzenais sempre aos sábados — Santuário Nossa Senhora do Carmo.',
+                bairro: 'Asa Sul',
+                endereco: 'SGAS 913 Sul — Santuário Nossa Senhora do Carmo, Brasília DF',
+                enderecoMaps: 'https://www.google.com/maps/search/?api=1&query=SGAS+913+Sul+Santu%C3%A1rio+Nossa+Senhora+do+Carmo+Bras%C3%ADlia+DF',
+                horarios: 'Encontros quinzenais — Sábados',
+                instagram: 'js.brasilia',
+            },
+
             { id: 'sj_bosco', nome: 'Santuário São João Bosco', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Santuário do Setor I W/Sul.', bairro: 'Asa Sul' },
             { id: 'santa_cruz_edwiges', nome: 'Paróquia Santa Cruz e Santa Edwiges', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Paróquia do Setor I W/Sul.', bairro: 'Asa Sul' },
             { id: 'ns_fatima_santuario', nome: 'Santuário Nossa Senhora de Fátima', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Santuário do Setor I W/Sul.', bairro: 'Asa Sul' },

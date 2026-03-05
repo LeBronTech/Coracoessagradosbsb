@@ -28,7 +28,8 @@ import {
 } from 'lucide-react';
 
 // Gera URL do Google Maps automaticamente a partir dos campos disponíveis
-function getMapsUrl(d: { endereco?: string; bairro?: string; paroquia?: string }): string | null {
+function getMapsUrl(d: { endereco?: string; bairro?: string; paroquia?: string; enderecoMaps?: string }): string | null {
+    if (d.enderecoMaps) return d.enderecoMaps;
     const texto = d.endereco || d.bairro || d.paroquia;
     if (!texto) return null;
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(texto + ', Brasília DF')}`;
