@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useCallback, memo } from 'react';
+import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
@@ -157,26 +157,45 @@ function SaintSelector({
       return parseDate(a.startDate) - parseDate(b.startDate);
     });
 
+  const navContainerRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
+
+  // Scroll the selected saint's item into view (flush to left with padding)
+  const handleSaintSelect = useCallback((id: string) => {
+    onSaintSelect(id);
+    setTimeout(() => {
+      const container = navContainerRef.current;
+      const item = itemRefs.current[id];
+      if (!container || !item) return;
+      const containerLeft = container.getBoundingClientRect().left;
+      const itemLeft = item.getBoundingClientRect().left;
+      const scrollOffset = container.scrollLeft + (itemLeft - containerLeft) - 16;
+      container.scrollTo({ left: Math.max(0, scrollOffset), behavior: 'smooth' });
+    }, 30);
+  }, [onSaintSelect]);
+
   return (
     <section className="w-full">
       <MonthCarousel months={months} selectedMonth={selectedMonth} onMonthChange={onMonthChange} />
 
       <div
         key={selectedMonth}
+        ref={navContainerRef}
         className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4 animate-fade-in"
       >
         {saintsForMonth.length > 0 ? (
           saintsForMonth.map((saint) => (
             <div
               key={saint.id}
+              ref={(el) => { itemRefs.current[saint.id] = el; }}
               className={cn(
                 'saint-nav-item flex flex-col items-center gap-1 text-center opacity-70 hover:opacity-100 hover:scale-105 transform-gpu transition-all duration-200 w-[100px] shrink-0 cursor-pointer',
                 (selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'))) && 'opacity-100'
               )}
-              onClick={() => onSaintSelect(saint.id)}
+              onClick={() => handleSaintSelect(saint.id)}
               role="button"
               tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && onSaintSelect(saint.id)}
+              onKeyDown={(e) => e.key === 'Enter' && handleSaintSelect(saint.id)}
             >
               <Image
                 src={saint.imageUrl}
