@@ -266,7 +266,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   }
 
   const isOpen = openAccordion;
-  const currentSaintData = dayData.saints[isOpen ? selectedSaintInDayIndex : 0];
+  const safeIndex = Math.min(isOpen ? selectedSaintInDayIndex : 0, dayData.saints.length - 1);
+  const currentSaintData = dayData.saints[safeIndex];
 
   /* Removed useMemo from here */
 
