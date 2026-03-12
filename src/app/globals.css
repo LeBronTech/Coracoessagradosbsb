@@ -110,9 +110,9 @@
     font-size: 4.5em;
     font-weight: bold;
     float: left;
-    line-height: 0.8;
+    line-height: 0.9;
     padding-top: 0.1em;
-    margin-right: 0.1em;
+    margin-right: 0.25em;
     transition: color 0.4s ease;
   }
 

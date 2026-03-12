@@ -156,7 +156,6 @@ export const novenaData: Record<string, Novena> = {
     novenaTitle: "Novena a São José - 19 de Março",
     description: "Novena em honra a São José, esposo de Maria Santíssima e pai nutrício de Jesus, celebrada em preparação para sua festa em 19 de março.",
     image: "https://iili.io/fj7jrtj.png",
-    initialPrayer: `<div class="initial-prayer-text"><div class="prayer-block"><p>Lembrai-vos, ó puríssimo Esposo da Virgem Maria, ó meu doce Protetor São José, que jamais se ouviu dizer que alguém tivesse invocado vossa proteção, implorando vosso socorro e não fosse por vós consolado.</p><p>Com grande confiança, venho a vossa presença recomendar-me fervorosamente a vós. Não desprezeis as minhas súplicas, ó pai adotivo do Redentor, mas dignai-vos acolhê-la piedosamente. Assim seja.</p><p class="mt-4"><b>ANT.</b> José, filho de Davi, não temas receber Maria, vossa Esposa Santíssima, em vossa companhia, porque o que ela leva em suas puríssimas entranhas é obra do Espírito Santo.</p><p class="mt-2">V. Rogai por nós, José santíssimo.<br>R. Para que sejamos dignos das promessas de Cristo.</p></div></div>`,
     finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração final para todos os dias</h4><div class="prayer-block"><p>Lembrai-vos, ó puríssimo Esposo da Virgem Maria, ó meu doce Protetor São José, que jamais se ouviu dizer que alguém tivesse invocado vossa proteção, implorando vosso socorro e não fosse por vós consolado.</p><p>Com grande confiança, venho a vossa presença recomendar-me fervorosamente a vós. Não desprezeis as minhas súplicas, ó pai adotivo do Redentor, mas dignai-vos acolhê-la piedosamente. Assim seja.</p><p class="mt-4"><b>ANT.</b> José, filho de Davi, não temas receber Maria, vossa Esposa Santíssima, em vossa companhia, porque o que ela leva em suas puríssimas entranhas é obra do Espírito Santo.</p><p class="mt-2">V. Rogai por nós, José santíssimo.<br>R. Para que sejamos dignos das promessas de Cristo.</p><p class="mt-4 font-semibold">Oremos: Ó Jesus, que por uma inefável providência, dignastes-Vos escolher o bem-aventurado esposo de Vossa Mãe Santíssima; concedei-nos que aquele mesmo que veneramos como protetor, mereçamos tê-lo no céu por nosso intercessor. Vós que viveis e reinais por todos os séculos dos séculos. Amém.</p><p class="mt-4 italic">Pede-se agora a graça que necessita conseguir.</p><p class="mt-2">Para melhor alcançar as graças pedidas, rezaremos sete Pais-Nossos, sete Ave-Marias e sete Glórias ao Pai em honra das alegrias e dores do glorioso patriarca.</p></div></div>`,
     days: [
       {
@@ -2353,19 +2352,6 @@ export const novenaData: Record<string, Novena> = {
         </div>`
       }
     ]
-  },
-  sao_joao_bosco: {
-    saintName: 'São João Bosco',
-    novenaTitle: 'Novena a São João Bosco',
-    description: 'Pai e mestre da juventude.',
-    image: 'https://placehold.co/400x400?text=Dom+Bosco',
-    initialPrayer: `<div class="initial-prayer-text"><p class="italic">TODO: Inserir oração inicial</p></div>`,
-    finalPrayer: `<div class="final-prayer-text"><p class="italic">TODO: Inserir oração final</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Meditação do Dia',
-      content: `<div class="day-specific-content"><p>TODO: Inserir meditação para o ${i + 1}º dia.</p></div>`
-    }))
   },
   ns_candeias: {
     saintName: 'Nossa Senhora das Candeias',

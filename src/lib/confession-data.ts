@@ -889,6 +889,7 @@ export const confessionData: CityData[] = [
       {
         name: 'Paróquia Nossa Senhora Auxiliadora',
         address: 'Paranoá',
+        times: 'Sábado: Após a missa das 19h. Domingo: 30 minutos antes de cada missa (08h, 10h e 19h).',
         instagram: 'https://www.instagram.com/auxiliadoragomel'
       }
     ]
