@@ -31,6 +31,7 @@ export type Saint = {
 export type SaintStory = {
   name: string;
   imageUrl: string;
+  imageObjectPosition?: string;
   story: string;
   isMartyr?: boolean;
 };

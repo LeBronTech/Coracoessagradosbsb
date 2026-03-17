@@ -97,7 +97,7 @@ export default function Home() {
   const [marianCarouselApi, setMarianCarouselApi] = useState<CarouselApi>()
   const [marianCarouselCurrent, setMarianCarouselCurrent] = useState(0)
   const [isRosarioDescriptionOpen, setIsRosarioDescriptionOpen] = useState(false);
-  const [shouldScrollToNovena, setShouldScrollToNovena] = useState(false);
+  const [scrollTarget, setScrollTarget] = useState<'novena' | 'title' | null>(null);
   const [showNatalNovenaDialog, setShowNatalNovenaDialog] = useState(false);
 
   useEffect(() => {
@@ -158,6 +158,7 @@ export default function Home() {
 
     let initialMonth: string | null = null;
     let initialNovenaId: string | null = null;
+    let cameFromHash = false;
 
     const hash = window.location.hash.substring(1);
     const saintFromHash = saints.find(s => s.id === hash);
@@ -168,6 +169,7 @@ export default function Home() {
       const currentMonthName = months[new Date().getMonth()];
       initialMonth = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
       initialNovenaId = saintFromHash.id;
+      cameFromHash = true;
     } else {
       const currentYear = getYear(todayUTC);
       const closestSaint = saints.reduce((closest, saint) => {
@@ -203,6 +205,9 @@ export default function Home() {
     if (initialMonth && initialNovenaId) {
       setSelectedMonth(initialMonth);
       setSelectedSaintId(initialNovenaId);
+      if (cameFromHash) {
+         setScrollTarget('title');
+      }
     }
 
     if (todayUTC.getUTCDay() === 5) {
@@ -237,7 +242,7 @@ export default function Home() {
       ancestor = ancestor.parentElement;
     }
 
-    const headerOffset = 8; // pequeno ajuste para evitar colisão com bordas fixas
+    const headerOffset = 16; // pequeno ajuste para evitar colisão com bordas fixas
 
     if (!ancestor || ancestor === document.documentElement || ancestor === document.body) {
       const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
@@ -253,15 +258,21 @@ export default function Home() {
   useEffect(() => {
     if (selectedSaintId && hydrated) {
       history.pushState({ novenaId: selectedSaintId }, '', '#' + selectedSaintId);
-      if (shouldScrollToNovena) {
+      if (scrollTarget) {
         // Run the scroll on next frames with a small delay to allow DOM updates/layout
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = window.setTimeout(() => {
           requestAnimationFrame(() => {
-            smoothScrollToElement(novenaSectionRef.current);
-            setShouldScrollToNovena(false);
+            if (scrollTarget === 'title') {
+                const novenaHeader = document.getElementById('novena-header');
+                if (novenaHeader) smoothScrollToElement(novenaHeader);
+                else smoothScrollToElement(novenaSectionRef.current);
+            } else {
+                smoothScrollToElement(novenaSectionRef.current);
+            }
+            setScrollTarget(null);
           });
-        }, 350);
+        }, 500); // slightly longer delay to ensure intro animation and rendering is completely finished
       }
     }
 
@@ -271,7 +282,7 @@ export default function Home() {
         scrollTimeoutRef.current = null;
       }
     }
-  }, [selectedSaintId, hydrated, shouldScrollToNovena]);
+  }, [selectedSaintId, hydrated, scrollTarget]);
 
   const selectedNovena = useMemo(
     () => (selectedSaintId ? novenaData[selectedSaintId] : null),
@@ -353,11 +364,11 @@ export default function Home() {
       setSelectedSaintId(saintId);
       // Aguarda o fechamento do diálogo (animação) antes de rolar
       // para garantir que a rolagem com comportamento 'smooth' fique visível.
-      setTimeout(() => setShouldScrollToNovena(true), 220);
+      setTimeout(() => setScrollTarget('novena'), 220);
     } else if (saintId === 'natal_sao_leao' || saintId === 'natal_familia') {
       setSelectedMonth('Dezembro');
       setSelectedSaintId(saintId);
-      setTimeout(() => setShouldScrollToNovena(true), 220);
+      setTimeout(() => setScrollTarget('novena'), 220);
     }
   }
 

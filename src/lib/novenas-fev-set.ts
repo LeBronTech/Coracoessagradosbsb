@@ -356,7 +356,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Patrício",
         novenaTitle: "Novena a São Patrício",
         description: "Novena em honra a São Patrício, apóstolo da Irlanda. Reza-se de 8 a 16 de março, preparando a festa de 17 de março.",
-        image: "/images/sao_patricio.png",
+        image: "https://i.pinimg.com/1200x/de/2b/43/de2b43f9bae8de756f6c18660e63f48a.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Apresentação</h4><p>Patrício da Irlanda, Apóstolo da Irlanda ou Saint Patrick (em inglês: Patrick; em latim: Patricius) (Banwen - 17 de março de 493, Irlanda), foi um missionário cristão, depois bispo e santo padroeiro da Irlanda, juntamente com Santa Brígida de Kildare e São Columba.</p><p>Quando tinha dezesseis anos foi capturado e vendido como escravo para a Irlanda (piratas pagãos irlandeses), de onde escapou e retornou à casa de sua família seis anos mais tarde, iniciando então sua vida religiosa. Posteriormente retornou à ilha de onde fugira para pregar o evangelho. Quando voltou para sua terra natal, Patrício sonhou com as crianças irlandesas implorando para que ele levasse a elas o evangelho. "Imploramos que você venha e caminhe entre nós uma vez mais". Como achava que não tinha a compreensão adequada da fé, Patrício voltou para a França a fim de estudar em um mosteiro. Por volta do ano 432, ele voltou à Irlanda.</p><p>Para explicar como a Santíssima Trindade era três e um ao mesmo tempo utilizava o trevo de três folhas, tornando-se parte da cultura Irlandesa. Foi incentivador do sacramento de confissão particular, tal como conhecemos hoje, visto que antes o mesmo era realizado de forma pública. Um século mais tarde essa prática se propagou na Europa.</p></div>`,
         finalPrayer: `<div class="prayer-block"><p class="font-semibold">Rogai por nós, ó glorioso São Patrício e interceda por nós na intenção que vos apresento nesta Novena.</p><p class="mt-4 font-semibold">Pai Nosso…<br/>Ave Maria…<br/>Glória ao Pai…</p></div>`,
         days: [
@@ -424,6 +424,156 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
 
     // ABRIL
+    sao_vicente_ferrer: {
+        saintName: "São Vicente Ferrer",
+        novenaTitle: "Novena de São Vicente Ferrer",
+        description: "Novena em honra a São Vicente Ferrer, religioso dominicano aclamado como 'Anjo do Apocalipse'. Festa: 5 de abril.",
+        image: "https://i.pinimg.com/736x/e9/43/97/e943975488f8321ecfebee550dd3435c.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Ato de Contrição</h4>
+            <p>Meu Senhor Jesus Cristo, Deus e homem verdadeiro, meu Criador e Redentor, em cujos mistérios de fé creio; de quem espero, por vossa misericórdia e pelos méritos infinitos de vossa Paixão e Morte, ser eternamente feliz; a quem amo sobre todas as coisas, mais do que à minha própria vida: pesa-me, meu Deus, de vos ter ofendido por serdes vós quem sois e por vossa infinita bondade. Quisera antes perder mil vidas, se as tivesse, que tornar a vos ofender. Proponho firmemente satisfazer, com o auxílio da vossa divina graça, por minhas ofensas, confessar-me e afastar-me de todas as ocasiões de vos ofender. Espero, por vossa infinita misericórdia, que me haveis de perdoar todos os meus pecados e me dareis a graça de perseverar firme nestes propósitos, empenhando-me no vosso santo serviço até a morte. Amém.</p>
+            <h4 class="section-title mt-4">Oração para todos os dias</h4>
+            <p>Glorioso pai São Vicente, digníssimo filho de São Domingos, destinado por Deus a serdes pregador das nações! Vós merecestes que vossa alma fosse adornada com todas as virtudes e dons do Espírito Santo, para que, com vossa doutrina e exemplo, convertêsseis os pecadores à verdadeira penitência e atraísseis os infiéis à fé de Jesus Cristo: humildemente vos peço que intercedais, por vossos poderosos méritos, junto ao nosso Deus e Senhor, para que, afastando de mim tudo o que lhe desagrada, me conceda a graça de imitar vossas virtudes e com elas me empenhar no seu santo serviço até o último momento da minha vida. Amém. </p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final (Glorioso apóstolo de Valência)</h4>
+            <p>Glorioso apóstolo de Valência, São Vicente! Vós conheceis as necessidades de minha alma e o consolo de que necessita, por isso vos suplico humildemente que, por vossos poderosos méritos, intercedais por mim a Deus, a fim de que a piedade divina me conceda as virtudes e a graça que peço nesta novena e, na hora da minha morte, me conserve a consciência e a fala para confessar minhas culpas, me conceda uma perfeita contrição delas e uma caridade ardente, de sorte que eu possa dizer com toda a segurança e de coração puro: “Em vossas mãos, Senhor, entrego o meu espírito. Vós, que sois bendito e glorioso pelos séculos dos séculos”. Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Primeiro Dia - Temor de Deus",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que, desejando que todos os homens, com a ajuda da vossa divina graça, trabalhassem com temor e tremor por sua eterna felicidade, lhes haveis manifestado sempre, com vossas palavras e exemplos, o fundamento da verdadeira sabedoria neste mesmo temor, e que em vosso servo São Vicente Ferrer lhes oferecestes um modelo prático deste precioso dom do Espírito Santo, mandando-o anunciar a todos os povos a proximidade do vosso Juízo, para que os pecadores se retratassem de suas ofensas e fizessem uma salutar penitência: concedei-me, meu Deus, pela intercessão do mesmo santo, que, penetrada minh’alma deste santo temor, e tendo diante dos olhos vossos altos juízos, fuja de todas as ocasiões de pecar e me faça digno de vossas misericórdias. Amém.</p>
+                    <p class="mt-4 italic">Medita-se o dia do Juízo e procura-se imprimir na alma o santo temor de Deus.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor, e olhai com piedade para o meu coração.</p>
+                    <p>Misericórdia, meu Deus, pois está enferma a minha alma, e desmaiadas e perdidas as suas virtudes.</p>
+                    <p>Misericórdia, Senhor, e atendei-me, humilhado e abatido por meus inimigos.</p>
+                    <p>Misericórdia, Senhor, pois estou em angústias e, tendo provocado contra mim a vossa justiça, me acho confundido, e se estremece o meu corpo.</p>
+                    <p>Misericórdia, Senhor, pois me atormenta o inimigo, e todo dia se levanta contra mim.</p>
+                    <p>Misericórdia, Senhor, pois em vós confia a minha alma e se alegra em vós o meu coração. Glória ao Pai etc.</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, que, possuído do santo temor de Deus, destes frutos abundantes de verdadeira sabedoria e, pregando aos pecadores e infiéis, os alumiastes nos verdadeiros caminhos da eterna felicidade: alcançai-me a graça de, temendo a Deus, trilhar o caminho das virtudes de que tantos e tão repetidos exemplos nos destes, o único que conduz ao objeto de minha felicidade, que consiste em possuir a Deus mesmo. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Segundo Dia - Humildade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que desejoso de plantar no coração dos homens a verdadeira humildade, não duvidastes em tomar forma de servo, humilhando-vos até a morte, e morte de Cruz, e que em vosso servo São Vicente renovastes frequentemente exemplos de humildade com os quais eu abatesse meu amor próprio: iluminai, meu Deus, minh’alma, para que, conhecendo a minha miséria, fuja do orgulho e da vaidade, seus inimigos capitais, e deseje unicamente o desprezo e a humilhação, para que assim, segundo a vossa promessa, eu seja um dia exaltado e glorificado por vós entre os verdadeiros humildes na glória. Amém.</p>
+                    <p class="mt-4 italic">Medita-se sobre o nada que cada um é, e pede-se a Deus a verdadeira humildade.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor, e olhai com piedade para o meu coração. (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, espelho claríssimo de humildade, que, louvado e aclamado por pontífices, reis, príncipes e povos, que porfiavam em vos cumular de honras, soubestes conservar-vos humilde, despido de todo orgulho e vaidade: alcançai-me esta virtude, com a qual, a vosso exemplo, eu despreze o vício da soberba e, vendo o meu nada e a minha miséria, conheça que só Deus é grande, o único a quem se devem a honra e a glória, e dele espere a glória que tem preparada para os humildes e mansos de coração. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Terceiro Dia - Caridade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que por amor aos homens descestes do céu à terra, vos vestistes de nossa natureza humana e padecestes morte atroz em uma Cruz, para deste modo lhes chamar a atenção, à força de benefícios, ao vosso amor e serviço, dando-lhes além disso um modelo de caridade heroica em vosso servo São Vicente, com cuja virtude tanto soube ele vos agradar e servir: vos suplico inflameis minha vontade com o fogo desta caridade, para que somente a vós ame, somente a vós sirva e por vós despreze minha própria vida, lucrando-a assim para minha própria felicidade. Amém.</p>
+                    <p class="mt-4 italic">Medita-se o amor que nos tem Deus e a obrigação que temos nós de corresponder a ele. </p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, que, qual serafim abrasado de amor a Deus, dia e noite meditáveis sua santa Lei, a fim de em tudo lhe serdes grato; indagáveis sua divina vontade para a cumprir e em contínuos louvores ao Senhor manifestáveis vossa caridade: abrasai minh’alma com o fogo desta heroica virtude, para que, imitando a vós, eu sirva a Deus e o ame com todo o meu coração, a fim de que, desprezando todas as coisas por amor a Ele, mereça alcançar sua graça e sua glória. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Quarto Dia - Castidade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que, agradando-vos de tal modo da virtude da castidade, nascestes de Mãe Virgem e distinguistes com particular amor ao vosso virginal discípulo São João, e, sobre estes exemplos, nos destes em vosso servo São Vicente um anjo nesta santa virtude, para que, a exemplo dele, sejamos puros e castos em obras, palavras e pensamentos: concedei-me, meu Jesus, por sua poderosa intercessão, afastar do meu coração todo desejo impuro, ser casto em obras e palavras e, assim, me tornar digno de entoar aquele doce cântico que cantam os puros e castos nos Céu. Amém.</p>
+                    <p class="mt-4 italic">Medita-se a beleza da pureza, e pede-se ao Senhor que no-la dê de corpo e de alma.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, espelho claríssimo de pureza e castidade, que conservastes com o auxílio da graça todo o transcurso de vossa vida, afastando-vos das ocasiões perigosas que os inimigos da alma escolhem para a enredar e perder, vivendo sempre mortificado em vossos sentidos e contendo vossas paixões com o jejum e a penitência: alcançai-me que, mortificando minhas paixões e apetites e mantendo-me sempre puro e casto em obras, palavras e pensamentos, seja templo vivo do Espírito Santo. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Quinto Dia - Mortificação",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que, tendo vindo ao mundo para redimir o homem e lhe ensinar os caminhos da salvação com vossos exemplos e doutrinas, o guiastes pelo da mortificação, jejuando, velando, passando fome, nudez e cansaço, e lhe destes por modelo desta virtude o vosso servo São Vicente, para que, como ele, mortificássemos nossa carne e seus apetites: infundi, meu Salvador, em minha alma vivos desejos de vos imitar, para que, mortificados meus apetites e paixões, e macerada minha carne com a penitência, satisfaça de algum modo à vossa justiça por minhas culpas, e mereça se inscrito no Livro da Vida. Amém.</p>
+                    <p class="mt-4 italic">Medita-se a necessidade de mortificar a carne para que ela não se rebele contra o espírito.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, que, para ter sempre sujeitos os vossos apetites e paixões, os tivestes durante toda a vida cravados na Cruz de Jesus Cristo, mortificando-os com jejuns, abstinências, cilícios, disciplinas e demais gêneros de penitência com os quais pudestes vencer os inimigos da nossa salvação: alcançai-me aquele espírito de mortificação que Jesus Cristo nos veio ensinar, para que, crucificado com Ele na terra, mereça ressuscitar com Ele em sua glória. Amém. </p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Sexto Dia - Paciência",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, homem de dores e sofrimentos, que os tolerastes com a mais heroica paciência sob o peso dos pecados dos homens; que, longe de abrir a boca para vos queixar dos golpes, injúrias, opróbrios e contusões com que indignamente fostes tratado, rezastes pelos mesmos inimigos que assim vos mortificavam e crucificavam; que, por sobre isso, nos quisestes dar por admirável modelo de paciência o vosso servo São Vicente nos trabalhos que padeceu, a fim de que nos envergonhássemos do nosso pouco sofrimento: dai-me, meu Deus, esta paciência, para que, imitando a vós, eu sofra resignado em vossa divina vontade as ofensas e injúrias dos meus semelhantes e os trabalhos que de um modo ou de outro me sobrevenham, e assim se cumpra em mi o que disse vosso Apóstolo: “Se com Cristo padecemos, com Cristo seremos glorificados”. Amém.</p>
+                    <p class="mt-4 italic">Medita-se a resignação que teve Jesus Cristo em meio aos seus tormentos e à sua morte, e o pouco sofrimento que temos em nossos trabalhos.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, perfeito imitador de Jesus Cristo crucificado, que sofrestes com a maior paciência e mansidão tanto os grandes trabalhos e doenças com que Deus punha à prova a vossa virtude quanto os maus-tratos, os falsos testemunhos, as calúnias e as burlas grosseiras de homens perdidos, de mulheres escandalosas e até de alguns de vossos discípulos, perdoando-os, à semelhança do mesmo Jesus Cristo, e dispensando-lhes favores e benefícios: alcançai-me imitar esta mesma mansidão e paciência, a fim de dizer verdadeiramente ao meu Deus: “Perdoai-nos as nossas ofensas assim como nós perdoamos a quem nos tem ofendido”. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Sétimo Dia - Oração",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que, tendo persuadido os homens da necessidade de orar, e havendo lhes ensinado como fazê-lo, lhes destes contínuos exemplos de oração e quisestes que, dedicado sempre a esta virtude, se verificasse no vosso servo São Vicente o que dizia São Paulo: “Somos cidadãos do céu”, para que nós, seguindo-lhe os passos, nos acostumássemos a este santo exercício: movei, meu Jesus, minh’alma a dedicar-se toda à oração, merecendo por meio dela vencer os inimigos de minha salvação eterna e suportar as tribulações por que devo passar para ser feliz. Amém.</p>
+                    <p class="mt-4 italic">Medita-se a necessidade que temos dos auxílios de Deus, que se conseguem por meio da oração.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai, São Vicente, que, penetrado da bondade e misericórdia do Senhor para com os homens, e certo de que somente de suas benéficas mãos lhes hão de vir os auxílios e a graça para o amarem, servirem e vencerem os inimigos da salvação, vos eleváveis à mais alta contemplação a fim de lhe render graças por tão incomparáveis benefícios: alcançai-me que, penetrado também eu destes mesmos sentimentos, seja homem de oração de tal modo fervorosa, que consiga quanto me for necessário à salvação de minha alma. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oitavo Dia - Amor ao Próximo",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que por amor aos homens quisestes, sendo Deus, nascer verdadeiro homem, viver e conversar com eles, lhes ensinar os caminhos da verdadeira felicidade e morrer por eles, exemplo que, unido ao do vosso servo São Vicente, que se desfazia pelo bem de seus semelhantes, nos atesta o amor mútuo que deve reinar entre os homens: comunicai-me, meu Deus, desejos eficazes de amar os meus semelhantes, incluídos meus próprios inimigos, e de lhes fazer todo o bem possível, assim temporal como espiritual, de modo que eu mereça ouvir um dia de vossa boca o que hão de ouvir os vossos eleitos: “Vinde, benditos de meu Pai, para o reino que vos tenho preparado”. Amém.</p>
+                    <p class="mt-4 italic">Medita-se a obrigação que temos de amar ao próximo, pois todos somos filhos do mesmo Pai, que é Deus. </p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, que, abrasado de amor aos vossos semelhantes, lhes procuráveis todos os bens possíveis por meio de vossa pregação, orações e penitências pela salvação eterna delas, e com vossos estupendos milagres por seu bem temporal: vos suplico me alcanceis do Senhor iguais desejos de me empenhar na salvação de meus irmãos, ainda que sejam os meus maiores inimigos, amando-os de todo o coração e procurando-lhes a verdadeira felicidade, a fim de que eu receba o prêmio devido no reino dos céus. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Nono Dia - Penitência",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração do Dia</h4>
+                    <p>Dulcíssimo Jesus, que, cheio de bondade, não quereis a morte do pecador, mas que se converta e viva, proporcionando-lhe o remédio da conversão pela penitência e a detestação de suas culpas, e dando-lhe um vivo exemplo no vosso servo São Vicente, o qual, sendo embora inocente, castigava continuamente o corpo e o reduzia à obediência para que eu aprendesse a castigar o meu, que tantas vezes tem pecado: concedei-me, Senhor, fortaleza para satisfazer com obras de penitência as muitas ofensas que vos tenho feito e, assim justificado como o publicano, mereça o vosso perdão, a vossa graça e a vossa glória.</p>
+                    <p class="mt-4 italic">Medita-se a necessidade de fazer penitência em satisfação dos próprios pecados.</p>
+                    <h4 class="section-title mt-4">Versos de Misericórdia</h4>
+                    <p class="mt-2">Misericórdia, Senhor... (Repetir os versos do primeiro dia)</p>
+                    <h4 class="section-title mt-4">Oração a São Vicente</h4>
+                    <p>Amado pai São Vicente, espelho claríssimo de inocência, que, não tendo culpa grave de que chorar, derramáveis por defeitos leves e para deles vos precaver copiosas lágrimas de dor e castigáveis o vosso inocente corpo com o jejum, o cilício e as disciplinas, no mais das vezes até ao sangue: alcançai-me verdadeiro conhecimento de meus pecados, dor intensíssima de ter ofendido a Deus e ânimo resoluto de satisfazer ao Senhor com obras de penitência, a fim de que eu pague nesta vida as penas que por eles mereço e, assim purificado e santificado, possa entrar no reino da glória. Amém.</p>
+                    <p class="mt-4 font-semibold">Rezar 3 Pai-nosso, Ave-Maria e Glória.</p>
+                </div>`
+            }
+        ]
+    },
+
     divina_misericordia: {
         saintName: "Divina Misericórdia",
         novenaTitle: "Novena da Divina Misericórdia",
@@ -454,6 +604,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Jorge",
         novenaTitle: "Novena a São Jorge",
         description: "Novena em honra a São Jorge, mártir e guerreiro da fé (23 de abril).",
+        image: "https://i.pinimg.com/736x/8d/62/ce/8d62cee44383a15291771146603a113d.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -467,6 +618,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Marcos Evangelista",
         novenaTitle: "Novena a São Marcos",
         description: "Novena em honra a São Marcos Evangelista (25 de abril).",
+        image: "https://i.pinimg.com/736x/21/3c/64/213c645b209d7c81d8b9cedac0e1f2f3.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -506,6 +658,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São José Operário",
         novenaTitle: "Novena a São José Operário",
         description: "Novena em honra a São José Operário (1º de maio).",
+        image: "https://i.pinimg.com/736x/1e/2f/3a/1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -534,6 +687,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Santa Rita de Cássia",
         novenaTitle: "Novena a Santa Rita de Cássia",
         description: "Novena em honra a Santa Rita de Cássia, santa das causas impossíveis (22 de maio).",
+        image: "https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
