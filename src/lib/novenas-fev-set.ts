@@ -1270,5 +1270,29 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 content: `<div class="day-specific-content"><p>Ó Senhora do Carmo, das Dores e da Defesa, mão e colo que embalaram Jesus, consolai todas as mães que rezam pela volta de seus filhos ao lar e aos bons costumes. Recompensai as mães que geram filhos para Deus, instruindo-os na fé e entregando-os a vida sacerdotal e religiosa.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
             }
         ]
+    },
+    santa_gemma_galgani: {
+        saintName: "Santa Gemma Galgani",
+        novenaTitle: "Novena a Santa Gemma Galgani",
+        description: "Jovem mística e estigmatizada. Intercessora nas tentações e pureza.",
+        initialPrayer: "Em breve...",
+        finalPrayer: "Em breve...",
+        days: Array(9).fill(null).map((_, i) => ({ day: `Dia ${i + 1}`, title: `${i + 1}º Dia`, content: "Oração em breve..." }))
+    },
+    sao_luis_montfort: {
+        saintName: "São Luís de Montfort",
+        novenaTitle: "Novena a São Luís de Montfort",
+        description: "Mestre da consagração a Maria. Todo de Jesus pelas mãos da Virgem.",
+        initialPrayer: "Em breve...",
+        finalPrayer: "Em breve...",
+        days: Array(9).fill(null).map((_, i) => ({ day: `Dia ${i + 1}`, title: `${i + 1}º Dia`, content: "Oração em breve..." }))
+    },
+    santo_atanasio: {
+        saintName: "Santo Atanásio",
+        novenaTitle: "Novena a Santo Atanásio",
+        description: "Pilar da Igreja. Coragem para defender a fé verdadeira.",
+        initialPrayer: "Em breve...",
+        finalPrayer: "Em breve...",
+        days: Array(9).fill(null).map((_, i) => ({ day: `Dia ${i + 1}`, title: `${i + 1}º Dia`, content: "Oração em breve..." }))
     }
 };
