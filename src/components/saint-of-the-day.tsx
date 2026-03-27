@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useMemo, useCallback, forwardRef, useImperativeHandle } from 'react';
+import { useState, useEffect, useMemo, useCallback, forwardRef, useImperativeHandle, useRef } from 'react';
 import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
@@ -109,6 +109,7 @@ export function SaintOfTheDaySkeleton() {
 
 export interface SaintOfTheDayRef {
   navigate: (direction: 'prev' | 'next') => void;
+  openAndScrollToLiturgy: () => void;
 }
 
 interface SaintOfTheDayProps {
@@ -118,6 +119,7 @@ interface SaintOfTheDayProps {
 }
 
 const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ triggerTheme, isOpenInitially = false, onToggle }, ref) => {
+  const liturgySectionRef = useRef<HTMLDivElement>(null);
   const [openAccordion, setOpenAccordion] = useState(isOpenInitially);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedSaintInDayIndex, setSelectedSaintInDayIndex] = useState(0);
@@ -246,8 +248,18 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
   }, [saintsForCurrentMonth, openAccordion]);
 
+  const openAndScrollToLiturgy = useCallback(() => {
+    setOpenAccordion(true);
+    setTimeout(() => {
+      if (liturgySectionRef.current) {
+        liturgySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 350);
+  }, []);
+
   useImperativeHandle(ref, () => ({
-    navigate: handleNavigation
+    navigate: handleNavigation,
+    openAndScrollToLiturgy,
   }));
 
 
@@ -361,6 +373,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 {currentSaintData && <div className="prose prose-sm max-w-none pt-4" dangerouslySetInnerHTML={{ __html: currentSaintData.story }} />}
 
                 {liturgicalData && liturgicalData.readings && (
+                  <div ref={liturgySectionRef}>
                   <div className="mt-8 pt-6 border-t border-gray-200/50">
                     <div className="mb-4">
                       <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
@@ -420,6 +433,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                         </span>
                       </div>
                     </div>
+                  </div>
                   </div>
                 )}
               </div>

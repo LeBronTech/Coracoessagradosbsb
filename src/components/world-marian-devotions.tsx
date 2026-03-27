@@ -72,7 +72,7 @@ export function WorldMarianDevotions() {
             </div>
 
             {/* Menu de Navegação por Continentes */}
-            <nav className="sticky top-20 z-40 mb-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-y border-blue-200 dark:border-blue-800 shadow-md py-4">
+            <nav className="mb-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-y border-blue-200 dark:border-blue-800 shadow-md py-4">
                 <div className="flex gap-2 sm:gap-4 justify-center items-center flex-wrap px-4">
                     {continents.map((continent) => (
                         <button

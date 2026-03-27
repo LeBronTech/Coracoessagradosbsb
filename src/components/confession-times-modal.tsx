@@ -190,38 +190,18 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
         </div>
       ) : (
         <>
-          <a
-            href="#confissoes"
-            className={`fixed left-0 top-1/2 -translate-y-1/2 bg-red-800/90 text-white p-1 md:p-4 shadow-lg rounded-r-lg cursor-pointer transition-all duration-300 ${isExpanded ? 'translate-x-0' : '-translate-x-full'}`}
+          <div
+            className={`fixed left-16 top-2 z-20 bg-red-800/90 text-white shadow-lg rounded-lg cursor-pointer transition-all duration-500 overflow-hidden ${isExpanded ? 'max-w-xs opacity-100' : 'max-w-0 opacity-0 pointer-events-none'}`}
             onClick={(e) => {
               e.preventDefault();
               setIsOpen(true)
             }}
           >
-            <p className="font-bold text-base md:text-lg mb-0 md:mb-2">Horários de Confissões</p>
-            <p style={{ fontFamily: 'Cinzel Decorative, cursive' }} className="text-xs md:text-sm">Clique para abrir</p>
-          </a>
-          {!isExpanded && (
-            <div
-              className="fixed left-0 top-1/2 -translate-y-1/2 bg-red-800/90 text-white p-2 shadow-lg rounded-r-lg cursor-pointer"
-              onClick={() => setIsExpanded(true)}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
+            <div className="px-3 py-2 whitespace-nowrap">
+              <p className="font-bold text-sm">Confissões</p>
+              <p style={{ fontFamily: 'Cinzel Decorative, cursive' }} className="text-xs opacity-80">Clique para abrir</p>
             </div>
-          )}
+          </div>
         </>
       )}
 

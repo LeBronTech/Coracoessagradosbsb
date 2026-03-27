@@ -99,6 +99,8 @@ export default function Home() {
   const [isRosarioDescriptionOpen, setIsRosarioDescriptionOpen] = useState(false);
   const [scrollTarget, setScrollTarget] = useState<'novena' | 'title' | null>(null);
   const [showNatalNovenaDialog, setShowNatalNovenaDialog] = useState(false);
+  const [closestSaintId, setClosestSaintId] = useState<string | null>(null);
+  const [isHamburgerRed, setIsHamburgerRed] = useState(false);
 
   useEffect(() => {
     if (!marianCarouselApi) return
@@ -143,88 +145,86 @@ export default function Home() {
     }
   }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog, showNatalNovenaDialog]);
 
-
-  const { toast } = useToast();
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
 
   useEffect(() => {
-    const today = new Date();
-    // Use UTC methods to avoid timezone issues
-    const year = today.getUTCFullYear();
-    const month = today.getUTCMonth(); // 0-11
-    const day = today.getUTCDate();
+    if (!hydrated) return;
 
-    // Create a UTC-based 'today' for consistent comparisons
-    const todayUTC = new Date(Date.UTC(year, month, day));
+    const today = new Date();
+    const todayOnlyDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
     let initialMonth: string | null = null;
     let initialNovenaId: string | null = null;
-    let cameFromHash = false;
+    let initialMonthScroll: string | null = null;
+    let initialSaintScrollId: string | null = null;
 
     const hash = window.location.hash.substring(1);
     const saintFromHash = saints.find(s => s.id === hash);
 
     if (saintFromHash) {
-      // Handle saints whose `month` may contain multiple months separated by '/'
       const saintMonths = saintFromHash.month.split('/').map(m => m.trim());
-      const currentMonthName = months[new Date().getMonth()];
+      const currentMonthName = months[todayOnlyDate.getMonth()];
       initialMonth = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
       initialNovenaId = saintFromHash.id;
-      cameFromHash = true;
+      initialMonthScroll = initialMonth;
+      initialSaintScrollId = initialNovenaId;
     } else {
-      const currentYear = getYear(todayUTC);
-      const closestSaint = saints.reduce((closest, saint) => {
-        try {
-          const startDate = parse(`${saint.startDate}/${currentYear}`, 'dd/MM/yyyy', new Date());
-          const startDateUTC = new Date(Date.UTC(startDate.getFullYear(), startDate.getMonth(), startDate.getDate()));
+      const saintsWithDates = saints.map(s => {
+        const [startDay, startMonth] = s.startDate.split('/').map(Number);
+        const [endDay, endMonth] = s.endDate.split('/').map(Number);
+        
+        let startD = new Date(todayOnlyDate.getFullYear(), startMonth - 1, startDay);
+        let endD = new Date(todayOnlyDate.getFullYear(), endMonth - 1, endDay);
 
-          if (isNaN(startDateUTC.getTime())) return closest;
-
-          const diff = Math.abs(differenceInDays(startDateUTC, todayUTC));
-
-          if (!closest || diff < closest.diff) {
-            return { saint, diff };
+        if (endMonth < startMonth) {
+          if (todayOnlyDate.getMonth() < 6) {
+            startD.setFullYear(todayOnlyDate.getFullYear() - 1);
+          } else {
+            endD.setFullYear(todayOnlyDate.getFullYear() + 1);
           }
-        } catch (e) {
-          // Ignore invalid date formats
         }
-        return closest;
-      }, null as { saint: Saint; diff: number } | null);
+
+        const diffStart = startD.getTime() - todayOnlyDate.getTime();
+        const daysUntilStart = Math.ceil(diffStart / (1000 * 60 * 60 * 24));
+
+        return { saint: s, daysUntilStart, endD };
+      });
+
+      const closestSaint = saintsWithDates
+        .filter(item => item.endD >= todayOnlyDate)
+        .sort((a, b) => {
+          if (a.daysUntilStart <= 0 && b.daysUntilStart > 0) return -1;
+          if (b.daysUntilStart <= 0 && a.daysUntilStart > 0) return 1;
+          return Math.abs(a.daysUntilStart) - Math.abs(b.daysUntilStart);
+        })[0];
 
       if (closestSaint) {
-        initialNovenaId = closestSaint.saint.id;
-        initialMonth = closestSaint.saint.month;
-      } else {
-        const firstSaint = saints[0];
-        if (firstSaint) {
-          initialNovenaId = firstSaint.id;
-          initialMonth = firstSaint.month;
-        }
+        initialSaintScrollId = closestSaint.saint.id;
+        const saintMonths = closestSaint.saint.month.split('/').map(m => m.trim());
+        const currentMonthName = months[todayOnlyDate.getMonth()];
+        initialMonthScroll = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
       }
     }
 
-    if (initialMonth && initialNovenaId) {
+    if (initialMonth) {
       setSelectedMonth(initialMonth);
-      setSelectedSaintId(initialNovenaId);
-      if (cameFromHash) {
-         setScrollTarget('title');
-      }
+      if (initialNovenaId) setSelectedSaintId(initialNovenaId);
+    } else if (initialMonthScroll) {
+      setSelectedMonth(initialMonthScroll);
     }
 
-    if (todayUTC.getUTCDay() === 5) {
-      toast({
-        description: (
-          <div className="flex items-center gap-2 font-semibold">
-            <AlertCircle className="text-primary h-5 w-5" />
-            Hoje é dia de abstinência de carne.
-          </div>
-        ),
-        className: 'top-4 right-4 absolute bg-background/80 backdrop-blur-sm',
-      });
+    if (initialSaintScrollId) {
+      setClosestSaintId(initialSaintScrollId);
     }
 
-    // Delay hydration to allow loading animation to play
-    setTimeout(() => setHydrated(true), 1500);
-  }, [toast]);
+    // Flash hamburger button red for 4 seconds when confession popup appears
+    setTimeout(() => {
+      setIsHamburgerRed(true);
+      setTimeout(() => setIsHamburgerRed(false), 4000);
+    }, 300);
+  }, [hydrated]);
 
 
   const smoothScrollToElement = (target: HTMLElement | null) => {
@@ -379,7 +379,15 @@ export default function Home() {
         <div className="container mx-auto p-4 md:p-8 max-w-5xl text-stone-900">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="outline" size="icon" className="fixed top-4 left-4 z-20 bg-white/70 backdrop-blur-sm hover:bg-primary hover:text-primary-foreground">
+              <Button
+                variant="outline"
+                size="icon"
+                className={`fixed top-4 left-4 z-20 bg-white/70 backdrop-blur-sm transition-colors duration-300 ${
+                  isHamburgerRed
+                    ? 'bg-red-700 text-white hover:bg-red-800 border-red-700'
+                    : 'hover:bg-primary hover:text-primary-foreground'
+                }`}
+              >
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Abrir menu</span>
               </Button>
@@ -428,7 +436,7 @@ export default function Home() {
           </Sheet>
 
           <Header />
-          <WeeklyDevotions />
+          <WeeklyDevotions onLiturgyClick={() => saintOfTheDayRef.current?.openAndScrollToLiturgy()} />
 
           <div className="relative" ref={saintOfTheDaySectionRef}>
             <h2 className="text-xl font-brand text-center text-gray-700 mt-8">
@@ -497,6 +505,7 @@ export default function Home() {
               onMonthChange={handleMonthChange}
               selectedSaintId={selectedSaintId}
               onSaintSelect={handleSelectSaint}
+              closestSaintId={closestSaintId}
             />
           </div>
 

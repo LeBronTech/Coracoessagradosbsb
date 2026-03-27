@@ -12,7 +12,7 @@ import Link from "next/link";
 import { SaoJoseTimeline } from "@/components/sao-jose-timeline";
 
 export default function SaoJosePage() {
-    const [activeSection, setActiveSection] = useState<"novenas" | "consagracao">("novenas");
+    const [activeSection, setActiveSection] = useState<"home" | "consagracao">("home");
     const consagracaoContentRef = useRef<HTMLDivElement>(null);
 
     const handleConsagracaoClick = () => {
@@ -62,17 +62,17 @@ export default function SaoJosePage() {
                 </div>
             </header>
 
-            {/* Navigation Buttons */}
+            {/* Navigation Buttons — apenas 33 Dias */}
             <div className="container mx-auto max-w-7xl px-4 py-8">
                 <div className="flex flex-wrap gap-4 justify-center">
                     <Button
                         size="lg"
-                        variant={activeSection === "novenas" ? "default" : "outline"}
-                        onClick={() => setActiveSection("novenas")}
+                        variant={activeSection === "home" ? "default" : "outline"}
+                        onClick={() => setActiveSection("home")}
                         className="bg-green-700 hover:bg-green-800 text-white"
                     >
                         <Heart className="mr-2 h-5 w-5" />
-                        Novenas a São José
+                        Espaço São José
                     </Button>
                     <Button
                         size="lg"
@@ -87,98 +87,82 @@ export default function SaoJosePage() {
             </div>
 
             <main className="container mx-auto max-w-7xl px-4 pb-12">
-                {/* Recursos e Links */}
-                <section className="mb-8">
-                    <Card className="border-green-200 shadow-lg bg-gradient-to-br from-white to-green-50 dark:from-slate-900 dark:to-green-950/20">
-                        <CardHeader className="bg-green-100/50 dark:bg-green-900/20">
-                            <CardTitle className="text-2xl text-green-800 dark:text-green-300 flex items-center">
-                                <Download className="mr-2 h-6 w-6" />
-                                Recursos para sua Devoção
-                            </CardTitle>
-                            <CardDescription>Materiais e links importantes para aprofundar sua consagração</CardDescription>
-                        </CardHeader>
-                        <CardContent className="pt-6">
-                            <div className="grid md:grid-cols-2 gap-4">
-                                <a
-                                    href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all group"
-                                    title="Clique para fazer o download do livro completo"
-                                >
-                                    <BookOpen className="h-8 w-8 text-green-600 group-hover:scale-110 transition-transform" />
-                                    <div>
-                                        <p className="font-semibold text-green-900 dark:text-green-100">Livro de Consagração (PDF)</p>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Padre Donald Calloway</p>
-                                        <p className="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">📥 Clique para baixar</p>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://chat.whatsapp.com/LNU3BDbd2wK81q3RZ8QhK1"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all"
-                                >
-                                    <MessageCircle className="h-8 w-8 text-green-600" />
-                                    <div>
-                                        <p className="font-semibold text-green-900 dark:text-green-100">Grupo WhatsApp</p>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Consagração a São José</p>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://drive.google.com/file/d/1vj1OWZ6I1MvoBaTjfdk922LnuTu57Ruj/view?usp=sharing"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-blue-200 hover:border-blue-400 hover:shadow-md transition-all"
-                                >
-                                    <Download className="h-8 w-8 text-blue-600" />
-                                    <div>
-                                        <p className="font-semibold text-blue-900 dark:text-blue-100">Ato de Consagração</p>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Para imprimir e assinar</p>
-                                    </div>
-                                </a>
-
-                                <a
-                                    href="https://youtu.be/KZa9vqbfa9A?si=nbKwOB2loW8scJIm"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-red-200 hover:border-red-400 hover:shadow-md transition-all"
-                                >
-                                    <Video className="h-8 w-8 text-red-600" />
-                                    <div>
-                                        <p className="font-semibold text-red-900 dark:text-red-100">Faça seu Cordão</p>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400">Tutorial em vídeo</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/30 border-l-4 border-green-600 rounded">
-                                <p className="text-sm text-green-900 dark:text-green-100 font-medium mb-2">
-                                    📅 Toda quarta-feira do mês é dedicada a São José
-                                </p>
-                                <p className="text-sm text-slate-700 dark:text-slate-300">
-                                    Participe da nossa comunidade e aprofunde sua devoção ao Terror dos Demônios!
-                                </p>
-                            </div>
-                        </CardContent>
-                    </Card>
-                </section>
-
-                {/* Timeline de Fatos Históricos e Datas */}
-                <SaoJoseTimeline />
-
-                {/* Content Sections */}
-                {activeSection === "novenas" && <NovenasSaoJose />}
+                {/* Timeline e Novenas na página inicial */}
+                {activeSection === "home" && <HomePageSaoJose />}
                 {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} />}
             </main>
         </div>
     );
 }
 
-// Component for Novenas Section
+// Página inicial do Espaço São José
+function HomePageSaoJose() {
+    return (
+        <div className="space-y-10">
+            {/* Os dois círculos de novena em destaque */}
+            <section>
+                <h2 className="text-3xl font-bold text-green-900 dark:text-green-100 text-center mb-8">
+                    Novenas a São José
+                </h2>
+                <div className="grid md:grid-cols-2 gap-6">
+                    {/* Novena 19 de Março */}
+                    <Card className="border-green-300 shadow-lg hover:shadow-xl transition-shadow">
+                        <CardHeader className="bg-gradient-to-r from-green-100 to-emerald-100 dark:from-green-900/40 dark:to-emerald-900/40">
+                            <CardTitle className="text-2xl text-green-900 dark:text-green-100">
+                                Novena a São José
+                            </CardTitle>
+                            <CardDescription className="text-green-700 dark:text-green-300">
+                                19 de Março - Festa de São José
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                            <p className="text-slate-700 dark:text-slate-300 mb-4">
+                                Novena tradicional em honra a São José, esposo de Maria Santíssima e pai nutrício de Jesus.
+                            </p>
+                            <Link href="/#sao_jose_19_marco">
+                                <Button className="w-full bg-green-700 hover:bg-green-800">
+                                    Rezar Novena de 19 de Março
+                                </Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
+
+                    {/* Novena 1º de Maio */}
+                    <Card className="border-emerald-300 shadow-lg hover:shadow-xl transition-shadow">
+                        <CardHeader className="bg-gradient-to-r from-emerald-100 to-green-100 dark:from-emerald-900/40 dark:to-green-900/40">
+                            <CardTitle className="text-2xl text-emerald-900 dark:text-emerald-100">
+                                Novena a São José Operário
+                            </CardTitle>
+                            <CardDescription className="text-emerald-700 dark:text-emerald-300">
+                                1º de Maio - Festa de São José Operário
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent className="pt-6">
+                            <p className="text-slate-700 dark:text-slate-300 mb-4">
+                                Novena ao modelo dos trabalhadores, que dignificou o trabalho com suas próprias mãos.
+                            </p>
+                            <Link href="/#sao_jose_operario">
+                                <Button className="w-full bg-emerald-700 hover:bg-emerald-800">
+                                    Rezar Novena de 1º de Maio
+                                </Button>
+                            </Link>
+                        </CardContent>
+                    </Card>
+                </div>
+            </section>
+
+            {/* Fatos Históricos - Timeline diretamente na página */}
+            <SaoJoseTimeline />
+
+            {/* Ladainha como botão no final */}
+            <LadainhaSaoJose />
+        </div>
+    );
+}
+
+// Component for Novenas Section (mantido para compatibilidade)
 function NovenasSaoJose() {
+
     return (
         <div className="space-y-8">
             <h2 className="text-3xl font-bold text-green-900 dark:text-green-100 text-center mb-6">
@@ -387,8 +371,57 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consag
                 </CardContent>
             </Card>
 
+            {/* Recursos para Devoção — dentro da aba de 33 Dias */}
+            <Card className="border-green-200 shadow-lg bg-gradient-to-br from-white to-green-50 dark:from-slate-900 dark:to-green-950/20">
+                <CardHeader className="bg-green-100/50 dark:bg-green-900/20">
+                    <CardTitle className="text-2xl text-green-800 dark:text-green-300 flex items-center">
+                        <Download className="mr-2 h-6 w-6" />
+                        Recursos para sua Devoção
+                    </CardTitle>
+                    <CardDescription>Materiais e links para aprofundar sua consagração</CardDescription>
+                </CardHeader>
+                <CardContent className="pt-6">
+                    <div className="grid md:grid-cols-2 gap-4">
+                        <a href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all group">
+                            <BookOpen className="h-8 w-8 text-green-600 group-hover:scale-110 transition-transform" />
+                            <div>
+                                <p className="font-semibold text-green-900 dark:text-green-100">Livro de Consagração (PDF)</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">Padre Donald Calloway</p>
+                                <p className="text-xs text-green-600 dark:text-green-400 mt-1 font-medium">📥 Clique para baixar</p>
+                            </div>
+                        </a>
+                        <a href="https://chat.whatsapp.com/LNU3BDbd2wK81q3RZ8QhK1" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-200 hover:border-green-400 hover:shadow-md transition-all">
+                            <MessageCircle className="h-8 w-8 text-green-600" />
+                            <div>
+                                <p className="font-semibold text-green-900 dark:text-green-100">Grupo WhatsApp</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">Consagração a São José</p>
+                            </div>
+                        </a>
+                        <a href="https://drive.google.com/file/d/1vj1OWZ6I1MvoBaTjfdk922LnuTu57Ruj/view?usp=sharing" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-blue-200 hover:border-blue-400 hover:shadow-md transition-all">
+                            <Download className="h-8 w-8 text-blue-600" />
+                            <div>
+                                <p className="font-semibold text-blue-900 dark:text-blue-100">Ato de Consagração</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">Para imprimir e assinar</p>
+                            </div>
+                        </a>
+                        <a href="https://youtu.be/KZa9vqbfa9A?si=nbKwOB2loW8scJIm" target="_blank" rel="noopener noreferrer"
+                            className="flex items-center gap-3 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-red-200 hover:border-red-400 hover:shadow-md transition-all">
+                            <Video className="h-8 w-8 text-red-600" />
+                            <div>
+                                <p className="font-semibold text-red-900 dark:text-red-100">Faça seu Cordão</p>
+                                <p className="text-sm text-slate-600 dark:text-slate-400">Tutorial em vídeo</p>
+                            </div>
+                        </a>
+                    </div>
+                </CardContent>
+            </Card>
+
             {/* Dias da Consagração */}
             <div ref={consagracaoContentRef}>
+
                 <Card className="border-green-200 shadow-lg">
                     <CardHeader className="bg-green-50 dark:bg-green-950/20">
                         <CardTitle className="text-2xl text-green-800 dark:text-green-200">

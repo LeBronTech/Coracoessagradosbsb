@@ -21,6 +21,7 @@ interface SaintSelectorProps {
   onMonthChange: (month: string) => void;
   selectedSaintId: string | null;
   onSaintSelect: (id: string) => void;
+  closestSaintId: string | null;
 }
 
 const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<SaintSelectorProps, 'months' | 'selectedMonth' | 'onMonthChange'>) => {
@@ -141,6 +142,7 @@ function SaintSelector({
   onMonthChange,
   selectedSaintId,
   onSaintSelect,
+  closestSaintId,
 }: SaintSelectorProps) {
 
   const saintsForMonth = saints
@@ -161,6 +163,7 @@ function SaintSelector({
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   // Scroll the selected saint's item into view (flush to left with padding)
+  // Also scroll vertically to the novena display section
   const handleSaintSelect = useCallback((id: string) => {
     onSaintSelect(id);
     setTimeout(() => {
@@ -172,7 +175,48 @@ function SaintSelector({
       const scrollOffset = container.scrollLeft + (itemLeft - containerLeft) - 16;
       container.scrollTo({ left: Math.max(0, scrollOffset), behavior: 'smooth' });
     }, 30);
+
+    // Scroll vertical até o início do header/texto da novena
+    setTimeout(() => {
+      const novenaHeader = document.getElementById('novena-header');
+      const novenaSection = document.getElementById('saints-nav-title');
+      const target = novenaHeader || novenaSection;
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 80);
   }, [onSaintSelect]);
+  
+  // Efeito inicial para rolar até a novena mais próxima ou selecionada
+  useEffect(() => {
+    const idToScroll = selectedSaintId || closestSaintId;
+    if (!idToScroll) return;
+
+    const performScroll = (retryCount = 0) => {
+      const container = navContainerRef.current;
+      const item = itemRefs.current[idToScroll];
+      
+      if (!container || !item) {
+        if (retryCount < 5) {
+          setTimeout(() => performScroll(retryCount + 1), 100);
+        }
+        return;
+      }
+
+      const containerLeft = container.getBoundingClientRect().left;
+      const itemLeft = item.getBoundingClientRect().left;
+      const scrollOffset = container.scrollLeft + (itemLeft - containerLeft) - 16;
+      
+      container.scrollTo({ 
+        left: Math.max(0, scrollOffset), 
+        behavior: retryCount === 0 ? 'smooth' : 'auto' 
+      });
+    };
+
+    // Pequeno atraso para garantir que a transição de mês/renderização ocorreu
+    const timer = setTimeout(() => performScroll(0), 100);
+    return () => clearTimeout(timer);
+  }, [closestSaintId, selectedSaintId, selectedMonth]);
 
   return (
     <section className="w-full">
