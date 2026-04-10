@@ -1,0 +1,598 @@
+'use client';
+
+import React, { useState, useMemo, useEffect, useRef } from 'react';
+import Header from '@/components/header';
+import Footer from '@/components/footer';
+import SaintSelector from '@/components/saint-selector';
+import NovenaDisplay from '@/components/novena-display';
+import { LoadingScreen } from '@/components/loading-screen';
+import SaintOfTheDay, { type SaintOfTheDayRef } from '@/components/saint-of-the-day';
+import WeeklyDevotions from '@/components/weekly-devotions';
+import { saints, months, novenaData } from '@/lib/data';
+import type { Saint } from '@/lib/data';
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTrigger } from '@/components/ui/sheet';
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
+import { Button } from '@/components/ui/button';
+import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { parse, differenceInDays, getYear } from 'date-fns';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useToast } from '@/hooks/use-toast';
+import { AlertCircle } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { LilyIcon } from '@/components/weekly-devotions';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { ConfessionTimesModal } from '@/components/confession-times-modal';
+
+export type Theme = 'theme-default' | 'theme-dark-gray' | 'theme-light-gray' | 'theme-red' | 'theme-green';
+
+
+
+const marianDevotions = [
+  {
+    name: 'N. S. do Rosário',
+    imageUrl: 'https://i.postimg.cc/2669v1gr/nsr.jpg',
+    novenaId: 'rosario',
+    feastDay: '07 de Outubro',
+    description: `
+            <h4>1. Origem da Devoção do Rosário</h4>
+            <p>A devoção a Nossa Senhora do Rosário remonta ao século XIII, ligada tradicionalmente a <strong>São Domingos de Gusmão</strong>, que teria recebido o Rosário da própria Virgem Maria como uma arma espiritual para combater as heresias. A festa de 7 de outubro comemora a <strong>Vitória de Lepanto</strong> (1571), atribuída à intercessão da Virgem através do Rosário.</p>
+
+            <h4>2. Contexto de Pompeia</h4>
+            <p>No século XIX, o Vale de Pompeia, sobre as ruínas da antiga cidade romana, era um local de <strong>miséria social e abandono espiritual</strong>.</p>
+            
+            <h4>3. A Figura de Bartolo Longo e o Rosário</h4>
+            <p>Em 1872, o advogado <strong>Bartolo Longo</strong> (hoje Beato), recém-convertido, sentiu o chamado para evangelizar a região. Uma inspiração divina o guiou: <strong>\'Salva esta gente, Bartolo! Propaga o Rosário.\'</strong> Ele dedicou-se a ensinar esta oração aos camponeses.</p>
+
+            <h4>4. O Santuário e a Devoção em Pompeia</h4>
+            <p>Em 1875, Bartolo Longo adquiriu um quadro deteriorado da Virgem do Rosário. Após ser restaurado, a devoção cresceu rapidamente devido a inúmeros milagres. Isso levou à construção do imponente <strong>Santuário de Nossa Senhora do Rosário de Pompeia</strong>. Bartolo Longo também fundou importantes obras de caridade, estabelecendo-se como o "Apóstolo do Rosário".</p>
+        `
+  },
+  { name: 'N. S. Aparecida', imageUrl: 'https://i.postimg.cc/Lsyj4XMh/4011bde1376c5422265a41f3a652c540.jpg', novenaId: 'aparecida', feastDay: '12 de Outubro' },
+  { name: 'Apresentação de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', novenaId: 'apresentacao_ns', feastDay: '21 de Novembro' },
+  { name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', novenaId: 'ns_saude', feastDay: '21 de Novembro' },
+  { name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', novenaId: 'gracas', feastDay: '27 de Novembro' },
+  { name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', novenaId: 'imaculada_conceicao', feastDay: '08 de Dezembro' },
+]
+
+
+import { useRouter } from 'next/navigation';
+
+export default function Home() {
+  const router = useRouter();
+  const [selectedMonth, setSelectedMonth] = useState<string>(months[new Date().getMonth()]);
+  const [selectedSaintId, setSelectedSaintId] = useState<string | null>(null);
+  const [hydrated, setHydrated] = useState(false);
+  const [theme, setTheme] = useState<Theme>('theme-dark-gray');
+  const saintOfTheDayRef = useRef<SaintOfTheDayRef>(null);
+  const saintOfTheDaySectionRef = useRef<HTMLDivElement>(null);
+  const novenaSectionRef = useRef<HTMLDivElement>(null);
+  const novenaDisplaySectionRef = useRef<HTMLDivElement>(null);
+  const scrollTimeoutRef = useRef<number | null>(null);
+  const [isSaintOfTheDayOpen, setIsSaintOfTheDayOpen] = useState(false);
+  const [showJoseNovenaDialog, setShowJoseNovenaDialog] = useState(false);
+  const [isJoseDialogOpen, setIsJoseDialogOpen] = useState(false);
+  const [isMarianDialogOpen, setIsMarianDialogOpen] = useState(false);
+  const [marianCarouselApi, setMarianCarouselApi] = useState<CarouselApi>()
+  const [marianCarouselCurrent, setMarianCarouselCurrent] = useState(0)
+  const [isRosarioDescriptionOpen, setIsRosarioDescriptionOpen] = useState(false);
+  const [scrollTarget, setScrollTarget] = useState<'novena' | 'title' | null>(null);
+  const [showNatalNovenaDialog, setShowNatalNovenaDialog] = useState(false);
+  const [closestSaintId, setClosestSaintId] = useState<string | null>(null);
+  const [isHamburgerRed, setIsHamburgerRed] = useState(false);
+  const [isNavigating, setIsNavigating] = useState(false);
+
+  useEffect(() => {
+    if (!marianCarouselApi) return
+    setMarianCarouselCurrent(marianCarouselApi.selectedScrollSnap())
+    marianCarouselApi.on("select", () => {
+      setMarianCarouselCurrent(marianCarouselApi.selectedScrollSnap())
+    })
+  }, [marianCarouselApi])
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (isJoseDialogOpen) {
+        setIsJoseDialogOpen(false);
+      }
+      if (isMarianDialogOpen) {
+        setIsMarianDialogOpen(false);
+      }
+      if (showJoseNovenaDialog) {
+        setShowJoseNovenaDialog(false);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog]);
+
+  useEffect(() => {
+    if (isJoseDialogOpen) {
+      window.history.pushState({ modal: 'jose' }, '');
+    }
+    if (isMarianDialogOpen) {
+      window.history.pushState({ modal: 'mariano' }, '');
+    }
+    if (showJoseNovenaDialog) {
+      window.history.pushState({ modal: 'joseNovena' }, '');
+    }
+    if (showNatalNovenaDialog) {
+      window.history.pushState({ modal: 'natalNovena' }, '');
+    }
+  }, [isJoseDialogOpen, isMarianDialogOpen, showJoseNovenaDialog, showNatalNovenaDialog]);
+
+  useEffect(() => {
+    setHydrated(true);
+  }, []);
+
+  useEffect(() => {
+    if (!hydrated) return;
+
+    const today = new Date();
+    const todayOnlyDate = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+
+    let initialMonth: string | null = null;
+    let initialNovenaId: string | null = null;
+    let initialMonthScroll: string | null = null;
+    let initialSaintScrollId: string | null = null;
+
+    const hash = window.location.hash.substring(1);
+    const saintFromHash = saints.find(s => s.id === hash);
+
+    if (saintFromHash) {
+      const saintMonths = saintFromHash.month.split('/').map(m => m.trim());
+      const currentMonthName = months[todayOnlyDate.getMonth()];
+      initialMonth = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
+      initialNovenaId = saintFromHash.id;
+      initialMonthScroll = initialMonth;
+      initialSaintScrollId = initialNovenaId;
+      setScrollTarget('novena');
+    } else {
+      const saintsWithDates = saints.map(s => {
+        const [startDay, startMonth] = s.startDate.split('/').map(Number);
+        const [endDay, endMonth] = s.endDate.split('/').map(Number);
+        
+        let startD = new Date(todayOnlyDate.getFullYear(), startMonth - 1, startDay);
+        let endD = new Date(todayOnlyDate.getFullYear(), endMonth - 1, endDay);
+
+        if (endMonth < startMonth) {
+          if (todayOnlyDate.getMonth() < 6) {
+            startD.setFullYear(todayOnlyDate.getFullYear() - 1);
+          } else {
+            endD.setFullYear(todayOnlyDate.getFullYear() + 1);
+          }
+        }
+
+        const diffStart = startD.getTime() - todayOnlyDate.getTime();
+        const daysUntilStart = Math.ceil(diffStart / (1000 * 60 * 60 * 24));
+
+        return { saint: s, daysUntilStart, endD };
+      });
+
+      const closestSaint = saintsWithDates
+        .filter(item => item.endD >= todayOnlyDate)
+        .sort((a, b) => {
+          if (a.daysUntilStart <= 0 && b.daysUntilStart > 0) return -1;
+          if (b.daysUntilStart <= 0 && a.daysUntilStart > 0) return 1;
+          return Math.abs(a.daysUntilStart) - Math.abs(b.daysUntilStart);
+        })[0];
+
+      if (closestSaint) {
+        initialSaintScrollId = closestSaint.saint.id;
+        const saintMonths = closestSaint.saint.month.split('/').map(m => m.trim());
+        const currentMonthName = months[todayOnlyDate.getMonth()];
+        initialMonthScroll = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
+        // Only set scroll target if we have a specific hash, 
+        // OR if you want it to scroll to the "closest" on every refresh (maybe not desirable for everyone, but let's see)
+        // If there's a hash, we definitely want to scroll.
+        if (hash) setScrollTarget('novena');
+      }
+    }
+
+    if (initialMonth) {
+      setSelectedMonth(initialMonth);
+      if (initialNovenaId) setSelectedSaintId(initialNovenaId);
+    } else if (initialMonthScroll) {
+      setSelectedMonth(initialMonthScroll);
+    }
+
+    if (initialSaintScrollId) {
+      setClosestSaintId(initialSaintScrollId);
+    }
+
+    // Listener para mudanças de hash enquanto o usuário está na página
+    const handleHashChange = () => {
+      const newHash = window.location.hash.substring(1);
+      const saint = saints.find(s => s.id === newHash);
+      if (saint) {
+        const saintMonths = saint.month.split('/').map(m => m.trim());
+        const currentMonthName = months[new Date().getMonth()];
+        const targetMonth = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
+        
+        setSelectedMonth(targetMonth);
+        setSelectedSaintId(saint.id);
+        setScrollTarget('novena');
+      }
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+
+    // Flash hamburger button red for 4 seconds when confession popup appears
+    setTimeout(() => {
+      setIsHamburgerRed(true);
+      setTimeout(() => setIsHamburgerRed(false), 4000);
+    }, 300);
+
+    return () => {
+      window.removeEventListener('hashchange', handleHashChange);
+    };
+  }, [hydrated]);
+
+
+  const smoothScrollToElement = (target: HTMLElement | null) => {
+    if (!target) return;
+
+    const isScrollable = (node: Element | null) => {
+      if (!node || node === document.documentElement) return false;
+      const style = getComputedStyle(node as Element);
+      const overflowY = style.overflowY;
+      return (overflowY === 'auto' || overflowY === 'scroll') && (node as HTMLElement).scrollHeight > (node as HTMLElement).clientHeight;
+    }
+
+    let ancestor: Element | null = target.parentElement;
+    while (ancestor && !isScrollable(ancestor)) {
+      ancestor = ancestor.parentElement;
+    }
+
+    const headerOffset = 16; // pequeno ajuste para evitar colisão com bordas fixas
+
+    if (!ancestor || ancestor === document.documentElement || ancestor === document.body) {
+      const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+      window.scrollTo({ top, behavior: 'smooth' });
+    } else {
+      const ancestorRect = (ancestor as HTMLElement).getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const topWithin = targetRect.top - ancestorRect.top + (ancestor as HTMLElement).scrollTop - headerOffset;
+      (ancestor as HTMLElement).scrollTo({ top: topWithin, behavior: 'smooth' });
+    }
+  }
+
+  useEffect(() => {
+    if (selectedSaintId && hydrated) {
+      history.pushState({ novenaId: selectedSaintId }, '', '#' + selectedSaintId);
+      if (scrollTarget) {
+        // Run the scroll on next frames with a small delay to allow DOM updates/layout
+        if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
+        scrollTimeoutRef.current = window.setTimeout(() => {
+          requestAnimationFrame(() => {
+            if (scrollTarget === 'title') {
+                const novenaHeader = document.getElementById('novena-header');
+                if (novenaHeader) smoothScrollToElement(novenaHeader);
+                else smoothScrollToElement(novenaDisplaySectionRef.current);
+            } else {
+                smoothScrollToElement(novenaDisplaySectionRef.current);
+            }
+            setScrollTarget(null);
+          });
+        }, 800); // slightly longer delay to ensure intro animation and rendering is completely finished
+      }
+    }
+
+    return () => {
+      if (scrollTimeoutRef.current) {
+        window.clearTimeout(scrollTimeoutRef.current);
+        scrollTimeoutRef.current = null;
+      }
+    }
+  }, [selectedSaintId, hydrated, scrollTarget]);
+
+  const selectedNovena = useMemo(
+    () => (selectedSaintId ? novenaData[selectedSaintId] : null),
+    [selectedSaintId]
+  );
+
+  const selectedSaint = useMemo(
+    () => {
+      if (selectedSaintId === 'natal_sao_leao') {
+        return {
+          id: 'natal_sao_leao',
+          name: 'São Leão Magno',
+          imageUrl: 'https://iili.io/ffgFVsI.jpg',
+          month: 'Dezembro',
+          startDate: '16/12',
+          endDate: '24/12',
+          feastDay: '25 de Dezembro'
+        };
+      }
+      if (selectedSaintId === 'natal_familia') {
+        return {
+          id: 'natal_familia',
+          name: 'Sagrada Família',
+          imageUrl: 'https://iili.io/ffgFVsI.jpg',
+          month: 'Dezembro',
+          startDate: '16/12',
+          endDate: '24/12',
+          feastDay: '25 de Dezembro'
+        };
+      }
+      return saints.find(saint => saint.id === selectedSaintId) || null;
+    },
+    [selectedSaintId]
+  );
+
+  const handleSelectSaint = (id: string) => {
+    if (id === 'natal') {
+      setShowNatalNovenaDialog(true);
+      return;
+    }
+    setSelectedSaintId(id);
+    const saint = saints.find(s => s.id === id);
+    if (saint) setSelectedMonth(saint.month);
+    
+    // Tema específico por santo
+    if (id === 'sao_jose_operario' || id === 'sao_jose_19_marco') {
+      setTheme('theme-green');
+    } else {
+      setTheme(prev => prev === 'theme-green' ? 'theme-dark-gray' : prev);
+    }
+
+    // Acionar a rolagem suave até a novena selecionada
+    setScrollTarget('novena');
+  };
+
+  const handleMonthChange = (month: string) => {
+    setSelectedMonth(month);
+    const saintsInNewMonth = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(month));
+
+    // Check if the current selected ID is valid for the new month
+    const isValidForMonth = saintsInNewMonth.some(s => s.id === selectedSaintId);
+
+    // Special case for Natal novenas which are not in the main saints list but belong to December
+    const isNatalNovena = (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia') && month === 'Dezembro';
+
+    if (selectedSaintId && !isValidForMonth && !isNatalNovena) {
+      setSelectedSaintId(null);
+    }
+  }
+
+  const handleSaintOfTheDayNavigation = (direction: 'prev' | 'next') => {
+    setIsSaintOfTheDayOpen(false); // Close accordion before navigating
+    // Add a small delay to allow the accordion to close before changing the slide
+    setTimeout(() => {
+      saintOfTheDayRef.current?.navigate(direction);
+      saintOfTheDaySectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+  }
+
+  const handleNavigateToNovena = (saintId: string) => {
+    setShowJoseNovenaDialog(false);
+    setShowNatalNovenaDialog(false);
+    setIsJoseDialogOpen(false);
+    setIsMarianDialogOpen(false);
+
+    const saint = saints.find(s => s.id === saintId);
+    if (saint) {
+      setSelectedMonth(saint.month);
+      setSelectedSaintId(saintId);
+      // Aguarda o fechamento do diálogo (animação) antes de rolar
+      // para garantir que a rolagem com comportamento 'smooth' fique visível.
+      setTimeout(() => setScrollTarget('novena'), 220);
+    } else if (saintId === 'natal_sao_leao' || saintId === 'natal_familia') {
+      setSelectedMonth('Dezembro');
+      setSelectedSaintId(saintId);
+      setTimeout(() => setScrollTarget('novena'), 220);
+    }
+  }
+
+  const handlePageTransition = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+    e.preventDefault();
+    setIsNavigating(true);
+    // Add 100ms delay to allow some animation frames before moving to Next.js router
+    setTimeout(() => {
+        router.push(url);
+    }, 1000); 
+  };
+
+  return (
+    <React.Fragment>
+      <LoadingScreen isLoading={!hydrated || isNavigating} />
+      <div className={cn(
+          "transition-all duration-700 ease-in-out", 
+          hydrated && !isNavigating ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] animate-gate-up"
+      )}>
+        <div className="container mx-auto p-4 md:p-8 max-w-5xl text-stone-900">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button
+                variant="outline"
+                size="icon"
+                className={`fixed top-4 left-4 z-20 bg-white/70 backdrop-blur-sm transition-colors duration-300 ${
+                  isHamburgerRed
+                    ? 'bg-red-700 text-white hover:bg-red-800 border-red-700'
+                    : 'hover:bg-primary hover:text-primary-foreground'
+                }`}
+              >
+                <Menu className="h-6 w-6" />
+                <span className="sr-only">Abrir menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="left" className="w-[380px] sm:w-[540px] bg-gray-100 p-0">
+              <SheetHeader className="p-6 bg-white shadow-sm">
+                <SheetTitle className="text-xl font-brand text-gray-800">Menu</SheetTitle>
+                <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
+              </SheetHeader>
+              <div className="flex flex-col gap-4 p-6">
+                <ConfessionTimesModal>
+                  <Button className="w-full justify-start gap-2 bg-red-600 hover:bg-red-700 text-white">
+                    <AlertCircle className="h-5 w-5" />
+                    Horários de Confissão
+                  </Button>
+                </ConfessionTimesModal>
+
+                <Link href="/espaco-mariano" className="w-full" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
+                  <Button
+                    className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
+                  >
+                    <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
+                    Espaço Mariano
+                  </Button>
+                </Link>
+
+                <Link href="/encontre-seu-lugar" className="w-full" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
+                  <Button
+                    className="w-full justify-start gap-2 bg-red-700 hover:bg-red-800 text-white"
+                  >
+                    <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
+                    Encontre Seu Lugar
+                  </Button>
+                </Link>
+
+                <Link href="/sao-jose" className="w-full" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
+                  <Button
+                    className="w-full justify-start gap-2 bg-green-700 hover:bg-green-800 text-white"
+                  >
+                    <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
+                    Espaço São José
+                  </Button>
+                </Link>
+              </div>
+            </SheetContent>
+          </Sheet>
+
+          <Header />
+          <WeeklyDevotions onLiturgyClick={() => saintOfTheDayRef.current?.openAndScrollToLiturgy()} />
+
+          <div className="relative" ref={saintOfTheDaySectionRef}>
+            <h2 className="text-xl font-brand text-center text-gray-700 mt-8">
+              Santo do Dia
+            </h2>
+            <SaintOfTheDay
+              ref={saintOfTheDayRef}
+              triggerTheme={theme}
+              isOpenInitially={isSaintOfTheDayOpen}
+              onToggle={setIsSaintOfTheDayOpen}
+            />
+            <div
+              className={cn(
+                "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex items-center justify-center gap-2 z-20"
+              )}
+            >
+              <Button
+                variant="outline"
+                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('prev'); }}
+              >
+                Dia anterior
+              </Button>
+              <Button
+                variant="outline"
+                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('next'); }}
+              >
+                Próximo dia
+              </Button>
+            </div>
+          </div>
+
+          <div className="mt-16 w-full flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href="/espaco-mariano" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
+              <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
+                <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
+              </button>
+            </Link>
+
+            <Link href="/encontre-seu-lugar" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
+              <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-red-700/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={24} height={24} className="w-6 h-6 object-contain" />
+                <span className="font-brand text-sm text-center font-semibold">Encontre Seu Lugar</span>
+              </button>
+            </Link>
+
+            <Link href="/sao-jose" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
+              <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-green-700/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
+                <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={24} height={24} className="w-6 h-6 object-contain" />
+                <span className="font-brand text-sm text-center font-semibold">Espaço São José</span>
+              </button>
+            </Link>
+          </div>
+
+
+          <div ref={novenaSectionRef} className="bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg p-4 mt-8">
+            <h2 id="saints-nav-title" className="text-xl font-brand text-center text-gray-700 mb-4">
+              Novenas de {selectedMonth}
+            </h2>
+            <SaintSelector
+              saints={saints}
+              months={months}
+              selectedMonth={selectedMonth}
+              onMonthChange={handleMonthChange}
+              selectedSaintId={selectedSaintId}
+              onSaintSelect={handleSelectSaint}
+              closestSaintId={closestSaintId}
+            />
+          </div>
+
+          <div className="mt-8" ref={novenaDisplaySectionRef}>
+            <NovenaDisplay
+              key={selectedSaintId}
+              novena={selectedNovena}
+              saint={selectedSaint}
+              theme={theme}
+              setTheme={setTheme}
+            />
+          </div>
+          <Footer />
+        </div>
+      </div>
+      <AlertDialog open={showJoseNovenaDialog} onOpenChange={setShowJoseNovenaDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Qual novena a São José você gostaria de rezar?</AlertDialogTitle>
+            <AlertDialogDescription>
+              A Igreja dedica dois dias a São José, com diferentes ênfases em sua missão.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction onClick={() => handleNavigateToNovena('sao_jose')}>
+              São José, Esposo da Virgem Maria (19 de Março)
+            </AlertDialogAction>
+            <AlertDialogAction onClick={() => handleNavigateToNovena('sao_jose_operario')}>
+              São José Operário (1 de Maio)
+            </AlertDialogAction>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={showNatalNovenaDialog} onOpenChange={setShowNatalNovenaDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Qual Novena de Natal você gostaria de rezar?</AlertDialogTitle>
+            <AlertDialogDescription>
+              Escolha entre as meditações profundas de São Leão Magno ou a novena para rezar em família.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter className="flex-col gap-2 sm:flex-row">
+            <AlertDialogAction onClick={() => handleNavigateToNovena('natal_sao_leao')}>
+              Novena com São Leão Magno
+            </AlertDialogAction>
+            <AlertDialogAction onClick={() => handleNavigateToNovena('natal_familia')}>
+              Novena de Natal em Família
+            </AlertDialogAction>
+            <AlertDialogCancel>Cancelar</AlertDialogCancel>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+      <ConfessionTimesModal />
+      </React.Fragment>
+    );
+}

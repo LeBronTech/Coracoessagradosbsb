@@ -1,0 +1,450 @@
+'use client';
+
+import { useState, useEffect, useMemo, useCallback, forwardRef, useImperativeHandle, useRef } from 'react';
+import Image from 'next/image';
+import { saintsOfTheDay, months as allMonths } from '@/lib/data';
+import type { SaintStory } from '@/lib/data';
+import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
+import { cn } from '@/lib/utils';
+import type { Theme as NovenaTheme } from '@/app/page';
+import { Button } from '@/components/ui/button';
+import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Skeleton } from '@/components/ui/skeleton';
+import useEmblaCarousel from 'embla-carousel-react';
+import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
+
+const MONTH_CAROUSEL_OPTIONS: EmblaOptionsType = { loop: true, align: 'center', containScroll: false };
+
+type Theme = 'light' | 'dark';
+
+const themeDotClasses: Record<Theme, string> = {
+  'light': 'bg-gray-100',
+  'dark': 'bg-gray-700',
+};
+
+const seasonTranslation: Record<string, string> = {
+  'Advent': 'Advento',
+  'Christmas': 'Tempo do Natal',
+  'Ordinary Time': 'Tempo Comum',
+  'Lent': 'Quaresma',
+  'Easter': 'Tempo da Páscoa'
+};
+
+function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; isOpen: boolean; selectedIndex: number; }) {
+  if (saints.length === 1) {
+    return (
+      <div className={cn("saint-image-wrapper single", isOpen && "open")}>
+        <Image
+          src={saints[0].imageUrl}
+          alt={saints[0].name}
+          width={64}
+          height={64}
+          className="saint-image"
+          style={{ objectPosition: (saints[0] as any).imageObjectPosition ?? 'center' }}
+        />
+      </div>
+    );
+  }
+
+  if (saints.length > 1) {
+    return (
+      <div className={cn("saint-image-wrapper multiple", isOpen && "open")}>
+        {saints.map((saint, index) => (
+          <Image
+            key={saint.name}
+            src={saint.imageUrl}
+            alt={saint.name}
+            width={64}
+            height={64}
+            className={cn(
+              "saint-image",
+              isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
+            )}
+            style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
+          />
+        ))}
+      </div>
+    );
+  }
+
+  return null;
+}
+
+
+function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme) => void }) {
+  return (
+    <div className="absolute top-4 right-3 flex gap-2 bg-transparent px-2 py-1 rounded-full z-20">
+      {(['light', 'dark'] as Theme[]).map((t) => (
+        <button
+          key={t}
+          onClick={(e) => {
+            e.stopPropagation();
+            setTheme(t);
+          }}
+          title={`Tema ${t === 'light' ? 'Claro' : 'Escuro'}`}
+          className={cn(
+            'w-4 h-4 rounded-full cursor-pointer transition-all duration-200 border border-black/20 shadow-md',
+            'hover:scale-110',
+            theme === t ? 'scale-125 ring-2 ring-offset-2 ring-accent' : '',
+            themeDotClasses[t]
+          )}
+        />
+      ))}
+    </div>
+  );
+}
+
+export function SaintOfTheDaySkeleton() {
+  return (
+    <div className="p-4 md:p-6 bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg mt-2 relative">
+      <div className="flex items-center justify-between mb-2">
+        <Skeleton className="h-10 w-10" />
+        <Skeleton className="h-6 w-32" />
+        <Skeleton className="h-10 w-10" />
+      </div>
+      <Skeleton className="h-24 w-full rounded-lg" />
+    </div>
+  );
+};
+
+export interface SaintOfTheDayRef {
+  navigate: (direction: 'prev' | 'next') => void;
+  openAndScrollToLiturgy: () => void;
+}
+
+interface SaintOfTheDayProps {
+  triggerTheme: NovenaTheme;
+  isOpenInitially?: boolean;
+  onToggle?: (isOpen: boolean) => void;
+}
+
+const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ triggerTheme, isOpenInitially = false, onToggle }, ref) => {
+  const liturgySectionRef = useRef<HTMLDivElement>(null);
+  const [openAccordion, setOpenAccordion] = useState(isOpenInitially);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [selectedSaintInDayIndex, setSelectedSaintInDayIndex] = useState(0);
+  const [hydrated, setHydrated] = useState(false);
+  const [theme, setTheme] = useState<Theme>('light');
+
+  const months = useMemo(() => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], []);
+  const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
+  const [monthCarouselRef, monthCarouselApi] = useEmblaCarousel(MONTH_CAROUSEL_OPTIONS);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      if (openAccordion) {
+        setOpenAccordion(false);
+      }
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [openAccordion]);
+
+  useEffect(() => {
+    if (openAccordion) {
+      window.history.pushState({ modal: 'saintOfTheDay' }, '');
+    }
+  }, [openAccordion]);
+
+  const saintsForCurrentMonth = useMemo(() => {
+    if (!selectedMonth) return [];
+    return saintsOfTheDay.filter(day => day.month === selectedMonth);
+  }, [selectedMonth]);
+
+  // Calculate liturgical data early to respect hook order
+  // We need to derive dayData logic here or use a safe fallback
+  const liturgicalData = useMemo(() => {
+    if (!selectedMonth) return null;
+    const currentDayData = saintsForCurrentMonth[currentSlide];
+
+    if (!currentDayData) return null;
+
+    const monthIndex = allMonths.indexOf(currentDayData.month); // 0-11
+    if (monthIndex === -1) return null;
+
+    // Determine year based on month name for the available dataset
+    const year = ['Janeiro', 'Fevereiro', 'Março', 'Abril'].includes(currentDayData.month) ? 2026 : 2025;
+
+    const monthStr = String(monthIndex + 1).padStart(2, '0');
+    const dayStr = String(currentDayData.day).padStart(2, '0');
+    const dateStr = `${year}-${monthStr}-${dayStr}`;
+
+    return liturgicalCalendar.find(d => d.date === dateStr);
+  }, [saintsForCurrentMonth, currentSlide, allMonths, selectedMonth]);
+
+  const handleMonthChange = useCallback((monthIndex: number) => {
+    const month = months[monthIndex];
+    setSelectedMonth(month);
+    setCurrentSlide(0);
+    setSelectedSaintInDayIndex(0);
+    if (openAccordion) {
+      setOpenAccordion(false);
+    }
+  }, [months, openAccordion]);
+
+  useEffect(() => {
+    if (!monthCarouselApi) return;
+    const onSelect = () => {
+      if (monthCarouselApi) {
+        const selectedIndex = monthCarouselApi.selectedScrollSnap();
+        if (months[selectedIndex] !== selectedMonth) {
+          handleMonthChange(selectedIndex);
+        }
+      }
+    }
+    monthCarouselApi.on('select', onSelect);
+
+    return () => { monthCarouselApi.off('select', onSelect) };
+  }, [monthCarouselApi, handleMonthChange, months, selectedMonth]);
+
+
+  useEffect(() => {
+    const today = new Date();
+    const currentMonthName = allMonths[today.getMonth()];
+
+    let initialMonth = 'Janeiro';
+    if (months.includes(currentMonthName)) {
+      initialMonth = currentMonthName;
+    }
+    setSelectedMonth(initialMonth);
+
+    if (monthCarouselApi) {
+      const targetIndex = months.indexOf(initialMonth);
+      if (targetIndex !== -1) {
+        monthCarouselApi.scrollTo(targetIndex, true);
+      }
+    }
+
+    if (initialMonth === currentMonthName) {
+      const dayOfMonth = today.getDate();
+      const saintsForTodayMonth = saintsOfTheDay.filter(s => s.month === currentMonthName);
+      const initialIndex = saintsForTodayMonth.findIndex(day => day.day >= dayOfMonth);
+      const startIndex = initialIndex !== -1 ? initialIndex : 0;
+      setCurrentSlide(startIndex);
+    } else {
+      setCurrentSlide(0);
+    }
+
+    setHydrated(true);
+  }, [monthCarouselApi, months]);
+
+  const handleNavigation = useCallback((direction: 'prev' | 'next') => {
+    const totalSlides = saintsForCurrentMonth.length;
+    if (totalSlides === 0) return;
+
+    setCurrentSlide(prev => {
+      const newIndex = direction === 'prev' ? (prev - 1 + totalSlides) % totalSlides : (prev + 1) % totalSlides;
+      return newIndex;
+    });
+
+    setSelectedSaintInDayIndex(0);
+    if (openAccordion) {
+      setOpenAccordion(false);
+    }
+
+  }, [saintsForCurrentMonth, openAccordion]);
+
+  const openAndScrollToLiturgy = useCallback(() => {
+    setOpenAccordion(true);
+    setTimeout(() => {
+      if (liturgySectionRef.current) {
+        liturgySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 350);
+  }, []);
+
+  useImperativeHandle(ref, () => ({
+    navigate: handleNavigation,
+    openAndScrollToLiturgy,
+  }));
+
+
+  const toggleAccordion = () => {
+    const newOpenState = !openAccordion;
+    setOpenAccordion(newOpenState);
+  }
+
+  if (!hydrated || !selectedMonth) {
+    return <SaintOfTheDaySkeleton />;
+  }
+
+  const dayData = saintsForCurrentMonth[currentSlide];
+  if (!dayData) {
+    return <div className="p-4 text-center text-gray-500">Nenhum santo encontrado para este mês.</div>;
+  }
+
+  const isOpen = openAccordion;
+  const safeIndex = Math.min(isOpen ? selectedSaintInDayIndex : 0, dayData.saints.length - 1);
+  const currentSaintData = dayData.saints[safeIndex];
+
+  /* Removed useMemo from here */
+
+  return (
+    <div className="p-4 md:p-6 bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg mt-2 relative">
+      <div className="flex items-center justify-between mb-2">
+        <Button variant="ghost" size="icon" onClick={() => monthCarouselApi?.scrollPrev()}><ChevronLeft /></Button>
+        <div className="overflow-hidden w-full" ref={monthCarouselRef}>
+          <div className="flex">
+            {months.map((month) => (
+              <div key={month} className="flex-[0_0_100%] min-w-0">
+                <p className="text-lg font-brand text-center text-primary font-bold">{month}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+        <Button variant="ghost" size="icon" onClick={() => monthCarouselApi?.scrollNext()}><ChevronRight /></Button>
+      </div>
+      <div className={cn("px-2")}>
+        <div className={cn("relative group", isOpen && "is-open")}>
+          <button
+            onClick={toggleAccordion}
+            className={cn(
+              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger",
+              isOpen ? "rounded-b-none pb-12" : "",
+              triggerTheme
+            )}
+          >
+            <div className="flex items-center gap-4 text-left w-full">
+              <SaintImages saints={dayData.saints} isOpen={isOpen} selectedIndex={selectedSaintInDayIndex} />
+              <div className={cn(
+                "flex flex-1 flex-col items-start saint-name-container",
+                isOpen && dayData.saints.length > 1 && "md:items-end"
+              )}>
+                <div className={cn(
+                  "date-capsule flex items-center gap-2",
+                  isOpen && "text-xs md:text-right"
+                )}>
+                  {dayData.day} de {dayData.month}
+                  {currentSaintData.isMartyr && (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">Mártir</span>
+                  )}
+                </div>
+                <p className={cn(
+                  "font-brand font-semibold mt-2 text-left",
+                  dayData.saints.length > 1 ? "text-base" : "text-lg",
+                  isOpen && dayData.saints.length > 1 && "md:text-right"
+                )}>
+                  {dayData.saints.map(s => s.name).join(' & ')}
+                </p>
+              </div>
+              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-200", isOpen && "rotate-180", "text-primary-foreground")} />
+            </div>
+          </button>
+
+          {isOpen && (
+            <div className={cn("relative p-6 pt-12 rounded-b-lg shadow-inner-top saint-day-content", `theme-${theme}`)}>
+              <button onClick={toggleAccordion} className="absolute top-4 right-2 p-1 text-gray-600 hover:text-gray-800 transition-colors duration-200 z-20">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+              <ThemeSelector theme={theme} setTheme={setTheme} />
+
+              {dayData.saints.length > 1 && (
+                <div className="mb-4 flex justify-center gap-2">
+                  {dayData.saints.map((saint, saintIndex) => (
+                    <Button
+                      key={saint.name}
+                      variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
+                      size="sm"
+                      onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
+                      className={cn(
+                        'transition-all duration-200',
+                        theme === 'light'
+                          ? selectedSaintInDayIndex === saintIndex
+                            ? 'bg-primary text-primary-foreground'
+                            : 'bg-black/5 hover:bg-black/10 text-primary'
+                          : selectedSaintInDayIndex === saintIndex
+                            ? 'bg-accent text-accent-foreground'
+                            : 'bg-white/10 hover:bg-white/20 text-white'
+                      )}
+                    >
+                      {saint.name}
+                    </Button>
+                  ))}
+                </div>
+              )}
+
+              <div className="p-1">
+                {currentSaintData && <div className="prose prose-sm max-w-none pt-4" dangerouslySetInnerHTML={{ __html: currentSaintData.story }} />}
+
+                {liturgicalData && liturgicalData.readings && (
+                  <div ref={liturgySectionRef}>
+                  <div className="mt-8 pt-6 border-t border-gray-200/50">
+                    <div className="mb-4">
+                      <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
+                        <span className="text-2xl">📖</span> Liturgia do Dia
+                      </h3>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary uppercase tracking-wider border border-primary/20">
+                          {seasonTranslation[liturgicalData.season] || liturgicalData.season}
+                        </span>
+                        {liturgicalData.description && (
+                          <span className="text-sm font-medium text-gray-600 italic">
+                            {liturgicalData.description}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+                    <div className="bg-white/50 rounded-lg p-4 space-y-4 shadow-sm border border-gray-100/50">
+
+                      {liturgicalData.readings.firstReading && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">1ª Leitura</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.firstReading}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.psalm && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">Salmo Responsorial</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.psalm}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.secondReading && (
+                        <div>
+                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">2ª Leitura</span>
+                          <p className="font-medium text-gray-800">{liturgicalData.readings.secondReading}</p>
+                        </div>
+                      )}
+
+                      {liturgicalData.readings.gospel && (
+                        <div className="border-l-4 border-primary pl-3 py-1 bg-primary/5 rounded-r-md">
+                          <span className="text-xs font-bold uppercase text-primary tracking-wider">Evangelho</span>
+                          <p className="font-bold text-gray-900 text-lg font-brand">{liturgicalData.readings.gospel}</p>
+                        </div>
+                      )}
+                      <div className="mt-2 text-center">
+                        <span className={cn(
+                          "text-xs px-2 py-1 rounded-full border",
+                          liturgicalData.color === 'Roxo' ? "border-purple-500 text-purple-700 bg-purple-50" :
+                            liturgicalData.color === 'Branco' ? "border-gray-300 text-gray-600 bg-white" :
+                              liturgicalData.color === 'Vermelho' ? "border-red-500 text-red-700 bg-red-50" :
+                                liturgicalData.color === 'Verde' ? "border-green-500 text-green-700 bg-green-50" :
+                                  liturgicalData.color === 'Rosa' ? "border-pink-500 text-pink-700 bg-pink-50" :
+                                    "border-gray-300 text-gray-600"
+                        )}>
+                          Cor Litúrgica: {liturgicalData.color}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+});
+
+SaintOfTheDay.displayName = 'SaintOfTheDay';
+
+export default SaintOfTheDay;

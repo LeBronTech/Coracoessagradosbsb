@@ -1,0 +1,726 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 4% 96%;
+    /* #f2f2f5 */
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 0 84.2% 26.1%;
+    /* #7c0909 */
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 240 10% 3.9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 45 76% 47%;
+    /* #D4AF37 */
+    --accent-foreground: 240 10% 3.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 84.2% 30.2%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 0 72.2% 50.6%;
+    --primary-foreground: 0 85.7% 97.3%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 45 76% 47%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 0 72.2% 50.6%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background-image: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #c3c3c3 50%, #949da4 100%);
+  }
+
+  .font-brand {
+    font-family: 'Cinzel Decorative', serif;
+  }
+
+  .saints-nav-container {
+    scrollbar-width: auto;
+    scrollbar-color: hsl(var(--primary)) #e5e7eb;
+  }
+
+  .saints-nav-container::-webkit-scrollbar {
+    height: 10px;
+  }
+
+  .saints-nav-container::-webkit-scrollbar-track {
+    background: #e5e7eb;
+  }
+
+  .saints-nav-container::-webkit-scrollbar-thumb {
+    background-color: hsl(var(--primary));
+    border-radius: 0;
+  }
+
+  .month-nav-btn {
+    @apply transition-all duration-200 ease-in-out border-b-[3px] border-transparent font-bold pb-1;
+  }
+
+  .month-nav-btn.active,
+  .month-nav-btn:hover {
+    @apply border-primary text-primary;
+  }
+
+  .day-specific-content>p:first-of-type::first-letter,
+  .prayer-request>p:first-of-type::first-letter,
+  .prayer-block>p:first-of-type::first-letter,
+  .initial-prayer-text>.prayer-block:first-of-type p:first-of-type::first-letter,
+  .final-prayer-text>.prayer-block:first-of-type p:first-of-type::first-letter,
+  .prose>h4+p::first-letter,
+  .prose>blockquote:first-of-type+p::first-letter,
+  .saint-day-content .prose>p:first-of-type::first-letter {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4.5em;
+    font-weight: bold;
+    float: left;
+    line-height: 0.9;
+    padding-top: 0.1em;
+    margin-right: 0.25em;
+    transition: color 0.4s ease;
+  }
+
+  .main-card.theme-light-gray .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-default .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-light-gray .prayer-request>p:first-of-type::first-letter,
+  .main-card.theme-default .prayer-request>p:first-of-type::first-letter,
+  .main-card.theme-light-gray .prayer-block>p:first-of-type::first-letter,
+  .main-card.theme-default .prayer-block>p:first-of-type::first-letter,
+  .main-card.theme-light-gray .prose>h4+p::first-letter,
+  .main-card.theme-default .prose>h4+p::first-letter {
+    color: hsl(var(--primary));
+  }
+
+  .main-card.theme-dark-gray .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-red .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-dark-gray .prayer-request>p:first-of-type::first-letter,
+  .main-card.theme-red .prayer-request>p:first-of-type::first-letter,
+  .main-card.theme-dark-gray .prayer-block>p:first-of-type::first-letter,
+  .main-card.theme-red .prayer-block>p:first-of-type::first-letter,
+  .main-card.theme-dark-gray .prose>h4+p::first-letter,
+  .main-card.theme-red .prose>h4+p::first-letter {
+    color: hsl(var(--primary-foreground));
+  }
+
+  .saint-day-content.theme-light .prose>p:first-of-type::first-letter {
+    color: hsl(var(--primary));
+  }
+
+  .saint-day-content.theme-dark .prose>p:first-of-type::first-letter {
+    color: hsl(var(--accent));
+  }
+
+
+  .prose blockquote p {
+    color: inherit !important;
+    opacity: 0.8;
+  }
+
+  .main-card {
+    transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  }
+
+  .main-card.theme-dark-gray blockquote p,
+  .main-card.theme-red blockquote p {
+    color: hsl(210 40% 98% / 0.8) !important;
+    opacity: 1;
+  }
+
+  .main-card.theme-default .prose .section-title,
+  .main-card.theme-default .prose h4 {
+    color: hsl(var(--primary));
+  }
+
+  .main-card.theme-dark-gray .prose .section-title,
+  .main-card.theme-red .prose .section-title,
+  .main-card.theme-dark-gray .prose h4,
+  .main-card.theme-red .prose h4 {
+    color: hsl(var(--primary-foreground));
+  }
+
+  /* Cores do texto para temas claros */
+  .main-card.theme-light-gray .prose p,
+  .main-card.theme-default .prose p,
+  .main-card.theme-light-gray .day-specific-content p,
+  .main-card.theme-default .day-specific-content p,
+  .main-card.theme-light-gray .prayer-block p,
+  .main-card.theme-default .prayer-block p,
+  .main-card.theme-light-gray .initial-prayer-text p,
+  .main-card.theme-default .initial-prayer-text p,
+  .main-card.theme-light-gray .final-prayer-text p,
+  .main-card.theme-default .final-prayer-text p {
+    color: rgb(41 37 36) !important; /* stone-800 */
+  }
+
+  /* Cores do texto para temas escuros */
+  .main-card.theme-dark-gray .prose p,
+  .main-card.theme-red .prose p,
+  .main-card.theme-dark-gray .day-specific-content p,
+  .main-card.theme-red .day-specific-content p,
+  .main-card.theme-dark-gray .prayer-block p,
+  .main-card.theme-red .prayer-block p,
+  .main-card.theme-dark-gray .initial-prayer-text p,
+  .main-card.theme-red .initial-prayer-text p,
+  .main-card.theme-dark-gray .final-prayer-text p,
+  .main-card.theme-red .final-prayer-text p {
+    color: rgb(255 255 255) !important; /* white */
+  }
+
+  /* Cores para elementos strong */
+  .main-card.theme-light-gray .prose strong,
+  .main-card.theme-default .prose strong {
+    color: rgb(28 25 23) !important; /* stone-900 */
+  }
+
+  .main-card.theme-dark-gray .prose strong,
+  .main-card.theme-red .prose strong {
+    color: rgb(255 255 255) !important; /* white */
+  }
+
+
+  /* Month Carousel Styles */
+  .month-carousel .embla__slide {
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: scale(0.7);
+    opacity: 0.85;
+  }
+
+  .month-carousel .embla__slide--active {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+
+  .month-carousel:not(:hover) .embla__slide--active {
+    transform: scale(1.1) !important;
+    opacity: 1 !important;
+  }
+
+  .month-carousel:hover .embla__slide {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  .month-carousel .embla__slide:hover {
+    transform: scale(1.15) !important;
+    opacity: 1 !important;
+  }
+
+  .month-carousel .embla__slide--prev1,
+  .month-carousel .embla__slide--next1 {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+
+  .month-carousel .embla__slide--prev2,
+  .month-carousel .embla__slide--next2 {
+    transform: scale(0.7);
+    opacity: 0.6;
+  }
+
+  /* Fix for Saint of the Day Carousel Overflow */
+  .saint-day-carousel .embla__viewport {
+    overflow: visible;
+  }
+
+  .saint-day-carousel .embla__container {
+    display: flex;
+  }
+
+  .saint-day-carousel .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+  }
+
+  /* Saint of the Day Accordion */
+  .saint-day-trigger {
+    @apply text-primary-foreground transition-all duration-300;
+  }
+
+  .saint-day-trigger.theme-red {
+    @apply bg-primary;
+  }
+
+  .saint-day-trigger.theme-dark-gray {
+    @apply bg-gray-700;
+  }
+
+  .saint-day-trigger.theme-default {
+    @apply bg-[#949da4];
+  }
+
+  .saint-day-trigger.theme-light-gray {
+    @apply bg-gray-200 text-gray-800;
+  }
+
+  .saint-day-trigger.theme-light-gray .date-capsule {
+    @apply bg-white/70 backdrop-blur-sm text-primary;
+  }
+
+
+  .saint-day-trigger:hover {
+    @apply opacity-90;
+  }
+
+  .saint-day-trigger[data-state=open]>svg {
+    @apply text-primary-foreground !important;
+  }
+
+  .saint-day-trigger .date-capsule {
+    @apply bg-white/70 backdrop-blur-sm text-primary text-sm font-bold px-3 py-1 rounded-full shadow transition-all duration-200;
+  }
+
+  .saint-name-container {
+    @apply transition-transform duration-200 ease-in-out;
+  }
+
+  .group.is-open .saint-name-container {
+    transform: translateY(2.5rem);
+  }
+
+  .saint-day-content.theme-light {
+    @apply bg-white text-gray-800;
+  }
+
+  .saint-day-content.theme-light .prose {
+    @apply text-gray-700;
+  }
+
+  .saint-day-content.theme-dark {
+    @apply bg-gray-800 text-gray-100;
+  }
+
+  .saint-day-content.theme-dark .prose {
+    @apply text-gray-200;
+  }
+
+  .saint-day-content .prose h4 {
+    @apply text-primary;
+  }
+
+  .saint-day-content.theme-dark .prose h4 {
+    @apply text-accent;
+  }
+
+  .group.is-open {
+    position: relative;
+    z-index: 20;
+  }
+
+  /* Saint of the Day Images */
+  .saint-image-wrapper {
+    @apply relative flex items-center justify-center transition-all duration-200 ease-in-out;
+    width: 6rem;
+    /* w-24 */
+    height: 4rem;
+    /* h-16 */
+  }
+
+  .saint-image-wrapper .saint-image {
+    @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-300 ease-in-out transform-gpu;
+  }
+
+  .saint-image-wrapper.multiple {
+    width: 6rem;
+    /* w-24 */
+    height: 6rem;
+    /* h-24 */
+  }
+
+  .saint-image-wrapper.multiple .saint-image {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .saint-image-wrapper.multiple .image-1 {
+    @apply absolute top-0 left-[45%] -translate-x-1/2 z-0;
+  }
+
+  .saint-image-wrapper.multiple .image-2 {
+    @apply absolute bottom-0 left-[55%] -translate-x-1/2 z-10;
+  }
+
+  .group.is-open .saint-image-wrapper {
+    @apply z-20;
+    margin-bottom: -2.5rem;
+  }
+
+  .group.is-open .saint-image-wrapper.single {
+    transform: translateY(-2rem) scale(2);
+  }
+
+  .group.is-open .saint-image-wrapper.multiple {
+    transform: translateY(-2rem);
+    width: 10rem;
+    height: 10rem;
+  }
+
+  .group.is-open .saint-image-wrapper.multiple .saint-image {
+    @apply absolute left-1/2 -translate-x-1/2;
+  }
+
+  .group.is-open .saint-image-wrapper.multiple .saint-image--active {
+    transform: scale(1.8) translate(-50%, -1rem);
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .group.is-open .saint-image-wrapper.multiple .saint-image--inactive {
+    transform: scale(1.3) translate(-50%, 1.5rem);
+    opacity: 0.4;
+    z-index: 5;
+  }
+
+
+  .saint-day-content-nav {
+    @apply absolute top-1/2 -translate-y-1/2 z-10 w-10 h-20 flex items-center justify-center cursor-pointer transition-all duration-200;
+  }
+
+  .saint-day-content-nav.prev {
+    @apply -left-4 rounded-r-full;
+  }
+
+  .saint-day-content-nav.next {
+    @apply -right-4 rounded-l-full;
+  }
+
+  .saint-day-content.theme-light .saint-day-content-nav {
+    @apply bg-gray-200/70 text-gray-600 hover:bg-gray-300 hover:text-gray-800;
+  }
+
+  .saint-day-content.theme-dark .saint-day-content-nav {
+    @apply bg-gray-700/70 text-gray-300 hover:bg-gray-600 hover:text-white;
+  }
+
+  /* Weekly Devotions */
+  .devotion-item-wrapper {
+    @apply relative flex flex-col items-center cursor-pointer;
+  }
+
+  .devotion-item {
+    @apply flex items-center justify-center gap-2 w-auto h-auto px-2 py-1.5 rounded-full border-2 bg-white backdrop-blur-sm transition-all duration-300;
+  }
+
+  .devotion-item:hover {
+    @apply opacity-80 scale-105;
+  }
+
+  .devotion-item .devotion-icon {
+    @apply w-4 h-4 transition-transform duration-300 ease-in-out;
+  }
+
+  .devotion-item:hover .devotion-icon {
+    transform: scale(1.1);
+  }
+
+  .abstinence-pill {
+    @apply relative text-xs font-semibold px-3 py-1 mt-1 rounded-b-lg shadow-sm text-white;
+    background-color: inherit;
+    border: 2px solid;
+    border-color: inherit;
+    border-top: none;
+  }
+
+  /* Liturgical Colors */
+  .devotion-item.devotion-item--green {
+    border-color: #166534;
+  }
+
+  .devotion-item.devotion-item--green .devotion-icon {
+    color: #15803d;
+  }
+
+  .devotion-item.devotion-item--green .text-sm {
+    color: #14532d;
+  }
+
+  .devotion-item.devotion-item--green .text-xs {
+    color: #166534;
+  }
+
+  .devotion-item.devotion-item--purple {
+    border-color: #7e22ce;
+  }
+
+  .devotion-item.devotion-item--purple .devotion-icon {
+    color: #9333ea;
+  }
+
+  .devotion-item.devotion-item--purple .text-sm {
+    color: #6b21a8;
+  }
+
+  .devotion-item.devotion-item--purple .text-xs {
+    color: #7e22ce;
+  }
+
+  .devotion-item.devotion-item--red {
+    border-color: #b91c1c;
+  }
+
+  .devotion-item.devotion-item--red .devotion-icon {
+    color: #dc2626;
+  }
+
+  .devotion-item.devotion-item--red .text-sm {
+    color: #991b1b;
+  }
+
+  .devotion-item.devotion-item--red .text-xs {
+    color: #b91c1c;
+  }
+
+  .devotion-item.devotion-item--white {
+    border-color: #d1d5db;
+  }
+
+  .devotion-item.devotion-item--white .devotion-icon {
+    color: hsl(var(--primary));
+  }
+
+  .devotion-item.devotion-item--white .text-sm {
+    color: #374151;
+  }
+
+  .devotion-item.devotion-item--white .text-xs {
+    color: #6b7280;
+  }
+
+  .devotion-item.devotion-item--rose {
+    border-color: #fb7185;
+  }
+
+  .devotion-item.devotion-item--rose .devotion-icon {
+    color: #f43f5e;
+  }
+
+  .devotion-item.devotion-item--rose .text-sm {
+    color: #be123c;
+  }
+
+  .devotion-item.devotion-item--rose .text-xs {
+    color: #e11d48;
+  }
+
+  /* Default Devotion Item for non-liturgical items */
+  .devotion-item.devotion-item--default {
+    background-color: white;
+    border-color: #9ca3af;
+  }
+
+  .devotion-item.devotion-item--default .devotion-icon {
+    color: #6b7280;
+  }
+
+  .devotion-item.devotion-item--default .text-sm {
+    color: #374151;
+  }
+
+  .devotion-item.devotion-item--default .text-xs {
+    color: #6b7280;
+  }
+
+  /* Espaço Mariano Blue */
+  .devotion-item.devotion-item--dark-blue {
+    @apply bg-blue-900 border-blue-700 text-white;
+  }
+
+  .devotion-item.devotion-item--dark-blue .devotion-icon,
+  .devotion-item.devotion-item--dark-blue .text-sm,
+  .devotion-item.devotion-item--dark-blue .text-xs {
+    @apply text-white;
+  }
+
+
+  /* Daily Devotion Colors */
+  .devotion-item.devotion-item--sunday {
+    @apply border-red-600 bg-white;
+  }
+
+  .devotion-item.devotion-item--sunday .devotion-icon {
+    @apply text-red-600;
+  }
+
+  .devotion-item.devotion-item--sunday .text-sm {
+    @apply text-red-800;
+  }
+
+  .devotion-item.devotion-item--sunday .text-xs {
+    @apply text-red-500;
+  }
+
+  .devotion-item.devotion-item--monday {
+    @apply border-gray-500 bg-white;
+  }
+
+  .devotion-item.devotion-item--monday .devotion-icon {
+    @apply text-gray-500;
+  }
+
+  .devotion-item.devotion-item--monday .text-sm {
+    @apply text-gray-700;
+  }
+
+  .devotion-item.devotion-item--monday .text-xs {
+    @apply text-gray-500;
+  }
+
+  .devotion-item.devotion-item--tuesday {
+    @apply border-yellow-600 bg-white;
+  }
+
+  .devotion-item.devotion-item--tuesday .devotion-icon {
+    @apply text-yellow-600;
+  }
+
+  .devotion-item.devotion-item--tuesday .text-sm {
+    @apply text-yellow-800;
+  }
+
+  .devotion-item.devotion-item--tuesday .text-xs {
+    @apply text-yellow-600;
+  }
+
+  .devotion-item.devotion-item--wednesday {
+    @apply bg-green-800 border-green-600 text-white;
+  }
+
+  .devotion-item.devotion-item--wednesday .devotion-icon,
+  .devotion-item.devotion-item--wednesday .text-sm,
+  .devotion-item.devotion-item--wednesday .text-xs {
+    @apply text-white;
+  }
+
+  .devotion-item.devotion-item--thursday {
+    @apply border-purple-600 bg-white;
+  }
+
+  .devotion-item.devotion-item--thursday .devotion-icon {
+    @apply text-purple-600;
+  }
+
+  .devotion-item.devotion-item--thursday .text-sm {
+    @apply text-purple-800;
+  }
+
+  .devotion-item.devotion-item--thursday .text-xs {
+    @apply text-purple-500;
+  }
+
+  .devotion-item.devotion-item--friday {
+    @apply border-red-700 bg-white;
+  }
+
+  .devotion-item.devotion-item--friday .devotion-icon {
+    @apply text-red-700;
+  }
+
+  .devotion-item.devotion-item--friday .text-sm {
+    @apply text-red-800;
+  }
+
+  .devotion-item.devotion-item--friday .text-xs {
+    @apply text-red-600;
+  }
+
+  .devotion-item-wrapper .devotion-item--friday+.abstinence-pill {
+    @apply bg-red-700 text-white border-red-700;
+  }
+
+  .devotion-item.devotion-item--saturday {
+    @apply border-sky-400 bg-white;
+  }
+
+  .devotion-item.devotion-item--saturday .devotion-icon {
+    @apply text-sky-500;
+  }
+
+  .devotion-item.devotion-item--saturday .text-sm {
+    @apply text-sky-700;
+  }
+
+  .devotion-item.devotion-item--saturday .text-xs {
+    @apply text-sky-500;
+  }
+
+
+}
+
+@layer components {
+  .shadow-inner-top {
+    box-shadow: inset 0 4px 6px -1px rgb(0 0 0 / 0.05);
+  }
+}
+
+@layer utilities {
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+
+  .animation-delay-700 {
+    animation-delay: 700ms;
+  }
+
+  .accordion-content {
+    overflow: hidden;
+    transition-property: max-height, padding;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+
+  .accordion-content[data-state='closed'] {
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .accordion-content[data-state='open'] {
+    max-height: var(--radix-accordion-content-height);
+  }
+}
