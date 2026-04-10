@@ -339,7 +339,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
+      <header id="novena-header" className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
         <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
         <div>
           <h2 className="text-3xl md:text-4xl font-bold font-brand">{novenaTitle}</h2>
@@ -349,74 +349,63 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             {description || ''}
           </p>
           {saint.startDate && (
-            <div className="mt-3 flex flex-row items-center justify-center sm:justify-start gap-2 relative">
-              <span className={cn(
-                "inline-block text-xs font-bold px-4 py-1 rounded-full",
-                isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
-              )}>
-                Novena: {saint.startDate} a {saint.endDate}
-              </span>
-              {saint.isMartyr && (
-                <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
-                  Mártir
+            <div ref={alertContainerRef} className="mt-3 relative">
+              {/* Linha de data — sempre visível */}
+              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap">
+                <span className={cn(
+                  "inline-block text-xs font-bold px-4 py-1 rounded-full",
+                  isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
+                )}>
+                  Novena: {saint.startDate} a {saint.endDate}
                 </span>
-              )}
-              
-              {alertInfo && (
-                <div ref={alertContainerRef} className="relative w-8 h-8 ml-1 z-50 flex-shrink-0">
-                  <div 
+                {saint.isMartyr && (
+                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
+                    Mártir
+                  </span>
+                )}
+                {alertInfo && (
+                  <button
                     onClick={() => {
                       setIsAlertExpanded(!isAlertExpanded);
                       setIsAutoDisplay(false);
                       if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
                     }}
-                    className={cn(
-                      "absolute pointer-events-auto transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] overflow-hidden border cursor-pointer flex flex-col justify-center items-center group origin-top",
-                      isAlertExpanded 
-                        ? "w-[92vw] sm:w-[340px] h-[130px] sm:h-[110px] rounded-2xl p-4 top-[140%] left-1/2 sm:left-1/2 -translate-x-1/2 shadow-2xl z-50 ring-1 ring-white/10" 
-                        : "w-8 h-8 rounded-full border-[#D4AF37] border-[1.5px] bg-transparent text-[#D4AF37] hover:bg-[#D4AF37]/10 p-0 top-0 left-0 shadow-sm z-10",
-                      (theme === 'theme-light-gray' || theme === 'theme-default') && isAlertExpanded
-                        ? "bg-white/95 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)]" 
-                        : (!isAlertExpanded ? "backdrop-blur-sm bg-transparent" : "bg-neutral-900/90 border-white/20 text-white backdrop-blur-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]")
-                    )}
-                    style={isAlertExpanded && typeof window !== 'undefined' && window.innerWidth < 640 ? { 
-                      left: '50%',
-                      transform: 'translateX(-50%)',
-                      position: 'fixed',
-                      top: '20%',
-                      width: '90vw'
-                    } : {}}
+                    className="w-7 h-7 rounded-full border-[#D4AF37] border-[1.5px] bg-transparent text-[#D4AF37] hover:bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0 transition-all duration-200 ml-1"
                   >
-                    <div className={cn(
-                      "transition-all duration-300 absolute inset-0 flex flex-col items-center justify-center text-center px-4",
-                      isAlertExpanded ? "opacity-100 scale-100 delay-[250ms]" : "opacity-0 scale-75 pointer-events-none"
-                    )}>
-                      <div className="absolute top-2 right-2 opacity-30 p-1 hidden sm:block">
-                        <ChevronDown className="w-5 h-5 rotate-90" />
-                      </div>
-                      <div className="absolute -top-1 left-1/2 -translate-x-1/2 opacity-30 p-1 sm:hidden">
-                        <ChevronDown className="w-5 h-5 rotate-180" />
-                      </div>
-                      
-                      <h4 className={cn("font-bold font-brand text-lg mb-0.5", (theme === 'theme-light-gray' || theme === 'theme-default') ? "text-primary" : "text-[#D4AF37]")}>
-                        {alertInfo.title}
-                      </h4>
-                      <p className="text-[13px] sm:text-sm text-center opacity-95 leading-snug">
-                        {alertInfo.description}
-                      </p>
-                    </div>
-                    
-                    <div className={cn(
-                      "transition-all duration-300 absolute flex items-center justify-center",
-                      isAlertExpanded ? "opacity-0 scale-0 rotate-180" : "opacity-100 scale-100 rotate-0 delay-300"
-                    )}>
-                      <ChevronDown className="w-5 h-5 translate-y-[1px] group-hover:translate-y-[2px] transition-transform" />
-                    </div>
+                    <ChevronDown className={cn(
+                      "w-4 h-4 transition-transform duration-300",
+                      isAlertExpanded ? "rotate-180" : "rotate-0"
+                    )} />
+                  </button>
+                )}
+              </div>
+
+              {/* Bloco de aviso — expande abaixo da linha de data */}
+              {alertInfo && (
+                <div
+                  className={cn(
+                    "overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-2 origin-top",
+                    isAlertExpanded ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                  )}
+                >
+                  <div className={cn(
+                    "p-4 rounded-2xl border flex flex-col items-center justify-center text-center gap-1",
+                    (theme === 'theme-light-gray' || theme === 'theme-default')
+                      ? "bg-white/85 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]"
+                      : "bg-black/75 border-white/20 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
+                  )}>
+                    <h4 className={cn("font-bold font-brand text-base mb-0.5", (theme === 'theme-light-gray' || theme === 'theme-default') ? "text-primary" : "text-[#D4AF37]")}>
+                      {alertInfo.title}
+                    </h4>
+                    <p className="text-[12px] sm:text-sm text-center opacity-95 leading-snug">
+                      {alertInfo.description}
+                    </p>
                   </div>
                 </div>
               )}
             </div>
           )}
+
         </div>
       </header>
 
