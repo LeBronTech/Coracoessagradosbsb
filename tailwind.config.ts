@@ -103,6 +103,10 @@ export default {
           '50%': { transform: 'scale(1.05)', opacity: '0.9' },
           '99.9%': { transform: 'scale(1)', opacity: '1'},
         },
+        'cadenced-pulse': {
+          '0%, 100%': { boxShadow: '0 0 0 0 hsl(var(--primary) / 0.8)' },
+          '50%': { boxShadow: '0 0 0 15px hsl(var(--primary) / 0)' },
+        },
         'gate-up': {
           '0%': { transform: 'translateY(0)' },
           '100%': { transform: 'translateY(-100%)' },
@@ -116,6 +120,7 @@ export default {
         'slide-up-fade-in': 'slide-up-fade-in 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards',
         'pulse-and-shrink': 'pulse-and-shrink 1.5s ease-in-out infinite',
         'gate-up': 'gate-up 0.8s cubic-bezier(0.7, 0, 0.3, 1) forwards',
+        'cadenced-pulse': 'cadenced-pulse 6s ease-in-out infinite',
       },
       typography: ({ theme }: { theme: any }) => ({
         DEFAULT: {

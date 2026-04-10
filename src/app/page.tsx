@@ -64,6 +64,7 @@ import { useRouter } from 'next/navigation';
 
 export default function Home() {
   const router = useRouter();
+  const { toast } = useToast();
   const [selectedMonth, setSelectedMonth] = useState<string>(months[new Date().getMonth()]);
   const [selectedSaintId, setSelectedSaintId] = useState<string | null>(null);
   const [hydrated, setHydrated] = useState(false);
@@ -327,6 +328,8 @@ export default function Home() {
     },
     [selectedSaintId]
   );
+
+
 
   const handleSelectSaint = (id: string) => {
     if (id === 'natal') {

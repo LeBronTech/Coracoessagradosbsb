@@ -145,6 +145,13 @@ function SaintSelector({
   closestSaintId,
 }: SaintSelectorProps) {
 
+  const [todayNumbers, setTodayNumbers] = useState<{ day: number, month: number } | null>(null);
+
+  useEffect(() => {
+    const today = new Date();
+    setTodayNumbers({ day: today.getDate(), month: today.getMonth() + 1 });
+  }, []);
+
   const saintsForMonth = saints
     .filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth))
     .sort((a, b) => {
@@ -235,21 +242,42 @@ function SaintSelector({
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && handleSaintSelect(saint.id)}
             >
-              <Image
-                src={saint.imageUrl}
-                alt={saint.name}
-                width={80}
-                height={80}
-                className={cn(
-                  'w-20 h-20 rounded-full object-cover shadow-md border-4 border-transparent transition-all duration-300',
-                  (selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'))) && 'border-primary shadow-lg'
-                )}
-              />
-              <p className="text-sm font-semibold text-gray-700 font-brand leading-tight mt-1">{saint.name}</p>
-              <p className="text-xs text-gray-500">Início: {saint.startDate}</p>
-              <div className="mt-1 bg-primary text-primary-foreground px-4 py-1 rounded-full text-xs font-bold leading-tight">
-                Dia {saint.feastDay.split('/')[0]}
-              </div>
+              {(() => {
+                const [startDayStr, startMonthStr] = saint.startDate.split('/');
+                const startDay = Number(startDayStr);
+                const startMonth = Number(startMonthStr);
+                const startsToday = todayNumbers?.day === startDay && todayNumbers?.month === startMonth;
+                const isSelected = selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'));
+                const shouldBlink = startsToday && !isSelected;
+
+                return (
+                  <>
+                    <Image
+                      src={saint.imageUrl}
+                      alt={saint.name}
+                      width={80}
+                      height={80}
+                      className={cn(
+                        'w-20 h-20 rounded-full object-cover shadow-md border-4 transition-all duration-300',
+                        shouldBlink
+                          ? 'border-primary glow-pulse-ring'
+                          : isSelected
+                            ? 'border-primary shadow-lg'
+                            : 'border-transparent'
+                      )}
+                    />
+                    <p className="text-sm font-semibold text-gray-700 font-brand leading-tight mt-1">{saint.name}</p>
+                    <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
+                      Início: {saint.startDate}
+                    </div>
+                    {saint.isMartyr && (
+                      <div className="mt-1 bg-red-700/80 text-white px-4 py-1 rounded-full text-xs font-bold leading-tight shadow-sm">
+                        Mártir
+                      </div>
+                    )}
+                  </>
+                );
+              })()}
             </div>
           ))
         ) : (

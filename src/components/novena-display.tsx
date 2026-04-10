@@ -1,10 +1,10 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
@@ -64,6 +64,95 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('tradicional');
+  
+  const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
+  const [isAlertExpanded, setIsAlertExpanded] = useState(false);
+  const [isAutoDisplay, setIsAutoDisplay] = useState(false);
+  const alertTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const alertContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleInteraction(event: Event) {
+      if (isAutoDisplay || !isAlertExpanded) return;
+
+      if (event.type === 'scroll') {
+        setIsAlertExpanded(false);
+      } else if (event.type === 'mousedown' || event.type === 'touchstart') {
+        if (alertContainerRef.current && !alertContainerRef.current.contains(event.target as Node)) {
+          setIsAlertExpanded(false);
+        }
+      }
+    }
+
+    if (isAlertExpanded && !isAutoDisplay) {
+      document.addEventListener('mousedown', handleInteraction);
+      document.addEventListener('touchstart', handleInteraction);
+      window.addEventListener('scroll', handleInteraction, { passive: true });
+    }
+
+    return () => {
+      document.removeEventListener('mousedown', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+      window.removeEventListener('scroll', handleInteraction);
+    };
+  }, [isAlertExpanded, isAutoDisplay]);
+
+  useEffect(() => {
+    if (saint && saint.startDate) {
+      const todayOnlyDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+      
+      const [startDayStr, startMonthStr] = saint.startDate.split('/');
+      const [endDayStr, endMonthStr] = saint.endDate.split('/');
+      const startMonth = Number(startMonthStr);
+      const endMonth = Number(endMonthStr);
+      
+      let startD = new Date(todayOnlyDate.getFullYear(), startMonth - 1, Number(startDayStr));
+      let endD = new Date(todayOnlyDate.getFullYear(), endMonth - 1, Number(endDayStr));
+      
+      if (endMonth < startMonth) {
+        if (todayOnlyDate.getMonth() < 6) {
+          startD.setFullYear(todayOnlyDate.getFullYear() - 1);
+        } else {
+          endD.setFullYear(todayOnlyDate.getFullYear() + 1);
+        }
+      }
+
+      const diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
+      const diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
+
+      let title = "";
+      let description: React.ReactNode = "";
+
+      if (diffStart === 0) {
+        title = "Inicia Hoje!";
+        description = "Esta novena começou oficialmente hoje. É o momento perfeito para iniciá-la.";
+      } else if (diffEnd === 0) {
+        title = `Último dia (${diffStart + 1}º Dia)`;
+        description = <>Atenção: hoje é o último dia oficial (<strong>{diffStart + 1}º Dia</strong>) desta novena antes da sua grande festa.</>;
+      } else if (diffStart > 0 && diffEnd > 0) {
+        title = "Novena em andamento";
+        description = <>A novena está atualmente no <strong>{diffStart + 1}º dia</strong>. Junte-se às orações!</>;
+      } else {
+        title = "Aviso";
+        description = <>A data oficial inicia em <strong>{saint.startDate}</strong>, mas você pode iniciar e rezar esta novena em qualquer época ou momento!</>;
+      }
+
+      setAlertInfo({ title, description });
+      setIsAlertExpanded(true);
+      setIsAutoDisplay(true);
+
+      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+      
+      alertTimerRef.current = setTimeout(() => {
+        setIsAlertExpanded(false);
+        setIsAutoDisplay(false);
+      }, 4500);
+
+      return () => {
+        if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+      };
+    }
+  }, [saint]);
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -250,7 +339,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left">
+      <header id="novena-header" className="flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
         <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
         <div>
           <h2 className="text-3xl md:text-4xl font-bold font-brand">{novenaTitle}</h2>
@@ -260,7 +349,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             {description || ''}
           </p>
           {saint.startDate && (
-            <div className="mt-3 flex items-center justify-center sm:justify-start gap-2">
+            <div className="mt-3 flex flex-row items-center justify-center sm:justify-start gap-2 relative">
               <span className={cn(
                 "inline-block text-xs font-bold px-4 py-1 rounded-full",
                 isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
@@ -272,10 +361,59 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   Mártir
                 </span>
               )}
+              
+              {alertInfo && (
+                <div ref={alertContainerRef} className="relative w-8 h-8 ml-1 z-50 flex-shrink-0">
+                  <div 
+                    onClick={() => {
+                      setIsAlertExpanded(!isAlertExpanded);
+                      setIsAutoDisplay(false);
+                      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                    }}
+                    className={cn(
+                      "absolute pointer-events-auto transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] overflow-hidden border cursor-pointer flex flex-col justify-center items-center group origin-top",
+                      isAlertExpanded 
+                        ? "w-[88vw] sm:w-[340px] h-[130px] sm:h-[110px] rounded-2xl p-4 top-[140%] left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2 shadow-2xl z-50 ring-1 ring-white/20" 
+                        : "w-8 h-8 rounded-full border-[#D4AF37] border-[1.5px] bg-transparent text-[#D4AF37] hover:bg-[#D4AF37]/10 p-0 top-0 left-0 shadow-sm z-10",
+                      (theme === 'theme-light-gray' || theme === 'theme-default') && isAlertExpanded
+                        ? "bg-white/85 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]" 
+                        : (!isAlertExpanded ? "backdrop-blur-sm bg-transparent" : "bg-black/75 border-white/20 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]")
+                    )}
+                  >
+                    <div className={cn(
+                      "transition-all duration-300 absolute inset-0 flex flex-col items-center justify-center text-center px-4",
+                      isAlertExpanded ? "opacity-100 scale-100 delay-[250ms]" : "opacity-0 scale-75 pointer-events-none"
+                    )}>
+                      <div className="absolute top-2 right-2 opacity-30 p-1 hidden sm:block">
+                        <ChevronDown className="w-5 h-5 rotate-90" />
+                      </div>
+                      <div className="absolute -top-1 left-1/2 -translate-x-1/2 opacity-30 p-1 sm:hidden">
+                        <ChevronDown className="w-5 h-5 rotate-180" />
+                      </div>
+                      
+                      <h4 className={cn("font-bold font-brand text-lg mb-0.5", (theme === 'theme-light-gray' || theme === 'theme-default') ? "text-primary" : "text-[#D4AF37]")}>
+                        {alertInfo.title}
+                      </h4>
+                      <p className="text-[13px] sm:text-sm text-center opacity-95 leading-snug">
+                        {alertInfo.description}
+                      </p>
+                    </div>
+                    
+                    <div className={cn(
+                      "transition-all duration-300 absolute flex items-center justify-center",
+                      isAlertExpanded ? "opacity-0 scale-0 rotate-180" : "opacity-100 scale-100 rotate-0 delay-300"
+                    )}>
+                      <ChevronDown className="w-5 h-5 translate-y-[1px] group-hover:translate-y-[2px] transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           )}
         </div>
       </header>
+
+
 
       <Carousel setApi={setApi} className="w-full">
         <div className="flex flex-col items-center justify-center gap-2 mb-6">

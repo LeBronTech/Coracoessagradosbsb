@@ -723,4 +723,12 @@
   .accordion-content[data-state='open'] {
     max-height: var(--radix-accordion-content-height);
   }
+
+  @keyframes manual-glow-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.8); }
+    50% { box-shadow: 0 0 0 15px hsl(var(--primary) / 0); }
+  }
+  .glow-pulse-ring {
+    animation: manual-glow-pulse 8s ease-in-out infinite !important;
+  }
 }
