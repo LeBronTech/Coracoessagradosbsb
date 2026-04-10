@@ -31,10 +31,10 @@ interface NovenaDisplayProps {
   saint: Saint | null;
   novena: Novena | null;
   theme: Theme;
-  setTheme: (theme: Theme) => void;
+  setTheme: (theme: Theme | ((prev: Theme) => Theme)) => void;
 }
 
-function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme) => void }) {
+function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme | ((prev: Theme) => Theme)) => void }) {
   return (
     <div className="absolute top-[-14px] right-5 flex gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
       {(['theme-dark-gray', 'theme-default', 'theme-light-gray', 'theme-red', 'theme-green'] as Theme[]).map((t) => (
