@@ -146,7 +146,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       alertTimerRef.current = setTimeout(() => {
         setIsAlertExpanded(false);
         setIsAutoDisplay(false);
-      }, 3000);
+      }, 4000);
 
       return () => {
         if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
