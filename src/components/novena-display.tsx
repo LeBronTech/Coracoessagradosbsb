@@ -146,7 +146,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       alertTimerRef.current = setTimeout(() => {
         setIsAlertExpanded(false);
         setIsAutoDisplay(false);
-      }, 4500);
+      }, 3000);
 
       return () => {
         if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
@@ -373,12 +373,19 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     className={cn(
                       "absolute pointer-events-auto transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] overflow-hidden border cursor-pointer flex flex-col justify-center items-center group origin-top",
                       isAlertExpanded 
-                        ? "w-[88vw] sm:w-[340px] h-[130px] sm:h-[110px] rounded-2xl p-4 top-[140%] left-1/2 -translate-x-1/2 sm:left-1/2 sm:-translate-x-1/2 shadow-2xl z-50 ring-1 ring-white/20" 
+                        ? "w-[92vw] sm:w-[340px] h-[130px] sm:h-[110px] rounded-2xl p-4 top-[140%] left-1/2 sm:left-1/2 -translate-x-1/2 shadow-2xl z-50 ring-1 ring-white/10" 
                         : "w-8 h-8 rounded-full border-[#D4AF37] border-[1.5px] bg-transparent text-[#D4AF37] hover:bg-[#D4AF37]/10 p-0 top-0 left-0 shadow-sm z-10",
                       (theme === 'theme-light-gray' || theme === 'theme-default') && isAlertExpanded
-                        ? "bg-white/85 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]" 
-                        : (!isAlertExpanded ? "backdrop-blur-sm bg-transparent" : "bg-black/75 border-white/20 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]")
+                        ? "bg-white/95 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)]" 
+                        : (!isAlertExpanded ? "backdrop-blur-sm bg-transparent" : "bg-neutral-900/90 border-white/20 text-white backdrop-blur-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.5)]")
                     )}
+                    style={isAlertExpanded && typeof window !== 'undefined' && window.innerWidth < 640 ? { 
+                      left: '50%',
+                      transform: 'translateX(-50%)',
+                      position: 'fixed',
+                      top: '20%',
+                      width: '90vw'
+                    } : {}}
                   >
                     <div className={cn(
                       "transition-all duration-300 absolute inset-0 flex flex-col items-center justify-center text-center px-4",

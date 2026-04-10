@@ -21,7 +21,7 @@ interface SaintSelectorProps {
   onMonthChange: (month: string) => void;
   selectedSaintId: string | null;
   onSaintSelect: (id: string) => void;
-  closestSaintId: string | null;
+  closestSaintId?: string | null;
 }
 
 const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<SaintSelectorProps, 'months' | 'selectedMonth' | 'onMonthChange'>) => {
