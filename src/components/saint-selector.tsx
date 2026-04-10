@@ -267,9 +267,16 @@ function SaintSelector({
                       )}
                     />
                     <p className="text-sm font-semibold text-gray-700 font-brand leading-tight mt-1">{saint.name}</p>
-                    <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
-                      Início: {saint.startDate}
-                    </div>
+                    {saint.isMartyr ? (
+                      <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
+                        Início: {saint.startDate}
+                      </div>
+                    ) : (
+                      <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-4 py-1 rounded-2xl flex flex-col items-center shadow-sm">
+                        <span className="text-[9px] font-bold uppercase opacity-90 leading-none">Início</span>
+                        <span className="text-xs font-bold leading-tight mt-0.5">{saint.startDate}</span>
+                      </div>
+                    )}
                     {saint.isMartyr && (
                       <div className="mt-1 bg-red-700/80 text-white px-4 py-1 rounded-full text-xs font-bold leading-tight shadow-sm">
                         Mártir
