@@ -2861,7 +2861,7 @@ export const saints: Saint[] = [
 
   // Setembro
   { id: 'natividade_nossa_senhora', name: 'Natividade N.S.', imageUrl: 'https://i.pinimg.com/736x/5a/6b/7c/5a6b7c8d9e0f1a2b3c4d5e6f7a8b9c0d.jpg', month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
-  { id: 'ns_india', name: 'N.S. da Índia', imageUrl: 'https://www.adf.org.br/home/wp-content/uploads/2015/01/Nossa-Senhora-da-Boa-Sa%C3%BAde-de-Vailankanni.jpg', month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
+  { id: 'ns_india', name: 'N.S. da Índia', imageUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg', month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
   { id: 'ns_caridade', name: 'N.S. da Caridade', imageUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgplFq6e-qNfH1vZDv_34Uv2KA1gHpEkUNfkHVCpLdETR1Y3DHpxGTbBJCY9tuldoi3a6RyHxxWVpKQBk5lEG-X-KbAz4Nh2VWiJHFkomKErJwSQnhrhRPVMoicifOki8DFA4_3yoN0AHs/s1600/73a74f802b63b43f1002aa113dd417bb.jpg', imageObjectPosition: "top", month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
   { id: 'exaltacao_santa_cruz', name: 'Exaltação Santa Cruz', imageUrl: 'https://i.pinimg.com/736x/0f/1a/2b/0f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c.jpg', month: 'Setembro', startDate: '05/09', endDate: '13/09', feastDay: '14/Set' },
   { id: 'nossa_senhora_dores', name: 'N.S. das Dores', imageUrl: 'https://i.pinimg.com/736x/7c/8d/9e/7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f.jpg', month: 'Setembro', startDate: '06/09', endDate: '14/09', feastDay: '15/Set' },
@@ -3057,7 +3057,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
       },
       {
         name: 'Divina Pastora',
-        imageUrl: 'https://tse3.mm.bing.net/th/id/OIP.7QEU3a4RjNqVV89tHpYuMwHaNK?rs=1&pid=ImgDetMain&o=7&rm=3',
+        imageUrl: 'https://i.pinimg.com/1200x/79/67/df/7967df5f7c26fa60d865267decb6b569.jpg',
         story: `<h4>A Pastora das Almas</h4><p>A Divina Pastora é uma das devoções marianas mais queridas da Venezuela. A imagem representa Nossa Senhora como uma pastora vestida de verde, segurando um bordão e um cordeiro, esculpida no século XVIII pelo frei capuchinho Isidoro de Sevilha e presenteada à cidade de Barquisimeto, no Estado de Lara.</p><h4>A Maior Procissão da América do Sul</h4><p>Cada segundo sábado de Janeiro, Barquisimeto presencia a maior procissão mariana da América do Sul. Cerca de dois a três milhões de devotos acompanham a imagem sagrada da Divina Pastora percorrendo 22 quilômetros desde Santa Rosa até a Catedral de Barquisimeto, num cortejo de fé que dura horas e é reconhecido como um dos maiores eventos religiosos do continente.</p><p class="mt-4">Em 1856, uma epidemia de cólera assolava a Venezuela. Os moradores de Santa Rosa fizeram uma promessa: se a Divina Pastora os protegesse, realizariam uma procissão anual. A epidemia cessou e, desde então, a procissão nunca parou, tornando-se Patrimônio Cultural da Venezuela.</p><p class="mt-4"><b>Oração:</b> Ó Divina Pastora, que com bondade maternal cuidas de cada ovelha de teu rebanho, guia nossos passos pelos caminhos da virtude. Afasta de nós os lobos do pecado e da desesperança. Conduz-nos, ó Mãe, seguros ao aprisco eterno do Pai Celestial. Amém.</p>`
       }
     ]

@@ -432,11 +432,11 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Índia",
                 countryFlag: "🇮🇳",
                 date: "8 de Setembro",
-                imageUrl: "https://www.adf.org.br/home/wp-content/uploads/2015/01/Nossa-Senhora-da-Boa-Sa%C3%BAde-de-Vailankanni.jpg",
+                imageUrl: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg",
                 images: [
-                    "https://www.adf.org.br/home/wp-content/uploads/2015/01/Nossa-Senhora-da-Boa-Sa%C3%BAde-de-Vailankanni.jpg",
+                    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg",
                     "https://thumbs.dreamstime.com/b/setembro-de-igreja-nossa-senhora-boa-sa%C3%BAde-velankanni-%C3%ADndia-celebra%C3%A7%C3%A3o-da-natividade-maria-na-161457383.jpg",
-                    "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg"
+                    "https://www.adf.org.br/home/wp-content/uploads/2015/01/Nossa-Senhora-da-Boa-Sa%C3%BAde-de-Vailankanni.jpg"
                 ],
                 description: "A 'Lourdes do Oriente' - Padroeira da Boa Saúde",
                 fullDescription: "A LOURDES DO ORIENTE E OS MILAGRES PROTETORES\n\nNossa Senhora da Boa Saúde de Vailankanni (ou Velankanni) é uma das devoções marianas mais impressionantes da Ásia, localizada em uma pequena cidade costeira em Tamil Nadu, no sul da Índia. O local é frequentemente chamado de 'Lourdes do Oriente' devido às incontáveis graças e curas milagrosas lá alcançadas.\n\nAS APARIÇÕES DO SÉCULO XVI\n\nA devoção teve início com três grandes milagres no século XVI. O primeiro ocorreu quando Maria apareceu a um jovem pastor hindu que adormeceu junto a um lago enquanto levava leite para seu mestre. Maria, com o Menino Jesus, pediu um pouco do leite. Quando o mestre do jovem olhou o recipiente depois, ele milagrosamente transbordava de leite.\n\nO segundo milagre aconteceu anos depois, quando Nossa Senhora apareceu a um menino com deficiência física que vendia soro de leite. Ao pedir-lhe um pouco para o Menino Jesus, o menino foi curado imediatamente e passou a caminhar, emocionando toda a região.\n\nO SALVAMENTO DOS MARINHEIROS\n\nO terceiro grande milagre que consolidou a devoção foi o salvamento de uma embarcação mercantil portuguesa. Durante uma terrível tempestade na Baía de Bengala, os marinheiros portugueses enfrentaram morte certa. Suplicando com fervor a Nossa Senhora, prometeram construir-lhe uma capela onde quer que o mar os levasse a salvo. Eles desembarcaram intactos nas areias de Vailankanni exatamente no dia 8 de setembro. Fiéis à promessa, ergueram a primeira pequena igreja no local.\n\nDEVOÇÃO E ECUMENISMO\n\nHoje, a Basílica de Nossa Senhora da Boa Saúde é um majestoso complexo que recebe milhões de peregrinos anualmente. O mais extraordinário é que a devoção atrai não apenas católicos, mas um número gigantesco de fiéis hindus e muçulmanos, que respeitam profundamente 'Matha' (Mãe) e peregrinam em busca de cura e proteção.\n\nMENSAGEM ESPIRITUAL\n\nNossa Senhora de Vailankanni nos ensina que a misericórdia de Maria é universal e atravessa fronteiras culturais e religiosas. Como a Padroeira da Boa Saúde, Ela está atenta a todas as nossas doenças físicas e espirituais, recordando-nos o valor do milagre e do amor intercessor de Deus.",
@@ -765,6 +765,7 @@ export const worldMarianDevotions: Continent[] = [
                 countryFlag: "🇲🇽",
                 date: "2 de Fevereiro",
                 imageUrl: "https://c8.alamy.com/comp/2BWFT4P/nuestra-senora-de-san-juan-de-los-lagos-statue-at-side-altar-immaculate-conception-cathedral-brownsville-rio-grande-valley-texas-usa-2BWFT4P.jpg",
+                objectPosition: "top",
                 images: [
                     "https://c8.alamy.com/comp/2BWFT4P/nuestra-senora-de-san-juan-de-los-lagos-statue-at-side-altar-immaculate-conception-cathedral-brownsville-rio-grande-valley-texas-usa-2BWFT4P.jpg",
                     "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/VSJL.JPG/250px-VSJL.JPG",
@@ -781,9 +782,9 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Venezuela",
                 countryFlag: "🇻🇪",
                 date: "14 de Janeiro",
-                imageUrl: "https://scontent.fbsb31-1.fna.fbcdn.net/v/t39.30808-6/485985772_1086481803519584_1507162197761790833_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFMbCk-1A7At1120TflHR5F5Unhi0KSkh7lSeGLQpKSHn7SiL_4-Rww92xglquF2zwTZhLvNHSJKx8rOr2scMch&_nc_ohc=NlADXKAKylMQ7kNvwE432ok&_nc_oc=Ado7NMw3idJizBYQCh_LQfWiI-0bToLGwmirZgHBAiDdZsP4S9baRo6fBJ7lGzqpnUaq3zq1h72DSslTfsgyaz5Z&_nc_zt=23&_nc_ht=scontent.fbsb31-1.fna&_nc_gid=QtiIaFPGO98-AOarz3AZ4Q&_nc_ss=7a3a8&oh=00_Af3jXMB2GoJopVTl1FTe1NOHwMRG8H348iNv_kFK3SEQ9Q&oe=69D500ED",
+                imageUrl: "https://i.pinimg.com/1200x/79/67/df/7967df5f7c26fa60d865267decb6b569.jpg",
                 images: [
-                    "https://scontent.fbsb31-1.fna.fbcdn.net/v/t39.30808-6/485985772_1086481803519584_1507162197761790833_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFMbCk-1A7At1120TflHR5F5Unhi0KSkh7lSeGLQpKSHn7SiL_4-Rww92xglquF2zwTZhLvNHSJKx8rOr2scMch&_nc_ohc=NlADXKAKylMQ7kNvwE432ok&_nc_oc=Ado7NMw3idJizBYQCh_LQfWiI-0bToLGwmirZgHBAiDdZsP4S9baRo6fBJ7lGzqpnUaq3zq1h72DSslTfsgyaz5Z&_nc_zt=23&_nc_ht=scontent.fbsb31-1.fna&_nc_gid=QtiIaFPGO98-AOarz3AZ4Q&_nc_ss=7a3a8&oh=00_Af3jXMB2GoJopVTl1FTe1NOHwMRG8H348iNv_kFK3SEQ9Q&oe=69D500ED",
+                    "https://i.pinimg.com/1200x/79/67/df/7967df5f7c26fa60d865267decb6b569.jpg",
                     "https://media.vaticannews.va/media/content/dam-archive/vaticannews/multimedia/2020/01/07/OKI.jpg/_jcr_content/renditions/cq5dam.thumbnail.cropped.1500.844.jpeg",
                     "https://upload.wikimedia.org/wikipedia/commons/3/3f/Pastora_Divina.jpg"
                 ],

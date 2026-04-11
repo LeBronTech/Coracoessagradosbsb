@@ -2088,7 +2088,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. da Boa Saúde (Índia)",
         novenaTitle: "Novena a N.S. da Boa Saúde",
         description: "Novena em honra a Nossa Senhora de Vailankanni, a Lourdes do Oriente (8 de setembro).",
-        image: "https://www.adf.org.br/home/wp-content/uploads/2015/01/Nossa-Senhora-da-Boa-Sa%C3%BAde-de-Vailankanni.jpg",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
