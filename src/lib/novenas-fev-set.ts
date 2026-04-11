@@ -1036,6 +1036,48 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
+    sao_martinho_i: {
+        saintName: "São Martinho I",
+        novenaTitle: "Novena a São Martinho I",
+        description: "Novena em honra a São Martinho I, Papa e Mártir (13 de abril).",
+        image: "https://i.pinimg.com/736x/47/33/70/47337031a4df0d1159a589e7edf4cc61.jpg",
+        imageObjectPosition: "top",
+        initialPrayer: `<h4 class="section-title">Oração Inicial</h4><p>Ó glorioso São Martinho I, mártir da Igreja, intercedei por nós junto a Deus. Que a vossa coragem nos inspire a servir o Evangelho de todo coração.</p>`,
+        finalPrayer: `<h4 class="section-title">Oração Final</h4><p>Deus onipotente, que nos dais a alegria de celebrar a festa de São Martinho I, concedei-nos por sua intercessão a graça da fortaleza. Amém.</p>`,
+        days: [
+            { day: "Dia 1", title: "1º Dia - Pela Firmeza na Fé", content: `<div class="day-specific-content"><p>Ó São Martinho, modelo de fé inabalável, rogai por nós.</p></div>` },
+            { day: "Dia 2", title: "2º Dia - Pela Coragem", content: `<div class="day-specific-content"><p>Intercedei a Deus por nós, para que tenhamos coragem diante das adversidades.</p></div>` },
+            { day: "Dia 3", title: "3º Dia - Pela Igreja", content: `<div class="day-specific-content"><p>Protegei a Santa Igreja, vós que fostes seu pastor e mártir.</p></div>` },
+            { day: "Dia 4", title: "4º Dia - Pelos Perseguidos", content: `<div class="day-specific-content"><p>Intercedei por todos os que sofrem perseguições por causa da fé.</p></div>` },
+            { day: "Dia 5", title: "5º Dia - Pela Humildade", content: `<div class="day-specific-content"><p>Ensinai-nos a verdadeira humildade em meio ao sofrimento e exílio.</p></div>` },
+            { day: "Dia 6", title: "6º Dia - Pelos Governantes", content: `<div class="day-specific-content"><p>Orai por todos que detêm o poder, para que respeitem a liberdade religiosa.</p></div>` },
+            { day: "Dia 7", title: "7º Dia - Pela Sabedoria", content: `<div class="day-specific-content"><p>Sábio pontífice, pedi a Deus que nos guie com Seu Espírito nos discernimentos difíceis.</p></div>` },
+            { day: "Dia 8", title: "8º Dia - Pela Paz", content: `<div class="day-specific-content"><p>Que o Senhor conceda paz aos nossos corações pela Vossa prece afetuosa.</p></div>` },
+            { day: "Dia 9", title: "9º Dia - Pela Glória Eterna", content: `<div class="day-specific-content"><p>Ao celebrarmos vosso martírio, conduzi-nos, com vossa oração, à alegria definitiva em Cristo.</p></div>` }
+        ]
+    },
+
+    santa_ludovina: {
+        saintName: "Santa Ludovina",
+        novenaTitle: "Novena a Santa Ludovina",
+        description: "Padroeira dos enfermos e dos doentes crônicos (14 de abril).",
+        image: "https://i.pinimg.com/736x/31/42/e1/3142e1001d989ee6a1f2899a6f2bceaf.jpg",
+        imageObjectPosition: "top",
+        initialPrayer: `<h4 class="section-title">Oração Inicial</h4><p>Ó Deus, que concedestes a Santa Ludovina suportar com paciência os sofrimentos que a afligiram durante a vida, dai-nos a graça de abraçar a nossa cruz e encontrar força no Vosso amor e, pela sua intercessora, aliviai as nossas enfermidades. Amém.</p>`,
+        finalPrayer: `<h4 class="section-title">Oração Final</h4><p>Santa Ludovina, rogai a Deus por nós que padecemos das dores do corpo e d'alma. Que pelo vosso testemunho nunca percamos a nossa fé em Jesus Cristo Nosso Senhor. Amém.</p>`,
+        days: [
+            { day: "Dia 1", title: "1º Dia - Pela Aceitação do Sofrimento", content: `<div class="day-specific-content"><p>Santa Ludovina, ensinai-nos a unir nossas dores à cruz do Senhor.</p></div>` },
+            { day: "Dia 2", title: "2º Dia - Pelos Enfermos Crônicos", content: `<div class="day-specific-content"><p>Intercedei por todos aqueles que sofrem dores contínuas e sem esperança de cura terrena.</p></div>` },
+            { day: "Dia 3", title: "3º Dia - Pela Paz Interior", content: `<div class="day-specific-content"><p>Que mesmo em nossos sofrimentos físicos possamos encontrar a paz de Cristo.</p></div>` },
+            { day: "Dia 4", title: "4º Dia - Pelos Enfermeiros e Cuidadores", content: `<div class="day-specific-content"><p>Abençoai todos os que se dedicam a cuidar dos necessitados e enfermos com carinho.</p></div>` },
+            { day: "Dia 5", title: "5º Dia - Pela Fuga do Desespero", content: `<div class="day-specific-content"><p>Afastai de nós a angústia frente à dor e aproximai nossa alma da esperança cristã.</p></div>` },
+            { day: "Dia 6", title: "6º Dia - Pelas Famílias Desoladas", content: `<div class="day-specific-content"><p>Confortai os familiares e amigos que sofrem por verem seus entes queridos doentes.</p></div>` },
+            { day: "Dia 7", title: "7º Dia - Pela Graça das Visões Celestes", content: `<div class="day-specific-content"><p>Inspirai nosso espírito nas coisas do Alto, para que a dor física não nos aprisione à materialidade.</p></div>` },
+            { day: "Dia 8", title: "8º Dia - Pela Entrega Total", content: `<div class="day-specific-content"><p>Pedi a Deus que possamos dizer "Seja feita a Vossa Vontade" como o próprio Cristo disse.</p></div>` },
+            { day: "Dia 9", title: "9º Dia - Pela Cura da Alma e do Corpo", content: `<div class="day-specific-content"><p>Alcançai-nos a saúde da alma e, se for da vontade de Deus, também o alívio para o corpo.</p></div>` }
+        ]
+    },
+
     santo_expedito: {
         saintName: "Santo Expedito",
         novenaTitle: "Novena a Santo Expedito",
