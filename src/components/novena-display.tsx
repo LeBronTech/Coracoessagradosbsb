@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy, ChevronDown } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown, Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
@@ -64,6 +64,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('tradicional');
+  const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
   
   const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
@@ -188,6 +189,34 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   useEffect(() => {
     setSelectedVersionId('tradicional');
   }, [saint]);
+
+  // Handle completed days state
+  useEffect(() => {
+    if (saint && typeof window !== 'undefined') {
+      const storageKey = `novena_completed_${saint.id}_${selectedVersionId}`;
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        try {
+          setCompletedDays(JSON.parse(saved));
+        } catch (e) {
+          setCompletedDays({});
+        }
+      } else {
+        setCompletedDays({});
+      }
+    }
+  }, [saint, selectedVersionId]);
+
+  const toggleCompleted = useCallback((index: number) => {
+    setCompletedDays(prev => {
+      const newState = { ...prev, [index]: !prev[index] };
+      if (saint && typeof window !== 'undefined') {
+        const storageKey = `novena_completed_${saint.id}_${selectedVersionId}`;
+        localStorage.setItem(storageKey, JSON.stringify(newState));
+      }
+      return newState;
+    });
+  }, [saint, selectedVersionId]);
 
   useEffect(() => {
     if (!api) {
@@ -446,13 +475,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                 key={index}
                 onClick={() => scrollTo(index)}
                 className={cn(
-                  'px-3 py-1 text-sm font-semibold rounded-full transition-all duration-200',
+                  'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
                   current === index
                     ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
                     : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
                 )}
               >
                 {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+                {completedDays[index] && <Check className="w-3.5 h-3.5" />}
               </button>
             ))}
           </div>
@@ -514,6 +544,22 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     </div>
                   </div>
                 )}
+
+                <div className="mt-8 flex justify-center">
+                  <Button 
+                    onClick={() => toggleCompleted(index)}
+                    className={cn(
+                      'inline-flex items-center gap-2 rounded-xl px-6 py-3 transition-all duration-300 shadow-sm font-bold text-sm uppercase tracking-wider',
+                      completedDays[index] 
+                        ? 'bg-green-600 hover:bg-green-700 text-white border-transparent' 
+                        : (isLightTheme 
+                            ? 'bg-white hover:bg-stone-50 text-stone-800 border-2 border-stone-200' 
+                            : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20')
+                    )}
+                  >
+                    {completedDays[index] ? <><Check className="w-4 h-4" /> Concluído</> : "Marcar como concluído"}
+                  </Button>
+                </div>
               </div>
             </CarouselItem>
           ))}
