@@ -167,8 +167,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     const monthIndex = allMonths.indexOf(currentDayData.month); // 0-11
     if (monthIndex === -1) return null;
 
-    // Determine year based on month name for the available dataset
-    const year = ['Janeiro', 'Fevereiro', 'Março', 'Abril'].includes(currentDayData.month) ? 2026 : 2025;
+    // Determine year based on month name for the available dataset (primarily 2026)
+    const year = ['Dezembro'].includes(currentDayData.month) && currentDayData.day >= 1 ? 2025 : 2026;
 
     const monthStr = String(monthIndex + 1).padStart(2, '0');
     const dayStr = String(currentDayData.day).padStart(2, '0');
