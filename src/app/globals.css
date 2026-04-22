@@ -284,6 +284,10 @@
     @apply bg-[#949da4];
   }
 
+  .saint-day-trigger.theme-green {
+    @apply bg-[#14532d] text-white;
+  }
+
   .saint-day-trigger.theme-light-gray {
     @apply bg-gray-200 text-gray-800;
   }

@@ -120,6 +120,7 @@ interface SaintOfTheDayProps {
 
 const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ triggerTheme, isOpenInitially = false, onToggle }, ref) => {
   const liturgySectionRef = useRef<HTMLDivElement>(null);
+  const pendingSlideRef = useRef<number | null>(null);
   const [openAccordion, setOpenAccordion] = useState(isOpenInitially);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [selectedSaintInDayIndex, setSelectedSaintInDayIndex] = useState(0);
@@ -179,7 +180,13 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const handleMonthChange = useCallback((monthIndex: number) => {
     const month = months[monthIndex];
     setSelectedMonth(month);
-    setCurrentSlide(0);
+    
+    // Se houver um slide pendente (definido pela navegação manual), usa-o. 
+    // Caso contrário, reseta para 0.
+    const targetSlide = pendingSlideRef.current !== null ? pendingSlideRef.current : 0;
+    setCurrentSlide(targetSlide);
+    pendingSlideRef.current = null;
+    
     setSelectedSaintInDayIndex(0);
     if (openAccordion) {
       setOpenAccordion(false);
@@ -234,19 +241,65 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
   const handleNavigation = useCallback((direction: 'prev' | 'next') => {
     const totalSlides = saintsForCurrentMonth.length;
-    if (totalSlides === 0) return;
+    if (totalSlides === 0 || !selectedMonth) return;
 
-    setCurrentSlide(prev => {
-      const newIndex = direction === 'prev' ? (prev - 1 + totalSlides) % totalSlides : (prev + 1) % totalSlides;
-      return newIndex;
-    });
+    const currentMonthIndex = months.indexOf(selectedMonth);
 
-    setSelectedSaintInDayIndex(0);
+    if (direction === 'next') {
+      if (currentSlide === totalSlides - 1) {
+        // Encontra o próximo mês que tem santos
+        let nextMonthIndex = (currentMonthIndex + 1) % 12;
+        let found = false;
+        
+        for (let i = 0; i < 11; i++) {
+          const month = months[nextMonthIndex];
+          if (saintsOfTheDay.some(day => day.month === month)) {
+            found = true;
+            break;
+          }
+          nextMonthIndex = (nextMonthIndex + 1) % 12;
+        }
+
+        if (found) {
+          pendingSlideRef.current = 0;
+          monthCarouselApi?.scrollTo(nextMonthIndex);
+        }
+      } else {
+        setCurrentSlide(prev => prev + 1);
+        setSelectedSaintInDayIndex(0);
+      }
+    } else {
+      if (currentSlide === 0) {
+        // Encontra o mês anterior que tem santos
+        let prevMonthIndex = (currentMonthIndex - 1 + 12) % 12;
+        let found = false;
+
+        for (let i = 0; i < 11; i++) {
+          const month = months[prevMonthIndex];
+          if (saintsOfTheDay.some(day => day.month === month)) {
+            found = true;
+            break;
+          }
+          prevMonthIndex = (prevMonthIndex - 1 + 12) % 12;
+        }
+
+        if (found) {
+          const prevMonth = months[prevMonthIndex];
+          const prevMonthSaints = saintsOfTheDay.filter(day => day.month === prevMonth);
+          
+          pendingSlideRef.current = prevMonthSaints.length - 1;
+          monthCarouselApi?.scrollTo(prevMonthIndex);
+        }
+      } else {
+        setCurrentSlide(prev => prev - 1);
+        setSelectedSaintInDayIndex(0);
+      }
+    }
+
     if (openAccordion) {
       setOpenAccordion(false);
     }
-
-  }, [saintsForCurrentMonth, openAccordion]);
+  }, [saintsForCurrentMonth, selectedMonth, months, currentSlide, monthCarouselApi, openAccordion, saintsOfTheDay]);
 
   const openAndScrollToLiturgy = useCallback(() => {
     setOpenAccordion(true);
@@ -336,8 +389,17 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           </button>
 
           {isOpen && (
-            <div className={cn("relative p-6 pt-12 rounded-b-lg shadow-inner-top saint-day-content", `theme-${theme}`)}>
-              <button onClick={toggleAccordion} className="absolute top-4 right-2 p-1 text-gray-600 hover:text-gray-800 transition-colors duration-200 z-20">
+            <div 
+              className={cn("relative p-6 pt-12 rounded-b-lg shadow-inner-top saint-day-content", triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`)}
+              style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
+            >
+              <button 
+                onClick={toggleAccordion} 
+                className={cn(
+                  "absolute top-4 right-2 p-1 transition-colors duration-200 z-20",
+                  (triggerTheme === 'theme-green' || theme === 'dark') ? "text-white/70 hover:text-white" : "text-gray-600 hover:text-gray-800"
+                )}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 </svg>
@@ -346,26 +408,31 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
               {dayData.saints.length > 1 && (
                 <div className="mb-4 flex justify-center gap-2">
-                  {dayData.saints.map((saint, saintIndex) => (
-                    <Button
-                      key={saint.name}
-                      variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
-                      size="sm"
-                      onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
-                      className={cn(
-                        'transition-all duration-200',
-                        theme === 'light'
-                          ? selectedSaintInDayIndex === saintIndex
-                            ? 'bg-primary text-primary-foreground'
-                            : 'bg-black/5 hover:bg-black/10 text-primary'
-                          : selectedSaintInDayIndex === saintIndex
-                            ? 'bg-accent text-accent-foreground'
-                            : 'bg-white/10 hover:bg-white/20 text-white'
-                      )}
-                    >
-                      {saint.name}
-                    </Button>
-                  ))}
+                  {dayData.saints.map((saint, saintIndex) => {
+                    const isGreen = triggerTheme === 'theme-green';
+                    const activeTheme = isGreen ? 'dark' : theme;
+                    
+                    return (
+                      <Button
+                        key={saint.name}
+                        variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
+                        size="sm"
+                        onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
+                        className={cn(
+                          'transition-all duration-200',
+                          activeTheme === 'light'
+                            ? selectedSaintInDayIndex === saintIndex
+                              ? 'bg-primary text-primary-foreground'
+                              : 'bg-black/5 hover:bg-black/10 text-primary'
+                            : selectedSaintInDayIndex === saintIndex
+                              ? 'bg-accent text-accent-foreground'
+                              : 'bg-white/10 hover:bg-white/20 text-white'
+                        )}
+                      >
+                        {saint.name}
+                      </Button>
+                    );
+                  })}
                 </div>
               )}
 
