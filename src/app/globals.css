@@ -735,4 +735,30 @@
   .glow-pulse-ring {
     animation: manual-glow-pulse 8s ease-in-out infinite !important;
   }
+
+  @keyframes shine {
+    0% { transform: translateX(-150%) skewX(-15deg); }
+    20% { transform: translateX(250%) skewX(-15deg); }
+    100% { transform: translateX(250%) skewX(-15deg); }
+  }
+  .animate-shine {
+    position: relative;
+    overflow: hidden;
+  }
+  .animate-shine::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      transparent
+    );
+    animation: shine 4s ease-in-out infinite;
+    pointer-events: none;
+  }
 }

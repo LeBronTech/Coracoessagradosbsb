@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, useCallback } from 'react';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
 import SaintSelector from '@/components/saint-selector';
@@ -86,6 +86,50 @@ export default function Home() {
   const [closestSaintId, setClosestSaintId] = useState<string | null>(null);
   const [isHamburgerRed, setIsHamburgerRed] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [userProgress, setUserProgress] = useState<{ completed: number, ongoing: { id: string, name: string, day: number }[] }>({ completed: 0, ongoing: [] });
+
+  const calculateProgress = useCallback(() => {
+    if (typeof window === 'undefined') return;
+    
+    let completedCount = 0;
+    const ongoingItems: { id: string, name: string, day: number }[] = [];
+
+    Object.keys(novenaData).forEach(id => {
+      const novena = novenaData[id];
+      const saint = saints.find(s => s.id === id) || (id.startsWith('natal') ? { name: id === 'natal_sao_leao' ? 'São Leão Magno' : 'Sagrada Família' } : null);
+      if (!saint) return;
+
+      const versionIds = ['tradicional', ...(novena.versions?.map(v => v.id) || [])];
+
+      versionIds.forEach(vId => {
+        const storageKey = `novena_completed_${id}_${vId}`;
+        const saved = localStorage.getItem(storageKey);
+        if (saved) {
+          try {
+            const completedDays = JSON.parse(saved);
+            const daysDone = Object.values(completedDays).filter(Boolean).length;
+            const totalDays = vId === 'tradicional' ? novena.days.length : (novena.versions?.find(v => v.id === vId)?.days.length || 0);
+
+            if (daysDone >= totalDays && totalDays > 0) {
+              completedCount++;
+            } else if (daysDone > 0) {
+              const lastDay = Math.max(...Object.keys(completedDays).map(Number).filter(k => completedDays[k]));
+              ongoingItems.push({ id, name: saint.name, day: lastDay + 1 });
+            }
+          } catch (e) {}
+        }
+      });
+    });
+
+    setUserProgress({ completed: completedCount, ongoing: ongoingItems });
+  }, []);
+
+  useEffect(() => {
+    if (hydrated) {
+      calculateProgress();
+    }
+  }, [hydrated, calculateProgress]);
 
   useEffect(() => {
     if (!marianCarouselApi) return
@@ -412,11 +456,12 @@ export default function Home() {
           hydrated && !isNavigating ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] animate-gate-up"
       )}>
         <div className="container mx-auto p-4 md:p-8 max-w-5xl text-stone-900">
-          <Sheet>
+          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
             <SheetTrigger asChild>
               <Button
                 variant="outline"
                 size="icon"
+                onClick={() => calculateProgress()}
                 className={`fixed top-4 left-4 z-20 bg-white/70 backdrop-blur-sm transition-colors duration-300 ${
                   isHamburgerRed
                     ? 'bg-red-700 text-white hover:bg-red-800 border-red-700'
@@ -434,7 +479,7 @@ export default function Home() {
               </SheetHeader>
               <div className="flex flex-col gap-4 p-6">
                 <ConfessionTimesModal>
-                  <Button className="w-full justify-start gap-2 bg-red-600 hover:bg-red-700 text-white">
+                  <Button variant="outline" className="w-full justify-start gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-primary border-2 border-primary font-bold animate-shine">
                     <AlertCircle className="h-5 w-5" />
                     Horários de Confissão
                   </Button>
@@ -466,6 +511,41 @@ export default function Home() {
                     Espaço São José
                   </Button>
                 </Link>
+              </div>
+
+              <div className="mt-auto p-6 border-t border-gray-200">
+                <h3 className="text-lg font-brand text-gray-800 mb-4 flex items-center gap-2">
+                  <span className="text-xl">📈</span> Seu Progresso
+                </h3>
+                <div className="space-y-4">
+                  <div className="bg-white p-4 rounded-xl shadow-sm border border-primary/10">
+                    <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Novenas Concluídas</p>
+                    <p className="text-3xl font-bold text-primary">{userProgress.completed}</p>
+                  </div>
+                  
+                  {userProgress.ongoing.length > 0 && (
+                    <div className="space-y-2">
+                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Em andamento</p>
+                      <ScrollArea className="h-48">
+                        <div className="space-y-2 pr-4">
+                          {userProgress.ongoing.map((item, idx) => (
+                            <button 
+                              key={idx} 
+                              onClick={() => {
+                                handleNavigateToNovena(item.id);
+                                setIsMenuOpen(false);
+                              }}
+                              className="w-full bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center hover:bg-stone-50 transition-colors group"
+                            >
+                              <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors">{item.name}</span>
+                              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-bold">Dia {item.day}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </ScrollArea>
+                    </div>
+                  )}
+                </div>
               </div>
             </SheetContent>
           </Sheet>
