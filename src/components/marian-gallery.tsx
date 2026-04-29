@@ -409,7 +409,7 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
 
             <DialogHeader className="px-5 pt-1 pb-0 flex-shrink-0">
                 <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand break-words transition-all duration-500 ${scrolled ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl md:text-3xl'}`}>
-                    {devotion.name}
+                    {devotion.fullName || devotion.name}
                 </DialogTitle>
                 <div className={`flex items-center gap-2 flex-wrap justify-center mt-1 transition-all duration-500 ${scrolled ? 'opacity-0 h-0 pointer-events-none mt-0 overflow-hidden' : 'opacity-100'}`}>
                     <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-sm font-bold rounded-full">

@@ -10,6 +10,7 @@ export interface MarianDevotion {
     fullDescription: string;
     status?: "approved" | "pending" | "not-approved" | "complex";
     statusNote?: string;
+    fullName?: string;
 }
 
 export interface Continent {
@@ -196,7 +197,8 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "macarena",
-                name: "N.S. da Esperança Macarena",
+                name: "N.S. da Macarena",
+                fullName: "N.S. da Esperança Macarena",
                 country: "Espanha",
                 countryFlag: "🇪🇸",
                 date: "18 de Dezembro",
@@ -625,7 +627,8 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "rosario_san_nicolas",
-                name: "N.S. do Rosário de San Nicolás",
+                name: "N.S. de San Nicolas",
+                fullName: "N.S. do Rosário de San Nicolás",
                 country: "Argentina",
                 countryFlag: "🇦🇷",
                 date: "25 de Setembro",
@@ -760,7 +763,8 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "san_juan_lagos",
-                name: "N.S. de San Juan de los Lagos",
+                name: "N.S. de San Juan",
+                fullName: "N.S. de San Juan de los Lagos",
                 country: "México",
                 countryFlag: "🇲🇽",
                 date: "2 de Fevereiro",
@@ -895,7 +899,8 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "gracas_cimbres",
-                name: "N.S. das Graças de Cimbres",
+                name: "N.S. de Cimbres",
+                fullName: "N.S. das Graças de Cimbres",
                 country: "Brasil (PE)",
                 countryFlag: "🇧🇷",
                 date: "27 de Novembro",

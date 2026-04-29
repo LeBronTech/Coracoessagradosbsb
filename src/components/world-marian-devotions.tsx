@@ -36,7 +36,7 @@ function SearchBar({ continents, allDevotions }: { continents: Continent[]; allD
             const continentName = devotionToContinentMap.get(d.id) ?? "";
 
             const matchesText = !q || [
-                d.name, d.country, d.date, d.description ?? "", continentName
+                d.name, d.fullName ?? "", d.country, d.date, d.description ?? "", continentName
             ].some(v => v.toLowerCase().includes(q));
 
             const matchesContinent = !filterContinent || continentName === filterContinent;
@@ -554,7 +554,7 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
 
                 <DialogHeader className="px-5 pt-1 pb-0 flex-shrink-0">
                     <DialogTitle className={`font-bold text-blue-900 dark:text-blue-100 text-center font-brand break-words hyphens-auto transition-all duration-500 ${scrolled ? 'text-base sm:text-lg' : 'text-xl sm:text-2xl md:text-3xl'}`}>
-                        {devotion.name}
+                        {devotion.fullName || devotion.name}
                     </DialogTitle>
                     <div className={`flex items-center gap-2 flex-wrap justify-center mt-1 transition-all duration-500 ${scrolled ? 'opacity-0 h-0 pointer-events-none mt-0 overflow-hidden' : 'opacity-100'}`}>
                         <div className="flex items-center gap-2">
