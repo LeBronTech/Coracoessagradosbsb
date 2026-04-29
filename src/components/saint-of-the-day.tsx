@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
 import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
-import { cn } from '@/lib/utils';
+import { cn, formatSaintName } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -376,13 +376,43 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                     <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">Mártir</span>
                   )}
                 </div>
-                <p className={cn(
-                  "font-brand font-semibold mt-2 text-left",
-                  dayData.saints.length > 1 ? "text-base" : "text-lg",
-                  isOpen && dayData.saints.length > 1 && "md:text-right"
+                <div className={cn(
+                  "font-brand font-semibold mt-2 text-left flex flex-wrap gap-x-3 gap-y-1",
+                  isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
-                  {dayData.saints.map(s => s.name).join(' & ')}
-                </p>
+                  {dayData.saints
+                    .filter((_, idx) => !isOpen || dayData.saints.length === 1 || idx === selectedSaintInDayIndex)
+                    .map((s, idx, filteredSaints) => {
+                      const { main, additional } = formatSaintName(s.name);
+                      return (
+                        <div key={s.name} className={cn(
+                          "flex items-center gap-3 transition-all duration-500 animate-in fade-in zoom-in duration-300",
+                          isOpen ? "w-full justify-center mb-2" : ""
+                        )}>
+                          <div className={cn(
+                            "flex flex-col leading-tight transition-all duration-500",
+                            isOpen ? "items-center text-center" : (isOpen && dayData.saints.length > 1 ? "md:items-end md:text-right" : "items-start text-left")
+                          )}>
+                            <span className={cn(
+                              "font-bold transition-all duration-500 font-brand",
+                              isOpen 
+                                ? "text-3xl md:text-5xl" 
+                                : (dayData.saints.length > 1 ? "text-base" : "text-xl")
+                            )}>{main}</span>
+                            {additional && (
+                              <span className={cn(
+                                "font-normal opacity-90 transition-all duration-500",
+                                isOpen ? "text-xl md:text-2xl mt-1" : "text-[10px] -mt-0.5"
+                              )}>{additional}</span>
+                            )}
+                          </div>
+                          {idx < filteredSaints.length - 1 && (
+                            <span className="text-xl opacity-30 font-light">&</span>
+                          )}
+                        </div>
+                      );
+                    })}
+                </div>
               </div>
               <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-200", isOpen && "rotate-180", "text-primary-foreground")} />
             </div>
@@ -393,17 +423,6 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               className={cn("relative p-6 pt-12 rounded-b-lg shadow-inner-top saint-day-content", triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`)}
               style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
             >
-              <button 
-                onClick={toggleAccordion} 
-                className={cn(
-                  "absolute top-4 right-2 p-1 transition-colors duration-200 z-20",
-                  (triggerTheme === 'theme-green' || theme === 'dark') ? "text-white/70 hover:text-white" : "text-gray-600 hover:text-gray-800"
-                )}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                </svg>
-              </button>
               <ThemeSelector theme={theme} setTheme={setTheme} />
 
               {dayData.saints.length > 1 && (
@@ -429,7 +448,12 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                               : 'bg-white/10 hover:bg-white/20 text-white'
                         )}
                       >
-                        {saint.name}
+                        <div className="flex flex-col items-center leading-tight">
+                          <span className="font-bold">{formatSaintName(saint.name).main}</span>
+                          {formatSaintName(saint.name).additional && (
+                            <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name).additional}</span>
+                          )}
+                        </div>
                       </Button>
                     );
                   })}

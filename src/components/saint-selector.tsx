@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
-import { cn } from '@/lib/utils';
+import { cn, formatSaintName } from '@/lib/utils';
 import type { Saint } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart } from 'lucide-react';
@@ -266,7 +266,12 @@ function SaintSelector({
                             : 'border-transparent'
                       )}
                     />
-                    <p className="text-sm font-semibold text-gray-700 font-brand leading-tight mt-1">{saint.name}</p>
+                    <div className="flex flex-col items-center leading-tight mt-1">
+                      <p className="text-sm font-bold text-gray-800 font-brand">{formatSaintName(saint.name).main}</p>
+                      {formatSaintName(saint.name).additional && (
+                        <p className="text-[10px] font-normal text-gray-500 opacity-80">{formatSaintName(saint.name).additional}</p>
+                      )}
+                    </div>
                     {saint.isMartyr ? (
                       <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
                         Início: {saint.startDate}

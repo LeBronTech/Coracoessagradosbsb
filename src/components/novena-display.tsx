@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Copy, ChevronDown, Check } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, formatSaintName } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
@@ -386,7 +386,23 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       <header id="novena-header" className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
         <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
         <div>
-          <h2 className="text-3xl md:text-4xl font-bold font-brand">{novenaTitle}</h2>
+          <div className="flex flex-col items-center sm:items-start leading-tight">
+            <span className={cn(
+              "text-sm md:text-base font-medium opacity-70 uppercase tracking-widest mb-1",
+              isLightTheme ? "text-stone-600" : "text-white/80"
+            )}>Novena</span>
+            <h2 className="text-3xl md:text-4xl font-bold font-brand">
+              {formatSaintName(saint.name, false).main}
+            </h2>
+            {formatSaintName(saint.name, false).additional && (
+              <p className={cn(
+                "text-base md:text-lg font-normal opacity-90 mt-0.5",
+                isLightTheme ? "text-stone-500" : "text-white/80"
+              )}>
+                {formatSaintName(saint.name, false).additional}
+              </p>
+            )}
+          </div>
           <p className={cn("italic mt-1",
             isLightTheme ? 'text-stone-600' : 'text-white/90'
           )}>
