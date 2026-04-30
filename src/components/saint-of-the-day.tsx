@@ -382,14 +382,15 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 "flex flex-1 flex-col items-start saint-name-container",
                 isOpen && dayData.saints.length > 1 && "md:items-end"
               )}>
+                {currentSaintData.isMartyr && (
+                  <span className="-mt-1 text-[9px] font-bold px-2 py-0.5 rounded-full bg-red-700 text-white mb-0.5 shadow-sm uppercase tracking-widest animate-in fade-in slide-in-from-bottom-1">Mártir</span>
+                )}
                 <div className={cn(
                   "date-capsule flex items-center gap-2",
-                  isOpen && "text-xs md:text-right"
+                  isOpen && "text-xs md:text-right",
+                  currentSaintData.isMartyr && "-mt-1"
                 )}>
                   {dayData.day} de {dayData.month}
-                  {currentSaintData.isMartyr && (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">Mártir</span>
-                  )}
                 </div>
                 <div className={cn(
                   "font-brand font-semibold mt-2 text-left flex flex-wrap gap-x-3 gap-y-1",
@@ -398,7 +399,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   {dayData.saints
                     .filter((_, idx) => !isOpen || dayData.saints.length === 1 || idx === selectedSaintInDayIndex)
                     .map((s, idx, filteredSaints) => {
-                      const { main, additional } = formatSaintName(s.name);
+                      const { main, additional } = formatSaintName(s.name, true, isOpen);
                       return (
                         <div key={s.name} className={cn(
                           "flex items-center gap-3 transition-all duration-500 animate-in fade-in zoom-in duration-300",
@@ -414,7 +415,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                                 ? "text-3xl md:text-5xl" 
                                 : (dayData.saints.length > 1 ? "text-base" : "text-xl")
                             )}>{main}</span>
-                            {additional && (
+                            {additional && !s.isMartyr && (
                               <span className={cn(
                                 "font-normal opacity-90 transition-all duration-500",
                                 isOpen ? "text-xl md:text-2xl mt-1" : "text-[10px] -mt-0.5"
@@ -464,9 +465,9 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                         )}
                       >
                         <div className="flex flex-col items-center leading-tight">
-                          <span className="font-bold">{formatSaintName(saint.name).main}</span>
-                          {formatSaintName(saint.name).additional && (
-                            <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name).additional}</span>
+                          <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
+                          {formatSaintName(saint.name, true, true).additional && !saint.isMartyr && (
+                            <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
                           )}
                         </div>
                       </Button>

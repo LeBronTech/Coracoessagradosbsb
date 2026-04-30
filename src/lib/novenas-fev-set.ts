@@ -1691,7 +1691,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"Nossa Senhora da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
                 <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
                 <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
-                    <p class="italic"><strong>Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
                 </div>
                 <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
                     <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>

@@ -476,11 +476,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             <div className="flex flex-col items-center sm:items-start leading-tight">
               <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">Novena</span>
               <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
-                {formatSaintName(saint.name, false).main}
+                {formatSaintName(saint.name, false, true).main}
               </h2>
-              {formatSaintName(saint.name, false).additional && (
+              {formatSaintName(saint.name, false, true).additional && !saint.isMartyr && (
                 <p className="text-base md:text-lg font-normal mt-0.5 text-white/80 drop-shadow">
-                  {formatSaintName(saint.name, false).additional}
+                  {formatSaintName(saint.name, false, true).additional}
                 </p>
               )}
             </div>
@@ -488,17 +488,20 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               {description || ''}
             </p>
             {saint.startDate && (
-              <div ref={alertContainerRef} className="mt-3 relative w-full sm:w-fit mx-auto sm:mx-0">
-                {/* Linha de data — sempre visível */}
-                <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap relative">
-                  <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
-                    Novena: {saint.startDate} a {saint.endDate}
-                  </span>
+              <div ref={alertContainerRef} className="mt-1 relative w-full sm:w-fit mx-auto sm:mx-0">
+                {/* Linha de data e status — Mártir tem prioridade */}
+                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-0 relative">
                   {saint.isMartyr && (
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
+                    <span className="text-[10px] font-bold px-3 py-0.5 rounded-full bg-red-700 text-white shadow-lg animate-in fade-in zoom-in duration-300 uppercase tracking-widest z-10">
                       Mártir
                     </span>
                   )}
+                  <span className={cn(
+                    "inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm",
+                    saint.isMartyr && "-mt-1.5 sm:mt-0 sm:-ml-2"
+                  )}>
+                    Novena: {saint.startDate} a {saint.endDate}
+                  </span>
                   {alertInfo && (
                     <button
                       onClick={() => {
@@ -527,9 +530,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     className={cn(
                       "absolute z-[100] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
                       // Mobile: below the date capsule
-                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[280px] mt-3 origin-top",
+                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[340px] mt-7 origin-top",
                       // Desktop: exactly to the side of the button
-                      "sm:top-1/2 sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-4 sm:w-[300px] sm:origin-left",
+                      "sm:top-[85%] sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-1 sm:w-[380px] sm:origin-left",
                       isAlertExpanded 
                         ? "opacity-100 translate-y-0 sm:translate-x-0 scale-100" 
                         : "opacity-0 -translate-y-4 sm:translate-y-0 sm:-translate-x-4 scale-95 pointer-events-none"
@@ -555,7 +558,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
 
 
-      <Carousel setApi={setApi} className="w-full">
+      <Carousel setApi={setApi} className="w-full" opts={{ watchDrag: false }}>
         <div className="flex flex-col items-center justify-center gap-2 mb-6">
           <a
             href="https://chat.whatsapp.com/D08lyjhVqL8KyZfIovKYk5?mode=ems_copy_t"

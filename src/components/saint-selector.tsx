@@ -269,24 +269,21 @@ function SaintSelector({
                     />
                     <div className="flex flex-col items-center leading-tight mt-1">
                       <p className="text-sm font-bold text-gray-800 font-brand">{formatSaintName(saint.name).main}</p>
-                      {formatSaintName(saint.name).additional && (
+                      {formatSaintName(saint.name).additional && !saint.isMartyr && (
                         <p className="text-[10px] font-normal text-gray-500 opacity-80">{formatSaintName(saint.name).additional}</p>
                       )}
                     </div>
-                    {saint.isMartyr ? (
-                      <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
-                        Início: {saint.startDate}
-                      </div>
-                    ) : (
-                      <div className="mt-1.5 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
-                        Início: {saint.startDate}
-                      </div>
-                    )}
                     {saint.isMartyr && (
-                      <div className="mt-1 bg-red-700/80 text-white px-4 py-1 rounded-full text-xs font-bold leading-tight shadow-sm">
+                      <div className="-mt-1 mb-1 bg-red-700/80 text-white px-3 py-0.5 rounded-full text-[9px] font-bold leading-tight shadow-sm uppercase tracking-widest">
                         Mártir
                       </div>
                     )}
+                    <div className={cn(
+                      "mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm",
+                      saint.isMartyr ? "-mt-1" : "mt-1"
+                    )}>
+                      Início: {saint.startDate}
+                    </div>
                   </>
                 );
               })()}
