@@ -4,11 +4,12 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand } from 'lucide-react';
 import { cn, formatSaintName } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 
 
 const themeClasses: Record<Theme, string> = {
@@ -464,13 +465,55 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
         {/* === Content layer === */}
         <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 md:gap-7 p-5 md:p-7 text-center sm:text-left">
-          {/* Square image with rounded corners */}
-          <img
-            src={(novena as any)?.image || saint.imageUrl}
-            alt={saint.name}
-            className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex-shrink-0 ring-1 ring-white/10"
-            style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
-          />
+          {/* Square image with rounded corners — with zoom on hover and modal on click */}
+          <div className="flex flex-col items-center gap-2">
+            <Dialog>
+              <DialogTrigger asChild>
+                <div className="relative group/img cursor-zoom-in flex-shrink-0">
+                  <img
+                    src={(novena as any)?.image || saint.imageUrl}
+                    alt={saint.name}
+                    className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-[0_20px_50px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
+                    style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+                  />
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                    <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
+                  </div>
+                </div>
+              </DialogTrigger>
+              <DialogContent className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
+                <DialogHeader className="sr-only">
+                  <DialogTitle>{saint.name}</DialogTitle>
+                </DialogHeader>
+                
+                <div className="relative flex flex-col items-center justify-center gap-4">
+                  <div className="relative flex items-center justify-center w-full min-h-[75vh] sm:min-h-[85vh] pt-12">
+                    <div className="relative w-fit max-w-full">
+                      {/* Custom Close Button — anchored to the image wrapper */}
+                      <DialogClose className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 z-[110] p-2 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border-2 border-white/30 text-white transition-all hover:scale-110 active:scale-95 shadow-xl">
+                        <X className="w-5 h-5" />
+                      </DialogClose>
+                      
+                      <img
+                        src={(novena as any)?.image || saint.imageUrl}
+                        alt={saint.name}
+                        className="max-h-[75vh] sm:max-h-[85vh] w-auto max-w-[95vw] object-contain rounded-lg drop-shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-500"
+                      />
+                    </div>
+                  </div>
+                  
+                  <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
+                    <h3 className="text-white font-brand text-lg sm:text-2xl drop-shadow-lg text-center">
+                      {saint.name}
+                    </h3>
+                  </div>
+                </div>
+              </DialogContent>
+            </Dialog>
+            <p className="text-[10px] md:text-xs font-bold text-white/60 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+              <Hand className="w-3 h-3" /> Clique para ver a imagem
+            </p>
+          </div>
 
           <div className="flex-1 min-w-0">
             <div className="flex flex-col items-center sm:items-start leading-tight">
