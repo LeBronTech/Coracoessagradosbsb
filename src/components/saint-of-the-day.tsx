@@ -356,21 +356,25 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger relative overflow-hidden",
+              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger relative",
               isOpen ? "rounded-b-none pb-12" : "",
               triggerTheme
             )}
           >
-            {/* Blurred saint image background */}
-            <img
-              src={currentSaintData.imageUrl}
-              alt=""
-              aria-hidden
-              className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50 pointer-events-none"
-              style={{ objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center' }}
-            />
-            {/* Theme-colored overlay */}
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 pointer-events-none opacity-60" />
+            {/* Background container with overflow-hidden to clip the blurred image but allow children to overflow the button */}
+            <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", isOpen ? "rounded-t-lg" : "rounded-lg")}>
+              {/* Blurred saint image background */}
+              <img
+                src={currentSaintData.imageUrl}
+                alt=""
+                aria-hidden
+                className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50"
+                style={{ objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center' }}
+              />
+              {/* Theme-colored overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60" />
+            </div>
+
             <div className="flex items-center gap-4 text-left w-full relative z-10">
               <SaintImages saints={dayData.saints} isOpen={isOpen} selectedIndex={selectedSaintInDayIndex} />
               <div className={cn(

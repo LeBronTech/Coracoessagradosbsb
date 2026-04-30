@@ -2379,10 +2379,10 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
                 <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
 
-                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
-                    <h5 class="font-bold text-center mb-3">Salve Rainha</h5>
-                    <p>Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
-                    <p class="mt-4">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
                 </div>
 
                 <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">

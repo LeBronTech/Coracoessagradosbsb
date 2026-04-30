@@ -380,7 +380,24 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         </>
       )}
 
-      <ThemeSelector theme={theme} setTheme={setTheme} />
+      <div className="flex items-center justify-between mb-4 relative z-30">
+        <Button
+          onClick={copyNovenaText}
+          variant="ghost"
+          size="icon"
+          className={cn(
+            'rounded-full h-8 w-8 shrink-0 border-2 bg-background/50 backdrop-blur-sm',
+            theme === 'theme-light-gray' || theme === 'theme-default'
+              ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
+              : 'border-white/20 hover:bg-white/10 text-white'
+          )}
+          title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
+        >
+          <Copy className="w-4 h-4" />
+        </Button>
+
+        <ThemeSelector theme={theme} setTheme={setTheme} />
+      </div>
 
       {/* Seletor de versão da novena */}
       {novena.versions && novena.versions.length > 0 && (
@@ -559,95 +576,65 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         )}
 
         {days.length > 1 && (
-          <div className="flex flex-col gap-4 mb-4">
-            <div className="flex flex-row items-start justify-between gap-2 w-full">
-              <div className="flex flex-col items-center flex-1 gap-2">
-                {/* Primeira Linha: Dias 1 a 5 */}
+          <div className="flex flex-col gap-3 mb-4">
+            <div className="flex flex-col items-center gap-2 w-full">
+              {/* Primeira Linha: Dias 1 a 5 */}
+              <div className="flex flex-wrap gap-2 justify-center">
+                {days.slice(0, 5).map((day, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollTo(index)}
+                    className={cn(
+                      'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
+                      current === index
+                        ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
+                        : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
+                    )}
+                  >
+                    {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+                    {completedDays[index] && <Check className="w-3.5 h-3.5" />}
+                  </button>
+                ))}
+              </div>
+              {/* Segunda Linha: Dias 6+ */}
+              {days.length > 5 && (
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {days.slice(0, 5).map((day, index) => (
-                    <button
-                      key={index}
-                      onClick={() => scrollTo(index)}
-                      className={cn(
-                        'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
-                        current === index
-                          ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                          : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
-                      )}
-                    >
-                      {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
-                      {completedDays[index] && <Check className="w-3.5 h-3.5" />}
-                    </button>
-                  ))}
+                  {days.slice(5).map((day, idx) => {
+                    const index = idx + 5;
+                    return (
+                      <button
+                        key={index}
+                        onClick={() => scrollTo(index)}
+                        className={cn(
+                          'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
+                          current === index
+                            ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
+                            : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
+                        )}
+                      >
+                        {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+                        {completedDays[index] && <Check className="w-3.5 h-3.5" />}
+                      </button>
+                    );
+                  })}
                 </div>
-                {/* Segunda Linha: Dias 6+ */}
-                {days.length > 5 && (
-                  <div className="flex flex-wrap gap-2 justify-center">
-                    {days.slice(5).map((day, idx) => {
-                      const index = idx + 5;
-                      return (
-                        <button
-                          key={index}
-                          onClick={() => scrollTo(index)}
-                          className={cn(
-                            'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
-                            current === index
-                              ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                              : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
-                          )}
-                        >
-                          {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
-                          {completedDays[index] && <Check className="w-3.5 h-3.5" />}
-                        </button>
-                      );
-                    })}
-                  </div>
-                )}
+              )}
+            </div>
+
+            <div className="flex flex-col gap-3">
+              {/* BARRA DE PROGRESSO */}
+              <div className="relative w-full h-3 bg-black/20 rounded-full overflow-hidden border border-white/10">
+                <div 
+                  className="h-full bg-primary transition-all duration-700 ease-out shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)]"
+                  style={{ width: `${progress}%` }}
+                />
               </div>
 
-              <Button
-                onClick={copyNovenaText}
-                variant="ghost"
-                size="icon"
-                className={cn(
-                  'rounded-full h-10 w-10 shrink-0 border-2 mt-1',
-                  theme === 'theme-light-gray' 
-                    ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
-                    : 'border-white/20 hover:bg-white/10 text-white'
-                )}
-                title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
-              >
-                <Copy className="w-5 h-5" />
-              </Button>
-            </div>
-
-            {/* BARRA DE PROGRESSO */}
-            <div className="relative w-full h-3 bg-black/20 rounded-full overflow-hidden border border-white/10">
-              <div 
-                className="h-full bg-primary transition-all duration-700 ease-out shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)]"
-                style={{ width: `${progress}%` }}
-              />
             </div>
           </div>
         )}
 
-        {days.length === 1 && (
-          <div className="flex flex-col items-center justify-center gap-2 mb-8">
-            <Button
-              onClick={copyNovenaText}
-              variant="outline"
-              className={cn(
-                'inline-flex items-center gap-2 rounded-lg px-6 py-2 transition-all duration-200 shadow-sm border-2',
-                theme === 'theme-light-gray'
-                  ? 'bg-white hover:bg-stone-50 text-stone-800 border-stone-200'
-                  : 'bg-white/10 hover:bg-white/20 text-white border-white/20'
-              )}
-            >
-              <Copy className="w-4 h-4" />
-              <span className="text-sm font-bold uppercase tracking-wide">Copiar oração</span>
-            </Button>
-          </div>
-        )}
+
 
         <CarouselContent>
           {days.map((day, index) => (
@@ -664,7 +651,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                 {initialPrayer && <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>}
 
                 {days.length > 1 && (
-                  <div className="flex items-center justify-center gap-4 mb-8">
+                  <div className="flex items-center justify-center gap-4 mb-4">
                     <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
                     <p className="text-sm font-bold">
                       {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
@@ -690,7 +677,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   </div>
                 )}
 
-                <div className="mt-8 flex justify-center">
+                <div className="mt-4 flex justify-center">
                   <Button 
                     onClick={() => toggleCompleted(index)}
                     className={cn(
