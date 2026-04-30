@@ -553,10 +553,14 @@ export default function Home() {
           <Header />
           <WeeklyDevotions onLiturgyClick={() => saintOfTheDayRef.current?.openAndScrollToLiturgy()} />
 
-          <div className="relative" ref={saintOfTheDaySectionRef}>
-            <h2 className="text-xl font-brand text-center text-gray-700 mt-8">
-              Santo do Dia
-            </h2>
+          <div className="relative mt-12" ref={saintOfTheDaySectionRef}>
+            <div className="flex justify-center -mb-px">
+              <div className="bg-gray-100/70 backdrop-blur-md px-8 py-2 rounded-t-3xl border-t border-x border-white/30 shadow-[0_-8px_20px_-8px_rgba(0,0,0,0.15)] relative z-10">
+                <h2 className="text-base font-brand text-center text-stone-800 tracking-wide">
+                  Santo do Dia
+                </h2>
+              </div>
+            </div>
             <SaintOfTheDay
               ref={saintOfTheDayRef}
               triggerTheme={theme}
@@ -609,19 +613,25 @@ export default function Home() {
           </div>
 
 
-          <div ref={novenaSectionRef} className="bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg p-4 mt-8">
-            <h2 id="saints-nav-title" className="text-xl font-brand text-center text-gray-700 mb-4">
-              Novenas de {selectedMonth}
-            </h2>
-            <SaintSelector
-              saints={saints}
-              months={months}
-              selectedMonth={selectedMonth}
-              onMonthChange={handleMonthChange}
-              selectedSaintId={selectedSaintId}
-              onSaintSelect={handleSelectSaint}
-              closestSaintId={closestSaintId}
-            />
+          <div ref={novenaSectionRef} className="mt-16">
+            <div className="flex justify-center -mb-px">
+              <div className="bg-gray-100/70 backdrop-blur-md px-8 py-2 rounded-t-3xl border-t border-x border-white/30 shadow-[0_-8px_20px_-8px_rgba(0,0,0,0.15)] relative z-10">
+                <h2 id="saints-nav-title" className="text-base font-brand text-center text-stone-800 tracking-wide">
+                  Novenas de {selectedMonth}
+                </h2>
+              </div>
+            </div>
+            <div className="bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg p-4 relative border border-white/20">
+              <SaintSelector
+                saints={saints}
+                months={months}
+                selectedMonth={selectedMonth}
+                onMonthChange={handleMonthChange}
+                selectedSaintId={selectedSaintId}
+                onSaintSelect={handleSelectSaint}
+                closestSaintId={closestSaintId}
+              />
+            </div>
           </div>
 
           <div className="mt-8" ref={novenaDisplaySectionRef}>

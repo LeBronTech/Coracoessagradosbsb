@@ -33,7 +33,16 @@ const themeGradientOverlay: Record<Theme, string> = {
   'theme-dark-gray': 'from-gray-700/40 via-gray-700/75 to-gray-700/95',
   'theme-light-gray': 'from-gray-100/40 via-gray-100/80 to-gray-100/95',
   'theme-red': 'from-[#8B0000]/40 via-[#8B0000]/75 to-[#8B0000]/95',
-  'theme-green': 'from-[#14532d]/40 via-[#14532d]/75 to-[#14532d]/95',
+  'theme-green': 'from-[#15803d]/80 via-[#052e16]/95 to-[#011a11]/100',
+};
+
+// Gradient overlay for the header cover - specific colors per theme
+const themeHeaderOverlay: Record<Theme, string> = {
+  'theme-default': 'from-black/30 via-black/50 to-black/65',
+  'theme-dark-gray': 'from-black/30 via-black/50 to-black/65',
+  'theme-light-gray': 'from-black/20 via-black/40 to-black/60',
+  'theme-red': 'from-[#8B0000]/30 via-[#5a0000]/60 to-[#3a0000]/85',
+  'theme-green': 'from-[#16a34a]/30 via-[#14532d]/60 to-[#052e16]/85',
 };
 
 interface NovenaDisplayProps {
@@ -355,7 +364,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         theme,
         getAnimationClass()
       )}
-      style={theme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
+      style={theme === 'theme-green' ? { backgroundColor: '#011a11', color: 'white' } : undefined}
     >
       {/* === Blurred image background for the entire card === */}
       {saint && (
@@ -415,8 +424,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           className="absolute inset-0 w-full h-full object-cover blur-[80px] scale-[2.5] opacity-80"
           style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
         />
-        {/* Dark overlay for text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/50 to-black/65" />
+        {/* Dark overlay for text readability - now dynamic by theme */}
+        <div className={cn("absolute inset-0 bg-gradient-to-r", themeHeaderOverlay[theme])} />
 
         {/* === Content layer === */}
         <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 md:gap-7 p-5 md:p-7 text-center sm:text-left">

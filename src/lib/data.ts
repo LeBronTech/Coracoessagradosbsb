@@ -252,18 +252,6 @@ export const novenaData: Record<string, Novena> = {
     ]
   },
 
-  martinho_porres: {
-    saintName: 'São Martinho de Porres',
-    novenaTitle: 'Novena a São Martinho de Porres',
-    description: 'Modelo de humildade, caridade e serviço aos pobres. Peça sua intercessão contra o preconceito.',
-    initialPrayer: `<div class="prayer-block"><p>Santíssima Trindade, Pai, Filho e Espírito Santo, eu Vos adoro, louvo e dou graças pelos benefícios que me fizestes. Peço-Vos, por tudo que fizeste e sofreste o Vosso servo São Martinho de Porres, que aumenteis em mim a fé, a esperança e a caridade, e Vos dignastes conceder-me a graça que ardentemente almejo. Amém.</p></div>`,
-    finalPrayer: `<div class="prayer-block"><p>Ó Deus, que elevastes São Martinho de Porres à glória do céu, fazei que, seguindo seus exemplos de humildade na terra, mereçamos ser exaltados com ele no céu. Por Cristo, nosso Senhor. Amém.</p><p class="mt-4 font-semibold">Rezar um Pai-Nosso, uma Ave-Maria e um Glória.</p></div>`,
-    days: Array.from({ length: 9 }, (_, i) => ({
-      day: `${i + 1}º Dia`,
-      title: 'Oração a São Martinho de Porres',
-      content: `<div class="day-specific-content"><p>Ó glorioso São Martinho de Porres, que, em vossa humildade, encontrastes o caminho para a santidade, intercedei por nós. Vós que amastes a Deus com todo o coração e servistes aos irmãos com incansável caridade, especialmente os mais pobres e doentes, ensinai-nos a ver o rosto de Cristo em cada pessoa que sofre. Alcançai-nos de Deus a graça que humildemente vos pedimos nesta novena (pedir a graça), e ajudai-nos a viver sempre no amor e na paz. Amém.</p></div>`
-    }))
-  },
   isabel_hungria: {
     saintName: 'Santa Isabel da Hungria',
     novenaTitle: 'Novena a Santa Isabel da Hungria',
@@ -2808,8 +2796,7 @@ export const saints: Saint[] = [
   { id: 'sao_vicente_ferrer', name: 'São Vicente Ferrer', imageUrl: 'https://i.pinimg.com/736x/e9/43/97/e943975488f8321ecfebee550dd3435c.jpg', month: 'Março/Abril', startDate: '27/03', endDate: '04/04', feastDay: '05/Abr' },
   { id: 'santa_gemma_galgani', name: 'Santa Gemma Galgani', imageUrl: 'https://i.pinimg.com/1200x/8a/e9/88/8ae9882bcb83a868f759277dc575965d.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '02/04', endDate: '10/04', feastDay: '11/Abr' },
   { id: 'divina_misericordia', name: 'Divina Misericórdia', imageUrl: 'https://i.pinimg.com/736x/07/32/73/073273a0d0f34f3e0241377c516aa140.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '03/04', endDate: '11/04', feastDay: '12/Abr' },
-  { id: 'sao_martinho_i', name: 'São Martinho I', imageUrl: 'https://i.pinimg.com/736x/47/33/70/47337031a4df0d1159a589e7edf4cc61.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '04/04', endDate: '12/04', feastDay: '13/Abr', isMartyr: true },
-  { id: 'santa_ludovina', name: 'Santa Ludovina', imageUrl: 'https://i.pinimg.com/736x/31/42/e1/3142e1001d989ee6a1f2899a6f2bceaf.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '05/04', endDate: '13/04', feastDay: '14/Abr' },
+
   { id: 'santo_expedito', name: 'Santo Expedito', imageUrl: 'https://i.pinimg.com/1200x/b7/44/62/b7446207d5dd9ed23c8adba86d6f432f.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '10/04', endDate: '18/04', feastDay: '19/Abr' },
   { id: 'sao_jorge', name: 'São Jorge', imageUrl: 'https://i.pinimg.com/736x/5a/04/7d/5a047d8750cc4fced440dbc6d3c6e40a.jpg', month: 'Abril', startDate: '14/04', endDate: '22/04', feastDay: '23/Abr', isMartyr: true },
   { id: 'sao_marcos', name: 'São Marcos', imageUrl: 'https://i.pinimg.com/1200x/13/d9/a0/13d9a05cfc1153588391d66d6ce20c88.jpg', month: 'Abril', startDate: '16/04', endDate: '24/04', feastDay: '25/Abr' },
@@ -2896,7 +2883,6 @@ export const saints: Saint[] = [
   { id: 'todos_santos', name: 'Todos os Santos', imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg', month: 'Outubro', startDate: '23/10', endDate: '31/10', feastDay: '01/Nov' },
   //Novembro
   { id: 'almas', name: 'Almas', imageUrl: 'https://i.postimg.cc/G2DDG2TC/dfed164f02d4d4d2bccaa939385df13b.jpg', month: 'Novembro', startDate: '24/10', endDate: '01/11', feastDay: '02/Nov' },
-  { id: 'martinho_porres', name: 'S. M. de Porres', imageUrl: 'https://i.postimg.cc/Y0tMTg84/image.png', month: 'Novembro', startDate: '25/10', endDate: '02/11', feastDay: '03/Nov' },
   { id: 'isabel_hungria', name: 'S. Isabel da Hungria', imageUrl: 'https://iili.io/KpAYfLl.jpg', month: 'Novembro', startDate: '08/11', endDate: '16/11', feastDay: '17/Nov' },
   { id: 'apresentacao_ns', name: 'Apres. de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
   { id: 'ns_saude', name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },

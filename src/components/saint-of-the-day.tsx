@@ -337,7 +337,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   /* Removed useMemo from here */
 
   return (
-    <div className="p-4 md:p-6 bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg mt-2 relative">
+    <div className="p-4 md:p-6 bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg relative border border-white/20">
       <div className="flex items-center justify-between mb-2">
         <Button variant="ghost" size="icon" onClick={() => monthCarouselApi?.scrollPrev()}><ChevronLeft /></Button>
         <div className="overflow-hidden w-full" ref={monthCarouselRef}>

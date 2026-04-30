@@ -108,8 +108,8 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
   }
 
   return (
-    <div className="overflow-hidden month-carousel py-4 w-full" ref={emblaRef} style={{ maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' }}>
-      <div className="flex touch-pan-y shadow-inner-top">
+    <div className="overflow-hidden month-carousel py-4 w-full" ref={emblaRef}>
+      <div className="flex touch-pan-y">
         {months.map((month, index) => (
           <div
             className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative embla__slide select-none')}

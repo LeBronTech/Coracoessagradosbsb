@@ -64,7 +64,12 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #c3c3c3 50%, #949da4 100%);
+    background-image: url('https://iili.io/BszsZNa.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-color: #1a1a2e;
   }
 
   .font-brand {
