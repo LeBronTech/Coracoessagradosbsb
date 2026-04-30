@@ -265,6 +265,7 @@ function SaintSelector({
                             ? 'border-primary shadow-lg'
                             : 'border-transparent'
                       )}
+                      style={{ objectPosition: (saint as any).imageObjectPosition || 'center' }}
                     />
                     <div className="flex flex-col items-center leading-tight mt-1">
                       <p className="text-sm font-bold text-gray-800 font-brand">{formatSaintName(saint.name).main}</p>

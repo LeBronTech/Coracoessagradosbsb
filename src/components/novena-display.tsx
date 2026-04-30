@@ -384,7 +384,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         </div>
       )}
       <header id="novena-header" className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
-        <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" />
+        <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }} />
         <div>
           <div className="flex flex-col items-center sm:items-start leading-tight">
             <span className={cn(

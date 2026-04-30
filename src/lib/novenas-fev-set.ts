@@ -1713,7 +1713,6 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-
     ns_africa: {
         saintName: "Nossa Senhora da África",
         novenaTitle: "Novena a Nossa Senhora da África",
@@ -1748,98 +1747,143 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-
     santo_atanasio: {
         saintName: "Santo Atanásio",
         novenaTitle: "Novena a Santo Atanásio",
         description: "Pai da Ortodoxia e defensor da divindade de Cristo. (23 de abril a 1º de maio)",
         image: "https://i.pinimg.com/1200x/d6/90/61/d69061c1e40057ed9e54e0cd189b1e5e.jpg",
         imageObjectPosition: "top",
-        initialPrayer: `<div class="prayer-block">
-            <h4 class="section-title">Oração Inicial para todos os dias</h4>
-            <p>Deus eterno e todo-poderoso, que fizestes de Santo Atanásio um defensor incansável da divindade de Vosso Filho, concedei-nos a graça de permanecer firmes na fé católica, fugindo de todo erro e heresia, e amando profundamente a Verdade que liberta. Por Cristo nosso Senhor. Amém.</p>
-        </div>`,
-        finalPrayer: `<div class="prayer-block">
-            <h4 class="section-title">Oração Final para todos os dias</h4>
-            <p>Santo Atanásio, rogai por nós e pela Igreja, para que sejamos sempre fiéis ao Evangelho. Amém.</p>
-        </div>`,
+        initialPrayer: "",
+        finalPrayer: "",
         days: [
             {
                 day: "Dia 1",
-                title: "O Pilar da Ortodoxia",
+                title: "Exemplo de Santidade desde a Infância",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que desde cedo no Concílio de Niceia defendestes que Jesus é Deus de Deus e Luz da Luz, alcançai-nos uma fé viva e inabalável na divindade de Cristo.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a virtude que ele demonstrou desde a sua santa infância até à sua morte.</p>
+                    <p class="mt-4">São Atanásio, você cresceu com o benefício de pais cristãos devotos. Eles garantiram que você recebesse uma educação sólida na Fé e crescesse avidamente in sua Fé e serviço a Deus.</p>
+                    <p class="mt-4">Por favor, leve minhas petições diante de Deus, a quem você serviu! Seu conhecimento precoce com monges santos durante sua infância deve ter feito muito para inspirá-lo no caminho da santidade. Você logo seguiu os passos deles e escolheu dedicar sua vida a Deus.</p>
+                    <p class="mt-4">Ore por mim, para que eu possa sempre buscar maneiras de crescer em santidade em minha vida. Ore para que eu esteja ansioso para me dedicar ao serviço de Deus em todas as oportunidades.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 2",
-                title: "Coragem no Exílio",
+                title: "Devoto Serviço como Diácono",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que suportastes cinco exílios e as perseguições dos poderosos por amor à verdade, dai-nos a coragem de nunca renunciar à nossa fé, mesmo diante das maiores pressões do mundo.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a devoção a Ti que ele demonstrou durante seu serviço à Igreja como diácono.</p>
+                    <p class="mt-4">São Atanásio, durante seu tempo como diácono, você serviu como secretário do bispo de Alexandria. Sempre ansioso para encontrar mais maneiras de servir a Deus, você começou seu trabalho em escritos teológicos.</p>
+                    <p class="mt-4">Por favor, leve minhas petições diante de Deus, a quem você serviu tão avidamente! Você acompanhou seu bispo ao Concílio de Niceia e serviu como seu secretário enquanto a Igreja trabalhava para definir a doutrina da divindade de Cristo contra os arianos.</p>
+                    <p class="mt-4">Rezem por mim, para que eu possa sempre procurar servir à Igreja sempre que puder. Ore para que eu esteja sempre ansioso para trabalhar pela promoção da Fé.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 3",
-                title: "Defensor do Verbo Encarnado",
+                title: "Amor pela Verdade Teológica",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que ensinastes que 'Deus se tornou homem para que o homem pudesse se tornar Deus', ajudai-nos a valorizar nossa dignidade de filhos de Deus e a viver em estado de graça.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar o amor que Ele demonstrou por Ti ao escolher se dedicar ao estudo e à escrita sobre teologia.</p>
+                    <p class="mt-4">São Atanásio, quando você ainda era diácono, escreveu sua primeira obra teológica, um tratado sobre a Encarnação que ainda é frequentemente citado hoje. Depois disso, você continuou o trabalho de estudar e escrever sobre Deus e Sua Igreja.</p>
+                    <p class="mt-4">Por favor, continue a levar minhas petições diante de Deus! Tornaste-te doutor da Igreja, e o teu trabalho em teologia fez muito para ajudar a Igreja na luta contra a heresia ariana.</p>
+                    <p class="mt-4">Rezem por mim, para que eu possa sempre procurar servir a Igreja em minha vida. Ore para que eu nunca me canse de aprender mais sobre Deus.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 4",
-                title: "Athanasius Contra Mundum",
+                title: "Coragem Contra a Heresia",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que muitas vezes estivestes 'contra o mundo' para estar com Deus, ensinai-nos a não seguir a correnteza das modas e erros, mas a permanecer ancorados na Rocha que é Cristo.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a devoção a Ti que ele demonstrou ao pregar contra a heresia, apesar da dificuldade que isso lhe causou.</p>
+                    <p class="mt-4">São Atanásio, você viveu numa época em que uma heresia perigosa estava se tornando muito popular ao seu redor. Embora isso tenha feito de vocês muitos inimigos, vocês se manifestaram contra essa mentira pelo amor de Deus.</p>
+                    <p class="mt-4">Por favor, continue a levar minhas petições diante de Deus, a quem você amava! Por causa da sua corajosa pregação contra o arianismo, você suportou muito sofrimento. Mas você se apegou à verdade e trabalhou para trazer as pessoas de volta à verdadeira Fé.</p>
+                    <p class="mt-4">Ore por mim, para que eu possa me apegar à verdade como você fez. Ore para que eu nunca permita que o sofrimento me impeça de servir a Deus.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 5",
-                title: "Amigo de Santo Antão",
+                title: "Firmeza nas Provações e Falsas Acusações",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que escrevestes a vida de Santo Antão para mostrar ao mundo a beleza do deserto e da oração, inspirai-nos a buscar momentos de silêncio e retiro para encontrar o Senhor.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a virtude que ele demonstrou ao manter-se firme em sua Fé durante os muitos julgamentos de falsas acusações.</p>
+                    <p class="mt-4">São Atanásio, fizeste muitos inimigos ao falares contra a heresia ariana que se espalhava na sociedade à tua volta. Mas você perseverou em falar a verdade, apesar das dificuldades que enfrentou.</p>
+                    <p class="mt-4">Por favor, persevere em levar minhas petições diante de Deus! Seus inimigos o acusaram falsamente de muitos crimes terríveis, na tentativa de silenciar sua pregação contra o arianismo. Através de muitos sofrimentos, você se manteve firme em sua Fé e continuou pregando a verdade.</p>
+                    <p class="mt-4">Ore por mim, para que eu possa me apegar à minha Fé em meio a todas as dificuldades. Ore para que eu nunca permita que nenhuma provação me desvie de falar a verdade.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 6",
-                title: "Zelo pela Unidade",
+                title: "Perseverança no Exílio",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que trabalhastes pela unidade da Igreja sob a autoridade da Verdade, intercedei para que todos os cristãos se unam na mesma profissão de fé católica.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar o amor que Ele demonstrou por Ti ao se apegar à Sua Fé durante seus muitos anos difíceis de exílio.</p>
+                    <p class="mt-4">São Atanásio, seus inimigos fizeram de tudo para tentar silenciar sua pregação contra o arianismo. Apesar de ter sido forçado a deixar sua casa e se exilar diversas vezes, você continuou a pregar a verdade e a servir a Deus.</p>
+                    <p class="mt-4">Por favor, continue a levar minhas petições diante de Deus a quem você serviu! Você acabou passando dezessete anos de sua vida no exílio, por causa de sua destemida proclamação da verdade contra os inimigos da Fé.</p>
+                    <p class="mt-4">Ore por mim, para que eu seja tão destemido na defesa da Fé quanto você foi. Ore para que eu possa perseverar em minha Fé contra todas as dificuldades.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 7",
-                title: "Perseverança Final",
+                title: "Coragem Inabalável",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que lutastes o bom combate por mais de 45 anos de episcopado, alcançai-nos a perseverança final para que nenhum sofrimento nos afaste do caminho da salvação.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a devoção a Ti que ele demonstrou em sua coragem ao longo das muitas provações que enfrentou.</p>
+                    <p class="mt-4">São Atanásio, você sofreu muito por causa da sua proclamação da verdade. Seus inimigos forçaram você a fugir de sua casa muitas vezes, mas você perseverou na verdade e em servir a Deus.</p>
+                    <p class="mt-4">Por favor, persevere in levar minhas petições diante do trono de Deus! Você sofreu falsas acusações, ataques físicos e um total de dezessete anos de exílio. Apesar dessas muitas provações, você se manteve firme em sua Fé e na verdadeira doutrina da Igreja.</p>
+                    <p class="mt-4">Ore por mim, para que eu seja tão firme na minha Fé quanto você foi. Ore para que eu nunca permita que as provações me afastem de servir a Deus.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 8",
-                title: "Luz dos Doutores",
+                title: "Zelo como Bispo e Pastor",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, cuja sabedoria ilumina a Igreja até hoje, dai-nos o dom da sabedoria para que saibamos explicar e defender nossa esperança diante de todos.</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar o amor que Ele demonstrou por Ti por meio de seu santo serviço como bispo em Tua Igreja.</p>
+                    <p class="mt-4">São Atanásio, você foi eleito bispo de Alexandria numa época em que a heresia estava ganhando destaque. Como bispo, você se opôs fortemente a esse falso ensinamento e trabalhou para levar seu povo ao verdadeiro ensinamento da Igreja de Deus.</p>
+                    <p class="mt-4">Por favor, continue a levar minhas petições diante de Deus! Você enfrentou grande oposição em seu trabalho como bispo, mas perseverou em servir a Deus e ao seu povo. Mesmo quando você foi forçado a sair de casa repetidas vezes, você nunca vacilou na verdade.</p>
+                    <p class="mt-4">Ore por mim, para que eu possa sempre procurar servir a Deus e à Sua Igreja em minha vida. Ore para que eu nunca permita que as provações me afastem de servir a Deus.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             },
             {
                 day: "Dia 9",
-                title: "Herança do Céu",
+                title: "Compromisso com a Verdadeira Fé",
                 content: `<div class="day-specific-content">
-                    <p>Santo Atanásio, que agora gozais da visão beatífica da Santíssima Trindade que tanto defendestes, olhai por nós e trazei-nos as graças que tanto necessitamos. (Peça aqui sua graça).</p>
-                    <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
+                    <p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
+                    <p class="mt-4">Querido Senhor, agradecemos-Te por nos dares o Teu servo, Santo Atanásio, como exemplo de santidade. Ajude-nos a imitar a devoção a Ti que ele demonstrou ao longo de sua vida de serviço à Tua Igreja.</p>
+                    <p class="mt-4">São Atanásio, você vivia em uma sociedade atormentada pela disseminação da heresia. Ansiosos por servir a Deus e à Sua Igreja, vocês fizeram tudo o que podiam para combater a propagação da heresia e pregar a verdade.</p>
+                    <p class="mt-4">Por favor, continue a levar minhas petições diante de Deus a quem você serviu! Sua devoção a Deus e seu compromisso em pregar a verdade levaram a muito sofrimento para você. Apesar de ter sido exilado muitas vezes e até sofrido ataques físicos, você se apegou à verdadeira Fé.</p>
+                    <p class="mt-4">Ore por mim, para que eu possa perseverar em minha Fé tão firmemente quanto você. Ore para que eu nunca vacile em meu compromisso com Deus e Sua Igreja.</p>
+                    <p class="mt-4">Por favor, ore também por (mencione suas intenções aqui).</p>
+                    <p class="mt-4 italic">São Atanásio, rogai por nós!</p>
+                    <p class="mt-4">Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p>
                 </div>`
             }
         ]
     },
-
-
     sao_jose_operario: {
         saintName: "São José Operário",
         novenaTitle: "Novena a São José Operário",
@@ -1879,60 +1923,473 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
 
 
+
     // MAIO
     nossa_senhora_fatima: {
         saintName: "Nossa Senhora de Fátima",
         novenaTitle: "Novena a Nossa Senhora de Fátima",
-        description: "Novena em preparação à festa de Nossa Senhora de Fátima (13 de maio).",
+        description: "Apresente seus pedidos a Deus por meio da novena a Nossa Senhora de Fátima e conte com a poderosa intercessão de nossa Mãe Santíssima. (4 a 12 de maio)",
         image: "/images/ns_fatima.png",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Nossa Senhora de Fátima`,
-            content: ""
-        }))
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oferecimento</h4>
+            <p>Santíssima Trindade, Pai, Filho e Espírito Santo! Adoro-vos profundamente e ofereço-vos o preciosíssimo corpo, sangue, alma e divindade de Jesus Cristo, presente em todos os sacrários da terra, em reparação dos ultrajes, sacrilégios e indiferenças com que Ele mesmo é ofendido. E pelos méritos infinitos de seu Santíssimo Coração e do Coração Imaculado de Maria, peço-vos a conversão dos pobres pecadores.</p>
+            <p class="mt-4">Meu Deus! Eu creio, adoro, espero e amo-vos. Peço-vos perdão para os que não creem, não adoram, não esperam e Vos não amam. <em>(3x)</em></p>
+            <div class="w-16 h-px bg-white/20 my-6 mx-auto"></div>
+            <h4 class="section-title">Oração Preparatória</h4>
+            <p>Oh! Santíssima Virgem Maria, Rainha do Céu, Rosário e Mãe de Misericórdia, que vos dignastes manifestar em Fátima a ternura de Vosso imaculado coração, trazendo-nos mensagens de salvação e de paz.</p>
+            <p class="mt-4">Confiados em vossa misericórdia maternal e agradecidos das bondades de vosso amantíssimo coração viemos a vossos pés para rendermos o tributo de nossa veneração e amor.</p>
+            <p class="mt-4">Concedei-nos as graças que necessitamos para cumprir fielmente vossa mensagem de amor e as que vos pedimos nesta novena, se tem de ser para maior glória de Deus, honra vossa e proveito de nossas almas. Assim seja.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final</h4>
+            <p>Oh! Deus, cujo Unigênito com sua vida, morte e ressurreição nos mereceu o prêmio da salvação eterna!</p>
+            <p class="mt-4">Vos suplicamos nos concedas que, meditando os mistérios do santíssimo Rosário da bem-aventurada Virgem Maria, imitemos os exemplos que nos ensinam e alcancemos o prêmio que prometem. Pelo mesmo Jesus Cristo Nosso Senhor. Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Maria, Mãe dos pobres pecadores",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Mãe dos pobres pecadores! Que aparecendo em Fátima, deixastes transparecer em vosso rosto celestial uma leve sombra de tristeza para indicar a dor que vos causam os pecados dos homens e que com maternal compaixão exortastes a não afligir mais a vosso Filho com a culpa e a reparar os pecados com a mortificação e a penitência.</p>
+                    <p class="mt-4">Dá-nos a graça de uma sincera dor dos pecados cometidos e a resolução generosa de reparar com obras de penitência e mortificação todas as ofensas que se inferem a vosso Divino Filho e a vosso Coração Imaculado.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Maria, Mãe da divina graça",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Mãe da divina graça. Que vestida de nívea brancura vos aparecestes a uns pastorinhos singelos e inocentes, ensinando-os assim quanto devemos amar e procurar a inocência da alma e que pedistes por meio deles a emenda dos costumes e a santidade de uma vida cristã perfeita.</p>
+                    <p class="mt-4">Concedei-nos misericordiosamente a graça de saber apreciar a dignidade de nossa condição de cristãos e de levar uma vida em tudo de acordo as promessas batismais.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Maria, Vaso insigne de devoção",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, vaso insigne de devoção! Que vos aparecestes em Fátima tendo pendente de vossas mãos o santo Rosário, e que insistentemente repetias: "Orai, orai muito", para afastar por meio da Oração os males que nos cercam.</p>
+                    <p class="mt-4">Concedei-nos o dom e o espírito de oração, a graça de sermos fiéis no cumprimento do grande preceito de orar, fazendo-o todos os dias, para assim poder observar bem os santos mandamentos, vencer as tentações e chegar ao conhecimento e amor de Jesus Cristo nesta vida e a união feliz com Ele na outra.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Maria, Rainha da Igreja",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Rainha da Igreja! Que exortastes aos pastorinhos de Fátima a rogar pelo Papa, e infundistes em suas almas singelas uma grande veneração e amor a ele, como Vigário de vosso Filho e seu representante na terra.</p>
+                    <p class="mt-4">Infunde também em nós o espírito de veneração e docilidade ante a autoridade do Romano Pontífice, de adesão inquebrantável a seus ensinamentos, e nele e com ele um grande amor e respeito a todos os ministros da Santa Igreja, por meio dos quais participamos a vida da graça nos sacramentos.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Maria, Saúde dos Enfermos",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Saúde dos enfermos e consoladora dos aflitos! Que movida pelo rogo dos pastorinhos, fizestes curas em vossas aparições em Fátima e haveis convertido este lugar santificado, por vossa presença, em oficina de vossas misericórdias maternais em favor de todos os aflitos. A vosso Coração Maternal acudimos cheios de filial confiança, mostrando as enfermidades de nossas almas e as aflições e dolências todas de nossa vida.</p>
+                    <p class="mt-4">Deixai sobre elas uma olhada de compaixão e que possas remedia-las com a ternura de vossas mãos para que assim possamos servir-vos e amar-vos com todo nosso coração e com todo nosso ser.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Maria, Refúgio dos Pecadores",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Refúgio dos Pecadores! Que ensinastes aos pastorinhos de Fátima a rogar incessantemente ao Senhor para que esses desgraçados não caiam nas penas eternas do inferno e que manifestastes a um dos três que os pecados da carne são os que mais almas arrastam a aquelas terríveis chamas.</p>
+                    <p class="mt-4">Infunde em nossas almas um grande horror ao pecado e o temor santo da justiça divina e ao mesmo tempo despertai nelas a compaixão pela sorte dos pobres pecadores e um santo zelo para trabalhar com nossas orações, exemplos e palavras por sua conversão.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Maria, Rainha do Purgatório",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Rainha do Céu e do Purgatório! Que ensinastes aos pastorinhos de Fátima a rogar a Deus pelas almas do purgatório, especialmente pelas mais abandonadas. Encomendamos a inesgotável ternura de vosso maternal coração todas as almas que padecem naquele lugar de purificação, em particular as de todos os nossos amigos e familiares e as mais abandonadas e necessitadas.</p>
+                    <p class="mt-4">Aliviai suas penas e levai-as a região da luz e da paz para cantar ali perpetuamente vossas misericórdias.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Maria, Rainha do Santíssimo Rosário",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria! Que em vossa última aparição vos destes a conhecer como a Rainha do Céu, Santíssimo Rosário, e em todas elas recomendastes a reza desta devoção como o remédio mais seguro e eficaz para todos os males e calamidades que nos afligem, tanto da alma como do corpo.</p>
+                    <p class="mt-4">Infunde em nossas almas uma profunda estima dos mistérios de nossa Redenção que se comemoram na reza do rosário, para assim vivermos sempre de seus frutos.</p>
+                    <p class="mt-4">Concedei-nos a graça de sermos sempre fiéis a prática de rezá-lo diariamente para honrarmos a Vós, acompanhando vossas alegrias, dores e glórias e assim merecer vossa maternal proteção e assistência em todos os momentos da vida, mas especialmente na hora da morte.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Maria, Mãe nossa dulcíssima",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Oração do Dia</h5>
+                    <p>Oh! Santíssima Virgem Maria, Mãe nossa dulcíssima! Que escolhestes aos pastorinhos de Fátima para mostrar ao mundo as ternuras de vosso Coração misericordioso e lhes colocastes a devoção ao mesmo como o meio com o qual Deus quer dar a paz ao mundo, como o caminho para levar as almas a Deus e como uma prenda suprema de salvação.</p>
+                    <p class="mt-4">Fazei, oh! Coração da Mais Terna das Mães! que possamos compreender vossa mensagem de amor e de misericórdia, que a abracemos com filial adesão e que a pratiquemos sempre com fervor. E assim seja vosso Coração nosso refugio, nossa alegria e o caminho que nos conduza ao amor e a união com vosso Filho Jesus.</p>
+                </div>`
+            }
+        ]
     },
 
     santa_rita_cassia: {
         saintName: "Santa Rita de Cássia",
         novenaTitle: "Novena a Santa Rita de Cássia",
-        description: "Novena em honra a Santa Rita de Cássia, santa das causas impossíveis (22 de maio).",
-        image: "https://i.pinimg.com/736x/3a/4b/5c/3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d.jpg",
-        initialPrayer: "",
+        description: "Santa das causas impossíveis e desesperadas. Peça sua intercessão pelas causas que parecem sem solução. (13 a 21 de maio)",
+        image: "https://i.pinimg.com/736x/db/68/3f/db683f0e1b68ee4b60800f26ae5ca7f0.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração de todos os dias</h4>
+            <p>Ó Poderosa e gloriosa Santa Rita, eis a vossos pés uma alma desamparada que, necessitando de auxílio, a vós recorre com a doce esperança de ser atendida por vós, que tem o título de santa dos casos impossíveis e desesperados.</p>
+            <p class="mt-4">Ó cara santa, interessai-vos pela minha causa, intercedei junto a Deus para que me conceda a graça de que tanto necessito <em>(faça o pedido)</em>.</p>
+            <p class="mt-4">Não permitais que eu tenha de me afastar de vossos pés sem ser atendido.</p>
+            <p class="mt-4">Se houver em mim algum obstáculo que me impeça de alcançar a graça que imploro, auxiliai-me para que o afaste.</p>
+            <p class="mt-4">Envolvei o meu pedido em vossos preciosos méritos e apresentai-o a vosso celeste Esposo, Jesus, em união com a vossa prece. Ó Santa Rita, eu ponho em vós toda a minha confiança. Por vosso intermédio, espero tranquilamente a graça que vos peço.</p>
+            <div class="mt-4 text-center font-semibold">
+                <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+            </div>
+            <p class="mt-4 text-center font-bold">Santa Rita, Advogada dos Impossíveis, rogai por nós!</p>
+        </div>`,
         finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santa Rita de Cássia`,
-            content: ""
-        }))
+        days: [
+            {
+                day: "Dia 1",
+                title: "A Esperança em Deus",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 1º Dia</h5>
+                    <p>Santa Rita nasceu em um tempo de conflitos e, desde cedo, enfrentou obstáculos aos seus desejos mais profundos, como o de se consagrar a Deus. Mesmo quando as circunstâncias pareciam contrárias, ela nunca perdeu a esperança e a fé na providência divina.</p>
+                    <p class="mt-4">Hoje, olhemos para as nossas próprias dificuldades, aquelas que nos parecem becos sem saída.</p>
+                    <p class="mt-4 italic">Peçamos a Santa Rita a graça de manter a esperança acesa, confiando que Deus tem um plano maior, mesmo quando não o compreendemos. Que a esperança nos mova a não desistir.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Paciência no Sofrimento",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 2º Dia</h5>
+                    <p>Rita viveu um casamento arranjado com um homem de temperamento difícil e violento. Por muitos anos, suportou maus-tratos com paciência heróica, rezando incessantemente pela conversão do marido. Ela nos ensina que o amor paciente e a oração perseverante podem transformar corações e situações. Pensemos nas nossas relações familiares, nos desafios e conflitos.</p>
+                    <p class="mt-4 italic">Peçamos a Santa Rita a virtude da paciência, a sabedoria para lidar com as tensões e a força para amar e rezar por aqueles que nos magoam ou nos desafiam.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "O Perdão Radical",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 3º Dia</h5>
+                    <p>Após a conversão e posterior assassinato do marido, os filhos de Rita desejaram vingança. Temendo por suas almas, Rita pediu a Deus que os levasse antes que cometessem um pecado mortal. Ela mesma perdoou os assassinos do esposo. O perdão de Rita foi radical e libertador. Reflitamos sobre as mágoas que guardamos em nosso coração. O rancor nos aprisiona.</p>
+                    <p class="mt-4 italic">Peçamos a Santa Rita a graça de perdoar, não por merecimento do outro, mas para nossa própria paz e para seguir o exemplo de Cristo.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "A Perseverança na Fé",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 4º Dia</h5>
+                    <p>Viúva e sem os filhos, Rita finalmente buscou realizar seu sonho de infância: entrar no convento Agostiniano. No entanto, foi rejeitada várias vezes. Ela não desistiu. Sua perseverança e fé foram recompensadas com uma entrada milagrosa no convento. Quantas vezes desistimos dos nossos sonhos ou da nossa vocação (seja ela qual for) diante das primeiras dificuldades?</p>
+                    <p class="mt-4 italic">Peçamos a Santa Rita a força da perseverança na fé e nos propósitos que Deus coloca em nosso coração, mesmo quando as portas parecem fechadas.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "A Vida de Oração",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 5º Dia</h5>
+                    <p>A vida de Santa Rita foi marcada por uma profunda vida de oração. Era na conversa íntima com Deus que ela encontrava força, consolo e direção. A oração era seu refúgio e sua fortaleza. Como está a nossa vida de oração? Dedicamos tempo para estar a sós com Deus, para ouvir Sua voz e entregar nossas vidas a Ele?</p>
+                    <p class="mt-4 italic">Peçamos a Santa Rita que nos ensine a rezar com fervor, confiança e constância, fazendo da oração o centro do nosso dia.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "O Valor Redentor do Sofrimento",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 6º Dia</h5>
+                    <p>Em profunda oração diante do crucifixo, Rita pediu para compartilhar das dores da Paixão de Cristo. Recebeu, então, um estigma na testa, a marca de um espinho da coroa de Jesus, que a acompanhou por muitos anos com dor e sofrimento, mas também como sinal visível de sua união com o Senhor. Reflitamos sobre como encaramos nossos próprios sofrimentos.</p>
+                    <p class="mt-4 italic">Conseguimos uni-los aos sofrimentos de Cristo na Cruz, oferecendo-os pela salvação das almas? Peçamos a Santa Rita a graça de compreender o valor redentor do sofrimento vivido com fé e amor.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "O Milagre da Rosa",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 7º Dia</h5>
+                    <p>Já idosa e doente no convento, em pleno inverno, Rita pediu a uma visitante que lhe trouxesse uma rosa e dois figos de sua antiga casa. Milagrosamente, a rosa e os figos foram encontrados florescendo na neve. Este milagre é visto como um sinal da bondade de Deus para com aqueles que O amam e Lhe são fiéis, mesmo em meio às adversidades. Santa Rita também foi exemplo de obediência, como quando regou um galho seco por ordem da superiora, e ele floresceu.</p>
+                    <p class="mt-4 italic">Peçamos a graça de sermos dóceis à vontade de Deus, atentos aos Seus sinais e obedientes aos Seus mandamentos, confiando que Ele pode fazer florescer o impossível.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "A Santa das Causas Impossíveis",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 8º Dia</h5>
+                    <p>A fama de santidade de Rita e os milagres atribuídos à sua intercessão, tanto em vida quanto após a morte, a consagraram como a "Santa das Causas Impossíveis". Pessoas de todos os lugares recorrem a ela em momentos de grande aflição e desespero, quando tudo parece perdido. Hoje, renovemos nossa confiança na intercessão de Santa Rita.</p>
+                    <p class="mt-4 italic">Apresentemos a ela, com fé inabalável, aquela causa que nos parece impossível, aquele problema que nos tira a paz. Peçamos que ela seja nossa advogada junto a Deus.</p>
+                    <p class="mt-6 text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "A Busca pela Santidade",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg">Meditação do 9º Dia</h5>
+                    <p>Santa Rita partiu para a casa do Pai em paz, deixando um legado de fé, perdão, paciência e amor perseverante. Seu corpo incorrupto é um sinal da glória que Deus reserva aos seus santos. Sua vida nos aponta para a meta final: a vida eterna com Deus. Ao concluir esta novena, peçamos a Santa Rita que nos ajude a viver de tal forma que mereçamos alcançar o Céu.</p>
+                    <p class="mt-4 italic">Que seu exemplo nos inspire a buscar a santidade no nosso dia a dia e que, por sua intercessão, alcancemos as graças que pedimos, se forem da vontade de Deus, e a perseverança final na fé.</p>
+                    <div class="mt-6 p-5 bg-stone-100/70 rounded-xl border border-stone-300">
+                        <p class="text-center font-bold">Santa Rita de Cássia, rogai por nós!</p>
+                        <p class="mt-2 text-center text-sm italic">Reze a Novena a Santa Rita de Cássia e peça sua intercessão pelas causas impossíveis da sua vida.</p>
+                    </div>
+                </div>`
+            }
+        ]
     },
 
     pentecostes: {
         saintName: "Pentecostes",
         novenaTitle: "Novena de Pentecostes",
-        description: "Novena em preparação à solenidade de Pentecostes.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Pentecostes`,
-            content: ""
-        }))
+        description: "Peça os dons do Espírito Santo e prepare-se para viver a Solenidade de Pentecostes. (15 a 23 de maio)",
+        image: "https://i.pinimg.com/736x/a8/8d/d8/a88dd8930bd3ecfa5be8cdff0601516d.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração inicial — Veni Creator</h4>
+            <p>Vinde Espírito Criador, a nossa alma visitai e enchei os corações com vossos dons celestiais.</p>
+            <p class="mt-4">Vós sois chamado o Intercessor de Deus excelso dom sem par, a fonte viva, o fogo, o amor, a unção divina e salutar.</p>
+            <p class="mt-4">Sois o doador dos sete dons e sois poder na mão do Pai, por Ele prometido a nós, por nós seus feitos proclamai.</p>
+            <p class="mt-4">A nossa mente iluminai, os corações enchei de amor, nossa fraqueza encorajai, qual força eterna e protetor.</p>
+            <p class="mt-4">Nosso inimigo repeli, e concedei-nos a vossa paz, se pela graça nos guiais, o mal deixamos para trás.</p>
+            <p class="mt-4">Ao Pai e ao Filho Salvador, por vós possamos conhecer que procedeis do Seu amor, fazei-nos sempre firmes crer.</p>
+            <p class="mt-4 font-semibold">Amém!</p>
+        </div>
+        <div class="prayer-block mt-6">
+            <h4 class="section-title">Oração da Novena — Os Sete Dons</h4>
+            <p class="font-semibold">Vinde, Espírito de Sabedoria!</p>
+            <p>Instrui o meu coração, para que eu saiba estimar e amar os bens celestes e antepô-los a todos os bens da Terra. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Inteligência!</p>
+            <p>Iluminai a minha mente, para que eu entenda e abrace todos os mistérios e mereça alcançar um pleno conhecimento Vosso, do Pai e do Filho. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Conselho!</p>
+            <p>Assisti-me em todos os assuntos desta vida instável, tornai-me dócil às Vossas inspirações e guiai-me sempre pelo direito caminho dos divinos mandamentos. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Fortaleza!</p>
+            <p>Fortalecei o meu coração em todas as perturbações e adversidades, e dai à minha alma o vigor necessário para resistir a todos os meus inimigos. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Ciência!</p>
+            <p>Fazei-me ver a vaidade de todos os bens caducos deste mundo, para que não use deles senão para Vossa maior glória e salvação da minha alma. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Piedade!</p>
+            <p>Vinde morar no meu coração e inclinai-o para a verdadeira piedade e santo amor de Deus. <em>(Glória ao Pai…)</em></p>
+            <p class="mt-4 font-semibold">Vinde, Espírito de Temor de Deus!</p>
+            <p>Repassai a minha carne com o Vosso santo temor, de modo que tenha sempre Deus presente e evite tudo o que possa desagradar aos olhos de Sua divina majestade. <em>(Glória ao Pai…)</em></p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final</h4>
+            <p>Divino Espírito Santo, eu vos ofereço todas as preces da Santíssima Virgem e dos apóstolos reunidos no cenáculo, e a essas uno todas as minhas orações, suplicando-Vos que Vos apresseis em vir renovar a face da terra.</p>
+            <p class="mt-4 font-semibold">– Enviai o Vosso Espírito e tudo será criado.</p>
+            <p class="font-semibold">– E renovareis a face da Terra.</p>
+            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que instruístes os corações dos fiéis com a luz do Espírito Santo, dai-nos, pelo mesmo Espírito, o conhecimento e o amor da justiça, e que gozemos sempre da Sua consolação. Amém.</p>
+            <p class="mt-4 italic">Rezar três Ave-Marias a Nossa Senhora de Pentecostes com a invocação: "Rainha dos Apóstolos, rogai por nós!".</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "O Dom da Sabedoria",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a clamar o dom da Sabedoria, que é a verdadeira "arte de saber viver", para que saibamos estimar os bens do céu e colocá-los acima de todas as coisas passageiras da terra.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "O Dom do Entendimento",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a abrir nossa inteligência através do dom do Entendimento, permitindo que conheçamos Jesus e compreendamos as verdades espirituais que só Ele pode nos revelar.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "O Dom do Conselho",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a buscar o dom do Conselho, cultivando uma intimidade profunda com Ele — que é a "alma da nossa alma" — para que possamos orientar e aconselhar o próximo retamente.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "O Dom da Fortaleza",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a revestir-nos com o dom da Fortaleza, pedindo que Sua presença seja renovada diariamente para que tenhamos a "têmpera" e a resiliência necessárias para vencer todas as adversidades e inimigos espirituais.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "O Dom da Ciência",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a exercer o dom da Ciência, aprendendo a olhar todas as coisas com o olhar de Deus e a reconhecer a vaidade dos bens deste mundo em relação à glória eterna.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "O Dom da Piedade",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a cultivar o dom da Piedade, despertando em nós um zelo fervoroso e amor pelas coisas divinas e pela liturgia, impedindo que a Igreja seja apenas uma organização humana e tornando-a viva e orante.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "O Dom do Temor de Deus",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama ao santo Temor de Deus, inspirando-nos um respeito profundo que nos leva a ter "nojo do pecado" e a preferir a morte antes que ofender a Majestade Divina.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Preparação no Cenáculo",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama à preparação no Cenáculo, motivando-nos a identificar qual dom mais necessitamos e a suplicar com fervor, enquanto nos unimos em intercessão por todos aqueles que sofrem.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Um Novo Pentecostes",
+                content: `<div class="day-specific-content">
+                    <p>O Espírito Santo nos chama a clamar o batismo no Espírito e a desejar um novo Pentecostes que nos tire do comodismo e nos transforme em homens e mulheres "de fogo", que transbordam a presença de Deus para o mundo.</p>
+                </div>`
+            }
+        ]
     },
 
     nossa_senhora_auxiliadora: {
         saintName: "Nossa Senhora Auxiliadora",
         novenaTitle: "Novena a Nossa Senhora Auxiliadora",
-        description: "Novena em honra a Nossa Senhora Auxiliadora (24 de maio).",
-        image: "/images/ns_auxiliadora.png",
+        description: "Peça o poderoso auxílio de Maria Santíssima nesta novena em preparação à festa de Nossa Senhora Auxiliadora. (15 a 23 de maio)",
+        image: "https://i.pinimg.com/736x/13/4d/b4/134db4459382d5e9ecc6f4ce276edd5e.jpg",
         initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Nossa Senhora Auxiliadora`,
-            content: ""
-        }))
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração final para todos os dias</h4>
+            <p>Três Pais-Nossos, Ave-Marias e Glórias ao Santíssimo Sacramento com a prece:</p>
+            <p class="mt-2 italic">"Graças e louvores se deem, a todo o momento, ao Santíssimo e Diviníssimo Sacramento".</p>
+            <p class="mt-4">Em seguida, três Salve-Rainhas a Maria Santíssima Auxiliadora:</p>
+            <p class="mt-2 italic">"Salve, Rainha, Mãe de misericórdia, vida, doçura, esperança nossa. Salve! A vós bradamos os degredados filhos de Eva, a vós suspiramos gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Oh, Clemente! Oh, Piedosa! Oh, doce sempre Virgem Maria".</p>
+            <p class="mt-4 font-semibold">Maria, Auxílio dos cristãos, rogai por nós.</p>
+            <p class="font-semibold">Nossa Senhora Auxiliadora, rogai por nós!</p>
+            <p class="mt-4 font-semibold">Em nome do Pai, do Filho e do Espírito Santo. Amém!</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Ave do Mar Estrela",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Ave do mar Estrela, bendita Mãe de Deus, fecunda e sempre virgem, Portal feliz dos céu."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Ó, Virgem Santíssima, poderoso auxílio dos cristãos, que recorrem confiados ao trono da vossa misericórdia, ouvi as preces desse pobre pecador, que implora o vosso socorro, para poder fugir sempre do pecado e das ocasiões de pecar. Eis a primeira graça que desejo receber nesta novena.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Um sinal grandioso apareceu no céu: uma Mulher vestida com o sol, tendo a lua sob os pés e sobre a cabeça uma coroa de doze estrelas" (Ap. 12,1). "Enfurecido por causa da Mulher, o Dragão foi então guerrear contra o resto dos seus descendentes, os que observam os mandamentos de Deus e mantêm o Testemunho de Jesus" (Ap. 12,17)</p>
+                    <p class="mt-4">Duplo sinal distintivo fiéis autênticos: Jesus e Maria. Salvação dos que creem e auxílio dos cristãos. Até a morte, prometo permanecer fiel a minha religião: Santa, Católica, Apostólica e Romana.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "A Paz do Céu",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Ouvindo aquela Ave do Anjo Gabriel, mudando de Eva o nome, trazei-nos paz do céu"</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Maria Santíssima, Mãe de bondade e misericórdia, que, muitas vezes, com o vosso visível Patrocínio, livrastes o povo cristão dos assaltos e da barbárie dos muçulmanos, livrai, eu vô-lo peço, a minha alma dos assaltos do demônio, do mundo e da carne, e fazei que eu possa, em todo tempo, obter completa vitória sobre os inimigos da minha alma.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Disse então, Maria: 'Eu sou a serva do Senhor. Faça-se em mim segundo a tua palavra'". (Lc 1,18)</p>
+                    <p class="mt-4">Em poucas palavras, Maria Santíssima nos oferece um exemplo da humildade, obediência e disponibilidade para fazer a vontade de Deus e colaborar na realização do seu plano de salvação.</p>
+                    <p class="mt-4 italic">"Senhor, que queres que eu faça? Fazei-me instrumento da vossa paz".</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Guardai-nos Contra o Mal",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Ao cego iluminai, ao réu livrai também, de todo mal guardai-nos e dai-nos todo o bem."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh Maria, Rainha poderosíssima, que sozinha triunfaste das múltiplas heresias que procuravam arrancar tantos filhos do Grêmio da Santa Madre Igreja, ajudai-me, eu vô-lo peço, a manter e conservar firme a minha fé, e puro o meu coração no meio de tantas insídias e do veneno de tão perversas doutrinas.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Naqueles dias, Maria pôs-se a caminho para a região montanhosa, dirigindo-se apressadamente a uma cidade de Judá. Entrou em casa de Zacarias e saudou Isabel. Maria permaneceu com ela mais ou menos três meses, e voltou para sua casa" (Lc 1,39-40, 56).</p>
+                    <p class="mt-4">Com certeza, Maria permaneceu até o nascimento de São João Batista, porque soube que, neste período, precisam as mulheres grávidas de ajuda e auxílio especial. Aqui, temos um belo exemplo da caridade.</p>
+                    <p class="mt-4 italic">Eu também prometo praticar sempre a caridade e as obras de misericórdia.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Mostrai Ser Nossa Mãe",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Mostrai ser nossa Mãe, levando a nossa voz a quem, por nós nascido, dignou-se a vir de vós."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh Maria, minha Mãe dulcíssima, vós que sóis a Rainha dos Mártires, por tantos atos heroicos de coragem e de fortaleza que tivestes na terra, dignai-vos infundir, no meu coração, a força necessária para conservar-me constante do vosso serviço, a fim de que, desprezando todo o respeito humano, possa praticar abertamente e sem envergonhar-me todos os meus deveres religiosos e mostrar-me sempre e em todas as ocasiões vosso devoto filho até a morte.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Meu filho, por que agiste assim conosco? Olha que teu pai e eu, aflitos te procurávamos" (Lc 2,48). Com que admirável delicadeza Maria admoesta seu Filho perdido e achado no templo. Um belo exemplo para os pais de família.</p>
+                    <p class="mt-4">Os filhos crescem em sabedoria, estatura e em graça, diante de Deus e diante dos homens, quando recebem bom exemplo dos pais. Na educação dos filhos, prometo sempre praticar a paciência, a prudência e a seriedade.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Guardai-nos Contra o Mal",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Suave mais que todas, Oh, Virgem sem igual, fazei-nos mansos, puros, guardai-nos contra o mal."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh, Maria, Mãe querida, que, no triunfo do Papa Pio VII, mostrastes o vosso valioso patrocínio, estendei o vosso manto piedoso por sobre toda a Santa Igreja, especialmente sobre o seu Augusto Chefe, o Papa, contra os assaltos de tantos inimigos, livrai-o dos sofrimentos temporais e assisti-o sempre, a fim de que possa conduzir seguramente ao porto a barca de São Pedro, e triunfar das ondas orgulhosas que tentam fazê-la soçobrar.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Naquele tempo, houve bodas em Caná da Galileia, e a mãe de Jesus estava presente. Jesus também fora convidado para as bodas assim como seus discípulos" (Jo 6,1-11). Vindo a faltar o vinho das bodas, Jesus fez milagre a pedido confiante de Sua Mãe. Ela também a nós convida a obedecer de modo especial Jesus, dizendo: "O que Ele disser, fazei-o".</p>
+                    <p class="mt-4 italic">"Felizes os que ouvem a Palavra de Deus e a praticam".</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Guiai-nos Para a Luz",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Oh, dai-nos vida pura, guiai-nos para a luz, e um dia, ao vosso lado, possamos ver Jesus."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh, Maria, Rainha dos Apóstolos, tomai sob a vossa valiosa proteção os Sagrados Ministros e todos os fiéis da Igreja Católica, alcançai-lhes o espírito de união, de perfeita obediência ao Sumo Pontífice e de zelo fervoroso para a salvação das almas, e especialmente dignai-vos estender a vossa amorável assistência aos missionários, para que possam conduzir todos os povos da terra à fé verdadeira, a fim de que, assim, o mundo todo se torne um só aprisco debaixo do guia de um só Pastor, Jesus Cristo Nosso Senhor.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"O Senhor é o teu louvor e o teu Deus, é ele quem operou para ti coisas grandiosas" (Dt 10,21a).</p>
+                    <p class="mt-4">Na verdade, Deus, olhando a humildade de sua serva fiel, Maria Santíssima, deu-nos por meio dela o Salvador de todos os homens, Jesus Cristo, Senhor Nosso.</p>
+                    <p class="mt-4 italic">"Oh, Maria, dai-nos graça de imitar seu amor de Deus e do próximo".</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Louvor à Santíssima Trindade",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Louvor a Deus, ao Pai e ao Filho, Sumo Bem, com seu Divino Espírito agora e sempre. Amém"</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Ó Maria, Mãe de piedade e clemência, que tantas vezes, com a vossa eficaz intercessão, salvastes os cristãos da peste e de outros flagelos do corpo, socorrei-os e livrai-os agora da peste da impiedade e da irreligião, que de mil maneiras se insinua em suas almas, para afastá-los da Igreja e das práticas da piedade, especialmente por meio das seitas, da imprensa e das escolas perversas.</p>
+                    <p class="mt-4">Peço-vos, humildemente, amparai os bons, que possam perseverar; fortificai os fracos, chamai à penitência os transviados e os pecadores, para que triunfe, aqui na Terra, a Verdade e o Reino de Jesus Cristo, e assim cresça a vossa glória e o número dos eleitos no Céu.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Eles perseveravam na oração com Maria, mãe de Jesus". (At 1,12;14)</p>
+                    <p class="mt-4 italic">Oh! Maria, ensina-nos a rezar, a confiar e perseverar.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Senhora Gloriosa",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"Senhora gloriosa, bem mais que o sol brilhais. O Deus que vos criou ao seio amamentais."</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh, Maria, coluna espiritual da Igreja e Socorro dos Cristãos, rogo-vos me conserveis firme na Divina Fé e mantenhais em mim a liberdade e dignidade dos filhos de Deus. De minha parte, prometo-vos não manchar a minha alma com o pecado, nunca fazer parte de sociedade condenadas pela Santa Sé.</p>
+                    <p class="mt-4">Prometo-vos obedecer ao Sumo Pontífice e aos bispos que estão em comunhão com ele, pois quero viver e morrer no seio da religião católica, na qual somente posso esperar, com certeza, a minha eterna salvação.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Junto à cruz de Jesus estava, em pé, sua Mãe." (Jo 19,25-27).</p>
+                    <p class="mt-4">Jamais podemos nos esquecer das palavras de Jesus agonizante: "Mãe, eis o teu filho. Filho, eis tua Mãe".</p>
+                    <p class="mt-4 italic">"Agonizante, ao discípulo por sua mãe destes Maria. Para os fiéis terem tal Mãe presente à última agonia".</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Portal Feliz dos Céus",
+                content: `<div class="day-specific-content">
+                    <p class="italic font-semibold">"O que Eva destruiu, no Filho recriais, do céu abris a porta e os tristes abrigais"</p>
+                    <h4 class="section-title mt-4">Oração do Dia</h4>
+                    <p>Oh! Maria, minha Mãe piedosíssima, que em todos os tempos quisestes ser o Auxílio dos Cristãos, assisti-me com o vosso poderoso Patrocínio durante a vida toda, mas especialmente na hora da morte e fazei com que eu, depois de haver-vos amado e venerado na terra, possa ir cantar as vossas misericórdias no Céu. Assim seja.</p>
+                    <p class="mt-4">Oh, Deus, que constituístes a Mãe de vosso Filho querido, Mãe e Auxílio do Povo Cristão, concedei, nós vos rogamos, que vivamos sob a sua proteção e a Igreja se alegre em vossa Paz perpétua.</p>
+                    <p class="mt-4">Por Nosso Senhor Jesus Cristo, Vosso Filho, na Unidade do Espírito Santo. Amém.</p>
+                    <h4 class="section-title mt-4">Leitura Bíblica e Pequena Promessa</h4>
+                    <p>"Mulher, eis aí teu filho" (Jo 19, 26-27)</p>
+                    <p class="mt-4">Maria Santíssima com ânimo materno, consentindo com amor na imolação da vítima por ela gerada, pelo próprio Jesus moribundo na cruz, foi dada como mãe ao discípulo e a todos nós.</p>
+                    <p class="mt-4">A Virgem Maria é para a Igreja o modelo da fé e da caridade. Maria Auxiliadora, coopera na obra do Salvador para a restauração da vida sobrenatural das almas.</p>
+                    <p class="mt-4 italic font-semibold">"Eis aí a tua Mãe".</p>
+                </div>`
+            }
+        ]
     },
 
     sao_filipe_neri: {
@@ -1951,14 +2408,59 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     visitacao: {
         saintName: "Visitação de Maria",
         novenaTitle: "Novena da Visitação",
-        description: "Novena em preparação à festa da Visitação de Maria (31 de maio).",
+        description: "Novena em preparação à festa da Visitação de Maria. A mesma oração é rezada nos 9 dias. (22 a 30 de maio)",
+        image: "https://i.pinimg.com/736x/46/49/63/464963169ef6da9d7829305e5e6727e8.jpg",
+        imageObjectPosition: "top",
         initialPrayer: "",
         finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Visitação`,
-            content: ""
-        }))
+        days: [
+            {
+                day: "Dias 1 a 9",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-6 p-4 rounded-xl flex items-start gap-3" style="background-color:#ffffff;border:2px solid #1e3a8a;">
+                    <span class="text-2xl flex-shrink-0">🙏</span>
+                    <div>
+                        <p class="font-bold text-sm uppercase tracking-wide" style="color:#000000 !important;">Esta é a oração para todos os 9 dias</p>
+                        <p class="text-sm mt-1" style="color:#000000 !important;">Reze esta mesma oração do Dia 1 ao Dia 9.</p>
+                    </div>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-6 p-5 bg-stone-100/70 rounded-xl border border-stone-300">
+                    <h5 class="font-bold text-center mb-3">Salve Rainha</h5>
+                    <p>Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de Nossa Senhora</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Nossa Senhora da Visitação, rogai por nós!</p>
+            </div>`
+            }
+        ]
     },
 
     // JUNHO
@@ -2196,34 +2698,6 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-
-
-    sao_matias: {
-        saintName: "São Matias",
-        novenaTitle: "Novena a São Matias",
-        description: "O apóstolo escolhido para completar os doze. Fidelidade ao chamado.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São Matias`,
-            content: ""
-        }))
-    },
-
-    nossa_senhora_caravaggio: {
-        saintName: "Nossa Senhora de Caravaggio",
-        novenaTitle: "Novena a N.S. de Caravaggio",
-        description: "Aparição na Itália. Peça consolo nas aflições e bonança.",
-        image: "/images/ns_caravaggio.png",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - N.S. de Caravaggio`,
-            content: ""
-        }))
-    },
 
     santo_onofre: {
         saintName: "Santo Onofre",
