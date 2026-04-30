@@ -6,7 +6,7 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 export function formatSaintName(name: string, abbreviate: boolean = true) {
-  const isNS = /^(N\.S\.|Nossa Senhora)/i.test(name);
+  const isNS = /^(N\.?\s*S\.?\s|Nossa Senhora)/i.test(name);
   const prefixes = ['São', 'Santa', 'Santo', 'Santas', 'Santos', 'STA.'];
   const prefixRegex = new RegExp(`^(${prefixes.join('|')})\\s+`, 'i');
   
@@ -25,20 +25,16 @@ export function formatSaintName(name: string, abbreviate: boolean = true) {
   const connectors = ['de', 'da', 'do', 'dos', 'das', "d'"];
   
   if (isNS) {
-    // Lógica específica para Nossa Senhora: Título principal é longo
-    if (words.length > 2) {
-      const lastWord = words[words.length - 1];
-      const secondToLast = words[words.length - 2].toLowerCase().replace('.', '');
-      
-      // Se a penúltima palavra for um conector, o título fica todo no Main
-      if (connectors.includes(secondToLast)) {
-        return { main: words.join(' '), additional: '' };
-      }
-      
-      // Caso contrário, apenas a última palavra fica menor (ex: N.S. da Imaculada Conceição)
+    // Identifica o prefixo (N. S. ou Nossa Senhora)
+    let nsPrefixCount = 1;
+    if (words[0].toLowerCase() === 'nossa' && words[1]?.toLowerCase() === 'senhora') nsPrefixCount = 2;
+    else if (/^n\.?s\.?$/i.test(words[0])) nsPrefixCount = 1;
+    else if (words[0].toLowerCase() === 'n.' && words[1]?.toLowerCase() === 's.') nsPrefixCount = 2;
+
+    if (words.length > nsPrefixCount) {
       return {
-        main: words.slice(0, -1).join(' '),
-        additional: lastWord
+        main: words.slice(0, nsPrefixCount).join(' '),
+        additional: words.slice(nsPrefixCount).join(' ')
       };
     }
     return { main: nameToProcess, additional: '' };

@@ -451,104 +451,135 @@ export default function Home() {
   return (
     <React.Fragment>
       <LoadingScreen isLoading={!hydrated || isNavigating} />
+      
+      <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+        {/* Botão de abrir (visível apenas quando o menu está fechado) */}
+        {!isMenuOpen && (
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => {
+              calculateProgress();
+              setIsMenuOpen(true);
+            }}
+            className={`fixed top-2 left-2 z-[100] transition-all duration-700 shadow-xl border-2 ${
+              isHamburgerRed
+                ? 'bg-red-700 text-white border-red-700 scale-110 shadow-red-500/40'
+                : 'bg-white/20 backdrop-blur-md text-primary border-primary/30 hover:bg-white/40'
+            } rounded-full w-12 h-12`}
+          >
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Abrir menu</span>
+          </Button>
+        )}
+        <SheetContent 
+          side="left" 
+          hideClose
+          className="w-[85vw] sm:w-[400px] p-0 border-r-[3px] border-black/20 overflow-hidden shadow-2xl backdrop-blur-3xl transition-all duration-500"
+          style={{
+            backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.55)), url('https://iili.io/BszsZNa.jpg')",
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        >
+          {/* Botão de fechar (dentro do SheetContent para evitar bloqueio de cliques do Radix) */}
+          <Button
+            variant="outline"
+            size="icon"
+            onClick={() => setIsMenuOpen(false)}
+            className={`fixed top-2 left-2 z-[200] transition-all duration-700 shadow-xl border-2 ${
+              isHamburgerRed
+                ? 'bg-red-700 text-white border-red-700 scale-110 shadow-red-500/40'
+                : 'bg-white/20 backdrop-blur-md text-primary border-primary/30 hover:bg-white/40'
+            } rounded-full w-12 h-12`}
+          >
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Fechar menu</span>
+          </Button>
+
+          <SheetHeader className="p-6 bg-white/40 backdrop-blur-md shadow-sm border-b border-black/5 flex flex-col items-center justify-center text-center">
+            <SheetTitle className="text-xl font-brand text-gray-800 text-center w-full">Menu</SheetTitle>
+            <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
+          </SheetHeader>
+          <div className="flex flex-col gap-4 p-6">
+            <ConfessionTimesModal>
+              <Button variant="outline" className="w-full justify-start gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-primary border-2 border-primary font-bold animate-shine">
+                <AlertCircle className="h-5 w-5" />
+                Horários de Confissão
+              </Button>
+            </ConfessionTimesModal>
+
+            <Link href="/espaco-mariano" className="w-full" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
+              <Button
+                className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
+              >
+                <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
+                Espaço Mariano
+              </Button>
+            </Link>
+
+            <Link href="/encontre-seu-lugar" className="w-full" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
+              <Button
+                className="w-full justify-start gap-2 bg-red-700 hover:bg-red-800 text-white"
+              >
+                <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
+                Encontre Seu Lugar
+              </Button>
+            </Link>
+
+            <Link href="/sao-jose" className="w-full" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
+              <Button
+                className="w-full justify-start gap-2 bg-green-700 hover:bg-green-800 text-white"
+              >
+                <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
+                Espaço São José
+              </Button>
+            </Link>
+          </div>
+
+          <div className="mt-auto p-6 border-t border-gray-200">
+            <h3 className="text-lg font-brand text-gray-800 mb-4 flex items-center gap-2">
+              <span className="text-xl">📈</span> Seu Progresso
+            </h3>
+            <div className="space-y-4">
+              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-primary/10">
+                <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Novenas Concluídas</p>
+                <p className="text-3xl font-bold text-primary">{userProgress.completed}</p>
+              </div>
+              
+              {userProgress.ongoing.length > 0 && (
+                <div className="space-y-2">
+                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Em andamento</p>
+                  <ScrollArea className="h-48">
+                    <div className="space-y-2 pr-4">
+                      {userProgress.ongoing.map((item, idx) => (
+                        <button 
+                          key={idx} 
+                          onClick={() => {
+                            handleNavigateToNovena(item.id);
+                            setIsMenuOpen(false);
+                          }}
+                          className="w-full bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center hover:bg-stone-50 transition-colors group"
+                        >
+                          <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors">{item.name}</span>
+                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-bold">Dia {item.day}</span>
+                        </button>
+                      ))}
+                    </div>
+                  </ScrollArea>
+                </div>
+              )}
+            </div>
+          </div>
+        </SheetContent>
+      </Sheet>
+
       <div className={cn(
           "transition-all duration-700 ease-in-out", 
           hydrated && !isNavigating ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] animate-gate-up"
       )}>
         <div className="container mx-auto p-4 md:p-8 max-w-5xl text-stone-900">
-          <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
-            <SheetTrigger asChild>
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => calculateProgress()}
-                className={`fixed top-4 left-4 z-20 bg-white/70 backdrop-blur-sm transition-colors duration-300 ${
-                  isHamburgerRed
-                    ? 'bg-red-700 text-white hover:bg-red-800 border-red-700'
-                    : 'hover:bg-primary hover:text-primary-foreground'
-                }`}
-              >
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Abrir menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="left" className="w-[380px] sm:w-[540px] bg-gray-100 p-0">
-              <SheetHeader className="p-6 bg-white shadow-sm">
-                <SheetTitle className="text-xl font-brand text-gray-800">Menu</SheetTitle>
-                <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
-              </SheetHeader>
-              <div className="flex flex-col gap-4 p-6">
-                <ConfessionTimesModal>
-                  <Button variant="outline" className="w-full justify-start gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-primary border-2 border-primary font-bold animate-shine">
-                    <AlertCircle className="h-5 w-5" />
-                    Horários de Confissão
-                  </Button>
-                </ConfessionTimesModal>
-
-                <Link href="/espaco-mariano" className="w-full" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
-                  <Button
-                    className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
-                  >
-                    <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
-                    Espaço Mariano
-                  </Button>
-                </Link>
-
-                <Link href="/encontre-seu-lugar" className="w-full" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
-                  <Button
-                    className="w-full justify-start gap-2 bg-red-700 hover:bg-red-800 text-white"
-                  >
-                    <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
-                    Encontre Seu Lugar
-                  </Button>
-                </Link>
-
-                <Link href="/sao-jose" className="w-full" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
-                  <Button
-                    className="w-full justify-start gap-2 bg-green-700 hover:bg-green-800 text-white"
-                  >
-                    <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
-                    Espaço São José
-                  </Button>
-                </Link>
-              </div>
-
-              <div className="mt-auto p-6 border-t border-gray-200">
-                <h3 className="text-lg font-brand text-gray-800 mb-4 flex items-center gap-2">
-                  <span className="text-xl">📈</span> Seu Progresso
-                </h3>
-                <div className="space-y-4">
-                  <div className="bg-white p-4 rounded-xl shadow-sm border border-primary/10">
-                    <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Novenas Concluídas</p>
-                    <p className="text-3xl font-bold text-primary">{userProgress.completed}</p>
-                  </div>
-                  
-                  {userProgress.ongoing.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Em andamento</p>
-                      <ScrollArea className="h-48">
-                        <div className="space-y-2 pr-4">
-                          {userProgress.ongoing.map((item, idx) => (
-                            <button 
-                              key={idx} 
-                              onClick={() => {
-                                handleNavigateToNovena(item.id);
-                                setIsMenuOpen(false);
-                              }}
-                              className="w-full bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center hover:bg-stone-50 transition-colors group"
-                            >
-                              <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors">{item.name}</span>
-                              <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-bold">Dia {item.day}</span>
-                            </button>
-                          ))}
-                        </div>
-                      </ScrollArea>
-                    </div>
-                  )}
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
 
           <Header />
           <WeeklyDevotions onLiturgyClick={() => saintOfTheDayRef.current?.openAndScrollToLiturgy()} />

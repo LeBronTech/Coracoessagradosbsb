@@ -48,7 +48,7 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
 
   if (saints.length > 1) {
     return (
-      <div className={cn("saint-image-wrapper multiple", isOpen && "open")}>
+      <div className={cn("saint-image-wrapper multiple", `count-${saints.length}`, isOpen && "open")}>
         {saints.map((saint, index) => (
           <Image
             key={saint.name}
@@ -58,6 +58,7 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
             height={64}
             className={cn(
               "saint-image",
+              `image-${index}`,
               isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
             )}
             style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}

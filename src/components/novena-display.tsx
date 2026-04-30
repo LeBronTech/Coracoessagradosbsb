@@ -4,7 +4,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy, ChevronDown, Check } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check } from 'lucide-react';
 import { cn, formatSaintName } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
@@ -117,6 +117,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   }, [isAlertExpanded, isAutoDisplay]);
 
   useEffect(() => {
+    // Reset alert state when saint changes
+    setIsAlertExpanded(false);
+    setIsAutoDisplay(false);
+    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+
     if (saint && saint.startDate) {
       const todayOnlyDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
       
@@ -157,17 +162,28 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       }
 
       setAlertInfo({ title, description });
-      setIsAlertExpanded(true);
-      setIsAutoDisplay(true);
 
-      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-      
-      alertTimerRef.current = setTimeout(() => {
-        setIsAlertExpanded(false);
-        setIsAutoDisplay(false);
-      }, 4000);
+      // Delay auto-expand to avoid conflict with main entrance animation
+      const openTimer = setTimeout(() => {
+        // Only auto-expand if the user hasn't interacted yet (isAutoDisplay would be true or we check isAlertExpanded)
+        // But more importantly, if alertTimerRef is not set by a manual click
+        setAlertInfo(prev => {
+          if (prev) {
+            setIsAlertExpanded(true);
+            setIsAutoDisplay(true);
+
+            alertTimerRef.current = setTimeout(() => {
+              setIsAlertExpanded(false);
+              setIsAutoDisplay(false);
+              alertTimerRef.current = null;
+            }, 5000);
+          }
+          return prev;
+        });
+      }, 2000);
 
       return () => {
+        clearTimeout(openTimer);
         if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
       };
     }
@@ -432,17 +448,19 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="w-full relative overflow-hidden rounded-2xl mb-8 z-20">
-        {/* === Blurred image background — creates the color aura effect === */}
-        <img
-          src={(novena as any)?.image || saint.imageUrl}
-          alt=""
-          aria-hidden
-          className="absolute inset-0 w-full h-full object-cover blur-[80px] scale-[2.5] opacity-80"
-          style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
-        />
-        {/* Dark overlay for text readability - now dynamic by theme */}
-        <div className={cn("absolute inset-0 bg-gradient-to-r", themeHeaderOverlay[theme])} />
+      <header id="novena-header" className="w-full relative rounded-2xl mb-8 z-20">
+        {/* === Container for blurred image background - moved overflow-hidden here === */}
+        <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+          <img
+            src={(novena as any)?.image || saint.imageUrl}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover blur-[80px] scale-[2.5] opacity-80"
+            style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+          />
+          {/* Dark overlay for text readability - now dynamic by theme */}
+          <div className={cn("absolute inset-0 bg-gradient-to-r", themeHeaderOverlay[theme])} />
+        </div>
 
         {/* === Content layer === */}
         <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 md:gap-7 p-5 md:p-7 text-center sm:text-left">
@@ -470,9 +488,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               {description || ''}
             </p>
             {saint.startDate && (
-              <div ref={alertContainerRef} className="mt-3 relative">
+              <div ref={alertContainerRef} className="mt-3 relative w-full sm:w-fit mx-auto sm:mx-0">
                 {/* Linha de data — sempre visível */}
-                <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap">
+                <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap relative">
                   <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
                     Novena: {saint.startDate} a {saint.endDate}
                   </span>
@@ -490,27 +508,39 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                       }}
                       className="w-7 h-7 rounded-full border-[#D4AF37] border-[1.5px] bg-black/20 backdrop-blur-sm text-[#D4AF37] hover:bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 transition-all duration-200 ml-1"
                     >
-                      <ChevronDown className={cn(
-                        "w-4 h-4 transition-transform duration-300",
-                        isAlertExpanded ? "rotate-180" : "rotate-0"
-                      )} />
+                      <div className="hidden sm:block">
+                        {isAlertExpanded ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
+                      </div>
+                      <div className="sm:hidden">
+                        <ChevronDown className={cn(
+                          "w-4 h-4 transition-transform duration-300",
+                          isAlertExpanded ? "rotate-180" : "rotate-0"
+                        )} />
+                      </div>
                     </button>
                   )}
                 </div>
 
-                {/* Bloco de aviso — expande abaixo da linha de data */}
+                {/* Bloco de aviso — Agora como um Pop-up flutuante */}
                 {alertInfo && (
                   <div
                     className={cn(
-                      "overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-2 origin-top",
-                      isAlertExpanded ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                      "absolute z-[100] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                      // Mobile: below the date capsule
+                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[280px] mt-3 origin-top",
+                      // Desktop: exactly to the side of the button
+                      "sm:top-1/2 sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-4 sm:w-[300px] sm:origin-left",
+                      isAlertExpanded 
+                        ? "opacity-100 translate-y-0 sm:translate-x-0 scale-100" 
+                        : "opacity-0 -translate-y-4 sm:translate-y-0 sm:-translate-x-4 scale-95 pointer-events-none"
                     )}
                   >
-                    <div className="p-4 rounded-2xl border flex flex-col items-center justify-center text-center gap-1 bg-black/60 border-white/15 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
-                      <h4 className="font-bold font-brand text-base mb-0.5 text-[#D4AF37]">
+                    <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl border flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 bg-black/85 border-white/20 text-white backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
+                      <div className="w-8 h-1 rounded-full bg-white/20 mb-1 sm:hidden" />
+                      <h4 className="font-bold font-brand text-sm sm:text-base mb-0.5 text-[#D4AF37]">
                         {alertInfo.title}
                       </h4>
-                      <p className="text-[12px] sm:text-sm text-center opacity-95 leading-snug">
+                      <p className="text-[12px] sm:text-sm text-center opacity-95 leading-relaxed">
                         {alertInfo.description}
                       </p>
                     </div>
