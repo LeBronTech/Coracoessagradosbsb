@@ -530,9 +530,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     className={cn(
                       "absolute z-[100] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
                       // Mobile: below the date capsule
-                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[340px] mt-7 origin-top",
+                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[260px] mt-1 origin-top",
                       // Desktop: exactly to the side of the button
-                      "sm:top-[85%] sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-1 sm:w-[380px] sm:origin-left",
+                      "sm:top-[85%] sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-0 sm:w-[380px] sm:origin-left",
                       isAlertExpanded 
                         ? "opacity-100 translate-y-0 sm:translate-x-0 scale-100" 
                         : "opacity-0 -translate-y-4 sm:translate-y-0 sm:-translate-x-4 scale-95 pointer-events-none"

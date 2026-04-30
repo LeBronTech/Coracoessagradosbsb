@@ -658,19 +658,19 @@
   }
 
   .devotion-item.devotion-item--thursday {
-    @apply border-purple-600 bg-white;
+    @apply border-purple-900 bg-white;
   }
-
+  
   .devotion-item.devotion-item--thursday .devotion-icon {
-    @apply text-purple-600;
-  }
-
-  .devotion-item.devotion-item--thursday .text-sm {
     @apply text-purple-800;
   }
-
+  
+  .devotion-item.devotion-item--thursday .text-sm {
+    @apply text-purple-950;
+  }
+  
   .devotion-item.devotion-item--thursday .text-xs {
-    @apply text-purple-500;
+    @apply text-purple-700;
   }
 
   .devotion-item.devotion-item--friday {
