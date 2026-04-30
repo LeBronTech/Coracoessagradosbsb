@@ -356,12 +356,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger",
+              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger relative overflow-hidden",
               isOpen ? "rounded-b-none pb-12" : "",
               triggerTheme
             )}
           >
-            <div className="flex items-center gap-4 text-left w-full">
+            {/* Blurred saint image background */}
+            <img
+              src={currentSaintData.imageUrl}
+              alt=""
+              aria-hidden
+              className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50 pointer-events-none"
+              style={{ objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center' }}
+            />
+            {/* Theme-colored overlay */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 pointer-events-none opacity-60" />
+            <div className="flex items-center gap-4 text-left w-full relative z-10">
               <SaintImages saints={dayData.saints} isOpen={isOpen} selectedIndex={selectedSaintInDayIndex} />
               <div className={cn(
                 "flex flex-1 flex-col items-start saint-name-container",

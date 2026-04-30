@@ -27,6 +27,15 @@ const themeDotClasses: Record<Theme, string> = {
   'theme-green': 'bg-[#14532d]',
 };
 
+// Gradient overlay for the blurred image background - lighter at top, theme color at bottom
+const themeGradientOverlay: Record<Theme, string> = {
+  'theme-default': 'from-[#949da4]/40 via-[#949da4]/75 to-[#949da4]/95',
+  'theme-dark-gray': 'from-gray-700/40 via-gray-700/75 to-gray-700/95',
+  'theme-light-gray': 'from-gray-100/40 via-gray-100/80 to-gray-100/95',
+  'theme-red': 'from-[#8B0000]/40 via-[#8B0000]/75 to-[#8B0000]/95',
+  'theme-green': 'from-[#14532d]/40 via-[#14532d]/75 to-[#14532d]/95',
+};
+
 interface NovenaDisplayProps {
   saint: Saint | null;
   novena: Novena | null;
@@ -36,7 +45,7 @@ interface NovenaDisplayProps {
 
 function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme | ((prev: Theme) => Theme)) => void }) {
   return (
-    <div className="absolute top-[-14px] right-5 flex gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-10">
+    <div className="flex justify-end gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-30 mb-4 w-fit ml-auto">
       {(['theme-dark-gray', 'theme-default', 'theme-light-gray', 'theme-red', 'theme-green'] as Theme[]).map((t) => (
         <button
           key={t}
@@ -341,18 +350,32 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     <main
       id="main-card"
       className={cn(
-        'main-card glass-card rounded-2xl p-6 md:p-10 relative shadow-2xl shadow-black/20',
+        'main-card glass-card rounded-2xl p-6 md:p-10 relative shadow-2xl shadow-black/20 overflow-hidden',
         themeClasses[theme],
         theme,
         getAnimationClass()
       )}
       style={theme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
     >
+      {/* === Blurred image background for the entire card === */}
+      {saint && (
+        <>
+          <img
+            src={(novena as any)?.image || saint.imageUrl}
+            alt=""
+            aria-hidden
+            className="absolute inset-0 w-full h-full object-cover blur-[100px] scale-[3] opacity-60 pointer-events-none"
+            style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+          />
+          <div className={cn('absolute inset-0 bg-gradient-to-b pointer-events-none', themeGradientOverlay[theme])} />
+        </>
+      )}
+
       <ThemeSelector theme={theme} setTheme={setTheme} />
 
       {/* Seletor de versão da novena */}
       {novena.versions && novena.versions.length > 0 && (
-        <div className="mb-6 mt-2">
+        <div className="mb-6 mt-2 relative z-10">
           <p className={cn('text-xs uppercase tracking-widest font-bold text-center mb-3 opacity-70')}>Escolha a versão da novena</p>
           <div className="flex flex-wrap justify-center gap-2">
             <button
@@ -383,89 +406,94 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="w-full flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 mb-8 text-center sm:text-left relative z-20">
-        <img src={saint.imageUrl} alt={saint.name} className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-2 border-stone-400/50 shadow-lg flex-shrink-0" style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }} />
-        <div>
-          <div className="flex flex-col items-center sm:items-start leading-tight">
-            <span className={cn(
-              "text-sm md:text-base font-medium opacity-70 uppercase tracking-widest mb-1",
-              isLightTheme ? "text-stone-600" : "text-white/80"
-            )}>Novena</span>
-            <h2 className="text-3xl md:text-4xl font-bold font-brand">
-              {formatSaintName(saint.name, false).main}
-            </h2>
-            {formatSaintName(saint.name, false).additional && (
-              <p className={cn(
-                "text-base md:text-lg font-normal opacity-90 mt-0.5",
-                isLightTheme ? "text-stone-500" : "text-white/80"
-              )}>
-                {formatSaintName(saint.name, false).additional}
-              </p>
-            )}
-          </div>
-          <p className={cn("italic mt-1",
-            isLightTheme ? 'text-stone-600' : 'text-white/90'
-          )}>
-            {description || ''}
-          </p>
-          {saint.startDate && (
-            <div ref={alertContainerRef} className="mt-3 relative">
-              {/* Linha de data — sempre visível */}
-              <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap">
-                <span className={cn(
-                  "inline-block text-xs font-bold px-4 py-1 rounded-full",
-                  isLightTheme ? "bg-primary text-white" : "bg-primary text-white"
-                )}>
-                  Novena: {saint.startDate} a {saint.endDate}
-                </span>
-                {saint.isMartyr && (
-                  <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
-                    Mártir
-                  </span>
-                )}
-                {alertInfo && (
-                  <button
-                    onClick={() => {
-                      setIsAlertExpanded(!isAlertExpanded);
-                      setIsAutoDisplay(false);
-                      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-                    }}
-                    className="w-7 h-7 rounded-full border-[#D4AF37] border-[1.5px] bg-transparent text-[#D4AF37] hover:bg-[#D4AF37]/10 flex items-center justify-center flex-shrink-0 transition-all duration-200 ml-1"
-                  >
-                    <ChevronDown className={cn(
-                      "w-4 h-4 transition-transform duration-300",
-                      isAlertExpanded ? "rotate-180" : "rotate-0"
-                    )} />
-                  </button>
-                )}
-              </div>
+      <header id="novena-header" className="w-full relative overflow-hidden rounded-2xl mb-8 z-20">
+        {/* === Blurred image background — creates the color aura effect === */}
+        <img
+          src={(novena as any)?.image || saint.imageUrl}
+          alt=""
+          aria-hidden
+          className="absolute inset-0 w-full h-full object-cover blur-[80px] scale-[2.5] opacity-80"
+          style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+        />
+        {/* Dark overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/50 to-black/65" />
 
-              {/* Bloco de aviso — expande abaixo da linha de data */}
-              {alertInfo && (
-                <div
-                  className={cn(
-                    "overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-2 origin-top",
-                    isAlertExpanded ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
-                  )}
-                >
-                  <div className={cn(
-                    "p-4 rounded-2xl border flex flex-col items-center justify-center text-center gap-1",
-                    (theme === 'theme-light-gray' || theme === 'theme-default')
-                      ? "bg-white/85 backdrop-blur-xl border-primary/20 text-stone-900 shadow-[0_10px_40px_-10px_rgba(0,0,0,0.15)]"
-                      : "bg-black/75 border-white/20 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]"
-                  )}>
-                    <h4 className={cn("font-bold font-brand text-base mb-0.5", (theme === 'theme-light-gray' || theme === 'theme-default') ? "text-primary" : "text-[#D4AF37]")}>
-                      {alertInfo.title}
-                    </h4>
-                    <p className="text-[12px] sm:text-sm text-center opacity-95 leading-snug">
-                      {alertInfo.description}
-                    </p>
-                  </div>
-                </div>
+        {/* === Content layer === */}
+        <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 md:gap-7 p-5 md:p-7 text-center sm:text-left">
+          {/* Square image with rounded corners */}
+          <img
+            src={(novena as any)?.image || saint.imageUrl}
+            alt={saint.name}
+            className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.4)] flex-shrink-0 ring-1 ring-white/10"
+            style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+          />
+
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-col items-center sm:items-start leading-tight">
+              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">Novena</span>
+              <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
+                {formatSaintName(saint.name, false).main}
+              </h2>
+              {formatSaintName(saint.name, false).additional && (
+                <p className="text-base md:text-lg font-normal mt-0.5 text-white/80 drop-shadow">
+                  {formatSaintName(saint.name, false).additional}
+                </p>
               )}
             </div>
-          )}
+            <p className="italic mt-2 text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
+              {description || ''}
+            </p>
+            {saint.startDate && (
+              <div ref={alertContainerRef} className="mt-3 relative">
+                {/* Linha de data — sempre visível */}
+                <div className="flex flex-row items-center justify-center sm:justify-start gap-2 flex-wrap">
+                  <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
+                    Novena: {saint.startDate} a {saint.endDate}
+                  </span>
+                  {saint.isMartyr && (
+                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-red-700/80 text-white">
+                      Mártir
+                    </span>
+                  )}
+                  {alertInfo && (
+                    <button
+                      onClick={() => {
+                        setIsAlertExpanded(!isAlertExpanded);
+                        setIsAutoDisplay(false);
+                        if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                      }}
+                      className="w-7 h-7 rounded-full border-[#D4AF37] border-[1.5px] bg-black/20 backdrop-blur-sm text-[#D4AF37] hover:bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 transition-all duration-200 ml-1"
+                    >
+                      <ChevronDown className={cn(
+                        "w-4 h-4 transition-transform duration-300",
+                        isAlertExpanded ? "rotate-180" : "rotate-0"
+                      )} />
+                    </button>
+                  )}
+                </div>
 
+                {/* Bloco de aviso — expande abaixo da linha de data */}
+                {alertInfo && (
+                  <div
+                    className={cn(
+                      "overflow-hidden transition-all duration-[600ms] ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-2 origin-top",
+                      isAlertExpanded ? "max-h-[200px] opacity-100" : "max-h-0 opacity-0 pointer-events-none"
+                    )}
+                  >
+                    <div className="p-4 rounded-2xl border flex flex-col items-center justify-center text-center gap-1 bg-black/60 border-white/15 text-white backdrop-blur-xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.5)]">
+                      <h4 className="font-bold font-brand text-base mb-0.5 text-[#D4AF37]">
+                        {alertInfo.title}
+                      </h4>
+                      <p className="text-[12px] sm:text-sm text-center opacity-95 leading-snug">
+                        {alertInfo.description}
+                      </p>
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
+
+          </div>
         </div>
       </header>
 
