@@ -84,6 +84,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [count, setCount] = useState(0);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('tradicional');
   const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
+  const [isChanging, setIsChanging] = useState(false);
   
   const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
@@ -201,17 +202,20 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
   useEffect(() => {
     if (novena) {
+      setIsChanging(true);
       setAnimationState('out');
+      
       const outTimer = setTimeout(() => {
         setAnimationState('in');
+        setIsChanging(false);
         if (api) {
           api.scrollTo(0);
         }
-      }, 150);
+      }, 400); // Wait a bit more for scroll sync
 
       const inTimer = setTimeout(() => {
         setAnimationState('idle');
-      }, 150 + 800);
+      }, 400 + 600);
 
       return () => {
         clearTimeout(outTimer);
@@ -390,7 +394,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             src={(novena as any)?.image || saint.imageUrl}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover blur-[100px] scale-[3] opacity-60 pointer-events-none"
+            className="absolute inset-0 w-full h-full object-cover blur-[40px] scale-[1.5] opacity-60 pointer-events-none transition-all duration-1000"
             style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
           />
           <div className={cn('absolute inset-0 bg-gradient-to-b pointer-events-none', themeGradientOverlay[theme])} />
@@ -456,7 +460,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             src={(novena as any)?.image || saint.imageUrl}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover blur-[80px] scale-[2.5] opacity-80"
+            className="absolute inset-0 w-full h-full object-cover blur-[30px] scale-[1.2] opacity-80 transition-all duration-1000"
             style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
           />
           {/* Dark overlay for text readability - now dynamic by theme */}
@@ -599,9 +603,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         </div>
       </header>
 
+      <div className="relative w-full">
+        {isChanging && (
+          <div className="absolute inset-0 z-[50] flex items-center justify-center bg-black/5 backdrop-blur-[2px] rounded-2xl min-h-[400px]">
+            <div className="w-12 h-12 border-4 border-white/20 border-t-white rounded-full animate-spin" />
+          </div>
+        )}
 
-
-      <Carousel setApi={setApi} className="w-full" opts={{ watchDrag: false }}>
+        <Carousel setApi={setApi} className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} opts={{ watchDrag: false }}>
         <div className="flex flex-col items-center justify-center gap-2 mb-6">
           <a
             href="https://chat.whatsapp.com/D08lyjhVqL8KyZfIovKYk5?mode=ems_copy_t"
@@ -782,6 +791,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         )}
       </Carousel>
+      </div>
     </main>
   );
 }

@@ -199,7 +199,7 @@ export default function Home() {
       initialNovenaId = saintFromHash.id;
       initialMonthScroll = initialMonth;
       initialSaintScrollId = initialNovenaId;
-      setScrollTarget('novena');
+      setScrollTarget('title');
     } else {
       const saintsWithDates = saints.map(s => {
         const [startDay, startMonth] = s.startDate.split('/').map(Number);
@@ -238,7 +238,7 @@ export default function Home() {
         // Only set scroll target if we have a specific hash, 
         // OR if you want it to scroll to the "closest" on every refresh (maybe not desirable for everyone, but let's see)
         // If there's a hash, we definitely want to scroll.
-        if (hash) setScrollTarget('novena');
+        if (hash) setScrollTarget('title');
       }
     }
 
@@ -264,7 +264,7 @@ export default function Home() {
         
         setSelectedMonth(targetMonth);
         setSelectedSaintId(saint.id);
-        setScrollTarget('novena');
+        setScrollTarget('title');
       }
     };
 
@@ -297,7 +297,7 @@ export default function Home() {
       ancestor = ancestor.parentElement;
     }
 
-    const headerOffset = 16; // pequeno ajuste para evitar colisão com bordas fixas
+    const headerOffset = 32; // maior respiro no topo após a rolagem
 
     if (!ancestor || ancestor === document.documentElement || ancestor === document.body) {
       const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
@@ -313,21 +313,20 @@ export default function Home() {
   useEffect(() => {
     if (selectedSaintId && hydrated) {
       history.pushState({ novenaId: selectedSaintId }, '', '#' + selectedSaintId);
+      
       if (scrollTarget) {
-        // Run the scroll on next frames with a small delay to allow DOM updates/layout
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = window.setTimeout(() => {
           requestAnimationFrame(() => {
-            if (scrollTarget === 'title') {
-                const novenaHeader = document.getElementById('novena-header');
-                if (novenaHeader) smoothScrollToElement(novenaHeader);
-                else smoothScrollToElement(novenaDisplaySectionRef.current);
-            } else {
-                smoothScrollToElement(novenaDisplaySectionRef.current);
+            const selectorTitle = document.getElementById('saints-nav-title');
+            if (selectorTitle) {
+                selectorTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            } else if (novenaDisplaySectionRef.current) {
+                novenaDisplaySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
             setScrollTarget(null);
           });
-        }, 800); // slightly longer delay to ensure intro animation and rendering is completely finished
+        }, 300);
       }
     }
 
@@ -392,7 +391,7 @@ export default function Home() {
     }
 
     // Acionar a rolagem suave até a novena selecionada
-    setScrollTarget('novena');
+    setScrollTarget('title');
   };
 
   const handleMonthChange = (month: string) => {
@@ -431,11 +430,11 @@ export default function Home() {
       setSelectedSaintId(saintId);
       // Aguarda o fechamento do diálogo (animação) antes de rolar
       // para garantir que a rolagem com comportamento 'smooth' fique visível.
-      setTimeout(() => setScrollTarget('novena'), 220);
+      setTimeout(() => setScrollTarget('title'), 220);
     } else if (saintId === 'natal_sao_leao' || saintId === 'natal_familia') {
       setSelectedMonth('Dezembro');
       setSelectedSaintId(saintId);
-      setTimeout(() => setScrollTarget('novena'), 220);
+      setTimeout(() => setScrollTarget('title'), 220);
     }
   }
 
@@ -667,7 +666,6 @@ export default function Home() {
 
           <div className="mt-8" ref={novenaDisplaySectionRef}>
             <NovenaDisplay
-              key={selectedSaintId}
               novena={selectedNovena}
               saint={selectedSaint}
               theme={theme}
