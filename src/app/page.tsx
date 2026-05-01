@@ -326,7 +326,7 @@ export default function Home() {
             }
             setScrollTarget(null);
           });
-        }, 300);
+        }, 500);
       }
     }
 
