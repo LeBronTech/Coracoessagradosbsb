@@ -534,7 +534,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
                 {formatSaintName(saint.name, false, true).main}
               </h2>
-              {formatSaintName(saint.name, false, true).additional && !saint.isMartyr && (
+              {formatSaintName(saint.name, false, true).additional && (
                 <p className="text-base md:text-lg font-normal mt-0.5 text-white/80 drop-shadow">
                   {formatSaintName(saint.name, false, true).additional}
                 </p>

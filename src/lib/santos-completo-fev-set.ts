@@ -154,7 +154,7 @@ export const santosMarcoSetembro: SaintOfTheDayData[] = [
     { 
         day: 3, month: 'Maio', 
         saints: [{ 
-            name: 'Santos Filipe e Tiago', 
+            name: 'São Filipe S. Tiago', 
             imageUrl: 'https://i.pinimg.com/1200x/64/de/62/64de620ee62e25a9e21b04f105fde15d.jpg', 
             story: '<h4>Apóstolos e Colunas da Igreja</h4><p>Filipe e Tiago Menor foram escolhidos por Jesus para fazer parte do grupo dos Doze. Filipe, natural de Betsaida, foi quem apresentou Natanael a Jesus e, na Última Ceia, pediu ao Senhor: "Mostra-nos o Pai".</p><p class="mt-4">Tiago, filho de Alfeu, é chamado "o Menor" para distingui-lo de Tiago, irmão de João. Foi uma figura central na Igreja de Jerusalém e autor de uma das epístolas do Novo Testamento, onde nos ensina que "a fé sem obras é morta".</p><p class="mt-4">Ambos deram o testemunho supremo do martírio. São celebrados juntos porque suas relíquias foram transladadas para a Basílica dos Santos Apóstolos em Roma no mesmo dia.</p><p class="mt-4"><b>Oração:</b> Deus eterno e todo-poderoso, que nos dais a alegria de celebrar a festa dos vossos apóstolos Filipe e Tiago, concedei-nos, por suas preces, participar da paixão e ressurreição do vosso Filho e chegar à contemplação da vossa glória. Amém.</p><p class="mt-2 italic">Santos Filipe e Tiago, rogai por nós.</p>',
             isMartyr: true

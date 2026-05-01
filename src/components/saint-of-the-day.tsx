@@ -382,14 +382,13 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 "flex flex-1 flex-col items-start saint-name-container",
                 isOpen && dayData.saints.length > 1 && "md:items-end"
               )}>
-                {currentSaintData.isMartyr && (
-                  <span className="-mt-1 text-[9px] font-bold px-2 py-0.5 rounded-full bg-red-700 text-white mb-0.5 shadow-sm uppercase tracking-widest animate-in fade-in slide-in-from-bottom-1">Mártir</span>
-                )}
                 <div className={cn(
                   "date-capsule flex items-center gap-2",
-                  isOpen && "text-xs md:text-right",
-                  currentSaintData.isMartyr && "-mt-1"
+                  isOpen && "text-xs md:text-right"
                 )}>
+                  {currentSaintData.isMartyr && (
+                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-widest animate-in fade-in slide-in-from-bottom-1">Mártir</span>
+                  )}
                   {dayData.day} de {dayData.month}
                 </div>
                 <div className={cn(
@@ -415,7 +414,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                                 ? "text-3xl md:text-5xl" 
                                 : (dayData.saints.length > 1 ? "text-base" : "text-xl")
                             )}>{main}</span>
-                            {additional && !s.isMartyr && (
+                            {additional && (
                               <span className={cn(
                                 "font-normal opacity-90 transition-all duration-500",
                                 isOpen ? "text-xl md:text-2xl mt-1" : "text-[10px] -mt-0.5"
@@ -466,7 +465,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                       >
                         <div className="flex flex-col items-center leading-tight">
                           <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
-                          {formatSaintName(saint.name, true, true).additional && !saint.isMartyr && (
+                          {formatSaintName(saint.name, true, true).additional && (
                             <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
                           )}
                         </div>

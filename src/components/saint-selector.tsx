@@ -270,7 +270,7 @@ function SaintSelector({
                     />
                     <div className="flex flex-col items-center leading-tight mt-1">
                       <p className="text-sm font-bold text-gray-800 font-brand">{formatSaintName(saint.name).main}</p>
-                      {formatSaintName(saint.name).additional && !saint.isMartyr && (
+                      {formatSaintName(saint.name).additional && (
                         <p className="text-[10px] font-normal text-gray-500 opacity-80">{formatSaintName(saint.name).additional}</p>
                       )}
                     </div>

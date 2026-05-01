@@ -2797,8 +2797,8 @@ export const saints: Saint[] = [
   { id: 'santa_gemma_galgani', name: 'Santa Gemma Galgani', imageUrl: 'https://i.pinimg.com/1200x/8a/e9/88/8ae9882bcb83a868f759277dc575965d.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '02/04', endDate: '10/04', feastDay: '11/Abr' },
   { id: 'divina_misericordia', name: 'Divina Misericórdia', imageUrl: 'https://i.pinimg.com/736x/07/32/73/073273a0d0f34f3e0241377c516aa140.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '03/04', endDate: '11/04', feastDay: '12/Abr' },
 
-  { id: 'santo_expedito', name: 'Santo Expedito Mártir', imageUrl: 'https://i.pinimg.com/1200x/b7/44/62/b7446207d5dd9ed23c8adba86d6f432f.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '10/04', endDate: '18/04', feastDay: '19/Abr', isMartyr: true },
-  { id: 'sao_jorge', name: 'São Jorge Guerreiro', imageUrl: 'https://i.pinimg.com/736x/5a/04/7d/5a047d8750cc4fced440dbc6d3c6e40a.jpg', month: 'Abril', startDate: '14/04', endDate: '22/04', feastDay: '23/Abr', isMartyr: true },
+  { id: 'santo_expedito', name: 'Santo Expedito', imageUrl: 'https://i.pinimg.com/1200x/b7/44/62/b7446207d5dd9ed23c8adba86d6f432f.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '10/04', endDate: '18/04', feastDay: '19/Abr', isMartyr: true },
+  { id: 'sao_jorge', name: 'São Jorge', imageUrl: 'https://i.pinimg.com/736x/5a/04/7d/5a047d8750cc4fced440dbc6d3c6e40a.jpg', month: 'Abril', startDate: '14/04', endDate: '22/04', feastDay: '23/Abr', isMartyr: true },
   { id: 'sao_marcos', name: 'São Marcos Evangelista', imageUrl: 'https://i.pinimg.com/1200x/13/d9/a0/13d9a05cfc1153588391d66d6ce20c88.jpg', month: 'Abril', startDate: '16/04', endDate: '24/04', feastDay: '25/Abr' },
   { id: 'sao_luis_montfort', name: 'São Luís de Montfort', imageUrl: 'https://i.pinimg.com/736x/de/a5/30/dea530bc046eef333dcde4daec597717.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
   { id: 'santa_gianna_beretta', name: 'Santa Gianna Beretta Molla', imageUrl: 'https://i.pinimg.com/1200x/3e/f0/b2/3ef0b28700ca5d1dbeba832b30a43ff3.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
