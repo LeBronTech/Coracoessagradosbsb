@@ -1860,7 +1860,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 <p class="mt-4">Ensina-me a ver nos meus funcionários e colegas de trabalho o Cristo que deseja estar neles, para que eu seja sempre caridoso e tolerante com todos.</p>
                 <p class="mt-4">Concede-me que olhe para o trabalho com os olhos da fé, para que nele reconheça a minha participação na atividade criativa de Deus e na obra de Cristo para a nossa redenção, e assim me orgulhe dele.</p>
                 <p class="mt-4">Quando for agradável e produtivo, lembre-me de agradecer a Deus por isso. E quando for pesado, ensina-me a oferecê-lo a Deus, em reparação pelos meus pecados e pelos pecados do mundo.</p>
-                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                <div class="mt-8 p-6 bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl text-black border-none" style="color: black !important;">
                     <p class="italic"><strong>Ó bom pai, São José!</strong> Rogo-lhe, com todos os seus sofrimentos, tristezas e alegrias, que obtenha para mim o que agora peço: <em>(faça seu pedido).</em></p>
                     <p class="mt-3">Obtenha para todos aqueles que pediram minhas orações tudo o que lhes for útil no plano de Deus. Esteja perto de mim nos meus últimos momentos para que eu cante eternamente louvores a Jesus, Maria e José. Amém.</p>
                 </div>

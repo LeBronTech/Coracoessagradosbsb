@@ -456,12 +456,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       <header id="novena-header" className="w-full relative rounded-2xl mb-8 z-20">
         {/* === Container for blurred image background - moved overflow-hidden here === */}
         <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
-          <img
+          <Image
             src={(novena as any)?.image || saint.imageUrl}
             alt=""
             aria-hidden
+            fill
             className="absolute inset-0 w-full h-full object-cover blur-[30px] scale-[1.2] opacity-80 transition-all duration-1000"
             style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+            priority
           />
           {/* Dark overlay for text readability - now dynamic by theme */}
           <div className={cn("absolute inset-0 bg-gradient-to-r", themeHeaderOverlay[theme])} />
@@ -474,11 +476,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             <Dialog>
               <DialogTrigger asChild>
                 <div className="relative group/img cursor-zoom-in flex-shrink-0">
-                  <img
+                  <Image
                     src={(novena as any)?.image || saint.imageUrl}
                     alt={saint.name}
+                    width={160}
+                    height={160}
                     className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-[0_20px_50px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
                     style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+                    priority
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
                     <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
@@ -498,11 +503,15 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                         <X className="w-5 h-5" />
                       </DialogClose>
                       
-                      <img
-                        src={(novena as any)?.image || saint.imageUrl}
-                        alt={saint.name}
-                        className="max-h-[75vh] sm:max-h-[85vh] w-auto max-w-[95vw] object-contain rounded-lg drop-shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-500"
-                      />
+                      <div className="relative">
+                        <Image
+                          src={(novena as any)?.image || saint.imageUrl}
+                          alt={saint.name}
+                          width={1200}
+                          height={1600}
+                          className="max-h-[75vh] sm:max-h-[85vh] w-auto max-w-[95vw] object-contain rounded-lg drop-shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-500"
+                        />
+                      </div>
                     </div>
                   </div>
                   

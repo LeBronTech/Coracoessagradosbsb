@@ -409,6 +409,17 @@ export default function Home() {
     }
   }
 
+  // Preload images for current month to avoid jank when switching
+  useEffect(() => {
+    if (!hydrated) return;
+    
+    const monthSaints = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth));
+    monthSaints.forEach(saint => {
+      const img = new (window as any).Image();
+      img.src = saint.imageUrl;
+    });
+  }, [selectedMonth, hydrated, saints]);
+
   const handleSaintOfTheDayNavigation = (direction: 'prev' | 'next') => {
     setIsSaintOfTheDayOpen(false); // Close accordion before navigating
     // Add a small delay to allow the accordion to close before changing the slide
