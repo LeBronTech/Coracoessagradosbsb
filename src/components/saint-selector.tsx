@@ -225,6 +225,7 @@ function SaintSelector({
 
       <div
         key={selectedMonth}
+        id="saints-icons-container"
         ref={navContainerRef}
         className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4 animate-fade-in"
       >

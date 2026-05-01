@@ -318,11 +318,10 @@ export default function Home() {
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = window.setTimeout(() => {
           requestAnimationFrame(() => {
-            const selectorTitle = document.getElementById('saints-nav-title');
-            if (selectorTitle) {
-                selectorTitle.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            if (novenaSectionRef.current) {
+                smoothScrollToElement(novenaSectionRef.current);
             } else if (novenaDisplaySectionRef.current) {
-                novenaDisplaySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                smoothScrollToElement(novenaDisplaySectionRef.current);
             }
             setScrollTarget(null);
           });
@@ -651,7 +650,7 @@ export default function Home() {
                 </h2>
               </div>
             </div>
-            <div className="bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg p-4 relative border border-white/20">
+            <div id="saint-selector-container" className="bg-gray-100/70 backdrop-blur-sm rounded-xl shadow-lg p-4 relative border border-white/20">
               <SaintSelector
                 saints={saints}
                 months={months}
