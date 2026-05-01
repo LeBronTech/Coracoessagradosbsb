@@ -660,19 +660,19 @@
   }
 
   .devotion-item.devotion-item--thursday {
-    @apply border-purple-900 bg-white;
+    @apply border-[#2e1065] bg-white;
   }
   
   .devotion-item.devotion-item--thursday .devotion-icon {
-    @apply text-purple-800;
+    color: #2e1065;
   }
   
   .devotion-item.devotion-item--thursday .text-sm {
-    @apply text-purple-950;
+    color: #1e0a45;
   }
   
   .devotion-item.devotion-item--thursday .text-xs {
-    @apply text-purple-700;
+    color: #4c1d95;
   }
 
   .devotion-item.devotion-item--friday {

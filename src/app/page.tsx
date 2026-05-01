@@ -282,7 +282,7 @@ export default function Home() {
   }, [hydrated]);
 
 
-  const smoothScrollToElement = (target: HTMLElement | null) => {
+  const smoothScrollToElement = (target: HTMLElement | null, customOffset?: number) => {
     if (!target) return;
 
     const isScrollable = (node: Element | null) => {
@@ -297,7 +297,7 @@ export default function Home() {
       ancestor = ancestor.parentElement;
     }
 
-    const headerOffset = 32; // maior respiro no topo após a rolagem
+    const headerOffset = customOffset !== undefined ? customOffset : 32; // maior respiro no topo após a rolagem
 
     if (!ancestor || ancestor === document.documentElement || ancestor === document.body) {
       const top = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
@@ -318,8 +318,9 @@ export default function Home() {
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = window.setTimeout(() => {
           requestAnimationFrame(() => {
-            if (novenaSectionRef.current) {
-                smoothScrollToElement(novenaSectionRef.current);
+            const selectorContainer = document.getElementById('saint-selector-container');
+            if (selectorContainer) {
+                smoothScrollToElement(selectorContainer as HTMLElement, 0);
             } else if (novenaDisplaySectionRef.current) {
                 smoothScrollToElement(novenaDisplaySectionRef.current);
             }

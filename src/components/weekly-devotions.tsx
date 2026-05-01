@@ -196,7 +196,7 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
           selectedDevotion === 'weekly' && dayOfWeek === 1 && "bg-[#6b7280] border-[#6b7280]",
           selectedDevotion === 'weekly' && dayOfWeek === 2 && "bg-[#b45309] border-[#b45309]",
           selectedDevotion === 'weekly' && dayOfWeek === 3 && "bg-[#16a34a] border-[#16a34a]",
-          selectedDevotion === 'weekly' && dayOfWeek === 4 && "bg-[#581c87] border-[#581c87]",
+          selectedDevotion === 'weekly' && dayOfWeek === 4 && "bg-[#2e1065] border-[#1e0a45]",
           selectedDevotion === 'weekly' && dayOfWeek === 5 && "bg-[#b91c1c] border-[#b91c1c]",
           selectedDevotion === 'weekly' && dayOfWeek === 6 && "bg-[#38bdf8] border-[#38bdf8]"
         )}>
