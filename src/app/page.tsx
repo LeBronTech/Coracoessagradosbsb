@@ -87,6 +87,7 @@ export default function Home() {
   const [isHamburgerRed, setIsHamburgerRed] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [loadingFinished, setLoadingFinished] = useState(false);
   const [userProgress, setUserProgress] = useState<{ completed: number, ongoing: { id: string, name: string, day: number }[] }>({ completed: 0, ongoing: [] });
 
   const calculateProgress = useCallback(() => {
@@ -314,7 +315,7 @@ export default function Home() {
     if (selectedSaintId && hydrated) {
       history.pushState({ novenaId: selectedSaintId }, '', '#' + selectedSaintId);
       
-      if (scrollTarget) {
+      if (scrollTarget && loadingFinished) {
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
         scrollTimeoutRef.current = window.setTimeout(() => {
           requestAnimationFrame(() => {
@@ -326,7 +327,7 @@ export default function Home() {
             }
             setScrollTarget(null);
           });
-        }, 500);
+        }, 100); // Pequeno atraso para garantir que o DOM esteja pronto após o unmount do loading
       }
     }
 
@@ -336,7 +337,7 @@ export default function Home() {
         scrollTimeoutRef.current = null;
       }
     }
-  }, [selectedSaintId, hydrated, scrollTarget]);
+  }, [selectedSaintId, hydrated, scrollTarget, loadingFinished]);
 
   const selectedNovena = useMemo(
     () => (selectedSaintId ? novenaData[selectedSaintId] : null),
@@ -460,7 +461,12 @@ export default function Home() {
 
   return (
     <React.Fragment>
-      <LoadingScreen isLoading={!hydrated || isNavigating} />
+      <LoadingScreen 
+        isLoading={!hydrated || isNavigating} 
+        onFinished={() => {
+          if (!isNavigating) setLoadingFinished(true);
+        }} 
+      />
       
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         {/* Botão de abrir (visível apenas quando o menu está fechado) */}

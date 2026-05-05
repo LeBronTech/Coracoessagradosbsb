@@ -414,29 +414,63 @@
   }
 
   .group.is-open .saint-image-wrapper.multiple {
-    transform: translateY(-2rem);
-    width: 10rem;
+    transform: translateY(-2.5rem);
+    width: 12rem;
     height: 10rem;
   }
 
   .group.is-open .saint-image-wrapper.multiple .saint-image {
-    @apply absolute w-16 h-16;
+    @apply absolute w-16 h-16 border-2;
     top: 50%;
     left: 50%;
     bottom: auto;
     right: auto;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .group.is-open .saint-image-wrapper.multiple .saint-image--active {
-    transform: translate(-50%, -50%) scale(2);
+    transform: translate(-50%, -55%) scale(2);
     opacity: 1;
     z-index: 50;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+    filter: brightness(1.1);
   }
 
   .group.is-open .saint-image-wrapper.multiple .saint-image--inactive {
-    transform: translate(-50%, -50%) scale(1.1);
-    opacity: 0.3;
+    opacity: 0.75;
     z-index: 10;
+    filter: grayscale(0.3) blur(1px);
+  }
+
+  /* Posicionamento dos inativos em pilha - Mais afastados para visibilidade */
+  .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-0 {
+    transform: translate(-140%, 15%) scale(0.9);
+  }
+
+  .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-1 {
+    transform: translate(40%, 15%) scale(0.9);
+  }
+
+  .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-2 {
+    transform: translate(-50%, 50%) scale(0.9);
+    z-index: 5;
+  }
+
+  @media (max-width: 767px) {
+    .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-0 {
+      transform: translate(-105%, 35%) scale(0.9);
+    }
+    .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-1 {
+      transform: translate(5%, 35%) scale(0.9);
+    }
+    .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-2 {
+      transform: translate(-50%, 60%) scale(0.9);
+    }
+  }
+
+  /* Ajuste específico para quando o ativo é o do meio ou fim, para garantir que os outros fiquem visíveis */
+  .group.is-open .saint-image-wrapper.multiple .saint-image--active ~ .saint-image--inactive {
+    /* Imagens que vem DEPOIS do ativo no DOM */
   }
 
 

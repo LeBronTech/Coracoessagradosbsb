@@ -30,7 +30,7 @@ const seasonTranslation: Record<string, string> = {
   'Easter': 'Tempo da Páscoa'
 };
 
-function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; isOpen: boolean; selectedIndex: number; }) {
+function SaintImages({ saints, isOpen, selectedIndex, onSelect }: { saints: SaintStory[]; isOpen: boolean; selectedIndex: number; onSelect?: (index: number) => void; }) {
   if (saints.length === 1) {
     return (
       <div className={cn("saint-image-wrapper single", isOpen && "open")}>
@@ -56,12 +56,22 @@ function SaintImages({ saints, isOpen, selectedIndex }: { saints: SaintStory[]; 
             alt={saint.name}
             width={64}
             height={64}
+            onClick={(e) => {
+              if (isOpen && onSelect) {
+                e.stopPropagation();
+                onSelect(index);
+              }
+            }}
             className={cn(
               "saint-image",
               `image-${index}`,
+              isOpen && index !== selectedIndex && "cursor-pointer hover:brightness-110 active:scale-95",
               isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
             )}
-            style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
+            style={{ 
+              objectPosition: (saint as any).imageObjectPosition ?? 'center',
+              cursor: isOpen && index !== selectedIndex ? 'pointer' : 'default'
+            }}
           />
         ))}
       </div>
@@ -377,9 +387,15 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             </div>
 
             <div className="flex items-center gap-4 text-left w-full relative z-10">
-              <SaintImages saints={dayData.saints} isOpen={isOpen} selectedIndex={selectedSaintInDayIndex} />
+              <SaintImages 
+                saints={dayData.saints} 
+                isOpen={isOpen} 
+                selectedIndex={selectedSaintInDayIndex} 
+                onSelect={setSelectedSaintInDayIndex}
+              />
               <div className={cn(
                 "flex flex-1 flex-col items-start saint-name-container",
+                isOpen && "items-center md:items-start",
                 isOpen && dayData.saints.length > 1 && "md:items-end"
               )}>
                 <div className={cn(

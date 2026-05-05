@@ -24,6 +24,7 @@ export default function SaoJosePage() {
     const [activeSection, setActiveSection] = useState<"home" | "consagracao">("home");
     const consagracaoContentRef = useRef<HTMLDivElement>(null);
     const [hydrated, setHydrated] = useState(false);
+    const [loadingFinished, setLoadingFinished] = useState(false);
 
     React.useEffect(() => {
         setHydrated(true);
@@ -46,7 +47,7 @@ export default function SaoJosePage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated} />
+            <LoadingScreen isLoading={!hydrated} onFinished={() => setLoadingFinished(true)} />
             <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated ? "opacity-100" : "opacity-0")}>
             {/* Header / Hero Section */}
             <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
@@ -488,17 +489,18 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consag
         if (!once.current && currentConsagracaoDay) {
             setActiveTab(`dia-${currentConsagracaoDay}`);
             
-            // Força centralização horizontal após um breve delay
-            setTimeout(() => {
-                const element = document.getElementById(`trigger-dia-${currentConsagracaoDay}`);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                }
-            }, 500);
-            
-            once.current = true;
+            // Força centralização horizontal após o loading finalizar
+            if (loadingFinished) {
+                setTimeout(() => {
+                    const element = document.getElementById(`trigger-dia-${currentConsagracaoDay}`);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                }, 100);
+                once.current = true;
+            }
         }
-    }, [currentConsagracaoDay]);
+    }, [currentConsagracaoDay, loadingFinished]);
 
     React.useEffect(() => {
         localStorage.setItem("sao-jose-consagracao-completed", JSON.stringify(completedDays));
