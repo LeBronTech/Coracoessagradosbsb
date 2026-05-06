@@ -19,7 +19,7 @@ export const confessionData: CityData[] = [
     city: 'Águas Claras',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora da Assunção',
+        name: 'Paróquia N.S. da Assunção',
         address: 'Águas Claras',
         times: 'Terça a sexta: de 16:00 às 18:00. Sábado: de 10:00 às 12:00',
         instagram: 'https://www.instagram.com/paroquiaassuncaoaguasclaras'
@@ -31,7 +31,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/paroquiabja'
       },
       {
-        name: 'Capela Nossa Senhora do Amparo',
+        name: 'Capela N.S. do Amparo',
         address: 'Águas Claras',
         times: 'Quarta: de 17:00 às 19:00'
       },
@@ -59,7 +59,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/maria_auxiliadora_arniqueira'
       },
       {
-        name: 'Capela Nossa Senhora das Graças',
+        name: 'Capela N.S. das Graças',
         address: 'Arniqueiras',
         times: 'Quarta: a partir de 19:00',
         location: 'https://www.google.com/maps/search/?api=1&query=Capela+Nossa+Senhora+das+Graças+Arniqueiras'
@@ -96,19 +96,19 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/basicasaofranciscodf'
       },
       {
-        name: 'Santuário Nossa Senhora da Saúde',
+        name: 'Santuário N.S. da Saúde',
         address: 'Asa Norte',
         times: 'Terça a sexta: de 10:00 às 12:00 e de 17:00 às 18:00',
         instagram: 'https://www.instagram.com/nossasenhoradasaudedf'
       },
       {
-        name: 'Paróquia Nossa Senhora das Graças da Medalha Milagrosa',
+        name: 'Paróquia N.S. das Graças da Medalha Milagrosa',
         address: 'Asa Norte',
         times: 'Terça a sexta: a partir de 17:00',
         instagram: 'https://www.instagram.com/pnsg.asanorte'
       },
       {
-        name: 'Paróquia Nossa Senhora Consolata',
+        name: 'Paróquia N.S. Consolata',
         address: 'Asa Norte',
         times: 'Terça a sexta: de 08:00 às 10:00 e de 14:30 às 17:30',
         instagram: 'https://www.instagram.com/nsconsolata'
@@ -126,13 +126,13 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/maedadivinamisericordiabsb'
       },
       {
-        name: 'Paróquia Nossa Senhora da Esperança',
+        name: 'Paróquia N.S. da Esperança',
         address: 'Asa Norte',
         times: 'Terça a sexta: de 16:00 às 18:00',
         instagram: 'https://www.instagram.com/pnse_esperanca'
       },
       {
-        name: 'Paróquia Nossa Senhora do Rosário de Pompeia',
+        name: 'Paróquia N.S. do Rosário de Pompeia',
         address: 'Asa Norte',
         times: 'Quinta: de 15:00 às 18:00. Primeira sexta do mês: de 16:00 às 18:00',
         instagram: 'https://www.instagram.com/rosariodepompeiavp'
@@ -167,21 +167,21 @@ export const confessionData: CityData[] = [
     city: 'Asa Sul',
     parishes: [
       {
-        name: 'Catedral Metropolitana Nossa Senhora Aparecida',
+        name: 'Catedral Metropolitana N.S. Aparecida',
         address: 'Asa Sul',
         times: 'Terça a sexta: de 10:00 às 12:45',
         location: 'https://www.google.com/maps/search/?api=1&query=Catedral+Metropolitana+Nossa+Senhora+Aparecida+Asa+Sul',
         instagram: 'https://www.instagram.com/catedralbrasilia'
       },
       {
-        name: 'Santuário Nossa Senhora de Fátima',
+        name: 'Santuário N.S. de Fátima',
         address: 'Asa Sul',
         times: 'Terça a sexta: de 14:30 às 16:00 (por agendamento)',
         location: 'https://www.google.com/maps/search/?api=1&query=Santuário+Nossa+Senhora+de+Fátima+Asa+Sul',
         instagram: 'https://www.instagram.com/pnsfatimabsb'
       },
       {
-        name: 'Santuário Nossa Senhora do Carmo',
+        name: 'Santuário N.S. do Carmo',
         address: 'Asa Sul',
         times: 'Terça e sexta: de 09:00 às 11:00 e de 14:00 às 17:00',
         location: 'https://www.google.com/maps/search/?api=1&query=Santuário+Nossa+Senhora+do+Carmo+Asa+Sul',
@@ -209,14 +209,14 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/santontonioasasul'
       },
       {
-        name: 'Paróquia Nossa Senhora de Guadalupe',
+        name: 'Paróquia N.S. de Guadalupe',
         address: 'Asa Sul',
         times: 'Terça a sexta: de 17:00 às 19:00. sabado e domingo: de 17:00 às 18:30',
         location: 'https://www.google.com/maps/search/?api=1&query=Paróquia+Nossa+Senhora+de+Guadalupe+Asa+Sul',
         instagram: 'https://www.instagram.com/Pnsg12'
       },
       {
-        name: 'Paróquia Sagrado Coração de Jesus e Nossa Senhora das Mercês',
+        name: 'Paróquia Sagrado Coração de Jesus e N.S. das Mercês',
         address: 'Asa Sul',
         times: 'Todos os dias: 15 minutos antes das missas. Primeira sexta do mês: de 14:00 às 18:45',
         location: 'https://www.google.com/maps/search/?api=1&query=Paróquia+Sagrado+Coração+de+Jesus+e+Nossa+Senhora+das+Mercês+Asa+Sul',
@@ -299,7 +299,7 @@ export const confessionData: CityData[] = [
     city: 'Ceilândia & Sol Nascente',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora da Glória',
+        name: 'Paróquia N.S. da Glória',
         address: 'Ceilândia',
         times: 'Terça a Sexta: 30 minutos antes das missas e logo após as missas. Sábado e Domingo: Depois das missas.',
         instagram: 'https://www.instagram.com/pnsg.oficial'
@@ -325,7 +325,7 @@ export const confessionData: CityData[] = [
         times: 'Terça: De 19:00 às 20:00.'
       },
       {
-        name: 'Comunidade Nossa Senhora da Anunciação',
+        name: 'Comunidade N.S. da Anunciação',
         address: 'Ceilândia',
         times: 'Quinta: De 19:00 às 20:00.'
       },
@@ -335,7 +335,7 @@ export const confessionData: CityData[] = [
         times: 'Sexta: De 19:00 às 20:00.'
       },
       {
-        name: 'Comunidade Nossa Senhora da Abadia',
+        name: 'Comunidade N.S. da Abadia',
         address: 'Ceilândia',
         times: 'Sábado: Antes da missa.'
       },
@@ -346,7 +346,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/psfranciscocsul'
       },
       {
-        name: 'Capela Nossa Senhora de Fátima',
+        name: 'Capela N.S. de Fátima',
         address: 'Ceilândia',
         times: 'Terça: De 17:30 às 19:00.'
       },
@@ -368,7 +368,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/psmsl.qfm'
       },
       {
-        name: 'Paróquia Nossa Senhora da Natividade',
+        name: 'Paróquia N.S. da Natividade',
         address: 'Ceilândia',
         times: 'Terça a Sexta: A partir de 16:00.'
       },
@@ -379,7 +379,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/sagrado.coracao'
       },
       {
-        name: 'Paróquia Nossa Senhora de Lourdes',
+        name: 'Paróquia N.S. de Lourdes',
         address: 'Ceilândia',
         times: 'Terça, Quinta e Sexta: De 18:00 às 19:00.',
         instagram: 'https://www.instagram.com/paroquialourdes'
@@ -390,12 +390,12 @@ export const confessionData: CityData[] = [
         times: 'Sábado: De 18:00 às 19:00.'
       },
       {
-        name: 'Capela Nossa Senhora Aparecida',
+        name: 'Capela N.S. Aparecida',
         address: 'Ceilândia',
         times: 'Domingo: De 11:00 às 12:00.'
       },
       {
-        name: 'Paróquia Nossa Senhora da Paz',
+        name: 'Paróquia N.S. da Paz',
         address: 'Ceilândia',
         times: 'Terça e Quarta: Depois da missa. Quinta: A partir de 17:00 e depois da missa. Sábado: A partir de 09:00 (confissões por agendamento).',
         instagram: 'https://www.instagram.com/nsenhoradapaz'
@@ -407,7 +407,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/p.santaclara.oiconv'
       },
       {
-        name: 'Paróquia Nossa Senhora do Perpétuo Socorro',
+        name: 'Paróquia N.S. do Perpétuo Socorro',
         address: 'Ceilândia',
         times: 'Terça e Quinta: De 09:00 às 11:00 e de 14:30 às 17:00. Sábado: De 09:00 às 11:00.',
         instagram: 'https://www.instagram.com/perpetuo_socorro_capuchinhos'
@@ -436,7 +436,7 @@ export const confessionData: CityData[] = [
         times: 'Sábado: A partir de 18:00.'
       },
       {
-        name: 'Paróquia Nossa Senhora da Expectação',
+        name: 'Paróquia N.S. da Expectação',
         address: 'Ceilândia',
         times: 'Terça a Sexta: De 16:00 às 18:00. Sábado: De 09:00 às 12:00.',
         instagram: 'https://www.instagram.com/paroquiaexpectacaodeceilandia'
@@ -464,7 +464,7 @@ export const confessionData: CityData[] = [
     city: 'Cruzeiro',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora das Dores',
+        name: 'Paróquia N.S. das Dores',
         address: 'Cruzeiro',
         times: 'Terça a Sexta: 08:00+ e 18:15+. Sábado: 1º do mês 08:15+, outros 07:15+ e 18:15+. Domingo: 07:15+ e 18:15+',
         instagram: 'https://www.instagram.com/pnsdoresdf'
@@ -490,14 +490,14 @@ export const confessionData: CityData[] = [
     city: 'Estrutural',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora do Encontro com Deus',
+        name: 'Paróquia N.S. do Encontro com Deus',
         address: 'Estrutural',
         times: 'Terça a domingo: 30 minutos antes e depois das missas',
         location: 'https://www.google.com/maps/search/?api=1&query=Paróquia+Nossa+Senhora+do+Encontro+com+Deus+Estrutural',
         instagram: 'https://www.instagram.com/pnsed'
       },
       {
-        name: 'Capela Nossa Senhora da Esperança',
+        name: 'Capela N.S. da Esperança',
         address: 'Estrutural',
         times: 'Domingo: 30 minutos antes da missa das 17:00',
         location: 'https://www.google.com/maps/search/?api=1&query=Capela+Nossa+Senhora+da+Esperança+Estrutural'
@@ -531,13 +531,13 @@ export const confessionData: CityData[] = [
         city: 'Novo Gama',
         parishes: [
           {
-            name: 'Paróquia Nossa Senhora Imaculada Conceição',
+            name: 'Paróquia N.S. Imaculada Conceição',
             address: 'Novo Gama - GO',
             times: 'Sexta-feira: De 09:00 às 11:00, de 14:30 às 17:00 e de 19:00 às 21:00',
             instagram: 'https://www.instagram.com/imaculadanovogama'
           },
           {
-            name: 'Paróquia Nossa Senhora do Perpétuo Socorro',
+            name: 'Paróquia N.S. do Perpétuo Socorro',
             address: 'Novo Gama - GO',
             times: 'Quarta, Quinta e Sexta: Às 18:00'
           }
@@ -558,7 +558,7 @@ export const confessionData: CityData[] = [
         city: 'Luziânia',
         parishes: [
           {
-            name: 'Paróquia Nossa Senhora de Lourdes',
+            name: 'Paróquia N.S. de Lourdes',
             address: 'Luziânia - GO',
             times: 'Quarta e Sexta: De 14:00 às 17:00'
           }
@@ -618,7 +618,7 @@ export const confessionData: CityData[] = [
         city: 'Cristalina',
         parishes: [
           {
-            name: 'Paróquia Nossa Senhora Aparecida',
+            name: 'Paróquia N.S. Aparecida',
             address: 'Cristalina - GO',
             times: 'Confissões por agendamento na secretaria paroquial'
           }
@@ -630,7 +630,7 @@ export const confessionData: CityData[] = [
     city: 'Fercal & Itapoã',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Fercal',
         times: 'Quintas e sextas-feiras, das 17h00 às 18h30, e aos sábados, das 10h00 às 12h00. Outors horarios por agendamento na secretaria',
         instagram: 'https://www.instagram.com/pnsafercal'
@@ -665,25 +665,25 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/paroquiaimaculadagama'
       },
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Gama',
         times: 'Terça: de 09:30 às 11:00, de 16:30 às 18:00 e de 20:00 às 21:30. Quarta e sexta: de 16:30 às 18:00. Quinta: de 16:30 às 18:00 e de 20:00 às 21:30. Sábado: de 09:30 às 11:00. Domingo: de 17:00 às 18:30',
         instagram: 'https://www.instagram.com/paroquia_nsra_aparecida'
       },
       {
-        name: 'Paróquia Nossa Senhora Auxiliadora dos Cristãos',
+        name: 'Paróquia N.S. Auxiliadora dos Cristãos',
         address: 'Gama',
         times: 'Terça e quinta: de 14:00 às 18:00',
         instagram: 'https://www.instagram.com/auxiliadoradoscristaos'
       },
       {
-        name: 'Paróquia Nossa Senhora de Fátima',
+        name: 'Paróquia N.S. de Fátima',
         address: 'Gama',
         times: 'Quarta e sexta: de 15:00 às 17:30',
         instagram: 'https://www.instagram.com/pnsfatimagamadf'
       },
       {
-        name: 'Paróquia Nossa Senhora do Carmo',
+        name: 'Paróquia N.S. do Carmo',
         address: 'Gama',
         times: 'Terça e quinta: de 09:30 às 11:30',
         instagram: 'https://www.instagram.com/paroquianossasenhora.carmo'
@@ -773,7 +773,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/tabordaesperanca'
       },
       {
-        name: 'Paróquia Nossa Senhora do Lago',
+        name: 'Paróquia N.S. do Lago',
         address: 'Lago Norte',
         times: 'Terça: de 20:00 às 22:00. Quinta: de 09:00 às 11:00',
         location: 'https://www.google.com/maps/search/?api=1&query=Paróquia+Nossa+Senhora+do+Lago+Lago+Norte',
@@ -794,7 +794,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/psasgalvao'
       },
       {
-        name: 'Capela Nossa Senhora Mae dos Migrantes',
+        name: 'Capela N.S. Mae dos Migrantes',
         address: 'Lago Norte',
         times: 'Quarta e sexta: 18:30',
         location: 'https://www.google.com/maps/search/?api=1&query=Capela+Nossa+Senhora+Mae+dos+Migrantes+Lago+Norte',
@@ -875,7 +875,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/santamariadospobres'
       },
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Paranoá',
         times: 'Quinta: de 15:00 às 17:00. Sexta: de 15:00 às 17:00 e depois da missa. Sábado: de 09:00 às 12:00',
         instagram: 'https://www.instagram.com/paroquian.sraaparecidapadf'
@@ -887,7 +887,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/paroquiasaojosedeanchieta'
       },
       {
-        name: 'Paróquia Nossa Senhora Auxiliadora',
+        name: 'Paróquia N.S. Auxiliadora',
         address: 'Paranoá',
         times: 'Sábado: Após a missa das 19h. Domingo: 30 minutos antes de cada missa (08h, 10h e 19h).',
         instagram: 'https://www.instagram.com/auxiliadoragomel'
@@ -938,7 +938,7 @@ export const confessionData: CityData[] = [
         times: '4ª quinta do mês (19:00+)'
       },
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Planaltina',
         times: 'Quinta: 15:00 às 18:00'
       },
@@ -973,7 +973,7 @@ export const confessionData: CityData[] = [
         times: 'Sexta 18:00 às 19:20'
       },
       {
-        name: 'Paróquia Nossa Senhora de Nazaré',
+        name: 'Paróquia N.S. de Nazaré',
         address: 'Planaltina',
         times: 'Terça, Quinta e Sexta: 18:00 às 19:15'
       },
@@ -983,7 +983,7 @@ export const confessionData: CityData[] = [
         times: 'Quarta 18:00 às 19:15'
       },
       {
-        name: 'Paróquia Nossa Senhora de Fátima',
+        name: 'Paróquia N.S. de Fátima',
         address: 'Planaltina',
         times: 'Terça, Quinta e Sexta: 18:00 até começar a missa'
       },
@@ -1063,7 +1063,7 @@ export const confessionData: CityData[] = [
     city: 'Riacho Fundo 2',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora da Medalha Milagrosa',
+        name: 'Paróquia N.S. da Medalha Milagrosa',
         address: 'Riacho Fundo 2',
         times: 'Quinta e sexta: de 15:00 às 16:30. Sábado: de 09:00 às 11:00',
         instagram: 'https://www.instagram.com/raiosdamedalha'
@@ -1104,19 +1104,19 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/imaculadaconceicaodemaria'
       },
       {
-        name: 'Paróquia Nossa Senhora de Fátima',
+        name: 'Paróquia N.S. de Fátima',
         address: 'Samambaia',
         times: 'Terça e sábado: a partir de 09:00. Quarta: a partir de 15:00',
         instagram: 'https://www.instagram.com/pnsfatimasamambaia'
       },
       {
-        name: 'Paróquia Nossa Senhora das Graças',
+        name: 'Paróquia N.S. das Graças',
         address: 'Samambaia',
         times: 'Terça a sexta: a partir das 19:00. Sábado: a partir das 18:00',
         instagram: 'https://www.instagram.com/paroquia_nsg'
       },
       {
-        name: 'Paróquia Nossa Senhora das Dores',
+        name: 'Paróquia N.S. das Dores',
         address: 'Samambaia',
         times: 'Terça, quarta, sexta e sábado: de 18:00 às 19:00. Quinta: a partir de 19:30',
         instagram: 'https://www.instagram.com/pnsdoresdf'
@@ -1128,7 +1128,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/psjosam'
       },
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Samambaia',
         times: 'Terça a sexta: de 18:00 às 18:50',
         instagram: 'https://www.instagram.com/pnsadf'
@@ -1241,13 +1241,13 @@ export const confessionData: CityData[] = [
     city: 'Sobradinho',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora Aparecida',
+        name: 'Paróquia N.S. Aparecida',
         address: 'Sobradinho',
         times: 'Segunda a sábado: de 17:00 às 18:50. Domingo: de 07:00 às 07:50, de 09:30 às 09:50, de 17:00 às 18:50',
         instagram: 'https://www.instagram.com/paroquiansaparecidasob2'
       },
       {
-        name: 'Paróquia Nossa Senhora da Conceição Aparecida',
+        name: 'Paróquia N.S. da Conceição Aparecida',
         address: 'Sobradinho',
         times: 'Quinta: a partir de 20:00. Domingo: a partir de 18:00',
         instagram: 'https://www.instagram.com/nsca.paroquia'
@@ -1263,7 +1263,7 @@ export const confessionData: CityData[] = [
         times: 'Sexta a partir de 18:30'
       },
       {
-        name: 'Paróquia Nossa Senhora da Imaculada Conceição',
+        name: 'Paróquia N.S. da Imaculada Conceição',
         address: 'Sobradinho',
         times: 'Terça e quarta: de 17:30 às 18:30. Sábado: de 09:30 às 10:30',
         instagram: 'https://www.instagram.com/comunica.imaculada'
@@ -1281,19 +1281,19 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/psjemdf'
       },
       {
-        name: 'Paróquia Nossa Senhora do Rosário de Fátima',
+        name: 'Paróquia N.S. do Rosário de Fátima',
         address: 'Sobradinho',
         times: 'Terça e sexta: de 15:00 às 17:00',
         instagram: 'https://www.instagram.com/nsrf_sobradinho'
       },
       {
-        name: 'Paróquia Nossa Senhora Mãe dos Migrantes',
+        name: 'Paróquia N.S. Mãe dos Migrantes',
         address: 'Sobradinho',
         times: 'Terça a sexta: a partir de 15:00. Sábado: a partir de 10:00',
         instagram: 'https://www.instagram.com/pascommaedosmigrantes'
       },
       {
-        name: 'Paróquia Nossa Senhora das Graças',
+        name: 'Paróquia N.S. das Graças',
         address: 'Sobradinho',
         times: 'Quarta e quinta: de 18:30 às 19:30. Sábado: de 09:00 às 11:30',
         instagram: 'https://www.instagram.com/paroquiansgracasgcoloradodf'
@@ -1367,7 +1367,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/sagrada.familia_tag'
       },
       {
-        name: 'Capela Nossa Senhora Aparecida',
+        name: 'Capela N.S. Aparecida',
         address: 'Taguatinga',
         times: 'Quarta de 16:30 às 19:00'
       },
@@ -1384,7 +1384,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/capela.saojorge'
       },
       {
-        name: 'Santuário Nossa Senhora do Perpétuo Socorro',
+        name: 'Santuário N.S. do Perpétuo Socorro',
         address: 'Taguatinga',
         times: 'Terça a Sexta: A partir de 17:30',
         instagram: 'https://www.instagram.com/perpetuosocorrodf'
@@ -1396,13 +1396,13 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/alosaojose'
       },
       {
-        name: 'Paróquia Nossa Senhora de Fátima',
+        name: 'Paróquia N.S. de Fátima',
         address: 'Taguatinga',
         times: 'Terça a Sexta: 09:00 às 11:00 e 15:00 às 17:00. Sábado: A partir de 09:00 (limite de 100 fichas)',
         instagram: 'https://www.instagram.com/pnsfatima'
       },
       {
-        name: 'Paróquia Nossa Senhora do Carmo',
+        name: 'Paróquia N.S. do Carmo',
         address: 'Taguatinga',
         times: 'Quinta: 15:00 às 17:00. Sexta e Sábado: 10:00 às 12:00',
         instagram: 'https://www.instagram.com/pnsc_taguatinga'
@@ -1420,7 +1420,7 @@ export const confessionData: CityData[] = [
         instagram: 'https://www.instagram.com/icm.paroquia'
       },
       {
-        name: 'Paróquia Nossa Senhora de Lourdes',
+        name: 'Paróquia N.S. de Lourdes',
         address: 'Taguatinga',
         times: 'Quarta: 20:00 às 21:00. Quinta e Sexta: 18:00 às 19:20. Sábado: 09:30 às 11:30',
         instagram: 'https://www.instagram.com/pnslourdes_df'
@@ -1437,24 +1437,24 @@ export const confessionData: CityData[] = [
     city: 'Vicente Pires & 26 de Setembro',
     parishes: [
       {
-        name: 'Paróquia Nossa Senhora das Vitórias',
+        name: 'Paróquia N.S. das Vitórias',
         address: 'Vicente Pires',
         times: 'Terça: após a missa das 19:30. Quarta: a partir das 09:30. Sexta e Sábado: após a missa das 07:00.',
         instagram: 'https://www.instagram.com/pnsdasvitorias'
       },
       {
-        name: 'Paróquia Nossa Senhora da Esperança',
+        name: 'Paróquia N.S. da Esperança',
         address: 'Vicente Pires',
         times: 'Terça e Sexta: a partir das 18:30. Quinta: após a missa das 19:30.',
         instagram: 'https://www.instagram.com/pnse_vp'
       },
       {
-        name: 'Capela Nossa Senhora Aparecida (pertence a P. N. S. da Esperança)',
+        name: 'Capela N.S. Aparecida (pertence a P. N. S. da Esperança)',
         address: 'Vicente Pires',
         times: 'Quinta: após a missa das 07:00.'
       },
       {
-        name: 'Paróquia Nossa Senhora Auxiliadora',
+        name: 'Paróquia N.S. Auxiliadora',
         address: 'Vicente Pires',
         times: 'Terça a Sexta: de 14:30 às 17:00.',
         instagram: 'https://www.instagram.com/pnsauxiliadora.brasilia'
@@ -1477,7 +1477,7 @@ export const confessionData: CityData[] = [
         times: 'Terça a Domingo: 40 minutos antes das missas.'
       },
       {
-        name: 'Capela Nossa Senhora das Lágrimas (pertence a P. Santa Bernardete)',
+        name: 'Capela N.S. das Lágrimas (pertence a P. Santa Bernardete)',
         address: '26 de Setembro',
         times: 'Terça a Sexta e Domingo: 40 minutos antes das missas.'
       },
@@ -1492,7 +1492,7 @@ export const confessionData: CityData[] = [
         times: 'Domingo: 40 minutos antes da missa.'
       },
       {
-        name: 'Capela Nossa Senhora da Piedade (pertence a P. Santa Bernardete)',
+        name: 'Capela N.S. da Piedade (pertence a P. Santa Bernardete)',
         address: '26 de Setembro',
         times: 'Domingo: 40 minutos antes da missa.'
       }

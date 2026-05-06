@@ -17,56 +17,56 @@ type Novena = {
 export const novenasFevereiroSetembro: Record<string, Novena> = {
     // FEVEREIRO
     nossa_senhora_lourdes: {
-        saintName: "Nossa Senhora de Lourdes",
-        novenaTitle: "Novena a Nossa Senhora de Lourdes",
-        description: "Novena em preparação à festa de Nossa Senhora de Lourdes (11 de fevereiro).",
+        saintName: "N.S. de Lourdes",
+        novenaTitle: "Novena a N.S. de Lourdes",
+        description: "Novena em preparação à festa de N.S. de Lourdes (11 de fevereiro).",
         image: "/images/ns_lourdes.png",
         initialPrayer: "Rezar a oração inicial para todos os dias.",
         finalPrayer: "Oh, Deus eterno e compassivo, concedei-nos a graça de viver santa e cristãmente, venerando a Virgem Santíssima de Lourdes, para que sejamos dignos de sua intercessão na vida e na hora da morte. Por Cristo nosso Senhor. Amém.\n\n**Oração Final (Debaixo de vosso amparo)**\nDebaixo de vosso amparo, acolhemo-nos, Santa Mãe de Deus. Não desprezeis nossas súplicas nas necessidades, mas sim livrai-nos de todos os perigos.\n\nOh, sempre Virgem gloriosa e bendita!\n\nV. Rogai por nós, Oh, Virgem de Lourdes!\n\nR. Para que sejamos dignos das promessas de Jesus Cristo.",
         days: [
             {
                 day: "Dia 1",
-                title: "Primeiro Dia - Nossa Senhora de Lourdes",
+                title: "Primeiro Dia - N.S. de Lourdes",
                 content: "Rainha Imaculada que, aparecendo pessoalmente tal qual nascestes, a Senhora, na gruta de Lourdes, honrastes com vosso benigno olhar e com a comunicação de vossos segredos a pobre e enferma Bernadete, tanto menos estimada dos homens pela falta de toda cultura, quanto mais aceita por Vós pela pureza de sua inocência e o fervor de sua devoção.\n\nObtende para nós a graça de que, pondo sempre nossa glória em fazer-nos gratos ao Senhor com uma vida inteiramente conforme a nossos deveres, nós sejamos, ao mesmo tempo, merecedores sempre de vossas especiais bênçãos. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 2",
-                title: "Segundo Dia - Nossa Senhora de Lourdes",
+                title: "Segundo Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes! Escolhida por Deus para ser Mãe de Jesus, tesoureira das divinas graças, refúgio e advogada dos pecadores! Prostrado humildemente a vossos pés, suplico-vos que sejais minha guia e saúde neste vale de lágrimas, porque nada posso nem devo fazer sem vós. Alcançai-me de vosso divino Filho o perdão de meus pecados, a perseverança no bem e a salvação de minha alma, para ser eternamente feliz e com sorte em vossa doce companhia nas mansões da glória. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 3",
-                title: "Terceiro Dia - Nossa Senhora de Lourdes",
+                title: "Terceiro Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes e Mãe minha, vida e esperança dos pobres, ancora dos náufragos, saúde dos enfermos e esperança dos que agonizam e morrem! Oh, Mãe minha! Depois de Deus, vós sois e serás minha única esperança nas tentações e perigos, na vida e na hora de minha morte.\n\nNão me deixes, oh, Maria! Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 4",
-                title: "Quarto Dia - Nossa Senhora de Lourdes",
+                title: "Quarto Dia - N.S. de Lourdes",
                 content: "Oh, Virgem puríssima de Lourdes! Vida de minha alma, alívio de minhas penas, suavidade e doçura de minhas aflições! As portas de vosso coração, oh, Mãe minha, chama este pecador enfermo, cuja dor, neste momento, é tão grande como seus pecados.\n\nCompadecei-Vos de mim, não me deixes, olhai com olhos de compaixão. Sanai-me, como Jesus aos leprosos, curai-me para que adore a Deus eternamente. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 5",
-                title: "Quinto Dia - Nossa Senhora de Lourdes",
+                title: "Quinto Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes e rainha dos anjos, em cujos olhos brilha a fé que abrasa vosso Espírito! Ensinai-me a crer, mas a crer trabalhando, porque a fé sem obras é morta; porque os que estão cheios de pecados, que não fazem conforme a crença católica, estão nos calabouços do inferno.\n\nAjudai-me a crer na palavra divina e a trabalhar como Deus e a Igreja me mandam crer e trabalhar, pois a fé é luz e tem que iluminar minha alma e a conduzir pela senda da eterna bem-aventurança. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 6",
-                title: "Sexto Dia - Nossa Senhora de Lourdes",
+                title: "Sexto Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes e Virgem das virgens, açucena candíssima, Virgem Imaculada, pomba sem mancha! Vós, que fostes concebida sem pecado, que tanto amais a castidade e tanto quereis a vossos filhos, tende compaixão de mim e livrai-me desta penosa concupiscência que me afunda em um mar de pecados.\n\nAlcançai-me de vosso Filho a graça da castidade, para viver na terra como os anjos do Céu. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 7",
-                title: "Sétimo Dia - Nossa Senhora de Lourdes",
+                title: "Sétimo Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes e soberana imperatriz dos céus, que, por amor a pobreza, vos sujeitastes a todas as privações e escassez dos pobres, ensinai-me a depreciar os luxos e presentes, e inspirai-me amor e compaixão aos pobres para conseguir com a isso o reino dos céus. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 8",
-                title: "Oitavo Dia - Nossa Senhora de Lourdes",
+                title: "Oitavo Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes, exemplar sublime de obediência, que se fazendo escrava do Senhor e humilhando-vos até viver sem própria vontade, merecestes que vos chamassem de bendita todas as gerações! Ensinai-me e ajudai-me, como a menina Bernadete, a ser obediente até a morte, porque a obediência é melhor que os sacrifícios, e quem segue obedecendo a Deus conseguirá chegar até o céu. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             },
             {
                 day: "Dia 9",
-                title: "Nono Dia - Nossa Senhora de Lourdes",
+                title: "Nono Dia - N.S. de Lourdes",
                 content: "Oh, Virgem de Lourdes, rainha dos mártires e esperança dos aflitos! Pela heroica paciência que resplandeceu em todos os atos de vossa vida mortal, desde Belém ao Calvário, desde a profecia de Simão até que Vos arrancaram dos braços o cadáver ensanguentado de vosso divino Filho, tende misericórdia de mim e ajudai-me a levar com cristã resignação o peso das cruzes que o Senhor tenha a enviar-me, para ganhar minha eterna felicidade na glória e viver em vossa doce companhia por todos os séculos. Amém.\n\nTrês Ave-Marias e um Glória.\n\nPedir a graça que se deseja obter com esta novena."
             }
         ]
@@ -242,7 +242,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     sao_gabriel_dores: {
         saintName: "São Gabriel das Dores",
-        novenaTitle: "Novena a São Gabriel de Nossa Senhora das Dores",
+        novenaTitle: "Novena a São Gabriel de N.S. das Dores",
         description: "Jovem passionista, modelo de obediência, desprendimento e amor à Paixão de Cristo. Intercessor da juventude. Reza-se de 18 a 26 de fevereiro, preparando a festa de 27 de fevereiro.",
         image: "/images/sao_gabriel_dores.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Preparatória (todos os dias)</h4><p>Ó soberano Senhor e santificador das almas, prostrados ante a vossa infinita majestade, louvamos e bendizemos a incomparável grandeza e liberalidade com que elevastes São Gabriel ao supremo grau da perfeição, por meio de um amor fervorosíssimo à Rainha dos Mártires. Pelos méritos deste amantíssimo servo de Maria, pela glória de tão excelsa Senhora e de São Gabriel, imploramos a graça particular que por este exercício esperamos obter <em>(pedir a graça)</em> e principalmente a de imitarmos este admirável Santo, a fim de podermos conquistar a sua graça na terra e sua glória por toda eternidade. Amém.</p></div>`,
@@ -337,7 +337,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             {
                 day: "Dia 7",
                 title: "Sétimo Dia - João de Deus, escravo de Jesus e Maria",
-                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, escravo de Jesus e Maria</h4><p>Jesus e Maria estavam no centro do teu ser, São João: "em nome de Nosso Senhor, e de Nossa Senhora, o menor escravo de todos os escravos". Na tua vida, desejavas sempre servi-Los e agradar-Lhes: "seja tudo para o Seu serviço". Como ideal, querias tomar como exemplo a Virgem Maria, a qual tecia e trabalhava todo o dia e à noite e parte do dia rezava no seu retiro. São João de Deus, que eu saiba refugiar-me em Jesus e Maria e Eles sejam o meu ideal de cristão. Amém.</p></div>`
+                content: `<div class="day-specific-content"><h4 class="section-title">João de Deus, escravo de Jesus e Maria</h4><p>Jesus e Maria estavam no centro do teu ser, São João: "em nome de Nosso Senhor, e de N.S., o menor escravo de todos os escravos". Na tua vida, desejavas sempre servi-Los e agradar-Lhes: "seja tudo para o Seu serviço". Como ideal, querias tomar como exemplo a Virgem Maria, a qual tecia e trabalhava todo o dia e à noite e parte do dia rezava no seu retiro. São João de Deus, que eu saiba refugiar-me em Jesus e Maria e Eles sejam o meu ideal de cristão. Amém.</p></div>`
             },
             {
                 day: "Dia 8",
@@ -668,7 +668,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     santa_julia_billiart: {
         saintName: "Santa Júlia Billiart",
         novenaTitle: "Novena a Santa Júlia Billiart",
-        description: "A Santa do Sorriso e fundadora das Irmãs de Nossa Senhora. (30 de março a 8 de abril)",
+        description: "A Santa do Sorriso e fundadora das Irmãs de N.S.. (30 de março a 8 de abril)",
         image: "https://institutohesed.org.br/wp-content/uploads/2019/04/Santa-Julia-Billiart.jpg",
         imageObjectPosition: "top",
         initialPrayer: `<div class="prayer-block">
@@ -740,7 +740,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 day: "Dia 8",
                 title: "Oitavo Dia - Fundadora e Mãe",
                 content: `<div class="day-specific-content">
-                    <p>Santa Júlia, que fundastes as Irmãs de Nossa Senhora para educar os pobres, intercedei pelas vocações religiosas, para que muitos jovens respondam ao chamado de servir a Deus nos mais necessitados.</p>
+                    <p>Santa Júlia, que fundastes as Irmãs de N.S. para educar os pobres, intercedei pelas vocações religiosas, para que muitos jovens respondam ao chamado de servir a Deus nos mais necessitados.</p>
                     <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
                 </div>`
             },
@@ -903,7 +903,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 day: "Dia 6",
                 title: "Sexto Dia - Filial Devoção a Maria",
                 content: `<div class="day-specific-content">
-                    <p>Santa Madalena, que colocastes vossa Congregação sob a proteção de Maria ao pé da Cruz, dai-nos um amor terno e filial à Nossa Senhora das Dores, nossa Mãe e Consoladora.</p>
+                    <p>Santa Madalena, que colocastes vossa Congregação sob a proteção de Maria ao pé da Cruz, dai-nos um amor terno e filial à N.S. das Dores, nossa Mãe e Consoladora.</p>
                     <p class="mt-4"><strong>Pai Nosso, Ave Maria e Glória ao Pai.</strong></p>
                 </div>`
             },
@@ -1043,7 +1043,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         image: "https://i.pinimg.com/1200x/b7/44/62/b7446207d5dd9ed23c8adba86d6f432f.jpg",
         imageObjectPosition: "top",
         initialPrayer: `<h4 class="section-title">Ato de Contrição</h4><p>Meu Pai e Meu Senhor Jesus Cristo, caridade sem fim, eu sinceramente me arrependo dos meus pecados. Concedei-me, portanto, o perdão dos meus pecados e a graça que peço pelos méritos das dores de Sua Mãe amorosa e pelas virtudes de Seu mártir Santo Expedito.</p><h4 class="section-title mt-4">Oração a Santo Expedito</h4><p>Oh, Santo Expedito, meu protetor! Eu coloco a minha esperança no fato de que minhas petições podem ser concedidas se forem para o meu próprio bem. Por favor, pedi ao Senhor, por intercessão da Virgem Santíssima, o perdão dos meus pecados e a graça de mudar a minha vida, particularmente a graça que agora desejo. Eu prometo seguir Seus exemplos e propagar esta devoção.</p>`,
-        finalPrayer: `<h4 class="section-title">Oração Final</h4><p class="font-semibold">Rezar três Pais-Nossos em honra a Santíssima Trindade</p><p class="mt-4">Lembre-se, graciosa Virgem Maria, que nunca se ouviu dizer que qualquer um que se refugiou sob Vossa proteção, implorou a Vossa ajuda e procurou Vossa intercessão foi deixado desamparado. Inspirado por essa confiança, eu recorro a Vós, Virgem das virgens, minha Mãe. Para Vós eu venho, diante de Vós estou, pecador e triste. Mãe do Verbo Encarnado, não desprezeis as minhas palavras, mas graciosamente ouvi-me e atendei a minha oração. Amém.</p><p class="mt-4 font-semibold">Rezar uma Ave-Maria em honra a Nossa Senhora das Dores.</p>`,
+        finalPrayer: `<h4 class="section-title">Oração Final</h4><p class="font-semibold">Rezar três Pais-Nossos em honra a Santíssima Trindade</p><p class="mt-4">Lembre-se, graciosa Virgem Maria, que nunca se ouviu dizer que qualquer um que se refugiou sob Vossa proteção, implorou a Vossa ajuda e procurou Vossa intercessão foi deixado desamparado. Inspirado por essa confiança, eu recorro a Vós, Virgem das virgens, minha Mãe. Para Vós eu venho, diante de Vós estou, pecador e triste. Mãe do Verbo Encarnado, não desprezeis as minhas palavras, mas graciosamente ouvi-me e atendei a minha oração. Amém.</p><p class="mt-4 font-semibold">Rezar uma Ave-Maria em honra a N.S. das Dores.</p>`,
         days: [
             {
                 day: "Dia 1",
@@ -1411,7 +1411,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                     <blockquote class="brand-border pl-4 italic my-4">
                         <p>"Quando chegará, meu irmão, esse feliz tempo, esse século de Maria, em que muitas almas escolhidas e obtidas do Altíssimo por Maria, perdendo-se a si mesmas no abismo de seu interior, se transformem em cópias vivas da Santíssima Virgem para amar e glorificar a Jesus Cristo?! Esse tempo só chegará quando os corações conhecerem e viverem a devoção que eu ensino: “Para que venha o Reino de Jesus, venha o Reino de Maria!!!”" (T.V.D 217)</p>
                     </blockquote>
-                    <p>Peçamos à São Luís, nesse segundo dia de novena, a graça de um amor filial e verdadeiro à Nossa Senhora. <em>“Se queres ser um grande santo, seja um grande devoto da Santíssima Virgem Maria”</em>.</p>
+                    <p>Peçamos à São Luís, nesse segundo dia de novena, a graça de um amor filial e verdadeiro à N.S.. <em>“Se queres ser um grande santo, seja um grande devoto da Santíssima Virgem Maria”</em>.</p>
                     <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
                         <p>Pai Nosso, 3 Ave-Marias, Glória.</p>
                     </div>
@@ -1636,7 +1636,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             {
                 day: "Dia 3",
                 title: "3º Dia – A consagração virginal",
-                content: `<div class="day-specific-content"><h5 class="font-bold text-lg">Meditação:</h5><p>A pequena Catarina não se preocupava com as coisas com que normalmente dispendiam seus familiares. Ainda com sete anos, ansiando entregar-se exclusivamente a Deus, sem nenhuma ligação com o mundo aborrecedor dos homens, Catarina suplicou à Virgem Maria que a conservasse casta, a fim de tornar-se esposa de Jesus.</p><blockquote class="brand-border pl-4 italic my-4"><p>"Amo-O com toda minha alma – dizia a Nossa Senhora – e prometo a Ele e a ti jamais aceitar outro esposo."</p></blockquote><p>Que o exemplo de Santa Catarina nos inspire a consagrar a Deus não apenas nossa virgindade, mas toda a nossa vida e vontade.</p><div class="mt-8 p-6 bg-stone-100/50 rounded-xl border border-stone-200"><p class="text-center font-bold">Santa Catarina de Siena, rogai por nós!</p></div></div>`
+                content: `<div class="day-specific-content"><h5 class="font-bold text-lg">Meditação:</h5><p>A pequena Catarina não se preocupava com as coisas com que normalmente dispendiam seus familiares. Ainda com sete anos, ansiando entregar-se exclusivamente a Deus, sem nenhuma ligação com o mundo aborrecedor dos homens, Catarina suplicou à Virgem Maria que a conservasse casta, a fim de tornar-se esposa de Jesus.</p><blockquote class="brand-border pl-4 italic my-4"><p>"Amo-O com toda minha alma – dizia a N.S. – e prometo a Ele e a ti jamais aceitar outro esposo."</p></blockquote><p>Que o exemplo de Santa Catarina nos inspire a consagrar a Deus não apenas nossa virgindade, mas toda a nossa vida e vontade.</p><div class="mt-8 p-6 bg-stone-100/50 rounded-xl border border-stone-200"><p class="text-center font-bold">Santa Catarina de Siena, rogai por nós!</p></div></div>`
             },
             {
                 day: "Dia 4",
@@ -1672,23 +1672,23 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     ns_africa: {
-        saintName: "Nossa Senhora da África",
-        novenaTitle: "Novena a Nossa Senhora da África",
-        description: "Devoção a Nossa Senhora da África e pelo diálogo entre os povos. A mesma oração é rezada nos 9 dias. (21 a 29 de abril)",
+        saintName: "N.S. da África",
+        novenaTitle: "Novena a N.S. da África",
+        description: "Devoção a N.S. da África e pelo diálogo entre os povos. A mesma oração é rezada nos 9 dias. (21 a 29 de abril)",
         image: "https://www.a12.com/source/files/originals/Nossa_Senhora_da_Africa.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: [
             {
                 day: "Dias 1 a 9",
-                title: "Oração a Nossa Senhora da África",
+                title: "Oração a N.S. da África",
                 content: `<div class="day-specific-content">
                 <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
                     <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
                     <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
                 </div>
-                <p>Ó Nossa Senhora da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
-                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"Nossa Senhora da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
                 <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
                 <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
                     <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
@@ -1696,7 +1696,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
                     <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
                 </div>
-                <p class="mt-4 text-center font-bold">Nossa Senhora da África, rogai por nós!</p>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
             </div>`
             }
         ]
@@ -1878,9 +1878,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     // MAIO
     nossa_senhora_fatima: {
-        saintName: "Nossa Senhora de Fátima",
-        novenaTitle: "Novena a Nossa Senhora de Fátima",
-        description: "Apresente seus pedidos a Deus por meio da novena a Nossa Senhora de Fátima e conte com a poderosa intercessão de nossa Mãe Santíssima. (4 a 12 de maio)",
+        saintName: "N.S. de Fátima",
+        novenaTitle: "Novena a N.S. de Fátima",
+        description: "Apresente seus pedidos a Deus por meio da novena a N.S. de Fátima e conte com a poderosa intercessão de nossa Mãe Santíssima. (4 a 12 de maio)",
         image: "/images/ns_fatima.png",
         initialPrayer: `<div class="prayer-block">
             <h4 class="section-title">Oferecimento</h4>
@@ -2100,9 +2100,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     pentecostes: {
-        saintName: "Pentecostes",
+        saintName: "Pentecostes - Solenidade",
         novenaTitle: "Novena de Pentecostes",
-        description: "Peça os dons do Espírito Santo e prepare-se para viver a Solenidade de Pentecostes. (15 a 23 de maio)",
+        description: "Novena em honra à vinda do Espírito Santo. (15 a 23 de maio)",
         image: "https://i.pinimg.com/736x/a8/8d/d8/a88dd8930bd3ecfa5be8cdff0601516d.jpg",
         initialPrayer: `<div class="prayer-block">
             <h4 class="section-title">Oração inicial — Veni Creator</h4>
@@ -2137,7 +2137,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             <p class="mt-4 font-semibold">– Enviai o Vosso Espírito e tudo será criado.</p>
             <p class="font-semibold">– E renovareis a face da Terra.</p>
             <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que instruístes os corações dos fiéis com a luz do Espírito Santo, dai-nos, pelo mesmo Espírito, o conhecimento e o amor da justiça, e que gozemos sempre da Sua consolação. Amém.</p>
-            <p class="mt-4 italic">Rezar três Ave-Marias a Nossa Senhora de Pentecostes com a invocação: "Rainha dos Apóstolos, rogai por nós!".</p>
+            <p class="mt-4 italic">Rezar três Ave-Marias a N.S. de Pentecostes com a invocação: "Rainha dos Apóstolos, rogai por nós!".</p>
         </div>`,
         days: [
             {
@@ -2207,9 +2207,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     nossa_senhora_auxiliadora: {
-        saintName: "Nossa Senhora Auxiliadora",
-        novenaTitle: "Novena a Nossa Senhora Auxiliadora",
-        description: "Peça o poderoso auxílio de Maria Santíssima nesta novena em preparação à festa de Nossa Senhora Auxiliadora. (15 a 23 de maio)",
+        saintName: "N.S. Auxiliadora",
+        novenaTitle: "Novena a N.S. Auxiliadora",
+        description: "Peça o poderoso auxílio de Maria Santíssima nesta novena em preparação à festa de N.S. Auxiliadora. (15 a 23 de maio)",
         image: "https://i.pinimg.com/736x/13/4d/b4/134db4459382d5e9ecc6f4ce276edd5e.jpg",
         initialPrayer: "",
         finalPrayer: `<div class="prayer-block">
@@ -2219,7 +2219,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             <p class="mt-4">Em seguida, três Salve-Rainhas a Maria Santíssima Auxiliadora:</p>
             <p class="mt-2 italic">"Salve, Rainha, Mãe de misericórdia, vida, doçura, esperança nossa. Salve! A vós bradamos os degredados filhos de Eva, a vós suspiramos gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses vossos olhos misericordiosos a nós volvei. E depois deste desterro, mostrai-nos Jesus, bendito fruto do vosso ventre. Oh, Clemente! Oh, Piedosa! Oh, doce sempre Virgem Maria".</p>
             <p class="mt-4 font-semibold">Maria, Auxílio dos cristãos, rogai por nós.</p>
-            <p class="font-semibold">Nossa Senhora Auxiliadora, rogai por nós!</p>
+            <p class="font-semibold">N.S. Auxiliadora, rogai por nós!</p>
             <p class="mt-4 font-semibold">Em nome do Pai, do Filho e do Espírito Santo. Amém!</p>
         </div>`,
         days: [
@@ -2348,6 +2348,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Filipe Néri",
         novenaTitle: "Novena a São Filipe Néri",
         description: "Novena em honra a São Filipe Néri (26 de maio).",
+        image: "https://i.pinimg.com/736x/2c/9d/d7/2c9dd74d2a6cfd7ceae29962c5613d9c.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -2358,7 +2359,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     visitacao: {
-        saintName: "Visitação de Maria",
+        saintName: "Visitação - Nossa Senhora",
         novenaTitle: "Novena da Visitação",
         description: "Novena em preparação à festa da Visitação de Maria. A mesma oração é rezada nos 9 dias. (22 a 30 de maio)",
         image: "https://i.pinimg.com/736x/46/49/63/464963169ef6da9d7829305e5e6727e8.jpg",
@@ -2386,7 +2387,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 </div>
 
                 <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
-                    <h5 class="font-bold text-center mb-3">Ladainha de Nossa Senhora</h5>
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
                     <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
 
                     <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
@@ -2406,7 +2407,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                     <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
                 </div>
 
-                <p class="mt-6 text-center font-bold">Nossa Senhora da Visitação, rogai por nós!</p>
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora_2, rogai por nós!</p>
             </div>`
             }
         ]
@@ -2417,13 +2418,280 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Santo Antônio de Pádua",
         novenaTitle: "Trezena de Santo Antônio",
         description: "Trezena (13 dias) em honra a Santo Antônio de Pádua (13 de junho).",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 13 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santo Antônio`,
-            content: ""
-        }))
+        image: "https://i.pinimg.com/736x/51/68/18/516818cb2bec324df6aecb722aea3d48.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Inicial</h4>
+            <p class="font-bold text-center italic mb-4">Áperi; Veni Sancte Spíritus</p>
+            <p>Dignai-vos, Senhor, pôr nos nossos lábios louvores dignos do vosso santo nome e purificar o nosso coração, livrando-o de pensamentos impertinentes, vãos e pecaminosos: iluminai o nosso entendimento e inflamai os nossos desejos, a fim de podermos fazer este santo exercício com aquela atenção, dignidade e devoção que devemos, para merecermos que cheguem ao trono da vossa divina majestade os nossos clamores, por intercessão de Jesus Cristo Senhor Nosso. Amém.</p>
+            
+            <h4 class="section-title mt-6">Hino</h4>
+            <div class="italic space-y-4">
+                <p>Por que razão, amado Antônio, intentais fugir da pátria e ir buscar as gentes africanas? Se procurais a palma do martírio, outros são os destinos da providência.</p>
+                <p>Ventos contrários vos farão aportar na Itália, onde fareis felizes aqueles povos. Eles terão a fortuna de possuir os vossos ossos; pelo que chamarão paduano a um santo português.</p>
+                <p>Porém, lá da Pátria celeste, dignai-vos amar com predileção a vossa Lusitânia; sinta primeiro este Reino que vos deu o nascimento os efeitos da vossa proteção, com preferência ao lugar do vosso jazigo.</p>
+                <p>Mas as vossas vistas benéficas se estendem a um e outro povo: todos em vós acham igual agasalho e proteção.</p>
+                <p>Ouvi, benigno Deus, os nossos votos. Vós que com o Filho e Espírito Santo reinais por séculos eternos. Amém.</p>
+            </div>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final</h4>
+            <p class="font-bold text-center mb-4">Pai-Nosso; Ave-Maria; Glória ao Pai</p>
+            <p class="text-center font-semibold text-primary mb-6">
+                ℣. Antônio Santo, de Jesus querido.<br/>
+                ℟. Valha-me sempre o vosso patrocínio.
+            </p>
+
+            <div class="bg-primary/5 p-4 rounded-xl border border-primary/10">
+                <h4 class="section-title text-center !mt-0">Ladainha de Santo Antônio</h4>
+                <div class="space-y-1 text-sm text-center">
+                    <p>Senhor, tende piedade de nós.</p>
+                    <p>Cristo, tende piedade de nós.</p>
+                    <p>Senhor, tende piedade de nós.</p>
+                    <p>Jesus Cristo, ouvi-nos.</p>
+                    <p>Jesus Cristo, atendei-nos.</p>
+                    <p>Deus, Pai do Céu, <em>tende piedade de nós.</em></p>
+                    <p>Filho, Redentor do mundo, <em>tende...</em></p>
+                    <p>Deus, Espírito Santo, <em>tende...</em></p>
+                    <p>Santíssima Trindade, Único Deus, <em>tende...</em></p>
+                    <p class="mt-3 font-bold text-primary text-base">Santo Antônio de Pádua, <em>rogai por nós.</em></p>
+                    <p>Íntimo amigo do Menino Deus, <em>rogai...</em></p>
+                    <p>Servo da Mãe Imaculada, <em>rogai...</em></p>
+                    <p>Fidelíssimo filho de São Francisco, <em>rogai...</em></p>
+                    <p>Homem da santa oração, <em>rogai...</em></p>
+                    <p>Amigo da pobreza, <em>rogai...</em></p>
+                    <p>Lírio da castidade, <em>rogai...</em></p>
+                    <p>Modelo da obediência, <em>rogai...</em></p>
+                    <p>Amigo da vida oculta, <em>rogai...</em></p>
+                    <p>Desprezador das glórias humanas, <em>rogai...</em></p>
+                    <p>Rosa da caridade, <em>rogai...</em></p>
+                    <p>Espelho de todas as virtudes, <em>rogai...</em></p>
+                    <p>Sacerdote segundo o Coração do Altíssimo, <em>rogai...</em></p>
+                    <p>Imitador dos apóstolos, <em>rogai...</em></p>
+                    <p>Mártir pelo desejo, <em>rogai...</em></p>
+                    <p>Coluna da Igreja, <em>rogai...</em></p>
+                    <p>Amador das almas, <em>rogai...</em></p>
+                    <p>Propugnador da Fé, <em>rogai...</em></p>
+                    <p>Doutor da verdade, <em>rogai...</em></p>
+                    <p>Batalhador contra a falsidade, <em>rogai...</em></p>
+                    <p>Arca do testamento, <em>rogai...</em></p>
+                    <p>Trombeta do Evangelho, <em>rogai...</em></p>
+                    <p>Convertedor dos pecadores, <em>rogai...</em></p>
+                    <p>Extirpador dos crimes, <em>rogai...</em></p>
+                    <p>Restaurador da paz, <em>rogai...</em></p>
+                    <p>Reformador dos costumes, <em>rogai...</em></p>
+                    <p>Triunfador dos corações, <em>rogai...</em></p>
+                    <p>Auxiliador dos aflitos, <em>rogai...</em></p>
+                    <p>Ressuscitador dos mortos, <em>rogai...</em></p>
+                    <p>Restituidor das coisas perdidas, <em>rogai...</em></p>
+                    <p>Glorioso taumaturgo, <em>rogai...</em></p>
+                    <p>Santo do mundo inteiro, <em>rogai...</em></p>
+                    <p>Glória da Ordem dos Menores, <em>rogai...</em></p>
+                    <p>Alegria da corte celeste, <em>rogai...</em></p>
+                    <p>Nosso amável padroeiro, <em>rogai...</em></p>
+                    <p>Doutor da Santa Igreja, <em>rogai...</em></p>
+                    <p class="mt-3 text-[10px]">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                    <p class="text-[10px]">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                    <p class="text-[10px]">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                </div>
+            </div>
+
+            <div class="mt-8 bg-amber-50/50 p-6 rounded-2xl border border-amber-200/50 italic">
+                <h4 class="section-title text-center !mt-0 not-italic">Responsório</h4>
+                <div class="space-y-4 text-center">
+                    <p>Se milagres desejais,<br/>Recorrei a Santo Antônio;<br/>Vereis fugir o demônio<br/>E as tentações infernais.</p>
+                    <p>Recupera-se o perdido,<br/>Rompe-se a dura prisão<br/>E no auge do furacão<br/>Cede o mar embravecido.</p>
+                    <p>Todos os males humanos<br/>Se moderam, se retiram,<br/>Digam-no aqueles que o viram,<br/>E digam-no os paduanos.</p>
+                    <p>Pela sua intercessão<br/>Foge a peste, o erro, a morte,<br/>O fraco torna-se forte<br/>E torna-se o enfermo são.</p>
+                    <p>Recupera-se o perdido,<br/>Rompe-se a dura prisão<br/>E no auge do furacão<br/>Cede o mar embravecido.</p>
+                    <p>Todos os males humanos<br/>Se moderam, se retiram,<br/>Digam-no aqueles que o viram,<br/>E digam-no os paduanos.</p>
+                    <p class="not-italic">Glória ao Pai, e ao Filho e ao Espírito Santo.</p>
+                    <p>Recupera-se o perdido,<br/>Rompe-se a dura prisão<br/>E no auge do furacão<br/>Cede o mar embravecido.</p>
+                    <p>Todos os males humanos<br/>Se moderam, se retiram,<br/>Digam-no aqueles que o viram,<br/>E digam-no os paduanos.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <p>℣. Rogai por nós, bem-aventurado Antônio.<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                <div class="mt-4 p-4 bg-primary/10 rounded-xl">
+                    <p><strong>Oremos:</strong> Senhor Deus, que a solenidade votiva de Santo Antônio, vosso confessor, alegre a vossa Igreja, para que sempre se ache fortalecida com os socorros espirituais e mereça alcançar os gostos eternos. Pelos merecimentos de Cristo Jesus Nosso Senhor. Amém.</p>
+                </div>
+                <p class="mt-4 text-sm italic">(Fazer o pedido)</p>
+            </div>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Obediência",
+                content: `<div class="day-specific-content">
+                    <p>Contemplemos em primeiro lugar a cega obediência que o nosso santo logo, desde os primeiros anos, soube tão exatamente observar. Primeiramente, debaixo dos preceitos de seus pais e de seus mestres e depois dos seus superiores, Antônio jamais fez ação que não fosse regulada pelos seus conselhos. Os cônegos da catedral de Lisboa admiravam nesse menino a docilidade e alegria com que se rendia às suas admoestações e se empregava no serviço dos altares.</p>
+                    <p class="mt-4">Mas com que prontidão ele não obedece à voz do Senhor, que o chama? Fiel imitador do desapego dos Apóstolos, deixa tudo ainda na sua infância para seguir a seu divino Mestre dentro dos claustros religiosos, onde se lhe franqueia um vasto campo para o exercício dessa virtude.</p>
+                    <p class="mt-4">Tal era o amor que Antônio tinha à obediência, que chegando um dia a seus pés um penitente e acusando-se com verdadeiro arrependimento de ter maltratado a sua mãe com um pé, o santo, perturbado da atrocidade do fato, lhe disse: “Pé que se atreveu a ofender a sua mãe merece ser cortado.” O sincero penitente, interpretando mal a repreensão do Confessor, chega a casa e, decepando o seu próprio pé, estava a ponto de morrer, esgotando-se de sangue. Chegam aos ouvidos do santo a indiscrição do penitente e as queixas de sua mãe; vai logo visitar o enfermo e, tomando nas suas mãos o pé inteiramente separado da perna, lho torna a unir, fazendo sobre ele o sinal da Cruz, com pasmo de todos, recuperando desta sorte o penitente a saúde do corpo e da alma.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, perfeitíssimo discípulo de Jesus Cristo e imitador da obediência desse divino Mestre, que quis para nosso exemplo ser obediente até à morte, fazei que eu, seguindo os vossos passos, saiba honrar e venerar os meus superiores, e que, reconhecendo neles a voz de Deus, cujas vezes eles fazem cá na Terra, mereça nela as bênçãos devidas aos obedientes e por fim acompanhar-vos na glória. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Pobreza Voluntária",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos a pobreza voluntária que o nosso santo professou em toda a sua vida. Nascido de uma família não só ilustre, mas abastada, educado no meio da opulência e esplendor, Antônio renuncia a todos esses encantos e lisonjeiras esperanças. A sua vida é no templo; os seus divertimentos pueris são as funções eclesiásticas; a sua maior grandeza e esplendor consiste na ocupação e ministério dos altares.</p>
+                    <p class="mt-4">Mas esse desprezo dos bens terrenos não é ainda bastante ao fervoroso Antônio: contava ele apenas dezesseis anos, quando determina ser pobre para sempre e por voto. A sagrada religião dos Cônegos Regulares de Santo Agostinho lhe ouviu fazer essa promessa à face dos seus altares, e lhe viu cumpri-la exatamente em todo o tempo que teve a fortuna de o lograr.</p>
+                    <p class="mt-4">Essa pobreza, de que ele era tão observante, a pretendia insinuar e persuadir aos seus ouvintes no púlpito; e um dia, pregando nas exéquias de um rico avarento, se esforçou em demonstrar a felicidade dos pobres. Depois de ter provado esses pontos com a sua enérgica e apostólica eloquência, rompeu nesta profecia: “Esse desgraçado avarento, cujo corpo está presente, nos dá um triste testemunho dessas verdades: ide abrir o cofre do seu dinheiro, nele achareis o seu coração”. O sucesso correspondeu à profecia, pois com efeito se achou o coração daquele miserável aferrolhado no seu cofre.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que desprezando as riquezas terrenas soubestes imitar a pobreza do nosso Redentor e dos seus Apóstolos; fazei que possamos também nós desapegar-nos dos bens caducos, e adquirir com eles, repartidos em benefícios dos pobres, o tesouro celestial, que nunca há de minguar e de que vós já estais de posse, por prêmio da vossa pobreza voluntária. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Castidade",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos o amor que Antônio teve à virtude angélica da castidade e a escrupulosíssima vigilância com que sempre guardou a preciosíssima joia da sua pureza. Nem os encantos perigosos de uma cidade já então famosa, nem as delícias de uma mimosa educação, nem as grandezas que o rodeavam puderam fazer algum abalo na inocência desse menino. Ele sabe fugir a tempo ao asilo da Igreja e, abrigado à sombra dos altares, se põe em seguro, e evita os ardis da diabólica malícia.</p>
+                    <p class="mt-4">Prostrado diante da sagrada e respeitável imagem da puríssima Virgem, pede e recebe parte daquela graça, de que ela foi cheia no primeiro instante da sua Conceição Imaculada: com tal protetora, Antônio vence as tentações infernais e, apesar de todo o esforço diabólico, conserva durante toda a vida ilesa a pureza do seu inocente corpo.</p>
+                    <p class="mt-4">Certo monge se via continuamente assaltado de violentíssimas tentações da carne, que não podia apagar com todas as espécies de mortificações. Nesse estado recorre a Fr. Antônio, suplicando-lhe que o quisesse ouvir de confissão. Esmerou-se o santo em consolá-lo, dando-lhe os saudáveis conselhos; notando, porém, o ânimo tão apoucado, despe a própria túnica interior, e ordena ao monge que a vista à raiz da carne. Apenas ele obedece, sente dilatarse-lhe o coração, um novo alento refundido no seu espírito lhe faz subordinar a carne rebelada às suas leis.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado e puríssimo, se o toque dos vossos vestidos foi bastante para apegar a honestidade que vós tão cuidadosamente observastes, alcançai-nos de Deus que todos os vossos devotos tenhamos a fortaleza de combater e rechaçar os assaltos furiosos do espírito impuro e merecer entrar triunfantes na glória que estais gozando. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Fé Viva",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a fé viva e eficaz do nosso santo. Toda a sua vida desde menino foi um tecido de ações filhas da sua crença. Se Antônio deixa a casa de seus pais e foge para o templo, é porque crê que no templo acha realmente ao Pai das luzes donde procedem e dimanam todos os bens e dons perfeitos; se a sua consolação é assistir ao incruento sacrifício e mais augustos mistérios da nossa religião com a reverência mais profunda, é porque está firmissimamente convicto da divindade da Vítima imolada.</p>
+                    <p class="mt-4">Um herege chamado Guialdo propunha a Antônio que ele só creria na real presença de Jesus Cristo na sagrada hóstia, se visse que o seu jumento, esfaimado de três dias, largasse a comida à vista da mesma hóstia. Concorda o santo e, tomando nas suas mãos a sagrada hóstia, diz para o faminto animal: “Em nome de Jesus Cristo, te mando, ó criatura irracional, que chegues e reverencies a teu Criador”. Apenas disse, o jumento, desprezando o sustento, se prostrou, dobrando os seus joelhos, diante da sagrada hóstia, com pasmo e admiração de todos.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, milagroso esteio da fé e religião, que tão justamente merecestes o glorioso título de Martelo de Hereges, firmai os vossos devotos na fé, virtude capital da nossa religião; fazei que pelas nossas ações demos provas de que a nossa fé não é uma fé morta, mas uma fé ativa e oficiosa. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Esperança",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a esperança certa e assegurada confiança que Antônio tinha nas infalíveis promessas do seu Deus e na sua Divina Providência. Persuadido de que o prêmio eterno da virtude estava afiançado pelas palavras de Jesus Cristo, ele não deixou um só momento da sua vida ocioso, ocupando os trinta e seis anos dela em exercitar os atos de virtude que lhe davam o direito impreterível de conseguir o mesmo prêmio.</p>
+                    <p class="mt-4">Dessa confiança vinha que Antônio jamais cuidasse em provisão de víveres para o futuro e que também nunca sentisse falta do necessário para sua sustentação e de seus irmãos. Certa senhora hospedou Fr. Antônio e, para o servir com mais alinho, pediu uma taça de cristal emprestada. No fim do jantar, o companheiro do santo deixou cair a taça que se fez em pedaços. O servo de Deus, enternecido das lágrimas da senhora, fez a Deus oração, cujo efeito foi começarem os pedaços da taça a ajuntar-se por si mesmos, ficando na mesma perfeição em que era.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que, assegurado das promessas de Cristo e confiado na sua verdade, só vos ocupáveis em as merecer, fazei que nós possamos com a mesma evidência inteirarmo-nos delas, e saibamos merecer por meio das boas obras a salvação eterna, prêmio infalível de uma vida inocente. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Caridade",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a ardente caridade de Antônio. Apenas sabe que o ponto capital da nossa religião consiste em amar, que a caridade é a maior de todas as virtudes, Antônio se abrasa todo no amor de Deus e do próximo. O tempo que lhe sobrava do serviço da Igreja, o gastava na oração, contemplando as imensas perfeições de Deus. O próximo é o outro objeto a que se dirige a sua caridade. Não haverá talvez aflição que Antônio não livrasse a algum necessitado.</p>
+                    <p class="mt-4">Estupendo é o milagre que a sua caridade obrou em Ferrara. Um marido desconfiado da fidelidade da sua consorte, maquinou-lhe a morte. A desconsolada mulher vai procurar a Fr. Antônio. O caritativo santo a consola e, quando o menino nasceu, o santo tomando-o nos braços, lhe disse: “Criatura de Deus, te mando que declares: quem é teu pai?” Logo o menino respondeu em voz clara: “Tu, senhor, és meu pai natural e a minha mãe é castíssima”. O marido prostrado aos pés de sua mulher, pediu-lhe perdão.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que ardendo no amor de Deus e do próximo, toda a vossa vida vos empregastes nesses dois pontos, exercitai lá ainda da glória esse amor com os vossos devotos e fazei com que nós sigamos os vossos passos, observando os mandamentos da Lei. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Zelo pela Glória de Deus",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos o ardente zelo que Antônio tinha pela honra e glória de Deus. Essa virtude verdadeiramente apostólica resplandeceu em todo o decurso de sua vida como virtude dominante. Via-se Fr. Antônio trabalhando incessantemente em estender a glória do Senhor. Ele intenta ir levar o seu nome aos povos africanos, mesmo à custa do seu sangue.</p>
+                    <p class="mt-4">Mas o mais admirável zelo do nosso santo se manifesta na liberdade santa com que vai repreender o tirano Excellino, que assolava cidades da Itália. Todos esses crimes lhe lança Antônio em rosto de um modo tão denodado que o cruel Excellino, prostrando-se aos pés do santo lhe suplicou que lhe perdoasse tantos crimes. Confessou depois que ele tinha sido aterrorizado pelos resplendores e raios que cercavam o rosto daquele frade.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio glorioso, que pelo zelo da honra e glória do vosso Deus vos aventurastes aos maiores perigos e que em toda a vossa vida não tivestes outra mira mais que o fazer conhecer e respeitar o seu santo nome; fazei que nós também concorramos para a manifestação da sua glória. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Zelo pelo Próximo",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos o zelo infatigável com que Antônio se desvelou sempre pelo bem espiritual do seu próximo. Seus talentos nunca estiveram escondidos ou ociosos, sendo a sua vida uma sucessiva tarefa de exercícios destinados ao bem das almas. A esse fim se dirigiam na cela os seus estudos; no púlpito, os seus argumentos; no confessionário, os seus conselhos.</p>
+                    <p class="mt-4">Certa viúva em Nápoles propôs à filha o infame projeto da sua perdição por causa da penúria. A desconsolada donzela roga a Santo Antônio que a livrasse do perigo. A milagrosa imagem estende o braço, e diz: “Toma este bilhete, e dize a tal negociante que te entregue para teu dote outro tanto peso de moedas de prata quanto tem este bilhete”. Foram necessários oitocentos cruzados de prata para equilibrar o papel da balança. O negociante lembrou-se da promessa que fizera e a devota pôde casar-se decentemente.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que na vossa vida, e depois da vossa morte, estais continuamente zelando a salvação das nossas almas: nós vos pedimos que muito particularmente tomeis conta destes vossos devotos, guiando-nos pelo caminho da feliz bem-aventurança. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Sabedoria",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos o dom de sabedoria de que Antônio foi dotado e o uso santo que soube fazer do mesmo dom. Desde menino penetra e pratica os ditames do Evangelho. As suas delícias são os Livros Santos, em cuja inteligência foi tão eminente que com justiça lhe chamou o Pontífice Gregório IX Arca do Testamento.</p>
+                    <p class="mt-4">Havia na cidade de Rimini um célebre herege chamado Bonivillo. Intentou Antônio mostrar-lhe a verdade da religião católica; mas Bonivillo desprezava o discurso do santo. Então o santo lhes clama: “Aprendei dos irracionais a atenção com que as deveis escutar”; e convocando os peixes do rio, apareceram saltando na superfície com as cabeças levantadas. Bonivillo abjurou os seus erros e reentrou no seio da Igreja.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que pela vossa sabedoria conquistastes tantos rebeldes para o reino dos Céus, nós vos suplicamos que nos ajudeis, a fim de que sejamos firmes nas verdades da religião e executemos os preceitos da lei e os conselhos do Evangelho. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 10",
+                title: "10º Dia - Paciência",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a paciência e sofrimento do nosso santo. Zeloso no último ponto e sentido das injúrias feitas ao seu Deus, ele não se dói das que a inveja e o furor dos seus inimigos lhe acumulam. Alguns dos seus mesmos religiosos o carregaram de opróbrios: mas nada abala a paciência de Antônio.</p>
+                    <p class="mt-4">No convento de Brive, um noviço roubou ao santo um saltério. O paciente Antônio recorreu ao remédio ordinário da oração. Quando o noviço passava por uma estreita ponte, avançou-lhe um medonho etíope ameaçando-o de o fazer em pedaços se logo não voltasse a entregar o saltério. O apóstata voltou para o convento, onde achou em Antônio o agasalho e carinho de pai.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que tivestes a fortuna de padecer e sofrer tanto pelo vosso Deus, fazei que nós possamos, em observância da lei de Cristo, amar os nossos mesmos inimigos, orando na Cruz pelos perseguidores: para merecer-nos o prêmio da mesma Cruz. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 11",
+                title: "11º Dia - Humildade",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos a humildade e abjeto conceito que Antônio tinha de si e das suas coisas. Antônio elege a Ordem dos Frades Menores para exercer ofícios da maior humilhação. Servir na cozinha, varrer os dormitórios, estas eram as ocupações mais deliciosas de Fr. Antônio. O que faz a mais incontestável prova da sua humildade é o segredo com que soube esconder a sua sabedoria.</p>
+                    <p class="mt-4">Um dia, uma mulher que tinha um filhinho tolhido de pés e braços, pedia que se compadecesse da sua aflição. Alvoroçou-se a humildade do santo e a despediu com sinais de enfado. Mas por fim, rendendo-se aos rogos, com o sinal da cruz restituiu ao menino o uso do seus membros: prodígio que só atribuiu à fé que sua mãe teve e à qual recomendou muito que o ocultasse.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que quisestes ser reputado ignorante e desprezível aos olhos do mundo, merecendo com essa humilhação o ser exaltado; fazei que não nos gloriemos dos dons que Deus se servir em dispensar-nos, para merecermos a recompensa da humildade na glória eterna. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 12",
+                title: "12º Dia - Fortaleza",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a fortaleza e a intrepidez com que Antônio arrasta os maiores perigos por causa do seu Deus. Antônio aspira a imitar os mártires de Marrocos e com o beneplácito dos seus superiores se embarca para a África. Mas a Divina Providência o destinava a maiores combates. Os inimigos internos da Ordem davam ao nosso santo frequentes ocasiões de terríveis combates, de que ele sempre triunfava.</p>
+                    <p class="mt-4">Numa ocasião, os hereges subornaram um secretário para que fingisse ter perdido os olhos. O santo, conhecendo por inspiração divina o intento, fez o sinal da cruz. Quando o herege desatou o pano, tirou nele pegados os seus olhos. Antônio, aproveitando a ocasião, lhos tornou a colocar no rosto, sem a menor lesão, convertendo aqueles que pretendiam escarnecer da sua santidade.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, intrépido defensor da religião cristã, fazei que saibamos também nós manifestar com as nossas obras a persuasão em que estamos das verdades da nossa crença, e da santidade das suas leis, pois só pela sua observância podemos merecer a glória. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 13",
+                title: "13º Dia - Devoção a Maria",
+                content: `<div class="day-specific-content">
+                    <p>Ponderemos a terníssima devoção que o nosso santo teve sempre a Maria Santíssima. Desde então, sempre lhe consagrou com terníssimo afeto todas as suas ações e os seus estudos: celebrava com a mais devota ternura as suas festas e mistérios, merecendo que lhe aparecesse a mesma Senhora, e o certificasse de que tinha sido levada em corpo e alma aos Céus.</p>
+                    <p class="mt-4">Uma noite, assaltado do demônio que esteve a ponto de o afogar; o nosso santo se valeu da sua protetora. Acudiu a Senhora com o seu pronto amparo e, expulsando com sua presença o raivoso inimigo, deixou a Antônio cheio de consolação interior e de terníssimos sentimentos de gratidão.</p>
+
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação</h5>
+                        <p>Antônio bem-aventurado, que, pela terna devoção que sempre tivestes à imaculada Mãe de Deus, conseguistes o seu poderoso patrocínio, fazei com que nós possamos igualmente ser devotos imitadores das suas virtudes para merecermos o seu amparo e valimento para com seu bendito Filho. Amém.</p>
+                    </div>
+                </div>`
+            }
+        ]
     },
 
     sagrado_coracao: {
@@ -2480,14 +2748,14 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     // JULHO
     nossa_senhora_carmo: {
-        saintName: "Nossa Senhora do Carmo",
-        novenaTitle: "Novena a Nossa Senhora do Carmo",
-        description: "Novena em honra a Nossa Senhora do Carmo (16 de julho).",
+        saintName: "N.S. do Carmo",
+        novenaTitle: "Novena a N.S. do Carmo",
+        description: "Novena em honra a N.S. do Carmo (16 de julho).",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
             day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Nossa Senhora do Carmo`,
+            title: `Dia ${i + 1} - N.S. do Carmo`,
             content: ""
         }))
     },
@@ -2507,9 +2775,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     // AGOSTO
     assuncao_nossa_senhora: {
-        saintName: "Assunção de Nossa Senhora",
+        saintName: "Assunção de N.S.",
         novenaTitle: "Novena da Assunção",
-        description: "Novena em preparação à solenidade da Assunção de Nossa Senhora (15 de agosto).",
+        description: "Novena em preparação à solenidade da Assunção de N.S. (15 de agosto).",
         image: "/images/ns_assuncao.png",
         initialPrayer: "",
         finalPrayer: "",
@@ -2522,9 +2790,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     // SETEMBRO
     natividade_nossa_senhora: {
-        saintName: "Natividade de Nossa Senhora",
+        saintName: "Natividade de N.S.",
         novenaTitle: "Novena da Natividade de Maria",
-        description: "Novena em preparação à festa da Natividade de Nossa Senhora (8 de setembro).",
+        description: "Novena em preparação à festa da Natividade de N.S. (8 de setembro).",
         image: "/images/ns_natividade.png",
         initialPrayer: "",
         finalPrayer: "",
@@ -2538,7 +2806,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     ns_india: {
         saintName: "N.S. da Boa Saúde (Índia)",
         novenaTitle: "Novena a N.S. da Boa Saúde",
-        description: "Novena em honra a Nossa Senhora de Vailankanni, a Lourdes do Oriente (8 de setembro).",
+        description: "Novena em honra a N.S. de Vailankanni, a Lourdes do Oriente (8 de setembro).",
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDzHnHoCCreMtCrjxEK-GNE22zHdYLfwqTidbFdltvt9JTcene2FhjQC0mnsO8LOxC8sxFLVyVzfWjRBFuAfxKaxWJ9XZBXNjPYijrTMe4sffm9TNbac2R9ZfjLK_IAxM72y5f64IfnHwC/s1600/Nossa+Senhora+de+Vailankanni.jpg",
         initialPrayer: "",
         finalPrayer: "",
@@ -2552,7 +2820,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     ns_caridade: {
         saintName: "N.S. da Caridade (Cuba)",
         novenaTitle: "Novena a N.S. da Caridade",
-        description: "Novena em honra a Nossa Senhora da Caridade do Cobre, padroeira de Cuba (8 de setembro).",
+        description: "Novena em honra a N.S. da Caridade do Cobre, padroeira de Cuba (8 de setembro).",
         image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgplFq6e-qNfH1vZDv_34Uv2KA1gHpEkUNfkHVCpLdETR1Y3DHpxGTbBJCY9tuldoi3a6RyHxxWVpKQBk5lEG-X-KbAz4Nh2VWiJHFkomKErJwSQnhrhRPVMoicifOki8DFA4_3yoN0AHs/s1600/73a74f802b63b43f1002aa113dd417bb.jpg",
         initialPrayer: "",
         finalPrayer: "",
@@ -2564,15 +2832,15 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     nossa_senhora_dores: {
-        saintName: "Nossa Senhora das Dores",
-        novenaTitle: "Novena a Nossa Senhora das Dores",
-        description: "Novena em honra a Nossa Senhora das Dores (15 de setembro).",
+        saintName: "N.S. das Dores",
+        novenaTitle: "Novena a N.S. das Dores",
+        description: "Novena em honra a N.S. das Dores (15 de setembro).",
         image: "/images/ns_dores_setembro.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
             day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Nossa Senhora das Dores`,
+            title: `Dia ${i + 1} - N.S. das Dores`,
             content: ""
         }))
     },
@@ -2641,8 +2909,8 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             },
             {
                 day: "Dia 9",
-                title: "Nono Dia - Pela consolação de Nossa Senhora",
-                content: `<div class="day-specific-content"><p>Querida Santa Josefina, suas últimas palavras foram "Nossa Senhora, Nossa Senhora". Que também conheçamos a consolação da Mãe de Deus, agora e na hora da nossa morte.</p><p class="mt-4 italic">Peço especialmente a você (acrescente sua intenção).</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria, Glória ao Pai.</p></div>`
+                title: "Nono Dia - Pela consolação de N.S.",
+                content: `<div class="day-specific-content"><p>Querida Santa Josefina, suas últimas palavras foram "N.S., N.S.". Que também conheçamos a consolação da Mãe de Deus, agora e na hora da nossa morte.</p><p class="mt-4 italic">Peço especialmente a você (acrescente sua intenção).</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria, Glória ao Pai.</p></div>`
             }
         ]
     },
@@ -2662,7 +2930,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     nossa_senhora_perpetuo_socorro: {
-        saintName: "Nossa Senhora do Perpétuo Socorro",
+        saintName: "N.S. do Perpétuo Socorro",
         novenaTitle: "Novena a N.S. do Perpétuo Socorro",
         description: "O auxílio materno e constante em todas as aflições e necessidades.",
         image: "/images/ns_perpetuo_socorro.png",
@@ -2704,7 +2972,8 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     sao_jose_anchieta: {
         saintName: "São José de Anchieta",
         novenaTitle: "Novena a São José de Anchieta",
-        description: "Apóstolo do Brasil. Exemplo de evangelização e amor à cultura.",
+        description: "Novena em honra a São José de Anchieta (9 de junho).",
+        image: "https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -2714,8 +2983,8 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
     nossa_senhora_lujan: {
-        saintName: "Nossa Senhora de Luján",
-        novenaTitle: "Novena a Nossa Senhora de Luján",
+        saintName: "N.S. de Luján",
+        novenaTitle: "Novena a N.S. de Luján",
         description: "Peça a intercessão da Padroeira da Argentina para suas necessidades.",
         image: "/images/ns_lujan.png",
         initialPrayer: "",
@@ -2727,8 +2996,8 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
     nossa_senhora_itati: {
-        saintName: "Nossa Senhora de Itatí",
-        novenaTitle: "Novena a Nossa Senhora de Itatí",
+        saintName: "N.S. de Itatí",
+        novenaTitle: "Novena a N.S. de Itatí",
         description: "Novena em honra à Virgem de Itatí, Rainha do Rio Paraná.",
         image: "/images/ns_itati.png",
         initialPrayer: "",
@@ -2740,8 +3009,8 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
     nossa_senhora_copacabana: {
-        saintName: "Nossa Senhora de Copacabana",
-        novenaTitle: "Novena a Nossa Senhora de Copacabana",
+        saintName: "N.S. de Copacabana",
+        novenaTitle: "Novena a N.S. de Copacabana",
         description: "Peça o auxílio da Rainha da Bolívia e das Américas.",
         image: "/images/ns_copacabana.png",
         initialPrayer: "",
@@ -2753,7 +3022,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
     nossa_senhora_rosario_san_nicolas: {
-        saintName: "Nossa Senhora do Rosário de San Nicolás",
+        saintName: "N.S. do Rosário de San Nicolás",
         novenaTitle: "Novena a N.S. do Rosário de San Nicolás",
         description: "Novena em honra às aparições de Maria em San Nicolás de los Arroyos.",
         image: "/images/ns_rosario_san_nicolas.png",
@@ -2884,52 +3153,52 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         description: "Novena em preparação à Solenidade da Anunciação do Senhor (25 de março).",
         image: "/images/anunciacao.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial para Todos os Dias</h4><p>Pelo sinal da Santa Cruz ✞ livrai-nos Deus de nossos inimigos.</p><p class="mt-4">✞ Em nome do Pai, ✞ do Filho e do ✞ Espírito Santo. Amém.</p><h4 class="section-title mt-6">Oração do Ângelus</h4><p>O Anjo do Senhor anunciou a Maria.</p><p class="italic">E ela concebeu do Espírito Santo.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Eis aqui a serva do Senhor.</p><p class="italic">Faça-se em mim segundo a vossa palavra.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">E o Verbo se fez carne.</p><p class="italic">E habitou entre nós.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Rogai por nós, Santa Mãe de Deus.</p><p class="italic">Para que sejamos dignos das promessas de Cristo.</p><h4 class="section-title mt-6">Oremos</h4><p>Infundi Senhor a vossa graça em nossos corações, para que, conhecendo, pela mensagem do Anjo, a encarnação do Cristo, vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição pela intercessão da Virgem Maria. Pelo mesmo Cristo, Senhor Nosso. Amém.</p><p class="mt-4">Bendito seja, ó Maria, o tão esperado momento no qual se iniciou a salvação humana com a Encarnação do Filho de Deus. Amém.</p></div>`,
-        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final para Todos os Dias</h4><p>Eis que desejando que o Filho de Deus que quis nascer em Vós, nasça também em meu coração e conceda-nos o perdão de nossos pecados, prostramo-nos aos vossos pés e vos imploro, com todo o fervor da alma, que vos digneis alcançar-nos, do vosso Filho, a graça que tanto necessitamos…<span class="italic">(colocar a graça)</span></p><p class="mt-4">Queremos ser gestados no ventre de Nossa Senhora, para assim, sermos homens novos, santos, como Jesus.</p><p class="mt-4 font-semibold">"Benditas sejam a Santa Gravidez e a Imaculada Conceição da bem-aventurada sempre virgem Maria, Mãe de Deus e nossa Mãe. Amém"</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final para Todos os Dias</h4><p>Eis que desejando que o Filho de Deus que quis nascer em Vós, nasça também em meu coração e conceda-nos o perdão de nossos pecados, prostramo-nos aos vossos pés e vos imploro, com todo o fervor da alma, que vos digneis alcançar-nos, do vosso Filho, a graça que tanto necessitamos…<span class="italic">(colocar a graça)</span></p><p class="mt-4">Queremos ser gestados no ventre de N.S., para assim, sermos homens novos, santos, como Jesus.</p><p class="mt-4 font-semibold">"Benditas sejam a Santa Gravidez e a Imaculada Conceição da bem-aventurada sempre virgem Maria, Mãe de Deus e nossa Mãe. Amém"</p></div>`,
         days: [
             {
                 day: "Dia 1",
                 title: "Primeiro Dia",
-                content: `<div class="day-specific-content"><p>"Ó Maria, virgem Imaculada, Porta do Céu e causa da nossa alegria, respondendo com generosidade ao anúncio do Arcanjo São Gabriel, vós pudestes dar curso ao plano de Deus para nossa salvação.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>"Ó Maria, virgem Imaculada, Porta do Céu e causa da nossa alegria, respondendo com generosidade ao anúncio do Arcanjo São Gabriel, vós pudestes dar curso ao plano de Deus para nossa salvação.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 2",
                 title: "Segundo Dia",
-                content: `<div class="day-specific-content"><p>Vós fostes, pela Providência Santíssima desde toda a eternidade, constituída vaso de eleição e moradia digna do Verbo Encarnado. Pelo vosso "sim" e fidelidade ao Pai celeste, o Espírito Santo teceu em vossas entranhas Jesus, nosso Senhor e Salvador.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Vós fostes, pela Providência Santíssima desde toda a eternidade, constituída vaso de eleição e moradia digna do Verbo Encarnado. Pelo vosso "sim" e fidelidade ao Pai celeste, o Espírito Santo teceu em vossas entranhas Jesus, nosso Senhor e Salvador.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 3",
                 title: "Terceiro Dia",
-                content: `<div class="day-specific-content"><p>Ouvi minha súplica, ó Virgem Santíssima, Nossa Senhora de Caná e de Pentecostes, Vós que, perante o trono da Graça, sois a "Onipotência Suplicante", enquanto meditamos, com reverência e filial afeto, todos os momentos de dor e de alegria, de desolação e de providência, que vos acompanharam em vossa bendita e singular gestação, na qual trouxestes em vosso ventre por nove meses o Filho do Deus Altíssimo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Ouvi minha súplica, ó Virgem Santíssima, N.S. de Caná e de Pentecostes, Vós que, perante o trono da Graça, sois a "Onipotência Suplicante", enquanto meditamos, com reverência e filial afeto, todos os momentos de dor e de alegria, de desolação e de providência, que vos acompanharam em vossa bendita e singular gestação, na qual trouxestes em vosso ventre por nove meses o Filho do Deus Altíssimo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 4",
                 title: "Quarto Dia",
-                content: `<div class="day-specific-content"><p>Mãe da obediência e Medianeira de todas as graças, Vós esperastes o tempo necessário para trazer ao mundo o Rei do universo. Eis que, com fé e fidelidade, aguardamos a graça que vos suplicamos, embora pareça muito difícil de acontecer, impossível ou até demorada para chegar.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Mãe da obediência e Medianeira de todas as graças, Vós esperastes o tempo necessário para trazer ao mundo o Rei do universo. Eis que, com fé e fidelidade, aguardamos a graça que vos suplicamos, embora pareça muito difícil de acontecer, impossível ou até demorada para chegar.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 5",
                 title: "Quinto Dia",
-                content: `<div class="day-specific-content"><p>Ajudai-nos, pois, ó Mãe da ternura, virgem do silêncio e da escuta, a sofrer em santa espera o tempo e as demoras de Deus, com sobriedade de vida, alegria e perseverança. Fazei que jamais desanimemos ou sejamos vencidos pelo inimigo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós.</p></div>`
+                content: `<div class="day-specific-content"><p>Ajudai-nos, pois, ó Mãe da ternura, virgem do silêncio e da escuta, a sofrer em santa espera o tempo e as demoras de Deus, com sobriedade de vida, alegria e perseverança. Fazei que jamais desanimemos ou sejamos vencidos pelo inimigo.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós.</p></div>`
             },
             {
                 day: "Dia 6",
                 title: "Sexto Dia",
-                content: `<div class="day-specific-content"><p>Oh! Maria, que fostes escolhida por Deus entre todas as mulheres para serdes a Mãe do Redentor: Alcançai-nos a graça de pertencer ao número dos escolhidos, que hão de estar no céu tendo os frutos da Redenção.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Oh! Maria, que fostes escolhida por Deus entre todas as mulheres para serdes a Mãe do Redentor: Alcançai-nos a graça de pertencer ao número dos escolhidos, que hão de estar no céu tendo os frutos da Redenção.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 7",
                 title: "Sétimo Dia",
-                content: `<div class="day-specific-content"><p>Oh! Maria, que sendo escolhida para Mãe de Deus, preferistes a esta excelsa dignidade a vossa virgindade, e só quando o Anjo vos assegurou com que ser Mãe não deixaríeis de ser Virgem anuístes à sua proposta: Concedei-nos um amor tão grande à pureza, que por nenhum bem deste mundo consintamos em perdê-la.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Oh! Maria, que sendo escolhida para Mãe de Deus, preferistes a esta excelsa dignidade a vossa virgindade, e só quando o Anjo vos assegurou com que ser Mãe não deixaríeis de ser Virgem anuístes à sua proposta: Concedei-nos um amor tão grande à pureza, que por nenhum bem deste mundo consintamos em perdê-la.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 8",
                 title: "Oitavo Dia",
-                content: `<div class="day-specific-content"><p>E se não bastassem os pecados, Ó Senhora dos Remédios, do Bom parto e do Perpétuo Socorro, ainda vos pedimos, em virtude dos vossos cuidados e suplícios para com Jesus em Vosso ventre, por todas as mães grávidas, para que tenham uma boa hora, e também por todas aquelas que passam por uma gestação delicada, pelas que são atormentadas pela ideia de abortar seus filhos e pelas que não podem ou não conseguem tê-los.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>E se não bastassem os pecados, Ó Senhora dos Remédios, do Bom parto e do Perpétuo Socorro, ainda vos pedimos, em virtude dos vossos cuidados e suplícios para com Jesus em Vosso ventre, por todas as mães grávidas, para que tenham uma boa hora, e também por todas aquelas que passam por uma gestação delicada, pelas que são atormentadas pela ideia de abortar seus filhos e pelas que não podem ou não conseguem tê-los.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             },
             {
                 day: "Dia 9",
                 title: "Nono Dia",
-                content: `<div class="day-specific-content"><p>Ó Senhora do Carmo, das Dores e da Defesa, mão e colo que embalaram Jesus, consolai todas as mães que rezam pela volta de seus filhos ao lar e aos bons costumes. Recompensai as mães que geram filhos para Deus, instruindo-os na fé e entregando-os a vida sacerdotal e religiosa.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">Nossa Senhora da Anunciação, rogai por nós</p></div>`
+                content: `<div class="day-specific-content"><p>Ó Senhora do Carmo, das Dores e da Defesa, mão e colo que embalaram Jesus, consolai todas as mães que rezam pela volta de seus filhos ao lar e aos bons costumes. Recompensai as mães que geram filhos para Deus, instruindo-os na fé e entregando-os a vida sacerdotal e religiosa.</p><p class="mt-4 font-semibold">Ave Maria...</p><p class="mt-4 italic">N.S. da Anunciação, rogai por nós</p></div>`
             }
         ]
     },
@@ -2992,12 +3261,12 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
 
     // OCEANIA
     nossa_senhora_auxiliadora_australia: {
-        saintName: "Nossa Senhora Auxiliadora (Austrália)",
-        novenaTitle: "Novena a Nossa Senhora Auxiliadora",
+        saintName: "N.S. Auxiliadora (Austrália)",
+        novenaTitle: "Novena a N.S. Auxiliadora",
         description: "Padroeira da Austrália. Invocada como socorro dos cristãos em todas as batalhas da vida.",
         image: "/images/ns_auxiliadora_australia.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Ó Maria, Auxiliadora dos Cristãos, que fostes proclamada Padroeira da Austrália, nós nos voltamos para Vós com confiança. Vós que assististes a Igreja em seus momentos mais difíceis, socorrei-nos hoje em nossas necessidades. Que vossa proteção maternal nos guie e nos fortaleça na fé.</p><p class="mt-4 italic">Apresente agora suas intenções particulares...</p></div>`,
-        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, Virgem poderosa, Tu és a grande e ilustre defensora da Igreja. Tu és o auxílio maravilhoso dos cristãos. Tu és terrível como um exército em ordem de batalha. Tu só destruíste todos os erros do mundo. Nas nossas angústias, em nossos combates, em nossas necessidades, defende-nos do inimigo e, na hora da morte, acolhe a nossa alma no paraíso. Amém.</p><p class="mt-4 font-semibold">Nossa Senhora Auxiliadora, rogai por nós e pela Oceania.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, Virgem poderosa, Tu és a grande e ilustre defensora da Igreja. Tu és o auxílio maravilhoso dos cristãos. Tu és terrível como um exército em ordem de batalha. Tu só destruíste todos os erros do mundo. Nas nossas angústias, em nossos combates, em nossas necessidades, defende-nos do inimigo e, na hora da morte, acolhe a nossa alma no paraíso. Amém.</p><p class="mt-4 font-semibold">N.S. Auxiliadora, rogai por nós e pela Oceania.</p></div>`,
         days: [
             { day: "Dia 1", title: "O Auxílio de Lepanto", content: `<div class="day-specific-content"><p>Recordamos a vitória de Lepanto, onde o Papa São Pio V invocou Vosso nome para proteger a cristandade. Mãe Auxiliadora, ajudai-nos a vencer as batalhas espirituais de cada dia.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` },
             { day: "Dia 2", title: "Padroeira da Austrália", content: `<div class="day-specific-content"><p>Primeira padroeira oficial da nação australiana, Vós sois o farol que guia os povos das terras do sul. Abençoai todas as famílias e comunidades da Austrália e da Oceania.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` },
@@ -3012,12 +3281,12 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
     },
 
     nossa_senhora_assuncao_nz: {
-        saintName: "Nossa Senhora da Assunção (Nova Zelândia)",
-        novenaTitle: "Novena a Nossa Senhora da Assunção",
+        saintName: "N.S. da Assunção (Nova Zelândia)",
+        novenaTitle: "Novena a N.S. da Assunção",
         description: "Padroeira da Nova Zelândia (Aotearoa). Celebramos a subida de Maria ao céu em corpo e alma.",
         image: "/images/ns_assuncao_nz.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Deus onipotente e eterno, que elevastes à glória do céu em corpo e alma a imaculada Virgem Maria, Mãe do vosso Filho, concedei-nos a graça de estarmos sempre atentos às coisas do alto para merecermos participar da sua glória.</p><p class="mt-4 italic">Colocamos sob vossa proteção a toda a nação da Nova Zelândia (Aotearoa)...</p></div>`,
-        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, elevada aos céus, Tu és o sinal de esperança e de consolação para o povo de Deus em caminho. Intercedei por nós junto ao Vosso Filho, para que um dia possamos nos unir a Ti na pátria eterna. Amém.</p><p class="mt-4 font-semibold">Nossa Senhora da Assunção, rogai por nós.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, elevada aos céus, Tu és o sinal de esperança e de consolação para o povo de Deus em caminho. Intercedei por nós junto ao Vosso Filho, para que um dia possamos nos unir a Ti na pátria eterna. Amém.</p><p class="mt-4 font-semibold">N.S. da Assunção, rogai por nós.</p></div>`,
         days: [
             { day: "Dia 1", title: "A Escolha de Deus", content: `<div class="day-specific-content"><p>Contemplamos a humildade de Maria, que sendo pequena aos próprios olhos, foi elevada por Deus à maior das glórias. Que busquemos sempre a humildade de coração.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` },
             { day: "Dia 2", title: "Padroeira de Aotearoa", content: `<div class="day-specific-content"><p>Dedicamos este dia à Nova Zelândia. Que as luzes do Sul sejam abençoadas por vossa presença maternal e que a paz de Cristo reine em todas as ilhas do Pacífico.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` },
@@ -3032,8 +3301,8 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
     },
 
     nossa_senhora_paz_oceania: {
-        saintName: "Nossa Senhora Rainha da Paz (Oceania)",
-        novenaTitle: "Novena a Nossa Senhora Rainha da Paz",
+        saintName: "N.S. Rainha da Paz (Oceania)",
+        novenaTitle: "Novena a N.S. Rainha da Paz",
         description: "Invocada por toda a Oceania como a guardiã da harmonia e do entendimento entre os povos das ilhas.",
         image: "/images/ns_paz_oceania.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Senhor Jesus Cristo, Vós sois a nossa paz. Por intercessão de Vossa Mãe Santíssima, Rainha da Paz, pedimos que derrameis sobre a Oceania e sobre o mundo inteiro o dom da concórdia e do amor fraterno.</p><p class="mt-4 italic">Pedimos especialmente pela paz em nossos corações e em nossas casas...</p></div>`,
@@ -3052,8 +3321,8 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
     },
 
     nossa_senhora_estrela_mar_pacifico: {
-        saintName: "Nossa Senhora Estrela do Mar (Pacífico)",
-        novenaTitle: "Novena a Nossa Senhora Estrela do Mar",
+        saintName: "N.S. Estrela do Mar (Pacífico)",
+        novenaTitle: "Novena a N.S. Estrela do Mar",
         description: "Invocada pelos navegantes e povos das ilhas do Pacífico como a guia segura nas tempestades da vida.",
         image: "/images/ns_estrela_do_mar_pacifico.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Salve, Estrela do Mar! Mãe de Deus e sempre Virgem, porta feliz do céu. Vós que sois a guia segura nos oceanos, sede também a nossa guia no mar agitado desta existência.</p><p class="mt-4 italic">Volvei vosso olhar sobre as ilhas do Pacífico e sobre todos que nelas habitam...</p></div>`,
