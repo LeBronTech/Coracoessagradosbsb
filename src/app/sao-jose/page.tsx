@@ -4,6 +4,7 @@ import React, { useState, useRef } from "react";
 import { novenaData } from "@/lib/data";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Footer from "@/components/footer";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
@@ -102,8 +103,26 @@ export default function SaoJosePage() {
             <main className="container mx-auto max-w-7xl px-4 pb-12">
                 {/* Timeline e Novenas na página inicial */}
                 {activeSection === "home" && <HomePageSaoJose />}
-                {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} />}
+                {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} loadingFinished={loadingFinished} />}
             </main>
+
+            {/* Botão de Compartilhar WhatsApp */}
+            <div className="container mx-auto max-w-7xl px-4 mb-12">
+                <Link href="/sao-jose/compartilhar">
+                    <Button 
+                        size="lg" 
+                        className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-8 rounded-2xl shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-4"
+                    >
+                        <MessageCircle className="h-8 w-8" />
+                        <div className="text-left">
+                            <p className="text-lg">Para compartilhar no WhatsApp</p>
+                            <p className="text-xs opacity-90 font-normal text-white/80">Copie os textos dos 33 dias formatados</p>
+                        </div>
+                    </Button>
+                </Link>
+            </div>
+
+            <Footer />
         </div>
       </React.Fragment>
     );
@@ -439,7 +458,7 @@ function getYouTubeVideoId(url: string): string | null {
 }
 
 // Component for Consagração Section
-function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent }: { consagracaoContentRef: React.RefObject<HTMLDivElement>; scrollToContent: () => void }) {
+function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFinished }: { consagracaoContentRef: React.RefObject<HTMLDivElement>; scrollToContent: () => void; loadingFinished: boolean }) {
     const [selectedGoalId, setSelectedGoalId] = useState<string>("santos_esposos");
     const [customStartDate, setCustomStartDate] = useState<Date>(new Date());
     const [tempDate, setTempDate] = useState<string>(format(new Date(), "yyyy-MM-dd"));

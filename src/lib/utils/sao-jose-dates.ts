@@ -74,7 +74,7 @@ export function getConsecrationPresets(year: number): ConsecrationPreset[] {
     { id: "todos_santos", name: "Todos os Santos (01 Nov)", feast: new Date(year, 10, 1) },
     { id: "ns_loreto", name: "Nossa Senhora de Loreto (10 Dez)", feast: new Date(year, 11, 10) },
     { id: "sagrada_familia", name: "Sagrada Família (Festa Móvel)", feast: getHolyFamilyDate(year) },
-    { id: "coracao_sj", name: "Coração de São José (Festa Móvel)", feast: getCastissimoCoracaoJoseDate(year) },
+    { id: "coracao_sj", name: "Castíssimo Coração de São José (Festa Móvel)", feast: getCastissimoCoracaoJoseDate(year) },
   ];
 
   return presets.map(p => ({
