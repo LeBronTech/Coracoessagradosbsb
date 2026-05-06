@@ -7,6 +7,7 @@ import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-reac
 import type { EmblaOptionsType } from 'embla-carousel';
 import { cn, formatSaintName } from '@/lib/utils';
 import type { Saint } from '@/lib/data';
+import { novenaData } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -274,6 +275,14 @@ function SaintSelector({
                         <p className="text-[10px] font-normal text-gray-500 opacity-80">{formatSaintName(saint.name).additional}</p>
                       )}
                     </div>
+                    {novenaData[saint.id]?.novenaTitle?.toLowerCase().includes('trezena') && (
+                      <div className="-mt-1 -mb-1 relative flex items-center justify-center">
+                        <div className="bg-red-700/80 text-white px-3 py-0.5 text-[9px] font-bold leading-tight shadow-sm uppercase tracking-widest"
+                          style={{ borderRadius: '0 0 9999px 9999px' }}>
+                          Trezena
+                        </div>
+                      </div>
+                    )}
                     {saint.isMartyr && (
                       <div className="-mt-1 mb-1 bg-red-700/80 text-white px-3 py-0.5 rounded-full text-[9px] font-bold leading-tight shadow-sm uppercase tracking-widest">
                         Mártir

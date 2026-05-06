@@ -1707,7 +1707,6 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         novenaTitle: "Novena a Santo Atanásio",
         description: "Pai da Ortodoxia e defensor da divindade de Cristo. (23 de abril a 1º de maio)",
         image: "https://i.pinimg.com/1200x/d6/90/61/d69061c1e40057ed9e54e0cd189b1e5e.jpg",
-        imageObjectPosition: "top",
         initialPrayer: "",
         finalPrayer: "",
         days: [
@@ -2344,19 +2343,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-    sao_filipe_neri: {
-        saintName: "São Filipe Néri",
-        novenaTitle: "Novena a São Filipe Néri",
-        description: "Novena em honra a São Filipe Néri (26 de maio).",
-        image: "https://i.pinimg.com/736x/2c/9d/d7/2c9dd74d2a6cfd7ceae29962c5613d9c.jpg",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São Filipe Néri`,
-            content: ""
-        }))
-    },
+
 
     visitacao: {
         saintName: "Visitação - Nossa Senhora",
@@ -2414,6 +2401,829 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     // JUNHO
+    sao_filipe_neri: {
+        saintName: "São Filipe Néri",
+        novenaTitle: "Novena a São Filipe Néri",
+        description: "Novena em honra ao 'Apóstolo de Roma', conhecido por sua alegria e caridade (26 de maio).",
+        image: "https://i.pinimg.com/736x/2c/9d/d7/2c9dd74d2a6cfd7ceae29962c5613d9c.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Inicial</h4>
+            <p>Vinde, Espírito Santo, enchei os corações dos vossos fiéis e acendei neles o fogo do vosso amor. Enviai o vosso Espírito e tudo será criado e renovareis a face da terra.</p>
+            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, fazei que apreciemos retamente todas as coisas segundo o mesmo Espírito e gozemos sempre da sua consolação. Por Cristo Senhor Nosso. Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "1º dia (17 de maio)",
+                title: "A humildade de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Se ouvia falar de um crime, dizia: “Graças a Deus não fui eu, pois teria feito pior!” Na confissão, enchia-se de lágrimas, dizendo: “Nunca fiz nenhuma ação boa!” Quando uma penitente disse não suportar a grosseria com que o tratavam certas pessoas que muito lhe deviam, respondeu: “Fosse eu humilde, Deus não me teria mandado isto”.</p>
+                    <p>Quando um de seus filhos espirituais lhe disse: “Padre, quisera eu ter um pouco da tua devoção, pois sei que és um santo”, ele respondeu com o rosto encolerizado, desatando nestas palavras: “Afasta-te de mim! Pois sou um diabo, não um santo!” Outro lhe disse: “Padre, fui tentado a pensar que não és o que todo o mundo diz de ti”, ao que ele respondeu: “Disto tenhas certeza: sou um homem como os outros, nada mais”. Ao saber que alguém tinha dele boa opinião, costumava dizer: “Ai de mim! Quantas menininhas pobres serão maiores no Paraíso do que eu jamais poderei ser!”</p>
+                    <p>Fugia a toda manifestação de estima. Não suportava ser objeto de reverência. Quando queriam tocar-lhe as roupas ou se ajoelhavam ao vê-lo passar, costumava dizer: “Levantai-vos! Saí do caminho!” Não gostava que lhe beijassem a mão, embora consentisse às vezes, para não ferir suscetibilidades. Era inimigo de toda briga e desentendimento. Tomava sempre em boa parte tudo o que lhe diziam. Tinha particular desgosto pela afetação, seja no falar, seja no vestir, ou em qualquer outra coisa.</p>
+                    <p>Não suportava duplicidades; quanto aos mentirosos, não os podia sequer encarar, e frequentemente lembrava a seus filhos espirituais que deviam fugir deles como da peste. Sempre pedia conselho, mesmo em assuntos de menor importância. Orientava frequentemente seus penitentes a nunca confiarem em si mesmos, mas a que aceitassem sempre o conselho de outros e rezassem tanto quanto possível. Comprazia-se em ser pouco estimado; antes, até desprezado.</p>
+                    <p>Tinha os modos mais afáveis ao tratar com os outros, uma grande doçura na conversa, e era cheio de compaixão e consideração. Nunca lhe agradou falar de si mesmo. Expressões como: “Eu disse”, “Eu fiz” raramente lhe vinham aos lábios. Exortava os outros a que nunca buscassem aparecer, sobretudo em coisas que os pudessem honrar, quer falassem a sério ou por brincadeira.</p>
+                    <p>Assim como São João Evangelista, já velho, dizia uma e outra vez: “Meus filhinhos, amai-vos uns aos outros”, também Filipe vivia a repetir sua lição predileta: “Sede humildes; tende-vos em pouca conta!” Dizia que, se fizermos um bom trabalho, mas outro levar o crédito, devemos alegrar-nos e dar graças a Deus. Dizia que ninguém deveria pensar: “Oh! Não hei de cair, não hei de pecar”, porque isso era sinal claro de que se iria cair. Desagradavam-lhe enormemente os que buscavam desculpas para os próprios atos, e chamava-lhes “Minha prezada Eva”, a qual preferiu justificar-se a ser humilde.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu glorioso padroeiro, que fostes tão humilde, embora tivésseis tantos dons e fôsseis tão favorecido por Deus; obtende-me esta virtude, que é a base e a guardiã de todas as outras. Ai de mim! Que motivo tenho para ser orgulhoso? Sou pó e cinza, e, o que é pior, sou um pecador. Obtende-me a graça de me conhecer a mim mesmo, para que eu possa ver minha própria miséria e amar a minha própria abjeção. Que eu jamais deseje ser honrado ou estimado pelos homens, mas que procure agradar somente a Deus, seguindo o vosso exemplo.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "2º dia (18 de maio)",
+                title: "A devoção de S. Filipe",
+                content: `<div class="day-specific-content">
+                    <p>A chama interior de devoção em São Filipe era tão intensa, que ele às vezes desmaiava por causa dela, ou se via forçado a meter-se na cama, como que adoentado pelo amor divino. Quando era jovem, às vezes sentia esse divino fervor com tanta veemência, que não podia conter-se, lançando-se no chão como que em agonia e clamando: “Basta, Senhor, basta!”</p>
+                    <p>O que São Paulo diz de si mesmo parece ter-se cumprido também em Filipe: “Estou cheio de consolação, inundado de alegria” (2Cor 7, 4). Embora gozasse tal consolo, costumava dizer que queria servir a Deus não por interesse, isto é, porque lhe era prazeroso, mas por puro amor, ainda que não sentisse gratificação nenhuma em amá-lo. Ainda leigo, comungava todas as manhãs. Já velho, tinha êxtases frequentes durante a Missa.</p>
+                    <p>Por isso é costume ver São Filipe pintado com seus paramentos vermelhos, para lembrar seu ardente desejo de derramar o próprio sangue por amor a Cristo. Era tão devoto de seu Senhor e Salvador, que estava sempre a pronunciar o nome de Jesus com indizível doçura. Sentia também um prazer extraordinário em recitar o Credo, e tinha tanto carinho ao Pai-nosso, que se detinha em cada pedido como se nunca fosse passar ao próximo.</p>
+                    <p>Tinha uma tal devoção ao Santíssimo Sacramento, que, quando caía doente, não podia dormir antes de comungar. Quando lia ou meditava sobre a Paixão, via-se-lhe o rosto empalidecer como cinzas e os olhos cheios de lágrimas. Quando um dia caiu enfermo, trouxeram-lhe algo para beber. Ele pegou o copo, mas, ao aproximá-lo da boca, parou e começou a lamentar amargamente: “Oh! meu Cristo, vós passastes sede na cruz, mas não lhe deram de beber senão vinagre e fel! E eu, aqui na cama, com tantas comodidades à minha volta, e com tantas pessoas a me assistir!…”</p>
+                    <p>Seja como for, Filipe não fazia muito caso dessa sua delicadeza de sentimentos, pois dizia que emoção não é devoção, que lágrimas não significam que o homem está na graça de Deus e que não devemos supor que alguém é santo só porque chora quando fala de religião. Filipe era tão devoto da Virgem Maria, que sempre lhe trazia o nome nos lábios. Ele rezava duas jaculatórias em honra dela. A primeira: “Virgem Maria, Mãe de Deus, rogai por mim a Jesus”; a outra: simplesmente “Virgem Mãe”, pois dizia que nestas duas palavras estão contidos todos os louvores possíveis a Maria.</p>
+                    <p>Tinha também particular devoção a Santa Maria Madalena, em cuja vigília nasceu, e aos Apóstolos São Tiago e São Filipe; também por São Paulo Apóstolo e por Santo Tomás de Aquino, Doutor da Igreja.</p>
+                    
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu glorioso padroeiro, obtende-me uma parte deste dom que tão abundantemente tivestes. Ai! o vosso coração ardia de amor, enquanto o meu é frio a Deus e vive apenas para as criaturas. Amo o mundo, o qual nunca me fará feliz; meu maior desejo é viver bem aqui embaixo!… Ó meu Deus, quando hei de aprender a não amar nada senão a vós? Alcançai-me, ó Filipe, um amor puro, um amor forte, um amor eficaz, de modo que, amando a Deus aqui na terra, possa eu gozar para sempre no céu de sua face, junto de vós e de todos os santos.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "3º dia (19 de maio)",
+                title: "A oração de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Desde a juventude o servo de Deus dedicou-se intensamente à oração até adquirir tal hábito dela, que, onde quer que estivesse, sua mente estava sempre elevada às coisas celestes. Às vezes esquecia-se de comer; às vezes, quando estava se vestindo, parava de fazê-lo porque o pensamento o levava para o céu, com os olhos abertos mas distraído de todas as coisas ao redor dele. São Filipe tinha mais facilidade para pensar em Deus do que os homens para pensar no mundo.</p>
+                    <p>Se alguém entrasse no quarto dele de repente, muito provavelmente o veria tão absorto na oração, que, se lhe fosse dirigida a palavra, não dava a resposta correta e tinha de dar uma ou duas voltas no cômodo antes de recobrar a consciência. Bastava entregar-se ao hábito da oração no mais superficial para perder-se imediatamente na contemplação. Era necessário distraí-lo para que esse contínuo esforço mental não lhe prejudicasse a saúde.</p>
+                    <p>Antes de realizar qualquer trabalho, por trivial que fosse, sempre rezava; quando lhe perguntavam algo, só respondia depois que estivesse recolhido. Começava a rezar quando se deitava para dormir e tão-logo acordava; geralmente não dormia mais do que quatro horas ou, quando muito, cinco. Às vezes, se alguém desse algum sinal de que havia observado São Filipe indo deitar-se tarde ou acordando cedo para rezar, o santo dizia: “O paraíso não é para preguiçosos”.</p>
+                    <p>Ele se empenhava na oração além do ordinário nas festas mais solenes ou num período de necessidades espirituais urgentes, sobretudo na Semana Santa. Aconselhava os que não conseguiam meditar longamente a elevar a mente em orações jaculatórias como: “Jesus, aumentai a minha fé”; “Jesus, permiti que eu jamais vos ofenda.” São Filipe deu início à oração em família em muitas das principais casas de Roma.</p>
+                    <p>Quando um de seus penitentes lhe pediu que o ensinasse a rezar, respondeu: “Sê humilde e obediente, e o Espírito Santo te ensinará.” Tinha particular devoção à Terceira Pessoa da Santíssima Trindade, e derramava diante dela as mais ferventes orações para pedir dons e graças.</p>
+                    <p>Certa vez, passava a noite em oração nas catacumbas quando ocorreu um grande milagre: a divina presença do Espírito Santo desceu sobre ele sob a aparência de uma bola de fogo, entrando em sua boca e alojando-se em seu peito. Desde então, passou a ter uma palpitação sobrenatural no coração. Costumava dizer que, se as nossas orações estão prestes a ser atendidas, não devemos abandoná-las, mas rezar com o mesmo fervor de antes.</p>
+                    <p>Aos iniciantes recomendava particularmente que meditassem sobre os Novíssimos e costumava dizer que aqueles que não descem ao inferno por pensamento e temor nesta vida correm grande risco de ir para lá quando morrerem. Quando desejava mostrar a necessidade da oração, dizia que um homem que não reza é um animal sem razão. Muitos dos seus discípulos progrediram muito no exercício da oração — não somente religiosos, mas também leigos, artesãos, comerciantes, médicos, advogados e cortesãos — e tornaram-se homens de oração em grau tão elevado, que receberam favores extraordinários de Deus.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu santo padroeiro, ensinai-me com o vosso exemplo e por meio das vossas intercessões a graça de buscar meu Senhor e Deus em todos os momentos e em todas as coisas. Obtende-me um espírito de oração, para que eu possa conversar com Deus continuamente e nunca me cansar de estar em sua presença. Que eu possa aprender a rezar não apenas com os lábios, mas com o coração, e que a minha oração seja um sacrifício agradável a Deus. Rogai por mim, para que eu seja sempre fiel aos meus exercícios espirituais e que eles produzam em mim frutos de santidade. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "4º dia (20 de maio)",
+                title: "A pureza de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Sabendo o quanto Deus se agrada com a pureza de coração, tão-logo São Filipe chegou à idade da razão e adquiriu a capacidade de discernir o bem do mal, começou a guerrear contra os males e as sugestões do inimigo, e jamais descansava até sair vitorioso. Desse modo, apesar de ter vivido no mundo quando jovem e ter conhecido todo tipo de gente, sua virgindade ficou imaculada naqueles perigosos anos da vida. Jamais se escutou de seus lábios palavra alguma que ofendesse a mais severa modéstia, e no modo de se vestir, na postura e no semblante manifestava a mesma bela virtude.</p>
+                    <p>Certo dia, quando ainda era leigo, alguns libertinos o tentaram descaradamente a pecar. Quando percebeu que seria impossível fugir, começou a falar com eles sobre o quão terrível é o pecado e terrível a presença de Deus. Ele o fez com tanta angústia, sinceridade e fervor, que suas palavras perfuraram como espada aqueles corações abandonados, e ele não apenas persuadiu-os a renunciar ao terrível pensamento como os resgatou de seus hábitos viciosos.</p>
+                    <p>Noutra ocasião, alguns homens maus, acostumados a pensar serem melhores que todos, valeram-se de algum pretexto para receber São Filipe em casa por acreditarem que ele não era aquilo que o mundo dizia dele; então, após terem se apossado dele, puseram-no à força diante de uma grande tentação. São Filipe, em apuros, vendo que as portas estavam fechadas, ajoelhou-se e começou a rezar a Deus com um fervor tão impressionante e com uma eloquência celeste tão profunda, que os dois miseráveis que estavam no cômodo não ousaram dirigir-lhe palavra e, ao fim e ao cabo, deixaram-no e mostraram-lhe o caminho para fugir.</p>
+                    <p>Sua pureza virginal destacava-se no semblante. Os olhos eram tão claros e luminosos, que nenhum pintor jamais conseguiu dar-lhes expressão, e não era fácil para ninguém fitá-lo por um longo período, pois ele deslumbrava como um anjo do Paraíso. Mesmo em idade avançada, seu corpo exalava uma fragrância que, apesar da decrepitude da velhice, revigorava os que estavam por perto. Muitos diziam sentir a devoção ser-lhes infundida ao simples cheiro de suas mãos.</p>
+                    <p>O mau odor do vício oposto não era para o santo mera figura de linguagem, mas uma realidade, de modo que conseguia detectar as almas obscurecidas por ele; e costumava dizer que era tão horrível, que nada no mundo se lhe podia igualar além do próprio Maligno. Antes que seus penitentes começassem a confissão, às vezes lhes dizia: “Ó meu filho, já sei quais são os teus pecados.” Muitos admitiam ser imediatamente libertos das tentações quando ele lhes impunha as mãos sobre a cabeça. A mera alusão ao nome dele tinha o poder de proteger contra Satanás os que eram atacados com os seus dardos de fogo.</p>
+                    <p>Ele exortava os homens a jamais confiarem em si mesmos, qualquer que fosse o conhecimento que tinham de si, ou por mais longos que fossem seus hábitos de virtude. Costumava dizer que a humildade era a verdadeira guardiã da castidade, e que a falta de piedade para com o próximo era um presságio de uma rápida queda. Quando encontrava um homem censurador, seguro de si e sem temor, dava-o como perdido.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu glorioso padroeiro, que com tanto zelo sempre guardastes o lírio da vossa pureza, obtende-me a graça de ser sempre casto em meus pensamentos, palavras e obras. Protegei-me contra todas as tentações do inimigo e ajudai-me a fugir de todas as ocasiões de pecado. Que o meu coração seja sempre um jardim fechado para o Senhor, e que eu nunca o ofenda por qualquer impureza. Obtende-me uma grande reverência por tudo o que é santo, e que eu possa sempre viver na presença de Deus com um coração puro e uma consciência limpa. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "5º dia (21 de maio)",
+                title: "A ternura de coração de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Filipe não suportava ver o menor sinal de sofrimento. Embora detestasse as riquezas, sempre desejava ter dinheiro para dar esmola. Não suportava ver crianças pobremente vestidas e fazia tudo o que estivesse ao seu alcance para conseguir roupas novas para elas. Preocupavam-no particularmente o sofrimento e a opressão dos inocentes. Quando um cavalheiro romano foi preso, acusado falsamente de ter matado um homem, chegou a apresentar a causa dele ao Papa, obtendo-lhe assim a libertação.</p>
+                    <p>Um sacerdote fora acusado por homens influentes e provavelmente sofreria por causa disso. São Filipe saiu em defesa dele com tanto entusiasmo, que demonstrou sua inocência ao público. Noutra ocasião, ao ouvir falar de uns ciganos condenados a trabalhos forçados, foi ao Papa e obteve-lhes a liberdade. O amor dele à justiça era tão grande quanto sua ternura e compaixão.</p>
+                    <p>Logo após sua ordenação sacerdotal houve uma fome severa em Roma, e seis pães foram-lhe enviados em presente. Sabendo que na mesma casa se encontrava um pobre estrangeiro que sofria pela falta de comida, deu-lhe todos os pães, não tendo nada além de azeitonas para comer no primeiro dia. São Filipe tinha um carinho especial pelos artesãos e pelos que tinham dificuldade em vender seus bens. Havia dois relojoeiros, artistas habilidosos mas velhos e sobrecarregados com a numerosa família. Encomendou-lhes vários relógios e encontrou uma maneira de vender todos a seus amigos.</p>
+                    <p>O zelo e a liberalidade dele resplandeciam diante de meninas pobres. Ele as sustentava quando não tinham outro meio de provisão. Encontrava dotes matrimoniais para algumas delas; a outras dava o que era suficiente para ser admitidas em conventos. Era particularmente bondoso com os prisioneiros, a quem enviava dinheiro várias vezes na semana. Não punha limites à afeição pelos pobres acanhados e modestos, e era mais generoso com eles nas esmolas.</p>
+                    <p>Os estudantes pobres eram outro objeto de excepcional compaixão. Dava-lhes não só comida e vestuário, mas livros de estudo. Chegou a vender todos os seus livros para ajudar um deles. Era muito sensível a qualquer gentileza que se lhe fizesse, de modo que um de seus amigos pôde dizer: “Não era possível presentear Filipe sem receber dele outro presente com o dobro do valor.”</p>
+                    <p>Era muito carinhoso com os animais. Ao ver alguém pisar uma lagartixa, exclamou: “Cruel! Que te fez este pobre animal?” Ao ver um açougueiro ferir um cão com uma faca, não conseguiu conter-se e teve grande dificuldade para se manter calmo. Não suportava o menor sinal de crueldade contra animais sob qualquer pretexto. Quando um pássaro lhe entrava no quarto, abria a janela para que não fosse capturado.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu glorioso advogado, ensinai-me a olhar para todas as coisas deste mundo com os vossos olhos, como criaturas de Deus, feitas para nos levar a Ele. Obtende-me a graça do desapego de todas as coisas terrenas, para que eu possa amar a Deus acima de tudo e o meu próximo por amor a Ele. Que eu não me deixe prender pelas riquezas, honras ou prazeres deste mundo, mas que o meu coração esteja sempre voltado para o céu. Ajudai-me a usar de todas as coisas criadas para a maior glória de Deus e para a salvação da minha alma. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "6º dia (22 de maio)",
+                title: "A alegria de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Filipe acolhia com particular bondade os que lhe pediam conselho, e apesar de serem estranhos, recebia-os com tanta afeição como se os esperasse há muito. Quando havia motivo para se alegrar, alegrava-se; quando devia sentir compaixão pelos aflitos, estava igualmente pronto a senti-la. Às vezes deixava as orações para ir brincar e gracejar com jovens, e ganhava-lhes a alma por meio da doçura, da condescendência e da conversa divertida.</p>
+                    <p>Não suportava ver ninguém abatido ou pensativo, porque isso sempre faz mal à espiritualidade. Quando via alguém de semblante sério e triste, costumava dizer: “Sê feliz!” Tinha verdadeira predileção pelas pessoas alegres. Ao mesmo tempo, era inimigo de qualquer coisa que se assemelhasse à grosseria e à estultice, pois um espírito irreverente não só não progride como arranca da alma o que já foi plantado.</p>
+                    <p>Certa vez, devolveu a alegria ao Padre Francesco Bernardi, membro da Congregação do Oratório, apenas por convidá-lo para correrem juntos: “Vamos correr juntos agora!” Seus penitentes ficavam tão alegres quando estavam em seu quarto, que costumavam dizer que o quarto de Filipe não é um cômodo, mas um Paraíso terreno. Outros viam-se libertos de todos os seus problemas pelo simples fato de permanecerem à porta do quarto dele, sem entrar. Outros recuperavam a paz de espírito simplesmente fixando os olhos em seu rosto. Muitos eram consolados ao sonhar com ele. Numa palavra, São Filipe era um consolo perpétuo para os que sofriam com dúvidas e com a tristeza.</p>
+                    <p>Ninguém jamais viu São Filipe triste. Quem o buscava sempre o achava de semblante alegre e sorridente, mas sem perder a seriedade. Se caía doente, consolava mais do que era consolado. Ninguém jamais o ouviu alterar a voz como fazem os inválidos, mas falava no mesmo tom de voz como se estivesse bem. Certa vez, quando os médicos haviam desistido dele, disse com o salmista: Paratus sum et non sum turbatus (“Estou pronto; não estou perturbado”). Recebeu a Extrema-Unção quatro vezes, mas com o mesmo rosto calmo e alegre de sempre.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu glorioso advogado, que sempre seguistes os preceitos de Deus com tanto fervor e alegria, obtende-me a graça de um grande zelo pela glória de Deus e pela salvação das almas. Que eu nunca seja tíbio no serviço de Deus, mas que arda sempre no desejo de o tornar mais conhecido e amado. Ensinai-me a trabalhar com paciência e perseverança pela conversão dos pecadores e pelo bem da Santa Igreja. Que o meu exemplo e as minhas palavras possam atrair outros para o caminho da virtude, e que eu possa um dia alegrar-me convosco no céu por ter sido um fiel servidor de Cristo. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "7º dia (23 de maio)",
+                title: "A paciência de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>Por muitos anos, São Filipe foi alvo de piadas por parte de parasitas palacianos da nobreza romana, que diziam dele quanto de mal lhes vinha à mente, porque não gostavam de ver um homem virtuoso e responsável. O falatório sarcástico contra ele durou tantos anos, que se estendeu por Roma. Em todas as lojas e casas de contabilidade os preguiçosos e maldosos não faziam nada senão ridicularizar Filipe. Quando lançavam contra ele alguma calúnia, não lhe dava a menor importância, e com bastante calma contentava-se em simplesmente sorrir.</p>
+                    <p>Certa vez, o empregado de um cavalheiro começou a maltratá-lo com tanta insolência, que uma pessoa de respeito — testemunha do insulto — estava a ponto de o agarrar; mas ao ver a gentileza e a satisfação de São Filipe, conteve-se, e desde então o considerou um santo. Às vezes seus filhos espirituais, e até os que estavam sob as maiores obrigações para com ele, tratavam-no como se fosse um rude e tolo, mas ele não demonstrava qualquer ressentimento.</p>
+                    <p>Certa vez, quando era superior da Congregação, um de seus subordinados arrancou-lhe uma carta da mão; mas o santo recebeu a afronta com incomparável brandura, sem mostrar a menor emoção nem pelo olhar, por palavras ou por gestos. A paciência se tornara nele um hábito tão perfeito, que jamais o viram afetado pelas paixões. Reprimia o rancor já nos primeiros movimentos. Seu semblante se acalmava instantaneamente e assumia novamente o sorriso modesto de costume.</p>
+                    
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu santo advogado, que suportastes com tanta paciência as calúnias, as doenças e todas as contrariedades da vida, obtende-me a graça de uma paciência invencível em todas as minhas provações. Que eu nunca me queixe das cruzes que Deus me envia, mas que as receba como provas de seu amor. Ajudai-me a sofrer em silêncio e com resignação, unindo os meus sofrimentos aos de Cristo na cruz. Que a paciência produza em mim a esperança, e que eu nunca desanime no caminho da perfeição. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "8º dia (24 de maio)",
+                title: "A preocupação de São Filipe com a salvação das almas",
+                content: `<div class="day-specific-content">
+                    <p>Ainda jovem sacerdote, tendo reunido certo número de pessoas espirituais, desejava ir com elas para a Índia (onde São Francisco Xavier estava empenhado em sua bela carreira), a fim de pregar o Evangelho aos pagãos, e só desistiu da ideia por obediência aos santos homens a quem pediu conselho. Quanto aos maus cristãos no lar, desejava tão ardentemente a conversão deles, que mesmo em idade avançada aplicava-se graves mortificações em proveito deles, e chorava pelos pecados deles como se fossem seus.</p>
+                    <p>Quando era leigo, converteu trinta jovens libertinos num único sermão. Com a graça de Deus, conseguiu trazer de volta aos caminhos da santidade um número quase infinito de pecadores. Na hora da morte, muitos clamavam: “Bendito seja o dia que conheci o Padre Filipe!” Outros diziam: “Padre Filipe atraía almas como o ímã atrai o ferro.”</p>
+                    <p>Com o fito de cumprir o que julgava ser sua missão particular, dedicava-se unicamente a ouvir confissões, excluindo todas as outras ocupações. Antes do nascer do sol, costumava confessar um bom número de penitentes no próprio quarto. Dirigia-se à igreja na aurora e não saía de lá antes do meio-dia, exceto para celebrar Missa. Se não houvesse penitentes, ficava perto do confessionário, lendo, rezando o Ofício ou o Terço. Se estivesse em oração ou em refeição, interrompia imediatamente o que estava fazendo quando chegavam os penitentes.</p>
+                    <p>Só deixava de escutar confissões por causa de alguma doença, e quando o médico o proibia de fazê-lo. Pela mesma razão, mantinha aberta a porta do quarto para que pudesse ver todos os que passassem por ele. Tinha particular inquietação com relação aos meninos e rapazes. Preocupava-se em mantê-los sempre ocupados, pois sabia que a ociosidade é a fonte de todo mal. Às vezes inventava tarefas para eles, quando não encontrava nenhuma outra.</p>
+                    <p>Deixava que armassem ao seu redor qualquer gritaria que lhes agradasse, se com isso os mantivesse longe da tentação. Quando um amigo se queixou dele por deixar que o atrapalhassem tanto, respondeu: “Contanto que não pequem, podem até cortar madeira nas minhas costas”. Os dominicanos permitiam a seus noviços participar com ele da recreação. Filipe costumava alegrar-se ao vê-los em sua refeição de férias. Dizia: “Meus filhos, comei sem escrúpulos. Eu me encarrego de engordar por vós”. Terminado o jantar, fazia-os sentar à roda de si, contava-lhes os segredos de seus corações, dava-lhes bons conselhos e os exortava a viver segundo a virtude.</p>
+                    <p>Tinha uma capacidade notável de consolar os doentes e libertá-los das tentações com que o demônio os assaltava. Ao zelo pela conversão das almas São Filipe sempre acrescentava o exercício dos atos de misericórdia corporal. Visitava doentes nos hospitais, servia-os em todas as suas necessidades, fazia a cama deles, varria o chão e dava-lhes de comer.</p>
+                    </div>
+
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu santo patrono, que fostes tão cuidadoso em manter a santa alegria em vossa alma e na de vossos filhos, obtende-me a graça de um espírito sempre alegre e confiante em Deus. Livrai-me da tristeza e do abatimento, que são armas do inimigo para nos desviar do caminho da virtude. Que a minha alegria seja sempre fundada na graça de Deus e na esperança do céu. Que eu possa espalhar ao meu redor o bom odor de Cristo por meio de uma conversa afável e de um semblante sereno. Que eu aprenda que o serviço de Deus não é um jugo pesado, mas uma liberdade gloriosa. Amém.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "9º dia (25 de maio)",
+                title: "Os milagres de São Filipe",
+                content: `<div class="day-specific-content">
+                    <p>As virtudes de S. Filipe, grandes e sólidas, foram coroadas pela Majestade divina com vários e extraordinários favores, que ele em vão procurava esconder por meio de todos os artifícios. Deus se comprazia em permitir que ele penetrasse seus inefáveis mistérios e conhecesse suas maravilhosas providências por meio de êxtases, arrebatamentos e visões, que ocorreram com frequência durante toda a sua vida.</p>
+                    <p>Certa manhã, um amigo foi-se confessar com ele e, ao abrir a porta do quarto, viu o santo em oração, de pés, com os olhos voltados para o céu e as mãos estendidas. Ficou parado algum tempo a observá-lo e em seguida aproximou-se para falar-lhe, mas o santo nem mesmo o percebeu. Permaneceu assim abstraído mais oito minutos, e só então voltou a si. Recebera o consolo de enxergar em visão as almas de muitas pessoas, particularmente as de seus amigos e penitentes, irem para o Céu. De fato, os que dele eram íntimos davam por certo que nenhum de seus filhos espirituais morreria sem que ele se certificasse do estado de suas almas.</p>
+                    <p>Por causa de sua santidade e experiência, São Filipe era capaz de distinguir entre visões verdadeiras e falsas. Alertava com sinceridade para que ninguém se deixasse enganar, o que era muito fácil e provável. São Filipe sobressai entre os santos por seus dons de predição e leitura dos corações. Os exemplos poderiam encher vários volumes. Predisse a morte de alguns, a recuperação de outros, o futuro de uns, o nascimento de filhos de quem não os tinham, quem seria Papa antes de ser eleito… Tinha o dom de ver coisas à distância e sabia o que estava acontecendo na mente de seus penitentes e de outros à sua volta.</p>
+                    <p>Sabia se os penitentes haviam feito suas orações e durante quanto tempo estavam rezando. Muitos deles, quando se viam na iminência de conversar sobre algo menos honesto, diziam: “Temos de parar, pois São Filipe ficará sabendo”. Certa vez, uma mulher o procurou para se confessar, mas o que desejava na verdade era esmola. Ele disse: “Em nome de Deus, boa mulher, vai embora; não há pão para ti” — e nada poderia fazê-lo ouvir a confissão dela.</p>
+                    <p>Um homem foi-se confessar com ele, mas tremia em vez de falar e, quando interrogado, disse: “Estou envergonhado”, pois havia cometido um pecado terrível. São Filipe disse calmamente: “Não tenhas medo; eu te direi o que foi” — e contou-lhe, para espanto do penitente. Tais exemplos são inumeráveis. Não havia uma única pessoa íntima de São Filipe que não afirmasse que ele conhecia os segredos do coração da forma mais espantosa.</p>
+                    <p>Também foi esplêndido em sua capacidade de curar e devolver a saúde. Aliviava a dor com o toque da mão e o sinal da cruz. Da mesma forma, curava doenças instantaneamente, ora rezando, ora mandando as doenças irem embora. Era este um dom tão conhecido, que os doentes se apossavam de oupas, sapatos e pedaços de cabelo do santo, por meio dos quais Deus operava milagres.</p>
+                    <details class="mt-6 group border-2 border-white rounded-xl overflow-hidden shadow-lg">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors list-none sticky top-0 z-10 shadow-sm">
+                            <span class="font-bold text-primary flex items-center gap-2">
+                                📖 Ladainha de São Filipe Néri
+                            </span>
+                            <span class="text-primary transition-transform group-open:rotate-180">▼</span>
+                        </summary>
+                        <div class="p-6 bg-amber-50/70 space-y-1 text-sm text-center text-stone-800">
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p>Cristo, tende piedade de nós.</p>
+                            <p>Senhor, tende piedade de nós.</p>
+                            <p class="mt-2">Jesus Cristo, ouvi-nos.</p>
+                            <p>Jesus Cristo, atendei-nos.</p>
+                            <p class="mt-2">Deus Pai do céu, <em>tende piedade de nós.</em></p>
+                            <p>Deus Filho, Redentor do mundo, <em>tende piedade de nós.</em></p>
+                            <p>Deus Espírito Santo, <em>tende piedade de nós.</em></p>
+                            <p>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+                            <p class="mt-3">Santa Maria, <em>rogai por nós.</em></p>
+                            <p>Santa Mãe de Deus, <em>rogai por nós.</em></p>
+                            <p>Santa Virgem das Virgens, <em>rogai por nós.</em></p>
+                            <p class="mt-3 font-bold text-primary">São Filipe, <em>rogai por nós.</em></p>
+                            <p>Vaso do Espírito Santo, <em>rogai por nós.</em></p>
+                            <p>Filho de Maria, <em>rogai por nós.</em></p>
+                            <p>Apóstolo de Roma, <em>rogai por nós.</em></p>
+                            <p>Conselheiro de Papas, <em>rogai por nós.</em></p>
+                            <p>Voz de Profecia, <em>rogai por nós.</em></p>
+                            <p>Homem dos tempos antigos, <em>rogai por nós.</em></p>
+                            <p>Santo amável, <em>rogai por nós.</em></p>
+                            <p>Herói escondido, <em>rogai por nós.</em></p>
+                            <p>Pai suavíssimo, <em>rogai por nós.</em></p>
+                            <p>Flor da pureza, <em>rogai por nós.</em></p>
+                            <p>Mártir da caridade, <em>rogai por nós.</em></p>
+                            <p>Coração de fogo, <em>rogai por nós.</em></p>
+                            <p>Discernidor de espíritos, <em>rogai por nós.</em></p>
+                            <p>Gema dos sacerdotes, <em>rogai por nós.</em></p>
+                            <p>Espelho da vida divina, <em>rogai por nós.</em></p>
+                            <p>Modelo de humildade, <em>rogai por nós.</em></p>
+                            <p>Exemplo de simplicidade, <em>rogai por nós.</em></p>
+                            <p>Luz da santa alegria, <em>rogai por nós.</em></p>
+                            <p>Imagem da infância, <em>rogai por nós.</em></p>
+                            <p>Retrato da idade madura, <em>rogai por nós.</em></p>
+                            <p>Diretor de almas, <em>rogai por nós.</em></p>
+                            <p>Pescador dos oscilantes, <em>rogai por nós.</em></p>
+                            <p>Gentil guia da juventude, <em>rogai por nós.</em></p>
+                            <p>Patrono dos vossos, <em>rogai por nós.</em></p>
+                            <p class="mt-4 font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos, Senhor.</em></p>
+                            <p class="font-bold text-primary">Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+                            <p class="mt-6">℣. Rogai por nós, São Filipe,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+                            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que exaltastes o bem-aventurado Filipe, vosso Confessor, à glória dos vossos santos: concedei que, enquanto nos alegramos com sua memória, possamos nos beneficiar com o exemplo de suas virtudes. Por Cristo, nosso Senhor. Amém.</p>
+                        </div>
+                    </details>
+
+                    <div class="mt-8 bg-primary/5 p-6 rounded-2xl border border-primary/10">
+                        <h4 class="section-title !mt-0">Oração do Dia</h4>
+                        <p>Filipe, meu santo patrono, as feridas e doenças da minha alma são maiores do que as do corpo, e estão além da cura, mesmo com o vosso poder sobrenatural. Sei que o meu Senhor todo-poderoso reserva para suas próprias mãos a faculdade de curar a alma da morte e de todas as enfermidades. Mas vós podeis fazer agora mais pelas nossas almas, graças às vossas orações, meu querido santo, do que fizestes outrora pelos corpos dos que vos pediram auxílio quando estivestes na terra. Rogai por mim, para que o divino Médico da alma, o único que lê perfeitamente meu coração, o limpe completamente, e para que eu e todos os que me são caros possam ser limpos dos pecados; e como todos nós devemos morrer, que morramos como vós, na graça e no amor de Deus e com a garantia da vida eterna.</p>
+                    </div>
+                </div>`
+            }
+        ],
+    },
+
+    sao_jose_anchieta: {
+        saintName: "São José de Anchieta",
+        novenaTitle: "Novena a São José de Anchieta",
+        description: "Novena ao Apóstolo do Brasil e Poeta da Virgem Maria (09 de junho).",
+        image: "https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg",
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração a São José de Anchieta</h4>
+            <p>São José de Anchieta, Apóstolo do Brasil, Poeta da Virgem Maria, intercede por nós hoje e sempre.</p>
+            <p>Dá-nos a disponibilidade de servir a Jesus como tu O serviste nos mais pobres e necessitados. Protege-nos de todos os males do corpo e da alma. E, se for vontade de Deus, alcança-nos a graça que agora te pedimos (pede-se a graça).</p>
+            <p class="mt-4 font-bold text-center">São José de Anchieta, rogai por nós!</p>
+        </div>`,
+        days: [
+            {
+                day: "1º Dia",
+                title: "ANCHIETA, CHEIO DE HUMILDADE E MANSIDÃO",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, dai-me a graça da humildade e mansidão.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Col 3,12)</h4>
+                    <p>Irmãos, como eleitos de cristo, santos e amados, revesti-vos de sentimentos de compaixão, de bondade, humildade, mansidão, longanimidade, suportando-vos uns aos outros, e perdoando-vos mutuamente, se alguém tem motivo de queixa contra o outro; como o Senhor vos perdoou, assim fazei vós também.</p>
+                    
+                    <h4 class="section-title">Palavra de Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Da Carta de são José de Anchieta ao Geral da Companhia de Jesus Pe. Cláudio Acquaviva</p>
+                    <p>Trabalhamos o possível pela defesa dos índios para que com isso se salvem os predestinados. Suportamos tudo isso por amor aos eleitos. Eu, embora velho e maldisposto, desenganado estou que não terei descanso nesta peregrinação; resolvido estou de me dar todo aos superiores, que façam de mim o que quiserem para serviço de Deus e dos nossos. Não me falte sua graça.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "2º Dia",
+                title: "ANCHIETA, HOMEM MISERICORDIOSO",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, dai-me um coração cheio de misericórdia para com os meus irmãos e irmãs.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Pd 3,8-11)</h4>
+                    <p>Irmãos, tende todos um só coração e uma só alma, sentimentos de amor fraterno, de misericórdia, de humildade. Não pagueis mal com mal, nem injúria com injúria. Ao contrário, abençoai, pois para isto fostes chamados, para que sejais herdeiros da bênção. Com efeito, quem quiser amar a vida e ver dias felizes, refreie sua língua do mal e seus lábios de palavras enganadoras; aparte-se do mal e faça o bem, busque a paz e siga-a.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Pero Rodrigues, sj</p>
+                    <p>O Pe. José de Anchieta, quando era superior provincial, perguntou a um padre que era ministro em um colégio a razão pela qual tinha agido de modo tão ríspido com um súdito. O ministro respondeu: "Quem me deu o oficio de ministro, me instruiu que não deixasse passar nenhuma ocasião na qual pudesse exercitar os súditos em paciência". Deste modo, o Pe. José de Anchieta lhe exortou: "Em nome de Deus, vos dispo deste hábito de rigor e vos visto com os trajes da mansidão. Deste modo, nunca deis ocasião a nenhum súdito de impaciência, senão de todo amor e afabilidade."</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "3º Dia",
+                title: "ANCHIETA, PACIENTE NAS TRIBULAÇÕES",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu seja forte e paciente nas tribulações.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (2 Cor 1, 3-5)</h4>
+                    <p>Bendito seja Deus, o Pai de nosso Senhor Jesus Cristo, o Pai das misericórdias, Deus de toda a consolação, que nos conforta em todas as nossas tribulações, para que, pela consolação com que nós mesmos somos consolados por Deus, possamos consolar os que estão em qualquer angústia! Com efeito, à medida que em nós crescem os sofrimentos de Cristo, crescem também por Cristo as nossas consolações.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Quirício Caxa, sj</p>
+                    <p>O Pe. José de Anchieta, quando esteve refém dos índios tamoios em Iperuig, para se livrar dos grandes perigos e propícias ocasiões de pecado, usava de muita oração e comunicação com Deus. Encomendava-se sempre à Virgem Maria de quem era e foi sempre devotíssimo, em especial de sua puríssima conceição. Muitas vezes vieram os tamoios de outras partes para o matar, mas sempre Deus o livrou.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "4º Dia",
+                title: "ANCHIETA, APAIXONADO POR CRISTO",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu seja verdadeiramente apaixonado por Ti.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Fil 3, 7-9. 12)</h4>
+                    <p>Na verdade, julgo como perda todas as coisas, em comparação com esse bem supremo: o conhecimento de Jesus Cristo, meu Senhor. Por ele tudo desprezei e tenho em conta de esterco, a fim de ganhar Cristo e estar com ele. Não pretendo dizer que já alcançou (esta meta) e que cheguei à perfeição. Não. Mas eu me empenho em conquistá-la, uma vez que também eu fui conquistado por Jesus Cristo.</p>
+                    
+                    <h4 class="section-title">Palavra de Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos poemas eucarísticos de São José de Anchieta</p>
+                    <p>Minh'alma seca busque essa fonte divina, torne-se a nosso mal segura medicina! Que eu conheça quem és! Sê meu único amante! inteiro eu ame a ti, de coração constante!</p>
+                    <p>Se não conheço a ti, já não posso viver: pois vida eterna, ó Deus, é só te conhecer! E se não amo a ti, já não posso durar: pois vida eterna. Ó Deus, é só a ti amar!</p>
+                    <p>Amo-te, porque tu não excluis o mendigo, ó Hóspede, ó prazer do coração amigo!</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "5º Dia",
+                title: "ANCHIETA, HOMEM DE MILAGRES",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu saiba reconhecer os milagres no ordinário da minha vida.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Mc 16, 17-18)</h4>
+                    <p>Naquele tempo disse-lhes Jesus: estes milagres acompanharão os que crerem: expulsarão os demônios em meu nome, falarão novas línguas, manusearão serpentes e, se beberem algum veneno mortal, não lhes fará mal; imporão as mãos aos enfermos e eles ficarão curados.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Pero Rodrigues, sj</p>
+                    <p>Sucedeu que se fez uma grande festa na aldeia de São João na Capitania do Espírito Santo, da qual participou muita gente da vila e também o Pe. José de Anchieta com outros padres. Havia um menino de quatro ou cinco anos, mudo que nunca falara, por nome Estevão. Entre danças e outros jogos houve também a brincadeira do pato ensaboado e dois homens o agarraram ao mesmo tempo. Fizeram juiz do caso o Pe. José de Anchieta, o qual olhando para Estevão, lhe mandou que dissesse quem ganhara o pato. O menino, recuperando instantaneamente a fala, respondeu desembaraçadamente, dizendo: "é meu, me deem, para o levar a minha mãe". Todo o povo que estava presente, deu muitos louvores a Deus por tão grande maravilha.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "6º Dia",
+                title: "ANCHIETA, PROTETOR DOS INDEFESOS",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu defenda e proteja os sofredores e oprimidos.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Lc 4, 18-19)</h4>
+                    <p>O Espírito do Senhor está sobre mim, porque me ungiu; e enviou-me para anunciar a boa nova aos pobres, para sarar os contritos de coração, para anunciar aos cativos a redenção, aos cegos a restauração da vista, para pôr em liberdade os cativos, para publicar o ano da graça do Senhor.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Pero Rodrigues, sj</p>
+                    <p>O Pe. José de Anchieta buscava muito a liberdade dos índios, e não tolerava quando alguns se aproximavam de suas terras para roubá-los e cativá-los por força ou engano ou manifestas injustiças, com o pretexto de ir resgatar. Quando se achava entre os índios, cuidava deles em suas doenças, posto que molestas e nojentas. Nunca se negava para os servir no espiritual e temporal, ainda que houvesse de passar fomes, frios e maus caminhos, e todas as mais incomodidades que a terra e o tempo ocasionavam.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "7º Dia",
+                title: "ANCHIETA, PERSEVERANTE NA ORAÇÃO",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu cresça na intimidade contigo através da oração.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Rm 12, 9-16)</h4>
+                    <p>Que vossa caridade não seja fingida. Aborrecei o mal, apegai-vos solidamente ao bem. Amai-vos mutuamente com afeição terna e fraternal. Adiantai-vos em honrar uns aos outros. Não relaxeis o vosso zelo. Sede fervorosos de espírito. Servi ao Senhor. Sede alegres na esperança, pacientes na tribulação e perseverantes na oração. Socorrei às necessidades dos fiéis. Esmerai-vos na prática da hospitalidade. Abençoai os que vos perseguem; abençoai-os, e não os praguejeis. Alegrai-vos com os que se alegram; chorai com os que choram. Vivei em boa harmonia uns com os outros.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Pero Rodrigues, sj</p>
+                    <p>Era o Padre José de Anchieta homem de muita oração, muito exercitado e contínuo nela, dormia muito pouco e quase toda a noite gastava com Deus, ora passeando pelos corredores sem sapatos, ora de joelhos a um canto, ora na Igreja. E às duas horas depois de meia noite, se ia encostar sobre seu leito pobre, vestido, nunca usava lençóis. Muitas vezes foi visto, enquanto dormia, pronunciar o nome de Deus muito afetuosamente. Foi visto por numerosas testemunhas, levantado do chão, estando dizendo Missa ou uma oração na Igreja. Tal foi o Padre José em todo o tempo de sua vida no espírito da oração, que não há que se espantar das maravhas que dele se contam, nem da grande santidade a que chegou, pois nesta escola do Espírito Santo continuou com muita diligência, por espaço de quarenta e quatro anos que viveu no Brasil.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "8º Dia",
+                title: "ANCHIETA, POETA DA VIRGEM MARIA",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que eu seja um verdadeiro devoto da Virgem Maria.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Lc 1, 26-35.38)</h4>
+                    <p>No sexto mês, o anjo Gabriel foi enviado por Deus a uma cidade da Galiléia, chamada Nazaré, a uma virgem desposada com um homem que se chamava José, da casa de Davi e o nome da virgem era Maria. Entrando, o anjo disse-lhe: Ave, cheia de graça, o Senhor é contigo. Perturbou-se ela com estas palavras e pôs-se a pensar no que significaria semelhante saudação. O anjo disse-lhe: Não temas, Maria, pois encontraste graça diante de Deus. Eis que conceberás e darás à luz um filho, e lhe porás o nome de Jesus. Ele será grande e chamar-se-á Filho do Altíssimo, e o Senhor Deus lhe dará o trono de seu pai Davi; e reinará eternamente na casa de Jacó, e o seu reino não terá fim. Maria perguntou ao anjo: Como se fará isso, pois não conheço homem? Respondeu-lhe o anjo: O Espírito Santo descerá sobre ti, e a força do Altíssimo te envolverá com a sua sombra. Por isso o ente santo que nascer de ti será chamado Filho de Deus. Então disse Maria: Eis aqui a serva do Senhor. Faça-se em mim segundo a tua palavra. E o anjo afastou-se dela.</p>
+                    
+                    <h4 class="section-title">Palavra de Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Do Poema à Virgem de São José de Anchieta</p>
+                    <p>Disse Deus, voa o anjo em adejo fulgente,<br/>como vésper em fogo emerge no ocidente.<br/>Extasiado ao fulgor que na mente te lavra,<br/>curvando-se a teus pés, te lança esta palavra:</p>
+                    <p>Ó mulher, a teu Pai, mais que todas, benquista:<br/>salve, primeiro amor de teu eterno artista!<br/>Desse teu coração ele sempre foi dono,<br/>em teu peito ele só constituiu seu trono.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            },
+            {
+                day: "9º Dia",
+                title: "ANCHIETA, APÓSTOLO DO BRASIL",
+                content: `<div class="day-specific-content">
+                    <p class="font-bold italic">Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+                    <p class="mt-4"><strong>Graça a pedir:</strong> Senhor, que a exemplo de São José de Anchieta, eu seja um apóstolo fiel no serviço do Teu Reino de Amor.</p>
+                    
+                    <h4 class="section-title">Palavra do Senhor (Mc 12, 15-16.20)</h4>
+                    <p>Naquele tempo disse-lhes Jesus: Ide por todo o mundo e pregai o Evangelho a toda criatura. Quem crer e for batizado será salvo, mas quem não crer será condenado. Os discípulos partiram e pregaram por toda parte. O Senhor cooperava com eles e confirmava a sua palavra com os milagres que a acompanhavam.</p>
+                    
+                    <h4 class="section-title">Palavra sobre Anchieta</h4>
+                    <p class="italic text-sm text-gray-500 mb-2">Dos testemunhos recolhidos pelo Pe. Quirício Caxa, sj.</p>
+                    <p>No dia de seu sepultamento, o Administrador Apostólico pregou dizendo muitas coisas de muito louvor, chamando o padre José de Anchieta Apóstolo do Brasil, e dizendo quão bom pai e protetor haviam perdido todos, assim índios como portugueses. Houve grandíssimo movimento de lágrimas em todos porque era por todos muito amado e reverenciado, e muitos pela opinião grande que tinham de sua santidade, em vez de o encomendarem a Deus, se encomendavam a ele, que os favorecesse com Deus, tendo por certo que estava diante dele, gozando de sua glória.</p>
+                    
+                    <p class="mt-4 italic text-center">Breve momento de meditação</p>
+                </div>`
+            }
+        ]
+    },
+
     santo_antonio_padua: {
         saintName: "Santo Antônio de Pádua",
         novenaTitle: "Trezena de Santo Antônio",
@@ -2969,19 +3779,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         }))
     },
 
-    sao_jose_anchieta: {
-        saintName: "São José de Anchieta",
-        novenaTitle: "Novena a São José de Anchieta",
-        description: "Novena em honra a São José de Anchieta (9 de junho).",
-        image: "https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São José de Anchieta`,
-            content: ""
-        }))
-    },
+
     nossa_senhora_lujan: {
         saintName: "N.S. de Luján",
         novenaTitle: "Novena a N.S. de Luján",

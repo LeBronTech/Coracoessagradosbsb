@@ -146,21 +146,26 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       const diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
       const diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
 
+      // Detectar se é trezena baseado no título
+      const isTrezena = novena?.novenaTitle?.toLowerCase().includes('trezena');
+      const devocaoLabel = isTrezena ? 'trezena' : 'novena';
+      const devocaoLabelCap = isTrezena ? 'Trezena' : 'Novena';
+
       let title = "";
       let description: React.ReactNode = "";
 
       if (diffStart === 0) {
         title = "Inicia Hoje!";
-        description = "Esta novena começou oficialmente hoje. É o momento perfeito para iniciá-la.";
+        description = `Esta ${devocaoLabel} começou oficialmente hoje. É o momento perfeito para iniciá-la.`;
       } else if (diffEnd === 0) {
         title = `Último dia (${diffStart + 1}º Dia)`;
-        description = <>Atenção: hoje é o último dia oficial (<strong>{diffStart + 1}º Dia</strong>) desta novena antes da sua grande festa.</>;
+        description = <>Atenção: hoje é o último dia oficial (<strong>{diffStart + 1}º Dia</strong>) desta {devocaoLabel} antes da sua grande festa.</>;
       } else if (diffStart > 0 && diffEnd > 0) {
-        title = "Novena em andamento";
-        description = <>A novena está atualmente no <strong>{diffStart + 1}º dia</strong>. Junte-se às orações!</>;
+        title = `${devocaoLabelCap} em andamento`;
+        description = <>A {devocaoLabel} está atualmente no <strong>{diffStart + 1}º dia</strong>. Junte-se às orações!</>;
       } else {
         title = "Aviso";
-        description = <>A data oficial inicia em <strong>{saint.startDate}</strong>, mas você pode iniciar e rezar esta novena em qualquer época ou momento!</>;
+        description = <>A data oficial inicia em <strong>{saint.startDate}</strong>, mas você pode iniciar e rezar esta {devocaoLabel} em qualquer época ou momento!</>;
       }
 
       setAlertInfo({ title, description });
@@ -189,7 +194,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
       };
     }
-  }, [saint]);
+  }, [saint, novena]);
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -530,7 +535,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
           <div className="flex-1 min-w-0">
             <div className="flex flex-col items-center sm:items-start leading-tight">
-              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">Novena</span>
+              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
               <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
                 {formatSaintName(saint.name, false, true).main}
               </h2>
@@ -556,7 +561,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     "inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm",
                     saint.isMartyr && "-mt-1.5 sm:mt-0 sm:-ml-2"
                   )}>
-                    Novena: {saint.startDate} a {saint.endDate}
+                    {novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}: {saint.startDate} a {saint.endDate}
                   </span>
                   {alertInfo && (
                     <button
@@ -631,7 +636,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             )}
           >
             <Image src="https://i.postimg.cc/g24cJdKG/whatsapp-icone-5.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
-            <span className="text-sm font-semibold">Novena também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
+            <span className="text-sm font-semibold">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'} também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
           </a>
           <a
             href="https://www.instagram.com/coracoessagradosbsb"
