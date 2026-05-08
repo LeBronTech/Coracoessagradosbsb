@@ -357,7 +357,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     }
   };
 
-  const isLightTheme = theme === 'theme-light-gray' || theme === 'theme-default';
+  const isLightTheme = theme === 'theme-light-gray';
 
   const getAnimationClass = () => {
     switch (animationState) {
@@ -753,7 +753,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   <div className="flex items-center justify-center gap-4 mb-4">
                     <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
                     <p className="text-sm font-bold">
-                      {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
+                      {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
                     </p>
                     <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
                   </div>
@@ -799,7 +799,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           <div className="flex items-center justify-center gap-4 mt-8">
             <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
             <p className="text-sm font-bold">
-              {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1} de ${count}`}
+              {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
             </p>
             <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
           </div>
