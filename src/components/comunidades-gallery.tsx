@@ -37,6 +37,28 @@ function getMapsUrl(d: { endereco?: string; bairro?: string; paroquia?: string; 
     if (!texto) return null;
     return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(texto + ', Brasília DF')}`;
 }
+
+// Formata o nome para exibição inicial (siglas ou nome do grupo RCC)
+function getDisplayName(nome: string, tipo: string, isInitial: boolean): string {
+    if (isInitial) {
+        // Regra para Grupos de Oração (RCC): remover o prefixo "Grupo de Oração"
+        if (tipo === 'rcc') {
+            const cleanName = nome.replace(/Grupo de Oração/gi, '').trim();
+            if (cleanName.includes(' - ') || cleanName.includes(' — ') || cleanName.includes(' (')) {
+                const parts = cleanName.split(/ - | — | \(/);
+                return parts[0].trim();
+            }
+            return cleanName;
+        }
+        
+        // Regra para siglas: pegar o que vem antes de hifens, travessões ou parênteses
+        if (nome.includes(' - ') || nome.includes(' — ') || nome.includes(' (')) {
+            const parts = nome.split(/ - | — | \(/);
+            return parts[0].trim();
+        }
+    }
+    return nome;
+}
 import {
     type Devocao,
     type RegiaoAdministrativa,
@@ -149,8 +171,8 @@ function DevocaoDialogWrapper({
                             </span>
                         </div>
                     </div>
-                    <p className="text-center mt-6 text-sm font-semibold text-slate-700 line-clamp-2 px-2 h-10 flex items-center justify-center">
-                        {devocao.nome}
+                    <p className="text-center mt-6 text-sm font-semibold text-slate-700 line-clamp-2 px-2 h-10 flex items-center justify-center leading-snug">
+                        {getDisplayName(devocao.nome, devocao.tipo, true)}
                     </p>
                 </div>
             </DialogTrigger>
