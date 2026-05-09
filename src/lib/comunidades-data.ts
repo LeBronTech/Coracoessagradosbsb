@@ -406,7 +406,26 @@ export const regioesAdministrativas: RegiaoAdministrativa[] = [
     },
     { id: 'lucio_costa', nome: 'Hab. Lúcio Costa', setorArquidiocese: 4, setorRCC: 4, vicariato: 'Centro', devocoes: [{ id: 'sao_jose_lucio_costa', nome: 'Paróquia São José', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor IV Hab. Lúcio Costa.', bairro: 'Lúcio Costa' }] },
     { id: 'nucleo_bandeirante', nome: 'Núcleo Bandeirante', setorArquidiocese: 4, setorRCC: 4, vicariato: 'Centro', devocoes: [{ id: 'sj_bosco_nb', nome: 'Paróquia São João Bosco', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor IV Núcleo Bandeirante.', bairro: 'Núcleo Bandeirante' }] },
-    { id: 'park_way_iv', nome: 'Park Way (Setor IV)', setorArquidiocese: 4, setorRCC: 4, vicariato: 'Centro', devocoes: [{ id: 'imaculado_coracao_pw', nome: 'Paróquia Imaculado Coração de Maria', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor IV Park Way.', bairro: 'Park Way' }] },
+    {
+        id: 'park_way_iv',
+        nome: 'Park Way (Setor IV)',
+        setorArquidiocese: 4,
+        setorRCC: 4,
+        vicariato: 'Centro',
+        devocoes: [
+            {
+                id: 'jofi_pw',
+                nome: 'JOFI — Jovens Filhos da Imaculada',
+                tipo: 'grupo_jovem',
+                imageUrl: 'https://iili.io/BtbKLIp.jpg',
+                descricao: '💙 Jovens Filhos da Imaculada. “Estar sempre unido a Jesus, esse é o meu projeto de vida” (São Carlo Acutis). Grupo de jovens focado na espiritualidade mariana.',
+                paroquia: 'Paróquia Imaculado Coração de Maria',
+                bairro: 'Park Way',
+                instagram: 'jofi.icm',
+            },
+            { id: 'imaculado_coracao_pw', nome: 'Paróquia Imaculado Coração de Maria', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor IV Park Way.', bairro: 'Park Way' }
+        ]
+    },
     { id: 'candangolandia', nome: 'Candangolândia', setorArquidiocese: 4, setorRCC: 4, vicariato: 'Centro', devocoes: [{ id: 'sj_operario_cand', nome: 'Paróquia São José Operário', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor IV Candangolândia.', bairro: 'Candangolândia' }] },
     {
         id: 'estrutural',
@@ -580,6 +599,16 @@ export const regioesAdministrativas: RegiaoAdministrativa[] = [
         setorRCC: 5,
         vicariato: 'Sul',
         devocoes: [
+            {
+                id: 'saec_taguatinga',
+                nome: 'SAEC — Somos Adolescentes Encontrando Cristo',
+                tipo: 'movimento',
+                imageUrl: 'https://iili.io/BtbKDBt.jpg',
+                descricao: '❤️🔥 Somos Adolescentes Encontrando Cristo. Um movimento voltado para a evangelização e o primeiro anúncio para adolescentes no Santuário.',
+                paroquia: 'Santuário Nossa Senhora do Perpétuo Socorro',
+                bairro: 'Taguatinga',
+                instagram: 'gruposaec',
+            },
             {
                 id: 'maanaim_pnsl',
                 nome: 'Maanaim — Maanaim PNSL',
@@ -827,6 +856,15 @@ export const regioesAdministrativas: RegiaoAdministrativa[] = [
                 enderecoMaps: 'https://maps.app.goo.gl/ozhfwfrC9m5HnZMn9',
                 instagram: 'ccvnbrasilia',
             },
+            {
+                id: 'mtj_recanto',
+                nome: 'MTJ — Missão Toca Jovem',
+                tipo: 'movimento',
+                imageUrl: 'https://iili.io/BtbKZQI.jpg',
+                descricao: '🔥 Movimento Carismático e Devocional. 15 ANOS DA MTJ. Uma missão dedicada a levar o fogo do Espírito Santo aos jovens do Recanto.',
+                bairro: 'Recanto das Emas',
+                instagram: 'missaotocajovem',
+            },
             { id: 'sj_gabriel_rec', nome: 'Paróquia São Gabriel Arcanjo', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor XIII Rec.das Emas.', bairro: 'Recanto das Emas' },
             { id: 'sj_operario_rec', nome: 'Paróquia São José Operário', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor XIII Rec.das Emas.', bairro: 'Recanto das Emas' },
             { id: 'sj_miguel_rec', nome: 'Paróquia São Miguel Arcanjo', tipo: 'paroquia', imageUrl: 'https://iili.io/fjEOxIV.jpg', descricao: 'Setor XIII Rec.das Emas.', bairro: 'Recanto das Emas' },
@@ -842,6 +880,16 @@ export const regioesAdministrativas: RegiaoAdministrativa[] = [
         setorRCC: 14,
         vicariato: 'Leste',
         devocoes: [
+            {
+                id: 'jsc_santa_maria',
+                nome: 'JSC — Jovens Seguidores de Cristo',
+                tipo: 'grupo_jovem',
+                imageUrl: 'https://iili.io/BtbKQhN.jpg',
+                descricao: '“A santidade não consiste em grandes obras, mas em pequenas coisas feitas com amor.” (Santa Terezinha🌹). Seguindo a Cristo com alegria e humildade.',
+                paroquia: 'Paróquia Nossa Senhora das Dores',
+                bairro: 'Santa Maria Norte',
+                instagram: 'jscdasdores',
+            },
             {
                 id: 'ejc_sm_deus',
                 nome: 'EJC — Santa Mãe de Deus',
