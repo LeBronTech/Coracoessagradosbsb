@@ -721,14 +721,20 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             </div>
 
             <div className="flex flex-col gap-3">
-              {/* BARRA DE PROGRESSO */}
-              <div className="relative w-full h-3 bg-black/20 rounded-full overflow-hidden border border-white/10">
-                <div 
-                  className="h-full bg-primary transition-all duration-700 ease-out shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)]"
-                  style={{ width: `${progress}%` }}
-                />
+              {/* BARRA DE PROGRESSO SEGMENTADA */}
+              <div className="flex gap-1.5 w-full h-2.5 mb-2">
+                {Array.from({ length: days.length || 9 }).map((_, i) => (
+                  <div 
+                    key={i}
+                    className={cn(
+                      "h-full flex-1 rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/10",
+                      i < completedCount 
+                        ? "bg-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)] scale-y-125 translate-y-[-1px]" 
+                        : "bg-black/30 backdrop-blur-sm"
+                    )}
+                  />
+                ))}
               </div>
-
             </div>
           </div>
         )}
@@ -776,20 +782,35 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   </div>
                 )}
 
-                <div className="mt-4 flex justify-center">
+                <div className="mt-4 flex flex-col items-center gap-3">
                   <Button 
                     onClick={() => toggleCompleted(index)}
                     className={cn(
-                      'inline-flex items-center gap-2 rounded-xl px-6 py-3 transition-all duration-300 shadow-sm font-bold text-sm uppercase tracking-wider',
+                      'inline-flex items-center gap-2 rounded-xl px-8 py-3.5 transition-all duration-300 shadow-lg font-bold text-sm uppercase tracking-wider',
                       completedDays[index] 
-                        ? 'bg-green-600 hover:bg-green-700 text-white border-transparent' 
+                        ? 'bg-green-600 hover:bg-green-700 text-white border-transparent scale-105 shadow-green-500/20' 
                         : (isLightTheme 
-                            ? 'bg-white hover:bg-stone-50 text-stone-800 border-2 border-stone-200' 
-                            : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20')
+                            ? 'bg-white hover:bg-stone-50 text-stone-800 border-2 border-stone-200 hover:shadow-md' 
+                            : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:shadow-white/5')
                     )}
                   >
-                    {completedDays[index] ? <><Check className="w-4 h-4" /> Concluído</> : "Marcar como concluído"}
+                    {completedDays[index] ? <><Check className="w-5 h-5 animate-in zoom-in duration-300" /> Concluído</> : "Marcar como concluído"}
                   </Button>
+
+                  {/* BARRA MENOR DE FEEDBACK SEGMENTADA */}
+                  <div className="flex gap-1 w-56 h-2 mt-2">
+                    {Array.from({ length: days.length || 9 }).map((_, i) => (
+                      <div 
+                        key={i}
+                        className={cn(
+                          "h-full flex-1 rounded-full transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/5",
+                          i < completedCount 
+                            ? "bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.5)] scale-y-125" 
+                            : "bg-black/25 backdrop-blur-sm"
+                        )}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </CarouselItem>
