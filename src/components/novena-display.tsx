@@ -91,6 +91,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [isAutoDisplay, setIsAutoDisplay] = useState(false);
   const alertTimerRef = useRef<NodeJS.Timeout | null>(null);
   const alertContainerRef = useRef<HTMLDivElement>(null);
+  const novenaContentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleInteraction(event: Event) {
@@ -323,6 +324,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     });
   };
 
+  const scrollToNovenaStart = () => {
+    if (novenaContentRef.current) {
+      novenaContentRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
 
   if (!novena || !saint) {
     return (
@@ -362,7 +369,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const getAnimationClass = () => {
     switch (animationState) {
       case 'out': return 'animate-fade-out';
-      case 'in': return 'animate-slide-up-fade-in';
+      case 'in': return 'animate-fade-in';
       default: return '';
     }
   }
@@ -385,7 +392,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     <main
       id="main-card"
       className={cn(
-        'main-card glass-card rounded-2xl p-6 md:p-10 relative shadow-2xl shadow-black/20 overflow-hidden',
+        'main-card glass-card rounded-3xl p-6 md:p-10 relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col gap-6',
         themeClasses[theme],
         theme,
         getAnimationClass()
@@ -399,27 +406,27 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             src={(novena as any)?.image || saint.imageUrl}
             alt=""
             aria-hidden
-            className="absolute inset-0 w-full h-full object-cover blur-[40px] scale-[1.5] opacity-60 pointer-events-none transition-all duration-1000"
+            className="absolute inset-0 w-full h-full object-cover blur-[50px] opacity-40 pointer-events-none transition-all duration-1000"
             style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
           />
-          <div className={cn('absolute inset-0 bg-gradient-to-b pointer-events-none', themeGradientOverlay[theme])} />
+          <div className={cn('absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/60 pointer-events-none', themeGradientOverlay[theme])} />
         </>
       )}
 
-      <div className="flex items-center justify-between mb-4 relative z-30">
+      <div className="flex items-center justify-between relative z-50 w-full px-2">
         <Button
           onClick={copyNovenaText}
           variant="ghost"
           size="icon"
           className={cn(
-            'rounded-full h-8 w-8 shrink-0 border-2 bg-background/50 backdrop-blur-sm',
+            'rounded-full h-10 w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95',
             theme === 'theme-light-gray' || theme === 'theme-default'
               ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
               : 'border-white/20 hover:bg-white/10 text-white'
           )}
           title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
         >
-          <Copy className="w-4 h-4" />
+          <Copy className="w-5 h-5" />
         </Button>
 
         <ThemeSelector theme={theme} setTheme={setTheme} />
@@ -458,24 +465,39 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="w-full relative rounded-2xl mb-8 z-20">
-        {/* === Container for blurred image background - moved overflow-hidden here === */}
-        <div className="absolute inset-0 overflow-hidden rounded-2xl pointer-events-none">
+      <header id="novena-header" className="w-full relative rounded-3xl mb-10 z-20 shadow-2xl border border-white/10">
+        {/* === Container for blurred image background === */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
           <Image
             src={(novena as any)?.image || saint.imageUrl}
             alt=""
             aria-hidden
             fill
-            className="absolute inset-0 w-full h-full object-cover blur-[30px] scale-[1.2] opacity-80 transition-all duration-1000"
+            className="object-cover blur-2xl opacity-60"
             style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
             priority
           />
-          {/* Dark overlay for text readability - now dynamic by theme */}
-          <div className={cn("absolute inset-0 bg-gradient-to-r", themeHeaderOverlay[theme])} />
+          <div className={cn("absolute inset-0 bg-gradient-to-br from-black/70 via-black/40 to-transparent", themeHeaderOverlay[theme])} />
         </div>
 
         {/* === Content layer === */}
-        <div className="relative z-10 flex flex-col sm:flex-row items-center gap-5 md:gap-7 p-5 md:p-7 text-center sm:text-left">
+        <div className="relative z-10 flex flex-col p-6 md:p-8">
+          {/* Título apenas para mobile - aparece no topo */}
+          <div className="md:hidden w-full text-center mb-6">
+            <div className="flex flex-col items-center leading-tight">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
+              <h2 className="text-2xl font-bold font-brand text-white drop-shadow-lg">
+                {formatSaintName(saint.name, false, true).main}
+              </h2>
+              {formatSaintName(saint.name, false, true).additional && (
+                <p className="text-sm font-normal mt-0.5 text-white/80 drop-shadow">
+                  {formatSaintName(saint.name, false, true).additional}
+                </p>
+              )}
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
           {/* Square image with rounded corners — with zoom on hover and modal on click */}
           <div className="flex flex-col items-center gap-2">
             <Dialog>
@@ -484,10 +506,10 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   <Image
                     src={(novena as any)?.image || saint.imageUrl}
                     alt={saint.name}
-                    width={160}
-                    height={160}
-                    className="w-32 h-32 md:w-40 md:h-40 rounded-2xl object-cover border-2 border-white/25 shadow-[0_8px_32px_rgba(0,0,0,0.4)] transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-[0_20px_50px_rgba(0,0,0,0.6)] ring-1 ring-white/10"
-                    style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center' }}
+                    width={200}
+                    height={280}
+                    className="w-40 h-56 md:w-48 md:h-64 rounded-2xl object-cover border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10"
+                    style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'top center' }}
                     priority
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
@@ -534,7 +556,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
 
           <div className="flex-1 min-w-0">
-            <div className="flex flex-col items-center sm:items-start leading-tight">
+            {/* Título apenas para desktop - aparece ao lado da imagem */}
+            <div className="hidden md:flex flex-col items-start leading-tight mb-4">
               <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
               <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
                 {formatSaintName(saint.name, false, true).main}
@@ -545,7 +568,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                 </p>
               )}
             </div>
-            <p className="italic mt-2 text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
+            
+            <p className="italic text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
               {description || ''}
             </p>
             {saint.startDate && (
@@ -589,14 +613,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                 {alertInfo && (
                   <div
                     className={cn(
-                      "absolute z-[100] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
+                      "absolute z-[150] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
                       // Mobile: below the date capsule
-                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[260px] mt-1 origin-top",
+                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[260px] mt-2 origin-top",
                       // Desktop: exactly to the side of the button
-                      "sm:top-[85%] sm:left-full sm:-translate-y-1/2 sm:translate-x-0 sm:ml-0 sm:w-[380px] sm:origin-left",
+                      "sm:top-1/2 sm:left-full sm:-translate-y-1/2 sm:translate-x-4 sm:w-[320px] sm:origin-left",
                       isAlertExpanded 
-                        ? "opacity-100 translate-y-0 sm:translate-x-0 scale-100" 
-                        : "opacity-0 -translate-y-4 sm:translate-y-0 sm:-translate-x-4 scale-95 pointer-events-none"
+                        ? "opacity-100 translate-y-0 sm:translate-x-4 scale-100" 
+                        : "opacity-0 -translate-y-4 sm:translate-y-0 sm:translate-x-0 scale-95 pointer-events-none"
                     )}
                   >
                     <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl border flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 bg-black/85 border-white/20 text-white backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
@@ -615,7 +639,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
           </div>
         </div>
-      </header>
+      </div>
+    </header>
 
       <div className="relative w-full">
         {isChanging && (
@@ -624,7 +649,6 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         )}
 
-        <Carousel setApi={setApi} className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} opts={{ watchDrag: false }}>
         <div className="flex flex-col items-center justify-center gap-2 mb-6">
           <a
             href="https://chat.whatsapp.com/D08lyjhVqL8KyZfIovKYk5?mode=ems_copy_t"
@@ -652,6 +676,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </a>
         </div>
 
+        <Carousel setApi={setApi} className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} opts={{ watchDrag: false }}>
+
         {isAllCompleted && (
           <div className="mb-8 animate-in fade-in zoom-in duration-500">
             <div className={cn(
@@ -675,7 +701,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         )}
 
         {days.length > 1 && (
-          <div className="flex flex-col gap-3 mb-4">
+          <div ref={novenaContentRef} className="flex flex-col gap-3 mb-4">
             <div className="flex flex-col items-center gap-2 w-full">
               {/* Primeira Linha: Dias 1 a 5 */}
               <div className="flex flex-wrap gap-2 justify-center">
@@ -818,14 +844,21 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         </CarouselContent>
         {days.length > 1 && (
           <div className="flex items-center justify-center gap-4 mt-8">
-            <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
+            <CarouselPrevious 
+              onClick={() => { api?.scrollPrev(); scrollToNovenaStart(); }}
+              className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} 
+            />
             <p className="text-sm font-bold">
               {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
             </p>
-            <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
+            <CarouselNext 
+              onClick={() => { api?.scrollNext(); scrollToNovenaStart(); }}
+              className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} 
+            />
           </div>
         )}
       </Carousel>
+
       </div>
     </main>
   );

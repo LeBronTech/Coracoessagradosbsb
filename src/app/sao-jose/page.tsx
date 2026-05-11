@@ -182,7 +182,7 @@ function HomePageSaoJose() {
                                     <img
                                         src={n.imageUrl}
                                         alt={n.name}
-                                        className="w-full h-full object-cover"
+                                        className="w-full h-full object-cover object-top"
                                     />
                                     {active && (
                                         <div className="absolute inset-0 bg-green-900/20 flex items-center justify-center">
@@ -225,11 +225,18 @@ function NovenaInlineDisplay({ novenaId }: { novenaId: 'sao_jose_19_marco' | 'sa
     const novena = novenaData[novenaId];
     const [currentDay, setCurrentDay] = useState(0);
     const [selectedVersionId, setSelectedVersionId] = useState('tradicional');
+    const scrollRef = useRef<HTMLDivElement>(null);
 
     React.useEffect(() => {
         setCurrentDay(0);
         setSelectedVersionId('tradicional');
     }, [novenaId]);
+
+    const scrollToStart = () => {
+        if (scrollRef.current) {
+            scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    };
 
     if (!novena) return null;
 
@@ -241,6 +248,7 @@ function NovenaInlineDisplay({ novenaId }: { novenaId: 'sao_jose_19_marco' | 'sa
 
     return (
         <div
+            ref={scrollRef}
             className="rounded-2xl p-6 md:p-10 shadow-2xl text-white mt-2 mb-4"
             style={{ backgroundColor: '#14532d' }}
         >
@@ -299,12 +307,12 @@ function NovenaInlineDisplay({ novenaId }: { novenaId: 'sao_jose_19_marco' | 'sa
             {/* Navegação anterior/próximo */}
             {!singleDay && (
                 <div className="flex items-center justify-center gap-6 mt-6">
-                    <button onClick={() => setCurrentDay(d => Math.max(0, d - 1))} disabled={currentDay === 0}
+                    <button onClick={() => { setCurrentDay(d => Math.max(0, d - 1)); scrollToStart(); }} disabled={currentDay === 0}
                         className="px-4 py-2 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 disabled:opacity-30 transition-all text-sm font-semibold">
                         ← Anterior
                     </button>
                     <span className="text-sm font-bold opacity-70">Dia {currentDay + 1} de {days.length}</span>
-                    <button onClick={() => setCurrentDay(d => Math.min(days.length - 1, d + 1))} disabled={currentDay === days.length - 1}
+                    <button onClick={() => { setCurrentDay(d => Math.min(days.length - 1, d + 1)); scrollToStart(); }} disabled={currentDay === days.length - 1}
                         className="px-4 py-2 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 disabled:opacity-30 transition-all text-sm font-semibold">
                         Próximo →
                     </button>
