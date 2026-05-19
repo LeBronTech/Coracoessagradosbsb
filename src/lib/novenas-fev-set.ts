@@ -4198,14 +4198,14 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
 
     santo_onofre: {
-        saintName: "Santo Onofre",
-        novenaTitle: "Novena a Santo Onofre",
+        saintName: "Santo Onofre do Egito",
+        novenaTitle: "Novena a Santo Onofre do Egito",
         description: "Eremita do deserto. Intercessor contra vícios e pelo sustento.",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
             day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santo Onofre`,
+            title: `Dia ${i + 1} - Santo Onofre do Egito`,
             content: ""
         }))
     },

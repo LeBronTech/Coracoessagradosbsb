@@ -2821,13 +2821,13 @@ export const saints: Saint[] = [
 
   // Junho
   { id: 'sagrado_coracao', name: 'Sagrado Coração', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
-  { id: 'santo_onofre', name: 'Santo Onofre', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
+  { id: 'santo_onofre', name: 'Santo Onofre do Egito', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
   { id: 'imaculado_coracao', name: 'Imaculado Coração', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Junho', startDate: '04/06', endDate: '12/06', feastDay: '13/Jun' },
   { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun' },
   { id: 'nossa_senhora_perpetuo_socorro', name: 'N.S. Perpétuo Socorro', imageUrl: 'https://i.pinimg.com/736x/0c/1d/2e/0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f.jpg', month: 'Junho', startDate: '18/06', endDate: '26/06', feastDay: '27/Jun' },
   { id: 'sao_pedro_paulo', name: 'S. Pedro e Paulo', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun' },
   { id: 'sao_tome_apostolo', name: 'São Tomé Apóstolo', imageUrl: 'https://i.pinimg.com/736x/1d/2e/3f/1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a.jpg', month: 'Junho/Julho', startDate: '25/06', endDate: '03/07', feastDay: '03/Jul' },
-  { id: 'santa_paulina', name: 'Santa Paulina', imageUrl: 'https://i.pinimg.com/736x/2e/3f/4a/2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
+  { id: 'santa_paulina', name: 'Santa Paulina do Brasil', imageUrl: 'https://i.pinimg.com/736x/2e/3f/4a/2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
 
   // Julho
   { id: 'sao_bento', name: 'São Bento Abade', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
