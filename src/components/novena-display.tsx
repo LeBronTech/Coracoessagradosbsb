@@ -85,6 +85,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [selectedVersionId, setSelectedVersionId] = useState<string>('tradicional');
   const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
   const [isChanging, setIsChanging] = useState(false);
+  const [currentOfficialDayIndex, setCurrentOfficialDayIndex] = useState<number | null>(null);
   
   const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
@@ -147,6 +148,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       const diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
       const diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
 
+      if (diffStart >= 0 && diffStart < (novena?.days?.length || 9)) {
+        setCurrentOfficialDayIndex(diffStart);
+      } else {
+        setCurrentOfficialDayIndex(null);
+      }
+
       // Detectar se é trezena baseado no título
       const isTrezena = novena?.novenaTitle?.toLowerCase().includes('trezena');
       const devocaoLabel = isTrezena ? 'trezena' : 'novena';
@@ -199,8 +206,13 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
   const onSelect = useCallback(() => {
     if (!api) return;
-    setCurrent(api.selectedScrollSnap());
-  }, [api]);
+    const newCurrent = api.selectedScrollSnap();
+    setCurrent(newCurrent);
+    if (saint && typeof window !== 'undefined') {
+      const storageKey = `novena_current_day_${saint.id}_${selectedVersionId}`;
+      localStorage.setItem(storageKey, newCurrent.toString());
+    }
+  }, [api, saint, selectedVersionId]);
 
   const scrollTo = useCallback((index: number) => {
     api?.scrollTo(index);
@@ -215,7 +227,22 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         setAnimationState('in');
         setIsChanging(false);
         if (api) {
-          api.scrollTo(0);
+          if (saint && typeof window !== 'undefined') {
+            const storageKey = `novena_current_day_${saint.id}_${selectedVersionId}`;
+            const saved = localStorage.getItem(storageKey);
+            if (saved !== null) {
+              const savedIndex = parseInt(saved, 10);
+              if (!isNaN(savedIndex) && savedIndex >= 0) {
+                api.scrollTo(savedIndex, true);
+              } else {
+                api.scrollTo(0, true);
+              }
+            } else {
+              api.scrollTo(0, true);
+            }
+          } else {
+            api.scrollTo(0, true);
+          }
         }
       }, 400); // Wait a bit more for scroll sync
 
@@ -228,7 +255,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         clearTimeout(inTimer);
       };
     }
-  }, [saint, novena, api]);
+  }, [saint, novena, api, selectedVersionId]);
 
   // Reset version when novena changes
   useEffect(() => {
@@ -277,6 +304,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       api.off("select", onSelect);
     };
   }, [api, onSelect]);
+
+  // O localStorage.setItem para o current day foi movido para o onSelect
+  // para evitar sobrescrever o estado ao trocar de santo (quando current ainda é do santo anterior).
 
   const copyNovenaText = () => {
     if (!novena) return;
@@ -705,36 +735,44 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             <div className="flex flex-col items-center gap-2 w-full">
               {/* Primeira Linha: Dias 1 a 5 */}
               <div className="flex flex-wrap gap-2 justify-center">
-                {days.slice(0, 5).map((day, index) => (
-                  <button
-                    key={index}
-                    onClick={() => scrollTo(index)}
-                    className={cn(
-                      'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
-                      current === index
-                        ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                        : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
-                    )}
-                  >
-                    {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
-                    {completedDays[index] && <Check className="w-3.5 h-3.5" />}
-                  </button>
-                ))}
+                {days.slice(0, 5).map((day, index) => {
+                  const isToday = currentOfficialDayIndex === index;
+                  const isCurrent = current === index;
+                  return (
+                    <button
+                      key={index}
+                      onClick={() => scrollTo(index)}
+                      className={cn(
+                        'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200 border border-transparent',
+                        isCurrent
+                          ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
+                          : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'),
+                        isToday && !isCurrent ? (theme === 'theme-light-gray' ? 'border-primary/50 bg-primary/10' : 'border-white/50 bg-white/20') : ''
+                      )}
+                    >
+                      {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+                      {completedDays[index] && <Check className="w-3.5 h-3.5" />}
+                    </button>
+                  );
+                })}
               </div>
               {/* Segunda Linha: Dias 6+ */}
               {days.length > 5 && (
                 <div className="flex flex-wrap gap-2 justify-center">
                   {days.slice(5).map((day, idx) => {
                     const index = idx + 5;
+                    const isToday = currentOfficialDayIndex === index;
+                    const isCurrent = current === index;
                     return (
                       <button
                         key={index}
                         onClick={() => scrollTo(index)}
                         className={cn(
-                          'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200',
-                          current === index
+                          'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200 border border-transparent',
+                          isCurrent
                             ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                            : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20')
+                            : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'),
+                          isToday && !isCurrent ? (theme === 'theme-light-gray' ? 'border-primary/50 bg-primary/10' : 'border-white/50 bg-white/20') : ''
                         )}
                       >
                         {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
