@@ -4299,14 +4299,14 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     santa_paulina: {
-        saintName: "Santa Paulina",
-        novenaTitle: "Novena a Santa Paulina",
+        saintName: "Santa Paulina do Brasil",
+        novenaTitle: "Novena a Santa Paulina do Brasil",
         description: "Primeira santa do Brasil. Dedicação total aos doentes e pobres.",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
             day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santa Paulina`,
+            title: `Dia ${i + 1} - Santa Paulina do Brasil`,
             content: ""
         }))
     },

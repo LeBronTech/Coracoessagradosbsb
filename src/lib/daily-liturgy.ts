@@ -211,7 +211,7 @@ export const dailyLiturgyData2026: DailyLiturgy[] = [
     { date: '2026-07-06', saint: 'Santa Maria Goretti', liturgy: 'Os 2,16...; Mt 9,18-26', color: 'Verde', novenas: ['Intro Novena Carmo'] },
     { date: '2026-07-07', saint: 'Beata Maria Romero', liturgy: 'Os 8,4-7.11-13; Mt 9,32-38', color: 'Verde', novenas: ['Dia 1 Novena Carmo'] },
     { date: '2026-07-08', saint: 'Santos Áquila e Priscila', liturgy: 'Os 10,1-3.7-8.12; Mt 10,1-7', color: 'Verde', novenas: ['Fim Novena Paulina'] },
-    { date: '2026-07-09', saint: 'Santa Paulina', liturgy: 'Os 11,1-4.8c-9; Mt 10,7-15', color: 'Branco' },
+    { date: '2026-07-09', saint: 'Santa Paulina do Brasil', liturgy: 'Os 11,1-4.8c-9; Mt 10,7-15', color: 'Branco' },
     { date: '2026-07-10', saint: 'Santo Olavo', liturgy: 'Os 14,2-10; Mt 10,16-23', color: 'Verde', novenas: ['Fim Novena S. Bento'] },
     { date: '2026-07-11', saint: 'SÃO BENTO', liturgy: 'Is 6,1-8; Mt 10,24-33', color: 'Branco', novenas: ['Intro Novena Madalena'] },
     { date: '2026-07-12', saint: 'Santos Luís e Zélia Martin', liturgy: 'Is 55,10-11; Rm 8,18-23; Mt 13,1-9', color: 'Verde', novenas: ['Dia 1 Novena Madalena'] },
