@@ -3,10 +3,11 @@ type Novena = {
     saintName: string;
     novenaTitle: string;
     description: string;
-    initialPrayer: string;
-    finalPrayer: string;
+    initialPrayer?: string;
+    finalPrayer?: string;
     image?: string;
     imageObjectPosition?: string;
+    versions?: any[];
     days: {
         day: string;
         title: string;

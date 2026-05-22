@@ -14,7 +14,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTr
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { parse, differenceInDays, getYear } from 'date-fns';
 import Image from 'next/image';
@@ -552,6 +552,15 @@ export default function Home() {
                 Espaço São José
               </Button>
             </Link>
+
+            <Link href="/assistente" className="w-full" onClick={(e) => handlePageTransition(e, '/assistente')}>
+              <Button
+                className="w-full justify-start gap-2 bg-stone-600 hover:bg-stone-700 text-stone-100 border border-stone-500/20 shadow-md font-semibold font-brand"
+              >
+                <Sparkles className="h-5 w-5 text-stone-300 animate-pulse" />
+                Assistente de Textos
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-auto p-6 border-t border-gray-200">
@@ -657,6 +666,7 @@ export default function Home() {
                 <span className="font-brand text-sm text-center font-semibold">Espaço São José</span>
               </button>
             </Link>
+
           </div>
 
 

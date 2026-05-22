@@ -11,6 +11,7 @@ export interface MarianDevotion {
     status?: "approved" | "pending" | "not-approved" | "complex";
     statusNote?: string;
     fullName?: string;
+    objectPosition?: string;
 }
 
 export interface Continent {

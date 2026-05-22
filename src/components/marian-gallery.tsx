@@ -17,6 +17,7 @@ interface MarianDevotion {
     objectPosition?: string; // CSS object-position (ex: "top", "50% 10%")
     description: string;
     fullDescription?: string;
+    fullName?: string;
     novenaId?: string;
     status?: "approved" | "traditional" | "pending" | "not-approved" | "complex";
     statusNote?: string;
