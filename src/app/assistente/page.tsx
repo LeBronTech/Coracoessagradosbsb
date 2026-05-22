@@ -70,6 +70,192 @@ const ENGAGEMENT_INSTAGRAM = "📖Leia, ❤️Curta, 🔄 Reposte, ✝️ conhe�
 // Aviso padrão de Novenas no WhatsApp
 const WA_NOVENA_AVISO = "⚠️ Atenção: A oração de cada dia será postada aqui no grupo de novenas diariamente. Acompanhe conosco!";
 
+// Helper para negritar títulos devocionais comuns no WhatsApp
+const formatCommonTitlesToBold = (text: string): string => {
+  if (!text) return "";
+  let formatted = text;
+  
+  const titles = [
+    "Ato de Contrição",
+    "Ato de contrição",
+    "Oração Preparatória",
+    "Oração preparatória",
+    "Oração Preparatorio",
+    "Oração preparatorio",
+    "Oração Inicial",
+    "Oração inicial",
+    "Oração Final",
+    "Oração final",
+    "Salve Rainha",
+    "Salve rainha",
+    "Ladainha de Nossa Senhora",
+    "Ladainha do Sagrado Coração",
+    "Ladainha",
+    "Oração para todos os dias",
+    "Oração final para todos os dias",
+    "Oração Final para todos os dias",
+    "Oração de todos os dias",
+    "Oração de Encerramento",
+    "Vinde Espírito Santo",
+    "Vinde Espírito santo",
+    "Pelo Sinal da Santa Cruz",
+    "Pelo Sinal da Santa cruz"
+  ];
+
+  titles.forEach(title => {
+    const escaped = title.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+    // Regex que encontra o título exato se ele não estiver já cercado por asteriscos ou letras
+    const regex = new RegExp(`(?<![*\\w])(${escaped})(?![*\\w])`, 'gi');
+    formatted = formatted.replace(regex, `*$1*`);
+  });
+
+  return formatted;
+};
+
+
+// Helper para obter a introdução mensal do Santo do Dia para o WhatsApp (com negritos)
+const getMonthIntroWA = (monthIdx: number): string => {
+  const intros: Record<number, string> = {
+    0: "*Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos!* ❤️🔥\n\n",
+    1: "*Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar!* ❤️🔥\n\n",
+    2: "*Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam!* ❤️🔥\n\n",
+    3: "*Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos!* ❤️🔥\n\n",
+    4: "*Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor!* ❤️🔥\n\n",
+    5: "*Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos!* ❤️🔥\n\n",
+    6: "*Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos!* ❤️🔥\n\n",
+    7: "*Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário!* ❤️🔥\n\n",
+    8: "*Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas!* ❤️🔥\n\n",
+    9: "*Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos!* ❤️🔥\n\n",
+    10: "*Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus!* ❤️🔥\n\n",
+    11: "*Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos!* ❤️🔥\n\n",
+  };
+  return intros[monthIdx] || "";
+};
+
+// Helper para obter a introdução mensal do Santo do Dia para o Instagram (sem negritos)
+const getMonthIntroIG = (monthIdx: number): string => {
+  const intros: Record<number, string> = {
+    0: "Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos! ❤️🔥\n\n",
+    1: "Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar! ❤️🔥\n\n",
+    2: "Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam! ❤️🔥\n\n",
+    3: "Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos! ❤️🔥\n\n",
+    4: "Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor! ❤️🔥\n\n",
+    5: "Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos! ❤️🔥\n\n",
+    6: "Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos! ❤️🔥\n\n",
+    7: "Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário! ❤️🔥\n\n",
+    8: "Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas! ❤️🔥\n\n",
+    9: "Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos! ❤️🔥\n\n",
+    10: "Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus! ❤️🔥\n\n",
+    11: "Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos! ❤️🔥\n\n",
+  };
+  return intros[monthIdx] || "";
+};
+
+// Helper para limpar a biografia do Santo do Dia (limita os parágrafos e remove seções como orações longas ou curiosidades)
+const cleanSaintStory = (htmlStory: string, maxParagraphs: number = 3): string => {
+  if (!htmlStory) return "";
+  const cleanMarkdown = convertHtmlToWhatsappMarkdown(htmlStory);
+  // Divide em parágrafos
+  const paragraphs = cleanMarkdown.split('\n\n').filter(p => p.trim().length > 0);
+  
+  // Filtra parágrafos que iniciam ou contêm orações/curiosidades de forma excessiva
+  const filteredParagraphs: string[] = [];
+  for (const p of paragraphs) {
+    const trimmed = p.trim();
+    // Se começar com palavras chave de fechamento ou for uma oração, removemos a partir dali ou ignoramos
+    if (/^(oração|curiosidade|fonte|referência|veja também|leia mais)/i.test(trimmed)) {
+      break;
+    }
+    filteredParagraphs.push(p);
+  }
+  
+  return filteredParagraphs.slice(0, maxParagraphs).join('\n\n');
+};
+
+// Helper para gerar o convite unificado (Dia 0)
+const generateConviteText = (params: {
+  saintName: string;
+  startDateStr: string;
+  feastDayStr: string;
+  devText: string;
+  emoji1: string;
+  emoji2: string;
+  anchor: string;
+  isInstagram: boolean;
+}) => {
+  const { saintName, startDateStr, feastDayStr, devText, emoji1, emoji2, anchor, isInstagram } = params;
+  const siteUrl = `https://coracoessagradosbsb.vercel.app/#${anchor}`;
+  const cleanDesc = devText.replace(/<[^>]*>/g, "");
+  const devTextLimited = cleanDesc.length > 180 ? cleanDesc.substring(0, 180) + "..." : cleanDesc;
+
+  if (isInstagram) {
+    const cleanHashtagName = saintName.replace(/[\s,.-]+/g, "");
+    const hashtags = `#Novena #${cleanHashtagName} #CoracoesSagrados #ComunidadeCatolica #Fé`;
+    
+    const text = `${emoji1}${emoji2} PREPARE SEU CORAÇÃO: NOVENA DE ${saintName.toUpperCase()} ${emoji2}${emoji1}
+
+Iniciamos hoje, dia ${startDateStr}, a nossa jornada de fé com a Novena em preparação para a Festa de ${saintName}, celebrada no dia ${feastDayStr}.
+
+Convidamos você, sua família e todos os fiéis da nossa comunidade a trilharem este caminho de conversão e oração fervorosa.
+
+"${devTextLimited}"
+
+Coloque suas intenções no altar do Senhor e reze conosco!
+
+Acesse a novena completa em nosso site através do link na nossa bio ou clique no link:
+${siteUrl}
+
+${ENGAGEMENT_INSTAGRAM}
+
+Sagrado coração de Jesus seja nossa força ❤️🔥 
+Imaculado coração de Maria seja nossa proteção 🌹
+Castíssimo coração de São José Valei-nos ⚒️
+
+Comunidade Corações Sagrados❤️🔥
+
+.
+.
+.
+.
+.
+
+${hashtags}`;
+
+    return text
+      .replace(/\r\n/g, "\n")
+      .replace(/\n\s*\n\s*\n+/g, "\n\n")
+      .trim();
+  } else {
+    const text = `${emoji1}${emoji2} *INÍCIO DA NOVENA DE ${saintName.toUpperCase()}* ${emoji2}${emoji1}
+
+Iniciamos hoje, dia ${startDateStr}, a Novena a *${saintName}*! ${emoji1}${emoji2}
+
+A nossa preparação espiritual para a grande festa litúrgica de *${saintName}* começará no dia *${startDateStr}* (9 dias antes de sua festa que é celebrada em ${feastDayStr}).
+
+Como devotos e comunidade de oração, convidamos todos vocês a se unirem a nós nesta caminhada espiritual de fé e esperança.
+
+_"${devTextLimited}"_
+
+Que este tempo seja de profunda conversão, oração em família e de apresentarmos ao Senhor as nossas intenções e súplicas confiadas à intercessão de *${saintName}*.
+
+${WA_NOVENA_AVISO}
+
+Acesse a novena também em nosso site:
+${siteUrl}
+
+*Sagrado coração de Jesus* seja nossa força ❤️🔥
+*Imaculado coração de Maria* seja nossa proteção 🌹
+*Castíssimo coração de São José* Valei-nos ⚒️
+
+_Comunidade Corações Sagrados_❤️🔥`;
+
+    return text
+      .replace(/\r\n/g, "\n")
+      .replace(/\n\s*\n\s*\n+/g, "\n\n")
+      .trim();
+  }
+};
+
 // Helper para converter HTML de história para Plain Text do WhatsApp/Instagram
 const convertHtmlToWhatsappMarkdown = (html: string): string => {
   if (!html) return "";
@@ -86,7 +272,31 @@ const convertHtmlToWhatsappMarkdown = (html: string): string => {
   text = text.replace(/<[^>]*>/g, "");
   // Remove quebras de linha duplicadas em excesso
   text = text.replace(/\n\s*\n\s*\n/g, "\n\n");
+  
+  // Aplica negrito em títulos devocionais comuns
+  text = formatCommonTitlesToBold(text);
+  
   return text.trim();
+};
+
+const getAnchorForSaint = (id: string): string => {
+  if (id === "santa_rita_cassia" || id === "rita_cassia") return "santa_rita";
+  if (id === "natal_sao_leao" || id === "natal_familia") return "natal";
+  return id;
+};
+
+const cleanPrayerText = (html: string): string => {
+  if (!html) return "";
+  let clean = html.replace(/<[^>]*>/g, "\n").trim();
+  // Remove títulos redundantes do início
+  clean = clean
+    .replace(/^(Oração Inicial|Oração Final|Oração para todos os dias|Oração final para todos os dias|Oração final)\s*/i, "")
+    .trim();
+  
+  // Aplica negrito em títulos devocionais comuns
+  clean = formatCommonTitlesToBold(clean);
+  
+  return clean;
 };
 
 export default function AssistentePage() {
@@ -598,7 +808,7 @@ export default function AssistentePage() {
 
     const saintNameStr = saint.name;
     const [em1, em2] = emojis;
-    const siteUrl = `https://coracoessagradosbsb.vercel.app/#${id}`;
+    const siteUrl = `https://coracoessagradosbsb.vercel.app/#${getAnchorForSaint(id)}`;
 
     if (dayIdx === 0) {
       return "";
@@ -608,27 +818,36 @@ export default function AssistentePage() {
     if (!dayData) return "";
 
     const diaNome = dayData.day;
+    const dayTitle = dayData.title;
     const rawMeditation = dayData.content;
     
     // Limpar HTML
-    const cleanMeditation = rawMeditation.replace(/<[^>]*>/g, "\n").trim();
-    const cleanInitial = novena.initialPrayer ? novena.initialPrayer.replace(/<[^>]*>/g, "\n").trim() : "";
-    const cleanFinal = novena.finalPrayer ? novena.finalPrayer.replace(/<[^>]*>/g, "\n").trim() : "";
+    let cleanMeditation = rawMeditation.replace(/<[^>]*>/g, "\n").trim();
+    // Remover rito de cruz e Espírito Santo repetidos da meditação se existirem
+    cleanMeditation = cleanMeditation
+      .replace(/Pelo Sinal da Santa cruz ♱/gi, "")
+      .replace(/Vinde Espírito santo ❦/gi, "")
+      .trim();
 
-    const text = `*${diaNome}*
+    // Aplica negritos automáticos em títulos devocionais no corpo da meditação
+    cleanMeditation = formatCommonTitlesToBold(cleanMeditation);
 
+    let cleanInitial = novena.initialPrayer ? cleanPrayerText(novena.initialPrayer) : "";
+    let cleanFinal = novena.finalPrayer ? cleanPrayerText(novena.finalPrayer) : "";
+
+    const headerTitle = `*${em1}${em2} NOVENA A ${saintNameStr.toUpperCase()} - DIA ${dayIdx}*`;
+
+    const text = `${headerTitle}
+ 
 Pelo Sinal da Santa cruz ♱
 Vinde Espírito santo ❦
 
-${em1}${em2} *Novena a ${saintNameStr}* ${em2}${em1}
-
-${cleanInitial ? `*Oração Inicial:*\n${cleanInitial}\n` : ""}*Meditação do Dia:*
-_${cleanMeditation}_
+${cleanInitial ? `*${em1}${em2} ORAÇÃO INICIAL*\n${cleanInitial}\n\n` : ""}*${em1}${em2} DIA ${dayIdx} - ${dayTitle.toUpperCase()}*\n${cleanMeditation}
 
 *_(Coloque suas intenções)_*
 
-${cleanFinal ? `*Oração Final:*\n${cleanFinal}\n` : ""}*Novena também disponível em nosso site:*
-👉 ${siteUrl}
+${cleanFinal ? `\n*${em1}${em2} ORAÇÃO FINAL*\n${cleanFinal}\n` : ""}
+*novena também disponível em nosso site:* ${siteUrl}
 
 Compartilhe 😉!
 _Projeto Corações Sagrados❤️🔥_`;
@@ -645,7 +864,6 @@ _Projeto Corações Sagrados❤️🔥_`;
     if (!saint || !novena) return "";
 
     const [em1, em2] = emojis;
-    const siteUrl = `https://coracoessagradosbsb.vercel.app/#${id}`;
     
     // Calcula a data de início da novena
     const [startDay, startMonth] = saint.startDate.split("/").map(Number);
@@ -653,64 +871,16 @@ _Projeto Corações Sagrados❤️🔥_`;
     const startDateStr = format(startDate, "dd 'de' MMMM", { locale: ptBR });
     const feastDayStr = saint.feastDay || "";
     
-    let devText = novena.description || "";
-    devText = devText.replace(/<[^>]*>/g, "");
-    if (devText.length > 180) {
-      devText = devText.substring(0, 180) + "...";
-    }
-
-    if (isInstagram) {
-      const cleanHashtagName = saint.name.replace(/[\s,.-]+/g, "");
-      const hashtags = `#Novena #${cleanHashtagName} #CoracoesSagrados #ComunidadeCatolica #Fé`;
-      
-      const text = `${em1}${em2} *PREPARE SEU CORAÇÃO: NOVENA DE ${saint.name.toUpperCase()}* ${em2}${em1}
-
-No dia *${startDateStr}*, iniciaremos a nossa jornada de fé com a Novena em preparação para a Festa de *${saint.name}*, celebrada no dia ${feastDayStr}.
-
-Convidamos você, sua família e todos os fiéis da nossa comunidade a trilharem este caminho de conversão e oração fervorosa.
-
-"${devText}"
-
-Coloque suas intenções no altar do Senhor e reze conosco!
-
-Acesse a novena completa em nosso site através do link na nossa bio ou clique no link:
-👉 ${siteUrl}
-
-${ENGAGEMENT_INSTAGRAM}
-
-${hashtags}
-
-${FOOTER_PADRAO}`;
-
-      return text
-        .replace(/\r\n/g, "\n")
-        .replace(/\n\s*\n\s*\n+/g, "\n\n")
-        .trim();
-    } else {
-      const text = `${em1}${em2} *INÍCIO DA NOVENA DE ${saint.name.toUpperCase()}* ${em2}${em1}
-
-Queridos irmãos em Cristo da Comunidade Corações Sagrados! 
-
-A nossa preparação espiritual para a grande festa litúrgica de *${saint.name}* começará no dia *${startDateStr}* (9 dias antes de sua festa que é celebrada em ${feastDayStr}).
-
-Como devotos e comunidade de oração, convidamos todos vocês a se unirem a nós nesta caminhada espiritual de fé e esperança.
-
-_${devText}_
-
-Que este tempo seja de profunda conversão, oração em família e de apresentarmos ao Senhor as nossas intenções e súplicas confiadas à intercessão de ${saint.name}.
-
-${WA_NOVENA_AVISO}
-
-Acesse a novena também em nosso site:
-👉 ${siteUrl}
-
-${FOOTER_PADRAO}`;
-
-      return text
-        .replace(/\r\n/g, "\n")
-        .replace(/\n\s*\n\s*\n+/g, "\n\n")
-        .trim();
-    }
+    return generateConviteText({
+      saintName: saint.name,
+      startDateStr,
+      feastDayStr,
+      devText: novena.description || "",
+      emoji1: em1,
+      emoji2: em2,
+      anchor: getAnchorForSaint(id),
+      isInstagram
+    });
   };
 
   // --- Lógica de Novenas Ativas Hoje para o Badge do Menu ---
@@ -726,122 +896,115 @@ ${FOOTER_PADRAO}`;
 
   const textWhatsAppSanto = useMemo(() => {
     if (!todaySaintInfo) return "Sem dados de Santo do Dia para hoje.";
-    const cleanStory = convertHtmlToWhatsappMarkdown(todaySaintInfo.story);
+    const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
     
-    let storySummary = cleanStory;
-    if (storySummary.length > 380) {
-      storySummary = storySummary.substring(0, 360) + "...\n\n(Acompanhe a história completa no nosso site!)";
+    const monthIntro = getMonthIntroWA(now.getMonth());
+
+    let outrosSantosStr = "";
+    if (todaySaintData && todaySaintData.saints.length > 1) {
+      const outros = todaySaintData.saints
+        .filter((_, idx) => idx !== selectedSaintInDayIndex)
+        .map(s => s.name)
+        .join(", ");
+      if (outros) {
+        outrosSantosStr = `\n\n*Hoje também se celebra ${outros}.*`;
+      }
     }
 
-    const text = `${santoEmoji1}${santoEmoji2} *SANTO DO DIA - ${now.getDate()} DE ${MESES[now.getMonth()].toUpperCase()}* ${santoEmoji2}${santoEmoji1}
+    const text = `${monthIntro}Hoje a Igreja celebra **${todaySaintInfo.name}**.
 
-Hoje relembramos a santidade e o legado de *${todaySaintInfo.name}*.
+${mainStory}${outrosSantosStr}
 
-📖 *História e Virtudes:*
-${storySummary}
+Leia e compartilhe:
+https://coracoessagradosbsb.vercel.app
 
-Veja as orações e história completa no site:
-👉 https://coracoessagradosbsb.vercel.app
+Segue a gente:
+https://www.instagram.com/coracoessagradosbsb
 
-${FOOTER_PADRAO}`;
+_Comunidade Corações Sagrados❤️🔥_`;
 
     return text
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
-  }, [todaySaintInfo, now, santoEmoji1, santoEmoji2]);
+  }, [todaySaintInfo, now, todaySaintData, selectedSaintInDayIndex]);
 
   const textInstagramSanto = useMemo(() => {
     if (!todaySaintInfo) return "Sem dados de Santo do Dia para hoje.";
-    const cleanStory = convertHtmlToWhatsappMarkdown(todaySaintInfo.story);
-    const cleanHashtag = todaySaintInfo.name.replace(/[\s,.-]+/g, "");
+    const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
+    const cleanHashtag = todaySaintInfo.name.replace(/[\s,.-]+/g, "").toLowerCase();
     
-    const text = `${santoEmoji1}${santoEmoji2} *TESTEMUNHO DE SANTIDADE: ${todaySaintInfo.name.toUpperCase()}* ${santoEmoji2}${santoEmoji1}
+    const monthIntro = getMonthIntroIG(now.getMonth());
 
-Neste dia ${now.getDate()} de ${MESES[now.getMonth()]}, celebramos liturgicamente *${todaySaintInfo.name}*. 
+    let outrosSantosStr = "";
+    if (todaySaintData && todaySaintData.saints.length > 1) {
+      const outros = todaySaintData.saints
+        .filter((_, idx) => idx !== selectedSaintInDayIndex)
+        .map(s => s.name)
+        .join(", ");
+      if (outros) {
+        outrosSantosStr = `\n\nHoje também se celebra ${outros}.`;
+      }
+    }
 
-📖 *Reflexão:*
-${cleanStory}
+    const text = `${monthIntro}Hoje a Igreja recorda ${todaySaintInfo.name}.
 
-Que possamos, sob a intercessão deste grande santo, trilhar uma caminhada de sincera devoção e conversão constante.
+${mainStory}${outrosSantosStr}
 
-Acesse mais devocionais católicos no link da bio ou digite:
-👉 https://coracoessagradosbsb.vercel.app
+📖Leia, ❤️Curta, 🔄reposte, ✝️ conheça o nosso projeto!
 
-${ENGAGEMENT_INSTAGRAM}
+Sagrado coração de Jesus seja nossa força ❤️🔥 
+Imaculado coração de Maria seja nossa proteção 🌹
+Castíssimo coração de São José Valei-nos ⚒️
 
-#SantoDoDia #${cleanHashtag} #CoracoesSagrados #Liturgia #VidaDeSantos #Catolicos
+Comunidade Corações Sagrados❤️🔥
 
-${FOOTER_PADRAO}`;
+.
+.
+.
+.
+.
+
+#${cleanHashtag} #santododia #fe #coracoessagrados`;
 
     return text
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
-  }, [todaySaintInfo, now, santoEmoji1, santoEmoji2]);
+  }, [todaySaintInfo, now, todaySaintData, selectedSaintInDayIndex]);
 
   // --- Textos Gerados do Redator ---
   const textWhatsAppConvite = useMemo(() => {
     if (!customSaintName) return "";
-    const cleanAnchor = siteAnchor ? siteAnchor.trim() : "";
-    const siteUrl = `https://coracoessagradosbsb.vercel.app${cleanAnchor}`;
-
-    const text = `${emoji1}${emoji2} *INÍCIO DA NOVENA DE ${customSaintName.toUpperCase()}* ${emoji2}${emoji1}
-
-Queridos irmãos em Cristo da Comunidade Corações Sagrados! 
-
-A nossa preparação espiritual para a grande festa litúrgica de *${customSaintName}* começará no dia *${calculatedStartDateStr}* (9 dias antes de sua festa que é celebrada em ${customFeastDay}).
-
-Como devotos e comunidade de oração, convidamos todos vocês a se unirem a nós nesta caminhada espiritual de fé e esperança.
-
-_${devotionalText}_
-
-Que este tempo seja de profunda conversão, oração em família e de apresentarmos ao Senhor as nossas intenções e súplicas confiadas à intercessão de ${customSaintName}.
-
-${WA_NOVENA_AVISO}
-
-Acesse a novena também em nosso site:
-👉 ${siteUrl}
-
-${FOOTER_PADRAO}`;
-
-    return text
-      .replace(/\r\n/g, "\n")
-      .replace(/\n\s*\n\s*\n+/g, "\n\n")
-      .trim();
-  }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor]);
+    const anchor = siteAnchor ? siteAnchor.replace("#", "") : getAnchorForSaint(selectedSaintId);
+    
+    return generateConviteText({
+      saintName: customSaintName,
+      startDateStr: calculatedStartDateStr,
+      feastDayStr: customFeastDay,
+      devText: devotionalText,
+      emoji1,
+      emoji2,
+      anchor,
+      isInstagram: false
+    });
+  }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor, selectedSaintId]);
 
   const textInstagramConvite = useMemo(() => {
     if (!customSaintName) return "";
-    const cleanAnchor = siteAnchor ? siteAnchor.trim() : "";
-    const siteUrl = `https://coracoessagradosbsb.vercel.app${cleanAnchor}`;
-    const cleanHashtagName = customSaintName.replace(/\s+/g, "");
-    const hashtags = `#Novena #${cleanHashtagName} #CoracoesSagrados #ComunidadeCatolica #Fé`;
-
-    const text = `${emoji1}${emoji2} *PREPARE SEU CORAÇÃO: NOVENA DE ${customSaintName.toUpperCase()}* ${emoji2}${emoji1}
-
-No dia *${calculatedStartDateStr}*, iniciaremos a nossa jornada de fé com a Novena em preparação para a Festa de *${customSaintName}*, celebrada no dia ${customFeastDay}.
-
-Convidamos você, sua família e todos os fiéis da nossa comunidade a trilharem este caminho de conversão e oração fervorosa.
-
-"${devotionalText}"
-
-Coloque suas intenções no altar do Senhor e reze conosco! 
-
-Acesse a novena completa em nosso site através do link na nossa bio ou clique no link:
-👉 ${siteUrl}
-
-${ENGAGEMENT_INSTAGRAM}
-
-${hashtags}
-
-${FOOTER_PADRAO}`;
-
-    return text
-      .replace(/\r\n/g, "\n")
-      .replace(/\n\s*\n\s*\n+/g, "\n\n")
-      .trim();
-  }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor]);
+    const anchor = siteAnchor ? siteAnchor.replace("#", "") : getAnchorForSaint(selectedSaintId);
+    
+    return generateConviteText({
+      saintName: customSaintName,
+      startDateStr: calculatedStartDateStr,
+      feastDayStr: customFeastDay,
+      devText: devotionalText,
+      emoji1,
+      emoji2,
+      anchor,
+      isInstagram: true
+    });
+  }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor, selectedSaintId]);
 
   // --- Textos Gerados do Formatador ---
   const formattedNovenaDays = useMemo(() => {
@@ -849,22 +1012,27 @@ ${FOOTER_PADRAO}`;
       if (!meditacao) return "";
       const diaNome = novenaDaysTitles[idx] || `${idx + 1}º Dia`;
       const saintNameStr = customSaintName || "Santo";
-      const siteUrl = `https://coracoessagradosbsb.vercel.app${siteAnchor ? siteAnchor : `#${formatSaintId}`}`;
+      const siteUrl = `https://coracoessagradosbsb.vercel.app/#${getAnchorForSaint(formatSaintId)}`;
 
-      const text = `*${diaNome}*
+      let cleanInitial = formatInitialPrayer ? cleanPrayerText(formatInitialPrayer) : "";
+      let cleanFinal = formatFinalPrayer ? cleanPrayerText(formatFinalPrayer) : "";
+
+      // Aplica negritos automáticos em títulos devocionais no corpo da meditação
+      const cleanMeditacao = formatCommonTitlesToBold(meditacao.trim());
+
+      const headerTitle = `*${formatEmoji1}${formatEmoji2} NOVENA A ${saintNameStr.toUpperCase()} - DIA ${idx + 1}*`;
+
+      const text = `${headerTitle}
 
 Pelo Sinal da Santa cruz ♱
 Vinde Espírito santo ❦
 
-${formatEmoji1}${formatEmoji2} *Novena a ${saintNameStr}* ${formatEmoji2}${formatEmoji1}
-
-${formatInitialPrayer ? `*Oração Inicial:*\n${formatInitialPrayer}\n` : ""}*Meditação do Dia:*
-_${meditacao.trim()}_
+${cleanInitial ? `*${formatEmoji1}${formatEmoji2} ORAÇÃO INICIAL*\n${cleanInitial}\n\n` : ""}*${formatEmoji1}${formatEmoji2} DIA ${idx + 1} - ${diaNome.toUpperCase()}*\n${cleanMeditacao}
 
 *_(Coloque suas intenções)_*
 
-${formatFinalPrayer ? `*Oração Final:*\n${formatFinalPrayer}\n` : ""}*Novena também disponível em nosso site:*
-👉 ${siteUrl}
+${cleanFinal ? `\n*${formatEmoji1}${formatEmoji2} ORAÇÃO FINAL*\n${cleanFinal}\n` : ""}
+*novena também disponível em nosso site:* ${siteUrl}
 
 Compartilhe 😉!
 _Projeto Corações Sagrados❤️🔥_`;
@@ -874,7 +1042,7 @@ _Projeto Corações Sagrados❤️🔥_`;
         .replace(/\n\s*\n\s*\n+/g, "\n\n")
         .trim();
     });
-  }, [novenaDaysTexts, novenaDaysTitles, customSaintName, formatEmoji1, formatEmoji2, formatInitialPrayer, formatFinalPrayer, siteAnchor, formatSaintId]);
+  }, [novenaDaysTexts, novenaDaysTitles, customSaintName, formatEmoji1, formatEmoji2, formatInitialPrayer, formatFinalPrayer, formatSaintId]);
 
   if (!hydrated) {
     return null;

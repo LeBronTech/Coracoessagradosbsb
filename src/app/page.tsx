@@ -60,6 +60,25 @@ const marianDevotions = [
 ]
 
 
+
+const getRealSaintIdFromHash = (hashStr: string): string => {
+  if (!hashStr) return "";
+  if (hashStr === 'santa_rita') {
+    // Busca se existe santa_rita_cassia ou rita_cassia na base de dados
+    const hasSantaRitaCassia = saints.some(s => s.id === 'santa_rita_cassia');
+    if (hasSantaRitaCassia) return 'santa_rita_cassia';
+    return 'rita_cassia';
+  }
+  return hashStr;
+};
+
+const getAnchorForSaint = (id: string): string => {
+  if (!id) return "";
+  if (id === "santa_rita_cassia" || id === "rita_cassia") return "santa_rita";
+  if (id === "natal_sao_leao" || id === "natal_familia") return "natal";
+  return id;
+};
+
 import { useRouter } from 'next/navigation';
 
 export default function Home() {
@@ -191,7 +210,8 @@ export default function Home() {
     let initialSaintScrollId: string | null = null;
 
     const hash = window.location.hash.substring(1);
-    const saintFromHash = saints.find(s => s.id === hash);
+    const realHash = getRealSaintIdFromHash(hash);
+    const saintFromHash = saints.find(s => s.id === realHash);
 
     if (saintFromHash) {
       const saintMonths = saintFromHash.month.split('/').map(m => m.trim());
@@ -257,7 +277,8 @@ export default function Home() {
     // Listener para mudanças de hash enquanto o usuário está na página
     const handleHashChange = () => {
       const newHash = window.location.hash.substring(1);
-      const saint = saints.find(s => s.id === newHash);
+      const realHash = getRealSaintIdFromHash(newHash);
+      const saint = saints.find(s => s.id === realHash);
       if (saint) {
         const saintMonths = saint.month.split('/').map(m => m.trim());
         const currentMonthName = months[new Date().getMonth()];
@@ -313,7 +334,7 @@ export default function Home() {
 
   useEffect(() => {
     if (selectedSaintId && hydrated) {
-      history.pushState({ novenaId: selectedSaintId }, '', '#' + selectedSaintId);
+      history.pushState({ novenaId: selectedSaintId }, '', '#' + getAnchorForSaint(selectedSaintId));
       
       if (scrollTarget && loadingFinished) {
         if (scrollTimeoutRef.current) window.clearTimeout(scrollTimeoutRef.current);
