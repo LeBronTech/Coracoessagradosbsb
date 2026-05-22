@@ -50,6 +50,7 @@ const saintEmojisMap: Record<string, [string, string]> = {
   gracas: ["💍", "✨"],
   natal_sao_leao: ["👶", "🌟"],
   natal_familia: ["🏠", "❤️"],
+  santissima_trindade: ["👑", "✨"],
 };
 
 const MESES = [

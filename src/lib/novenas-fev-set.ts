@@ -4669,5 +4669,100 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
             { day: "Dia 8", title: "Luz na Escuridão", content: `<div class="day-specific-content"><p>Nascida do mar de nossa humanidade, Vós brilhais com a luz de Deus. Afastai as trevas da dúvida e do desespero de nossas mentes.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` },
             { day: "Dia 9", title: "Rumo ao Pai", content: `<div class="day-specific-content"><p>Ao fim desta novena, pedimos que nos ajudeis a navegar com coragem e fé, até que alcancemos a visão beatífica com todos os santos. Amém.</p><p class="mt-4 font-semibold">Pai Nosso, Ave Maria e Glória.</p></div>` }
         ]
+    },
+
+    santissima_trindade: {
+        saintName: "Santíssima Trindade",
+        novenaTitle: "Novena à Santíssima Trindade",
+        description: "Esta novena contempla o mistério inefável de Deus Uno e Trino, Um na Essência e Trino nas Pessoas (Pai, Filho e Espírito Santo).",
+        image: "https://cruzterrasanta.com.br/_global/_ssf/ssf.aspx?d=/_upload/significados_de_santos/&arquivo=20230622182805-santissima-trindade_680.jpg",
+        initialPrayer: `<div class="initial-prayer-text">
+<p><strong>V-</strong> Deus, vinde em meu auxílio,<br/>
+<strong>R-</strong> Senhor, apressai-Vos em me socorrer.<br/>
+<strong>V-</strong> Glória ao Pai, ao Filho e ao Espírito Santo<br/>
+<strong>R-</strong> Como era no princípio, agora e sempre! Amém.</p>
+<h4 class="section-title mt-4">Ato de Contrição</h4>
+<p>Amorosíssimo Deus, Trino e Uno, Pai, Filho e Espírito Santo, em quem creio, em quem espero, a quem amo com todo meu coração, corpo, alma, sentidos e potências; por serdes Vós meu Pai, meu Senhor e meu Deus, infinitamente bom e digno de ser amado sobre todas as coisas; pesa-me, Trindade Santíssima, Trindade Misericordiosíssima, pesa-me, Trindade Amabilíssima, de Vos ter ofendido só por serdes Vós quem sois; proponho firmemente me esforçar para nunca mais Vos ofender e antes morrer do que pecar; espero de vossa suma bondade e misericórdia infinita, que me perdoareis todos os pecados, e me dareis graça para perseverar num verdadeiro amor e cordialíssima devoção a vossa sempre amabilíssima Trindade. Amém.</p>
+<h4 class="section-title mt-4">Oração Preparatória</h4>
+<p>Deus e Senhor meu, Altíssimo e poderoso, Um na Essência e Trino nas Pessoas, que, por mera dignação vossa me formastes à vossa imagem e semelhança, retratando na alma única, que me destes, a unidade da vossa natureza, e nas três potências distintas, memória, entendimento e vontade, as três Divinas Pessoas, Pai, Filho e Espírito Santo: razão é, Senhor, que de onde as coisas vêm, para aí tornem, e já que de Vós vim, a Vós recorra; por isso, prostrado diante de vossa Augusta Majestade, se não com humildade tão profunda como devo, ao menos com aquela reverente inclinação que posso, Vos suplico queirais aceitar este limitado obséquio, que em honra e louvor vosso intento fazer: e para que ele seja agradável a vossos divinos olhos, enriquecei, Pai Eterno, com vossos soberanos dons minha memória; iluminai, Eterno Filho, com vossa luz meu entendimento; inflamai, Divino Espírito, com vosso amor a minha vontade; e santificai, Trindade Santa, a minha alma com a vossa divina graça, para que ela e suas potências se sacrifiquem em vosso serviço e de Vós recebam a semelhança pela graça, como autor que sois dela assim como receberam de Vós o ser da Natureza como Autor da mesma natureza. Amém.</p>
+</div>`,
+        finalPrayer: `<div class="final-prayer-text">
+<h4 class="section-title">Oração para todos os dias</h4>
+<p>Ó Trindade Augustíssima, aceitai este pequeno sacrifício da minha vontade, e este tênue desafogo da minha devoção. Bem quisera que fossem afetos as minhas palavras, lágrimas as minhas aspirações; que o meu coração, claro no conhecimento de quem Vós sois, ou se desfizera abrasado no fogo do vosso amor, ou se partira de sentimento, reconhecendo humilhado a minha torpe ingratidão em Vos ofender. Porém, adorada e sempre excelsa Beatíssima Trindade, seja a primeira e principal graça, que por este limitado obséquio alcance o viver daqui em diante sem Vos ofender e servir-Vos sempre sem negligência. Movei o meu coração insensível com o vosso amor; alentai minha alma com vossa graça; preparai-a de todas as virtudes, porque de todas elas necessita, para que nunca mais se torne a apartar de Vós, antes unida convosco nesta vida, e por toda a eternidade dê glória ao Pai, ao Filho e ao Espírito Santo; assim como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém!</p>
+</div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Mistério Altíssimo",
+                content: `<div class="day-specific-content">
+<p>Ó Mistério altíssimo da Trindade Santíssima, que sendo para os Serafins o maior emprego de seu amor, sois também para o seu claro conhecimento o mais admirável objeto: fazei que o meu entendimento se cative, rendido em obséquio de fé em Vós, e se abrase o meu coração na vossa mais excelente caridade.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Mistério Incomparável",
+                content: `<div class="day-specific-content">
+<p>Ó mistério incomparável a todo o entendimento, não só humano, mas angélico: já que até agora vivi de Vós tão ignorante, fazei que eu de tal sorte Vos alcance, e conheça nesta vida com a luz da fé, que Vos chegue a compreender, e gozar na felicidade da glória.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Mistério Inefável",
+                content: `<div class="day-specific-content">
+<p>Ó mistério inefável, que, por isso mesmo que sois oculto e escondido ao entendimento humano fazeis muda toda a eloqüência e sabedoria criada: permiti que, pondo termo a todo o discurso, não cesse jamais a minha língua de entoar louvores da vossa grandeza.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Glória no Céu e na Terra",
+                content: `<div class="day-specific-content">
+<p>Ó Trindade Santíssima, que os céus e a terra encheis de glória: fazei que, sendo por mim glorificado na terra, seja minha alma por Vós glorificada no Céu.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - União sem Divisão",
+                content: `<div class="day-specific-content">
+<p>Ó Trindade Augustíssima, que sendo distinta nas pessoas, sois sem divisão na Natureza, e sem deixardes de ser única, sois por comunicável infinitamente fecunda: comunicai-Vos à minha alma, que é em mim única para Vos amar, seja também multiplicada para Vos servir.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Trindade Luzidíssima",
+                content: `<div class="day-specific-content">
+<p>Ó Trindade Luzidíssima, que, sendo desde a eternidade uma só Luz, a multiplicais por glória vossa em três Divinos Raios: fazei que esse Raios me atraiam de sorte que chegue em algum tempo, para todo o sempre, a ser participante dessa Luz e dessa glória.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Majestade Soberana",
+                content: `<div class="day-specific-content">
+<p>Ó Majestade soberana de um só Deus que, para serdes mais soberana, quereis ser venerada em distintas e Divinas Pessoas: fazei que a minha veneração seja tão profunda, que chegue ao abismo do meu nada, e em nada estime tudo o mais em comparação de Vós, que sois meu tudo, e tudo sobre o mais.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Divindade Amabilíssima",
+                content: `<div class="day-specific-content">
+<p>Ó Divindade amabilíssima, que, conhecendo claramente vossa infinita bondade, acendeis o fogo da Caridade, o Amor do Divino Espírito, com que infinitamente nos amais: fazei que minha alma e suas potências se abrasem em tal entendimento, Vos ame juntamente com a vontade, e fique permanente em Vós minha memória, para que Vós fiqueis em mim com permanência.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Deus Santo, Santo, Santo",
+                content: `<div class="day-specific-content">
+<p>Ó Deus Santo, Santo Santo, Pai Santo, Filhos Santo, e Espírito Santo: já que com este cântico antigo, e sempre novo, sois aclamado no Céu, fazei que na terra eu seja também três vezes santo: santo nos pensamentos, santo nas palavras, e santo nas obras; para que assim mereça ir entoar, na companhia dos mais Santos, o triságio à vossa imensa glória.</p>
+<p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
+</div>`
+            }
+        ]
     }
 };

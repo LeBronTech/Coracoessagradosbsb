@@ -2816,6 +2816,7 @@ export const saints: Saint[] = [
   { id: 'sao_filipe_neri', name: 'São Filipe Néri', imageUrl: 'https://i.pinimg.com/736x/2c/9d/d7/2c9dd74d2a6cfd7ceae29962c5613d9c.jpg', month: 'Maio', startDate: '17/05', endDate: '25/05', feastDay: '26/Mai' },
 
   { id: 'visitacao', name: 'Visitação - Nossa Senhora', imageUrl: 'https://i.pinimg.com/736x/46/49/63/464963169ef6da9d7829305e5e6727e8.jpg', imageObjectPosition: 'top', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
+  { id: 'santissima_trindade', name: 'Santíssima Trindade', imageUrl: 'https://cruzterrasanta.com.br/_global/_ssf/ssf.aspx?d=/_upload/significados_de_santos/&arquivo=20230622182805-santissima-trindade_680.jpg', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
   { id: 'sao_jose_anchieta', name: 'São José de Anchieta', imageUrl: 'https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '08/06', feastDay: '09/Jun' },
   { id: 'santo_antonio_padua', name: 'Santo Antônio', imageUrl: 'https://i.pinimg.com/736x/51/68/18/516818cb2bec324df6aecb722aea3d48.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '12/06', feastDay: '13/Jun' },
 
