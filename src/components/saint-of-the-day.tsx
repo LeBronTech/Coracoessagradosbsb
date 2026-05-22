@@ -368,7 +368,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             onClick={toggleAccordion}
             className={cn(
               "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger relative",
-              isOpen ? "rounded-b-none pb-12" : "",
+              isOpen ? "rounded-b-none pb-20 md:pb-16" : "",
               triggerTheme
             )}
           >
@@ -386,7 +386,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60" />
             </div>
 
-            <div className="flex items-center gap-4 text-left w-full relative z-10">
+            <div className="flex items-center gap-3 md:gap-4 text-left w-full relative z-10">
               <SaintImages 
                 saints={dayData.saints} 
                 isOpen={isOpen} 
@@ -408,16 +408,89 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   {dayData.day} de {dayData.month}
                 </div>
                 <div className={cn(
-                  "font-brand font-semibold mt-2 text-left flex flex-wrap gap-x-3 gap-y-1",
+                  "font-brand font-semibold mt-2 text-left flex flex-wrap gap-x-2 gap-y-1 items-center",
                   isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
-                  {dayData.saints
-                    .filter((_, idx) => !isOpen || dayData.saints.length === 1 || idx === selectedSaintInDayIndex)
-                    .map((s, idx, filteredSaints) => {
+                  {(() => {
+                    const visibleSaints = dayData.saints.filter(
+                      (_, idx) => !isOpen || dayData.saints.length === 1 || idx === selectedSaintInDayIndex
+                    );
+
+                    // Pré-cálculo de comprimentos combinados para determinar classes de fonte de forma uniforme
+                    const combinedMainLength = visibleSaints.reduce((acc, s) => {
+                      const { main } = formatSaintName(s.name, true, isOpen);
+                      return acc + main.length;
+                    }, 0);
+
+                    const combinedAdditionalLength = visibleSaints.reduce((acc, s) => {
+                      const { additional } = formatSaintName(s.name, true, isOpen);
+                      return acc + (additional ? additional.length : 0);
+                    }, 0);
+
+                    const totalCombinedLength = combinedMainLength + combinedAdditionalLength;
+
+                    let mainFontSizeClass = "";
+                    let addFontSizeClass = "";
+                    let ampFontSizeClass = "";
+
+                    if (isOpen) {
+                      // Modo aberto (apenas 1 santo visível por vez)
+                      const isNameVeryLong = combinedMainLength > 10;
+                      const isNameHuge = combinedMainLength > 15;
+
+                      if (isNameHuge) {
+                        mainFontSizeClass = "text-xl md:text-3xl";
+                        addFontSizeClass = "text-lg md:text-xl mt-1";
+                      } else if (isNameVeryLong) {
+                        mainFontSizeClass = "text-2xl md:text-4xl";
+                        addFontSizeClass = "text-xl md:text-2xl mt-1";
+                      } else {
+                        mainFontSizeClass = "text-3xl md:text-5xl";
+                        addFontSizeClass = "text-xl md:text-2xl mt-1";
+                      }
+                      ampFontSizeClass = "text-xl md:text-2xl";
+                    } else {
+                      // Modo fechado (pode ter múltiplos santos)
+                      if (dayData.saints.length > 1) {
+                        // Múltiplos santos
+                        if (totalCombinedLength > 30) {
+                          mainFontSizeClass = "text-[11px] sm:text-xs md:text-sm";
+                          addFontSizeClass = "text-[9px] -mt-0.5";
+                          ampFontSizeClass = "text-xs sm:text-sm";
+                        } else if (totalCombinedLength > 20) {
+                          mainFontSizeClass = "text-xs sm:text-sm md:text-base";
+                          addFontSizeClass = "text-[9px] sm:text-[10px] -mt-0.5";
+                          ampFontSizeClass = "text-xs sm:text-sm";
+                        } else {
+                          mainFontSizeClass = "text-sm sm:text-base";
+                          addFontSizeClass = "text-[10px] -mt-0.5";
+                          ampFontSizeClass = "text-sm sm:text-base";
+                        }
+                      } else {
+                        // Santo único
+                        const isNameVeryLong = combinedMainLength > 10;
+                        const isNameHuge = combinedMainLength > 15;
+
+                        if (isNameHuge) {
+                          mainFontSizeClass = "text-base";
+                          addFontSizeClass = "text-[9px] -mt-0.5";
+                        } else if (isNameVeryLong) {
+                          mainFontSizeClass = "text-lg";
+                          addFontSizeClass = "text-[10px] -mt-0.5";
+                        } else {
+                          mainFontSizeClass = "text-xl";
+                          addFontSizeClass = "text-[10px] -mt-0.5";
+                        }
+                        ampFontSizeClass = "text-base";
+                      }
+                    }
+
+                    return visibleSaints.map((s, idx, filteredSaints) => {
                       const { main, additional } = formatSaintName(s.name, true, isOpen);
+
                       return (
                         <div key={s.name} className={cn(
-                          "flex items-center gap-3 transition-all duration-500 animate-in fade-in zoom-in duration-300",
+                          "flex items-center gap-1.5 transition-all duration-500 animate-in fade-in zoom-in duration-300",
                           isOpen ? "w-full justify-center mb-2" : ""
                         )}>
                           <div className={cn(
@@ -426,23 +499,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                           )}>
                             <span className={cn(
                               "font-bold transition-all duration-500 font-brand",
-                              isOpen 
-                                ? "text-3xl md:text-5xl" 
-                                : (dayData.saints.length > 1 ? "text-base" : "text-xl")
+                              mainFontSizeClass
                             )}>{main}</span>
                             {additional && (
                               <span className={cn(
                                 "font-normal opacity-90 transition-all duration-500",
-                                isOpen ? "text-xl md:text-2xl mt-1" : "text-[10px] -mt-0.5"
+                                addFontSizeClass
                               )}>{additional}</span>
                             )}
                           </div>
                           {idx < filteredSaints.length - 1 && (
-                            <span className="text-xl opacity-30 font-light">&</span>
+                            <span className={cn("opacity-30 font-light px-0.5", ampFontSizeClass)}>&</span>
                           )}
                         </div>
                       );
-                    })}
+                    });
+                  })()}
                 </div>
               </div>
               <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-200", isOpen && "rotate-180", "text-primary-foreground")} />

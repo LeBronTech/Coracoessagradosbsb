@@ -10,6 +10,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
 import { 
   ChevronLeft, 
+  ChevronRight,
   Sparkles, 
   Copy, 
   Check, 
@@ -336,6 +337,7 @@ export default function AssistentePage() {
 
   // --- Estados do Santo do Dia ---
   const [selectedSaintInDayIndex, setSelectedSaintInDayIndex] = useState(0);
+  const [santoDiaDate, setSantoDiaDate] = useState<Date>(new Date());
 
   // --- Controle de Cópias e Cache (LocalStorage) ---
   const [copiedHistory, setCopiedHistory] = useState<Record<string, boolean>>({});
@@ -409,12 +411,18 @@ export default function AssistentePage() {
     });
   }, [selectedMonth]);
 
-  // Adapta o Santo do Dia selecionado baseado no relógio
+  // Adapta o Santo do Dia selecionado baseado na data do navegador do assistente
   const todaySaintData = useMemo(() => {
-    const day = now.getDate();
-    const month = MESES[now.getMonth()];
+    const day = santoDiaDate.getDate();
+    const month = MESES[santoDiaDate.getMonth()];
     return saintsOfTheDay.find(s => s.day === day && s.month === month);
-  }, [now]);
+  }, [santoDiaDate]);
+
+  // Função para navegar entre as datas no Assistente
+  const handleNavigateSantoDia = (direction: 'prev' | 'next') => {
+    setSantoDiaDate(prev => direction === 'prev' ? subDays(prev, 1) : addDays(prev, 1));
+    setSelectedSaintInDayIndex(0); // Reseta o índice para o primeiro santo do dia
+  };
 
   // Atualiza as seleções ao mudar de mês
   useEffect(() => {
@@ -898,7 +906,7 @@ _Projeto Corações Sagrados❤️🔥_`;
     if (!todaySaintInfo) return "Sem dados de Santo do Dia para hoje.";
     const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
     
-    const monthIntro = getMonthIntroWA(now.getMonth());
+    const monthIntro = getMonthIntroWA(santoDiaDate.getMonth());
 
     let outrosSantosStr = "";
     if (todaySaintData && todaySaintData.saints.length > 1) {
@@ -927,14 +935,14 @@ _Comunidade Corações Sagrados❤️🔥_`;
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
-  }, [todaySaintInfo, now, todaySaintData, selectedSaintInDayIndex]);
+  }, [todaySaintInfo, santoDiaDate, todaySaintData, selectedSaintInDayIndex]);
 
   const textInstagramSanto = useMemo(() => {
     if (!todaySaintInfo) return "Sem dados de Santo do Dia para hoje.";
     const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
     const cleanHashtag = todaySaintInfo.name.replace(/[\s,.-]+/g, "").toLowerCase();
     
-    const monthIntro = getMonthIntroIG(now.getMonth());
+    const monthIntro = getMonthIntroIG(santoDiaDate.getMonth());
 
     let outrosSantosStr = "";
     if (todaySaintData && todaySaintData.saints.length > 1) {
@@ -971,7 +979,7 @@ Comunidade Corações Sagrados❤️🔥
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
-  }, [todaySaintInfo, now, todaySaintData, selectedSaintInDayIndex]);
+  }, [todaySaintInfo, santoDiaDate, todaySaintData, selectedSaintInDayIndex]);
 
   // --- Textos Gerados do Redator ---
   const textWhatsAppConvite = useMemo(() => {
@@ -1570,6 +1578,37 @@ _Projeto Corações Sagrados❤️🔥_`;
           {/* TAB 2: SANTO DO DIA DE HOJE                                    */}
           {/* ============================================================== */}
           <TabsContent value="santododia" className="space-y-6 outline-none">
+            
+            {/* Barra de Controle de Datas Unificada */}
+            <div className="flex items-center justify-between bg-stone-900/60 border border-white/5 backdrop-blur-sm rounded-2xl p-3 shadow-xl max-w-md mx-auto">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => handleNavigateSantoDia('prev')} 
+                className="text-stone-300 hover:text-white gap-1 active:scale-95 transition-transform"
+                title="Dia anterior"
+              >
+                <ChevronLeft className="h-4 w-4" />
+                <span className="text-xs hidden sm:inline">Anterior</span>
+              </Button>
+              <div className="text-center">
+                <span className="text-[10px] font-bold text-amber-500 uppercase tracking-widest block">Data de Navegação</span>
+                <span className="text-sm font-bold text-white font-brand">
+                  {santoDiaDate.getDate()} de {MESES[santoDiaDate.getMonth()]}
+                </span>
+              </div>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => handleNavigateSantoDia('next')} 
+                className="text-stone-300 hover:text-white gap-1 active:scale-95 transition-transform"
+                title="Próximo dia"
+              >
+                <span className="text-xs hidden sm:inline">Próximo</span>
+                <ChevronRight className="h-4 w-4" />
+              </Button>
+            </div>
+
             {todaySaintData ? (
               <div className="grid md:grid-cols-12 gap-6">
                 
@@ -1587,18 +1626,14 @@ _Projeto Corações Sagrados❤️🔥_`;
                           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent"></div>
                           <div className="absolute bottom-3 left-3 right-3">
                             <span className="text-[10px] bg-amber-500 text-stone-950 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
-                              Santo do Dia
+                              Santo Selecionado
                             </span>
                             <h3 className="text-lg font-bold font-brand text-white mt-1 leading-tight">{todaySaintInfo.name}</h3>
                           </div>
                         </div>
                         <CardContent className="pt-4 space-y-4">
-                          <p className="text-xs text-stone-400">
-                            Celebração litúrgica em {now.getDate()} de {MESES[now.getMonth()]}.
-                          </p>
-
                           {/* Seletor de Emojis do Santo do Dia */}
-                          <div className="pt-3 border-t border-white/5 space-y-1.5">
+                          <div className="space-y-1.5">
                             <label className="text-[10px] font-bold text-stone-400 uppercase tracking-widest block">Emojis Customizados</label>
                             <div className="flex gap-2">
                               <input 
@@ -1622,18 +1657,23 @@ _Projeto Corações Sagrados❤️🔥_`;
                           </div>
 
                           {todaySaintData.saints.length > 1 && (
-                            <div className="space-y-1.5 pt-2 border-t border-white/5">
-                              <label className="text-[10px] font-bold text-stone-500 uppercase tracking-widest block">Outros Santos de Hoje</label>
-                              <div className="flex gap-2 flex-wrap">
+                            <div className="space-y-2 pt-3 border-t border-white/5">
+                              <label className="text-[10px] font-bold text-amber-500 uppercase tracking-widest block">Celebrados nesta data ({todaySaintData.saints.length})</label>
+                              <div className="flex flex-col gap-1.5">
                                 {todaySaintData.saints.map((s, idx) => (
                                   <Button
                                     key={idx}
                                     variant={selectedSaintInDayIndex === idx ? "default" : "outline"}
                                     size="sm"
                                     onClick={() => setSelectedSaintInDayIndex(idx)}
-                                    className="text-[10px] h-7 rounded-lg"
+                                    className={cn(
+                                      "w-full justify-start text-[11px] h-auto py-1.5 px-3 rounded-lg leading-tight transition-all font-semibold",
+                                      selectedSaintInDayIndex === idx 
+                                        ? "bg-amber-600 hover:bg-amber-700 text-stone-950 font-bold" 
+                                        : "bg-stone-900 border-white/5 text-stone-300 hover:text-white"
+                                    )}
                                   >
-                                    {s.name.split(" ")[0]}
+                                    <span className="truncate">{s.name}</span>
                                   </Button>
                                 ))}
                               </div>
@@ -1661,17 +1701,17 @@ _Projeto Corações Sagrados❤️🔥_`;
                       </div>
                       
                       <Button 
-                        onClick={() => handleCopyText(textWhatsAppSanto, `copiado_santo_wa_${now.getDate()}_${now.getMonth()}`)}
+                        onClick={() => handleCopyText(textWhatsAppSanto, `copiado_santo_wa_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`)}
                         size="sm"
                         className={cn(
                           "font-bold rounded-full gap-1.5 shadow-md active:scale-95",
-                          copiedHistory[`copiado_santo_wa_${now.getDate()}_${now.getMonth()}`]
+                          copiedHistory[`copiado_santo_wa_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`]
                             ? "bg-emerald-600 text-stone-950 hover:bg-emerald-500"
                             : "bg-emerald-700 hover:bg-emerald-800 text-white"
                         )}
                       >
-                        {copiedHistory[`copiado_santo_wa_${now.getDate()}_${now.getMonth()}`] ? <Check className="w-4 h-4 text-stone-950" /> : <Copy className="w-4 h-4" />}
-                        {copiedHistory[`copiado_santo_wa_${now.getDate()}_${now.getMonth()}`] ? "Enviado!" : "Copiar WhatsApp"}
+                        {copiedHistory[`copiado_santo_wa_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`] ? <Check className="w-4 h-4 text-stone-950" /> : <Copy className="w-4 h-4" />}
+                        {copiedHistory[`copiado_santo_wa_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`] ? "Enviado!" : "Copiar WhatsApp"}
                       </Button>
                     </CardHeader>
                     <CardContent className="p-0">
@@ -1694,17 +1734,17 @@ _Projeto Corações Sagrados❤️🔥_`;
                       </div>
                       
                       <Button 
-                        onClick={() => handleCopyText(textInstagramSanto, `copiado_santo_ig_${now.getDate()}_${now.getMonth()}`)}
+                        onClick={() => handleCopyText(textInstagramSanto, `copiado_santo_ig_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`)}
                         size="sm"
                         className={cn(
                           "font-bold rounded-full gap-1.5 shadow-md active:scale-95",
-                          copiedHistory[`copiado_santo_ig_${now.getDate()}_${now.getMonth()}`]
+                          copiedHistory[`copiado_santo_ig_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`]
                             ? "bg-emerald-600 text-stone-950 hover:bg-emerald-500"
                             : "bg-pink-600 hover:bg-pink-700 text-stone-950"
                         )}
                       >
-                        {copiedHistory[`copiado_santo_ig_${now.getDate()}_${now.getMonth()}`] ? <Check className="w-4 h-4 text-stone-950" /> : <Copy className="w-4 h-4" />}
-                        {copiedHistory[`copiado_santo_ig_${now.getDate()}_${now.getMonth()}`] ? "Enviado!" : "Copiar Instagram"}
+                        {copiedHistory[`copiado_santo_ig_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`] ? <Check className="w-4 h-4 text-stone-950" /> : <Copy className="w-4 h-4" />}
+                        {copiedHistory[`copiado_santo_ig_${santoDiaDate.getDate()}_${santoDiaDate.getMonth()}`] ? "Enviado!" : "Copiar Instagram"}
                       </Button>
                     </CardHeader>
                     <CardContent className="p-0">
@@ -1717,10 +1757,15 @@ _Projeto Corações Sagrados❤️🔥_`;
                 </div>
               </div>
             ) : (
-              <div className="text-center py-12 bg-stone-950/40 rounded-3xl border border-dashed border-white/5">
+              <div className="text-center py-12 bg-stone-950/40 rounded-3xl border border-dashed border-white/5 max-w-xl mx-auto">
                 <AlertTriangle className="w-10 h-10 text-amber-500 mx-auto mb-3" />
-                <p className="text-sm font-semibold">Nenhum santo do dia cadastrado para hoje.</p>
-                <p className="text-xs text-stone-400 mt-1">O calendário litúrgico de hoje não contém santos mapeados no banco de dados.</p>
+                <p className="text-sm font-semibold">Nenhum santo do dia cadastrado para esta data.</p>
+                <p className="text-xs text-stone-400 mt-1">
+                  O calendário litúrgico de {santoDiaDate.getDate()} de {MESES[santoDiaDate.getMonth()]} não contém santos mapeados no banco de dados.
+                </p>
+                <p className="text-[11px] text-amber-500/70 mt-2 italic">
+                  Navegue usando os botões acima para ver outras datas.
+                </p>
               </div>
             )}
           </TabsContent>
