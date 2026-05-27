@@ -60,13 +60,13 @@ const MESES = [
 ];
 
 // Rodapé padrão da Comunidade
-const FOOTER_PADRAO = `Sagrado coração de Jesus seja nossa força ❤️🔥 
+const FOOTER_PADRAO = `Sagrado coração de Jesus seja nossa força ❤️‍🔥 
 Imaculado coração de Maria seja nossa proteção 🌹
 Castíssimo coração de São José Valei-nos ⚒️
-Comunidade Corações Sagrados❤️🔥`;
+Projeto Corações Sagrados❤️‍🔥`;
 
 // Rodapé de engajamento do Instagram
-const ENGAGEMENT_INSTAGRAM = "📖Leia, ❤️Curta, 🔄 Reposte, ✝️ conheça nossa comunidade!";
+const ENGAGEMENT_INSTAGRAM = "📖Leia, ❤️Curta, 🔄 Reposte, ✝️ conheça o nosso projeto!";
 
 // Aviso padrão de Novenas no WhatsApp
 const WA_NOVENA_AVISO = "⚠️ Atenção: A oração de cada dia será postada aqui no grupo de novenas diariamente. Acompanhe conosco!";
@@ -117,18 +117,18 @@ const formatCommonTitlesToBold = (text: string): string => {
 // Helper para obter a introdução mensal do Santo do Dia para o WhatsApp (com negritos)
 const getMonthIntroWA = (monthIdx: number): string => {
   const intros: Record<number, string> = {
-    0: "*Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos!* ❤️🔥\n\n",
-    1: "*Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar!* ❤️🔥\n\n",
-    2: "*Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam!* ❤️🔥\n\n",
-    3: "*Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos!* ❤️🔥\n\n",
-    4: "*Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor!* ❤️🔥\n\n",
-    5: "*Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos!* ❤️🔥\n\n",
-    6: "*Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos!* ❤️🔥\n\n",
-    7: "*Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário!* ❤️🔥\n\n",
-    8: "*Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas!* ❤️🔥\n\n",
-    9: "*Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos!* ❤️🔥\n\n",
-    10: "*Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus!* ❤️🔥\n\n",
-    11: "*Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos!* ❤️🔥\n\n",
+    0: "*Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos!* ❤️‍🔥\n\n",
+    1: "*Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar!* ❤️‍🔥\n\n",
+    2: "*Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam!* ❤️‍🔥\n\n",
+    3: "*Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos!* ❤️‍🔥\n\n",
+    4: "*Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor!* ❤️‍🔥\n\n",
+    5: "*Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos!* ❤️‍🔥\n\n",
+    6: "*Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos!* ❤️‍🔥\n\n",
+    7: "*Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário!* ❤️‍🔥\n\n",
+    8: "*Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas!* ❤️‍🔥\n\n",
+    9: "*Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos!* ❤️‍🔥\n\n",
+    10: "*Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus!* ❤️‍🔥\n\n",
+    11: "*Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos!* ❤️‍🔥\n\n",
   };
   return intros[monthIdx] || "";
 };
@@ -136,18 +136,18 @@ const getMonthIntroWA = (monthIdx: number): string => {
 // Helper para obter a introdução mensal do Santo do Dia para o Instagram (sem negritos)
 const getMonthIntroIG = (monthIdx: number): string => {
   const intros: Record<number, string> = {
-    0: "Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos! ❤️🔥\n\n",
-    1: "Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar! ❤️🔥\n\n",
-    2: "Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam! ❤️🔥\n\n",
-    3: "Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos! ❤️🔥\n\n",
-    4: "Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor! ❤️🔥\n\n",
-    5: "Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos! ❤️🔥\n\n",
-    6: "Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos! ❤️🔥\n\n",
-    7: "Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário! ❤️🔥\n\n",
-    8: "Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas! ❤️🔥\n\n",
-    9: "Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos! ❤️🔥\n\n",
-    10: "Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus! ❤️🔥\n\n",
-    11: "Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos! ❤️🔥\n\n",
+    0: "Neste mês dedicado ao Santíssimo Nome de Jesus, celebramos o testemunho de fé dos nossos santos! ❤️‍🔥\n\n",
+    1: "Neste mês dedicado à Sagrada Família, contemplamos a santidade vivida no lar! ❤️‍🔥\n\n",
+    2: "Neste mês dedicado a São José, celebramos a fidelidade e o silêncio que santificam! ❤️‍🔥\n\n",
+    3: "Neste mês pascal, celebramos a vitória de Cristo Ressuscitado refletida na vida dos santos! ❤️‍🔥\n\n",
+    4: "Neste mês mariano, celebramos o testemunho daqueles que, como Maria, disseram SIM ao Senhor! ❤️‍🔥\n\n",
+    5: "Neste mês dedicado ao Sagrado Coração de Jesus, celebramos o testemunho de amor e fidelidade dos santos! ❤️‍🔥\n\n",
+    6: "Neste mês dedicado ao Preciosíssimo Sangue de Jesus, recordamos o sacrifício redentor dos santos! ❤️‍🔥\n\n",
+    7: "Neste mês das vocações, recordamos o chamado à santidade vivido no testemunho diário! ❤️‍🔥\n\n",
+    8: "Neste mês da Bíblia, celebramos os santos que encarnaram a Palavra de Deus em suas vidas! ❤️‍🔥\n\n",
+    9: "Neste mês do Santo Rosário e das Missões, celebramos a oração e a evangelização dos santos! ❤️‍🔥\n\n",
+    10: "Neste mês em que recordamos a comunhão dos santos, celebramos aqueles que já contemplam a face de Deus! ❤️‍🔥\n\n",
+    11: "Neste tempo santo do Advento e do Natal, celebramos a esperança e o nascimento de Nosso Senhor na vida dos santos! ❤️‍🔥\n\n",
   };
   return intros[monthIdx] || "";
 };
@@ -173,6 +173,45 @@ const cleanSaintStory = (htmlStory: string, maxParagraphs: number = 3): string =
   return filteredParagraphs.slice(0, maxParagraphs).join('\n\n');
 };
 
+// Helper para calcular tamanho do texto no WhatsApp tratando emojis como 4 caracteres
+const getWhatsAppLen = (s: string) => {
+  let count = 0;
+  for (const char of Array.from(s)) {
+    if (/\p{Extended_Pictographic}/u.test(char)) {
+      count += 4;
+    } else {
+      count += 1;
+    }
+  }
+  return count;
+};
+
+const getWhatsAppLenNoSpace = (s: string) => {
+  let count = 0;
+  for (const char of Array.from(s.replace(/\s+/g, ''))) {
+    if (/\p{Extended_Pictographic}/u.test(char)) {
+      count += 4;
+    } else {
+      count += 1;
+    }
+  }
+  return count;
+};
+
+// Helper para garantir limite do WhatsApp (1024 chars com espaco, 850 sem espaco)
+const trimForWhatsApp = (buildTextFunc: (content: string) => string, fullContent: string): string => {
+  let content = fullContent;
+  let text = buildTextFunc(content);
+
+  while (content.length > 20 && (getWhatsAppLen(text) > 1024 || getWhatsAppLenNoSpace(text) > 850)) {
+    const lastSpace = content.lastIndexOf(' ', content.length - 5);
+    if (lastSpace === -1) break;
+    content = content.substring(0, lastSpace) + "...";
+    text = buildTextFunc(content);
+  }
+  return text;
+};
+
 // Helper para gerar o convite unificado (Dia 0)
 const generateConviteText = (params: {
   saintName: string;
@@ -187,39 +226,41 @@ const generateConviteText = (params: {
   const { saintName, startDateStr, feastDayStr, devText, emoji1, emoji2, anchor, isInstagram } = params;
   const siteUrl = `https://coracoessagradosbsb.vercel.app/#${anchor}`;
   const cleanDesc = devText.replace(/<[^>]*>/g, "");
-  const devTextLimited = cleanDesc.length > 180 ? cleanDesc.substring(0, 180) + "..." : cleanDesc;
+  const devTextLimited = isInstagram 
+    ? (cleanDesc.length > 180 ? cleanDesc.substring(0, 180) + "..." : cleanDesc)
+    : cleanDesc;
 
   if (isInstagram) {
     const cleanHashtagName = saintName.replace(/[\s,.-]+/g, "");
     const hashtags = `#Novena #${cleanHashtagName} #CoracoesSagrados #ComunidadeCatolica #Fé`;
     
     const text = `${emoji1}${emoji2} PREPARE SEU CORAÇÃO: NOVENA DE ${saintName.toUpperCase()} ${emoji2}${emoji1}
-
+ 
 Iniciamos hoje, dia ${startDateStr}, a nossa jornada de fé com a Novena em preparação para a Festa de ${saintName}, celebrada no dia ${feastDayStr}.
-
+ 
 Convidamos você, sua família e todos os fiéis da nossa comunidade a trilharem este caminho de conversão e oração fervorosa.
-
+ 
 "${devTextLimited}"
-
+ 
 Coloque suas intenções no altar do Senhor e reze conosco!
-
+ 
 Acesse a novena completa em nosso site através do link na nossa bio ou clique no link:
 ${siteUrl}
-
+ 
 ${ENGAGEMENT_INSTAGRAM}
-
-Sagrado coração de Jesus seja nossa força ❤️🔥 
+ 
+Sagrado coração de Jesus seja nossa força ❤️‍🔥 
 Imaculado coração de Maria seja nossa proteção 🌹
 Castíssimo coração de São José Valei-nos ⚒️
-
-Comunidade Corações Sagrados❤️🔥
-
+ 
+Projeto Corações Sagrados❤️‍🔥
+ 
 .
 .
 .
 .
 .
-
+ 
 ${hashtags}`;
 
     return text
@@ -227,33 +268,44 @@ ${hashtags}`;
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
   } else {
-    const text = `${emoji1}${emoji2} *INÍCIO DA NOVENA DE ${saintName.toUpperCase()}* ${emoji2}${emoji1}
-
+    // Lógica de WhatsApp com limite rígido de 1024 caracteres (e 850 sem espaços), contando emojis como 4
+    const buildText = (devSnippet: string) => {
+      const text = `${emoji1}${emoji2} *INÍCIO DA NOVENA DE ${saintName.toUpperCase()}* ${emoji2}${emoji1}
+ 
 Iniciamos hoje, dia ${startDateStr}, a Novena a *${saintName}*! ${emoji1}${emoji2}
-
+ 
 A nossa preparação espiritual para a grande festa litúrgica de *${saintName}* começará no dia *${startDateStr}* (9 dias antes de sua festa que é celebrada em ${feastDayStr}).
-
+ 
 Como devotos e comunidade de oração, convidamos todos vocês a se unirem a nós nesta caminhada espiritual de fé e esperança.
-
-_"${devTextLimited}"_
-
+ 
+_${devSnippet ? `"${devSnippet}"` : ""}_
+ 
 Que este tempo seja de profunda conversão, oração em família e de apresentarmos ao Senhor as nossas intenções e súplicas confiadas à intercessão de *${saintName}*.
-
+ 
 ${WA_NOVENA_AVISO}
-
+ 
 Acesse a novena também em nosso site:
 ${siteUrl}
-
-*Sagrado coração de Jesus* seja nossa força ❤️🔥
+ 
+*Sagrado coração de Jesus* seja nossa força ❤️‍🔥
 *Imaculado coração de Maria* seja nossa proteção 🌹
 *Castíssimo coração de São José* Valei-nos ⚒️
+ 
+_Projeto Corações Sagrados_❤️‍🔥`;
+      return text.replace(/\r\n/g, "\n").replace(/\n\s*\n\s*\n+/g, "\n\n").trim();
+    };
 
-_Comunidade Corações Sagrados_❤️🔥`;
+    let content = devTextLimited;
+    let finalOutput = buildText(content);
 
-    return text
-      .replace(/\r\n/g, "\n")
-      .replace(/\n\s*\n\s*\n+/g, "\n\n")
-      .trim();
+    while (content.length > 20 && (getWhatsAppLen(finalOutput) > 1024 || getWhatsAppLenNoSpace(finalOutput) > 850)) {
+      const lastSpace = content.lastIndexOf(' ', content.length - 5);
+      if (lastSpace === -1) break;
+      content = content.substring(0, lastSpace) + "...";
+      finalOutput = buildText(content);
+    }
+
+    return finalOutput;
   }
 };
 
@@ -558,6 +610,38 @@ export default function AssistentePage() {
     });
   };
 
+  // --- Helper para copiar texto para todos os dias ---
+  const handleCopyToAllDays = (dayIndex: number) => {
+    const currentText = novenaDaysTexts[dayIndex];
+    if (!currentText) {
+      toast({
+        title: "Texto Vazio",
+        description: "Digite algo na meditação antes de copiar.",
+        duration: 2000,
+      });
+      return;
+    }
+    const newTexts = [...novenaDaysTexts];
+    const sourceDay = dayIndex + 1;
+    for(let i = 0; i < 9; i++) {
+      if(i !== dayIndex) {
+        let adapted = currentText;
+        const targetDay = i + 1;
+        // Replaces Xº, X° or Dia X
+        const regexOrdinals = new RegExp(`(?<!\\d)${sourceDay}(º|°)(?=\\s*dia|\\s*Dia|)`, 'gi');
+        adapted = adapted.replace(regexOrdinals, `${targetDay}$1`);
+        const regexDayNum = new RegExp(`(?<=dia\\s+|Dia\\s+)${sourceDay}(?!\\d)`, 'gi');
+        adapted = adapted.replace(regexDayNum, `${targetDay}`);
+        newTexts[i] = adapted;
+      }
+    }
+    setNovenaDaysTexts(newTexts);
+    toast({
+      title: "Copiado para todos os dias!",
+      description: "O texto foi replicado ajustando a numeração do dia.",
+      duration: 3000,
+    });
+  };
   // --- Lógicas de Calendário e Datas ---
   const calculatedStartDateStr = useMemo(() => {
     if (!customFeastDay) return "[Defina a Festa Litúrgica]";
@@ -858,7 +942,7 @@ ${cleanFinal ? `\n*${em1}${em2} ORAÇÃO FINAL*\n${cleanFinal}\n` : ""}
 *novena também disponível em nosso site:* ${siteUrl}
 
 Compartilhe 😉!
-_Projeto Corações Sagrados❤️🔥_`;
+_Projeto Corações Sagrados❤️‍🔥_`;
 
     return text
       .replace(/\r\n/g, "\n")
@@ -904,7 +988,6 @@ _Projeto Corações Sagrados❤️🔥_`;
 
   const textWhatsAppSanto = useMemo(() => {
     if (!todaySaintInfo) return "Sem dados de Santo do Dia para hoje.";
-    const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
     
     const monthIntro = getMonthIntroWA(santoDiaDate.getMonth());
 
@@ -919,22 +1002,13 @@ _Projeto Corações Sagrados❤️🔥_`;
       }
     }
 
-    const text = `${monthIntro}Hoje a Igreja celebra **${todaySaintInfo.name}**.
+    const buildText = (storySnippet: string) => {
+      const text = `${monthIntro}Hoje a Igreja celebra **${todaySaintInfo.name}**.\n\n${storySnippet}${outrosSantosStr}\n\nLeia e compartilhe:\nhttps://coracoessagradosbsb.vercel.app\n\nSegue a gente:\nhttps://www.instagram.com/coracoessagradosbsb\n\n_Projeto Corações Sagrados❤️‍🔥_`;
+      return text.replace(/\r\n/g, "\n").replace(/\n\s*\n\s*\n+/g, "\n\n").trim();
+    };
 
-${mainStory}${outrosSantosStr}
-
-Leia e compartilhe:
-https://coracoessagradosbsb.vercel.app
-
-Segue a gente:
-https://www.instagram.com/coracoessagradosbsb
-
-_Comunidade Corações Sagrados❤️🔥_`;
-
-    return text
-      .replace(/\r\n/g, "\n")
-      .replace(/\n\s*\n\s*\n+/g, "\n\n")
-      .trim();
+    const mainStory = cleanSaintStory(todaySaintInfo.story, 3);
+    return trimForWhatsApp(buildText, mainStory);
   }, [todaySaintInfo, santoDiaDate, todaySaintData, selectedSaintInDayIndex]);
 
   const textInstagramSanto = useMemo(() => {
@@ -961,11 +1035,11 @@ ${mainStory}${outrosSantosStr}
 
 📖Leia, ❤️Curta, 🔄reposte, ✝️ conheça o nosso projeto!
 
-Sagrado coração de Jesus seja nossa força ❤️🔥 
+Sagrado coração de Jesus seja nossa força ❤️‍🔥 
 Imaculado coração de Maria seja nossa proteção 🌹
 Castíssimo coração de São José Valei-nos ⚒️
 
-Comunidade Corações Sagrados❤️🔥
+Projeto Corações Sagrados❤️‍🔥
 
 .
 .
@@ -1043,7 +1117,7 @@ ${cleanFinal ? `\n*${formatEmoji1}${formatEmoji2} ORAÇÃO FINAL*\n${cleanFinal}
 *novena também disponível em nosso site:* ${siteUrl}
 
 Compartilhe 😉!
-_Projeto Corações Sagrados❤️🔥_`;
+_Projeto Corações Sagrados❤️‍🔥_`;
 
       return text
         .replace(/\r\n/g, "\n")
@@ -1355,14 +1429,14 @@ _Projeto Corações Sagrados❤️🔥_`;
                                 value={emojis[0]} 
                                 onChange={(e) => handleUpdateNovenaEmoji(item.id, 0, e.target.value)} 
                                 className="w-7 h-7 bg-stone-950 border border-white/10 rounded-lg text-center text-xs focus:outline-none focus:border-amber-500 font-bold"
-                                maxLength={2}
+                                maxLength={10}
                               />
                               <input 
                                 type="text" 
                                 value={emojis[1]} 
                                 onChange={(e) => handleUpdateNovenaEmoji(item.id, 1, e.target.value)} 
                                 className="w-7 h-7 bg-stone-950 border border-white/10 rounded-lg text-center text-xs focus:outline-none focus:border-amber-500 font-bold"
-                                maxLength={2}
+                                maxLength={10}
                               />
                             </div>
 
@@ -1624,11 +1698,37 @@ _Projeto Corações Sagrados❤️🔥_`;
                             className="w-full h-full object-cover object-center" 
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent"></div>
-                          <div className="absolute bottom-3 left-3 right-3">
+                          <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">                            <div>
                             <span className="text-[10px] bg-amber-500 text-stone-950 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">
                               Santo Selecionado
                             </span>
                             <h3 className="text-lg font-bold font-brand text-white mt-1 leading-tight">{todaySaintInfo.name}</h3>
+                            </div>
+                            <Button 
+                              variant="secondary" 
+                              size="icon" 
+                              className="h-8 w-8 rounded-full bg-white/10 hover:bg-amber-500 hover:text-stone-950 text-white transition-all"
+                              onClick={async () => {
+                                try {
+                                  const response = await fetch(todaySaintInfo.imageUrl);
+                                  const blob = await response.blob();
+                                  const blobUrl = URL.createObjectURL(blob);
+                                  const link = document.createElement("a");
+                                  link.href = blobUrl;
+                                  link.download = `${todaySaintInfo.name.replace(/\s+/g, '_').toLowerCase()}.jpg`;
+                                  document.body.appendChild(link);
+                                  link.click();
+                                  document.body.removeChild(link);
+                                  URL.revokeObjectURL(blobUrl);
+                                } catch (error) {
+                                  window.open(todaySaintInfo.imageUrl, "_blank");
+                                }
+                              }}
+                              title="Baixar Imagem"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                            </Button>
+
                           </div>
                         </div>
                         <CardContent className="pt-4 space-y-4">
@@ -1641,19 +1741,52 @@ _Projeto Corações Sagrados❤️🔥_`;
                                 value={santoEmoji1} 
                                 onChange={(e) => handleUpdateSantoEmoji1(e.target.value)} 
                                 className="w-9 h-9 bg-stone-900 border border-white/10 rounded-xl text-center text-sm focus:outline-none focus:border-amber-500 font-bold"
-                                maxLength={2}
+                                maxLength={10}
                               />
                               <input 
                                 type="text" 
                                 value={santoEmoji2} 
                                 onChange={(e) => handleUpdateSantoEmoji2(e.target.value)} 
                                 className="w-9 h-9 bg-stone-900 border border-white/10 rounded-xl text-center text-sm focus:outline-none focus:border-amber-500 font-bold"
-                                maxLength={2}
+                                maxLength={10}
                               />
                             </div>
                             <p className="text-[9px] text-stone-500 leading-normal">
                               Esses emojis serão injetados nos textos formatados de WhatsApp e Instagram abaixo.
                             </p>
+                            <Button 
+                              variant="outline"
+                              onClick={async () => {
+                                try {
+                                  const response = await fetch(todaySaintInfo.imageUrl);
+                                  const blob = await response.blob();
+                                  const blobUrl = URL.createObjectURL(blob);
+                                  const link = document.createElement("a");
+                                  link.href = blobUrl;
+                                  link.download = `${todaySaintInfo.name.replace(/\s+/g, '_').toLowerCase()}.jpg`;
+                                  document.body.appendChild(link);
+                                  link.click();
+                                  document.body.removeChild(link);
+                                  URL.revokeObjectURL(blobUrl);
+                                  toast({
+                                    title: "Download Iniciado!",
+                                    description: `A imagem de ${todaySaintInfo.name} está sendo baixada.`,
+                                    duration: 3000,
+                                  });
+                                } catch (error) {
+                                  window.open(todaySaintInfo.imageUrl, "_blank");
+                                  toast({
+                                    title: "Imagem Aberta em Nova Aba",
+                                    description: "Clique com o botão direito na imagem e selecione 'Salvar imagem como...'",
+                                    duration: 5000,
+                                  });
+                                }
+                              }}
+                              className="w-full bg-amber-500/10 text-amber-400 hover:bg-amber-500 hover:text-stone-950 border-amber-500/25 mt-2 gap-2 text-xs font-bold py-2 rounded-xl transition-all"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                              Baixar Imagem do Santo
+                            </Button>
                           </div>
 
                           {todaySaintData.saints.length > 1 && (
@@ -1847,7 +1980,7 @@ _Projeto Corações Sagrados❤️🔥_`;
                           type="text" 
                           value={emoji1}
                           onChange={(e) => setEmoji1(e.target.value)}
-                          maxLength={3}
+                          maxLength={10}
                           className="w-full bg-stone-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-center text-stone-100 focus:outline-none focus:border-amber-500 font-bold"
                         />
                       </div>
@@ -1857,7 +1990,7 @@ _Projeto Corações Sagrados❤️🔥_`;
                           type="text" 
                           value={emoji2}
                           onChange={(e) => setEmoji2(e.target.value)}
-                          maxLength={3}
+                          maxLength={10}
                           className="w-full bg-stone-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-center text-stone-100 focus:outline-none focus:border-amber-500 font-bold"
                         />
                       </div>
@@ -2030,7 +2163,7 @@ _Projeto Corações Sagrados❤️🔥_`;
                           type="text" 
                           value={formatEmoji1}
                           onChange={(e) => setFormatEmoji1(e.target.value)}
-                          maxLength={3}
+                          maxLength={10}
                           className="w-full bg-stone-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-center text-stone-100 focus:outline-none focus:border-amber-500 font-bold"
                         />
                       </div>
@@ -2040,7 +2173,7 @@ _Projeto Corações Sagrados❤️🔥_`;
                           type="text" 
                           value={formatEmoji2}
                           onChange={(e) => setFormatEmoji2(e.target.value)}
-                          maxLength={3}
+                          maxLength={10}
                           className="w-full bg-stone-900 border border-white/10 rounded-xl px-3 py-2 text-sm text-center text-stone-100 focus:outline-none focus:border-amber-500 font-bold"
                         />
                       </div>
@@ -2188,7 +2321,18 @@ _Projeto Corações Sagrados❤️🔥_`;
 
                           {/* Meditação Específica */}
                           <div className="space-y-1">
-                            <label className="text-[10px] text-stone-400 uppercase font-bold tracking-wider">Meditação Específica</label>
+                            <div className="flex items-center justify-between mb-1">
+                              <label className="text-[10px] text-stone-400 uppercase font-bold tracking-wider">Meditação Específica</label>
+                              {novenaDaysTexts[i] && (
+                                <button
+                                  type="button"
+                                  onClick={() => handleCopyToAllDays(i)}
+                                  className="text-[9px] font-bold text-amber-500 hover:text-amber-400 flex items-center gap-1 transition-colors px-2.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 shadow-sm"
+                                >
+                                  <Copy className="w-2.5 h-2.5" /> Replicar para os 9 dias
+                                </button>
+                              )}
+                            </div>
                             <textarea 
                               value={novenaDaysTexts[i]}
                               onChange={(e) => {

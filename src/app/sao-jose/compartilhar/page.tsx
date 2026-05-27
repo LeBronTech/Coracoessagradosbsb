@@ -236,7 +236,7 @@ Amém.
 
 ${video || ""}
 
-_*Comunidade Corações Sagrados ❤️‍🔥*_`;
+_*Projeto Corações Sagrados ❤️‍🔥*_`;
         }
 
         if (dia === 33) {

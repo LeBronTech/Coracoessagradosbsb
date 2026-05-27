@@ -1,4 +1,6 @@
 // Novenas de Fevereiro a Setembro - Apenas estrutura (sem conteúdo dos dias)
+import { novenaSaoJose19Marco } from "./novena-sao-jose-19-marco";
+
 type Novena = {
     saintName: string;
     novenaTitle: string;
@@ -411,16 +413,13 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     sao_jose_marco: {
-        saintName: "São José",
-        novenaTitle: "Novena a São José (Março)",
-        description: "Novena em preparação à festa de São José, esposo de Maria (19 de março).",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São José`,
-            content: ""
-        }))
+        saintName: novenaSaoJose19Marco.saintName,
+        novenaTitle: novenaSaoJose19Marco.novenaTitle,
+        description: novenaSaoJose19Marco.description,
+        image: novenaSaoJose19Marco.image,
+        initialPrayer: novenaSaoJose19Marco.initialPrayer,
+        finalPrayer: novenaSaoJose19Marco.finalPrayer,
+        days: novenaSaoJose19Marco.days
     },
 
 
@@ -1681,7 +1680,167 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         finalPrayer: "",
         days: [
             {
-                day: "Dias 1 a 9",
+                day: "Dia 1",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica in Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oração a N.S. da África",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🌍</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+                <p>Ó N.S. da África, Padroeira e esperança de todo o continente, a Vós elevamos nossos corações. Nós vos pedimos humildemente que derrameis Vossa bênção e misericórdia sobre todos os povos e nações, intercedendo sempre pela paz, justiça e fraternidade humana.</p>
+                <p class="mt-4">Vós, cuja Basílica em Argel traz a bela invocação <em>"N.S. da África, rogai por nós e pelos muçulmanos"</em>, ensinai-nos as virtudes do diálogo sincero, alivia as chagas do ódio e aproximai todos os filhos de Deus.</p>
+                <p class="mt-4">Protegei as famílias, curai os enfermos e amparai aqueles que se encontram sozinhos. Que Vossa intercessão conceda luz e esperança aos que mais sofrem.</p>
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl text-stone-900 border-none">
+                    <p class="italic font-medium" style="color: black !important;"><strong style="color: black !important;">Ó bondosa e compassiva Mãe,</strong> rogo-Lhe que obtenha para minha vida e para minha família a seguinte graça que Lhe suplico: <em>(faça seu pedido).</em></p>
+                </div>
+                <div class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">
+                    <p>Pai Nosso, Ave-Maria, Glória ao Pai.</p>
+                </div>
+                <p class="mt-4 text-center font-bold">N.S. da África, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 9",
                 title: "Oração a N.S. da África",
                 content: `<div class="day-specific-content">
                 <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
@@ -2373,7 +2532,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         finalPrayer: "",
         days: [
             {
-                day: "Dias 1 a 9",
+                day: "Dia 1",
                 title: "Oração da Visitação de Maria",
                 content: `<div class="day-specific-content">
                 <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
@@ -2412,7 +2571,351 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                     <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
                 </div>
 
-                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora_2, rogai por nós!</p>
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senior, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
+            </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Oração da Visitação de Maria",
+                content: `<div class="day-specific-content">
+                <div class="mb-4 p-1.5 px-3 rounded-full inline-flex items-center gap-2 border border-[#9ca3af] bg-white/80 backdrop-blur-sm shadow-sm">
+                    <span class="text-sm" style="filter: grayscale(100%) brightness(30%);">🙏</span>
+                    <p class="text-xs sm:text-sm font-bold leading-none" style="color: #292524 !important;">A oração a seguir é a mesma para todos os 9 dias da novena, boa oração!</p>
+                </div>
+
+                <h5 class="font-bold text-lg mt-6">Oração</h5>
+                <p>Ó Virgem Maria! Que, movida do Espírito Santo, Vos pusestes a caminho para visitar Vossa prima Santa Isabel, a fim de que a presença do Verbo encarnado livrasse o Batista do pecado original, alcançai-me do mesmo Vosso Filho o perdão de todos os meus pecados e um tal horror a eles que nunca mais torne a cometê-los para o futuro.</p>
+                <p class="mt-4">Infinitas graças vos damos, soberana Rainha, pelos benefícios que todos os dias recebemos de vossas mãos liberais. Dignai-vos, agora e para sempre, tomar-nos debaixo de vosso poderoso amparo, e para mais vos obrigar, vos saudamos com uma Salve Rainha:</p>
+
+                <div class="mt-8 p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl border-none">
+                    <h5 class="font-bold text-center mb-3" style="color: #292524 !important;">Salve Rainha</h5>
+                    <p style="color: #292524 !important;">Salve Rainha, Mãe de misericórdia. Vida, doçura e esperança nossa, salve! A Vós bradamos os degradados filhos de Eva; por Vós suspiramos, gemendo e chorando neste vale de lágrimas. Eia, pois, Advogada nossa, esses Vossos olhos misericordiosos a nós volvei, e depois deste desterro, mostrai-nos a Jesus, bendito fruto do Vosso ventre. Ó clemente, ó piedosa, ó doce sempre Virgem Maria.</p>
+                    <p class="mt-4" style="color: #292524 !important;">Rogai por nós Santa Mãe de Deus,<br/>Para que sejamos dignos das promessas de Cristo. Amém.</p>
+                </div>
+
+                <div class="mt-6 p-5 bg-stone-100/50 rounded-xl border border-stone-200">
+                    <h5 class="font-bold text-center mb-3">Ladainha de N.S.</h5>
+                    <p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.<br/>Jesus Cristo, ouvi-nos.<br/>Jesus Cristo, atendei-nos.<br/>Pai celeste que sois Deus, <em>tende piedade de nós.</em><br/>Filho, Redentor do mundo, que sois Deus, <em>tende piedade de nós.</em><br/>Espírito Santo, que sois Deus, <em>tende piedade de nós.</em><br/>Santíssima Trindade, que sois um só Deus, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">Santa Maria, <em>rogai por nós.</em><br/>Santa Mãe de Deus, <em>rogai por nós.</em><br/>Santa Virgem das Virgens, <em>rogai por nós.</em><br/>Mãe de Jesus Cristo, <em>rogai por nós.</em><br/>Mãe da divina graça, <em>rogai por nós.</em><br/>Mãe puríssima, <em>rogai por nós.</em><br/>Mãe castíssima, <em>rogai por nós.</em><br/>Mãe imaculada, <em>rogai por nós.</em><br/>Mãe intacta, <em>rogai por nós.</em><br/>Mãe intemerata, <em>rogai por nós.</em><br/>Mãe amável, <em>rogai por nós.</em><br/>Mãe admirável, <em>rogai por nós.</em><br/>Mãe do bom conselho, <em>rogai por nós.</em><br/>Mãe do Criador, <em>rogai por nós.</em><br/>Mãe do Salvador, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Virgem prudentíssima, <em>rogai por nós.</em><br/>Virgem venerável, <em>rogai por nós.</em><br/>Virgem louvável, <em>rogai por nós.</em><br/>Virgem poderosa, <em>rogai por nós.</em><br/>Virgem clemente, <em>rogai por nós.</em><br/>Virgem fiel, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Espelho de justiça, <em>rogai por nós.</em><br/>Sede de sabedoria, <em>rogai por nós.</em><br/>Causa da nossa alegria, <em>rogai por nós.</em><br/>Vaso espiritual, <em>rogai por nós.</em><br/>Vaso honorífico, <em>rogai por nós.</em><br/>Vaso insígne de devoção, <em>rogai por nós.</em><br/>Rosa mística, <em>rogai por nós.</em><br/>Torre de David, <em>rogai por nós.</em><br/>Torre de marfim, <em>rogai por nós.</em><br/>Casa de ouro, <em>rogai por nós.</em><br/>Arca da aliança, <em>rogai por nós.</em><br/>Porta do céu, <em>rogai por nós.</em><br/>Estrela da manhã, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Saúde dos enfermos, <em>rogai por nós.</em><br/>Refúgio dos pecadores, <em>rogai por nós.</em><br/>Consoladora dos aflitos, <em>rogai por nós.</em><br/>Auxílio dos cristãos, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Rainha dos anjos, <em>rogai por nós.</em><br/>Rainha dos patriarcas, <em>rogai por nós.</em><br/>Rainha dos profetas, <em>rogai por nós.</em><br/>Rainha dos apóstolos, <em>rogai por nós.</em><br/>Rainha dos mártires, <em>rogai por nós.</em><br/>Rainha dos confessores, <em>rogai por nós.</em><br/>Rainha das virgens, <em>rogai por nós.</em><br/>Rainha de todos os santos, <em>rogai por nós.</em><br/>Rainha concebida sem pecado original, <em>rogai por nós.</em><br/>Rainha elevada ao céu, <em>rogai por nós.</em><br/>Rainha do sacratíssimo Rosário, <em>rogai por nós.</em><br/>Rainha da paz, <em>rogai por nós.</em></p>
+
+                    <p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, <em>perdoai-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>ouvi-nos Senhor.</em><br/>Cordeiro de Deus, que tirais os pecados do mundo, <em>tende piedade de nós.</em></p>
+
+                    <p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br/>℟. Para que sejamos dignos das promessas de Cristo.</p>
+
+                    <p class="mt-4"><strong>Oremos:</strong> Senhor Deus, nós Vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo Nosso Senhor. Amém.</p>
+                </div>
+
+                <p class="mt-6 text-center font-bold">Visitação - Nossa Senhora, rogai por nós!</p>
             </div>`
             }
         ]
@@ -3346,7 +3849,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 <p class="mt-4 text-sm italic">(Fazer o pedido)</p>
             </div>
         </div>`,
-        days: [
+                days: [
             {
                 day: "Dia 1",
                 title: "1º Dia - Obediência",
@@ -3363,65 +3866,55 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             },
             {
                 day: "Dia 2",
-                title: "2º Dia - Pobreza Voluntária",
+                title: "2º Dia - Pobreza Voluntária e Castidade",
                 content: `<div class="day-specific-content">
+                    <h4 class="section-title">Pobreza Voluntária</h4>
                     <p>Consideremos a pobreza voluntária que o nosso santo professou em toda a sua vida. Nascido de uma família não só ilustre, mas abastada, educado no meio da opulência e esplendor, Antônio renuncia a todos esses encantos e lisonjeiras esperanças. A sua vida é no templo; os seus divertimentos pueris são as funções eclesiásticas; a sua maior grandeza e esplendor consiste na ocupação e ministério dos altares.</p>
                     <p class="mt-4">Mas esse desprezo dos bens terrenos não é ainda bastante ao fervoroso Antônio: contava ele apenas dezesseis anos, quando determina ser pobre para sempre e por voto. A sagrada religião dos Cônegos Regulares de Santo Agostinho lhe ouviu fazer essa promessa à face dos seus altares, e lhe viu cumpri-la exatamente em todo o tempo que teve a fortuna de o lograr.</p>
                     <p class="mt-4">Essa pobreza, de que ele era tão observante, a pretendia insinuar e persuadir aos seus ouvintes no púlpito; e um dia, pregando nas exéquias de um rico avarento, se esforçou em demonstrar a felicidade dos pobres. Depois de ter provado esses pontos com a sua enérgica e apostólica eloquência, rompeu nesta profecia: “Esse desgraçado avarento, cujo corpo está presente, nos dá um triste testemunho dessas verdades: ide abrir o cofre do seu dinheiro, nele achareis o seu coração”. O sucesso correspondeu à profecia, pois com efeito se achou o coração daquele miserável aferrolhado no seu cofre.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="my-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Pobreza</h5>
                         <p>Antônio bem-aventurado, que desprezando as riquezas terrenas soubestes imitar a pobreza do nosso Redentor e dos seus Apóstolos; fazei que possamos também nós desapegar-nos dos bens caducos, e adquirir com eles, repartidos em benefícios dos pobres, o tesouro celestial, que nunca há de minguar e de que vós já estais de posse, por prêmio da vossa pobreza voluntária. Amém.</p>
                     </div>
-                </div>`
-            },
-            {
-                day: "Dia 3",
-                title: "3º Dia - Castidade",
-                content: `<div class="day-specific-content">
+
+                    <h4 class="section-title mt-6">Castidade</h4>
                     <p>Ponderemos o amor que Antônio teve à virtude angélica da castidade e a escrupulosíssima vigilância com que sempre guardou a preciosíssima joia da sua pureza. Nem os encantos perigosos de uma cidade já então famosa, nem as delícias de uma mimosa educação, nem as grandezas que o rodeavam puderam fazer algum abalo na inocência desse menino. Ele sabe fugir a tempo ao asilo da Igreja e, abrigado à sombra dos altares, se põe em seguro, e evita os ardis da diabólica malícia.</p>
                     <p class="mt-4">Prostrado diante da sagrada e respeitável imagem da puríssima Virgem, pede e recebe parte daquela graça, de que ela foi cheia no primeiro instante da sua Conceição Imaculada: com tal protetora, Antônio vence as tentações infernais e, apesar de todo o esforço diabólico, conserva durante toda a vida ilesa a pureza do seu inocente corpo.</p>
                     <p class="mt-4">Certo monge se via continuamente assaltado de violentíssimas tentações da carne, que não podia apagar com todas as espécies de mortificações. Nesse estado recorre a Fr. Antônio, suplicando-lhe que o quisesse ouvir de confissão. Esmerou-se o santo em consolá-lo, dando-lhe os saudáveis conselhos; notando, porém, o ânimo tão apoucado, despe a própria túnica interior, e ordena ao monge que a vista à raiz da carne. Apenas ele obedece, sente dilatarse-lhe o coração, um novo alento refundido no seu espírito lhe faz subordinar a carne rebelada às suas leis.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="mt-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Castidade</h5>
                         <p>Antônio bem-aventurado e puríssimo, se o toque dos vossos vestidos foi bastante para apegar a honestidade que vós tão cuidadosamente observastes, alcançai-nos de Deus que todos os vossos devotos tenhamos a fortaleza de combater e rechaçar os assaltos furiosos do espírito impuro e merecer entrar triunfantes na glória que estais gozando. Amém.</p>
                     </div>
                 </div>`
             },
             {
-                day: "Dia 4",
-                title: "4º Dia - Fé Viva",
+                day: "Dia 3",
+                title: "3º Dia - Fé Viva e Esperança",
                 content: `<div class="day-specific-content">
-                    <p>Ponderemos a fé viva e eficaz do nosso santo. Toda a sua vida desde menino foi um tecido de ações filhas da sua crença. Se Antônio deixa a casa de seus pais e foge para o templo, é porque crê que no templo acha realmente ao Pai das luzes donde procedem e dimanam todos os bens e dons perfeitos; se a sua consolação é assistir ao incruento sacrifício e mais augustos mistérios da nossa religião com a reverência mais profunda, é porque está firmissimamente convicto da divindade da Vítima imolada.</p>
+                    <h4 class="section-title">Fé Viva</h4>
+                    <p>Ponderemos a fé viva e eficaz do nosso santo. Toda a sua vida desde menino foi um tecido de ações filhas da sua crença. Se Antônio deixa a casa de seus pais e foge para o templo, é porque crê que no templo acha realmente ao Pai das luzes onde procedem e dimanam todos os bens e dons perfeitos; se a sua consolação é assistir ao incruento sacrifício e mais augustos mistérios da nossa religião com a reverência mais profunda, é porque está firmissimamente convicto da divindade da Vítima imolada.</p>
                     <p class="mt-4">Um herege chamado Guialdo propunha a Antônio que ele só creria na real presença de Jesus Cristo na sagrada hóstia, se visse que o seu jumento, esfaimado de três dias, largasse a comida à vista da mesma hóstia. Concorda o santo e, tomando nas suas mãos a sagrada hóstia, diz para o faminto animal: “Em nome de Jesus Cristo, te mando, ó criatura irracional, que chegues e reverencies a teu Criador”. Apenas disse, o jumento, desprezando o sustento, se prostrou, dobrando os seus joelhos, diante da sagrada hóstia, com pasmo e admiração de todos.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="my-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Fé</h5>
                         <p>Antônio bem-aventurado, milagroso esteio da fé e religião, que tão justamente merecestes o glorioso título de Martelo de Hereges, firmai os vossos devotos na fé, virtude capital da nossa religião; fazei que pelas nossas ações demos provas de que a nossa fé não é uma fé morta, mas uma fé ativa e oficiosa. Amém.</p>
                     </div>
-                </div>`
-            },
-            {
-                day: "Dia 5",
-                title: "5º Dia - Esperança",
-                content: `<div class="day-specific-content">
+
+                    <h4 class="section-title mt-6">Esperança</h4>
                     <p>Ponderemos a esperança certa e assegurada confiança que Antônio tinha nas infalíveis promessas do seu Deus e na sua Divina Providência. Persuadido de que o prêmio eterno da virtude estava afiançado pelas palavras de Jesus Cristo, ele não deixou um só momento da sua vida ocioso, ocupando os trinta e seis anos dela em exercitar os atos de virtude que lhe davam o direito impreterível de conseguir o mesmo prêmio.</p>
                     <p class="mt-4">Dessa confiança vinha que Antônio jamais cuidasse em provisão de víveres para o futuro e que também nunca sentisse falta do necessário para sua sustentação e de seus irmãos. Certa senhora hospedou Fr. Antônio e, para o servir com mais alinho, pediu uma taça de cristal emprestada. No fim do jantar, o companheiro do santo deixou cair a taça que se fez em pedaços. O servo de Deus, enternecido das lágrimas da senhora, fez a Deus oração, cujo efeito foi começarem os pedaços da taça a ajuntar-se por si mesmos, ficando na mesma perfeição em que era.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="mt-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Esperança</h5>
                         <p>Antônio bem-aventurado, que, assegurado das promessas de Cristo e confiado na sua verdade, só vos ocupáveis em as merecer, fazei que nós possamos com a mesma evidência inteirarmo-nos delas, e saibamos merecer por meio das boas obras a salvação eterna, prêmio infalível de uma vida inocente. Amém.</p>
                     </div>
                 </div>`
             },
             {
-                day: "Dia 6",
-                title: "6º Dia - Caridade",
+                day: "Dia 4",
+                title: "4º Dia - Caridade",
                 content: `<div class="day-specific-content">
                     <p>Ponderemos a ardente caridade de Antônio. Apenas sabe que o ponto capital da nossa religião consiste em amar, que a caridade é a maior de todas as virtudes, Antônio se abrasa todo no amor de Deus e do próximo. O tempo que lhe sobrava do serviço da Igreja, o gastava na oração, contemplando as imensas perfeições de Deus. O próximo é o outro objeto a que se dirige a sua caridade. Não haverá talvez aflição que Antônio não livrasse a algum necessitado.</p>
                     <p class="mt-4">Estupendo é o milagre que a sua caridade obrou em Ferrara. Um marido desconfiado da fidelidade da sua consorte, maquinou-lhe a morte. A desconsolada mulher vai procurar a Fr. Antônio. O caritativo santo a consola e, quando o menino nasceu, o santo tomando-o nos braços, lhe disse: “Criatura de Deus, te mando que declares: quem é teu pai?” Logo o menino respondeu em voz clara: “Tu, senhor, és meu pai natural e a minha mãe é castíssima”. O marido prostrado aos pés de sua mulher, pediu-lhe perdão.</p>
-
+                    
                     <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
                         <h5 class="font-bold mb-2">Deprecação</h5>
                         <p>Antônio bem-aventurado, que ardendo no amor de Deus e do próximo, toda a vossa vida vos empregastes nesses dois pontos, exercitai lá ainda da glória esse amor com os vossos devotos e fazei com que nós sigamos os vossos passos, observando os mandamentos da Lei. Amém.</p>
@@ -3429,77 +3922,67 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 </div>`
             },
             {
-                day: "Dia 7",
-                title: "7º Dia - Zelo pela Glória de Deus",
+                day: "Dia 5",
+                title: "5º Dia - Zelo por Deus e pelo Próximo",
                 content: `<div class="day-specific-content">
+                    <h4 class="section-title">Zelo pela Glória de Deus</h4>
                     <p>Consideremos o ardente zelo que Antônio tinha pela honra e glória de Deus. Essa virtude verdadeiramente apostólica resplandeceu em todo o decurso de sua vida como virtude dominante. Via-se Fr. Antônio trabalhando incessantemente em estender a glória do Senhor. Ele intenta ir levar o seu nome aos povos africanos, mesmo à custa do seu sangue.</p>
                     <p class="mt-4">Mas o mais admirável zelo do nosso santo se manifesta na liberdade santa com que vai repreender o tirano Excellino, que assolava cidades da Itália. Todos esses crimes lhe lança Antônio em rosto de um modo tão denodado que o cruel Excellino, prostrando-se aos pés do santo lhe suplicou que lhe perdoasse tantos crimes. Confessou depois que ele tinha sido aterrorizado pelos resplendores e raios que cercavam o rosto daquele frade.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="my-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pelo Zelo de Deus</h5>
                         <p>Antônio glorioso, que pelo zelo da honra e glória do vosso Deus vos aventurastes aos maiores perigos e que em toda a vossa vida não tivestes outra mira mais que o fazer conhecer e respeitar o seu santo nome; fazei que nós também concorramos para a manifestação da sua glória. Amém.</p>
                     </div>
-                </div>`
-            },
-            {
-                day: "Dia 8",
-                title: "8º Dia - Zelo pelo Próximo",
-                content: `<div class="day-specific-content">
+
+                    <h4 class="section-title mt-6">Zelo pelo Próximo</h4>
                     <p>Ponderemos o zelo infatigável com que Antônio se desvelou sempre pelo bem espiritual do seu próximo. Seus talentos nunca estiveram escondidos ou ociosos, sendo a sua vida uma sucessiva tarefa de exercícios destinados ao bem das almas. A esse fim se dirigiam na cela os seus estudos; no púlpito, os seus argumentos; no confessionário, os seus conselhos.</p>
                     <p class="mt-4">Certa viúva em Nápoles propôs à filha o infame projeto da sua perdição por causa da penúria. A desconsolada donzela roga a Santo Antônio que a livrasse do perigo. A milagrosa imagem estende o braço, e diz: “Toma este bilhete, e dize a tal negociante que te entregue para teu dote outro tanto peso de moedas de prata quanto tem este bilhete”. Foram necessários oitocentos cruzados de prata para equilibrar o papel da balança. O negociante lembrou-se da promessa que fizera e a devota pôde casar-se decentemente.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="mt-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pelo Zelo do Próximo</h5>
                         <p>Antônio bem-aventurado, que na vossa vida, e depois da vossa morte, estais continuamente zelando a salvação das nossas almas: nós vos pedimos que muito particularmente tomeis conta destes vossos devotos, guiando-nos pelo caminho da feliz bem-aventurança. Amém.</p>
                     </div>
                 </div>`
             },
             {
-                day: "Dia 9",
-                title: "9º Dia - Sabedoria",
+                day: "Dia 6",
+                title: "6º Dia - Sabedoria e Paciência",
                 content: `<div class="day-specific-content">
+                    <h4 class="section-title">Sabedoria</h4>
                     <p>Ponderemos o dom de sabedoria de que Antônio foi dotado e o uso santo que soube fazer do mesmo dom. Desde menino penetra e pratica os ditames do Evangelho. As suas delícias são os Livros Santos, em cuja inteligência foi tão eminente que com justiça lhe chamou o Pontífice Gregório IX Arca do Testamento.</p>
                     <p class="mt-4">Havia na cidade de Rimini um célebre herege chamado Bonivillo. Intentou Antônio mostrar-lhe a verdade da religião católica; mas Bonivillo desprezava o discurso do santo. Então o santo lhes clama: “Aprendei dos irracionais a atenção com que as deveis escutar”; e convocando os peixes do rio, apareceram saltando na superfície com as cabeças levantadas. Bonivillo abjurou os seus erros e reentrou no seio da Igreja.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="my-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Sabedoria</h5>
                         <p>Antônio bem-aventurado, que pela vossa sabedoria conquistastes tantos rebeldes para o reino dos Céus, nós vos suplicamos que nos ajudeis, a fim de que sejamos firmes nas verdades da religião e executemos os preceitos da lei e os conselhos do Evangelho. Amém.</p>
                     </div>
-                </div>`
-            },
-            {
-                day: "Dia 10",
-                title: "10º Dia - Paciência",
-                content: `<div class="day-specific-content">
+
+                    <h4 class="section-title mt-6">Paciência</h4>
                     <p>Ponderemos a paciência e sofrimento do nosso santo. Zeloso no último ponto e sentido das injúrias feitas ao seu Deus, ele não se dói das que a inveja e o furor dos seus inimigos lhe acumulam. Alguns dos seus mesmos religiosos o carregaram de opróbrios: mas nada abala a paciência de Antônio.</p>
                     <p class="mt-4">No convento de Brive, um noviço roubou ao santo um saltério. O paciente Antônio recorreu ao remédio ordinário da oração. Quando o noviço passava por uma estreita ponte, avançou-lhe um medonho etíope ameaçando-o de o fazer em pedaços se logo não voltasse a entregar o saltério. O apóstata voltou para o convento, onde achou em Antônio o agasalho e carinho de pai.</p>
-
-                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
-                        <h5 class="font-bold mb-2">Deprecação</h5>
+                    <div class="mt-4 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Deprecação pela Paciência</h5>
                         <p>Antônio bem-aventurado, que tivestes a fortuna de padecer e sofrer tanto pelo vosso Deus, fazei que nós possamos, em observância da lei de Cristo, amar os nossos mesmos inimigos, orando na Cruz pelos perseguidores: para merecer-nos o prêmio da mesma Cruz. Amém.</p>
                     </div>
                 </div>`
             },
             {
-                day: "Dia 11",
-                title: "11º Dia - Humildade",
+                day: "Dia 7",
+                title: "7º Dia - Humildade",
                 content: `<div class="day-specific-content">
                     <p>Consideremos a humildade e abjeto conceito que Antônio tinha de si e das suas coisas. Antônio elege a Ordem dos Frades Menores para exercer ofícios da maior humilhação. Servir na cozinha, varrer os dormitórios, estas eram as ocupações mais deliciosas de Fr. Antônio. O que faz a mais incontestável prova da sua humildade é o segredo com que soube esconder a sua sabedoria.</p>
                     <p class="mt-4">Um dia, uma mulher que tinha um filhinho tolhido de pés e braços, pedia que se compadecesse da sua aflição. Alvoroçou-se a humildade do santo e a despediu com sinais de enfado. Mas por fim, rendendo-se aos rogos, com o sinal da cruz restituiu ao menino o uso do seus membros: prodígio que só atribuiu à fé que sua mãe teve e à qual recomendou muito que o ocultasse.</p>
-
+                    
                     <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
                         <h5 class="font-bold mb-2">Deprecação</h5>
-                        <p>Antônio bem-aventurado, que quisestes ser reputado ignorante e desprezível aos olhos do mundo, merecendo com essa humilhação o ser exaltado; fazei que não nos gloriemos dos dons que Deus se servir em dispensar-nos, para merecermos a recompensa da humildade na glória eterna. Amém.</p>
+                        <p>Antônio bem-aventurado, que quisestes ser reputado ignorante e desprezível aos olhos do mundo, merecendo com essa humilhação o ser exaltado; fazei que não nos gloriemos dos dons que Deus se servir in dispensar-nos, para merecermos a recompensa da humildade na glória eterna. Amém.</p>
                     </div>
                 </div>`
             },
             {
-                day: "Dia 12",
-                title: "12º Dia - Fortaleza",
+                day: "Dia 8",
+                title: "8º Dia - Fortaleza",
                 content: `<div class="day-specific-content">
                     <p>Ponderemos a fortaleza e a intrepidez com que Antônio arrasta os maiores perigos por causa do seu Deus. Antônio aspira a imitar os mártires de Marrocos e com o beneplácito dos seus superiores se embarca para a África. Mas a Divina Providência o destinava a maiores combates. Os inimigos internos da Ordem davam ao nosso santo frequentes ocasiões de terríveis combates, de que ele sempre triunfava.</p>
                     <p class="mt-4">Numa ocasião, os hereges subornaram um secretário para que fingisse ter perdido os olhos. O santo, conhecendo por inspiração divina o intento, fez o sinal da cruz. Quando o herege desatou o pano, tirou nele pegados os seus olhos. Antônio, aproveitando a ocasião, lhos tornou a colocar no rosto, sem a menor lesão, convertendo aqueles que pretendiam escarnecer da sua santidade.</p>
-
+                    
                     <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
                         <h5 class="font-bold mb-2">Deprecação</h5>
                         <p>Antônio bem-aventurado, intrépido defensor da religião cristã, fazei que saibamos também nós manifestar com as nossas obras a persuasão em que estamos das verdades da nossa crença, e da santidade das suas leis, pois só pela sua observância podemos merecer a glória. Amém.</p>
@@ -3507,12 +3990,12 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
                 </div>`
             },
             {
-                day: "Dia 13",
-                title: "13º Dia - Devoção a Maria",
+                day: "Dia 9",
+                title: "9º Dia - Devoção a Maria",
                 content: `<div class="day-specific-content">
                     <p>Ponderemos a terníssima devoção que o nosso santo teve sempre a Maria Santíssima. Desde então, sempre lhe consagrou com terníssimo afeto todas as suas ações e os seus estudos: celebrava com a mais devota ternura as suas festas e mistérios, merecendo que lhe aparecesse a mesma Senhora, e o certificasse de que tinha sido levada em corpo e alma aos Céus.</p>
                     <p class="mt-4">Uma noite, assaltado do demônio que esteve a ponto de o afogar; o nosso santo se valeu da sua protetora. Acudiu a Senhora com o seu pronto amparo e, expulsando com sua presença o raivoso inimigo, deixou a Antônio cheio de consolação interior e de terníssimos sentimentos de gratidão.</p>
-
+                    
                     <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
                         <h5 class="font-bold mb-2">Deprecação</h5>
                         <p>Antônio bem-aventurado, que, pela terna devoção que sempre tivestes à imaculada Mãe de Deus, conseguistes o seu poderoso patrocínio, fazei com que nós possamos igualmente ser devotos imitadores das suas virtudes para merecermos o seu amparo e valimento para com seu bendito Filho. Amém.</p>

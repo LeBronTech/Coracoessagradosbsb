@@ -267,17 +267,18 @@ export const novenaData: Record<string, Novena> = {
       { day: '6º Dia', title: '', content: `<div class="day-specific-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p><p>Santa Isabel, és uma das poucas santas que também foi da realeza. No entanto, em vez de abusar do teu poder, usaste tua posição na sociedade para ajudar os menos afortunados do que tu. Às vezes, aqueles em posições de liderança, desde o trabalho até a religião e o governo, parecem usar seu poder sobre os outros para se beneficiarem, não para ajudar os outros. Santa Isabel, onde quer que eu esteja no poder (no trabalho, na família ou mesmo na sociedade), permite-me usar minha liderança para ajudar os outros. Ajuda-me a não desprezar os outros. Dá-me a graça de contar minhas bênçãos e usar essas bênçãos para ajudar os outros e guiá-los a Cristo. Por favor, intercede também em nome de todos os que têm poder, para que possam ser inspirados a fazer o bem pelo mundo e ser dirigidos pela Vontade e pela Palavra de Deus. Também tem em mente minhas intenções: <i>(Indique aqui suas intenções)</i> Deus, sei que não há poder na terra senão o que é dado por Ti. E não há poder terreno maior do que Tu! Ajuda-me a usar qualquer influência que eu tenha no mundo para te dar glória. Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>` },
       { day: '7º Dia', title: '', content: `<div class="day-specific-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p><p>Querida Santa Isabel, certamente viveste bem a tua fé. Adoravas mostrar amor e dignidade às pessoas da tua região, alimentando-as e curando-as de suas doenças. Também conheço outro que viveu assim: Jesus! Podes me ajudar a ser mais generoso(a) e usar minha vida como uma oportunidade para apontar os outros para Deus, Santa Isabel? Encoraja-me a ser generoso(a) com minhas finanças e a dar aos menos afortunados, se puder. Encoraja-me a convidar um amigo para a missa comigo. Em vez de simplesmente assinar um cheque, inspira-me a dar mais de mim mesmo(a), da minha vulnerabilidade, oferecendo-me como voluntário(a) na minha paróquia ou em uma organização local. Ora para que eu possa ter o mesmo espírito inabalavelmente generoso que tu possuías, Santa Isabel! Ajuda-me a viver as Bem-aventuranças como tu! Por favor, ora por mim também: <i>(Explique suas intenções)</i> Jesus, deste-nos um maravilhoso exemplo de como tratar os outros, tanto em ti como em Santa Isabel da Hungria. Por favor, ajuda-me a ser o mesmo tipo de testemunha em minha vida! Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>` },
       { day: '8º Dia', title: '', content: `<div class="day-specific-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p><p>Santa Isabel, durante tua vida experimentaste o chamado a muitas vocações e papéis diferentes. Eras um membro da realeza. Foste esposa e mãe. Eras uma cuidadora. Foste até membro de uma Terceira Ordem. Portanto, tiveste que dizer sim a Deus de tantas maneiras diferentes em tua vida. Às vezes, acho difícil confiar em Deus tão plenamente como tu, Santa Isabel. When as coisas não saem como quero, temo que Deus me tenha abandonado. É como se todos os pequenos milagres que ele fez em minha vida todos os dias estivessem desaparecendo, e eu ficasse com medo. Como venceste esse medo, Santa Isabel? Por favor, ensina-me a confiar em Deus como tu fizeste. When surgirem provações em minha vida, dá-me a graça de me entregar a ele. Ajuda-me a afugentar o medo! Além disso, por favor, ajuda-me sempre a dizer sim ao que Deus me chamar. Como experimentaste em tua vida, a vontade de Deus sempre nos traz alegria no final. Mesmo when parece que não o fará, sua vontade sempre trabalha para nossa felicidade! Lembra-me que ele nunca me decepcionará. Inspira-me a dizer sim a Deus tão voluntariamente e com alegria como tu fizeste. Por favor, ora por mim também: <i>(Indique aqui suas intenções)</i> Jesus, em ti confio! Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>` },
-      { day: '9º Dia', title: '', content: `<div class="day-specific-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p><p>Santa Isabel, alcançaste a meta mais alta de qualquer pessoa: a santidade! Isso não significa que fosses perfeita, claro. Mas Deus ficou tão satisfeito com teu serviço aqui na terra que quis que fosses honrada dessa maneira. Há dias em que o caminho da santidade parece bastante semeado de armadilhas, Santa Isabel. E, além do mais, eu deveria ajudar os outros a serem santos também! Minha esposa (ou esposo), meus filhos, meus amigos, minha família, meus colegas, também tenho que ajudá-los em sua jornada para o céu. Ajuda-me, por favor! Sei que constantemente me falta santidade em minha vida, mas lembra-me da misericórdia e do perdão de Deus. Por favor, dá-me paciência e inspira-me cada vez que eu tiver a oportunidade de ajudar a fé de outra pessoa! Não me deixes hesitar pelo medo, mas protege-me sempre com amor. Também te peço que intercedas pelo meu caminho para a santidade e por minhas outras intenções: <i>(Indique aqui suas intenções)</i> Santa Isabel da Hungria, rogai por nós! Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>` }
+      { day: '9º Dia', title: '', content: `<div class="day-specific-content"><p>Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p><p>Santa Isabel, alcançaste a meta mais alta de qualquer pessoa: a santidade! Isso não significa que fosses perfeita, claro. Mas Deus ficou tão satisfeito com teu serviço aqui na terra que quis que fosses honrada dessa maneira. Há dias em que o caminho da santidade parece bastante semeado de armadilhas, Santa Isabel. E, além do mais, eu deveria ajudar os outros a serem santos também! Minha esposa (ou esposo), meus filhos, meus amigos, minha família, meus colegas, também tenho que ajudá-los em sua jornada para o céu. Ajuda-me, por favor! Sei que constantemente me falta santidade in minha vida, mas lembra-me da misericórdia e do perdão de Deus. Por favor, dá-me paciência e inspira-me cada vez que eu tiver a oportunidade de ajudar a fé de outra pessoa! Não me deixes hesitar pelo medo, mas protege-me sempre com amor. Também te peço que intercedas pelo meu caminho para a santidade e por minhas outras intenções: <i>(Indique aqui suas intenções)</i> Santa Isabel da Hungria, rogai por nós! Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div>` }
     ]
   },
+
   apresentacao_ns: {
     saintName: "Apresentação de N.S.",
     novenaTitle: "Novena da Apresentação de N.S.",
     description: "Celebre a entrega de Maria a Deus ainda criança no Templo e peça a graça de se consagrar totalmente à vontade do Pai.",
     days: [
       {
-        day: 'Oração da Novena',
-        title: 'Oração da Novena',
+        day: '1º Dia',
+        title: 'Primeiro Dia',
         content: `<div class="day-specific-content">
                 <h4 class="special-title">Como rezar esta Novena?</h4>
                 <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
@@ -289,23 +290,161 @@ export const novenaData: Record<string, Novena> = {
                 <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
                 <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
                 <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Breve História da Apresentação</h4>
+                <p>O dia da Apresentação de N.S. é a despedida das festas marianas no ano eclesiástico. Tudo que sabemos da Apresentação de Maria no templo, sabemo-lo por lendas e informações extrabíblicas. O que não quer dizer que o assunto da festa careça de probabilidade histórica. Segundo uma piedosa lenda, Maria Santíssima, tendo apenas três anos de idade, foi pelos pais, em cumprimento de uma promessa, levada ao templo, para ali, com outras meninas, receber educação adequada à sua idade e posição.</p>
             </div>`
       },
       {
-        day: 'História da Apresentação',
-        title: 'Breve história da Apresentação',
+        day: '2º Dia',
+        title: 'Segundo Dia',
         content: `<div class="day-specific-content">
-                <h4>Por Padre João Baptista Lehmann</h4>
-                <p>O dia da Apresentação de N.S. é a despedida das festas marianas no ano eclesiástico. Tudo que sabemos da Apresentação de Maria no templo, sabemo-lo por lendas e informações extrabíblicas. O que não quer dizer que o assunto da festa careça de probabilidade histórica. Segundo uma piedosa lenda, Maria Santíssima, tendo apenas três anos de idade, foi pelos pais, em cumprimento de uma promessa, levada ao templo, para ali, com outras menina, receber educação adequada à sua idade e posição. A Igreja oriental distinguiu este fato com as honras de uma festa litúrgica. A Igreja ocidental conhece a comemoração da Apresentação de N.S. desde o ano de 1371. Prescrita primeiramente só para a corte papal, então residente em Avignon, em 1585, Sixto V ordenou que fosse celebrada em toda a Igreja.</p>
-                <p>A Apresentação de N.S. encerra dois sacrifícios: a dos pais e o da menina Maria. Diz a lenda que Joaquim e Ana ofereceram a Deus a filhinha no templo, when esta tinha três anos. Sem duvida foi para estas santas pessoas um sacrifício muito grande separar-se da filhinha, que se achava numa idade em que não há pais que queiram confiar os filhos a mãos estranhas. Três anos é a idade em que a criança recompensa já de algum modo os trabalhos e sacrifícios dos pais, formulando palavras e fazendo já exercícios mentais que encantam e divertem, dando ao mesmo tempo provas de gratidão e amor filiais. Joaquim e Ana não teriam experimentado o sacrifício em toda a sua amargura? O coração dos amorosos pais não teria sentido a dor da separação? Que foi que os levou a fazer tal sacrifício? A lenda fala de um voto que tinham feito. Votos desta natureza não eram raros no Antigo Testamento. As crianças eram educadas em colégios anexos ao templo, e ajudavam os múltiplos serviços e funções da casa de Deus. Não erramos em supor que Joaquim e Ana, when levaram a filhinha ao templo, fizeram-no por inspiração sobrenatural, querendo Deus que sua futura esposa e mãe recebesse uma educação e instrução primorosíssima.</p>
-                <p>Grande era o sacrifício de Maria: Não resta duvida que para Maria, a criança entre todas mais privilegiada, a cerimonia da apresentação significava mais que a entrada no colégio do templo. Maria reconhecia em tudo uma solene consagração da vida a Deus, a oferta de si mesma ao supremo Senhor. O sacrifício que oferecia, era a oferta das primícias e as primícias, por mais insignificantes que sejam, são preciosas por serem uma demonstração da generosidade do ofertante e uma homenagem a quem as recebe. Maria ofereceu-se sem reserva, para sempre, com contentamento e jubilo d’alma. O que o Salmista cantou, cheio ele entusiasmo, traduziu-se n’alma da bem-aventurada menina: “Quão amáveis são os teus tabernáculos, Senhor dos Exércitos! A minha alma suspira e desfalece pelos átrios no Senhor” (Sl 83, 3) E entrarei junto ao altar de Deus; do Deus que alegra a minha juventude.</p>
-                <p>Que espirito, tanto nos santos pais como na santa menina! Que espetáculo para o céu e para os homens! O que encanta a Deus e lhe atrai a graça, em toda a plenitude, edifica e enleva a todos que se ocupam deste mistério, na vida de N.S.. Poderá haver coisa mais bela que a piedade, o desprendimento completo no serviço do Senhor?</p>
-                <p>A vida de Maria Santíssima no templo foi a mais santa, a mais perfeita que se pode imaginar. O templo era a casa de Deus e na proximidade de Deus se sentia bem a bela alma em flor. “O passarinho acha casa para si e a rola ninho nos altares do Senhor dos exércitos, onde um dia é melhor que mil nas tendas dos pecadores” (Sl 83). Santo era o lugar onde Maria vivia. Era o templo onde os antepassados tinham feito orações, celebrando as festas; era o templo onde se achava o santuário do Antigo Testamento, a arca, o trono de Deus no meio do povo; era o templo, afinal, de que as profecias diziam que o Messias nele devia fazer entrada.</p>
-                <p>Naquele templo a menina Maria rezava e se preparava para a grande missão, que Deus lhe tinha reservado. “Como os olhos da serva nas mãos da Senhora, assim os olhos de Maria estavam fitos no Senhor seu Deus” (Sl 122). Segundo uma revelação com que Maria agraciou a Santa Izabel de Turíngia, todas as orações feitas naquele tempo se lhe resumiam no seguinte: 1) alcançar as virtudes da humildade, paciência e caridade; 2) conseguir amar e odiar tudo a que Deus tem amor ou ódio; 3) amar ao próximo e tudo que lhe é caro; 4) a conservação da nação e do templo, a paz e a plenitude das graças de Deus e 5) finalmente, ver o Messias e poder servir a sua santa mãe.</p>
-                <p>Maria era o modelo de obediência amor e respeito para com os superiores, de caridade e amabilidade para com as companheiras. Tinha o coração alheio à antipatia, à rixa, ao azedume e ao amor próprio. A Maria no templo era aplicáveis as palavras do Salmista (139): “Senhor, meu coração não se ensoberbeceu; nem meus, olhos se elevaram. Não andei em grandeza. nem em magnificências sobre a minha sorte. Se não fosse humilde o meu sentimento, não se elevaria a minha alma (ai de mim!), mas como o menino, apartado já do peito da mãe, lhe fica descansando nos braços, assim está a paz na minha alma”.</p>
-                <p>Maria era uma menina humilde, despretensiosa e amante do trabalho. Com afã lia e estudava os santos Livros. Como as meninas do Colégio do templo se ocupavam de outros serviços concernentes ao serviço santo, é provável que Maria tenha recebido instruções sobre diversos trabalhos, como fossem: pintura, trabalhos de agulha, canto e musica. É opinião de muitos que o grande véu do Templo, que na hora da morte de Jesus se partiu de alto a baixo, tinha sido confeccionado por Maria Santíssima e as companheiras.</p>
-                <p>Assim foi santíssima a vida de Maria no Templo. O Divino Espírito esmerilhou o coração e o espirito da esposa, mais do que de qualquer outra criatura. Maria poderia aplicar a si as palavras do Eclesiástico (51. 18): “Quando ainda era pequena, procurei a sabedoria na oração. Na entrada elo templo instava por ela… Ela floresceu como uma nova temporã. Meu coração nela se alegrou e desde a minha mocidade procurei seguir-lhe o rastro.” É de admirar que Maria, assim amparada pelos cuidados humanos e divinos, progredisse de virtude em virtude?</p>
-                <p>De Nosso Senhor o Evangelho constata diversas vezes esta circunstância. Como Jesus, também Maria cresceu em graça e sabedoria, diante de Deus e dos homens. Este crescimento a Igreja contempla-o em imagens grandiosas, traçadas pelo Eclesiástico (24.17-23): “Sou exaltada qual cedro no Líbano e qual cipreste no monte Sião. Sou exaltada qual palma em Cades e como os rosais em Jericó. Qual oliveira especiosa nos campos e qual plátano, sou exaltada junto da agua nas praças. Assim como o cinamomo e o balsamo que difundem cheiro, exalei fragrância: como a mirra escolhida derramarei odor de suavidade na minha habitação; como uma vide, lancei flores de um agradável perfume e as minhas flores são frutos de honra e de honestidade”. Nunca houve mocidade tão santa e esplendorosa como a de Maria Santíssima. Outra não poderia ser, devendo Maria preparar-se para a realização do mistério dos mistérios; da Encarnação do Verbo Eterno.</p>
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">O Sacrifício dos Pais</h4>
+                <p>A Apresentação de N.S. encerra dois sacrifícios: o dos pais e o da menina Maria. Joaquim e Ana ofereceram a Deus a filhinha no templo quando esta tinha apenas três anos. Foi para estas santas pessoas um sacrifício muito grande separar-se da filhinha, mas cumpriram o voto com amor, entregando a futura Mãe de Deus aos cuidados sagrados.</p>
+            </div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'Terceiro Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">O Sacrifício de Maria</h4>
+                <p>Grande era o sacrifício de Maria: ela reconhecia em tudo uma solene consagração da vida a Deus, a oferta de si mesma ao supremo Senhor. Maria ofereceu-se sem reserva, para sempre, com contentamento e júbilo d'alma, antecipando a entrega total de sua existência à salvação.</p>
+            </div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'Quarto Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">A Vida de Maria no Templo</h4>
+                <p>A vida de Maria Santíssima no templo foi a mais santa, a mais perfeita que se pode imaginar. O templo era a casa de Deus e na proximidade do Altíssimo sentia-se bem a bela alma em flor, vivendo na oração incessante e na contemplação amorosa das promessas divinas.</p>
+            </div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'Quinto Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">As Orações de Maria Santíssima</h4>
+                <p>Segundo uma revelação, Maria orava pedindo para: 1) alcançar as virtudes da humildade, paciência e caridade; 2) amar e odiar o que Deus ama ou odeia; 3) amar ao próximo; 4) a conservação da nação e do templo e 5) finalmente, ver o Messias e poder servir a Sua santa Mãe.</p>
+            </div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'Sexto Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Modelo de Virtudes</h4>
+                <p>Maria era o modelo de obediência, amor e respeito. Tinha o coração alheio à antipatia, à rixa, ao azedume e ao amor-próprio. Humilde, despretensiosa e amante do trabalho, dedicava-se à leitura dos Livros Sagrados e à execução dos trabalhos do templo.</p>
+            </div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'Sétimo Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Consagrada pelo Espírito Santo</h4>
+                <p>Assim foi santíssima a vida de Maria no Templo. O Divino Espírito preparou o coração e o espírito da Esposa de Deus de forma admirável. Maria progredia diariamente em graça e sabedoria, preparando-se para a Encarnação do Verbo Eterno.</p>
+            </div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'Oitavo Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">A Flor do Líbano</h4>
+                <p>A Igreja contempla o crescimento espiritual da Virgem Maria em imagens grandiosas do Eclesiástico: "Sou exaltada qual cedro no Líbano e qual cipreste no monte Sião. Sou exaltada qual palma em Cades e como os rosais em Jericó."</p>
+            </div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'Nono Dia',
+        content: `<div class="day-specific-content">
+                <h4 class="special-title">Como rezar esta Novena?</h4>
+                <p>Inicia-se com o Sinal da Cruz. Reza-se todos os dias as mesmas orações seguidas das 3 Ave-Marias. Finaliza-se com o Sinal da Cruz.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Orações para todos os dias</h4>
+                <p>Seja bendita, ó Maria, a prontidão de ânimo com que tão infantinha vos apresentastes no templo. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de servi-lo sempre até à morte. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendito, ó Maria, o fervor de espírito com que soubestes servir e dar gosto a Deus. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de me dar com toda a alma ao seu serviço. (Reza-se uma Ave-Maria)</p>
+                <p>Seja bendita, ó Maria, a plenitude da perfeição com que tão cedo vos fizestes modelo completo de santidade. Suplico-vos, Virgem Santíssima, me alcanceis de vosso Filho a graça de aborrecer sempre a culpa e amar de todo o coração a virtude. (Reza-se uma Ave-Maria)</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <p>℣. Concedei-me que vos louve, Virgem Sagrada.<br>℟. Dai-me valor contra os vossos inimigos.</p>
+                <p class="mt-4"><b>Oremos:</b> Ó Deus, que quisestes se apresentasse neste dia no templo a bem-aventurada sempre Virgem Maria, habitáculo do Espírito Santo: concedei-nos que por sua intercessão mereçamos ser apresentados no templo da vossa glória. Por Cristo, Nosso Senhor. ℟. Amém.</p>
+                <div class="w-16 h-px bg-primary/20 my-6 mx-auto"></div>
+                <h4 class="special-title">Consagração Final</h4>
+                <p>Ao encerrar esta novena, oferecemos a Maria toda a nossa vida. Que por sua intercessão, mereçamos ser um dia apresentados a Deus no templo de sua glória eterna, libertos de todos os pecados e cheios do Seu santo amor.</p>
             </div>`
       }
     ]
@@ -1058,7 +1197,7 @@ export const novenaData: Record<string, Novena> = {
         content: `<div class="day-specific-content"><p>Ó Mãe Imaculada, fazei que a cruz de vossa Medalha brilhe sempre diante de meus olhos, suavize as penas da vida presente e me conduza à vida eterna.</p><p class="mt-4 font-semibold">Rezar: 3 Ave-marias, seguidas cada uma da invocação: “Ó Maria, concebida sem pecado, rogai por nós que recorremos a Vós!”</p></div>`
       }
     ],
-    finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração final para todos os dias</h4><div class="prayer-block"><p>Ó Imaculada Virgem Maria, Mãe de Deus e nossa mãe, com a mais viva confiança em vossa poderosa intercessão, tantas vezes manifestada por meio da vossa Medalha, nós vos suplicamos humildemente que nos obtenha as graças que vos pedimos nesta novena: <em>(pedir as graças desejadas)</em>.</p><p>Dignai-vos de apresentá-las ao Vosso Divino Filho e de as atender se elas forem conformes à Vontade Divina e úteis às nossas almas.</p><p>E, depois de ter elevado a Deus vossas mãos suplicantes, dirigi-as para nós e envolvei-nos nos raios da vossa graça, iluminando nossos espíritos e purificando nossos corações, a fim de que, conduzidos por vós, cheguemos um dia à bem-aventurança eterna. Amém.</p></div><p class="mt-4 text-sm italic">Compartilhe 😉!<br/>_Comunidade Corações Sagrados❤️‍🔥_</p></div>`
+    finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração final para todos os dias</h4><div class="prayer-block"><p>Ó Imaculada Virgem Maria, Mãe de Deus e nossa mãe, com a mais viva confiança em vossa poderosa intercessão, tantas vezes manifestada por meio da vossa Medalha, nós vos suplicamos humildemente que nos obtenha as graças que vos pedimos nesta novena: <em>(pedir as graças desejadas)</em>.</p><p>Dignai-vos de apresentá-las ao Vosso Divino Filho e de as atender se elas forem conformes à Vontade Divina e úteis às nossas almas.</p><p>E, depois de ter elevado a Deus vossas mãos suplicantes, dirigi-as para nós e envolvei-nos nos raios da vossa graça, iluminando nossos espíritos e purificando nossos corações, a fim de que, conduzidos por vós, cheguemos um dia à bem-aventurança eterna. Amém.</p></div><p class="mt-4 text-sm italic">Compartilhe 😉!<br/>_Projeto Corações Sagrados❤️‍🔥_</p></div>`
   },
   almas: {
     saintName: 'Almas do Purgatório',
@@ -2478,8 +2617,144 @@ export const novenaData: Record<string, Novena> = {
     </div>`,
     days: [
       {
-        day: 'Todos os Dias',
-        title: 'Todos os Dias',
+        day: '1º Dia',
+        title: 'Primeiro Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, un convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '2º Dia',
+        title: 'Segundo Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '3º Dia',
+        title: 'Terceiro Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '4º Dia',
+        title: 'Quarto Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '5º Dia',
+        title: 'Quinto Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '6º Dia',
+        title: 'Sexto Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '7º Dia',
+        title: 'Sétimo Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '8º Dia',
+        title: 'Oitavo Dia',
+        content: `<div class="day-specific-content">
+                <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
+                <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
+                <p>Segundo a tradição judaica, as mães que davam à luz eram consideradas impuras por um período de 40 dias após o parto. Após esse tempo, era necessário ir ao Templo para oferecer um sacrifício de purificação. Assim, Maria e José levaram o Menino Jesus ao Templo, cumprindo a lei mosaica. Nesse contexto, celebra-se a Festa da Purificação de N.S. e a Apresentação do Senhor, que deu origem à devoção a N.S. das Candeias.</p>
+                <h4 class="mt-4">Aparição nas Ilhas Canárias e o Título de Candelária</h4>
+                <p>Relatos históricos mencionam a aparição de N.S. nas Ilhas Canárias, na Espanha. De acordo com o livro "Maria, uma Mãe, muitos títulos", do Pe. José Battisti, dois pastores que cuidavam de seus animais em Tenerife notaram que os animais se recusavam a entrar em uma caverna. Ao investigarem, encontraram a imagem de uma Senhora com um menino nos braços.</p>
+                <p>O evento chamou a atenção da população local, que testemunhou velas luminosas, sustentadas por forças invisíveis, iluminando a imagem. Esses fatos deram origem ao título de N.S. da Candelária, referindo-se às velas que simbolicamente iluminam e apresentam Jesus ao mundo. No Brasil, esse título foi adaptado para N.S. das Candeias, remetendo à chama das velas.</p>
+                <h4 class="mt-4">Devoção Popular e Procissão das Velas</h4>
+                <p>Desde os primeiros séculos do cristianismo, a devoção a N.S. das Candeias é marcada por procissões de velas, que simbolizam a luz de Cristo. O Papa Gelásio I, no século V, oficializou a procissão com círios acesos, convidando os fiéis a louvar N.S.. Esse costume se espalhou pela Igreja Romana e, posteriormente, pelo Império do Oriente, especialmente após o fim de uma peste no reinado de Justiniano I. No século X, a procissão de velas se consolidou como parte essencial das celebrações em homenagem à Virgem Maria.</p>
+                <h4 class="mt-4">N.S. das Candeias: A Luz para Todos os Povos</h4>
+                <p>A figura de N.S. das Candeias reflete a missão de Maria como portadora da luz que é Jesus Cristo. Assim como Maria apresentou Jesus como a "Luz das Nações", os cristãos são chamados a viver essa luz no dia a dia, sendo instrumentos do amor e da fé.</p>
+                <p class="mt-4 italic">N.S. das Candeias nos convida a acolher essa luz divina e propagá-la ao mundo, celebrando as maravilhas de Deus realizadas em sua vida. A devoção a ela é, portanto, um convite à renovação da fé, à esperança e ao compromisso de ser luz no cotidiano. Que a luz de N.S. das Candeias inspire todos os corações a viverem na graça e na paz de Cristo!</p>
+            </div>`
+      },
+      {
+        day: '9º Dia',
+        title: 'Nono Dia',
         content: `<div class="day-specific-content">
                 <h4>Origem Bíblica: A Purificação de Maria e a Apresentação de Jesus</h4>
                 <p>N.S. das Candeias, também conhecida como N.S. da Luz, da Purificação ou da Candelária, é celebrada no dia 2 de fevereiro, data em que a Igreja Católica comemora a Festa Litúrgica da Apresentação do Senhor. Essa devoção remonta à purificação de Maria e à apresentação do Menino Jesus no Templo, seguindo a tradição mosaica.</p>
@@ -2765,6 +3040,50 @@ export const novenaData: Record<string, Novena> = {
 
 // Merge novenas de Fevereiro a Setembro
 Object.assign(novenaData, novenasFevereiroSetembro);
+
+// Pós-processamento para garantir que novenas de texto único (onde apenas o Dia 1 está preenchido)
+// tenham todos os outros 8 dias preenchidos automaticamente com o mesmo texto, substituindo
+// adequadamente as referências ao número do dia e ordinais.
+const mapDayOneToDayN = (text: string, dayNum: number): string => {
+  if (!text) return "";
+  const ordinals = [
+    "Primeiro", "Segundo", "Terceiro", "Quarto", "Quinto", "Sexto", "Sétimo", "Oitavo", "Nono"
+  ];
+  const ordinalsLower = [
+    "primeiro", "segundo", "terceiro", "quarto", "quinto", "sexto", "sétimo", "oitavo", "nono"
+  ];
+  
+  let mapped = text;
+  // Substitui referências textuais do dia
+  mapped = mapped.replace(/Dia 1/g, `Dia ${dayNum}`);
+  mapped = mapped.replace(/dia 1/g, `dia ${dayNum}`);
+  mapped = mapped.replace(/1º Dia/g, `${dayNum}º Dia`);
+  mapped = mapped.replace(/1º dia/g, `${dayNum}º dia`);
+  
+  // Substitui termos ordinais por extenso
+  mapped = mapped.replace(/Primeiro Dia/g, `${ordinals[dayNum - 1]} Dia`);
+  mapped = mapped.replace(/primeiro dia/g, `${ordinalsLower[dayNum - 1]} dia`);
+  
+  return mapped;
+};
+
+Object.keys(novenaData).forEach(key => {
+  const novena = novenaData[key];
+  if (novena && novena.days && novena.days.length === 9) {
+    const hasOnlyFirstDay = novena.days[0].content !== "" && novena.days.slice(1).every(d => d.content === "");
+    if (hasOnlyFirstDay) {
+      const firstDayContent = novena.days[0].content;
+      novena.days = novena.days.map((d, idx) => {
+        if (idx === 0) return d;
+        return {
+          ...d,
+          title: d.title || `${idx + 1}º Dia`,
+          content: mapDayOneToDayN(firstDayContent, idx + 1)
+        };
+      });
+    }
+  }
+});
 
 
 export const saints: Saint[] = [
@@ -4183,6 +4502,83 @@ saintsOfTheDay.push(...marcoFinal);
 
 // Merge December saints into the main array
 saintsOfTheDay.push(...saintsOfTheDayDecember);
+
+// Sincronização dinâmica de imagens entre santos (Novenas) e saintsOfTheDay (Santo do Dia)
+// Garante que ambos usem a mesma imagem caso o santo apareça em ambas as listas.
+(function syncSaintImages() {
+  const normalizeName = (name: string): string => {
+    if (!name) return "";
+    let n = name.toLowerCase();
+    
+    const prefixes = [
+      "sao ", "santo ", "santa ", "sta. ", "s. ", "ns. ", 
+      "nossa senhora de ", "nossa senhora do ", "nossa senhora da ", "nossa senhora das ", "nossa senhora ",
+      "n.s. de ", "n.s. do ", "n.s. da ", "n.s. das ", "n.s. "
+    ];
+    for (const p of prefixes) {
+      if (n.startsWith(p)) {
+        n = n.substring(p.length);
+      }
+    }
+    
+    const suffixes = [
+      " abade", " bispo", " educador", " doutor", " mártir", " martir", 
+      " passionista", " hospitaleiro", " diácono", " diacono", " apóstolo", " apostolo"
+    ];
+    for (const s of suffixes) {
+      if (n.endsWith(s)) {
+        n = n.substring(0, n.length - s.length);
+      }
+    }
+    
+    n = n.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+    n = n.replace(/[^a-z0-9]/g, "");
+    return n;
+  };
+
+  const imageMap = new Map<string, string>();
+
+  // Popula a partir da lista principal de santos (Novenas)
+  saints.forEach(s => {
+    if (s.imageUrl) {
+      const norm = normalizeName(s.name);
+      if (norm) imageMap.set(norm, s.imageUrl);
+    }
+  });
+
+  // Popula/atualiza a partir de saintsOfTheDay (Santo do Dia)
+  // Prioriza links externos (http) caso um esteja em formato local e o outro externo
+  saintsOfTheDay.forEach(day => {
+    day.saints?.forEach(s => {
+      if (s.imageUrl) {
+        const norm = normalizeName(s.name);
+        if (norm) {
+          const existing = imageMap.get(norm);
+          if (!existing || (s.imageUrl.startsWith("http") && !existing.startsWith("http"))) {
+            imageMap.set(norm, s.imageUrl);
+          }
+        }
+      }
+    });
+  });
+
+  // Aplica a imagem sincronizada de volta em ambas as listas
+  saints.forEach(s => {
+    const norm = normalizeName(s.name);
+    if (norm && imageMap.has(norm)) {
+      s.imageUrl = imageMap.get(norm)!;
+    }
+  });
+
+  saintsOfTheDay.forEach(day => {
+    day.saints?.forEach(s => {
+      const norm = normalizeName(s.name);
+      if (norm && imageMap.has(norm)) {
+        s.imageUrl = imageMap.get(norm)!;
+      }
+    });
+  });
+})();
 
 
 
