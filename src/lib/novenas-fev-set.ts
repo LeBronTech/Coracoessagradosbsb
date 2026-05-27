@@ -4007,15 +4007,358 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     sagrado_coracao: {
         saintName: "Sagrado Coração de Jesus",
-        novenaTitle: "Novena ao Sagrado Coração",
-        description: "Novena em preparação à solenidade do Sagrado Coração de Jesus.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Sagrado Coração`,
-            content: ""
-        }))
+        novenaTitle: "Novena ao Sagrado Coração de Jesus",
+        description: "Novena em preparação à solenidade do Sagrado Coração de Jesus. Disponível na versão tradicional (Canção Nova) e na versão do Padre Paulo Ricardo.",
+        image: "https://imgs.search.brave.com/_lAUiW1NZ1121L9jbM5y7Tl9fnEsWLhDFMMrq2k5YCQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2IzLzk1/LzAzL2IzOTUwM2I5/ZDEwOGRmOTM1ZGU4/ZWZjMGQ0NTExNDRj/LmpwZw",
+        imageObjectPosition: "center",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Sobre a Devoção</h4>
+            <p>A Novena ao Sagrado Coração de Jesus é uma prática de amor, reparação e confiança filial. Pelas promessas reveladas a Santa Margarida Maria Alacoque, o Coração de Cristo jorra tesouros infinitos de misericórdia para todos os que o veneram e reparam as ofensas cometidas contra Seu amor divino.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final</h4>
+            <p>Ó Deus, que no Coração do Vosso Filho, ferido por nossos pecados, dignais-Vos prodigalizar-nos os infinitos tesouros do amor, nós Vos rogamos que, rendendo-Lhe o preito de nossa devoção e piedade, também cumpramos dignamente para com Ele o dever de reparação.</p>
+            <p class="mt-4">Pelo mesmo Cristo, Senhor nosso. Amém!</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Templo da Santíssima Trindade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração amável de Jesus, Coração puríssimo e santíssimo, todo cheio de amor, Coração onde reinam todas as perfeições e virtudes, Vós mereceis o amor de todos os corações. Destruí, no meu coração, todas as afeições que me impedem de ser todo Vosso. Eu Vos amo, oh, meu Jesus, e não quero amar senão a Vós.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Coração de Jesus, templo da Santíssima Trindade.</p>
+                    <p class="mt-2">Um só ato de adoração e de amor ou de outra qualquer virtude que saísse do Coração de Cristo, pela Sua missão à Pessoa do Verbo Divino, era para Deus infinitamente mais valioso do que os atos de todas as pessoas deste mundo, ainda as mais santas.</p>
+                    <p class="mt-2">Nós também devemos ser templos vivos de Deus pela graça. Peçamos ao Sagrado Coração que faça o nosso coração semelhante ao d’Ele.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Artífice da Eucaristia",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração de Jesus, Coração inflamado de amor para com os homens, por que eles correspondem tão mal e só com desprezo Vos tratam? Eu também fui do número desses ingratos que não Vos sabem amar. Não permitais que, para o futuro, viva ainda esquecido do Vosso amor.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, artífice da Eucaristia.</p>
+                    <p class="mt-2">A Eucaristia é o maior presente do Coração de Cristo. Fonte e coroa de toda a vida da Igreja, a Eucaristia, Sacrifício da Missa, renova no altar a Obra da Redenção, a Eucaristia-Sacramento é vida, Eucaristia-Presença real é o amor vivo de Cristo na nossa caminhada para o Pai.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Sarça de penetrantes espinhos",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração de Jesus, desejoso de ser amado, Coração que achais vossas delícias em ser amado pelos homens, eu merecia, pelos meus pecados, viver privado da Vossa graça, mas vejo que ainda continuais a pedir-me o meu amor. Fazei que muito Vos ame um pecador, que muito vos tem ofendido.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Cristo, sarça de penetrantes espinhos.</p>
+                    <p class="mt-2">Toda a vida de Cristo até a Sua gloriosa Ressurreição, foi Cruz e martírio, porque, desde o primeiro instante, Cristo aceitou o preço da redenção marcado pelo Pai, marcado no Seu plano salvífico. A visão dos Seus sofrimentos redentores foi tão viva que, no Jardim das Oliveiras, Lhe fez suar sangue. Saibamos transformar os nossos sofrimentos em prova de amor.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Fornalha ardente de caridade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração aflito de Jesus, detesto o que vos desagrada. Dai-me tal horror ao pecado, que eu tenha medo até das mais leves faltas, unicamente porque desgostam a Vós que sois digno de amor infinito. Concedei-me a graça, meu amável Salvador, de sempre me dirigir a Vós com esta súplica: Oh, meu Jesus, dai-me o Vosso amor.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, fornalha ardente de caridade.</p>
+                    <p class="mt-2">Assim O invocamos na Ladainha do Sagrado Coração. Só Deus pode medir o amor de Cristo para com o Pai e para com os homens. Ele o demonstrou cumprindo de modo fidelíssimo a vontade do Pai, e entregando-se inteiramente pela salvação dos homens. Como nós procuramos imitar esse amor e corresponder-Lhe na nossa vida diária?</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Paraíso de delícias celestes",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração Misericordioso de Jesus, quando me achava na desgraça, Vossa bondade me iluminou e me ofereceu o perdão. Concedei-me a graça de chorar os meus pecados e de desejar o Vosso amor. Não deixeis, ó meu Jesus, de ter piedade de mim. A misericórdia que Vos peço é que me comuniqueis luz e força para que nunca mais Vos seja ingrato.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, paraíso de delícias celestes.</p>
+                    <p class="mt-2">O Coração de Cristo é um oceano para onde fluem todos os rios da caridade do Pai e de onde saem todos os rios de graças que santificam as almas, porque n’Ele se encerram todas as riquezas do amor divino. Esses tesouros infinitos de amor e de vida estão sempre a nossa disposição.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Propósito de Generosidade",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Ó Coração generoso de Jesus, está no Vosso poder tornar o meu coração inteiramente Vosso. De mim mesmo nada tenho e nada posso; mas Vós me destes um coração que pode e deseja amar-Vos. Fazei pois, ó meu Jesus, que de hoje em diante a Vossa santa vontade seja a única orientação de todos os meus pensamentos, desejos e ações.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Oferecimento de Obras.</p>
+                    <p class="mt-2">Renovo o inquebrantável propósito de oferecer-Vos cada manhã ao levantar-me, e por intermédio da Santíssima Virgem, as obras e trabalhos do dia a dia, e de trabalhar com empenho e constância para engrandecer-Vos e alcançar em recompensa o céu.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Abismo de Misericórdia",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, Coração reconhecido de Jesus, tenho-me mostrado sempre reconhecido às criaturas, ao passo que só Convosco tenho sido um ingrato. Amável Jesus, quero, agora, amar-Vos sobre todas as coisas, mais do que a mim mesmo. O resto da minha vida, quero empregá-la unicamente em Vos amar, ó Bem Supremo da minha alma. Fazei que conheça a Vossa santa vontade e pronto estarei para tudo, com o socorro de Vossa graça.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, abismo de Misericórdia.</p>
+                    <p class="mt-2">Basta lembrar como Cristo acolhia e tratava os pecadores: os publicanos, o paralítico, Madalena, a adúltera, o bom ladrão e tantos outros. Ele mesmo afirmou: "Eu vim a este mundo para salvar os pecadores". Essa atitude de Cristo nos inspira confiança e nos ensina de que maneira devemos tratar os pecadores.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Atrativo dos nossos corações",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, coração desprezado de Jesus, abismo de Misericórdia e de amor, não permitais que para mim as dores sejam como que perdidas. Lembrai-vos, ó meu Jesus, das lágrimas e do sangue que derramastes por amor e perdoai-me. Fazei que eu morra para mim mesmo, a fim de viver unicamente para Vós uma vida fervorosa no Vosso santo amor.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, atrativo dos nossos corações.</p>
+                    <p class="mt-2">No Calvário, do lado aberto de Cristo, jorraram sangue e água. Sangue e água que simbolizam a Igreja e os sacramentos. A Igreja é o caminho normal para Cristo, os sacramentos são canais que nos comunicam as graças da redenção. Cristo nos atrai, continuamente, para Si, pela Igreja e pelos sacramentos. Apreciamos, suficientemente, o tesouro espiritual que temos na Igreja e nos sacramentos?</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Penhor de vida eterna",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Oração Preparatória</h4>
+                    <p>Oh, coração de Jesus, fiel com aqueles que chamais ao Vosso amor, quantas vezes, depois de ter prometido ser todo Vosso, neguei-Vos o meu amor! Reconheço a minha ingratidão e penitencio-me sinceramente. Inflamai meu pobre coração no fogo daquele amor em que o Vosso está abrasado por mim. Ó Maria, Mãe do belo amor, ajudai-me a amar Vosso Filho Jesus.</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p class="font-semibold text-primary">Ó Coração de Jesus, penhor da vida eterna.</p>
+                    <p class="mt-2">Assim como o coração humano é o motor da nossa vida física, também a caridade é o motor da nossa vida sobrenatural e eterna. Quem vive no amor não pode se condenar, porque o amor é a vida de todos os que são realmente filhos de Deus, em Cristo e no Espírito Santo. Somos herdeiros de Deus e co-herdeiros de Cristo. Amém. Aleluia.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary">
+                        <h5 class="font-bold mb-2">Recitatório</h5>
+                        <p class="italic">“Sagrado Coração de meu Jesus, fazei que Vos ame cada vez mais!”</p>
+                    </div>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave-Maria e Glória.</p>
+                </div>`
+            }
+        ],
+        versions: [
+            {
+                id: "padre_paulo_ricardo",
+                name: "Padre Paulo Ricardo",
+                initialPrayer: `<div class="prayer-block">
+                    <h4 class="section-title">Oração Inicial (Lembrai-vos)</h4>
+                    <p>Lembrai-vos, ó dulcíssimo Jesus, que nunca se ouviu dizer que alguém, recorrendo com confiança ao vosso Sagrado Coração, implorando vossa divina assistência e reclamando a vossa infinita misericórdia, fosse por Vós abandonado. Possuído, pois, e animado da mesma confiança, ó Coração Sagrado de Jesus, Rei de todos os corações, recorro a Vós, e gemendo sob o peso de meus pecados, me prostro diante de Vós.</p>
+                    <p class="mt-4">Meu Jesus, pelo vosso precioso Sangue e pelo amor de vosso divino Coração, não desprezeis as minhas súplicas, mas ouvi-as favoravelmente e dignai-vos atender-me. Amém.</p>
+                </div>`,
+                finalPrayer: `<div class="prayer-block">
+                    <h4 class="section-title">Oração Final</h4>
+                    <p>Dulcíssimo Coração de Jesus, vosso precioso Sangue é a vida da minha alma; só em Vós quero viver, só a Vós quero amar e servir. Pela sede ardente que vos abrasa de me salvar, iluminai o meu espírito com a luz de vossa divina graça. Santificai o meu coração, fortalecei a minha vontade, perdoai os meus pecados e curai todas as minhas misérias. Aumentai minha fé, fortificai a minha esperança e acendei em mim cada vez mais o fogo do vosso santo amor. Concedei-me, enfim, todas as graças que espero alcançar com esta novena. Ó dulcíssimo Jesus, vivei em mim agora e por todo o sempre. Amém.</p>
+                    
+                    <div class="mt-6 p-4 bg-primary/5 rounded-xl border border-primary/20 text-center">
+                        <p class="font-bold">℣. Doce Coração de Jesus,</p>
+                        <p class="font-bold text-primary">℟. fazei que eu vos ame cada vez mais!</p>
+                    </div>
+                </div>`,
+                days: [
+                    {
+                        day: "Dia 1",
+                        title: "1º Dia - Templo da Santíssima Trindade",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, como o Coração de Jesus foi o templo mais sagrado que neste mundo teve a Trindade Santíssima e Beatíssima. Um só ato de amor ou de reverência, ou de adoração, ou de outra qualquer virtude que saiu deste Coração unido à Pessoa do divino Verbo era para Deus de estima infinitamente maior que todos os atos que podiam formar todas as criaturas do mundo, ainda que todas fossem abrasados serafins.</p>
+                            <p class="mt-4">Considera, pois, alma minha, que aumentos de glória teria a Santíssima Trindade com as adorações e louvores que Jesus Cristo lhe deu neste templo? E se tu, alma minha, também deves ser templo da Santíssima Trindade pela graça, pede a este Senhor que faça o teu coração conforme a este ardentíssimo Coração.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 2",
+                        title: "2º Dia - Artífice do Santíssimo Sacramento",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que do soberano Coração de Jesus saiu o Diviníssimo Sacramento, onde temos depositado o Sangue sacratíssimo que manou do seu lado; e foi tal a fineza do Coração de Jesus, disse o Senhor a uma serva sua, que, se não se deixara no Santíssimo Sacramento, não poderia morrer na Cruz.</p>
+                            <p class="mt-4">Tão apegado estava aquele amante Coração aos homens que, impaciente de ausências, vendo que havia de partir para o Pai, inventou esta indústria amorosa de partir e ficar juntamente, de glorificar os santos no Céu e nos fazer companhia na terra. Considera, alma minha, quanto deves ao abrasado Coração do teu Senhor, e confunde-te de tão pouco lhe agradeceres por realizar, com a instituição do Santíssimo Sacramento, a ideia de boa obra em que Ele te comunica infinitos bens.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 3",
+                        title: "3º Dia - Sarça de penetrantes espinhos",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que desde que principiaram neste Coração os alentos da vida, até que se exalaram na morte, nunca viveu sem penas este inocente Coração, porque, como, logo que esteve animado, aceitou o preceito de padecer pelos homens, logo com a vida principiaram suas penas. Antes que chegassem os tormentos exteriores, Jesus tolerava interiormente as penas, vendo as grandes ofensas que os homens faziam ao seu Eterno Pai.</p>
+                            <p class="mt-4">No Horto foi tão viva a representação de suas penas, que rompeu-se-lhe o sangue por todos os poros. E se as penas somente consideradas causaram-lhe tanta amargura, que seriam quando verdadeiramente padecidas? Confunde-te, alma minha, da tibieza com que amas este Divino Coração, e da negligência com que não o imitas, pois tanto te repugna padecer, e tanto foges de mortificar-te.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 4",
+                        title: "4º Dia - Fornalha abrasadíssima de caridade",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que o extremo com que este Sagrado Coração amou e ama a Deus, só o mesmo Deus o pode compreender. O peito era fornalha de incêndios, o Coração era mina de labaredas que subiam tão alto, que lá iam rematar em Deus. Veio à terra este ardentíssimo Coração para lhe pôr fogo, e sendo o mundo tão grande, ainda sobrariam incêndios, se o mundo fôra infinitas vezes maior. As raras finezas que o Senhor obrou por nós e os contínuos benefícios que nos está fazendo, tudo são chamas que continuamente saem dessa fornalha de abrasadíssima caridade.</p>
+                            <p class="mt-4">E é possível, alma minha, que vendo o teu coração rodeado de tantas chamas quantos são os benefícios que recebes do Coração de Jesus, ainda esteja tão fria e tíbia?</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 5",
+                        title: "5º Dia - Paraíso de delícias celestiais",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que neste suavíssimo Coração se encerram todas as delícias do Paraíso. Ele é o mar onde elas entram, e de onde saem todos os rios dos divinos regalos; entram nele, comunicados por Deus, e saem dele para deliciarem as almas justas. No paraíso deste Coração deu o Senhor entrada a muitos santos que se singularizaram em virtudes eminentes, e vendo-se eles quase submergidos em um mar de consolações, pediam ao Senhor que os moderasse, porque sem desfalecerem não podiam suportar abundância tão excessiva.</p>
+                            <p class="mt-4">Pobre de ti, alma minha, que tão pouco participas destas riquezas! Mas de que te admiras, se tu não amas aquele centro de amor? Aprende tu a amá-lo, e far-te-ás digna das delícias deste paraíso.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 6",
+                        title: "6º Dia - Tesouro riquíssimo de graças",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que assim como o tesouro é um agregado de muitas riquezas, também o Coração de Jesus é um depósito de infinitas graças. Aqui acharás uma inocência suma, uma humildade profundíssima, uma fortaleza imensa, uma sabedoria infinda; e enfim, para fazeres conceito das graças e riquezas deste tesouro, hás de primeiro considerar quem as comunicou e a quem se comunicaram. O Eterno Pai foi quem as comunicou, e o Filho de Deus foi a quem se comunicaram. E tendo o Eterno Pai uma liberalidade infinita, que graças não receberia o Filho de Deus desta infinita liberalidade?</p>
+                            <p class="mt-4">Aqui se perde o juízo e aqui se abisma a consideração humana. Alma minha, se as graças deste tesouro são tantas, ama tu a este Coração para poderes participar das suas riquezas.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 7",
+                        title: "7º Dia - Abismo de imensa piedade",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que é tão piedoso este amante Coração, que a ninguém nega sua piedade; tanto que, se alguma alma aflita recorre a Ele com viva fé, logo acode a consolá-la com seu remédio; tanto que, quando vê algum atribulado, logo corre, piedoso, com seu afeto para o socorrer. Vendo-se ofendido com as nossas culpas, dissimula tudo, e espera o nosso arrependimento para nos perdoar. Se depois de arrependidos tornamos a cair nas mesmas misérias, ainda não cansa a sua paciência, ainda não esgota a sua misericórdia, ainda não fecha as portas da sua piedade, mas antes nos busca com auxílios e nos chama com repetidas inspirações, e se nos voltamos para Ele, logo se alegra e se põe bem conosco.</p>
+                            <p class="mt-4">E crendo tu, alma minha, tudo isto, não morres de amor por este Coração?</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 8",
+                        title: "8º Dia - Atrativo dos nossos corações",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, o que disse Nosso Senhor: que só depois de ser exaltado na Cruz, e não antes, é que lhe abririam o lado, ficando assim patente o seu amante Coração. Porque julgou o Senhor que quem pusesse os olhos nele, atraído por uma suavíssima violência, certissimamente se havia de render. E se tu, alma minha, te não rendes, é porque não pões nele os olhos. Se tu viras que deste Coração manam as celestes verdades, com que se afugentam as trevas das culpas; se tu viras que dele mana o fogo que abrasa as almas frias, as luzes que desterram as nossas ignorâncias, as misericórdias que lavam as nossas culpas, as doçuras, os auxílios, as inspirações... e enfim, se viras que deste Coração mana todo o bem, deixarias tu, alma minha, de amar este Coração? Deixarias de ficar presa em laços de tanto amor?</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    },
+                    {
+                        day: "Dia 9",
+                        title: "9º Dia - Penhor de vida eterna",
+                        content: `<div class="day-specific-content">
+                            <h4 class="section-title">Meditação</h4>
+                            <p>Pondera, alma minha, que assim como o coração humano é o princípio da vida temporal, assim o Coração de Jesus é para nós o princípio da vida eterna; porque, se para a vida eterna é necessário o perdão das culpas e a remissão dos pecados, saindo deste Coração sangue e água, e tendo nós o Sangue de Cristo como fundamento de nossa redenção, e na água uma representação do Batismo, sem o qual ninguém entra na glória, segue-se daqui que este Coração é a porta por onde todos entram para a vida eterna. Assim como Deus lá no Paraíso deu a vida ao homem com um sopro, também com um outro sopro infundiu Cristo nos seus discípulos a graça do Espírito Santo, porque, como o hálito da boca sai do coração, quis Cristo mostrar que do seu Coração é que nos vem a graça.</p>
+                            <p class="mt-4">Pois, alma minha, se tu crês tudo isto, sabe, que se amares a este Divino Coração, e o imitares, alcançarás a graça, e conseguirás a glória na vida eterna.</p>
+                            
+                            <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Pai-nosso, Ave-Maria e Glória.</p>
+                            
+                            <div class="mt-6 p-4 bg-primary/5 rounded-xl border-l-4 border-primary text-center">
+                                <p class="font-semibold">℣. Jesus, manso e humilde de coração,</p>
+                                <p class="font-semibold mt-1 text-primary">℟. Fazei o nosso coração semelhante ao vosso.</p>
+                            </div>
+                        </div>`
+                    }
+                ]
+            }
+        ]
     },
 
     imaculado_coracao: {

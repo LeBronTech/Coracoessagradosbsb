@@ -3137,11 +3137,11 @@ export const saints: Saint[] = [
 
   { id: 'visitacao', name: 'Visitação - Nossa Senhora', imageUrl: 'https://i.pinimg.com/736x/46/49/63/464963169ef6da9d7829305e5e6727e8.jpg', imageObjectPosition: 'top', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
   { id: 'santissima_trindade', name: 'Santíssima Trindade', imageUrl: 'https://cruzterrasanta.com.br/_global/_ssf/ssf.aspx?d=/_upload/significados_de_santos/&arquivo=20230622182805-santissima-trindade_680.jpg', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
-  { id: 'sao_jose_anchieta', name: 'São José de Anchieta', imageUrl: 'https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '08/06', feastDay: '09/Jun' },
+  { id: 'sao_jose_anchieta', name: 'São José de Anchieta', imageUrl: 'https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '08/06', feastDay: '09/Jun', isImportant: true },
   { id: 'santo_antonio_padua', name: 'Santo Antônio', imageUrl: 'https://i.pinimg.com/736x/51/68/18/516818cb2bec324df6aecb722aea3d48.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '12/06', feastDay: '13/Jun', isImportant: true },
 
   // Junho
-  { id: 'sagrado_coracao', name: 'Sagrado Coração', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
+  { id: 'sagrado_coracao', name: 'Sagrado Coração', imageUrl: 'https://imgs.search.brave.com/_lAUiW1NZ1121L9jbM5y7Tl9fnEsWLhDFMMrq2k5YCQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2IzLzk1/LzAzL2IzOTUwM2I5/ZDEwOGRmOTM1ZGU4/ZWZjMGQ0NTExNDRj/LmpwZw', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
   { id: 'santo_onofre', name: 'Santo Onofre do Egito', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
   { id: 'imaculado_coracao', name: 'Imaculado Coração', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Junho', startDate: '04/06', endDate: '12/06', feastDay: '13/Jun' },
   { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun', isImportant: true },

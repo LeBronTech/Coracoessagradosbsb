@@ -413,6 +413,7 @@ export default function AssistentePage() {
   const [activeTab, setActiveTab] = useState<"redator" | "formatador" | "santododia" | "multitask">("multitask");
   const [finishedCollapsed, setFinishedCollapsed] = useState(true);
   const [hiddenAlerts, setHiddenAlerts] = useState<string[]>([]);
+  const [hiddenMonthSaints, setHiddenMonthSaints] = useState<string[]>([]);
 
   // --- Tempo Real para Cronômetro ---
   const [now, setNow] = useState(new Date());
@@ -477,6 +478,14 @@ export default function AssistentePage() {
     if (storedHidden) {
       try {
         setHiddenAlerts(JSON.parse(storedHidden));
+      } catch (e) {}
+    }
+
+    // Carrega santos do dia / principais ocultados da aba de cronômetro
+    const storedHiddenSaints = localStorage.getItem("coracoes_sagrados_hidden_month_saints");
+    if (storedHiddenSaints) {
+      try {
+        setHiddenMonthSaints(JSON.parse(storedHiddenSaints));
       } catch (e) {}
     }
 
@@ -602,6 +611,19 @@ export default function AssistentePage() {
     toast({
       title: "Alerta Arquivado",
       description: "Este alerta de santo importante foi removido da lista.",
+      duration: 2500,
+    });
+  };
+
+  const handleHideMonthSaint = (saintName: string, event: React.MouseEvent) => {
+    event.stopPropagation(); // Evita ativar o clique do card principal
+    const key = saintName.toLowerCase().trim();
+    const updated = [...hiddenMonthSaints, key];
+    setHiddenMonthSaints(updated);
+    localStorage.setItem("coracoes_sagrados_hidden_month_saints", JSON.stringify(updated));
+    toast({
+      title: "Santo Arquivado",
+      description: `${saintName} foi removido dos destaques da aba cronômetro.`,
       duration: 2500,
     });
   };
@@ -741,9 +763,11 @@ export default function AssistentePage() {
     setCopiedHistory({});
     localStorage.removeItem("coracoes_sagrados_hidden_alerts");
     setHiddenAlerts([]);
+    localStorage.removeItem("coracoes_sagrados_hidden_month_saints");
+    setHiddenMonthSaints([]);
     toast({
       title: "Progresso Reiniciado!",
-      description: "Os marcadores visuais de envios e alertas foram limpos.",
+      description: "Os marcadores de envios, alertas e santos arquivados foram limpos.",
       duration: 3000,
     });
   };
@@ -1366,7 +1390,9 @@ _Projeto Corações Sagrados❤️‍🔥_`;
           const todayDay = now.getDate();
           const todayMonth = MESES[now.getMonth()];
           const todayDayData = saintsOfTheDay.find(s => s.day === todayDay && s.month === todayMonth);
-          const todaySaints = todayDayData ? todayDayData.saints : [];
+          const todaySaints = (todayDayData ? todayDayData.saints : []).filter(
+            s => !hiddenMonthSaints.includes(s.name.toLowerCase().trim())
+          );
 
           // Santos Principais do mês selecionado — busca em saintsOfTheDay para pegar todos
           // os santos com isImportant:true que aparecem naquele mês (ex: São Paulo VI, Sta Joana d'Arc)
@@ -1415,6 +1441,10 @@ _Projeto Corações Sagrados❤️‍🔥_`;
 
           // Ordena por dia do mês
           importantMonthSaints.sort((a, b) => a.day - b.day);
+
+          const activeImportantMonthSaints = importantMonthSaints.filter(
+            s => !hiddenMonthSaints.includes(s.name.toLowerCase().trim())
+          );
 
           const renderCountdownCard = (saint: typeof filteredSaints[0]) => {
             const countdown = countdowns[saint.id];
@@ -1480,7 +1510,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
           return (
             <div className="mb-8 space-y-4">
               {/* Santos do Dia + Santos Principais do Mês + Cronômetros Ativos */}
-              {(activeSaints.length > 0 || todaySaints.length > 0 || importantMonthSaints.length > 0) && (
+              {(activeSaints.length > 0 || todaySaints.length > 0 || activeImportantMonthSaints.length > 0) && (
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                   {/* Cards dos Santos do Dia (hoje) */}
                   {todaySaints.map((s, idx) => (
@@ -1489,17 +1519,33 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                       onClick={() => {
                         setActiveTab("santododia");
                         setSelectedSaintInDayIndex(idx);
+                        setSantoDiaDate(new Date());
+                        setTimeout(() => {
+                          const element = document.getElementById("santo-dia-seletor-data");
+                          if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }, 120);
                       }}
                       className="bg-amber-950/15 border-amber-500/25 backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:border-amber-500/50 hover:bg-amber-950/25 hover:scale-[1.01] active:scale-[0.99] border-t-2 border-t-amber-400"
                     >
                       <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
-                        <div className="truncate">
+                        <div className="truncate pr-2">
                           <CardTitle className="text-xs font-brand text-amber-200 truncate">{s.name}</CardTitle>
                           <CardDescription className="text-[10px] text-stone-400">Santo do Dia — {todayDay}/{now.getMonth() + 1}</CardDescription>
                         </div>
-                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30 animate-pulse">
-                          Hoje
-                        </span>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                          <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30 animate-pulse">
+                            Hoje
+                          </span>
+                          <Button
+                            variant="ghost"
+                            size="icon"
+                            className="w-6 h-6 text-stone-500 hover:text-red-400 hover:bg-red-500/10 rounded-full"
+                            title="Ocultar das sugestões"
+                            onClick={(e) => handleHideMonthSaint(s.name, e)}
+                          >
+                            <Trash2 className="w-3.5 h-3.5" />
+                          </Button>
+                        </div>
                       </CardHeader>
                       <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
                         <div className="flex items-center gap-2">
@@ -1512,7 +1558,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                   ))}
 
                   {/* Cards dos Santos Principais do Mês */}
-                  {importantMonthSaints.map((s, i) => {
+                  {activeImportantMonthSaints.map((s, i) => {
                     // Calcula quantos dias até a festa
                     const todayNum = now.getDate();
                     const currMonth = MESES[now.getMonth()];
@@ -1525,11 +1571,16 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                       <Card
                         key={`important-${i}`}
                         onClick={() => {
-                          // Navega para o dia do santo
-                          const targetDate = new Date(now.getFullYear(), now.getMonth(), s.day);
+                          // Navega para o dia do santo obtendo o mês correto
+                          const monthIndex = MESES.indexOf(s.month);
+                          const targetDate = new Date(now.getFullYear(), monthIndex !== -1 ? monthIndex : now.getMonth(), s.day);
                           setSantoDiaDate(targetDate);
                           setSelectedSaintInDayIndex(0);
                           setActiveTab("santododia");
+                          setTimeout(() => {
+                            const element = document.getElementById("santo-dia-seletor-data");
+                            if (element) element.scrollIntoView({ behavior: "smooth", block: "start" });
+                          }, 120);
                         }}
                         className={cn(
                           "backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.01] active:scale-[0.99] border-t-2",
@@ -1541,23 +1592,34 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                         )}
                       >
                         <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
-                          <div className="truncate">
+                          <div className="truncate pr-2">
                             <CardTitle className={cn("text-xs font-brand truncate", isToday ? "text-amber-200" : "text-violet-200")}>{s.name}</CardTitle>
                             <CardDescription className="text-[10px] text-stone-400">
                               {s.day} de {s.month}
                               {daysUntil !== null && daysUntil > 0 && ` • em ${daysUntil} dia${daysUntil > 1 ? 's' : ''}`}
                             </CardDescription>
                           </div>
-                          <span className={cn(
-                            "text-[9px] px-2 py-0.5 rounded-full font-bold uppercase border",
-                            isToday
-                              ? "bg-amber-500/15 text-amber-400 border-amber-500/30 animate-pulse"
-                              : isUpcoming
-                                ? "bg-violet-500/15 text-violet-300 border-violet-500/30 animate-pulse"
-                                : "bg-violet-500/10 text-violet-400/70 border-violet-500/20"
-                          )}>
-                            {isToday ? "Hoje" : isUpcoming ? `Em ${daysUntil}d` : "⭐ Santo"}
-                          </span>
+                          <div className="flex items-center gap-1.5 shrink-0">
+                            <span className={cn(
+                              "text-[9px] px-2 py-0.5 rounded-full font-bold uppercase border",
+                              isToday
+                                ? "bg-amber-500/15 text-amber-400 border-amber-500/30 animate-pulse"
+                                : isUpcoming
+                                  ? "bg-violet-500/15 text-violet-300 border-violet-500/30 animate-pulse"
+                                  : "bg-violet-500/10 text-violet-400/70 border-violet-500/20"
+                            )}>
+                              {isToday ? "Hoje" : isUpcoming ? `Em ${daysUntil}d` : "⭐ Santo"}
+                            </span>
+                            <Button
+                              variant="ghost"
+                              size="icon"
+                              className="w-6 h-6 text-stone-500 hover:text-red-400 hover:bg-red-500/10 rounded-full"
+                              title="Ocultar das sugestões"
+                              onClick={(e) => handleHideMonthSaint(s.name, e)}
+                            >
+                              <Trash2 className="w-3.5 h-3.5" />
+                            </Button>
+                          </div>
                         </CardHeader>
                         <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
                           <div className="flex items-center gap-2">
@@ -2180,7 +2242,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
           <TabsContent value="santododia" className="space-y-6 outline-none">
             
             {/* Barra de Controle de Datas Unificada */}
-            <div className="flex items-center justify-between bg-stone-900/60 border border-white/5 backdrop-blur-sm rounded-2xl p-3 shadow-xl max-w-md mx-auto">
+            <div id="santo-dia-seletor-data" className="flex items-center justify-between bg-stone-900/60 border border-white/5 backdrop-blur-sm rounded-2xl p-3 shadow-xl max-w-md mx-auto">
               <Button 
                 variant="ghost" 
                 size="sm"
@@ -2227,7 +2289,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
             )}
 
             {todaySaintData ? (
-              <div className="grid md:grid-cols-12 gap-6">
+              <div className="grid md:grid-cols-12 gap-6 max-w-4xl mx-auto w-full">
                 
                 {/* Informações do Santo do Dia e Escolha de Emojis */}
                 <div className="md:col-span-4 space-y-4">
@@ -2236,6 +2298,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                       <>
                         <div className="relative h-48 bg-stone-900 border-b border-white/5">
                           <img 
+                            id="santo-dia-main-image"
                             src={todaySaintInfo.imageUrl} 
                             alt={todaySaintInfo.name} 
                             className="w-full h-full object-cover object-center" 
