@@ -4009,7 +4009,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Sagrado Coração de Jesus",
         novenaTitle: "Novena ao Sagrado Coração de Jesus",
         description: "Novena em preparação à solenidade do Sagrado Coração de Jesus. Disponível na versão tradicional (Canção Nova) e na versão do Padre Paulo Ricardo.",
-        image: "https://imgs.search.brave.com/_lAUiW1NZ1121L9jbM5y7Tl9fnEsWLhDFMMrq2k5YCQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzL2IzLzk1/LzAzL2IzOTUwM2I5/ZDEwOGRmOTM1ZGU4/ZWZjMGQ0NTExNDRj/LmpwZw",
+        image: "https://www.vaticannews.va/content/dam/vaticannews/multimedia/2024/ottobre/22/sacro-cuore2AEM.jpg/_jcr_content/renditions/cq5dam.thumbnail.cropped.750.422.jpeg",
         imageObjectPosition: "center",
         initialPrayer: `<div class="prayer-block">
             <h4 class="section-title">Sobre a Devoção</h4>
@@ -4363,15 +4363,116 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
 
     imaculado_coracao: {
         saintName: "Imaculado Coração de Maria",
-        novenaTitle: "Novena ao Imaculado Coração",
-        description: "Novena em honra ao Imaculado Coração de Maria.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Imaculado Coração`,
-            content: ""
-        }))
+        novenaTitle: "Novena ao Imaculado Coração de Maria",
+        description: "Novena em honra ao Imaculado Coração de Maria, revelada aos pastorinhos em Fátima como fonte de paz e graças.",
+        image: "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2023/06/formacao_imaculado-coracao-de-maria--768x432.jpg",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Preparatória</h4>
+            <p>Senhora do Rosário, que Vos dignastes revelar aos pastorinhos, em Fátima, a devoção ao vosso Imaculado Coração, como fonte de paz e benefícios, recorro eu, hoje, na aflição em que me encontro, confiando ao vosso Coração a graça de que necessito… <em>(pede-se a graça)</em>.</p>
+            <p class="mt-4">Mãe Santíssima, que num excesso de bondade tranquilizastes a Lúcia assegurando-lhe que nunca a deixaríeis; que o vosso Imaculado Coração seria o seu refúgio seguro, o seu amparo e guia; a Vós me consagro, como coisa inteiramente vossa.</p>
+            <p class="mt-4">No vosso coração me escondo, querendo viver num abandono confiante e sempre crescente.</p>
+            <p class="mt-4">Abri as vossas mãos generosas, e permiti que os reflexos que delas saem penetrem meu peito e infundam no meu coração um conhecimento e amor intenso para com o vosso Imaculado Coração e o do vosso Divino Filho, como fizestes com os felizes Pastorinhos em Fátima. Amém.</p>
+            <p class="mt-4 font-semibold text-primary">Reza-se três Ave-Marias.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração Final</h4>
+            <p>Ó Deus, que preparastes no Coração da Virgem Maria uma digna morada para o Espírito Santo, concedei que, por sua intercessão, possamos viver fiéis à Vossa graça e configurados ao Coração do Vosso Filho. Por Cristo, nosso Senhor. Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Obediência e Submissão",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Primeiro Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, Filha predileta de Deus Pai, em quem Ele pôs todas as suas complacências.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso obedientíssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso, naquela profunda reverência, amor filial e humilde submissão, que fizeram do vosso Coração um espetáculo sublime para o céu e para a terra.</p>
+                    <p class="mt-4">Não mais quero ofender ao Pai Celeste, e esforçar-me-ei, a vosso exemplo, por dar-lhe em tudo contentamento e gozo. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Conhecimento e Imitação de Jesus",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Segundo Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, Mãe virginal de Deus Filho, que fazia transbordar de júbilo o Sagrado Coração de Jesus.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso perfeitíssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso, no conhecimento, amor e imitação cada vez mais perfeitos de Jesus, vosso Filho diletíssimo; e que dia a dia me mostre digno discípulo seu e perfeito cristão. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Templo do Espírito Santo",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Terceiro Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, Esposa castíssima e Templo admirável do Espírito Santo, ornado por Ele de todas as suas virtudes e dons.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso santíssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso, tabernáculo do Divino Hóspede, ornado de sólidas e perfeitas virtudes, como de nós exige a perfeição cristã, e de todos os dons do Espírito Santo.</p>
+                    <p class="mt-4">Fazei-o puro e dócil, para que ouvindo a sua voz a siga fielmente. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Corredentora e Medianeira",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Quarto Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, Corredentora do gênero humano e Medianeira de todas as graces, inseparavelmente unida ao do nosso Divino Redentor.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso zelosíssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso; que infatigavelmente coopere na obra da redenção, por meio de um intenso e santo apostolado; e seja digno mediador entre Deus e os homens pela oração e penitência. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Refúgio dos Pecadores",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Quinto Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, Refúgio dos pecadores, ainda dos mais miseráveis e abandonados.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso misericordioso Coração Vos suplico, fazei o meu coração semelhante ao vosso, cheio daquela compaixão e misericórdia de que ele estava repleto, para que procure, com todos os meus esforços – como pedistes e é vosso desejo – a salvação dos pobres pecadores, que tanto amarguram o Coração Divino de Jesus e o vosso Imaculado Coração. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Preservada do Pecado",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Sexto Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, desde o primeiro instante concebida sem mancha de pecado.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso inocentíssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso, no ódio ao pecado, sobretudo de impureza, e na luta fiel e constante contra o dragão infernal, cuja cabeça esmagastes.</p>
+                    <p class="mt-4">Permiti que me junte a Vós nesta luta contínua, como verdadeiro soldado vosso e de Jesus Cristo, nosso Divino Rei. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Reflexo do Coração de Jesus",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Sétimo Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, onde se reflecte o Coração de vosso Divino Filho.</p>
+                    <p class="mt-4">Mãe querida, pelo vosso puríssimo Coração Vos suplico, fazei o meu coração semelhante ao vosso, puro e casto, a fim de que, pela pureza de alma e coração, com a graça do Senhor, e o vosso auxílio, consiga livrar as almas do fogo do Inferno, e aliviar as do Purgatório, sobretudo as mais abandonadas. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Desagravo e Reparação",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Oitavo Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, nossa Mãe Celeste, sempre tão amante, cuidadosa e vigilante.</p>
+                    <p class="mt-4">Mãe querida, pelas ternuras do vosso maternal Coração Vos suplico, fazei o meu coração semelhante ao vosso a fim de que Vos corresponda com sumo respeito, amor e obediência, e não tenha outra preocupação senão a de Vos amar, consolar e desagravar dos espinhos, que em vosso Coração cravam, a todos os momentos, os homens ingratos, com blasfêmias e ingratidões. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Propagação do Seu Reinado",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Súplica para o Nono Dia</h4>
+                    <p>Bendigo e venero o vosso Imaculado Coração, oh! Maria, excelsa Rainha do Céu e da terra, e nossa celeste Rainha, em quem se reflete a majestade divina.</p>
+                    <p class="mt-4">Mãe querida, pela sublimidade do vosso nobre Coração Vos suplico, fazei o meu coração semelhante ao vosso, revestido de santa veneração, dedicação e nobre entusiasmo, para colaborar, com todo o zelo, na propagação do reinado de amor do vosso Imaculado Coração, em nós e em todo o mundo. Amém.</p>
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Uma Ave-Maria.</p>
+                </div>`
+            }
+        ]
     },
 
     sao_luis_gonzaga: {
@@ -5027,14 +5128,237 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     santo_onofre: {
         saintName: "Santo Onofre do Egito",
         novenaTitle: "Novena a Santo Onofre do Egito",
-        description: "Eremita do deserto. Intercessor contra vícios e pelo sustento.",
-        initialPrayer: "",
+        description: "Novena de preparação para a Festa de Santo Onofre de 3 a 11 de junho. Poderoso intercessor contra vícios, pelo sucesso nos negócios e sustento familiar.",
+        image: "https://ichef.bbci.co.uk/ace/ws/800/cpsprodpb/bd34/live/17a73f20-27e7-11ef-b0c1-85d9ceb9fef8.jpg.webp",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração de Introdução (Todos os dias)</h4>
+            <p class="font-semibold text-center italic text-primary">Pelo sinal (+) da Santa Cruz, livre-nos Deus (+) nosso Senhor, dos nossos (+) inimigos. Em nome do Pai e do Filho e do Espírito Santo. Amém.</p>
+
+            <h4 class="section-title mt-6">Oração ao Divino Espírito Santo</h4>
+            <p>Vinde, Espírito Santo, enchei os corações dos vossos fiéis e acendei neles o fogo do vosso Amor.</p>
+            <p class="mt-2 pl-4 border-l-2 border-primary/40">
+                <strong>V:</strong> Enviai o vosso Espírito e tudo será criado.<br/>
+                <strong>R:</strong> E renovareis a face da terra.
+            </p>
+            <p class="mt-4"><strong>Oremos:</strong> Ó Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, concedei-nos, segundo o mesmo Espírito, conhecer as coisas retas e gozar sempre das Suas consolações. Por Nosso Senhor Jesus Cristo, vosso Filho, que é Deus convosco na unidade do Espírito Santo. Amém.</p>
+
+            <h4 class="section-title mt-6">Ato de Contrição</h4>
+            <p>Meu Deus, de todo o coração me arrependo dos meus pecados; odeio-os e detesto-os porque ofendem a vossa infinita Majestade e são causa da morte do vosso Divino Filho, Jesus Cristo, e da minha ruína espiritual. Proponho nunca mais cometê-los no futuro e fugir sempre das ocasiões de pecar. Senhor, tende misericórdia e perdoai-me.</p>
+
+            <h4 class="section-title mt-6">Bênção de Santo Onofre</h4>
+            <p class="italic bg-white/5 p-3 rounded-lg border border-white/10 text-white">“Querido irmão, o Senhor meu Deus te proteja, que Ele te abençoe e te confirme no Seu amor, e ilumine os teus olhos para que vejas a Sua bondade. Que Ele te livre de todos os enganos e assaltos do diabo, e conclua em ti o bom trabalho que já começou. Que os Seus anjos te suportem no terrível dia do Senhor”.</p>
+
+            <h4 class="section-title mt-6">Oração a Santo Onofre</h4>
+            <p>Santo Onofre, Deus chamou-vos a ser eremita na solidão do deserto; respondestes com fidelidade, a vida toda entregue à penitência e à oração. Pela vossa obediência, castidade e confiança na Divina Providência, foi grande a vossa recompensa: Deus fez em vós maravilhas; na Sua misericórdia, prometeu conceder muitas graças a todos os que lhas pedirem tomando-vos por intercessor; e concedeu-vos a glória do Seu Reino.</p>
+            <p class="mt-4">Nesta novena peço-vos, Santo Onofre, sucesso nos negócios, nos empreendimentos e na vida profissional, e de forma especial <strong>para que eu (ou meu familiar) consiga a sobriedade e a graça de parar de beber</strong> <em>(faça o seu pedido)</em>, de forma a que não me falte o sustento que me permita levar uma vida modesta, mas tranquila, e ajudar os pobres e a Igreja, no apostolado e na caridade. Sobretudo, grande intercessor, vos peço ajuda para alcançar um tesouro no Céu, numa eternidade feliz. Amém.</p>
+
+            <h4 class="section-title mt-6">Ladainha de Santo Onofre</h4>
+            <div class="space-y-2 text-sm pl-4 border-l-2 border-primary">
+                <p>Senhor, tende piedade de nós. <span class="text-white/40"><em>(Senhor, tende...)</em></span></p>
+                <p>Cristo, tende piedade de nós. <span class="text-white/40"><em>(Cristo, tende...)</em></span></p>
+                <p>Senhor, tende piedade de nós. <span class="text-white/40"><em>(Senhor, tende...)</em></span></p>
+                <p>Cristo, ouvi-nos. <span class="text-white/40"><em>(Cristo, ouvi-nos)</em></span></p>
+                <p>Cristo, atendei-nos. <span class="text-white/40"><em>(Cristo, atendei-nos)</em></span></p>
+                <p>Pai do Céu, que sois Deus, <span class="text-white/60"><strong>tende piedade de nós.</strong></span></p>
+                <p>Filho, Redentor do mundo, que sois Deus, <span class="text-white/60"><strong>tende piedade de nós.</strong></span></p>
+                <p>Espírito Santo, que sois Deus, <span class="text-white/60"><strong>tende piedade de nós.</strong></span></p>
+                <p>Santíssima Trindade, que sois um só Deus, <span class="text-white/60"><strong>tende piedade de nós.</strong></span></p>
+                <p>Santo Onofre, servo de Deus e dos santos padres, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, filho querido de Maria, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, que procuraste a identificação com Jesus, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, liberto do fogo por um anjo, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, confiado aos monges desde tenra idade, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, alimentado pela Mãe de Jesus, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, cheio de graça e de sabedoria, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, recompensado com a multiplicação dos pães, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, conduzido ao deserto por um anjo, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre que seguistes Jesus e O servistes, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, chamado ao deserto como Elias e João Batista, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, providencialmente alimentado no deserto, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, que durante 60 anos comungastes das mãos de um anjo, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, que partistes para o Céu acompanhado pelo cântico dos anjos, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, modelo e protetor dos eremitas, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, poderoso intercessor junto de Deus, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, instrumento dos chamamentos de Deus, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, peregrino dos Lugares Santos, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, patrono dos tecelões, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, auxílio dos desempregados, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Santo Onofre, que nos alcançais os bens materiais e um tesouro no Céu, <span class="text-white/60"><strong>rogai por nós.</strong></span></p>
+                <p>Cordeiro de Deus que tirais o pecado do mundo, <span class="text-white/60"><strong>perdoai-nos, Senhor!</strong></span></p>
+                <p>Cordeiro de Deus que tirais o pecado do mundo, <span class="text-white/60"><strong>ouvi-nos, Senhor!</strong></span></p>
+                <p>Cordeiro de Deus que tirais o pecado do mundo, <span class="text-white/60"><strong>tende piedade de nós, Senhor!</strong></span></p>
+            </div>
+
+            <p class="mt-4"><strong>Oração:</strong> Oh Deus, que nos dais no eremita Santo Onofre um extraordinário exemplo de radicalidade evangélica, concedei-nos, por sua intercessão e com o auxílio dos santos Anjos, que um dia nos sentemos à mesa do Reino no vosso Monte Santo. Por Cristo, nosso Senhor. Amém.</p>
+        </div>`,
         finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santo Onofre do Egito`,
-            content: ""
-        }))
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Santo Onofre e o Anjo do Senhor",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Eu vou mandar um anjo à tua frente, para te guardar pelo caminho e te conduzir ao lugar que eu preparei. Fica atento a ele e escuta sua voz. Não lhe sejas rebelde; ele não suportará vossas transgressões, pois nele está o meu nome." (Ex 23, 20-21)</p>
+                    
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Estamos por volta do ano 320, no Egito. Um casal de sangue real experimentava o opróbrio da esterilidade. A idade ia avançando e já tinham perdido a esperança de ter filhos. Contra toda a esperança, a mulher engravidou. O diabo meteu-se no assunto e fez aquilo que tanto gosta... mentiu! Convenceu o marido de que a criança que ia nascer fora concebida numa relação adúltera de sua mulher, pelo que, logo que nascesse deveria ser lançada ao fogo.</p>
+                    <p class="mt-4">Mal o bebê foi dado à luz, lançaram-no a uma fogueira. Porém, um anjo susteve o arremesso, e a criança salvou-se. O anjo entregou-a aos pais e mandou que fossem batizados e consagrassem a Deus o seu filho, o que veio a acontecer no Mosteiro de Tebas. Os próprios monges se encarregaram da iniciação cristã dos pais de Onofre, cujo nome havia também sido indicado pelo anjo. Onofre, que significa “perfeito”, “aquele que é bom” e ainda “o que está sempre feliz, satisfeito”, permaneceu no Mosteiro para que fosse educado na fé.</p>
+                    <p class="mt-4">Há duas tradições que se cruzam: uma refere que uma corsa branca todos os dias descia dos montes para amamentar o menino; outra, mais piedosa, garante que a Santíssima Virgem o alimentava como se fosse o Menino Jesus.</p>
+                    <p class="mt-4">Certa vez, Onofre, pensando ingenuamente que a imagem do Menino Jesus passava fome, partilhou com Ele o seu pão. O Menino Jesus retribui o gesto de Onofre dando-lhe tantos pães que tiveram de ser mobilizados os 100 monges do Mosteiro, para os distribuírem pelos pobres da região.</p>
+                    <p class="mt-4">Onofre era já um jovem quando, atendendo à sua santidade e sabedoria, o Abade do Mosteiro decidiu nomeá-lo seu successor. Porém, por não ser essa a vontade de Deus, um anjo o arrebatou para o deserto.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, por um anjo arrebatado das garras do demônio, o mesmo anjo que vos deu o nome, vos conduziu ao Mosteiro e vos transportou ao deserto, ensina-nos a viver na presença do nosso anjo da guarda e a ser dóceis aos seus ensinamentos. Pedimos de modo especial a graça da libertação dos vícios e da bebida para quem necessita. Amém.</p>
+                    
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - O Mentiroso Reage ao Nascimento de Onofre",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Sede sóbrios e vigiai. O vosso adversário, o diabo, vos rodeia como um leão a rugir, procurando a quem devorar. Resisti-lhe, firmes na fé, certos de que iguais sofrimentos atingem também os vossos irmãos pelo mundo." (1 Pedro 5, 8-9)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>O diabo faz aquilo que tanto gosta... mentiu! Convenceu o pai que a criança que ia nascer fora concebida numa relação adúltera de sua mulher, pelo que, logo que nascesse deveria ser lançada ao fogo. E assim aconteceu. Mal o bebê foi dado à luz, lançaram-no ao fogo. Porém, um anjo susteve o arremesso, e a criança salvou-se.</p>
+                    <p class="mt-4">Em muitas ocasiões, o Papa Francisco nos tem alertado para as armadilhas do diabo. “Fizeram crer a esta geração que o diabo era um mito, uma figura, uma ideia, ideia do mal, mas o diabo existe e nós temos de lutar contra éle!” “O diabo é mentiroso, é o pai dos mentirosos, o pai da mentira”, afirmou. “O diabo semeia ciúmes, ambições, ideias, mas para dividir! Semeia também a inveja e a cobiça”.</p>
+                    <p class="mt-4">Noutra ocasião, afirmou: O diabo “é um mentiroso, mais: é o pai da mentira, gera mentiras, é um impostor. Leva a crer que se comes a maçã, serás como Deus. Assim como o diabo te vende tantas mentiras e enganos, tu, seduzido, as compras... engana-te e arruína tua vida” [...] “Jesus ensina-nos a não dialogar nunca com o diabo. Com o diabo não se dialoga. Como fazia Jesus? Expulsava-lo”. “Com Satanás não se pode dialogar. Porque se começas a dialogar com Satanás, estás perdido. Ele é mais inteligente do que nós. Ele te baralha, te dá a volta à cabeça e tu estás perdido”.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, bem cedo fostes vítima das mentiras e da divisão que o demônio espalha à sua volta; sinto-o rugindo à minha volta, esperando o momento oportuno para atacar. Intercedei por mim para que eu resista firme na fé, blindando meu coração contra toda tentação, inclusive a do álcool e dos vícios. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Deus Paga a Cem por Um",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Jesus respondeu: 'Em verdade vou vos dizer, quando o mundo for renovado e o Filho do Homem se assentar no trono de sua glória, também vós, que me seguistes, havereis de sentar-vos em doze tronos, para julgar as doze tribos de Israel. E todo aquele que tiver deixado casas, irmãos, irmãs, pai, mãe, filhos ou campos, por causa do meu nome, receberá cem vezes mais e terá como herança a vida eterna.'" (Mt 19, 28-29)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Certa vez, Onofre, pensando ingenuamente que a imagem do Menino Jesus passava fome, partilhou com Ele o seu pão. O Menino Jesus retribui o gesto de Onofre dando-lhe tantos pães que tiveram de ser mobilizados os 100 monges do Mosteiro, para os distribuírem pelos pobres da região.</p>
+                    <p class="mt-4">Extraordinária a resposta de Jesus ao pequeno e ternurento gesto de Onofre. Porém, o mais importante não é receber de Deus o cêntuplo daquilo que se dá – ou se restitui, já que aquilo, pouco ou muito que damos, o recebemos de Deus. A vida eterna que, segundo a promessa de Jesus, se acrescenta ao cêntuplo é, verdadeiramente, o importante.</p>
+                    <p class="mt-4">Mais tarde, Onofre não dá apenas o seu pão ao Menino Jesus... Quando percebe que Jesus o chama a um seguimento radical, Onofre oferece-se a si próprio. Mas precisaria Jesus que Onofre O seguisse? Ele chama-nos ao Seu seguimento para nos dar a Salvação. Deus faz maravilhas na vida daqueles que O servem porque O servem; e aos que O seguem, porque O seguem. Porém, daqueles que O servem ou O seguem, deles não recebe benefício algum, pois Deus é Perfeito e não necessita de coisa alguma.</p>
+                    <p class="mt-4">Se Deus quer precisar da nossa colaboração é para poder distribuir bênçãos, graças, misericórdia aos que, como Onofre, O servem e O seguem. Deus é Deus, não precisa de nada. O homem, sim, precisa da comunhão com Deus. Por isso, a recompensa do homem está em perseverar no serviço de Deus.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, que oferecestes o que tínheis a Jesus, a Ele vos oferecestes por inteiro, e toda a vida perseverastes na comunhão de vida com Ele; intercedei por mim, para que, amando-O, servindo-O e seguindo-O, alcance a vida eterna e a sobriedade diária. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Eis aí a Tua Mãe",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Junto à cruz de Jesus estavam de pé sua mãe e a irmã de sua mãe, Maria de Cléofas, e Maria Madalena. Jesus, ao ver sua mãe e, ao lado dela, o discípulo a quem amava, disse à mãe: 'Mulher, eis o teu filho!' Depois disse ao discípulo: 'Eis tua mãe!' A partir daquela hora, o discípulo a acolheu em sua casa." (Jo 19, 25-27)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Os pais de Onofre - Onofre, nome que significa “perfeito”, “aquele que é bom” e ainda “o que está sempre feliz, satisfeito”, entregaram-no, com poucos meses de idade, aos cuidados dos monges do Mosteiro de Tebas para que fosse educado e seguisse Jesus. Uma tradição refere que a Santíssima Virgem o alimentava como se ele fosse o Menino Jesus.</p>
+                    <p class="mt-4">Ó Mãe admirável! “Mulher, eis aí o teu filho”... Jesus, olhando para Sua Mãe, disse estas palavras, indicando São João e, nele, a todos nós. Que bela herança Jesus Lhe deixa... Que carga tão pesada!... Para ser a Mãe de Deus, Deus pediu-lhe consentimento. Jesus, agora, não Lhe pergunta se quer ser ou não nossa Mãe. Conhece o coração da Mãe e isso Lhe basta para não hesitar em carregar sobre Ela este peso de ser Mãe de tantos pecadores.</p>
+                    <p class="mt-4">Aquilo que tem de penoso para Maria as palavras do “testamento da Cruz”, tem de consolador para nós as palavras, logo a seguir, dirigidas a João: “Eis aí a tua Mãe”. Já temos Mãe, e que Mãe! E para sempre, sem que ninguém no-la possa tirar!</p>
+                    <p class="mt-4">Onofre experimentou bem cedo o que significa ser filho de Maria. E ao longo de toda a sua vida procurou ser filho de Maria a sério, procurando ser parecido a Jesus, para ser digno de uma tal Mãe.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, intercedei por mim para que, com humildade, eu saiba pedir perdão das vezes que não fui digno desta Mãe que Jesus nos deu; pedi a Maria que, tal como aconteceu convosco, venha em meu auxílio nas minhas necessidades de corpo e de alma, libertando-me de todas as amarras e fraquezas. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Deus Revela a Onofre a sua Vocação",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Todo aquele que o Pai me dá, virá a mim, e quem vem a mim, eu não o lançarei fora, porque eu desci do céu não para fazer a minha vontade, mas a vontade daquele que me enviou. Ninguém pode vir a mim, se o Pai, que me enviou, não o atrair. E eu o ressuscitarei no último dia." (Jo 6, 37.38.44)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Chamo-me Onofre e vivo no deserto há mais de 60 anos. Quando era um jovem monge em Tebas, onde vivia em comunidade com outros monges, verdadeiros irmãos que nos suportávamos uns aos outros, fui, apesar disso, sentindo um apelo cada vez maior a viver como o profeta Elias ou João Batista, no deserto. Deus fez-me ver que alguns são chamados à solidão, a viver afastados do mundo, numa absoluta dependência da Divina Providência, e que era essa a minha vocação. Logo que percebi isso, não hesitei... pedi autorização ao Abade que me abençoou e deu quatro pães, saí do mosteiro e entrei no deserto transportado por um anjo.</p>
+                    <p class="mt-4">Durante o dia o meu anjo da guarda me conduzia pela mão e, durante a noite, a sua luz me guiava. Animado por tão excelente companhia caminhei mais de 11 quilômetros, até chegar a uma gruta de onde saiu um venerável ancião que me disse: “Estava à tua espera, Onofre. Como vês, já sabia o teu nome; conheço os teus anseios e sei já o que o céu te reserva: persevera, pois, filho, no teu propósito e entra na minha gruta para aqui descansares alguns dias”. Onofre passou alguns dias com o ancião, que o instruiu nas regras de vida dos eremitas. Depois acompanhou-o durante quatro dias até encontrarem uma palmeira que suportava uma pequena cabana. O velho disse-lhe: "Este é o lugar que Deus te indica", e ficou trinta dias com Onofre, depois dos quais partiu para o seu eremitério, na gruta. Onofre, uma vez por ano saía para visitar seu mestre e aprender com seus sábios ensinamentos. Passados 30 anos morreu o seu mestre espiritual, a quem Onofre celebrou as exéquias e enterrou junto à gruta onde viveu.</p>
+                    <p class="mt-4">De início sofri muito, especialmente com fome e sede. Deus recompensou a minha perseverança, passando a enviar-me um anjo que, todos os dias me trazia pão e água, e, uma vez por semana, a sagrada comunhão. Também a palmeira era instrumento da Divina Providência... todos os anos produzia cachos de doces tâmaras que me pareciam manjar do Céu.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, filho dileto do Deus Altíssimo, que realizastes a vocação à santidade na fidelidade à vida eremítica a que fostes chamado; intercedei por mim, para que eu persevere e seja fiel à minha própria vocação, livre das correntes do vício. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - A Missão Dada a Pafúncio",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Por isso, eu vos digo: não fiqueis preocupados quanto à vossa vida, pelo que haveis de comer ou de beber; nem, quanto ao vosso corpo, pelo que haveis de vestir. Não vale a vida mais do que o alimento, e o corpo, mais que o vestuário? Olhai os pássaros do céu: não semeiam, não colhem, nem ajuntam em celeiros. No entanto, vosso Pai celeste os alimenta. Será que vós não valeis mais do que eles?" (Mt 6, 25-26)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Aquilo que sabemos de Onofre sabemo-lo através de um monge, de nome Pafúncio, do mesmo Mosteiro de onde Deus chamou o nosso santo a ser eremita. Para fazer uns dias de penitência, saiu do Mosteiro e penetrou no deserto. Numa ocasião, viu ao longe uma criatura que lhe pareceu ser um animal de duas patas, coberto de cabelo humano e cingido de folhas. A estranha criatura fez menção de avançar na sua direção, e Pafúncio fugiu espavorido, mas aquele de quem fugia gritou-lhe: "Segue-me, estou com Deus". Pafúncio ajoelhou-se a seus pés, mas o homem de Deus disse-lhe: "Levanta-te, meu filho, porque tu, como eu, que me chamo Onofre, também és servo de Deus e dos Santos Padres."</p>
+                    <p class="mt-4">Onofre levou depois o visitante até ao local, junto da palmeira, onde tinha o seu eremitério. Ali encontraram um pão acabado de cozer e um cântaro de água fresquíssima. Ambos deram graças a Deus, comeram e dessedentaram. Terminada a refeição, oraram por longo tempo, até que adormeceram. Na manhã seguinte, Pafúncio reparou que Onofre estava muito pálido e fraco, ficando assustado. Onofre disse-lhe: “Não temas, irmão, porque o Senhor, nosso Deus, te enviou ao meu encontro para que enterres o meu corpo, pois termino hoje a minha peregrinação e partirei para o lugar do meu descanso”.</p>
+                    <p class="mt-4">Pafúncio manifestou o desejo de ficar ali, naquele eremitério, em lugar de Onofre, mas este não lho consentiu, pois não era essa a vontade de Deus, revelando-lhe de seguida a sua missão: “Quando regressares a Tebas, ao Mosteiro, narra aos monges tudo o que te disse e quantas maravilhas o Senhor fez na minha vida; pela Sua imensa misericórdia concederá muitas graças a todos os que lhas pedirem tomando-me por intercessor”. Onofre abençoou-o e entregou a alma ao Criador. Ouviram-se os cânticos dos anjos no silêncio do deserto, Pafúncio fez uma oração e enterrou o santo eremita. Nesse momento a palmeira secou e o rudimentar eremitério que ela suportava desabou. Foi no dia 12 de junho do Ano 400.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, iluminado pelo Espírito Santo indicastes ao monge Pafúncio qual a vontade de Deus a seu respeito; intercedei por mim, para que nas diversas circunstâncias da vida eu queira sempre o que Deus quer de mim, servindo-O com sobriedade e retidão. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Instrumento de Deus no Discernimento Vocacional",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Quando Jesus ia entrar no barco, o homem que estivera possesso pediu para ficar com ele. Jesus, porém, não o permitiu, mas disse-lhe: 'Vai para a tua casa, para junto dos teus, e anuncia-lhes tudo o que o Senhor fez por ti e como te mostrou misericórdia. O homem foi embora e começou a proclamar tudo quanto Jesus fizera.'" (Mc 5, 18-20)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Pafúncio manifestou o desejo de ficar ali, naquele eremitério, em lugar de Onofre, mas este não lho consentiu, pois não era essa a vontade de Deus. Emocionado com a grandeza e com a densidade daquele momento, Pafúncio reage emocionalmente... Por ele ficava já ali, naquele pobre eremitério suportado pela palmeira que, durante mais de sessenta anos, foi morada daquele homem de Deus, Onofre. O episódio faz lembrar aquele do endemoninhado de Gerasa, a quem Jesus libertou de uma “legião” de demônios: queria ir com Jesus. Nem sempre o que nos pede o coração corresponde à vontade de Deus, por isso precisamos da ajuda de quem oriente a direção do nosso olhar.</p>
+                    <p class="mt-4">Onofre, conduzido por um anjo ao deserto e, já no deserto, conduzido por um ancião ao eremitério, o mesmo que o iniciou nas regras dos Padres do Deserto, ajuda agora Pafúncio a perceber o que Deus queria da sua vida.</p>
+                    <p class="mt-4">É verdade que Deus fez de Onofre um especial intercessor. De Deus alcança-nos tudo, até o sustento digno e o sucesso nos negócios e empreendimentos honestos em que nos metemos, ajudando-nos a triunfar na vida profissional e a conseguir bons empregos. Ele nos ajuda também, e é o que ele mais gosta, a sair vencedores com Cristo e a alcançar o Céu.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, que fostes fiel à vocação de Deus, realizastes a vocação à santidade e participais na glória de Deus, orientai o meu olhar e ajudai-me a renunciar ao meu querer, para querer sempre aquilo que Deus quer de mim e para mim, mantendo-me firme nos caminhos da sobriedade. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Santo Onofre, Poderoso Intercessor",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"A alguns ele concedeu serem apóstolos; a outros, profetas; a outros, evangelistas; a outros, pastores e mestres, para capacitar os santos para a obra do ministério, para a edificação do Corpo de Cristo." (Ef 4, 11-12)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Disse Onofre a Pafúncio: “Quando regressares a Tebas, ao Mosteiro, narra aos monges tudo o que te disse e quantas maravilhas o Senhor fez na minha vida; pela Sua imensa misericórdia concederá muitas graças a todos os que lhas pedirem tomando-me por intercessor”.</p>
+                    <p class="mt-4">Pafúncio, conforme a missão que recebeu, deu a conhecer aos monges de Tebas a vida de Onofre, mas também o poder da sua intercessão. Aqueles cenobitas tornaram-se os primeiros devotos de Santo Onofre e os primeiros arautos da sua santidade. O Espírito Santo fez o resto. Rapidamente se espalhou a fama taumatúrgica de Onofre, passando a celebrar-se a sua festa litúrgica a 12 de junho, tanto no Oriente como no Ocidente. O Martirológio Romano tem a seguinte referência: "No Egito, Santo Onofre, anacoreta, que passou sessenta anos de vida religiosa na amplidão do deserto".</p>
+                    <p class="mt-4">Em muitos outros lugares, para além do Egito, se celebra e venera Santo Onofre, incluindo Itália (igreja de Sant'Onofrio no Janículo, em Roma), Jerusalém (Mosteiro de Santo Onofre), Polônia, Alemanha, Portugal, Espanha, Venezuela, México, Colômbia e Brasil. Na arte, Onofre é representado como um velho eremita revestido de longos cabelos e barba, com uma tanga de folhas, tendo a seus pés uma coroa e um cetro (símbolos do mundo nobre a que renunciou), bem como a caveira e a cruz, comuns nos Padres do Deserto.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, poderoso intercessor, sois o patrono dos tecelões e daqueles que buscam o sustento e a libertação de males e vícios. Peço-vos a prosperidade nesta vida, a graça da libertação do álcool e da bebida, mas, sobretudo, que me ajudeis a alcançar o Céu. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Santo Onofre e o Dinheiro",
+                content: `<div class="day-specific-content">
+                    <h4 class="section-title">Palavra de Deus</h4>
+                    <p class="italic text-white bg-white/5 p-3 rounded border-l-4 border-primary">"Eu vos digo: usai o 'Dinheiro injusto' (riqueza da injustiça) a fim de fazer amigos, para que, quando acabar, vos recebam nas moradas eternas. Por isso, se não sois confiáveis no uso do 'Dinheiro Injusto', quem vos confiará o verdadeiro bem? Ninguém pode servir a dois senhores." (Lc 16, 9.11.13)</p>
+
+                    <h4 class="section-title mt-6">Meditação</h4>
+                    <p>Será legítimo pedir a Santo Onofre que nos alcance o sucesso nos negócios? O cristão não pode ceder à tentação de idolatrar o dinheiro, que inevitavelmente o levaria a tornar-se dependente de desejos insensatos e prejudiciais e, até mesmo, a atolar-se na ruína e na perdição. Com frequência o Papa Francisco nos alerta para o perigo das riquezas: “Há, entre Deus e o dinheiro, algo que não se harmoniza. A avareza é a raiz de todos os males. Subjugados pelo desejo, alguns desviaram-se da fé e encontraram muitos tormentos. É o poder do dinheiro que nos faz desviar da fé pura. Priva-nos da fé, debilita-a e acabamos por perdê-la".</p>
+                    <p class="mt-4">Contudo, a procura de bons negócios que proporcionem lucros, às vezes avultados, não nos torna necessariamente escravos e idólatras do dinheiro. O dinheiro, “o esterco do diabo”, como diziam os primeiros Padres da Igreja, é necessário no nosso dia a dia. Quem pode viver sem dinheiro? Além disso, é utilíssimo em ordem à nossa salvação eterna se, com magnanimidade, o partilharmos com os pobres e o pusermos ao serviço da evangelização. Atualizando um célebre ensinamento de Santo Agostinho, poderíamos dizer que os pobres são como um cartão de crédito que nos permite transferir dinheiro para uma poupança no céu.</p>
+
+                    <h4 class="section-title mt-6">Súplica</h4>
+                    <p>Santo Onofre, que no deserto vivestes em estrita pobreza, peço-vos que me alcanceis a graça de viver livre da tentação de conseguir dinheiro por meios ilícitos, e afasteis de mim os pecados da ganância e da avareza. Peço-vos também que intercedais por mim, para que não me falte dinheiro para as necessidades do dia a dia e para a partilha com os pobres, e me concedais a graça da sobriedade contínua de vida. Amém.</p>
+
+                    <p class="mt-6 text-center font-bold text-white text-lg tracking-wide uppercase">Reza-se: Pai Nosso, Ave Maria e Glória.</p>
+                </div>`
+            }
+        ]
     },
 
     nossa_senhora_perpetuo_socorro: {
