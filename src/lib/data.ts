@@ -38,6 +38,7 @@ export type Saint = {
   endDate: string;
   feastDay: string;
   isMartyr?: boolean;
+  isImportant?: boolean;
 };
 
 export type SaintStory = {
@@ -3123,11 +3124,11 @@ export const saints: Saint[] = [
   { id: 'santa_gianna_beretta', name: 'Santa Gianna Beretta Molla', imageUrl: 'https://i.pinimg.com/1200x/3e/f0/b2/3ef0b28700ca5d1dbeba832b30a43ff3.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
   { id: 'santa_catarina_siena', name: 'Sta. Catarina Siena', imageUrl: 'https://i.pinimg.com/736x/fc/e8/7d/fce87d41f3daf1f431638303ccb0d14c.jpg', month: 'Abril', startDate: '20/04', endDate: '28/04', feastDay: '29/Abr' },
   { id: 'ns_africa', name: 'N.S. da África', imageUrl: 'https://www.a12.com/source/files/originals/Nossa_Senhora_da_Africa.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '21/04', endDate: '29/04', feastDay: '30/Abr' },
-  { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Abril/Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai' },
+  { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Abril/Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai', isImportant: true },
   { id: 'santo_atanasio', name: 'Santo Atanásio Diácono', imageUrl: 'https://i.pinimg.com/1200x/d6/90/61/d69061c1e40057ed9e54e0cd189b1e5e.jpg', month: 'Abril/Maio', startDate: '23/04', endDate: '01/05', feastDay: '02/Mai' },
 
   // Maio
-  { id: 'nossa_senhora_fatima', name: 'N.S. de Fátima', imageUrl: '/images/ns_fatima.png', month: 'Maio', startDate: '04/05', endDate: '12/05', feastDay: '13/Mai' },
+  { id: 'nossa_senhora_fatima', name: 'N.S. de Fátima', imageUrl: '/images/ns_fatima.png', month: 'Maio', startDate: '04/05', endDate: '12/05', feastDay: '13/Mai', isImportant: true },
 
   { id: 'santa_rita_cassia', name: 'Santa Rita de Cássia', imageUrl: 'https://i.pinimg.com/736x/db/68/3f/db683f0e1b68ee4b60800f26ae5ca7f0.jpg', month: 'Maio', startDate: '13/05', endDate: '21/05', feastDay: '22/Mai' },
   { id: 'pentecostes', name: 'Pentecostes - Solenidade', imageUrl: 'https://i.pinimg.com/736x/a8/8d/d8/a88dd8930bd3ecfa5be8cdff0601516d.jpg', month: 'Maio', startDate: '15/05', endDate: '23/05', feastDay: '24/Mai' },
@@ -3137,15 +3138,15 @@ export const saints: Saint[] = [
   { id: 'visitacao', name: 'Visitação - Nossa Senhora', imageUrl: 'https://i.pinimg.com/736x/46/49/63/464963169ef6da9d7829305e5e6727e8.jpg', imageObjectPosition: 'top', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
   { id: 'santissima_trindade', name: 'Santíssima Trindade', imageUrl: 'https://cruzterrasanta.com.br/_global/_ssf/ssf.aspx?d=/_upload/significados_de_santos/&arquivo=20230622182805-santissima-trindade_680.jpg', month: 'Maio', startDate: '22/05', endDate: '30/05', feastDay: '31/Mai' },
   { id: 'sao_jose_anchieta', name: 'São José de Anchieta', imageUrl: 'https://i.pinimg.com/736x/ae/1f/8b/ae1f8b16557fdbac53a42c25380cf301.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '08/06', feastDay: '09/Jun' },
-  { id: 'santo_antonio_padua', name: 'Santo Antônio', imageUrl: 'https://i.pinimg.com/736x/51/68/18/516818cb2bec324df6aecb722aea3d48.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '12/06', feastDay: '13/Jun' },
+  { id: 'santo_antonio_padua', name: 'Santo Antônio', imageUrl: 'https://i.pinimg.com/736x/51/68/18/516818cb2bec324df6aecb722aea3d48.jpg', month: 'Maio/Junho', startDate: '31/05', endDate: '12/06', feastDay: '13/Jun', isImportant: true },
 
   // Junho
   { id: 'sagrado_coracao', name: 'Sagrado Coração', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
   { id: 'santo_onofre', name: 'Santo Onofre do Egito', imageUrl: 'https://i.pinimg.com/736x/9b/0c/1d/9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e.jpg', month: 'Junho', startDate: '03/06', endDate: '11/06', feastDay: '12/Jun' },
   { id: 'imaculado_coracao', name: 'Imaculado Coração', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Junho', startDate: '04/06', endDate: '12/06', feastDay: '13/Jun' },
-  { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun' },
+  { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun', isImportant: true },
   { id: 'nossa_senhora_perpetuo_socorro', name: 'N.S. Perpétuo Socorro', imageUrl: 'https://i.pinimg.com/736x/0c/1d/2e/0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f.jpg', month: 'Junho', startDate: '18/06', endDate: '26/06', feastDay: '27/Jun' },
-  { id: 'sao_pedro_paulo', name: 'S. Pedro e Paulo', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun' },
+  { id: 'sao_pedro_paulo', name: 'S. Pedro e Paulo', imageUrl: 'https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun', isImportant: true },
   { id: 'sao_tome_apostolo', name: 'São Tomé Apóstolo', imageUrl: 'https://i.pinimg.com/736x/1d/2e/3f/1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a.jpg', month: 'Junho/Julho', startDate: '25/06', endDate: '03/07', feastDay: '03/Jul' },
   { id: 'santa_paulina', name: 'Santa Paulina do Brasil', imageUrl: 'https://i.pinimg.com/736x/2e/3f/4a/2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
 

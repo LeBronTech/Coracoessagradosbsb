@@ -7,5 +7,6 @@ export type SaintOfTheDayData = {
         imageObjectPosition?: string;
         story: string;
         isMartyr?: boolean;
+        isImportant?: boolean;
     }[];
 };

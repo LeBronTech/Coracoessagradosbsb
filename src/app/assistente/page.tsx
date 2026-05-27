@@ -25,7 +25,8 @@ import {
   AlertTriangle,
   UserCheck,
   ChevronDown,
-  ChevronUp
+  ChevronUp,
+  Bell
 } from "lucide-react";
 import { saints, novenaData, saintsOfTheDay } from "@/lib/data";
 import { addDays, subDays, format, parse, differenceInDays } from "date-fns";
@@ -212,6 +213,60 @@ const trimForWhatsApp = (buildTextFunc: (content: string) => string, fullContent
   return text;
 };
 
+// Helpers para geração modular do texto do Santo do Dia (Alertas e Santo do Dia)
+const generateWhatsAppTextForSaint = (saintName: string, story: string, date: Date, allSaintsOfThisDate: string[] = []) => {
+  const monthIntro = getMonthIntroWA(date.getMonth());
+  let outrosSantosStr = "";
+  const outros = allSaintsOfThisDate.filter(name => name.toLowerCase() !== saintName.toLowerCase()).join(", ");
+  if (outros) {
+    outrosSantosStr = `\n\n*Hoje também se celebra ${outros}.*`;
+  }
+
+  const buildText = (storySnippet: string) => {
+    const text = `${monthIntro}Hoje a Igreja celebra **${saintName}**.\n\n${storySnippet}${outrosSantosStr}\n\nLeia e compartilhe:\nhttps://coracoessagradosbsb.vercel.app\n\nSegue a gente:\nhttps://www.instagram.com/coracoessagradosbsb\n\n_Projeto Corações Sagrados❤️‍🔥_`;
+    return text.replace(/\r\n/g, "\n").replace(/\n\s*\n\s*\n+/g, "\n\n").trim();
+  };
+
+  const mainStory = cleanSaintStory(story, 3);
+  return trimForWhatsApp(buildText, mainStory);
+};
+
+const generateInstagramTextForSaint = (saintName: string, story: string, date: Date, allSaintsOfThisDate: string[] = []) => {
+  const mainStory = cleanSaintStory(story, 3);
+  const cleanHashtag = saintName.replace(/[\s,.-]+/g, "").toLowerCase();
+  const monthIntro = getMonthIntroIG(date.getMonth());
+  let outrosSantosStr = "";
+  const outros = allSaintsOfThisDate.filter(name => name.toLowerCase() !== saintName.toLowerCase()).join(", ");
+  if (outros) {
+    outrosSantosStr = `\n\nHoje também se celebra ${outros}.`;
+  }
+
+  const text = `${monthIntro}Hoje a Igreja recorda ${saintName}.
+
+${mainStory}${outrosSantosStr}
+
+📖Leia, ❤️Curta, 🔄reposte, ✝️ conheça o nosso projeto!
+
+Sagrado coração de Jesus seja nossa força ❤️‍🔥 
+Imaculado coração de Maria seja nossa proteção 🌹
+Castíssimo coração de São José Valei-nos ⚒️
+
+Projeto Corações Sagrados❤️‍🔥
+
+.
+.
+.
+.
+.
+
+#${cleanHashtag} #santododia #fe #coracoessagrados`;
+
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/\n\s*\n\s*\n+/g, "\n\n")
+    .trim();
+};
+
 // Helper para gerar o convite unificado (Dia 0)
 const generateConviteText = (params: {
   saintName: string;
@@ -356,6 +411,8 @@ export default function AssistentePage() {
   const { toast } = useToast();
   const [hydrated, setHydrated] = useState(false);
   const [activeTab, setActiveTab] = useState<"redator" | "formatador" | "santododia" | "multitask">("multitask");
+  const [finishedCollapsed, setFinishedCollapsed] = useState(true);
+  const [hiddenAlerts, setHiddenAlerts] = useState<string[]>([]);
 
   // --- Tempo Real para Cronômetro ---
   const [now, setNow] = useState(new Date());
@@ -415,6 +472,14 @@ export default function AssistentePage() {
     }
     setCopiedHistory(history);
 
+    // Carrega alertas ocultados
+    const storedHidden = localStorage.getItem("coracoes_sagrados_hidden_alerts");
+    if (storedHidden) {
+      try {
+        setHiddenAlerts(JSON.parse(storedHidden));
+      } catch (e) {}
+    }
+
     // Carrega emojis de novenas salvos
     const novenaEmojisCache: Record<string, [string, string]> = {};
     for (let i = 0; i < localStorage.length; i++) {
@@ -469,6 +534,77 @@ export default function AssistentePage() {
     const month = MESES[santoDiaDate.getMonth()];
     return saintsOfTheDay.find(s => s.day === day && s.month === month);
   }, [santoDiaDate]);
+
+  // Alertas de santos importantes para Hoje e Amanhã
+  const importantSaintsAlerts = useMemo(() => {
+    const alerts: Array<{
+      id: string;
+      name: string;
+      imageUrl: string;
+      story: string;
+      isImportant: boolean;
+      isMartyr?: boolean;
+      type: "24h" | "dia";
+      dateLabel: string;
+      day: number;
+      month: string;
+      dateObject: Date;
+      saintsListId?: string;
+    }> = [];
+
+    const nowRef = new Date();
+    const tomorrowRef = addDays(nowRef, 1);
+
+    const datesToCheck = [
+      { date: nowRef, type: "dia" as const, label: "Hoje" },
+      { date: tomorrowRef, type: "24h" as const, label: "Nas próximas 24h" }
+    ];
+
+    datesToCheck.forEach(({ date, type, label }) => {
+      const day = date.getDate();
+      const month = MESES[date.getMonth()];
+
+      const dayData = saintsOfTheDay.find(s => s.day === day && s.month === month);
+      if (dayData) {
+        dayData.saints.forEach(saint => {
+          // Verifica se é importante diretamente ou pela lista principal de saints
+          const isImp = saint.isImportant || saints.some(s => s.name.toLowerCase() === saint.name.toLowerCase() && s.isImportant);
+          
+          if (isImp) {
+            const matchingGlobalSaint = saints.find(s => s.name.toLowerCase() === saint.name.toLowerCase());
+            
+            alerts.push({
+              id: `alert_${day}_${month}_${saint.name.replace(/\s+/g, '_').toLowerCase()}`,
+              name: saint.name,
+              imageUrl: saint.imageUrl,
+              story: saint.story,
+              isImportant: true,
+              isMartyr: saint.isMartyr,
+              type,
+              dateLabel: label,
+              day,
+              month,
+              dateObject: date,
+              saintsListId: matchingGlobalSaint?.id
+            });
+          }
+        });
+      }
+    });
+
+    return alerts.filter(alert => !hiddenAlerts.includes(alert.id));
+  }, [hiddenAlerts]);
+
+  const handleHideAlert = (alertId: string) => {
+    const updated = [...hiddenAlerts, alertId];
+    setHiddenAlerts(updated);
+    localStorage.setItem("coracoes_sagrados_hidden_alerts", JSON.stringify(updated));
+    toast({
+      title: "Alerta Arquivado",
+      description: "Este alerta de santo importante foi removido da lista.",
+      duration: 2500,
+    });
+  };
 
   // Função para navegar entre as datas no Assistente
   const handleNavigateSantoDia = (direction: 'prev' | 'next') => {
@@ -603,9 +739,11 @@ export default function AssistentePage() {
       localStorage.removeItem(key);
     });
     setCopiedHistory({});
+    localStorage.removeItem("coracoes_sagrados_hidden_alerts");
+    setHiddenAlerts([]);
     toast({
       title: "Progresso Reiniciado!",
-      description: "Os marcadores visuais de envios foram limpos.",
+      description: "Os marcadores visuais de envios e alertas foram limpos.",
       duration: 3000,
     });
   };
@@ -1211,76 +1349,258 @@ _Projeto Corações Sagrados❤️‍🔥_`;
         </div>
 
         {/* ============================================================== */}
-        {/* PAINEL DE ALERTAS & CRONÔMETRO DAS NOVENAS DO MÊS              */}
+        {/* PAINEL DE CRONÔMETRO + SANTOS DO DIA                            */}
         {/* ============================================================== */}
-        {filteredSaints.length > 0 && (
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-            {filteredSaints.map(saint => {
-              const countdown = countdowns[saint.id];
-              if (!countdown) return null;
-              
-              return (
-                <Card 
-                  key={saint.id} 
-                  onClick={() => {
-                    setActiveTab("multitask");
-                    // Rolagem reativa com atraso mínimo para renderizar a aba
-                    setTimeout(() => {
-                      const element = document.getElementById(`novena-card-${saint.id}`);
-                      if (element) {
-                        element.scrollIntoView({ behavior: "smooth", block: "center" });
-                      }
-                    }, 120);
-                  }}
-                  className={cn(
-                    "border-white/5 backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:border-amber-500/30 hover:bg-stone-900/80 hover:scale-[1.01] active:scale-[0.99]",
-                    countdown.status === "active" 
-                      ? "bg-emerald-950/15 border-emerald-500/20" 
+        {(() => {
+          // Separa ativos/agendados dos finalizados
+          const activeSaints = filteredSaints.filter(s => {
+            const c = countdowns[s.id];
+            return c && c.status !== "finished";
+          });
+          const finishedSaints = filteredSaints.filter(s => {
+            const c = countdowns[s.id];
+            return c && c.status === "finished";
+          });
+
+          // Santos do dia de hoje (do saintsOfTheDay)
+          const todayDay = now.getDate();
+          const todayMonth = MESES[now.getMonth()];
+          const todayDayData = saintsOfTheDay.find(s => s.day === todayDay && s.month === todayMonth);
+          const todaySaints = todayDayData ? todayDayData.saints : [];
+
+          // Santos Principais do mês selecionado — busca em saintsOfTheDay para pegar todos
+          // os santos com isImportant:true que aparecem naquele mês (ex: São Paulo VI, Sta Joana d'Arc)
+          const seenSaintNames = new Set<string>();
+          const importantMonthSaints: Array<{
+            name: string;
+            imageUrl: string;
+            day: number;
+            month: string;
+            story: string;
+          }> = [];
+
+          // 1) Santos do array `saints` com isImportant
+          saints.filter(s =>
+            s.isImportant &&
+            s.month.toLowerCase().includes(selectedMonth.toLowerCase())
+          ).forEach(s => {
+            if (!seenSaintNames.has(s.name.toLowerCase())) {
+              seenSaintNames.add(s.name.toLowerCase());
+              importantMonthSaints.push({
+                name: s.name,
+                imageUrl: s.imageUrl,
+                day: parseInt(s.feastDay?.split('/')[0] || '0'),
+                month: selectedMonth,
+                story: ''
+              });
+            }
+          });
+
+          // 2) Santos de saintsOfTheDay com isImportant do mês selecionado
+          saintsOfTheDay.forEach(dayEntry => {
+            if (dayEntry.month !== selectedMonth) return;
+            dayEntry.saints.forEach((s: any) => {
+              if (s.isImportant && !seenSaintNames.has(s.name.toLowerCase())) {
+                seenSaintNames.add(s.name.toLowerCase());
+                importantMonthSaints.push({
+                  name: s.name,
+                  imageUrl: s.imageUrl,
+                  day: dayEntry.day,
+                  month: dayEntry.month,
+                  story: s.story || ''
+                });
+              }
+            });
+          });
+
+          // Ordena por dia do mês
+          importantMonthSaints.sort((a, b) => a.day - b.day);
+
+          const renderCountdownCard = (saint: typeof filteredSaints[0]) => {
+            const countdown = countdowns[saint.id];
+            if (!countdown) return null;
+            return (
+              <Card
+                key={saint.id}
+                onClick={() => {
+                  setActiveTab("multitask");
+                  setTimeout(() => {
+                    const element = document.getElementById(`novena-card-${saint.id}`);
+                    if (element) element.scrollIntoView({ behavior: "smooth", block: "center" });
+                  }, 120);
+                }}
+                className={cn(
+                  "border-white/5 backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:border-amber-500/30 hover:bg-stone-900/80 hover:scale-[1.01] active:scale-[0.99]",
+                  countdown.status === "active"
+                    ? "bg-emerald-950/15 border-emerald-500/20"
+                    : countdown.isUrgent
+                      ? "bg-red-950/15 border-red-500/20 border-t-2 border-t-red-500"
+                      : countdown.status === "not_started"
+                        ? "bg-stone-950/40"
+                        : "bg-stone-950/20 opacity-60"
+                )}
+              >
+                <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
+                  <div className="truncate">
+                    <CardTitle className="text-xs font-brand text-stone-200 truncate">{saint.name}</CardTitle>
+                    <CardDescription className="text-[10px] text-stone-400">Festa: {saint.feastDay}</CardDescription>
+                  </div>
+                  <span
+                    className={cn(
+                      "text-[9px] px-2 py-0.5 rounded-full font-bold uppercase",
+                      countdown.status === "active"
+                        ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 animate-pulse"
+                        : countdown.isUrgent
+                          ? "bg-red-500/10 text-red-400 border border-red-500/25 animate-pulse font-extrabold"
+                          : countdown.status === "not_started"
+                            ? "bg-amber-500/10 text-amber-400 border border-amber-500/25"
+                            : "bg-stone-500/10 text-stone-400"
+                    )}
+                  >
+                    {countdown.status === "active"
+                      ? "Ativa"
                       : countdown.isUrgent
-                        ? "bg-red-950/15 border-red-500/20 border-t-2 border-t-red-500"
+                        ? "Inicia Amanhã!"
                         : countdown.status === "not_started"
-                          ? "bg-stone-950/40"
-                          : "bg-stone-950/20 opacity-60"
-                  )}
-                >
-                  <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
-                    <div className="truncate">
-                      <CardTitle className="text-xs font-brand text-stone-200 truncate">{saint.name}</CardTitle>
-                      <CardDescription className="text-[10px] text-stone-400">Festa: {saint.feastDay}</CardDescription>
-                    </div>
-                    <span 
-                      className={cn(
-                        "text-[9px] px-2 py-0.5 rounded-full font-bold uppercase",
-                        countdown.status === "active" 
-                          ? "bg-emerald-500/10 text-emerald-400 border border-emerald-500/25 animate-pulse" 
-                          : countdown.isUrgent
-                            ? "bg-red-500/10 text-red-400 border border-red-500/25 animate-pulse font-extrabold"
-                            : countdown.status === "not_started"
-                              ? "bg-amber-500/10 text-amber-400 border border-amber-500/25"
-                              : "bg-stone-500/10 text-stone-400"
-                      )}
+                          ? "Agendada"
+                          : "Finalizada"}
+                  </span>
+                </CardHeader>
+                <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Clock className={cn("w-3.5 h-3.5", countdown.isUrgent ? "text-red-500 animate-pulse" : "text-amber-500")} />
+                    <span className={cn("text-xs font-bold font-mono", countdown.isUrgent ? "text-red-400 font-extrabold" : "text-stone-300")}>{countdown.text}</span>
+                  </div>
+                  <span className="text-[9px] text-stone-500 italic">{countdown.label}</span>
+                </CardContent>
+              </Card>
+            );
+          };
+
+          return (
+            <div className="mb-8 space-y-4">
+              {/* Santos do Dia + Santos Principais do Mês + Cronômetros Ativos */}
+              {(activeSaints.length > 0 || todaySaints.length > 0 || importantMonthSaints.length > 0) && (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  {/* Cards dos Santos do Dia (hoje) */}
+                  {todaySaints.map((s, idx) => (
+                    <Card
+                      key={`today-saint-${idx}`}
+                      onClick={() => {
+                        setActiveTab("santododia");
+                        setSelectedSaintInDayIndex(idx);
+                      }}
+                      className="bg-amber-950/15 border-amber-500/25 backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:border-amber-500/50 hover:bg-amber-950/25 hover:scale-[1.01] active:scale-[0.99] border-t-2 border-t-amber-400"
                     >
-                      {countdown.status === "active" 
-                        ? "Ativa" 
-                        : countdown.isUrgent 
-                          ? "Inicia Amanhã!" 
-                          : countdown.status === "not_started" 
-                            ? "Agendada" 
-                            : "Finalizada"}
+                      <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
+                        <div className="truncate">
+                          <CardTitle className="text-xs font-brand text-amber-200 truncate">{s.name}</CardTitle>
+                          <CardDescription className="text-[10px] text-stone-400">Santo do Dia — {todayDay}/{now.getMonth() + 1}</CardDescription>
+                        </div>
+                        <span className="text-[9px] px-2 py-0.5 rounded-full font-bold uppercase bg-amber-500/15 text-amber-400 border border-amber-500/30 animate-pulse">
+                          Hoje
+                        </span>
+                      </CardHeader>
+                      <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <UserCheck className="w-3.5 h-3.5 text-amber-500" />
+                          <span className="text-xs font-bold text-stone-300">Ver textos do dia</span>
+                        </div>
+                        <span className="text-[9px] text-stone-500 italic">Santo do Dia</span>
+                      </CardContent>
+                    </Card>
+                  ))}
+
+                  {/* Cards dos Santos Principais do Mês */}
+                  {importantMonthSaints.map((s, i) => {
+                    // Calcula quantos dias até a festa
+                    const todayNum = now.getDate();
+                    const currMonth = MESES[now.getMonth()];
+                    const isSameMonth = currMonth === selectedMonth;
+                    const daysUntil = isSameMonth ? s.day - todayNum : null;
+                    const isToday = isSameMonth && daysUntil === 0;
+                    const isUpcoming = isSameMonth && daysUntil !== null && daysUntil > 0 && daysUntil <= 7;
+
+                    return (
+                      <Card
+                        key={`important-${i}`}
+                        onClick={() => {
+                          // Navega para o dia do santo
+                          const targetDate = new Date(now.getFullYear(), now.getMonth(), s.day);
+                          setSantoDiaDate(targetDate);
+                          setSelectedSaintInDayIndex(0);
+                          setActiveTab("santododia");
+                        }}
+                        className={cn(
+                          "backdrop-blur-sm shadow-md transition-all duration-300 cursor-pointer hover:scale-[1.01] active:scale-[0.99] border-t-2",
+                          isToday
+                            ? "bg-amber-950/20 border-amber-500/40 hover:border-amber-400/70 border-t-amber-400"
+                            : isUpcoming
+                              ? "bg-violet-950/25 border-violet-500/35 hover:border-violet-400/60 border-t-violet-500"
+                              : "bg-violet-950/15 border-violet-500/20 hover:border-violet-400/40 border-t-violet-500/50 opacity-80"
+                        )}
+                      >
+                        <CardHeader className="p-3.5 pb-2 border-b border-white/5 flex flex-row items-center justify-between">
+                          <div className="truncate">
+                            <CardTitle className={cn("text-xs font-brand truncate", isToday ? "text-amber-200" : "text-violet-200")}>{s.name}</CardTitle>
+                            <CardDescription className="text-[10px] text-stone-400">
+                              {s.day} de {s.month}
+                              {daysUntil !== null && daysUntil > 0 && ` • em ${daysUntil} dia${daysUntil > 1 ? 's' : ''}`}
+                            </CardDescription>
+                          </div>
+                          <span className={cn(
+                            "text-[9px] px-2 py-0.5 rounded-full font-bold uppercase border",
+                            isToday
+                              ? "bg-amber-500/15 text-amber-400 border-amber-500/30 animate-pulse"
+                              : isUpcoming
+                                ? "bg-violet-500/15 text-violet-300 border-violet-500/30 animate-pulse"
+                                : "bg-violet-500/10 text-violet-400/70 border-violet-500/20"
+                          )}>
+                            {isToday ? "Hoje" : isUpcoming ? `Em ${daysUntil}d` : "⭐ Santo"}
+                          </span>
+                        </CardHeader>
+                        <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <Calendar className={cn("w-3.5 h-3.5", isToday ? "text-amber-500" : "text-violet-400")} />
+                            <span className="text-xs font-bold text-stone-300">Santo Principal</span>
+                          </div>
+                          <span className="text-[9px] text-violet-500/70 italic font-semibold">Importante</span>
+                        </CardContent>
+                      </Card>
+                    );
+                  })}
+
+                  {/* Cards das Novenas Ativas/Agendadas */}
+                  {activeSaints.map(renderCountdownCard)}
+                </div>
+              )}
+
+
+              {/* Seção Colapsável: Finalizados */}
+              {finishedSaints.length > 0 && (
+                <div>
+                  <button
+                    onClick={() => setFinishedCollapsed(prev => !prev)}
+                    className="w-full flex items-center justify-between px-4 py-2.5 bg-stone-950/40 border border-white/5 rounded-2xl text-stone-400 hover:text-stone-200 hover:bg-stone-900/50 transition-all duration-300 group"
+                  >
+                    <span className="text-[11px] font-bold uppercase tracking-wider flex items-center gap-2">
+                      <Clock className="w-3.5 h-3.5 text-stone-500" />
+                      Novenas Concluídas ({finishedSaints.length})
                     </span>
-                  </CardHeader>
-                  <CardContent className="p-3.5 pt-2.5 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Clock className={cn("w-3.5 h-3.5", countdown.isUrgent ? "text-red-500 animate-pulse" : "text-amber-500")} />
-                      <span className={cn("text-xs font-bold font-mono", countdown.isUrgent ? "text-red-400 font-extrabold" : "text-stone-300")}>{countdown.text}</span>
+                    <span className={cn("transition-transform duration-300", finishedCollapsed ? "" : "rotate-180")}>
+                      <ChevronDown className="w-4 h-4" />
+                    </span>
+                  </button>
+                  {!finishedCollapsed && (
+                    <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-4 animate-in fade-in slide-in-from-top-2 duration-300">
+                      {finishedSaints.map(renderCountdownCard)}
                     </div>
-                    <span className="text-[9px] text-stone-500 italic">{countdown.label}</span>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        )}
+                  )}
+                </div>
+              )}
+            </div>
+          );
+        })()}
 
         {/* Abas Principais Reorganizadas */}
         <Tabs value={activeTab} onValueChange={(v) => setActiveTab(v as any)} className="space-y-6">
@@ -1305,6 +1625,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                   </span>
                 )}
               </TabsTrigger>
+
+
 
               {/* 2. Santo do Dia */}
               <TabsTrigger 
@@ -1648,6 +1970,210 @@ _Projeto Corações Sagrados❤️‍🔥_`;
             )}
           </TabsContent>
 
+          {/* TAB ALERTAS REMOVIDA */}
+          {false && (<TabsContent value="alertas" className="space-y-6 outline-none">
+            
+            {/* Banner Superior da Aba de Alertas */}
+            <div className="p-5 bg-stone-900/60 border border-white/10 rounded-3xl backdrop-blur-sm shadow-2xl flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+              <div>
+                <h3 className="text-lg font-bold text-white flex items-center gap-2 font-brand">
+                  <Bell className="w-5 h-5 text-red-500 animate-pulse" /> Santos Importantes de Hoje e Amanhã
+                </h3>
+                <p className="text-xs text-stone-400 mt-1 max-w-xl">
+                  Fique por dentro das maiores celebrações litúrgicas das próximas horas. Copie os textos promocionais formatados diretamente para as redes do Projeto Corações Sagrados.
+                </p>
+              </div>
+              {importantSaintsAlerts.length > 0 && (
+                <span className="text-[10px] bg-red-500/25 border border-red-500/40 text-red-400 font-extrabold px-3 py-1 rounded-full uppercase tracking-wider animate-pulse">
+                  {importantSaintsAlerts.length} {importantSaintsAlerts.length === 1 ? "Alerta Ativo" : "Alertas Ativos"}
+                </span>
+              )}
+            </div>
+
+            {importantSaintsAlerts.length === 0 ? (
+              <Card className="bg-stone-950/40 border border-dashed border-white/10 backdrop-blur-sm text-center py-16 rounded-3xl">
+                <CardContent className="space-y-4">
+                  <div className="mx-auto w-16 h-16 bg-stone-900/80 rounded-full flex items-center justify-center border border-white/5">
+                    <Bell className="w-8 h-8 text-stone-600" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="text-base font-bold text-stone-300 font-brand">Nenhum Alerta Ativo</h3>
+                    <p className="text-xs text-stone-500 max-w-sm mx-auto">
+                      Não há festas de santos considerados "mais importantes" agendadas para hoje ou amanhã.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="grid gap-6 md:grid-cols-1">
+                {importantSaintsAlerts.map((alert) => {
+                  // Textos para cópia baseados na lógica compartilhada
+                  const waText = generateWhatsAppTextForSaint(alert.name, alert.story, alert.dateObject, [alert.name]);
+                  const igText = generateInstagramTextForSaint(alert.name, alert.story, alert.dateObject, [alert.name]);
+                  
+                  const waKey = `copiado_santo_wa_${alert.day}_${alert.month}`;
+                  const igKey = `copiado_santo_ig_${alert.day}_${alert.month}`;
+                  
+                  const isWaCopied = copiedHistory[waKey];
+                  const isIgCopied = copiedHistory[igKey];
+
+                  return (
+                    <Card 
+                      key={alert.id}
+                      className={cn(
+                        "bg-stone-950/60 backdrop-blur-sm shadow-2xl rounded-3xl border-2 transition-all duration-300 overflow-hidden relative group",
+                        alert.type === "dia" 
+                          ? "border-emerald-500/20 hover:border-emerald-500/40 shadow-emerald-950/5" 
+                          : "border-red-500/20 hover:border-red-500/40 shadow-red-950/5"
+                      )}
+                    >
+                      {/* Selo de Categoria/Urgência */}
+                      <div className="absolute top-4 left-4 z-10 flex gap-2">
+                        <span 
+                          className={cn(
+                            "text-[9px] font-extrabold px-2.5 py-1 rounded-full uppercase tracking-wider shadow-lg flex items-center gap-1",
+                            alert.type === "dia" 
+                              ? "bg-emerald-500 text-stone-950" 
+                              : "bg-red-500 text-white animate-pulse"
+                          )}
+                        >
+                          {alert.type === "dia" ? (
+                            <>
+                              <Calendar className="w-3 h-3" />
+                              Festa Hoje
+                            </>
+                          ) : (
+                            <>
+                              <Clock className="w-3 h-3" />
+                              Festa em 24h
+                            </>
+                          )}
+                        </span>
+                        
+                        {alert.isMartyr && (
+                          <span className="text-[9px] font-extrabold bg-red-950/80 border border-red-500/30 text-red-400 px-2.5 py-1 rounded-full uppercase tracking-wider">
+                            Mártir ✝️
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Botão Ocultar (Lixeira) */}
+                      <button 
+                        onClick={() => handleHideAlert(alert.id)}
+                        className="absolute top-4 right-4 z-10 p-2 bg-stone-900/80 hover:bg-red-500/20 text-stone-400 hover:text-red-500 border border-white/5 rounded-full shadow-lg transition-all active:scale-90"
+                        title="Descartar este alerta"
+                      >
+                        <Trash2 className="w-4 h-4" />
+                      </button>
+
+                      <div className="grid md:grid-cols-12 gap-0">
+                        {/* Imagem do Santo */}
+                        <div className="md:col-span-3 relative h-48 md:h-full min-h-[180px] bg-stone-900">
+                          <img 
+                            src={alert.imageUrl} 
+                            alt={alert.name} 
+                            className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-stone-950 via-stone-950/40 to-transparent"></div>
+                        </div>
+
+                        {/* Conteúdo do Santo */}
+                        <div className="md:col-span-9 p-6 flex flex-col justify-between space-y-4">
+                          <div className="space-y-2">
+                            <span className="text-[10px] text-amber-500 font-bold uppercase tracking-widest block">
+                              Celebrado em {alert.day} de {alert.month}
+                            </span>
+                            <h3 className="text-xl font-bold font-brand text-white">{alert.name}</h3>
+                            <div 
+                              className="text-xs text-stone-300 line-clamp-3 leading-relaxed font-light [&>h4]:hidden [&>p]:mt-1"
+                              dangerouslySetInnerHTML={{ __html: alert.story }}
+                            />
+                          </div>
+
+                          {/* Seção de Cópia e Ações */}
+                          <div className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-3">
+                            
+                            {/* Copiar WhatsApp */}
+                            <Button
+                              size="sm"
+                              variant={isWaCopied ? "default" : "secondary"}
+                              onClick={() => handleCopyText(waText, waKey)}
+                              className={cn(
+                                "rounded-xl font-brand text-xs font-bold gap-2 active:scale-95 transition-all shadow-md py-4",
+                                isWaCopied 
+                                  ? "bg-emerald-500 hover:bg-emerald-600 text-stone-950" 
+                                  : "bg-white/10 hover:bg-white/20 text-white"
+                              )}
+                            >
+                              {isWaCopied ? (
+                                <>
+                                  <Check className="w-3.5 h-3.5 text-stone-950" />
+                                  WA Enviado!
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="w-3.5 h-3.5" />
+                                  Copiar WhatsApp
+                                </>
+                              )}
+                            </Button>
+
+                            {/* Copiar Instagram */}
+                            <Button
+                              size="sm"
+                              variant={isIgCopied ? "default" : "secondary"}
+                              onClick={() => handleCopyText(igText, igKey)}
+                              className={cn(
+                                "rounded-xl font-brand text-xs font-bold gap-2 active:scale-95 transition-all shadow-md py-4",
+                                isIgCopied 
+                                  ? "bg-pink-600 hover:bg-pink-700 text-white" 
+                                  : "bg-white/10 hover:bg-white/20 text-white"
+                              )}
+                            >
+                              {isIgCopied ? (
+                                <>
+                                  <Check className="w-3.5 h-3.5 text-white" />
+                                  IG Enviado!
+                                </>
+                              ) : (
+                                <>
+                                  <Copy className="w-3.5 h-3.5" />
+                                  Copiar Instagram
+                                </>
+                              )}
+                            </Button>
+
+                            {/* Atalho para ver a Novena ou Santo do Dia Completo */}
+                            {alert.saintsListId && (
+                              <Button
+                                size="sm"
+                                variant="ghost"
+                                onClick={() => {
+                                  setFormatSaintId(alert.saintsListId!);
+                                  setActiveTab("formatador");
+                                  toast({
+                                    title: "Navegação Rápida",
+                                    description: `Formatador de Novena aberto para ${alert.name}.`,
+                                    duration: 2000,
+                                  });
+                                }}
+                                className="text-[11px] text-amber-500 hover:text-amber-400 hover:bg-amber-500/10 font-bold rounded-xl ml-auto gap-1"
+                              >
+                                Ver Novena
+                                <Sparkles className="w-3 h-3 ml-1 text-amber-500 animate-pulse" />
+                              </Button>
+                            )}
+
+                          </div>
+                        </div>
+                      </div>
+                    </Card>
+                  );
+                })}
+              </div>
+            )}
+          </TabsContent>)}
+
           {/* ============================================================== */}
           {/* TAB 2: SANTO DO DIA DE HOJE                                    */}
           {/* ============================================================== */}
@@ -1682,6 +2208,23 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                 <ChevronRight className="h-4 w-4" />
               </Button>
             </div>
+
+            {/* Mensagem clara de navegação quando não há dados */}
+            {!todaySaintData && (
+              <div className="text-center py-10 bg-stone-950/40 rounded-3xl border border-dashed border-white/5">
+                <UserCheck className="w-10 h-10 text-stone-600 mx-auto mb-3" />
+                <p className="text-sm font-semibold text-stone-300">
+                  Nenhum santo cadastrado para {santoDiaDate.getDate()} de {MESES[santoDiaDate.getMonth()]}
+                </p>
+                <p className="text-xs text-stone-500 mt-1">Use as setas para navegar entre os dias.</p>
+                <button
+                  onClick={() => setSantoDiaDate(new Date())}
+                  className="mt-4 text-[11px] text-amber-500 hover:text-amber-400 border border-amber-500/30 px-3 py-1 rounded-full transition-all"
+                >
+                  Voltar para hoje
+                </button>
+              </div>
+            )}
 
             {todaySaintData ? (
               <div className="grid md:grid-cols-12 gap-6">
