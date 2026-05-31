@@ -199,18 +199,132 @@ const getWhatsAppLenNoSpace = (s: string) => {
   return count;
 };
 
-// Helper para garantir limite do WhatsApp (1024 chars com espaco, 850 sem espaco)
-const trimForWhatsApp = (buildTextFunc: (content: string) => string, fullContent: string): string => {
-  let content = fullContent;
-  let text = buildTextFunc(content);
-
-  while (content.length > 20 && (getWhatsAppLen(text) > 1024 || getWhatsAppLenNoSpace(text) > 850)) {
-    const lastSpace = content.lastIndexOf(' ', content.length - 5);
-    if (lastSpace === -1) break;
-    content = content.substring(0, lastSpace) + "...";
-    text = buildTextFunc(content);
+const trimToLastSentence = (text: string, maxLength: number): string => {
+  if (text.length <= maxLength) return text.trim();
+  
+  // Corta no limite máximo
+  let truncated = text.substring(0, maxLength);
+  
+  // Procura o último caractere de pontuação terminal (. ou ! ou ?) de forma robusta e contextualizada
+  let lastPeriod = -1;
+  for (let i = truncated.length - 1; i >= 0; i--) {
+    const char = truncated[i];
+    if (char === '.' || char === '!' || char === '?') {
+      // Evita falsos positivos como abreviações (ex: "S.ª", "D.") ou pontuação em números (ex: "1.000")
+      // Uma pontuação de frase válida geralmente é o final do texto ou é seguida por espaço, quebra de linha ou aspas
+      if (i === truncated.length - 1 || /\s|["'”’»\n]/.test(truncated[i + 1]) || /^[A-ZÁÉÍÓÚÂÊÔÀÜÇ]$/.test(truncated[i + 1])) {
+        // Também garante que não estamos pegando um ponto isolado de abreviação curta (ex: "S.", "Av.")
+        const words = truncated.substring(0, i).split(/\s+/);
+        const lastWord = words[words.length - 1] || "";
+        if (lastWord.length > 2) {
+          lastPeriod = i;
+          break;
+        }
+      }
+    }
   }
-  return text;
+  
+  if (lastPeriod !== -1) {
+    // Retorna até a pontuação (inclusive) de forma limpa!
+    return truncated.substring(0, lastPeriod + 1).trim();
+  }
+  
+  // Se mesmo assim não achou com a validação estrita, busca o último ponto bruto
+  const lastRawPeriod = Math.max(
+    truncated.lastIndexOf('.'),
+    truncated.lastIndexOf('!'),
+    truncated.lastIndexOf('?')
+  );
+  
+  if (lastRawPeriod > 50) {
+    return truncated.substring(0, lastRawPeriod + 1).trim();
+  }
+  
+  // Se não houver absolutamente nenhuma pontuação terminal (o que é quase impossível),
+  // retorna o texto e coloca um ponto final amigável
+  const lastSpace = truncated.lastIndexOf(' ');
+  if (lastSpace !== -1) {
+    return truncated.substring(0, lastSpace).trim() + ".";
+  }
+  
+  return truncated.trim() + ".";
+};
+
+// Helper para garantir limite do WhatsApp (1024 chars com espaco, 850 sem espaco) construindo o texto frase por frase e cortando perfeitamente no ultimo ponto antes de estourar o limite
+const trimForWhatsApp = (buildTextFunc: (content: string) => string, fullContent: string): string => {
+  let text = buildTextFunc(fullContent);
+
+  // Se já cabe no limite, retorna o texto completo!
+  if (getWhatsAppLen(text) <= 1024 && getWhatsAppLenNoSpace(text) <= 850) {
+    return text;
+  }
+
+  // Divide o conteúdo em parágrafos para preservar a estrutura de quebras de linha
+  const paragraphs = fullContent.split('\n\n').filter(p => p.trim().length > 0);
+  
+  let acceptedContent = "";
+  let isLimitExceeded = false;
+
+  for (let pIdx = 0; pIdx < paragraphs.length; pIdx++) {
+    if (isLimitExceeded) break;
+    
+    const paragraph = paragraphs[pIdx];
+    
+    // Divide o parágrafo em frases individuais de forma robusta e inteligente
+    const sentences = paragraph.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g) || [paragraph];
+    
+    let paragraphContent = "";
+    
+    for (let sIdx = 0; sIdx < sentences.length; sIdx++) {
+      const sentence = sentences[sIdx];
+      
+      // Monta o teste adicionando a próxima frase
+      let testContent = acceptedContent;
+      if (paragraphContent === "") {
+        testContent += (testContent === "" ? "" : "\n\n") + sentence.trim();
+      } else {
+        testContent += " " + sentence.trim();
+      }
+      
+      let testText = buildTextFunc(testContent.trim());
+      
+      // Verifica se excederá o limite
+      if (getWhatsAppLen(testText) > 1024 || getWhatsAppLenNoSpace(testText) > 850) {
+        isLimitExceeded = true;
+        break; // Estourou o limite! Não adiciona esta frase e encerra
+      } else {
+        // Frase aceita! Atualiza o conteúdo aceito
+        if (paragraphContent === "") {
+          acceptedContent += (acceptedContent === "" ? "" : "\n\n") + sentence.trim();
+          paragraphContent = sentence.trim();
+        } else {
+          acceptedContent += " " + sentence.trim();
+          paragraphContent += " " + sentence.trim();
+        }
+      }
+    }
+  }
+
+  // Fallback de segurança extremamente raro caso a primeira frase inteira já estoure o limite
+  if (acceptedContent.trim() === "") {
+    let low = 0;
+    let high = fullContent.length;
+    let bestContent = "";
+    while (low <= high) {
+      let mid = Math.floor((low + high) / 2);
+      let subContent = fullContent.substring(0, mid);
+      let tempText = buildTextFunc(subContent);
+      if (getWhatsAppLen(tempText) <= 1024 && getWhatsAppLenNoSpace(tempText) <= 850) {
+        bestContent = subContent;
+        low = mid + 1;
+      } else {
+        high = mid - 1;
+      }
+    }
+    acceptedContent = trimToLastSentence(bestContent, bestContent.length);
+  }
+
+  return buildTextFunc(acceptedContent.trim());
 };
 
 // Helpers para geração modular do texto do Santo do Dia (Alertas e Santo do Dia)
@@ -262,6 +376,7 @@ Projeto Corações Sagrados❤️‍🔥
 #${cleanHashtag} #santododia #fe #coracoessagrados`;
 
   return text
+    .replace(/\*/g, "") // Remove asteriscos para o Instagram
     .replace(/\r\n/g, "\n")
     .replace(/\n\s*\n\s*\n+/g, "\n\n")
     .trim();
@@ -277,8 +392,10 @@ const generateConviteText = (params: {
   emoji2: string;
   anchor: string;
   isInstagram: boolean;
+  totalDays?: number;
 }) => {
-  const { saintName, startDateStr, feastDayStr, devText, emoji1, emoji2, anchor, isInstagram } = params;
+  const { saintName, startDateStr, feastDayStr, devText, emoji1, emoji2, anchor, isInstagram, totalDays = 9 } = params;
+  const termoDevocional = totalDays === 13 ? "Trezena" : "Novena";
   const siteUrl = `https://coracoessagradosbsb.vercel.app/#${anchor}`;
   const cleanDesc = devText.replace(/<[^>]*>/g, "");
   const devTextLimited = isInstagram 
@@ -289,9 +406,9 @@ const generateConviteText = (params: {
     const cleanHashtagName = saintName.replace(/[\s,.-]+/g, "");
     const hashtags = `#Novena #${cleanHashtagName} #CoracoesSagrados #ComunidadeCatolica #Fé`;
     
-    const text = `${emoji1}${emoji2} PREPARE SEU CORAÇÃO: NOVENA DE ${saintName.toUpperCase()} ${emoji2}${emoji1}
+    const text = `${emoji1}${emoji2} PREPARE SEU CORAÇÃO: ${termoDevocional.toUpperCase()} DE ${saintName.toUpperCase()} ${emoji2}${emoji1}
  
-Iniciamos hoje, dia ${startDateStr}, a nossa jornada de fé com a Novena em preparação para a Festa de ${saintName}, celebrada no dia ${feastDayStr}.
+Iniciamos hoje, dia ${startDateStr}, a nossa jornada de fé com a ${termoDevocional} em preparação para a Festa de ${saintName}, celebrada no dia ${feastDayStr}.
  
 Convidamos você, sua família e todos os fiéis da nossa comunidade a trilharem este caminho de conversão e oração fervorosa.
  
@@ -319,17 +436,18 @@ Projeto Corações Sagrados❤️‍🔥
 ${hashtags}`;
 
     return text
+      .replace(/\*/g, "") // Remove asteriscos para o Instagram
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
   } else {
     // Lógica de WhatsApp com limite rígido de 1024 caracteres (e 850 sem espaços), contando emojis como 4
     const buildText = (devSnippet: string) => {
-      const text = `${emoji1}${emoji2} *INÍCIO DA NOVENA DE ${saintName.toUpperCase()}* ${emoji2}${emoji1}
+      const text = `${emoji1}${emoji2} *INÍCIO DA ${termoDevocional.toUpperCase()} DE ${saintName.toUpperCase()}* ${emoji2}${emoji1}
  
-Iniciamos hoje, dia ${startDateStr}, a Novena a *${saintName}*! ${emoji1}${emoji2}
+Iniciamos hoje, dia ${startDateStr}, a ${termoDevocional} a *${saintName}*! ${emoji1}${emoji2}
  
-A nossa preparação espiritual para a grande festa litúrgica de *${saintName}* começará no dia *${startDateStr}* (9 dias antes de sua festa que é celebrada em ${feastDayStr}).
+A nossa preparação espiritual para a grande festa litúrgica de *${saintName}* começará no dia *${startDateStr}* (${totalDays} dias antes de sua festa que é celebrada em ${feastDayStr}).
  
 Como devotos e comunidade de oração, convidamos todos vocês a se unirem a nós nesta caminhada espiritual de fé e esperança.
  
@@ -353,11 +471,42 @@ _Projeto Corações Sagrados_❤️‍🔥`;
     let content = devTextLimited;
     let finalOutput = buildText(content);
 
-    while (content.length > 20 && (getWhatsAppLen(finalOutput) > 1024 || getWhatsAppLenNoSpace(finalOutput) > 850)) {
-      const lastSpace = content.lastIndexOf(' ', content.length - 5);
-      if (lastSpace === -1) break;
-      content = content.substring(0, lastSpace) + "...";
-      finalOutput = buildText(content);
+    if (getWhatsAppLen(finalOutput) > 1024 || getWhatsAppLenNoSpace(finalOutput) > 850) {
+      const sentences = devTextLimited.match(/[^.!?]+[.!?]+(?:\s+|$)|[^.!?]+$/g) || [devTextLimited];
+      let acceptedContent = "";
+      
+      for (let i = 0; i < sentences.length; i++) {
+        const sentence = sentences[i];
+        let testContent = (acceptedContent + " " + sentence.trim()).trim();
+        let tempText = buildText(testContent);
+        
+        if (getWhatsAppLen(tempText) > 1024 || getWhatsAppLenNoSpace(tempText) > 850) {
+          break; // Estourou o limite! Para e encerra
+        } else {
+          acceptedContent = testContent;
+        }
+      }
+      
+      // Fallback de segurança se a primeira frase inteira já estourou o limite
+      if (acceptedContent.trim() === "") {
+        let low = 0;
+        let high = devTextLimited.length;
+        let bestContent = "";
+        while (low <= high) {
+          let mid = Math.floor((low + high) / 2);
+          let subContent = devTextLimited.substring(0, mid);
+          let tempText = buildText(subContent);
+          if (getWhatsAppLen(tempText) <= 1024 && getWhatsAppLenNoSpace(tempText) <= 850) {
+            bestContent = subContent;
+            low = mid + 1;
+          } else {
+            high = mid - 1;
+          }
+        }
+        acceptedContent = trimToLastSentence(bestContent, bestContent.length);
+      }
+      
+      finalOutput = buildText(acceptedContent.trim());
     }
 
     return finalOutput;
@@ -368,16 +517,46 @@ _Projeto Corações Sagrados_❤️‍🔥`;
 const convertHtmlToWhatsappMarkdown = (html: string): string => {
   if (!html) return "";
   let text = html;
-  // Substitui h4 por negritos e quebras de linha
-  text = text.replace(/<h4>(.*?)<\/h4>/gi, "\n\n*$1*\n");
-  // Substitui parágrafos e adiciona quebras de linha
-  text = text.replace(/<p>(.*?)<\/p>/gi, "\n$1\n");
+  
+  // Substitui h4 ou h5 de títulos por quebras de linha com marcação de negrito
+  text = text.replace(/<h[45][^>]*>(.*?)<\/h[45]>/gi, "\n\n*$1*\n");
+  // Substitui tags de parágrafo (com ou sem atributos) por quebras de linha para evitar colagem de texto
+  text = text.replace(/<p[^>]*>/gi, "\n").replace(/<\/p>/gi, "\n");
+  // Substitui divs por quebras de linha
+  text = text.replace(/<div[^>]*>/gi, "\n").replace(/<\/div>/gi, "\n");
+  // Substitui quebras de linha br por quebras de linha reais
+  text = text.replace(/<br\s*\/?>/gi, "\n");
   // Substitui tags b e strong por negritos
   text = text.replace(/<(b|strong)>(.*?)<\/(b|strong)>/gi, "*$2*");
   // Substitui tags em e i por itálicos
   text = text.replace(/<(em|i)>(.*?)<\/(em|i)>/gi, "_$2_");
   // Remove todas as outras tags HTML remanescentes
   text = text.replace(/<[^>]*>/g, "");
+  
+  // Limpa espaços extras de cada linha e colapsa linhas vazias excessivas
+  let lines = text.split("\n").map(line => line.trim());
+  let resultLines: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i] === "") {
+      if (resultLines.length > 0 && resultLines[resultLines.length - 1] !== "") {
+        resultLines.push("");
+      }
+    } else {
+      resultLines.push(lines[i]);
+    }
+  }
+  text = resultLines.join("\n").trim();
+  
+  // Garante que títulos importantes como Curiosidades, Oração, etc. iniciem na linha de baixo e seu conteúdo comece na linha de baixo
+  const titulosComuns = ["Oração", "Oremos", "Curiosidade", "Curiosidades", "História", "Reflexão", "Vida", "Milagres", "Conselho", "Pensamento", "Súplica", "Ladainha", "Biologia", "Legado", "Virtudes"];
+  titulosComuns.forEach(titulo => {
+    const regexAsteriscos = new RegExp(`\\*(${titulo}):\\*\\s*`, 'gi');
+    text = text.replace(regexAsteriscos, `\n\n*$1:*\n`);
+    
+    const regexSemAsteriscos = new RegExp(`(?<!\\*)\\b(${titulo}):\\s*`, 'gi');
+    text = text.replace(regexSemAsteriscos, `\n\n*$1:*\n`);
+  });
+  
   // Remove quebras de linha duplicadas em excesso
   text = text.replace(/\n\s*\n\s*\n/g, "\n\n");
   
@@ -395,11 +574,45 @@ const getAnchorForSaint = (id: string): string => {
 
 const cleanPrayerText = (html: string): string => {
   if (!html) return "";
-  let clean = html.replace(/<[^>]*>/g, "\n").trim();
+  let clean = html;
+  
+  // Substitui h4 ou h5 de títulos por quebras de linha com marcação de negrito
+  clean = clean.replace(/<h[45][^>]*>(.*?)<\/h[45]>/gi, "\n\n*$1*\n");
+  // Substitui parágrafos, divs e br por quebras de linha para evitar colagem de texto
+  clean = clean.replace(/<p[^>]*>/gi, "\n").replace(/<\/p>/gi, "\n");
+  clean = clean.replace(/<div[^>]*>/gi, "\n").replace(/<\/div>/gi, "\n");
+  clean = clean.replace(/<br\s*\/?>/gi, "\n");
+  // Substitui outras tags por quebra de linha simples
+  clean = clean.replace(/<[^>]*>/g, "\n");
+  
+  // Limpa espaços extras de cada linha e colapsa linhas vazias excessivas
+  let lines = clean.split("\n").map(line => line.trim());
+  let resultLines: string[] = [];
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i] === "") {
+      if (resultLines.length > 0 && resultLines[resultLines.length - 1] !== "") {
+        resultLines.push("");
+      }
+    } else {
+      resultLines.push(lines[i]);
+    }
+  }
+  clean = resultLines.join("\n").trim();
+  
   // Remove títulos redundantes do início
   clean = clean
     .replace(/^(Oração Inicial|Oração Final|Oração para todos os dias|Oração final para todos os dias|Oração final)\s*/i, "")
     .trim();
+  
+  // Garante que títulos importantes como Curiosidades, Oração, etc. iniciem na linha de baixo e seu conteúdo comece na linha de baixo
+  const titulosComuns = ["Oração", "Oremos", "Curiosidade", "Curiosidades", "História", "Reflexão", "Vida", "Milagres", "Conselho", "Pensamento", "Súplica", "Ladainha", "Biologia", "Legado", "Virtudes"];
+  titulosComuns.forEach(titulo => {
+    const regexAsteriscos = new RegExp(`\\*(${titulo}):\\*\\s*`, 'gi');
+    clean = clean.replace(regexAsteriscos, `\n\n*$1:*\n`);
+    
+    const regexSemAsteriscos = new RegExp(`(?<!\\*)\\b(${titulo}):\\s*`, 'gi');
+    clean = clean.replace(regexSemAsteriscos, `\n\n*$1:*\n`);
+  });
   
   // Aplica negrito em títulos devocionais comuns
   clean = formatCommonTitlesToBold(clean);
@@ -440,9 +653,9 @@ export default function AssistentePage() {
   const [formatInitialPrayer, setFormatInitialPrayer] = useState<string>("");
   const [formatFinalPrayer, setFormatFinalPrayer] = useState<string>("");
   const [novenaStartDate, setNovenaStartDate] = useState<string>("");
-  const [novenaDaysTexts, setNovenaDaysTexts] = useState<string[]>(Array(9).fill(""));
+  const [novenaDaysTexts, setNovenaDaysTexts] = useState<string[]>(Array(13).fill(""));
   const [novenaDaysTitles, setNovenaDaysTitles] = useState<string[]>(
-    Array.from({ length: 9 }, (_, i) => `${i + 1}º Dia`)
+    Array.from({ length: 13 }, (_, i) => `${i + 1}º Dia`)
   );
 
   // --- Estados do Santo do Dia ---
@@ -717,12 +930,13 @@ export default function AssistentePage() {
       const daysTitles = novena.days.map(d => d.day);
 
       const filledDays = [...daysContent];
-      while (filledDays.length < 9) filledDays.push("");
-      setNovenaDaysTexts(filledDays.slice(0, 9));
+      const targetLength = novena.days.length;
+      while (filledDays.length < targetLength) filledDays.push("");
+      setNovenaDaysTexts(filledDays.slice(0, targetLength));
 
       const filledTitles = [...daysTitles];
-      while (filledTitles.length < 9) filledTitles.push(`Dia ${filledTitles.length + 1}`);
-      setNovenaDaysTitles(filledTitles.slice(0, 9));
+      while (filledTitles.length < targetLength) filledTitles.push(`Dia ${filledTitles.length + 1}`);
+      setNovenaDaysTitles(filledTitles.slice(0, targetLength));
     } else {
       setFormatInitialPrayer("");
       setFormatFinalPrayer("");
@@ -785,7 +999,8 @@ export default function AssistentePage() {
     }
     const newTexts = [...novenaDaysTexts];
     const sourceDay = dayIndex + 1;
-    for(let i = 0; i < 9; i++) {
+    const targetLength = novenaDaysTexts.length;
+    for(let i = 0; i < targetLength; i++) {
       if(i !== dayIndex) {
         let adapted = currentText;
         const targetDay = i + 1;
@@ -1089,7 +1304,9 @@ export default function AssistentePage() {
     let cleanInitial = novena.initialPrayer ? cleanPrayerText(novena.initialPrayer) : "";
     let cleanFinal = novena.finalPrayer ? cleanPrayerText(novena.finalPrayer) : "";
 
-    const headerTitle = `*${em1}${em2} NOVENA A ${saintNameStr.toUpperCase()} - DIA ${dayIdx}*`;
+    const totalDays = novena.days.length;
+    const termoDevocional = totalDays === 13 ? "TREZENA" : "NOVENA";
+    const headerTitle = `*${em1}${em2} ${termoDevocional} A ${saintNameStr.toUpperCase()} - DIA ${dayIdx}*`;
 
     const text = `${headerTitle}
  
@@ -1107,6 +1324,7 @@ Compartilhe 😉!
 _Projeto Corações Sagrados❤️‍🔥_`;
 
     return text
+      .replace(/\*/g, "") // Remove asteriscos para o Instagram
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
@@ -1133,7 +1351,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
       emoji1: em1,
       emoji2: em2,
       anchor: getAnchorForSaint(id),
-      isInstagram
+      isInstagram,
+      totalDays: novena.days.length
     });
   };
 
@@ -1212,6 +1431,7 @@ Projeto Corações Sagrados❤️‍🔥
 #${cleanHashtag} #santododia #fe #coracoessagrados`;
 
     return text
+      .replace(/\*/g, "") // Remove asteriscos para o Instagram
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
@@ -1222,6 +1442,9 @@ Projeto Corações Sagrados❤️‍🔥
     if (!customSaintName) return "";
     const anchor = siteAnchor ? siteAnchor.replace("#", "") : getAnchorForSaint(selectedSaintId);
     
+    const novena = novenaData[selectedSaintId];
+    const totalDays = novena ? novena.days.length : 9;
+
     return generateConviteText({
       saintName: customSaintName,
       startDateStr: calculatedStartDateStr,
@@ -1230,7 +1453,8 @@ Projeto Corações Sagrados❤️‍🔥
       emoji1,
       emoji2,
       anchor,
-      isInstagram: false
+      isInstagram: false,
+      totalDays
     });
   }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor, selectedSaintId]);
 
@@ -1238,6 +1462,9 @@ Projeto Corações Sagrados❤️‍🔥
     if (!customSaintName) return "";
     const anchor = siteAnchor ? siteAnchor.replace("#", "") : getAnchorForSaint(selectedSaintId);
     
+    const novena = novenaData[selectedSaintId];
+    const totalDays = novena ? novena.days.length : 9;
+
     return generateConviteText({
       saintName: customSaintName,
       startDateStr: calculatedStartDateStr,
@@ -1246,7 +1473,8 @@ Projeto Corações Sagrados❤️‍🔥
       emoji1,
       emoji2,
       anchor,
-      isInstagram: true
+      isInstagram: true,
+      totalDays
     });
   }, [customSaintName, calculatedStartDateStr, customFeastDay, devotionalText, emoji1, emoji2, siteAnchor, selectedSaintId]);
 
@@ -1264,7 +1492,9 @@ Projeto Corações Sagrados❤️‍🔥
       // Aplica negritos automáticos em títulos devocionais no corpo da meditação
       const cleanMeditacao = formatCommonTitlesToBold(meditacao.trim());
 
-      const headerTitle = `*${formatEmoji1}${formatEmoji2} NOVENA A ${saintNameStr.toUpperCase()} - DIA ${idx + 1}*`;
+      const totalDays = novenaDaysTexts.length;
+      const termoDevocional = totalDays === 13 ? "TREZENA" : "NOVENA";
+      const headerTitle = `*${formatEmoji1}${formatEmoji2} ${termoDevocional} A ${saintNameStr.toUpperCase()} - DIA ${idx + 1}*`;
 
       const text = `${headerTitle}
 
@@ -1785,9 +2015,9 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                               Festa Litúrgica: {item.saint.feastDay} | Início sugerido da Novena: {item.saint.startDate}
                             </p>
 
-                            {/* Barra de Progresso Dividida em 9 */}
-                            <div className="flex items-center gap-1 w-full max-w-xs mt-2.5" title="Progresso de envio (9 Dias da Novena)">
-                              {Array.from({ length: 9 }).map((_, dIdx) => {
+                            {/* Barra de Progresso Dividida em N */}
+                            <div className="flex items-center gap-1 w-full max-w-xs mt-2.5" title={`Progresso de envio (${item.novena.days.length} Dias da Novena)`}>
+                              {Array.from({ length: item.novena.days.length }).map((_, dIdx) => {
                                 const dNum = dIdx + 1;
                                 const isDCopied = copiedHistory[`enviado_novena_${item.id}_dia_${dNum}`];
                                 return (
@@ -1895,8 +2125,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                                   Dia 0 (Convite)
                                 </Button>
 
-                                {/* Dias 1 a 9 */}
-                                {Array.from({ length: 9 }).map((_, dIdx) => {
+                                {/* Dias 1 a N */}
+                                {Array.from({ length: item.novena.days.length }).map((_, dIdx) => {
                                   const dNum = dIdx + 1;
                                   const isDToday = item.status === "active" && item.suggestedDay === dNum;
                                   const isDCopied = copiedHistory[`enviado_novena_${item.id}_dia_${dNum}`];
@@ -2847,7 +3077,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                 <Card className="bg-stone-950/60 border-white/5 backdrop-blur-sm text-stone-100 shadow-xl">
                   <CardHeader className="border-b border-white/5 pb-3">
                     <CardTitle className="font-brand text-lg text-amber-400">
-                      📝 Meditações dos Dias (1 a 9)
+                      📝 Meditações dos Dias (1 a {novenaDaysTexts.length})
                     </CardTitle>
                     <CardDescription className="text-stone-400 text-xs">
                       Clique no dia para visualizar e editar a meditação específica.
@@ -2855,8 +3085,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                   </CardHeader>
                   <CardContent className="pt-4">
                     <Tabs defaultValue="day-0" className="w-full">
-                      <TabsList className="bg-stone-900 border border-white/5 p-1 rounded-xl w-full grid grid-cols-5 md:grid-cols-9 gap-1 h-auto flex-wrap">
-                        {Array.from({ length: 9 }).map((_, i) => {
+                      <TabsList className="bg-stone-900 border border-white/5 p-1 rounded-xl w-full grid grid-cols-5 md:grid-cols-13 gap-1 h-auto flex-wrap">
+                        {Array.from({ length: novenaDaysTexts.length }).map((_, i) => {
                           const today = isDayToday(i);
                           const isCopied = copiedHistory[`enviado_novena_${formatSaintId}_dia_${i}`];
                           
@@ -2884,7 +3114,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                         })}
                       </TabsList>
                       
-                      {Array.from({ length: 9 }).map((_, i) => (
+                      {Array.from({ length: novenaDaysTexts.length }).map((_, i) => (
                         <TabsContent key={i} value={`day-${i}`} className="space-y-4 pt-4 outline-none">
                           <div className="flex justify-between items-center">
                             <span className="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center gap-1.5">
@@ -2935,7 +3165,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                                   onClick={() => handleCopyToAllDays(i)}
                                   className="text-[9px] font-bold text-amber-500 hover:text-amber-400 flex items-center gap-1 transition-colors px-2.5 py-0.5 rounded bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 shadow-sm"
                                 >
-                                  <Copy className="w-2.5 h-2.5" /> Replicar para os 9 dias
+                                  <Copy className="w-2.5 h-2.5" /> Replicar para os {novenaDaysTexts.length} dias
                                 </button>
                               )}
                             </div>
@@ -2971,8 +3201,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                   </CardHeader>
                   <CardContent className="p-6 space-y-6">
                     <Tabs defaultValue="out-day-0" className="w-full">
-                      <TabsList className="bg-stone-900 border border-white/5 p-1 rounded-xl w-full grid grid-cols-5 md:grid-cols-9 gap-1 h-auto flex-wrap">
-                        {Array.from({ length: 9 }).map((_, i) => (
+                      <TabsList className="bg-stone-900 border border-white/5 p-1 rounded-xl w-full grid grid-cols-5 md:grid-cols-13 gap-1 h-auto flex-wrap">
+                        {Array.from({ length: novenaDaysTexts.length }).map((_, i) => (
                           <TabsTrigger 
                             key={i}
                             value={`out-day-${i}`} 
@@ -2984,7 +3214,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                         ))}
                       </TabsList>
 
-                      {Array.from({ length: 9 }).map((_, i) => {
+                      {Array.from({ length: novenaDaysTexts.length }).map((_, i) => {
                         const formattedText = formattedNovenaDays[i];
                         const suggestedDate = calculateNovenaDayDate(i);
                         const isCopied = copiedHistory[`enviado_novena_${formatSaintId}_dia_${i}`];
