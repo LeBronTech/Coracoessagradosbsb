@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { ChevronLeft, Users } from 'lucide-react';
 import Image from 'next/image';
 import { ComunidadesGallery } from '@/components/comunidades-gallery';
@@ -11,10 +12,20 @@ import { cn } from '@/lib/utils';
 
 export default function EncontreSeuLugarPage() {
     const [hydrated, setHydrated] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const router = useRouter();
 
     React.useEffect(() => {
         setHydrated(true);
     }, []);
+
+    const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setIsNavigating(true);
+        setTimeout(() => {
+            router.push('/');
+        }, 1000);
+    };
 
     // Calculando estatísticas para o cabeçalho
     const stats = regioesAdministrativas.reduce((acc, r) => {
@@ -27,8 +38,8 @@ export default function EncontreSeuLugarPage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated} />
-            <div className={cn("min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 transition-opacity duration-700", hydrated ? "opacity-100" : "opacity-0")}>
+            <LoadingScreen isLoading={!hydrated || isNavigating} />
+            <div className={cn("min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
             {/* ── Header ── */}
             <header className="bg-gradient-to-r from-red-800 via-red-700 to-red-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
                 {/* Padrão decorativo */}
@@ -43,6 +54,7 @@ export default function EncontreSeuLugarPage() {
                 <div className="container mx-auto max-w-7xl relative z-10">
                     <Link
                         href="/"
+                        onClick={handleBackTransition}
                         className="inline-flex items-center text-red-100 hover:text-white mb-6 transition-colors"
                     >
                         <ChevronLeft className="mr-2 h-5 w-5" />

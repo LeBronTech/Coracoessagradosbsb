@@ -865,4 +865,23 @@
     animation: shine 4s ease-in-out infinite;
     pointer-events: none;
   }
+
+  /* Scrollbar fina e vermelha para carrossel */
+  .scrollbar-thin-red {
+    scrollbar-width: thin;
+    scrollbar-color: #ef4444 transparent;
+  }
+
+  .scrollbar-thin-red::-webkit-scrollbar {
+    height: 5px; /* Fina */
+  }
+
+  .scrollbar-thin-red::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-thin-red::-webkit-scrollbar-thumb {
+    background-color: #ef4444;
+    border-radius: 9999px;
+  }
 }

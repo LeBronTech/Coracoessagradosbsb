@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { ChevronLeft, Download, MessageCircle, BookOpen, Video, Heart, ExternalLink, ChevronDown, CheckCircle2, Calendar as CalendarIcon, Check } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SaoJoseTimeline } from "@/components/sao-jose-timeline";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -26,10 +27,20 @@ export default function SaoJosePage() {
     const consagracaoContentRef = useRef<HTMLDivElement>(null);
     const [hydrated, setHydrated] = useState(false);
     const [loadingFinished, setLoadingFinished] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const router = useRouter();
 
     React.useEffect(() => {
         setHydrated(true);
     }, []);
+
+    const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setIsNavigating(true);
+        setTimeout(() => {
+            router.push('/');
+        }, 1000);
+    };
 
     const handleConsagracaoClick = () => {
         setActiveSection("consagracao");
@@ -48,13 +59,13 @@ export default function SaoJosePage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated} onFinished={() => setLoadingFinished(true)} />
-            <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated ? "opacity-100" : "opacity-0")}>
+            <LoadingScreen isLoading={!hydrated || isNavigating} onFinished={() => setLoadingFinished(true)} />
+            <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
             {/* Header / Hero Section */}
             <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
                 <div className="absolute inset-0 bg-[url('https://iili.io/fj7jrtj.png')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
                 <div className="container mx-auto max-w-7xl relative z-10">
-                    <Link href="/" className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors">
+                    <Link href="/" onClick={handleBackTransition} className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors">
                         <ChevronLeft className="mr-2 h-5 w-5" />
                         Voltar ao Início
                     </Link>

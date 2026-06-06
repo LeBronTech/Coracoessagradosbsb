@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChevronLeft, BookOpen, Heart, ArrowUp, Search, X, SlidersHorizontal, Globe, Calendar } from "lucide-react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { MarianGallery, devotions as regionalDevotions } from "@/components/marian-gallery";
 import { WorldMarianDevotions } from "@/components/world-marian-devotions";
 import { RosarySection } from "@/components/rosary-section";
@@ -18,10 +19,20 @@ export default function EspacoMarianoPage() {
     const [activeSection, setActiveSection] = useState<"galeria" | "oracoes" | "rosario" | "consagracao">("galeria");
     const [showScrollTop, setShowScrollTop] = React.useState(false);
     const [hydrated, setHydrated] = useState(false);
+    const [isNavigating, setIsNavigating] = useState(false);
+    const router = useRouter();
 
     React.useEffect(() => {
         setHydrated(true);
     }, []);
+
+    const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        e.preventDefault();
+        setIsNavigating(true);
+        setTimeout(() => {
+            router.push('/');
+        }, 1000);
+    };
 
     React.useEffect(() => {
         const handleScroll = () => {
@@ -45,13 +56,13 @@ export default function EspacoMarianoPage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated} />
-            <div className={cn("min-h-screen bg-gradient-to-br from-blue-50 via-white to-sky-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950 transition-opacity duration-700", hydrated ? "opacity-100" : "opacity-0")}>
+            <LoadingScreen isLoading={!hydrated || isNavigating} />
+            <div className={cn("min-h-screen bg-gradient-to-br from-blue-50 via-white to-sky-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
                 {/* Header / Hero Section */}
                 <header className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-800 text-white py-12 px-4 shadow-2xl relative overflow-hidden">
                     <div className="absolute inset-0 bg-[url('https://iili.io/fj0D5Ga.png')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
                     <div className="container mx-auto max-w-4xl relative z-10">
-                        <Link href="/" className="inline-flex items-center text-blue-100 hover:text-white mb-6 transition-colors">
+                        <Link href="/" onClick={handleBackTransition} className="inline-flex items-center text-blue-100 hover:text-white mb-6 transition-colors">
                             <ChevronLeft className="mr-2 h-5 w-5" />
                             Voltar ao Início
                         </Link>

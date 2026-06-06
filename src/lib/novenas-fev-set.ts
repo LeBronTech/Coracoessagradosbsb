@@ -23,7 +23,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. de Lourdes",
         novenaTitle: "Novena a N.S. de Lourdes",
         description: "Novena em preparação à festa de N.S. de Lourdes (11 de fevereiro).",
-        image: "/images/ns_lourdes.png",
+        image: "https://i.postimg.cc/RF4W0Ftw/ns-lourdes.jpg",
         initialPrayer: "Rezar a oração inicial para todos os dias.",
         finalPrayer: "Oh, Deus eterno e compassivo, concedei-nos a graça de viver santa e cristãmente, venerando a Virgem Santíssima de Lourdes, para que sejamos dignos de sua intercessão na vida e na hora da morte. Por Cristo nosso Senhor. Amém.\n\n**Oração Final (Debaixo de vosso amparo)**\nDebaixo de vosso amparo, acolhemo-nos, Santa Mãe de Deus. Não desprezeis nossas súplicas nas necessidades, mas sim livrai-nos de todos os perigos.\n\nOh, sempre Virgem gloriosa e bendita!\n\nV. Rogai por nós, Oh, Virgem de Lourdes!\n\nR. Para que sejamos dignos das promessas de Jesus Cristo.",
         days: [
@@ -191,7 +191,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Casimiro",
         novenaTitle: "Novena a São Casimiro",
         description: "Novena em honra a São Casimiro, príncipe da Polônia e modelo de pureza. Reza-se de 24 de fevereiro a 3 de março, preparando a festa de 4 de março.",
-        image: "/images/sao_casimiro.png",
+        image: "https://i.postimg.cc/8zRMHqTg/sao-casimiro-alt.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Sinal da Cruz</h4><h4 class="section-title mt-4">Oração Inicial</h4><p>Ó Deus, que destes a São Casimiro o dom da santidade e o zelo pela salvação das almas, concedei-nos, por sua intercessão, a graça de viver segundo o Vosso Santo Evangelho. Que ele, que foi um exemplo de pureza, devoção e amor aos pobres, nos inspire a buscar a santidade em nossa vida.</p><p class="mt-4 italic">Neste momento, apresento a Vós, Senhor, as minhas intenções particulares: (faça aqui o seu pedido ou coloque suas intenções).</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Deus, que fizestes de São Casimiro um modelo de pureza, devoção e amor aos pobres, concedei-nos, por sua intercessão, a graça de viver segundo o Vosso Santo Evangelho. Que ele, que tanto amou a Eucaristia e a Virgem Maria, nos inspire a buscar sempre a santidade e a renovação de nossas vidas.</p><p class="mt-4">Lembrai-Vos, Senhor, das minhas intenções que Vos apresentei nesta novena, e concedei-me as graças que Vos peço, se forem para a Vossa maior glória e o bem da minha alma. Por Cristo, Nosso Senhor. Amém.</p><p class="mt-4 font-semibold">Sinal da Cruz</p></div>`,
         days: [
@@ -247,7 +247,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Gabriel das Dores",
         novenaTitle: "Novena a São Gabriel de N.S. das Dores",
         description: "Jovem passionista, modelo de obediência, desprendimento e amor à Paixão de Cristo. Intercessor da juventude. Reza-se de 18 a 26 de fevereiro, preparando a festa de 27 de fevereiro.",
-        image: "/images/sao_gabriel_dores.png",
+        image: "https://i.postimg.cc/qvV22kVL/sao-gabriel-dores.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Preparatória (todos os dias)</h4><p>Ó soberano Senhor e santificador das almas, prostrados ante a vossa infinita majestade, louvamos e bendizemos a incomparável grandeza e liberalidade com que elevastes São Gabriel ao supremo grau da perfeição, por meio de um amor fervorosíssimo à Rainha dos Mártires. Pelos méritos deste amantíssimo servo de Maria, pela glória de tão excelsa Senhora e de São Gabriel, imploramos a graça particular que por este exercício esperamos obter <em>(pedir a graça)</em> e principalmente a de imitarmos este admirável Santo, a fim de podermos conquistar a sua graça na terra e sua glória por toda eternidade. Amém.</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Senhor, muitas vezes temos com os nossos pecados merecido a morte do pecador em vez da do justo, mas confiando na vossa infinita misericórdia, na vossa Paixão e Morte, nas dores de Maria, nos méritos de São Gabriel, imploramos misericórdia e perdão, agora mas principalmente na hora da nossa morte para gozarmos, eternamente, com São Gabriel, a glória que nos merecestes. Amém.</p><p class="mt-4 font-semibold">São Gabriel das Dores, rogai por nós!</p></div>`,
         days: [
@@ -303,7 +303,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São João de Deus",
         novenaTitle: "Novena a São João de Deus",
         description: "Confessor, Fundador da Ordem Hospitaleira, Padroeiro dos doentes, dos enfermeiros e dos hospitais. Reza-se de 27 de fevereiro a 7 de março, preparando a festa de 8 de março.",
-        image: "/images/sao_joao_de_deus.png",
+        image: "https://i.postimg.cc/JzVjj1VN/sao-joao-de-deus.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial (todos os dias)</h4><p>Pelo sinal da Santa Cruz, livrai-me Deus nosso Senhor, dos nossos inimigos.</p><p>Em nome do Pai e do Filho e do Espírito Santo. Amém.</p><h5 class="font-semibold mt-4">Ato de Contrição</h5><p>Senhor meu, Jesus Cristo, Deus e homem verdadeiro, Criador e Redentor meu, por serdes Vós quem sois, sumamente bom e digno de ser amado sobre todas as coisas, e porque Vos amo e estimo, pesa-me, Senhor, de todo o meu coração, de Vos ter ofendido; pesa-me, também, de ter perdido o Céu e merecido o Inferno; e proponho-me firmemente, ajudado com o auxílio da vossa divina graça, emendar-me e nunca mais Vos tornar a ofender. Espero alcançar o perdão de minhas culpas pela vossa infinita misericórdia. Amém.</p><h5 class="font-semibold mt-4">Oração a São João de Deus</h5><p>A ti me dirijo, São João de Deus, Padroeiro dos Bombeiros. Tu que partilhaste os sofrimentos dos outros e que agora estás junto ao Salvador para intercederes por nós.</p><p class="mt-4">Senhor, nosso Pai, quantos males atingem a humanidade, quantos são os desvalidos que sofrem, são tão desprezados e muitos até excluídos. Perdoa nossa omissão, nossa falta de sensibilidade, nossa ignorância por separarmos os sofridos de vós.</p><p class="mt-4">Sabemos que a falta de amor agrava muitas doenças e acidentes, por isso pedimos, pelos méritos de São João de Deus, o dom da compaixão, da paciência para com os necessitados e, acima de tudo, que tenhamos um grande amor por eles.</p><p class="mt-4">Peço que me acompanhes sempre, São João de Deus, para que me lembre de pôr Deus no centro da minha vida, todos os dias.</p><p class="mt-4 font-semibold">São João de Deus, rogai por nós.<br/>São José, pai protetor, rogai por nós.<br/>Maria, Consoladora dos Aflitos, rogai por nós. Amém.</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Senhor, que inflamastes São João de Deus no fogo da caridade – para que fosse na terra o Apóstolo dos pecadores, Socorro dos pobres e Saúde dos doentes – no céu o constituístes Alívio dos que sofrem e Padroeiro dos bombeiros.</p><p class="mt-4">Concedei-nos, por sua intercessão, a graça que neste momento vos pedimos <em>(pedir a graça)</em>, prometendo imitá-lo nas suas virtudes, na santidade, na construção do Vosso Reino de Paz, Justiça, Amor e Misericórdia. Por nosso Senhor Jesus Cristo Vosso Filho na unidade do Espírito Santo. Amém.</p><p class="mt-6 font-bold text-white text-lg tracking-wide uppercase">Pai Nosso, Ave Maria e Glória ao Pai.</p><p>Glória ao Pai e ao Filho e ao Espírito Santo. Como era no princípio, agora e sempre. Amém.</p><p class="mt-4 font-semibold">São João de Deus, rogai por nós!</p></div>`,
         days: [
@@ -2057,7 +2057,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. de Fátima",
         novenaTitle: "Novena a N.S. de Fátima",
         description: "Apresente seus pedidos a Deus por meio da novena a N.S. de Fátima e conte com a poderosa intercessão de nossa Mãe Santíssima. (4 a 12 de maio)",
-        image: "/images/ns_fatima.png",
+        image: "https://i.postimg.cc/cH0vJH31/ns-fatima.jpg",
         initialPrayer: `<div class="prayer-block">
             <h4 class="section-title">Oferecimento</h4>
             <p>Santíssima Trindade, Pai, Filho e Espírito Santo! Adoro-vos profundamente e ofereço-vos o preciosíssimo corpo, sangue, alma e divindade de Jesus Cristo, presente em todos os sacrários da terra, em reparação dos ultrajes, sacrilégios e indiferenças com que Ele mesmo é ofendido. E pelos méritos infinitos de seu Santíssimo Coração e do Coração Imaculado de Maria, peço-vos a conversão dos pobres pecadores.</p>
@@ -4948,7 +4948,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Assunção de N.S.",
         novenaTitle: "Novena da Assunção",
         description: "Novena em preparação à solenidade da Assunção de N.S. (15 de agosto).",
-        image: "/images/ns_assuncao.png",
+        image: "https://i.postimg.cc/tTpsgT6g/ns-assuncao.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: [
@@ -5023,7 +5023,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Natividade de N.S.",
         novenaTitle: "Novena da Natividade de Maria",
         description: "Novena em preparação à festa da Natividade de N.S. (8 de setembro).",
-        image: "/images/ns_natividade.png",
+        image: "https://i.postimg.cc/xdrkWgTH/ns-natividade.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5065,7 +5065,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. das Dores",
         novenaTitle: "Novena a N.S. das Dores",
         description: "Novena em honra a N.S. das Dores (15 de setembro).",
-        image: "/images/ns_dores_setembro.png",
+        image: "https://i.postimg.cc/mkrhQ58s/ns-dores-setembro.jpg",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5386,7 +5386,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. do Perpétuo Socorro",
         novenaTitle: "Novena a N.S. do Perpétuo Socorro",
         description: "A Virgem do Perpétuo Socorro é invocada como mãe atenta às necessidades dos filhos. A novena a essa devoção mariana é poderosa para pedir auxílio em momentos de dor, dificuldade ou desespero. Milhares testemunham graças por sua intercessão, principalmente nas quartas-feiras dedicadas a ela.",
-        image: "/images/ns_perpetuo_socorro.png",
+        image: "https://i.postimg.cc/G3jkv0hd/ns-perpetuo-socorro.jpg",
         imageObjectPosition: "top",
         initialPrayer: "",
         finalPrayer: "",
@@ -5488,7 +5488,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. de Luján",
         novenaTitle: "Novena a N.S. de Luján",
         description: "Peça a intercessão da Padroeira da Argentina para suas necessidades.",
-        image: "/images/ns_lujan.png",
+        image: "https://i.postimg.cc/vHkDVXnq/ns-lujan.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5501,7 +5501,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. de Itatí",
         novenaTitle: "Novena a N.S. de Itatí",
         description: "Novena em honra à Virgem de Itatí, Rainha do Rio Paraná.",
-        image: "/images/ns_itati.png",
+        image: "https://i.postimg.cc/3x1ChPVZ/ns-itati.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5514,7 +5514,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. de Copacabana",
         novenaTitle: "Novena a N.S. de Copacabana",
         description: "Peça o auxílio da Rainha da Bolívia e das Américas.",
-        image: "/images/ns_copacabana.png",
+        image: "https://i.postimg.cc/MKNXQtRp/ns-copacabana.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5527,7 +5527,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. do Rosário de San Nicolás",
         novenaTitle: "Novena a N.S. do Rosário de San Nicolás",
         description: "Novena em honra às aparições de Maria em San Nicolás de los Arroyos.",
-        image: "/images/ns_rosario_san_nicolas.png",
+        image: "https://i.postimg.cc/NfTp3CQV/ns-rosario-san-nicolas.png",
         initialPrayer: "",
         finalPrayer: "",
         days: Array.from({ length: 9 }, (_, i) => ({
@@ -5541,7 +5541,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Bento",
         novenaTitle: "Novena a São Bento",
         description: "Novena em honra a São Bento, patriarca dos monges do Ocidente. Serve para ambas as festas: 11 de julho (São Bento) e 21 de março (Trânsito de São Bento).",
-        image: "/images/sao_bento.png",
+        image: "https://i.postimg.cc/3JSmbgvb/sao-bento.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração da Medalha de São Bento</h4><p>A Cruz Sagrada seja a minha luz, não seja o dragão o meu guia. Retira-te, satanás! Nunca me aconselhes coisas vãs. É mau o que tu me ofereces, bebe tu mesmo o teu veneno!</p><h4 class="section-title mt-4">Oração para Obter Qualquer Graça</h4><p>Ó glorioso patriarca São Bento, que vos mostrastes sempre compassivo com os necessitados, fazei que também nós, recorrendo à vossa poderosa intercessão, obtenhamos auxílio em todas as nossas aflições.</p><p class="mt-4">Que nas famílias reine a paz e a tranquilidade, afastem-se todas as desgraças, tanto corporais como espirituais, especialmente o pecado.</p><p class="mt-4">Alcançai do Senhor a graça que vos suplicamos, obtendo-nos finalmente para que, ao terminar nossa vida nesse vale de lágrimas, possamos louvar a Deus convosco no Paraíso.</p><p class="mt-4 font-semibold">Rogai por nós, glorioso patriarca São Bento, para que sejamos dignos das promessas de Cristo.</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Conclusiva</h4><p>Ó Deus, que fizestes o abade São Bento preclaro mestre na escola do Vosso serviço. Concedei que, nada preferindo ao Vosso amor, corramos de coração dilatado no caminho dos Vossos mandamentos.</p><p class="mt-4">Por Nosso Senhor Jesus Cristo, na unidade do Espírito Santo. Amém.</p></div>`,
         days: [
@@ -5597,7 +5597,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Bento",
         novenaTitle: "Novena a São Bento (Trânsito)",
         description: "Novena em honra a São Bento, patriarca dos monges do Ocidente. Celebração do Trânsito de São Bento (21 de março).",
-        image: "/images/sao_bento.png",
+        image: "https://i.postimg.cc/3JSmbgvb/sao-bento.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração da Medalha de São Bento</h4><p>A Cruz Sagrada seja a minha luz, não seja o dragão o meu guia. Retira-te, satanás! Nunca me aconselhes coisas vãs. É mau o que tu me ofereces, bebe tu mesmo o teu veneno!</p><h4 class="section-title mt-4">Oração para Obter Qualquer Graça</h4><p>Ó glorioso patriarca São Bento, que vos mostrastes sempre compassivo com os necessitados, fazei que também nós, recorrendo à vossa poderosa intercessão, obtenhamos auxílio em todas as nossas aflições.</p><p class="mt-4">Que nas famílias reine a paz e a tranquilidade, afastem-se todas as desgraças, tanto corporais como espirituais, especialmente o pecado.</p><p class="mt-4">Alcançai do Senhor a graça que vos suplicamos, obtendo-nos finalmente para que, ao terminar nossa vida nesse vale de lágrimas, possamos louvar a Deus convosco no Paraíso.</p><p class="mt-4 font-semibold">Rogai por nós, glorioso patriarca São Bento, para que sejamos dignos das promessas de Cristo.</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Conclusiva</h4><p>Ó Deus, que fizestes o abade São Bento preclaro mestre na escola do Vosso serviço. Concedei que, nada preferindo ao Vosso amor, corramos de coração dilatado no caminho dos Vossos mandamentos.</p><p class="mt-4">Por Nosso Senhor Jesus Cristo, na unidade do Espírito Santo. Amém.</p></div>`,
         days: [
@@ -5653,7 +5653,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "Anunciação do Senhor",
         novenaTitle: "Novena da Anunciação do Senhor",
         description: "Novena em preparação à Solenidade da Anunciação do Senhor (25 de março).",
-        image: "/images/anunciacao.png",
+        image: "https://i.postimg.cc/KjsjQDHk/anunciacao.png",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial para Todos os Dias</h4><p>Pelo sinal da Santa Cruz ✞ livrai-nos Deus de nossos inimigos.</p><p class="mt-4">✞ Em nome do Pai, ✞ do Filho e do ✞ Espírito Santo. Amém.</p><h4 class="section-title mt-6">Oração do Ângelus</h4><p>O Anjo do Senhor anunciou a Maria.</p><p class="italic">E ela concebeu do Espírito Santo.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Eis aqui a serva do Senhor.</p><p class="italic">Faça-se em mim segundo a vossa palavra.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">E o Verbo se fez carne.</p><p class="italic">E habitou entre nós.</p><p class="mt-2 font-semibold">Ave Maria…</p><p class="mt-4">Rogai por nós, Santa Mãe de Deus.</p><p class="italic">Para que sejamos dignos das promessas de Cristo.</p><h4 class="section-title mt-6">Oremos</h4><p>Infundi Senhor a vossa graça em nossos corações, para que, conhecendo, pela mensagem do Anjo, a encarnação do Cristo, vosso Filho, cheguemos, por sua paixão e cruz, à glória da ressurreição pela intercessão da Virgem Maria. Pelo mesmo Cristo, Senhor Nosso. Amém.</p><p class="mt-4">Bendito seja, ó Maria, o tão esperado momento no qual se iniciou a salvação humana com a Encarnação do Filho de Deus. Amém.</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final para Todos os Dias</h4><p>Eis que desejando que o Filho de Deus que quis nascer em Vós, nasça também em meu coração e conceda-nos o perdão de nossos pecados, prostramo-nos aos vossos pés e vos imploro, com todo o fervor da alma, que vos digneis alcançar-nos, do vosso Filho, a graça que tanto necessitamos…<span class="italic">(colocar a graça)</span></p><p class="mt-4">Queremos ser gestados no ventre de N.S., para assim, sermos homens novos, santos, como Jesus.</p><p class="mt-4 font-semibold">"Benditas sejam a Santa Gravidez e a Imaculada Conceição da bem-aventurada sempre virgem Maria, Mãe de Deus e nossa Mãe. Amém"</p></div>`,
         days: [
@@ -5766,7 +5766,7 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
         saintName: "N.S. Auxiliadora (Austrália)",
         novenaTitle: "Novena a N.S. Auxiliadora",
         description: "Padroeira da Austrália. Invocada como socorro dos cristãos em todas as batalhas da vida.",
-        image: "/images/ns_auxiliadora_australia.png",
+        image: "https://i.postimg.cc/854jfSdv/ns-auxiliadora-australia.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Ó Maria, Auxiliadora dos Cristãos, que fostes proclamada Padroeira da Austrália, nós nos voltamos para Vós com confiança. Vós que assististes a Igreja em seus momentos mais difíceis, socorrei-nos hoje em nossas necessidades. Que vossa proteção maternal nos guie e nos fortaleça na fé.</p><p class="mt-4 italic">Apresente agora suas intenções particulares...</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, Virgem poderosa, Tu és a grande e ilustre defensora da Igreja. Tu és o auxílio maravilhoso dos cristãos. Tu és terrível como um exército em ordem de batalha. Tu só destruíste todos os erros do mundo. Nas nossas angústias, em nossos combates, em nossas necessidades, defende-nos do inimigo e, na hora da morte, acolhe a nossa alma no paraíso. Amém.</p><p class="mt-4 font-semibold">N.S. Auxiliadora, rogai por nós e pela Oceania.</p></div>`,
         days: [
@@ -5786,7 +5786,7 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
         saintName: "N.S. da Assunção (Nova Zelândia)",
         novenaTitle: "Novena a N.S. da Assunção",
         description: "Padroeira da Nova Zelândia (Aotearoa). Celebramos a subida de Maria ao céu em corpo e alma.",
-        image: "/images/ns_assuncao_nz.png",
+        image: "https://i.postimg.cc/qMbyZ8KH/ns-assuncao-nz.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Deus onipotente e eterno, que elevastes à glória do céu em corpo e alma a imaculada Virgem Maria, Mãe do vosso Filho, concedei-nos a graça de estarmos sempre atentos às coisas do alto para merecermos participar da sua glória.</p><p class="mt-4 italic">Colocamos sob vossa proteção a toda a nação da Nova Zelândia (Aotearoa)...</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, elevada aos céus, Tu és o sinal de esperança e de consolação para o povo de Deus em caminho. Intercedei por nós junto ao Vosso Filho, para que um dia possamos nos unir a Ti na pátria eterna. Amém.</p><p class="mt-4 font-semibold">N.S. da Assunção, rogai por nós.</p></div>`,
         days: [
@@ -5806,7 +5806,7 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
         saintName: "N.S. Rainha da Paz (Oceania)",
         novenaTitle: "Novena a N.S. Rainha da Paz",
         description: "Invocada por toda a Oceania como a guardiã da harmonia e do entendimento entre os povos das ilhas.",
-        image: "/images/ns_paz_oceania.png",
+        image: "https://i.postimg.cc/sxnQqrvj/ns-paz-oceania.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Senhor Jesus Cristo, Vós sois a nossa paz. Por intercessão de Vossa Mãe Santíssima, Rainha da Paz, pedimos que derrameis sobre a Oceania e sobre o mundo inteiro o dom da concórdia e do amor fraterno.</p><p class="mt-4 italic">Pedimos especialmente pela paz em nossos corações e em nossas casas...</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, Rainha da Paz, Tu que estiveste firme aos pés da Cruz, ensina-nos a manter a paz mesmo nas maiores tribulações. Que vossa benção proteja todos os povos da Oceania. Amém.</p><p class="mt-4 font-semibold">Rainha da Paz, rogai por nós.</p></div>`,
         days: [
@@ -5826,7 +5826,7 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
         saintName: "N.S. Estrela do Mar (Pacífico)",
         novenaTitle: "Novena a N.S. Estrela do Mar",
         description: "Invocada pelos navegantes e povos das ilhas do Pacífico como a guia segura nas tempestades da vida.",
-        image: "/images/ns_estrela_do_mar_pacifico.png",
+        image: "https://i.postimg.cc/qvNyfzcB/ns-estrela-do-mar-pacifico.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial</h4><p>Salve, Estrela do Mar! Mãe de Deus e sempre Virgem, porta feliz do céu. Vós que sois a guia segura nos oceanos, sede também a nossa guia no mar agitado desta existência.</p><p class="mt-4 italic">Volvei vosso olhar sobre as ilhas do Pacífico e sobre todos que nelas habitam...</p></div>`,
         finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final</h4><p>Ó Maria, Estrela do Mar, não permitais que naufraguemos no pecado. Conduzi-nos ao porto seguro da salvação, que é Vosso Filho Jesus Cristo. Amém.</p><p class="mt-4 font-semibold">Estrela do Mar, guiai-nos nas trevas e na luz.</p></div>`,
         days: [

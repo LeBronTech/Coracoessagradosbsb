@@ -81,6 +81,8 @@ const getAnchorForSaint = (id: string): string => {
 
 import { useRouter } from 'next/navigation';
 
+let globalHasLoaded = false;
+
 export default function Home() {
   const router = useRouter();
   const { toast } = useToast();
@@ -106,7 +108,7 @@ export default function Home() {
   const [isHamburgerRed, setIsHamburgerRed] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [loadingFinished, setLoadingFinished] = useState(false);
+  const [loadingFinished, setLoadingFinished] = useState(typeof window !== 'undefined' ? globalHasLoaded : false);
   const [userProgress, setUserProgress] = useState<{ completed: number, ongoing: { id: string, name: string, day: number }[] }>({ completed: 0, ongoing: [] });
 
   const calculateProgress = useCallback(() => {
@@ -360,6 +362,19 @@ export default function Home() {
     }
   }, [selectedSaintId, hydrated, scrollTarget, loadingFinished]);
 
+  useEffect(() => {
+    if (loadingFinished && hydrated) {
+      const hash = window.location.hash;
+      const hasSaintHash = hash && saints.some(s => getAnchorForSaint(s.id) === hash.substring(1) || s.id === hash.substring(1));
+      if (!hasSaintHash) {
+        const timer = setTimeout(() => {
+          window.scrollTo({ top: 0 });
+        }, 100);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [loadingFinished, hydrated]);
+
   const selectedNovena = useMemo(
     () => (selectedSaintId ? novenaData[selectedSaintId] : null),
     [selectedSaintId]
@@ -483,9 +498,12 @@ export default function Home() {
   return (
     <React.Fragment>
       <LoadingScreen 
-        isLoading={!hydrated || isNavigating} 
+        isLoading={isNavigating || (!globalHasLoaded && !hydrated)} 
         onFinished={() => {
-          if (!isNavigating) setLoadingFinished(true);
+          if (!isNavigating) {
+            setLoadingFinished(true);
+            globalHasLoaded = true;
+          }
         }} 
       />
       
@@ -623,7 +641,7 @@ export default function Home() {
 
       <div className={cn(
           "transition-all duration-700 ease-in-out", 
-          hydrated && !isNavigating ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] animate-gate-up"
+          (globalHasLoaded || hydrated) && !isNavigating ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-[100%] animate-gate-up"
       )}>
         <div className="container mx-auto p-4 md:p-8 max-w-5xl text-stone-900">
 
