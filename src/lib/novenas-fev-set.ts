@@ -4500,10 +4500,17 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São João Batista",
         novenaTitle: "Novena a São João Batista",
         description: "O precursor do Messias, São João Batista é modelo de humildade, penitência e zelo pela justiça. Sua novena prepara os corações para a grande solenidade do nascimento do santo, em 24 de junho. É ideal para aqueles que buscam conversão, coragem para anunciar o Evangelho e fidelidade à missão pessoal.",
-        image: "https://i.pinimg.com/736x/5c/6d/7e/5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f.jpg",
+        image: "https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/06/santododia-solenidade-do-nascimento-de-joao-batista-2-300x225.jpg",
         imageObjectPosition: "top",
-        initialPrayer: "",
-        finalPrayer: "",
+        initialPrayer: `<div class="prayer-section">
+            <h4 class="section-title text-center">Oração Inicial</h4>
+            <p>Ó glorioso São João Batista, que fostes enriquecido com dons extraordinários de graça desde o seio materno, e que com a vossa pregação e exemplo preparastes o caminho do Senhor, alcançai-nos a graça de purificar os nossos corações para acolher o Divino Salvador. Concedei-me, por vossa intercessão, o favor que vos peço: <em>(peça aqui a graça)</em>.</p>
+            <p class="mt-4 text-center font-bold">Amém.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-section">
+            <h4 class="section-title text-center">Oração Final</h4>
+            <p class="text-center">Rezar um Pai-Nosso, uma Ave-Maria e um Glória.</p>
+        </div>`,
         days: [
             {
                 day: "Dia 1",
@@ -5881,6 +5888,205 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
 <p>Ó Deus Santo, Santo Santo, Pai Santo, Filhos Santo, e Espírito Santo: já que com este cântico antigo, e sempre novo, sois aclamado no Céu, fazei que na terra eu seja também três vezes santo: santo nos pensamentos, santo nas palavras, e santo nas obras; para que assim mereça ir entoar, na companhia dos mais Santos, o triságio à vossa imensa glória.</p>
 <p class="mt-4 font-semibold">V/. Glória ao Pai, ao Filho e ao Espírito Santo.<br/>R/. Como era no princípio, agora e sempre, e por todos os séculos dos séculos. Amém.</p>
 </div>`
+            }
+        ]
+    },
+
+    sao_josemaria_escriva: {
+        saintName: "São Josemaria Escrivá",
+        novenaTitle: "Novena do Trabalho",
+        description: "Composta pelo Pe. Francisco Faus, a Novena do Trabalho a São Josemaria Escrivá é uma poderosa oração de intercessão baseada nos ensinamentos do santo. É destinada a quem busca um emprego digno e estável, ou a quem deseja santificar o seu trabalho diário, oferecendo-o com amor a Deus.",
+        image: "https://imgs.search.brave.com/pQJ3bX40nmh-Vf5ww0ZVAzn3JcfSlv2-qLrmV0Wq7uA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vckpUOXBl/dTN2MG1kREY2a2U3/T1JxSWlNS2Z4dTdx/UVVYaWk1cmRjcFh3/US9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNEb3ZMMkpz/YjJjdS9ZMkZ1WTJG/dmJtOTJZUzVqL2Iy/MHZabVZzYVhCbFlY/RjEvYVc1dkwyWnBi/R1Z6THpJdy9NVFV2/TURRdmFtOXpaVzFo/L2NtbGhMV1Z6WTNK/cGRtRXQvT0MweU1E/aDRNekF3TG1wdy9a/dw",
+        imageObjectPosition: "top",
+        initialPrayer: `<div class="prayer-section">
+            <h4 class="section-title text-center">Oração a São Josemaria</h4>
+            <p>Ó Deus, que por mediação da Santíssima Virgem Maria concedestes inúmeras graças a São Josemaria, sacerdote, escolhendo-o como instrumento fidelíssimo para fundar o Opus Dei, caminho de santificação no trabalho profissional e no cumprimento dos deveres cotidianos do cristão, fazei que eu também saiba converter todos os momentos e circunstâncias da minha vida em ocasião de Vos amar, e de servir com alegria e simplicidade a Igreja, o Romano Pontífice e as almas, iluminando os caminhos da terra com a luz da fé e do amor. Concedei-me por intercessão de São Josemaria o favor que Vos peço: <em>(peça aqui a graça)</em>.</p>
+            <p class="mt-4 text-center font-bold">Amém.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-section">
+            <h4 class="section-title text-center">Oração Final</h4>
+            <p class="text-center">Rezar um Pai-Nosso, uma Ave-Maria e um Glória.</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Trabalho, caminho de santidade",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Viemos chamar de novo a atenção para o exemplo de Jesus, que, durante trinta anos, permaneceu em Nazaré trabalhando, desempenhando um ofício. Nas mãos de Jesus, o trabalho, e um trabalho profissional semelhante àquele que desenvolvem milhões de homens no mundo, converte-se em tarefa divina, em trabalho redentor, em caminho de salvação.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Aí onde estão os nossos irmãos, os homens, aí onde estão as nossas aspirações, o nosso trabalho, os nossos amores, aí está o lugar do nosso encontro cotidiano com Cristo. Deus nos espera a cada dia no laboratório, na sala de operações de um hospital, no quartel, na cátedra universitária, na fábrica, na oficina, no campo, no seio do lar e em todo o imenso panorama do trabalho.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que Deus Nosso Senhor me oriente no esforço de procurar trabalho, e me abençoe fazendo-me conseguir um emprego honesto, digno e estável; e que me ajude, depois, a olhar para a minha tarefa profissional como um caminho de santificação e de serviço aos outros, onde o meu Pai Deus me espera a toda a hora e me pede que imite Jesus quando trabalhava como carpinteiro em Nazaré.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que o Senhor me ajude a olhar para o meu trabalho como um caminho de santificação e de serviço aos outros, onde Ele me espera a toda a hora. Que eu aprenda a imitar Jesus, que durante trinta anos trabalhou humildemente em Nazaré, transformando a minha profissão em uma tarefa divina e redentora.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Trabalhar por amor a Deus",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “A dignidade do trabalho se baseia no Amor. O grande privilégio do homem é poder amar, transcendendo assim o efêmero e transitório.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Fazei tudo por amor. Assim não há coisas pequenas: tudo é grande. A perseverança nas pequenas coisas por amor é heroísmo.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que Deus me conceda a graça de conseguir logo um trabalho digno, e me dê forças para buscar emprego com fé e esperança, tendo a intenção de trabalhar por amor a Ele e para o sustento de minha família.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu realize minhas tarefas profissionais por amor a Deus. Que eu aprenda a purificar as minhas intenções, não trabalhando por vaidade ou orgulho, mas para dar glória a Deus e servir ao próximo com caridade e alegria.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Trabalhar com ordem e constância",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Como é breve a duração da nossa passagem pela terra! Verdadeiramente é curto o nosso tempo para amar, para dar, para desagravar. Não é justo, portanto, que o malbaratemos.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Quando tiveres ordem, multiplicar-se-á o teu tempo e, portanto, poderás dar mais glória a Deus, trabalhando mais a seu serviço.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda a graça de um emprego estável, e me ajude a ser disciplinado, perseverante e paciente durante o tempo de busca, sem desanimar diante dos obstáculos.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu trabalhe com ordem, método e constância. Que eu saiba aproveitar bem o tempo, evitando a preguiça e a procrastinação, para oferecer a Deus um trabalho sério, organizado e frutífero.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Trabalho bem acabado",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Não podemos oferecer ao Senhor uma coisa que, dentro das pobres limitações humanas, não seja perfeita, sem mancha, realizada com atenção até nos mínimos detalhes: Deus não aceita trabalhos “marretados”. Por isso o trabalho de cada qual deve ser uma oferenda digna aos olhos do Criador; numa palavra, uma tarefa acabada, impecável.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda um trabalho em que eu possa exercer minhas habilidades com perfeição e responsabilidade, e que eu me prepare bem para as oportunidades que surgirent.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu realize o meu trabalho diário com a máxima perfeição possível, cuidando dos pequenos detalhes. Que eu entenda que um trabalho mal feito, desleixado ou negligente não pode ser oferecido a Deus nem santificado.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Todos os trabalhos honestos são dignos",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “É hora de que todos nós, cristãos, anunciemos bem alto que o trabalho é um dom de Deus, e que não faz nenhum sentido dividir os homens em diferentes categorias, conforme os tipos de trabalho, considerando umas ocupações mais nobres do que as outras. O trabalho, todo trabalho, é testemunho da dignidade do homem.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda a graça de um trabalho digno, e me ajude a valorizar qualquer ocupação honesta que eu venha a exercer, sabendo que diante de Deus todo trabalho realizado com amor é nobre.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu aprecie a dignidade do meu trabalho atual, mesmo que pareça modesto ou de menor prestígio social. Que eu realize minhas tarefas com o mesmo orgulho e amor com que Jesus trabalhava na carpintaria de Nazaré.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Trabalhar em companhia de Deus e com reta intenção",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Deves manter – ao longo do dia – uma constante conversa com o Senhor, que se alimente também das próprias incidências da tua tarefa profissional.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Como cristão, deverias trazer sempre contigo o teu Crucifixo, e colocá-lo sobre a tua mesa de trabalho. E beijá-lo antes de te entregares ao descanso e ao acordar.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda um emprego onde eu possa manter a presença de Deus no meu dia a dia, e que eu aprenda a rezar com confiança enquanto busco um trabalho.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu aprenda a transformar o meu trabalho profissional em oração contínua. Que eu trabalhe em constante diálogo com o Senhor, oferecendo-Lhe cada pequena tarefa e colocando o Crucifixo em minha mesa como lembrança de Seu amor.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Amadurecer nas virtudes através do trabalho",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Tudo aquilo em que intervimos os pobrezinhos dos homens – mesmo a santidade – é um tecido de pequenas insignificâncias que, conforme a intenção com que se fazem, podem formar uma tapeçaria esplêndida de heroísmo ou de baixeza, de virtudes ou de pecados.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que Deus me conceda um emprego onde eu possa crescer moralmente, praticando as virtudes e dando bom exemplo cristão aos futuros colegas e clientes.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que o meu ambiente de trabalho seja um lugar de crescimento espiritual. Que eu aproveite as dificuldades do cotidiano profissional para crescer na paciência, na fortaleza, na generosidade e na compreensão com todos.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Trabalhar é servir, ajudar os outros",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Pensai que através dos vossos afazeres profissionais, realizados com responsabilidade, além de vos sustentardes economicamente, prestais um serviço diretíssimo ao desenvolvimento da sociedade, aliviais também as cargas dos outros e mantendes muitas obras assistenciais em prol dos indivíduos e dos povos menos favorecidos.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Quando tiveres terminado o teu trabalho, faz o do teu irmão, ajudando-o, por Cristo, com tal delicadeza e naturalidade, que nem mesmo o favorecido repare que estás fazendo mais do que em justiça deves.”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda um emprego que me permita servir à sociedade e ajudar o próximo, e que eu use os frutos do meu trabalho para apoiar a minha família e os mais necessitados.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu encare o meu trabalho como um ato de serviço aos outros. Que eu esteja sempre disposto a ajudar meus colegas com generosidade e presteza, sem buscar reconhecimento humano, mas agindo com sincero amor de filho de Deus.</p>
+                    </div>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Fazer apostolado com o nosso trabalho",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão: Palavras de São Josemaria Escrivá</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “O trabalho profissional é também apostolado, ocasião de entrega aos outros homens; o momento de lhes revelar Cristo e levá-los a Deus Pai.”
+                    </blockquote>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Faze a tua vida normal; trabalha onde estás, procurando cumprir os deveres do teu estado, acabar bem as tarefas da tua profissão ou do teu ofício, superando-te, melhorando...”
+                    </blockquote>
+                    
+                    <div class="mt-6 p-4 bg-stone-100/50 dark:bg-stone-800/40 rounded-xl border border-stone-200/60 dark:border-stone-700/60">
+                        <h5 class="font-bold text-md text-primary mb-3 text-center">Intenções</h5>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">A - Para encontrar trabalho:</p>
+                        <p class="text-sm mt-1 mb-4 text-stone-600 dark:text-stone-400">Para que o Senhor me conceda un trabalho que me abra portas para dar testemunho de fé e fazer apostolado, aproximando corações de Deus através do meu exemplo e dedicação profissional.</p>
+                        <p class="font-semibold text-stone-800 dark:text-stone-200">B - Para fazer um bom trabalho:</p>
+                        <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu saiba fazer do meu ambiente profissional um campo de apostolado. Que o meu testemunho de honestidade, alegria, competência e amizade sincera ajude meus colegas a conhecerem a Cristo e a descobrirem a beleza de viver a fé no cotidiano.</p>
+                    </div>
+                </div>`
             }
         ]
     }
