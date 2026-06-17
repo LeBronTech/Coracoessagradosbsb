@@ -4496,156 +4496,6 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-    sao_luis_gonzaga: {
-        saintName: "São Luís Gonzaga",
-        novenaTitle: "Novena a São Luís Gonzaga",
-        description: "Padroeiro da juventude, São Luís Gonzaga é exemplo de pureza, entrega e confiança em Deus. Jovem jesuíta que morreu aos 23 anos servindo doentes de peste, sua novena é recomendada a jovens que buscam discernimento vocacional, pureza e firmeza na fé.",
-        image: "https://i.pinimg.com/736x/placeholder.jpg",
-        imageObjectPosition: "top",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: [
-            {
-                day: "Dia 1",
-                title: "1º Dia - A Pureza de Coração",
-                content: `<div class="day-specific-content">
-                    <p>Ó glorioso São Luís Gonzaga, que desde a infância vos consagrastes a Deus com um coração puríssimo, ajudai-nos a manter a nossa alma limpa das manchas do pecado. Em um mundo cheio de tentações, sede nosso protetor e guia para que possamos ver a Deus em todas as coisas e amar a pureza acima de tudo.</p>
-                </div>`
-            },
-            {
-                day: "Dia 2",
-                title: "2º Dia - A Renúncia ao Mundo",
-                content: `<div class="day-specific-content">
-                    <p>São Luís, que, sendo herdeiro de riquezas e honras terrenas, tudo abandonastes por amor a Cristo, ensinai-nos o desapego. Que possamos compreender que os bens deste mundo passam rapidamente e que só a vontade de Deus nos garante a verdadeira felicidade.</p>
-                </div>`
-            },
-            {
-                day: "Dia 3",
-                title: "3º Dia - A Caridade com os Doentes",
-                content: `<div class="day-specific-content">
-                    <p>Jovem São Luís, que destes a vida cuidando dos doentes atingidos pela peste, inflamai nosso coração com a vossa heroica caridade. Ajudai-nos a ver em cada pessoa que sofre a face de Cristo e a servir aos nossos irmãos com generosidade e amor.</p>
-                </div>`
-            },
-            {
-                day: "Dia 4",
-                title: "4º Dia - O Amor à Eucaristia",
-                content: `<div class="day-specific-content">
-                    <p>Santo anjo na terra, São Luís Gonzaga, cuja maior alegria era receber a Santa Comunhão, dai-nos uma fome espiritual pelo Pão da Vida. Que possamos nos aproximar da Eucaristia com profunda reverência, fé e amor, encontrando nela a força para nossa caminhada.</p>
-                </div>`
-            },
-            {
-                day: "Dia 5",
-                title: "5º Dia - A Devoção a Maria",
-                content: `<div class="day-specific-content">
-                    <p>São Luís, que nutristes uma terna e filial devoção à Virgem Maria, consagrai-nos ao seu Imaculado Coração. Que, seguindo o vosso exemplo, possamos amar e honrar a Mãe de Deus, confiando-lhe as nossas vidas e as nossas intenções.</p>
-                </div>`
-            },
-            {
-                day: "Dia 6",
-                title: "6º Dia - A Obediência e Humildade",
-                content: `<div class="day-specific-content">
-                    <p>Modelo de humildade, São Luís, que aceitastes ser o último e o mais servidor na Companhia de Jesus, ensinai-nos a virtude da obediência. Livrai-nos do orgulho e da vaidade, para que, reconhecendo a nossa pequenez, possamos ser grandes aos olhos de Deus.</p>
-                </div>`
-            },
-            {
-                day: "Dia 7",
-                title: "7º Dia - A Mortificação e Penitência",
-                content: `<div class="day-specific-content">
-                    <p>São Luís Gonzaga, que castigáveis o vosso corpo inocente com jejuns e penitências para dominar as paixões, dai-nos a graça do domínio de nós mesmos. Que saibamos oferecer pequenos sacrifícios diários em reparação pelos nossos pecados e pela salvação das almas.</p>
-                </div>`
-            },
-            {
-                day: "Dia 8",
-                title: "8º Dia - A Confiança na Vontade de Deus",
-                content: `<div class="day-specific-content">
-                    <p>Ó Santo padroeiro da juventude, que aceitastes a vontade de Deus com total abandono, mesmo diante da morte prematura, fortalecei a nossa fé. Ensinai-nos a confiar nos planos do Senhor, sabendo que tudo o que Ele permite é para o nosso maior bem.</p>
-                </div>`
-            },
-            {
-                day: "Dia 9",
-                title: "9º Dia - A Alegria Espiritual e o Céu",
-                content: `<div class="day-specific-content">
-                    <p>Glorioso São Luís Gonzaga, que partistes deste mundo com o coração cheio de alegria e paz, alcançai-nos a graça de uma santa morte. Que a esperança da vida eterna nos anime a lutar todos os dias para alcançar o Céu, onde cantaremos para sempre os louvores de Deus.</p>
-                </div>`
-            }
-        ]
-    },
-
-    sao_thomas_more: {
-        saintName: "São Thomas More",
-        novenaTitle: "Novena a São Thomas More",
-        description: "Mártir inglês, São Thomas More foi chanceler do reino e preferiu morrer a trair sua consciência católica. Sua novena é voltada para leigos que atuam na política, no direito e nas responsabilidades públicas, pedindo sabedoria, coragem e fidelidade à verdade cristã.",
-        image: "https://i.pinimg.com/736x/placeholder.jpg",
-        imageObjectPosition: "top",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: [
-            {
-                day: "Dia 1",
-                title: "1º Dia - O Exemplo de Integridade",
-                content: `<div class="day-specific-content">
-                    <p>São Thomas More, que em toda a vossa vida demonstrastes uma retidão moral inabalável, ajudai-nos a sermos pessoas íntegras e honestas em nossas ações. Em meio às seduções do poder e da corrupção, dai-nos a graça de manter nossos corações voltados para a verdade e a justiça.</p>
-                </div>`
-            },
-            {
-                day: "Dia 2",
-                title: "2º Dia - A Vocação Familiar",
-                content: `<div class="day-specific-content">
-                    <p>Pai amoroso e esposo fiel, São Thomas More, que fizestes de vossa casa uma escola de virtude, piedade e alegria, abençoai as nossas famílias. Ensinai-nos a educar nossos filhos no amor a Deus e a cultivar um lar onde reine a paz, a união e a fé viva.</p>
-                </div>`
-            },
-            {
-                day: "Dia 3",
-                title: "3º Dia - A Retidão no Dever Profissional",
-                content: `<div class="day-specific-content">
-                    <p>Ó grande Chanceler do Reino, que desempenhastes os vossos deveres públicos com excelência sem nunca descuidar da vossa alma, rogai por todos os profissionais. Que possamos ver no nosso trabalho um meio de servir ao próximo e de glorificar a Deus, nunca colocando a carreira acima da fé.</p>
-                </div>`
-            },
-            {
-                day: "Dia 4",
-                title: "4º Dia - A Sabedoria e o Estudo",
-                content: `<div class="day-specific-content">
-                    <p>São Thomas More, que unistes um intelecto brilhante a uma fé profunda, iluminai nossas mentes. Ajudai-nos a buscar o verdadeiro conhecimento e a sabedoria que vêm do alto, usando nossos talentos intelectuais para defender a verdade do Evangelho e edificar a Igreja.</p>
-                </div>`
-            },
-            {
-                day: "Dia 5",
-                title: "5º Dia - A Fidelidade à Consciência",
-                content: `<div class="day-specific-content">
-                    <p>Mártir inabalável, que preferistes a morte à traição da vossa consciência, dai-nos a coragem de não ceder aos erros do nosso tempo. Que possamos escutar e seguir sempre a voz de Deus no íntimo do nosso coração, mesmo que isso nos custe o prestígio ou a aprovação do mundo.</p>
-                </div>`
-            },
-            {
-                day: "Dia 6",
-                title: "6º Dia - O Amor e a Lealdade à Igreja",
-                content: `<div class="day-specific-content">
-                    <p>Fiel filho da Igreja Católica, São Thomas More, que defendestes a unidade do Corpo de Cristo até derramar vosso sangue, aumentai o nosso amor pela Igreja. Livrai-nos de todos os cismas e divisões, e concedei-nos a graça de amar o Santo Padre e ser defensores da sã doutrina.</p>
-                </div>`
-            },
-            {
-                day: "Dia 7",
-                title: "7º Dia - O Desapego dos Bens Terrenos",
-                content: `<div class="day-specific-content">
-                    <p>Ó Santo Mártir, que perdestes todas as honras, riquezas e a própria liberdade sem perder a alegria, ensinai-nos o desapego. Que saibamos reconhecer que o único tesouro que não nos pode ser tirado é a amizade com Deus e o estado de graça da nossa alma.</p>
-                </div>`
-            },
-            {
-                day: "Dia 8",
-                title: "8º Dia - A Alegria nas Tribulações",
-                content: `<div class="day-specific-content">
-                    <p>São Thomas More, que mantivestes o vosso bom humor e serenidade mesmo na prisão e no momento da execução, consolai-nos nas nossas aflições. Que, confiando inteiramente na Providência Divina, saibamos sorrir no meio das cruzes diárias, certos de que Deus nunca nos abandona.</p>
-                </div>`
-            },
-            {
-                day: "Dia 9",
-                title: "9º Dia - O Glorioso Martírio",
-                content: `<div class="day-specific-content">
-                    <p>Servidor do rei, mas acima de tudo servidor de Deus, São Thomas More, que aceitastes a coroa do martírio com heroica paciência, alcançai-nos a perseverança final. Que possamos amar a Cristo acima de todas as coisas e, um dia, participar convosco do banquete eterno no Céu.</p>
-                </div>`
-            }
-        ]
-    },
-
     sao_joao_batista: {
         saintName: "São João Batista",
         novenaTitle: "Novena a São João Batista",
@@ -4725,9 +4575,14 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Pedro e São Paulo",
         novenaTitle: "Novena a São Pedro e São Paulo",
         description: "Celebrando dois pilares da Igreja, esta novena honra o primeiro Papa e o maior missionário do cristianismo. Ideal para rezar pela Igreja, pelo Papa, pelas vocações sacerdotais e pela unidade dos cristãos. Pedro representa a autoridade, Paulo o anúncio — juntos, são modelos de entrega total ao Evangelho.",
-        image: "https://i.pinimg.com/736x/6d/7e/8f/6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a.jpg",
+        image: "https://i.pinimg.com/736x/57/cc/70/57cc709acf0ab6b69ae01b230bb2c1e5.jpg",
         imageObjectPosition: "top",
-        initialPrayer: "",
+        initialPrayer: `<p class="mb-4">Gloriosos Apóstolos São Pedro e São Paulo, testemunhas fiéis do Evangelho e colunas da Igreja de Cristo, intercedei por nós junto a Deus. <em>(Apresente a sua intenção...)</em></p>
+<p class="mb-4">São Pedro, escolhido por Jesus como pedra sobre a qual edificou a sua Igreja, fortalecei a nossa fé e guiai-nos na fidelidade ao Senhor.</p>
+<p class="mb-4">São Paulo, ardente missionário do amor de Cristo, ensinai-nos a viver segundo o Evangelho com coragem e fervor.</p>
+<p class="mb-4">Que o vosso exemplo nos inspire a seguir Jesus com o coração inteiro, vivendo em comunhão com a Igreja e sendo instrumentos do Reino de Deus. Amém.</p>
+<p class="font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider mb-2">São Pedro e São Paulo, colunas da nossa Igreja, rogai por nós!</p>
+<p class="text-sm italic text-muted-foreground mt-4">(Rezar 1 Pai-Nosso, 1 Ave-Maria e 1 Glória ao Pai)</p>`,
         finalPrayer: "",
         days: [
             {
@@ -5385,102 +5240,195 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     nossa_senhora_perpetuo_socorro: {
         saintName: "N.S. do Perpétuo Socorro",
         novenaTitle: "Novena a N.S. do Perpétuo Socorro",
-        description: "A Virgem do Perpétuo Socorro é invocada como mãe atenta às necessidades dos filhos. A novena a essa devoção mariana é poderosa para pedir auxílio em momentos de dor, dificuldade ou desespero. Milhares testemunham graças por sua intercessão, principalmente nas quartas-feiras dedicadas a ela.",
-        image: "https://i.postimg.cc/G3jkv0hd/ns-perpetuo-socorro.jpg",
+        description: "Reze conosco a novena a Nossa Senhora do Perpétuo Socorro. A exemplo de Jesus, também nós recorremos a Nossa Senhora do Perpétuo Socorro diante das angústias de nosso coração.",
+        image: "https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/06/formacao_1600x1200-conheca-a-novena-a-nossa-senhora-do-perpetuo-socorro-768x576.jpg",
         imageObjectPosition: "top",
-        initialPrayer: "",
+        initialPrayer: `<p class="mb-4">A exemplo de Jesus, também nós recorremos a Nossa Senhora do Perpétuo Socorro diante das angústias de nosso coração. Confira a preparação para todos os dias da novena:</p>
+<ul class="list-disc pl-5 mb-4 space-y-1">
+  <li>Recolher-se em oração em casa ou em uma igreja;</li>
+  <li>Fazer o pedido da graça que tanto deseja alcançar;</li>
+  <li>Rezar a oração de cada dia;</li>
+  <li>Rezar um Pai-Nosso e três Ave-Marias;</li>
+  <li>Praticar a boa obra de cada dia. Pode-se trocar por outra mais conveniente.</li>
+</ul>
+<p class="font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider mb-2">Em nome do Pai, do Filho e do Espírito Santo. Amém.</p>`,
         finalPrayer: "",
         days: [
             {
                 day: "Dia 1",
-                title: "1º Dia - O Olhar da Mãe",
+                title: "1º Dia - “Eis a tua mãe” (Jo 19,27)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Mãe do Perpétuo Socorro, no vosso quadro sagrado os vossos olhos não contemplam o Menino, mas olham ternamente para nós. Ensinai-nos a sentir o vosso olhar materno que acompanha os nossos passos em todos os momentos, e que nunca nos desviais a vossa compaixão quando sofremos.</p>
-                </div>`
+    <p>Bondosa Mãe do Perpétuo Socorro, que experimentastes a angústia da vida, acolhei o meu pedido. Sois Mãe e tendes o desejo de socorrer a todos, aqui está alguém que é pecador, mas que recorre a vós.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> dar esmola a um pobre.
+    </div>
+</div>`
             },
             {
                 day: "Dia 2",
-                title: "2º Dia - As Mãos Que Amparam",
+                title: "2º Dia - “[…] meu espírito se alegra em Deus […]” (Lc 1,47)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Senhora do Perpétuo Socorro, assim como sustentastes o Menino Jesus assustado com a visão da cruz, tomai as nossas mãos nas vossas. Quando o medo, a incerteza e a angústia ameaçarem nos abalar, apertamo-nos a vós, certos de que nos dareis proteção e fortaleza.</p>
-                </div>`
+    <p>Mãe do Perpétuo Socorro, ajudai-me a ser de Deus. Tudo passa como vento, Deus permanece. Quero ser d’Ele e, por isso, vos suplico: socorrei-me nessa vida, ajudai-me a não perder Deus nos sofrimentos e necessidades. Bondosa Mãe, aumentai a minha fé e confiança, socorrei-me com vosso amor.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> em casa, fazer o trabalho com amor.
+    </div>
+</div>`
             },
             {
                 day: "Dia 3",
-                title: "3º Dia - A Cruz Anunciada",
+                title: "3º Dia - “[…] seja feita a tua vontade […]” (Mt 6,10)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Mãe Dolorosa, os anjos no vosso ícone apresentam os instrumentos da Paixão. Ajudai-nos a não fugir da cruz que Deus permite na nossa vida, mas a abraçá-la com fé, unindo os nossos sofrimentos aos de Jesus para a nossa salvação e a do mundo inteiro.</p>
-                </div>`
+    <p>Bondosa Mãe, Nossa Senhora do Perpétuo Socorro, compreendestes e sempre fizestes o que Deus queria, afastai de mim a dureza do coração, o orgulho e o egoísmo. Ajudai-me, bondosa Mãe, a seguir a vontade de Deus e concedei-me a graça que vos peço.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> antes de dormir, agradecer a Deus por tudo o que aconteceu no dia.
+    </div>
+</div>`
             },
             {
                 day: "Dia 4",
-                title: "4º Dia - O Refúgio dos Pecadores",
+                title: "4º Dia - “[…] foi a mim que o fizestes!” (Mt 25,40)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Santíssima Virgem, a sandália do vosso Filho desatando-se recorda a pressa com que Ele buscou o vosso amparo. Que também nós, nas horas da tentação e do pecado, corramos sem demora para o vosso colo materno, encontrando perdão, misericórdia e a graça da conversão.</p>
-                </div>`
+    <p>Mãe de Jesus e minha mãe, dai-me um coração generoso para ajudar o próximo e misericordioso para perdoar sempre. Dai-me um coração humilde e manso para suportar suas fraquezas. Jesus disse que faço a Ele o que faço aos outros, por isso, ajudai-me a melhor amar Deus e meus irmãos. Nossa Senhora do Perpétuo Socorro, socorrei-me na graça que vos peço.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> dar algo ao pobre.
+    </div>
+</div>`
             },
             {
                 day: "Dia 5",
-                title: "5º Dia - O Amor Que Não Cansa",
+                title: "5º Dia - “[…] eu estou ali, no meio deles.” (Mt 18,20)",
                 content: `<div class="day-specific-content">
-                    <p>Nossa Senhora do Perpétuo Socorro, o vosso nome nos diz que a vossa ajuda nunca acaba. Ao contrário das amizades do mundo, que muitas vezes falham na hora da dor, sabemos que vós estais sempre pronta a nos socorrer. Aumentai a nossa confiança no vosso poder de intercessão.</p>
-                </div>`
+    <p>Bondosa Mãe, como vivestes com Jesus e José em casa? Concedei-me amar meus irmãos e aceitar cada um no seu jeito de ser. Dai-nos a paz, compreensão, bondade e alegria para que o Espírito de Jesus permaneça conosco. Bondosa Mãe, pedi a Ele por nós.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> visitar alguém doente.
+    </div>
+</div>`
             },
             {
                 day: "Dia 6",
-                title: "6º Dia - O Amparo das Famílias",
+                title: "6º Dia - “Vinde a mim, […] e eu vos darei descanso.” (Mt 11,28)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Mãe bendita, que formastes a Sagrada Família com Jesus e São José, abençoai e protegei os nossos lares. Socorrei as famílias que passam por desavenças, por falta de trabalho ou por doenças, devolvendo-lhes a paz, a união, o amor e o pão de cada dia.</p>
-                </div>`
+    <p>Pode a mãe esquecer seu filho? Sei, ó Maria, que não nos esqueceis, mas tenho medo de me esquecer de vós. Peço-vos nunca perder Deus nem a fé, e sempre confiar em vós. Ó Maria, feliz de quem vos conhece e a vós recorre como o filho a sua Mãe. Ajudai-me em minha prece.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> ir a uma igreja e rezar por alguém.
+    </div>
+</div>`
             },
             {
                 day: "Dia 7",
-                title: "7º Dia - A Protetora da Vida e dos Doentes",
+                title: "7º Dia - “Faça-se em mim segundo a tua palavra.” (Lc 1,38)",
                 content: `<div class="day-specific-content">
-                    <p>Ó Virgem compassiva, lançai o vosso olhar sobre todos os doentes e aflitos que clamam o vosso nome nos hospitais e nas suas casas. Se for da vontade de Deus, alcançai-lhes a cura física; se não o for, dai-lhes a graça da paciência heroica e o alívio das suas dores.</p>
-                </div>`
+    <p>Maria, sempre fizestes tudo o que Deus vos pediu. Para que eu também seja assim, ajudai-me a ouvir a Palavra de Deus, a meditar, a ouvir o que Jesus ensinou. Atendei meu pedido nesta novena e não deixai que fique acomodado na vida.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> ler Lc 1,39-56.
+    </div>
+</div>`
             },
             {
                 day: "Dia 8",
-                title: "8º Dia - A Guia na Hora da Morte",
+                title: "8º Dia - “[…] olhou para a humildade de sua serva.” (Lc 1,48)",
                 content: `<div class="day-specific-content">
-                    <p>Ó amável Maria, rogai por nós pecadores, agora e na hora da nossa morte. Sede o nosso socorro no momento derradeiro da vida, afugentando os inimigos da nossa alma e acompanhando-nos com o vosso sorriso até nos entregardes nos braços do Juiz Misericordioso.</p>
-                </div>`
+    <p>Nossa Senhora do Perpétuo Socorro, quantas vezes me torno orgulhoso, vaidoso, confiante nas coisas que passam! Tudo isso pode ocupar o lugar de Deus em meu coração. Maria, livrai-me desta tentação de trocar Deus pelas coisas da terra e descuidar da casa d’Ele em mim. Bondosa Mãe, socorrei-me com a graça de Jesus.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> ouvir e conversar, bondosamente, com um idoso ou uma pessoa difícil.
+    </div>
+</div>`
             },
             {
                 day: "Dia 9",
-                title: "9º Dia - A Promessa do Socorro Constante",
+                title: "9º Dia - “Maria, porém, guardava todas as coisas, meditando-as no seu coração” (Lc 2,19)",
                 content: `<div class="day-specific-content">
-                    <p>Mãe do Perpétuo Socorro, terminamos esta novena consagrando-vos todo o nosso ser: os nossos pensamentos, palavras e ações. Pelo amor que tendes a Jesus e a nós, fazei que o vosso socorro seja verdadeiramente perpétuo nas nossas vidas, hoje e por toda a eternidade. Amém.</p>
-                </div>`
+    <p>Quantas vezes, ó Maria, meu coração fica triste, atribulado, cheio de dúvidas e angstioso. Isso acontece, porque não me recolho no silêncio da oração nem procuro ver o que Deus quer de mim. Não sei escutar o Senhor. Maria, peço-vos a graça de acreditar que Deus me ama sempre, mesmo na dor.</p>
+    <div class="mt-4 p-3 bg-amber-500/10 rounded-lg border border-amber-500/20 text-sm">
+        <strong>Boa obra:</strong> passar o dia alegre e não se aborrecer.
+    </div>
+</div>`
             }
         ]
-    },
-
-    sao_tome_apostolo: {
-        saintName: "São Tomé Apóstolo",
-        novenaTitle: "Novena a São Tomé",
-        description: "Peça a fé para crer no Ressuscitado: 'Meu Senhor e meu Deus'.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - São Tomé`,
-            content: ""
-        }))
     },
 
     santa_paulina: {
         saintName: "Santa Paulina do Brasil",
         novenaTitle: "Novena a Santa Paulina do Brasil",
         description: "Primeira santa do Brasil. Dedicação total aos doentes e pobres.",
-        initialPrayer: "",
-        finalPrayer: "",
-        days: Array.from({ length: 9 }, (_, i) => ({
-            day: `Dia ${i + 1}`,
-            title: `Dia ${i + 1} - Santa Paulina do Brasil`,
-            content: ""
-        }))
+        image: "https://cdnv2.moovin.com.br/sjo/imagens/produtos/det/santinhos_de_papel-santa_paulina_-_frente.jpg",
+        initialPrayer: `<p class="mb-4">No dia 9 de julho, celebraremos com toda Igreja o dia da primeira santa brasileira. Iniciemos com confiança esta novena pedindo a sua intercessão:</p>
+<p class="font-semibold text-amber-800 dark:text-amber-400 uppercase tracking-wider mb-2">Em nome do Pai, do Filho e do Espírito Santo. Amém.</p>`,
+        finalPrayer: `<div class="prayer-block">
+<h4 class="section-title">Oração a Santa Paulina</h4>
+<p>Ó Santa Paulina, que puseste toda a confiança no Pai e em Jesus e que, inspirada por Maria, decidiste ajudar o povo sofrido, nós te confiamos a Igreja que tanto amas, nossas vidas, nossas famílias, a Vida Consagrada e todo o povo de Deus.</p>
+<p class="mt-4 italic"><strong>(Apresentar a graça que se deseja obter...)</strong></p>
+<p class="mt-4">Santa Paulina, intercede por nós junto a Jesus, a fim de que tenhamos a coragem de lutar sempre, na conquista de um mundo mais humano, justo e fraterno. Amém.</p>
+<div class="mt-6 text-center font-bold text-white text-md tracking-wide uppercase">
+  <p>Pai-Nosso, Ave-Maria e Glória</p>
+</div>
+<p class="mt-4 font-semibold">V. Santa Paulina.<br/>R. Rogai por nós!</p>
+</div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - Sensibilidade aos clamores da realidade",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que tanto amaste Maria, a Mãe de Deus, e foste fiel ao seu convite: “Quero que inicies uma obra; trabalharás pela salvação de minhas filhas”, alcança-nos, do Senhor, a sensibilidade para perceber os clamores da realidade e a disponibilidade para servir aos mais necessitados e aos que estão em situação de maior injustiça.</p>
+</div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - Partilha do pão e do amor",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que, desde a infância, soubeste partilhar o pão com os mais pobres e necessitados, ensina-nos a partilhar com as pessoas, o pão da nossa mesa, da palavra, do perdão, do amor e da acolhida.</p>
+</div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - Caridade aos doentes e abandonados",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que visitaste os doentes, acolheste a uma portadora de câncer, as crianças órfãs e as pessoas anciãs abandonadas, alcança-nos, do Senhor, tão intensa caridade, que nos faça abrir o coração a quem necessita de nossa ajuda e solidariedade.</p>
+</div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - Ardor missionário e apostólico",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que te imolaste, desejando tornar Jesus conhecido, amado e adorado, por todas as pessoas e em todo mundo, alcança-nos, do Senhor, renovado ardor missionário e apostólico, para sermos fiéis à Missão de anunciar a Boa Nova da Salvação trazida por Jesus Cristo.</p>
+</div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - Cuidado com as crianças e os jovens",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que tanto te preocupaste com as crianças e os jovens e lhes apresentaste ideais de heroísmo e santidade, alcança-nos, do Senhor, a graça de sermos, através de nosso testemunho de vida, na família e na sociedade, estímulo para que a juventude ande nos caminhos da verdade e assuma sua vocação, com alegria, abertura, doação, entusiasmo e esperança.</p>
+</div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - Humildade e encorajamento nas contrariedades",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que abraçaste a cruz da humildade e do aniquilamento e, nos momentos difíceis da vida, encorajaste exortando: “Nunca, jamais desanimeis, embora venham ventos contrários”, alcança-nos, do Senhor, a graça de assumirmos com fé, e num compromisso de transformação, os sofrimentos que machucam e pesam no coração de tantas pessoas.</p>
+</div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Dedicação ao Reino de Deus e à Igreja",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que tanto serviste à Igreja e te dedicaste inteiramente ao testemunho do Reino de Deus, alcança-nos, do Senhor, a graça de vivermos o compromisso batismal, colocando-nos a serviço da vida e da esperança, a fim de construirmos uma sociedade justa, fraterna e solidária.</p>
+</div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - Intimidade com Deus na oração",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que encontraste, na oração, a alegria, a paz, a força e o sentido da doação da própria vida, alcança-nos a graça de encontrarmos, na intimidade com Deus, a força para construir nossas vidas, famílias e comunidades, no bem, no amor, no perdão e na justiça.</p>
+</div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - Desprendimento e luta pela vida em abundância",
+                content: `<div class="day-specific-content">
+    <p>Ó Santa Paulina, que abrasada no amor de Deus e despojada de toda grandeza humana, entregaste tua vida ao Senhor, alcança-nos a graça do desprendimento das coisas passageiras deste mundo, buscando somente a glória de Deus e assumindo o desafio de lutar contra todas as situações de morte, para “que todas as pessoas tenham vida e vida em abundância”. (cf. Jo 10.10).</p>
+</div>`
+            }
+        ]
     },
 
 
