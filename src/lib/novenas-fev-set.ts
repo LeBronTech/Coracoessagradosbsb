@@ -4663,71 +4663,54 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "N.S. do Carmo",
         novenaTitle: "Novena a N.S. do Carmo",
         description: "Novena em honra a N.S. do Carmo (16 de julho).",
-        initialPrayer: "",
-        finalPrayer: "",
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0K3bRQTrYCLAaf6mIt3aqOikoZlGiCAkMZQ&s",
+        initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração preparatória para todos os dias</h4><p>Sacratíssima Senhora, Mãe de Deus, à qual Nosso Senhor desde a Sua cruz destinou para nossa advogada e Mãe, vós vedes desde o Céu as tribulações em que se acham vossos filhos, os pecadores, neste mundo, vale de lágrimas e misérias, e que pela maior parte nos achamos rodeados de furiosos inimigos, o mundo, o Demônio, e a carne, e como quase sempre sucumbimos nas batalhas que continuamente nos dão. Compadecei-vos de nós, ó Senhora. Vós sois a que em diversas épocas tendes prestado auxílio ao vosso povo. Vossa é a instituição do santo escapulário do Carmo: Vós mesma o destes ao Bem-aventurado Simão carmelita para que, por este celeste vestido, fossem conhecidos os vossos servos especiais. Felizmente, chegou até nós esta santa e tão interessante devoção. Reconhecei-nos por vossos, ó Santíssima Virgem. Também nós nos achamos honrados com esta libré vossa, e em honra deste especial benefício, queremos celebrar a vossa festa, antecipada por nove dias em vossa honra. Olhai para nós, Senhora, e lançai-nos uma benção de amorosa Mãe, para que no fim desta novena fique mais honrado vosso Filho, e nós, mais aproveitados e fervorosos na vossa devoção. Amém.</p><p class="mt-4 italic">Reza-se três Pai-Nossos, Ave-Marias e Glórias ao Pai.</p><h4 class="section-title mt-4">Jaculatória</h4><p>℣. Mãe e Senhora dos carmelitas.<br/>℟. Olhai para nossas almas aflitas.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Ladainha de Nossa Senhora</h4><p>Senhor, tende piedade de nós.<br/>Jesus Cristo, tende piedade de nós.<br/>Senhor, tende piedade de nós.</p><p class="mt-2">Jesus Cristo, <strong>ouvi-nos.</strong><br/>Jesus Cristo, <strong>atendei-nos.</strong></p><p class="mt-2">Pai celeste que sois Deus, <strong>tende piedade de nós.</strong><br/>Filho, Redentor do mundo, que sois Deus, <strong>tende piedade de nós.</strong><br/>Espírito Santo, que sois Deus, <strong>tende piedade de nós.</strong><br/>Santíssima Trindade, que sois um só Deus, <strong>tende piedade de nós.</strong></p><p class="mt-2">Santa Maria, <strong>rogai por nós.</strong><br/>Santa Mãe de Deus, <strong>rogai por nós.</strong><br/>Santa Virgem das Virgens, <strong>rogai por nós.</strong><br/>Mãe de Jesus Cristo, <strong>rogai por nós.</strong><br/>Mãe da divina graça, <strong>rogai por nós.</strong><br/>Mãe puríssima, <strong>rogai por nós.</strong><br/>Mãe castíssima, <strong>rogai por nós.</strong><br/>Mãe imaculada, <strong>rogai por nós.</strong><br/>Mãe intacta, <strong>rogai por nós.</strong><br/>Mãe amável, <strong>rogai por nós.</strong><br/>Mãe admirável, <strong>rogai por nós.</strong><br/>Mãe do bom conselho, <strong>rogai por nós.</strong><br/>Mãe do Criador, <strong>rogai por nós.</strong><br/>Mãe do Salvador, <strong>rogai por nós.</strong><br/>Virgem prudentíssima, <strong>rogai por nós.</strong><br/>Virgem venerável, <strong>rogai por nós.</strong><br/>Virgem louvável, <strong>rogai por nós.</strong><br/>Virgem poderosa, <strong>rogai por nós.</strong><br/>Virgem clemente, <strong>rogai por nós.</strong><br/>Virgem fiel, <strong>rogai por nós.</strong><br/>Espelho de justiça, <strong>rogai por nós.</strong><br/>Sede de sabedoria, <strong>rogai por nós.</strong><br/>Causa da nossa alegria, <strong>rogai por nós.</strong><br/>Vaso espiritual, <strong>rogai por nós.</strong><br/>Vaso honorífico, <strong>rogai por nós.</strong><br/>Vaso insígne de devoção, <strong>rogai por nós.</strong><br/>Rosa mística, <strong>rogai por nós.</strong><br/>Torre de Davi, <strong>rogai por nós.</strong><br/>Torre de marfim, <strong>rogai por nós.</strong><br/>Casa de ouro, <strong>rogai por nós.</strong><br/>Arca da aliança, <strong>rogai por nós.</strong><br/>Porta do Céu, <strong>rogai por nós.</strong><br/>Estrela da manhã, <strong>rogai por nós.</strong><br/>Saúde dos enfermos, <strong>rogai por nós.</strong><br/>Refúgio dos pecadores, <strong>rogai por nós.</strong><br/>Consoladora dos aflitos, <strong>rogai por nós.</strong><br/>Auxílio dos cristãos, <strong>rogai por nós.</strong><br/>Rainha dos anjos, <strong>rogai por nós.</strong><br/>Rainha dos patriarcas, <strong>rogai por nós.</strong><br/>Rainha dos profetas, <strong>rogai por nós.</strong><br/>Rainha dos apóstolos, <strong>rogai por nós.</strong><br/>Rainha dos mártires, <strong>rogai por nós.</strong><br/>Rainha dos confessores, <strong>rogai por nós.</strong><br/>Rainha das virgens, <strong>rogai por nós.</strong><br/>Rainha de todos os santos, <strong>rogai por nós.</strong><br/>Rainha concebida sem pecado original, <strong>rogai por nós.</strong><br/>Rainha elevada ao Céu, <strong>rogai por nós.</strong><br/>Rainha do sacratíssimo Rosário, <strong>rogai por nós.</strong><br/>Rainha da paz, <strong>rogai por nós.</strong></p><p class="mt-2">Cordeiro de Deus, que tirais os pecados do mundo, <strong>perdoai-nos Senhor.</strong><br/>Cordeiro de Deus, que tirais os pecados do mundo, <strong>ouvi-nos Senhor.</strong><br/>Cordeiro de Deus, que tirais os pecados do mundo, <strong>tende piedade de nós.</strong></p><h4 class="section-title mt-6">Oferecimento</h4><p>℣. Ora pro nobis, Sancta Dei Génitrix.<br/>℟. Ut digni efficiámur promissiónibus Christi.</p><p class="mt-4 italic">Oremus: Deus, qui beatíssimae semper Vírginis et Genitrícis tuae Maríae singulári título Carméli Ordinem decorásti: concéde propítius; ut cujus hódie commemoratiónem solémni celebrámus, ejus muníti praesídiis, ad gáudia sempitérna perveníre mereámur. Qui vivis et regnas in saécula saeculórum.</p><p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus.<br/>℟. Para que sejamos dignos das promessas de Cristo.</p><p class="mt-4 font-semibold">Oremus: Ó Deus, que destes à Ordem do Carmelo a glória insigne de ter o nome da Virgem Santíssima, vossa Mãe, fazei por vossa misericórdia que, fortalecidos com a proteção daquela cuja memória hoje celebramos, mereçamos alcançar a felicidade eterna. Que viveis e reinais, por todos os séculos dos séculos. Amém.</p><h4 class="section-title mt-6">Oração Final</h4><p>Oremos: Senhor Deus, nós Vos suplicamos que concedais aos Vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria.</p></div>`,
         days: [
             {
                 day: "Dia 1",
-                title: "1º Dia - A Pequena Nuvem de Elias",
-                content: `<div class="day-specific-content">
-                    <p>Ó Virgem do Carmo, assim como o profeta Elias viu surgir do mar uma pequena nuvem que trouxe a chuva salvadora para Israel, nós vos vemos como a portadora da graça que é Cristo. Sede a chuva suave que rega o deserto das nossas almas, fazendo brotar nelas os frutos da santidade.</p>
-                </div>`
+                title: "Primeiro Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como desde o princípio da Santa Igreja, Maria Santíssima se reconheceu nossa advogada e nossa Mãe. Já ela acompanhou os Apóstolos e os discípulos, desde que, juntos, no Cenáculo, esperavam a vinda do divino Espírito:; já ela como que fazia as vezes do seu Filho: nas tribulações dos fiéis é natural que a ela recorressem, e ouvissem aquele divino oráculo, e se guiassem por suas palavras e por seus tão santos e acertados conselhos. Oh, se ainda hoje nós imitássemos a prática da primitiva Igreja, e recorrêssemos à Senhora em todas as nossas necessidades, outro seria então o nosso aproveitamento.</p></div>`
             },
             {
                 day: "Dia 2",
-                title: "2º Dia - A Flor do Carmelo",
-                content: `<div class="day-specific-content">
-                    <p>Ó puríssima Flor do Carmelo, vós que exalais o bom odor de Cristo para o mundo, embelezai as nossas vidas com as vossas virtudes. Ajudai-nos a cultivar o silêncio interior e a oração profunda, para que o nosso coração seja um jardim agradável ao Senhor.</p>
-                </div>`
+                title: "Segundo Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como aqueles santos varões, que no monte Carmelo continuavam a vida eremítica que tinham aprendido dos santos profetas Elias e Eliseu, depois da pregação de São João Batista e dos Apóstolos, que se espalharam por todos os lugares, facilmente abraçaram a fé e se sujeitaram aos preceitos evangélicos. E quem duvida que estes homens de Deus seriam assíduos em tratarem com Maria Santíssima, ainda então viva, e gozar da sua presença e trato, e encomendar-se às suas orações? Felizes homens e primeiros devotos da Mãe de Deus, que tão bom exemplo nos deixaram.</p></div>`
             },
             {
                 day: "Dia 3",
-                title: "3º Dia - O Santo Escapulário",
-                content: `<div class="day-specific-content">
-                    <p>Mãe amorosa, que entregastes o Santo Escapulário a São Simão Stock como sinal de proteção e aliança, ensinai-nos a usá-lo com dignidade. Que ele não seja apenas um hábito de pano, mas a veste da vossa proteção e um compromisso de vivermos na graça de Deus.</p>
-                </div>`
+                title: "Terceiro Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como é provável o que comumente se conta: que os monges carmelitas, levados da afeição à Santíssima Virgem, foram os primeiros que edificaram, em sua honra, uma capela em que se juntavam para louvar a Deus e entoar hinos à Senhora. Eis aqui a verificação daquela pequena nuvem que o profeta Elias tinha noutro tempo visto levantar-se do Carmelo, figurando a Santíssima Virgem, que com sua poderosa intercessão devia regar toda a Terra com suas águas salutíferas. Louvores sejam dados a Deus e à sua Santíssima Mãe.</p></div>`
             },
             {
                 day: "Dia 4",
-                title: "4º Dia - A Mãe da Esperança",
-                content: `<div class="day-specific-content">
-                    <p>Nossa Senhora do Monte Carmelo, estrela do mar que guia os navegantes no meio das tempestades, iluminai os nossos passos. Nas trevas da dúvida e do desespero, mostrai-nos a luz da esperança que é o vosso Filho, Jesus, guiando-nos seguros ao porto da salvação.</p>
-                </div>`
+                title: "Quarto Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como dado o exemplo da primeira igreja da Senhora, edificada pelos seus devotos filhos do Carmelo, toda a Igreja à porfia seguia os passos dos primeiros por toda a parte onde havia cristãos: ainda nos nossos dias todos se esmeram em edificar igrejas em honra de Nossa Senhora do Monte do Carmo. Oh, quanto será o gosto da Senhora vendo a devoção de seus filhos carmelitas, que esta geração bendita se multiplica e vai durando até o fim, trazendo sobre seu peito a marca e insígnia de filhos especiais e diletos de Maria. Parabéns sejam dados a eles.</p></div>`
             },
             {
                 day: "Dia 5",
-                title: "5º Dia - A Rainha do Purgatório",
-                content: `<div class="day-specific-content">
-                    <p>Ó clemente Rainha, que prometestes socorrer as almas do Purgatório que na vida foram vossas devotas, estendei sobre elas a vossa misericórdia. Aliviai as suas penas e abri-lhes depressa as portas do Céu, e lembrai-vos também de nós quando chegar a nossa hora.</p>
-                </div>`
+                title: "Quinto Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como sofrem contradições as coisas de Deus. E assim não havia de ficar sem elas esta célebre devoção dos carmelitas. A Ordem de Nossa Senhora do Carmo, que se começava a propagar pela Europa, atraiu contra si a crítica e mordacidade de quem a não conhecia, e foi necessário que a Senhora inspirasse ao Sumo Pontífice desse tempo, Honório III, a confirmação e proteção dela. Por aqui vemos como a Senhora não se esquece de proteger seus devotos do santo escapulário, é como será feliz, neste mundo e no outro, todo aquele que na proteção da Senhora fundar sua esperança, contanto que faça da sua parte quanto lhe for possível para a não desmerecer, pois não será verdadeiro devoto da mãe quem for o inimigo do Filho.</p></div>`
             },
             {
                 day: "Dia 6",
-                title: "6º Dia - O Caminho da Oração",
-                content: `<div class="day-specific-content">
-                    <p>Ó Virgem contemplativa, que guardáveis todas as coisas no vosso coração, ensinai-nos a rezar. Livrai-nos da agitação do mundo que nos afasta de Deus e concedei-nos o dom da intimidade com o Senhor, imitando o zelo ardente dos santos carmelitas.</p>
-                </div>`
+                title: "Sexto Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como para maior estabilidade da sua Ordem do Carmo, e maior prova da sua proteção sobre os devotos carmelitas, quis a Senhora revelar a S. Simão Inglês a devoção do santo escapulário, o qual fosse como marca ou libré de seus servos, e pelo qual se distinguissem dos outros fiéis. Parabéns sejam dados aos carmelitas por trazerem sobre si este sinal de servos de Maria, e este penhor da sua proteção. Louvores à Senhora, que de nós se não esquece, desde que seu bendito Filho nos entregou aos seus cuidados no momento da nossa Redenção no Calvário.</p></div>`
             },
             {
                 day: "Dia 7",
-                title: "7º Dia - A Proteção nas Tentações",
-                content: `<div class="day-specific-content">
-                    <p>Poderosa defensora, revesti-nos com a armadura da vossa proteção contra as armadilhas do maligno. Que o Santo Escapulário seja um escudo contra as tentações do corpo e da alma, mantendo-nos fiéis aos mandamentos de Deus e aos ensinamentos da Igreja.</p>
-                </div>`
+                title: "Sétimo Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos, para cúmulo da proteção da Senhora, como ela protege quem a serve neste mundo, e como lhe vale também no outro, abreviando-lhe as penas do purgatório, quando em sua honra eles se abstêm de carne em certos dias, e lhe oferecem quotidianamente o tributo de certas orações, que rezam em sua honra. Eis aqui novos meios, e facilidades da nossa salvação. Salva-se quem quer, e perde-se quem tem vontade de perder-se, não obstante a multiplicidade de meios que a religião nos oferece para conseguirmos a salvação. Felizes de nós se atendermos a estas reflexões e lançarmos mãos destes meios.</p></div>`
             },
             {
                 day: "Dia 8",
-                title: "8º Dia - O Amparo na Morte",
-                content: `<div class="day-specific-content">
-                    <p>Ó doce Mãe do Carmo, vós que prometestes a salvação eterna àqueles que morressem revestidos do vosso santo hábito, assisti-nos na nossa agonia. Que a vossa presença materna nos dê força para vencer os últimos assaltos do inimigo e entregar a alma em paz a Deus.</p>
-                </div>`
+                title: "Oitavo Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como a Ordem do Carmo, estimulada por tantos benefícios da Santíssima Virgem, que reconhece por sua mãe, faz dela e de seus favores uma solene comemoração em todos os anos no dia 16 de julho: lembra-lhe todos os seus favores e os agradece:; e porque sabe que o Céu não é terra de esquecimento, lhe pede de novo, que lhos continue benignamente, se esqueça de nossas ingratidões. Olhe lá do céu para seus carmelitas, aceite benigna seus cultos, e lhes alcance novas graças, para viverem como seus filhos, até que tenham a felicidade de gozarem de sua companhia no Céu.</p></div>`
             },
             {
                 day: "Dia 9",
-                title: "9º Dia - A Glória do Carmelo",
-                content: `<div class="day-specific-content">
-                    <p>Ó Esplendor do Céu, padroeira e glória da Ordem Carmelita, nós vos consagramos toda a nossa vida. Atraí-nos pelo vosso amor e beleza, para que, caminhando sob a vossa constante proteção, possamos um dia contemplar convosco a face gloriosa do Altíssimo. Amém.</p>
-                </div>`
+                title: "Nono Dia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>No último dia da novena da Virgem Santíssima do Carmo consideremos, metendo a mão na consciência, como até aqui nos temos portado, na qualidade de filhos que somos da Senhora. Os filhos amam a sua mãe, e procuram imitar suas boas qualidades e virtudes, e não degenerar da nobreza dela. Se a nossa consciência nos dá testemunho de assim termos vivido, somos verdadeiramente felizes, contanto que continuemos assim até a morte. Do contrário, será de nenhum proveito a nossa devoção, nem ela poderá nos reconhecer por seus filhos naquela tremenda hora;, se agora dizemos com a língua que a amamos, mas sem provar com obras o que dizemos com as palavras.</p></div>`
             }
         ]
     },
@@ -5496,9 +5479,9 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         saintName: "São Bento",
         novenaTitle: "Novena a São Bento",
         description: "Novena em honra a São Bento, patriarca dos monges do Ocidente. Serve para ambas as festas: 11 de julho (São Bento) e 21 de março (Trânsito de São Bento).",
-        image: "https://i.postimg.cc/3JSmbgvb/sao-bento.png",
+        image: "https://igrejadoscapuchinhos.org/wp-content/uploads/4ad94e1ccf05dc4df776c5a881864a4f.jpg",
         initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração da Medalha de São Bento</h4><p>A Cruz Sagrada seja a minha luz, não seja o dragão o meu guia. Retira-te, satanás! Nunca me aconselhes coisas vãs. É mau o que tu me ofereces, bebe tu mesmo o teu veneno!</p><h4 class="section-title mt-4">Oração para Obter Qualquer Graça</h4><p>Ó glorioso patriarca São Bento, que vos mostrastes sempre compassivo com os necessitados, fazei que também nós, recorrendo à vossa poderosa intercessão, obtenhamos auxílio em todas as nossas aflições.</p><p class="mt-4">Que nas famílias reine a paz e a tranquilidade, afastem-se todas as desgraças, tanto corporais como espirituais, especialmente o pecado.</p><p class="mt-4">Alcançai do Senhor a graça que vos suplicamos, obtendo-nos finalmente para que, ao terminar nossa vida nesse vale de lágrimas, possamos louvar a Deus convosco no Paraíso.</p><p class="mt-4 font-semibold">Rogai por nós, glorioso patriarca São Bento, para que sejamos dignos das promessas de Cristo.</p></div>`,
-        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Conclusiva</h4><p>Ó Deus, que fizestes o abade São Bento preclaro mestre na escola do Vosso serviço. Concedei que, nada preferindo ao Vosso amor, corramos de coração dilatado no caminho dos Vossos mandamentos.</p><p class="mt-4">Por Nosso Senhor Jesus Cristo, na unidade do Espírito Santo. Amém.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Ladainha de São Bento</h4><p>Senhor, piedade Senhor, piedade.<br/>Cristo, piedade Cristo, piedade.<br/>Senhor, piedade Senhor, piedade.<br/>Cristo, piedade Cristo, piedade.<br/>Cristo, ouvi-nos Cristo, ouvi-nos.<br/>Cristo, atendei-nos Cristo, atendei-nos.</p><p class="mt-2">Deus, Pai do céu, <strong>tende piedade de nós.</strong><br/>Filho, Redentor do mundo, <strong>tende piedade de nós.</strong><br/>Deus, Espírito Santo, <strong>tende piedade de nós.</strong><br/>Santíssima Trindade, Único Deus, <strong>tende piedade de nós.</strong></p><p class="mt-2">Santa Maria, <strong>rogai por nós.</strong><br/>Glória dos Patriarcas, <strong>rogai por nós.</strong><br/>Compilador da Santa Regra, <strong>rogai por nós.</strong><br/>Retrato de todas as virtudes, <strong>rogai por nós.</strong><br/>Exemplo de Perfeição, <strong>rogai por nós.</strong><br/>Pérola da Santidade, <strong>rogai por nós.</strong><br/>Sol que resplandece na Igreja de Cristo, <strong>rogai por nós.</strong><br/>Estrela que brilha na casa de Deus, <strong>rogai por nós.</strong><br/>Inspirador de Todos os Santos, <strong>rogai por nós.</strong><br/>Serafim de fogo, <strong>rogai por nós.</strong><br/>Querubim transformado, <strong>rogai por nós.</strong><br/>Autor de coisas maravilhosas, <strong>rogai por nós.</strong><br/>Dominador dos demônios, <strong>rogai por nós.</strong><br/>Modelo dos Cenobitas, <strong>rogai por nós.</strong><br/>Destruidor dos ídolos, <strong>rogai por nós.</strong><br/>Dignidade dos confessores da fé, <strong>rogai por nós.</strong><br/>Consolador das almas, <strong>rogai por nós.</strong><br/>Ajuda nas tribulações, <strong>rogai por nós.</strong><br/>Santo Pai abençoado, <strong>rogai por nós.</strong></p><p class="mt-2">Cordeiro de Deus que tirais os pecados do mundo, <strong>perdoai-nos Senhor!</strong><br/>Cordeiro de Deus que tirais os pecados do mundo, <strong>atendei-nos Senhor!</strong><br/>Cordeiro de Deus que tirais os pecados do mundo, <strong>tende piedade de nós, Senhor!</strong></p><p class="mt-4">Refugiamo-nos debaixo de vossa proteção ó Santo Nosso Pai Abençoado.<br/>Não desprezeis as nossas necessidades e tribulações.<br/>Ajudai-nos na luta contra o inimigo malvado e, no nome do Senhor Jesus, alcançai-nos a vida eterna.</p><p class="mt-4">V. Ele é abençoado por Deus.<br/>R. Aquele que, do céu, defende todos os seus filhos.</p><h4 class="section-title mt-6">Oração Conclusiva</h4><p>Ó Deus, que fizestes o abade São Bento preclaro mestre na escola do Vosso serviço. Concedei que, nada preferindo ao Vosso amor, corramos de coração dilatado no caminho dos Vossos mandamentos.</p><p class="mt-4">Por Nosso Senhor Jesus Cristo, na unidade do Espírito Santo. Amém.</p></div>`,
         days: [
             {
                 day: "Dia 1",
@@ -5533,7 +5516,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
             {
                 day: "Dia 7",
                 title: "Sétimo Dia - O mistério da missão de Jesus",
-                content: `<div class="day-specific-content"><h4 class="section-title">Palavra de Deus</h4><p>"Quando se acharam a sós, os que O cercavam e os doze, perguntaram a Jesus o que significavam as parábolas. Ele disse para eles: 'Para vocês, foi dado o mistério do Reino de Deus; para os que estão fora, tudo acontece em parábolas, para que olhem, mas não vejam; escutem, mas não compreendam; para que não se convertam e não sejam perdoados'" (Mc 4,10-12).</p><h4 class="section-title mt-4">Reflexão</h4><p>As parábolas são histórias que ajudam a ler e compreender toda a missão de Jesus. Mas é preciso "estar dentro", isto é, seguir Jesus para perceber que o Reino de Deus está se aproximando por meio de Sua ação. Os que não seguem Jesus ficam "por fora" e nada podem compreender.</p><h4 class="section-title mt-4">Conhecendo a Regra de São Bento</h4><p>A vida de um monge deve ser, em todo tempo, observância da Quaresma. Como, todavia, essa perfeição apenas se encontra em pequeno número, exortamos os irmãos a que conservem vida muito pura durante os dias da Quaresma e apaguem, nesses santos dias, todas as negligências dos outros tempos, o que faremos dignamente, abstendo-nos à oração com lágrimas, à leitura, à compunção do coração e à abstinência.</p><p class="mt-4">Acrescentemos, pois, nestes dias, alguma coisa ao nosso encargo habitual: orações particulares, alguma privação no comer e no beber, de forma que cada um, por sua livre vontade, oferece a Deus, na alegria do Espírito Santo, alguma coisa mais do que lhe seja ordenado (cap.49, da observância da Quaresma).</p></div>`
+                content: `<div class="day-specific-content"><h4 class="section-title">Palavra de Deus</h4><p>"Quando se acharam a sós, os que O cercavam e os doze, perguntaram a Jesus o que significavam as parábolas. Ele disse para eles: 'Para vocês, foi dado o mistério do Reino de Deus; para os que estão fora, tudo acontece em parábolas, para que olhem, mas não vejam; escutem, mas não compreendam; para que não se convertam e não sejam perdoados'" (Mc 4,10-12).</p><h4 class="section-title mt-4">Reflexão</h4><p>As parábolas são histórias que ajudam a ler e compreender toda a missão de Jesus. Mas é preciso "estar dentro", isto é, seguir Jesus para perceber que o Reino de Deus está se aproximando por meio de Sua ação. Os que não seguem Jesus ficam "por fora" e nada podem compreender.</p><h4 class="section-title mt-4">Conhecendo a Regra de São Bento</h4><p>A vida de um monge deve ser, em todo tempo, observância da Quaresma. Como, todavia, essa perfeição apenas se encontra em pequeno número, exortamos os irmãos a que conservem vida muito pura durante os dias da Quaresma e apaguem, nesses santos dias, todas as negligências dos outros tempos, o que faremos dignamente, abstendo-nos à oração com lágrimas, à leitura, à compunção do coração e à abstinência.</p><p class="mt-4">Acrescentemos, pois, nestes dias, alguma coisa ao nosso encargo habitual: orações particulares, alguma privação no comer e no beber, de forma que cada um, por sua livre vontade, oferece a Deus, na alegria do Espírito Santo, alguma coisa mais do que lhe seja ordenado, isto é, mortifique seu corpo no comer, no beber, no sono, na liberdade de falar e na jovialidade e, que espere a Santa Páscoa com a alegria de um desejo todo espiritual.</p><p class="mt-4">No entanto, cada um deverá dizer ao seu abade o que deseja oferecer, a fim de que, tudo se faça com o seu consentimento e o socorro de suas orações, porque tudo o que se faz sem a permissão do pai espiritual será considerado como presunção e vanglória e não terá recompensa.</p><p class="mt-4">Que tudo se faça, pois, com a aprovação do abade (cap.49, da observância da Quaresma).</p></div>`
             },
             {
                 day: "Dia 8",
@@ -6087,6 +6070,62 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
                         <p class="text-sm mt-1 text-stone-600 dark:text-stone-400">Para que eu saiba fazer do meu ambiente profissional um campo de apostolado. Que o meu testemunho de honestidade, alegria, competência e amizade sincera ajude meus colegas a conhecerem a Cristo e a descobrirem a beleza de viver a fé no cotidiano.</p>
                     </div>
                 </div>`
+            }
+        ]
+    },
+
+    luis_zelia_martin: {
+        saintName: "S. Luís e S. Zélia Martin",
+        novenaTitle: "Novena aos Santos Luís e Zélia Martin",
+        description: "Os primeiros esposos canonizados juntos. Pais de Santa Teresinha. Festa: 12 de julho.",
+        image: "https://comshalom.org/wp-content/uploads/2020/07/louis-et-zlie-martin-dalenon-840x502.jpg",
+        initialPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Inicial para todos os dias</h4><p>Santos Luís e Zélia Martin, após sentirdes o desejo de vida religiosa, ouvistes o chamado do Senhor para a vocação do casamento. Sois os “pais sem igual” de quem vossa filha Santa Teresinha do Menino Jesus fala; os afortunados pais de Leônia, a Serva de Deus, Irmã Francisca Teresa; de Maria, Paulina e Celina, transplantadas para o Monte Carmelo; e dos quatro filhos tirados de vosso afeto na juventude: Helena, José, João Batista e Melânia Teresa.</p><p class="mt-4">Destes toda a glória a Deus através de vosso trabalho humilde e paciente, do compromisso com os pobres e de vossa vida familiar, onde reinava a felicidade de amar e ser amado. Vivestes a vida cotidiana concretamente através das alegrias e tristezas de vossa existência. Amai-nos como a vossos próprios filhos, com o coração de um pai e o coração de uma mãe, porque sois amigos de Deus.</p></div>`,
+        finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final para todos os dias</h4><p>Ouvi nossa oração e nosso pedido <em>(fazer o pedido)</em> e intercedei por nós junto a Deus Pai, através de Jesus Cristo, Nosso Senhor, a graça do Espírito Santo. Amém.</p><p class="mt-4 font-semibold">Pai Nosso... Ave Maria... Glória ao Pai...</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "Primeiro Dia",
+                content: `<div class="day-specific-content"><p>Luís e Zélia Martin, trazei-nos o dom de sermos receptivos ao Espírito de Deus. Luís e Zélia Martin, ensinai-nos a lembrar do dom do Espírito.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "Segundo Dia",
+                content: `<div class="day-specific-content"><p>Luís e Zélia Martin, na essência de vosso amor confirmastes o desejo pela concepção de cada um de vossos filhos. Em nossas vidas dadas pelo Pai, ajudai-nos a obter a graça da paz. Que possamos consagrar todas as nossas ações a Ele e dar a Ele todo o nosso amor.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "Terceiro Dia",
+                content: `<div class="day-specific-content"><p>Luís e Zélia Martin nos ensinam uma compreensão do amor a partir de nossas provações e doenças. Os Santos Luís e Zélia intercedem por nós para que, em nossa verdadeira oferta, possamos nos tornar portadores de água para limpar as feridas d’Aquele que deu tudo por amor.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "Quarto Dia",
+                content: `<div class="day-specific-content"><p>Luís e Zélia Martin, ensinai-nos a trilhar caminhos de cura em nossas famílias adoentadas. Luís e Zélia Martin, ensinai-nos a dizer “sim” ou “não”. Que possamos testemunhar os acontecimentos de nossas vidas à luz da verdade e da caridade.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "Quinto Dia",
+                content: `<div class="day-specific-content"><p>Santos Luís e Zélia Martin, ensinai-nos todos os dias a descobrir e reconhecer o triunfo do amor sobre o sofrimento, encorajado por Teresa. Tal como aceitastes o sofrimento, fazei-nos aceitá-lo igualmente, confiando-nos, para nossa cura, à Virgem Maria e a São José. Obrigado, Luís e Zélia Martin, por mostrar-nos o caminho para escolher e aceitar nossa vocação de filhos e filhas, que vivem em Nazaré tal como vivíeis em Les Buissonnets com vossa família.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "Sexto Dia",
+                content: `<div class="day-specific-content"><p>Santos Luís e Zélia Martin, ensinai-nos a ser simples e pobres de espírito como instrumentos de Deus. Assim como Santa Teresinha preparou o altar para cada Eucaristia, que possamos convidar nosso Deus para nossa mesa; que possamos nos tornar Seus servos enquanto esperamos pela Sua presença.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "Sétimo Dia",
+                content: `<div class="day-specific-content"><p>Santa Zélia Martin, mostrai-nos o caminho de Maria, o grande caminho da infância profetizado por Santa Teresinha. Renasçamos no coração de Maria em confiança, abandonando nossa própria força. Luís e Zélia Martin, ensinai-nos a abandonar-nos ao tempo e às graças do Pai, pelo poder do Espírito Santo.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "Oitavo Dia",
+                content: `<div class="day-specific-content"><p>Santos Luís e Zélia Martin, ensinai-nos o caminho da infância, o caminho da pureza, que nos leva de volta à Casa do Pai. Vossa família pode nos levar ao mistério de um Deus tão terno quanto uma mãe.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "Nono Dia",
+                content: `<div class="day-specific-content"><p>Santos Luís e Zélia Martin, consagrados no coração da família de Nazaré, ensinai-nos o desejo de consagração. Amém.<br/><br/>Santos Luís e Zélia Martin, vos pedimos a consagração, para nós mesmos, nossas famílias e todas as famílias do mundo. Amém.<br/><br/>Santa Zélia Martin, através de Santa Teresinha, dai-nos o amor da vida. Amém.<br/><br/>São Luís Martin, rei de tua família, através de Santa Teresinha, ensinai-nos a liturgia da família, onde podemos ser chamados de sacerdotes, profetas e reis. Amém.</p></div>`
             }
         ]
     }

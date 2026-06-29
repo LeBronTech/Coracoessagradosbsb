@@ -3106,8 +3106,9 @@ export const saints: Saint[] = [
   { id: 'santa_paulina', name: 'Santa Paulina do Brasil', imageUrl: 'https://cdnv2.moovin.com.br/sjo/imagens/produtos/det/santinhos_de_papel-santa_paulina_-_frente.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
 
   // Julho
-  { id: 'sao_bento', name: 'São Bento Abade', imageUrl: 'https://i.pinimg.com/736x/7e/8f/9a/7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
-  { id: 'nossa_senhora_carmo', name: 'N.S. do Carmo', imageUrl: 'https://i.pinimg.com/736x/8f/9a/0b/8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c.jpg', month: 'Julho', startDate: '07/07', endDate: '15/07', feastDay: '16/Jul' },
+  { id: 'sao_bento', name: 'São Bento Abade', imageUrl: 'https://igrejadoscapuchinhos.org/wp-content/uploads/4ad94e1ccf05dc4df776c5a881864a4f.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
+  { id: 'luis_zelia_martin', name: 'S. Luís e S. Zélia Martin', imageUrl: 'https://comshalom.org/wp-content/uploads/2020/07/louis-et-zlie-martin-dalenon-840x502.jpg', month: 'Julho', startDate: '03/07', endDate: '11/07', feastDay: '12/Jul' },
+  { id: 'nossa_senhora_carmo', name: 'N.S. do Carmo', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0K3bRQTrYCLAaf6mIt3aqOikoZlGiCAkMZQ&s', month: 'Julho', startDate: '07/07', endDate: '15/07', feastDay: '16/Jul' },
   { id: 'santa_maria_madalena', name: 'Santa Maria Madalena', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Julho', startDate: '13/07', endDate: '21/07', feastDay: '22/Jul' },
   { id: 'sao_cristovao', name: 'São Cristóvão', imageUrl: 'https://i.pinimg.com/736x/0b/1c/2d/0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e.jpg', month: 'Julho', startDate: '16/07', endDate: '24/07', feastDay: '25/Jul' },
   { id: 'santa_ana_joaquim', name: 'Sant\'Ana e S. Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
