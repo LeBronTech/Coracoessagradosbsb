@@ -1305,29 +1305,43 @@ export default function AssistentePage() {
     let cleanFinal = novena.finalPrayer ? cleanPrayerText(novena.finalPrayer) : "";
 
     const totalDays = novena.days.length;
-    const termoDevocional = totalDays === 13 ? "TREZENA" : "NOVENA";
-    const headerTitle = `*${em1}${em2} ${termoDevocional} A ${saintNameStr.toUpperCase()} - DIA ${dayIdx}*`;
+    const termoDevocional = totalDays === 13 ? "Trezena" : "Novena";
+    const headerTitle = `*${em1} ${termoDevocional} a ${saintNameStr} - DIA ${dayIdx}*`;
 
     const text = `${headerTitle}
  
-Pelo Sinal da Santa cruz ♱
-Vinde Espírito santo ❦
+_Pelo Sinal da Santa cruz ♱_
+_Vinde Espírito santo ❦_
 
-${cleanInitial ? `*${em1}${em2} ORAÇÃO INICIAL*\n${cleanInitial}\n\n` : ""}*${em1}${em2} DIA ${dayIdx} - ${dayTitle.toUpperCase()}*\n${cleanMeditation}
+${cleanInitial ? `*${em1} Oração Inicial*\n${cleanInitial}\n\n` : ""}*${em1} ${dayIdx}º DIA - ${dayTitle}*\n${cleanMeditation}
 
-*_(Coloque suas intenções)_*
+*_(Faça seu pedido ou peça sua graça)_*
 
-${cleanFinal ? `\n*${em1}${em2} ORAÇÃO FINAL*\n${cleanFinal}\n` : ""}
-*novena também disponível em nosso site:* ${siteUrl}
+${cleanFinal ? `\n*${em1} Oração Final*\n${cleanFinal}\n` : ""}
+novena também disponível em nosso site:
+${siteUrl}
 
 Compartilhe 😉!
-_Projeto Corações Sagrados❤️‍🔥_`;
+
+*_Projeto Corações Sagrados❤️🔥_*`;
 
     return text
       .replace(/\*/g, "") // Remove asteriscos para o Instagram
       .replace(/\r\n/g, "\n")
       .replace(/\n\s*\n\s*\n+/g, "\n\n")
       .trim();
+  };
+
+  const getAllDaysNovenaText = (id: string, emojis: [string, string]) => {
+    const novena = novenaData[id];
+    if (!novena) return "";
+    
+    let fullText = "";
+    for (let i = 1; i <= novena.days.length; i++) {
+      fullText += getFormattedNovenaTextCompact(id, i, emojis) + "\n\n" + "=".repeat(30) + "\n\n";
+    }
+    
+    return fullText.trim();
   };
 
   const getDiaZeroTextCompact = (id: string, isInstagram: boolean, emojis: [string, string]) => {
@@ -1493,23 +1507,25 @@ Projeto Corações Sagrados❤️‍🔥
       const cleanMeditacao = formatCommonTitlesToBold(meditacao.trim());
 
       const totalDays = novenaDaysTexts.length;
-      const termoDevocional = totalDays === 13 ? "TREZENA" : "NOVENA";
-      const headerTitle = `*${formatEmoji1}${formatEmoji2} ${termoDevocional} A ${saintNameStr.toUpperCase()} - DIA ${idx + 1}*`;
+      const termoDevocional = totalDays === 13 ? "Trezena" : "Novena";
+      const headerTitle = `*${formatEmoji1} ${termoDevocional} a ${saintNameStr} - DIA ${idx + 1}*`;
 
       const text = `${headerTitle}
 
-Pelo Sinal da Santa cruz ♱
-Vinde Espírito santo ❦
+_Pelo Sinal da Santa cruz ♱_
+_Vinde Espírito santo ❦_
 
-${cleanInitial ? `*${formatEmoji1}${formatEmoji2} ORAÇÃO INICIAL*\n${cleanInitial}\n\n` : ""}*${formatEmoji1}${formatEmoji2} DIA ${idx + 1} - ${diaNome.toUpperCase()}*\n${cleanMeditacao}
+${cleanInitial ? `*${formatEmoji1} Oração Inicial*\n${cleanInitial}\n\n` : ""}*${formatEmoji1} ${idx + 1}º DIA - ${diaNome}*\n${cleanMeditacao}
 
-*_(Coloque suas intenções)_*
+*_(Faça seu pedido ou peça sua graça)_*
 
-${cleanFinal ? `\n*${formatEmoji1}${formatEmoji2} ORAÇÃO FINAL*\n${cleanFinal}\n` : ""}
-*novena também disponível em nosso site:* ${siteUrl}
+${cleanFinal ? `\n*${formatEmoji1} Oração Final*\n${cleanFinal}\n` : ""}
+novena também disponível em nosso site:
+${siteUrl}
 
 Compartilhe 😉!
-_Projeto Corações Sagrados❤️‍🔥_`;
+
+*_Projeto Corações Sagrados❤️🔥_*`;
 
       return text
         .replace(/\r\n/g, "\n")
@@ -2222,7 +2238,21 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                                   <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
                                     <Send className="w-3.5 h-3.5" /> WhatsApp Meditação
                                   </span>
-                                  <Button 
+                                  <div className="flex gap-2">
+                                    <Button 
+                                      onClick={() => handleCopyText(getAllDaysNovenaText(item.id, emojis), `enviado_novena_${item.id}_todos`)}
+                                      size="sm"
+                                      className={cn(
+                                        "h-7 px-3.5 text-[10px] font-bold rounded-full gap-1 transition-all active:scale-95",
+                                        copiedHistory[`enviado_novena_${item.id}_todos`]
+                                          ? "bg-amber-600 text-stone-950 hover:bg-amber-500"
+                                          : "bg-amber-700 hover:bg-amber-800 text-white"
+                                      )}
+                                    >
+                                      {copiedHistory[`enviado_novena_${item.id}_todos`] ? <Check className="w-3.5 h-3.5 text-stone-950" /> : <Copy className="w-3.5 h-3.5" />}
+                                      {copiedHistory[`enviado_novena_${item.id}_todos`] ? "Tudo Copiado!" : "Copiar 9 Dias"}
+                                    </Button>
+                                    <Button 
                                     onClick={() => handleCopyText(formattedText, `enviado_novena_${item.id}_dia_${selDay}`)}
                                     size="sm"
                                     className={cn(
@@ -2235,6 +2265,7 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                                     {copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`] ? <Check className="w-3.5 h-3.5 text-stone-950" /> : <Copy className="w-3.5 h-3.5" />}
                                     {copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`] ? "Texto Copiado!" : "Copiar WhatsApp"}
                                   </Button>
+                                  </div>
                                 </div>
                                 <ScrollArea className="h-60 p-4 bg-stone-950/80 border border-white/5 rounded-2xl font-mono text-[10px] leading-relaxed whitespace-pre-wrap text-stone-300">
                                   {formattedText}
