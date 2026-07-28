@@ -4934,6 +4934,151 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     // NOVENAS ADICIONAIS
+    santa_filomena: {
+        saintName: "Santa Filomena",
+        novenaTitle: "Novena a Santa Filomena",
+        description: "Novena em honra a Santa Filomena, virgem e mártir. Preparação para a sua festa em 11 de agosto.",
+        image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuLi6GT6v9yke7mPy5LxdsSRrK0d54SrfOve_Ij9Nk575fvhtkZUAZhLlJ2b490Amg-VXICRo6xkJGbAyHtHHa3jvKvbiJdMUQiNvdUYFotoaOIDKLlu-K3yKbdb-P41fAPGOmBW0tnXY/s1600/Santa+Filomena,+Virgem+e+M%C3%A1rtir+(1).jpg",
+        imageObjectPosition: "top",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração inicial para todos os dias</h4>
+            <p>Altíssimo e Soberano Senhor, que, pela vossa infinita misericórdia e amor que tendes ao povo que remistes com vosso precioso Sangue, quisestes que nestes últimos tempos se achasse o venerando corpo de uma virgem que por Vós deu a vida: e que por sua intercessão se tenham feito tantos milagres, tão públicos, tão estrondosos, que se tem visto no nosso tempo uma nova prova da religião cristã para converter hereges, reformar costumes e animar o fervor dos cristãos. Bendito sejais, Senhor, bendito seja o vosso santo nome, vossa onipotência, vossa clemência, vossa misericórdia. É este instrumento da vossa onipotência, a gloriosa virgem e mártir Santa Filomena, a quem pretendemos honrar nesta novena. Dignai-vos, ó Deus de misericórdia, dar-nos a vossa graça para que, contemplando os exemplos de virtude dessa santa, os pecadores se convertam, os incrédulos se sujeitem ao jugo da fé, os tíbios se afervorizem, e todos, ao fim deste santo exercício, fiquemos inteiramente mudados, e nos tornemos novos homens. Amém.</p>
+            <p class="mt-4 font-semibold">Pai-Nosso; Ave-Maria; Glória ao Pai.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title mt-6">Ladainha de Nossa Senhora</h4>
+            <div class="space-y-2 text-sm pl-4 border-l-2 border-primary">
+                <p>Senhor, tende piedade de nós.</p>
+                <p>Cristo, tende piedade de nós.</p>
+                <p>Senhor, tende piedade de nós.</p>
+                <p>Cristo, ouvi-nos. Cristo, atendei-nos.</p>
+                <p>Deus, Pai do Céu, tende piedade de nós.</p>
+                <p>Deus Filho, Redentor do mundo, tende piedade de nós.</p>
+                <p>Deus Espírito Santo, tende piedade de nós.</p>
+                <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
+                <p>Santa Maria, rogai por nós.</p>
+                <p>Santa Mãe de Deus, rogai por nós.</p>
+                <p>Santa Virgem das virgens, rogai por nós.</p>
+                <p>Mãe de Cristo, rogai por nós.</p>
+                <p>Mãe da divina graça, rogai por nós.</p>
+                <p>Mãe puríssima, rogai por nós.</p>
+                <p>Mãe castíssima, rogai por nós.</p>
+                <p>Mãe inviolada, rogai por nós.</p>
+                <p>Mãe imaculada, rogai por nós.</p>
+                <p>Mãe amável, rogai por nós.</p>
+                <p>Mãe admirável, rogai por nós.</p>
+                <p>Mãe do bom conselho, rogai por nós.</p>
+                <p>Mãe do Criador, rogai por nós.</p>
+                <p>Mãe do Salvador, rogai por nós.</p>
+                <p>Virgem prudentíssima, rogai por nós.</p>
+                <p>Virgem venerável, rogai por nós.</p>
+                <p>Virgem louvável, rogai por nós.</p>
+                <p>Virgem poderosa, rogai por nós.</p>
+                <p>Virgem clemente, rogai por nós.</p>
+                <p>Virgem fiel, rogai por nós.</p>
+                <p>Espelho de justiça, rogai por nós.</p>
+                <p>Sede da sabedoria, rogai por nós.</p>
+                <p>Causa de nossa alegria, rogai por nós.</p>
+                <p>Vaso espiritual, rogai por nós.</p>
+                <p>Vaso honorífico, rogai por nós.</p>
+                <p>Vaso insigne de devoção, rogai por nós.</p>
+                <p>Rosa mística, rogai por nós.</p>
+                <p>Torre de Davi, rogai por nós.</p>
+                <p>Torre de marfim, rogai por nós.</p>
+                <p>Casa de ouro, rogai por nós.</p>
+                <p>Arca da aliança, rogai por nós.</p>
+                <p>Porta do Céu, rogai por nós.</p>
+                <p>Estrela da manhã, rogai por nós.</p>
+                <p>Saúde dos enfermos, rogai por nós.</p>
+                <p>Refúgio dos pecadores, rogai por nós.</p>
+                <p>Consoladora dos aflitos, rogai por nós.</p>
+                <p>Auxílio dos cristãos, rogai por nós.</p>
+                <p>Rainha dos anjos, rogai por nós.</p>
+                <p>Rainha dos patriarcas, rogai por nós.</p>
+                <p>Rainha dos profetas, rogai por nós.</p>
+                <p>Rainha dos apóstolos, rogai por nós.</p>
+                <p>Rainha dos mártires, rogai por nós.</p>
+                <p>Rainha dos confessores, rogai por nós.</p>
+                <p>Rainha das virgens, rogai por nós.</p>
+                <p>Rainha de todos os santos, rogai por nós.</p>
+                <p>Rainha concebida sem pecado original, rogai por nós.</p>
+                <p>Rainha elevada ao Céu em corpo e alma, rogai por nós.</p>
+                <p>Rainha do sacratíssimo Rosário, rogai por nós.</p>
+                <p>Rainha da paz, rogai por nós.</p>
+                <p>Cordeiro de Deus, que tirais os pecados do mundo, perdoai-nos, Senhor.</p>
+                <p>Cordeiro de Deus, que tirais os pecados do mundo, ouvi-nos, Senhor.</p>
+                <p>Cordeiro de Deus, que tirais os pecados do mundo, tende piedade de nós.</p>
+            </div>
+            <h4 class="section-title mt-6">Oração final para todos os dias</h4>
+            <p>Ó Deus, que, entre outros milagres de vosso poder, destes também ao sexo frágil a vitória do martírio, concedei-nos propício que, celebrando o natalício de Santa Filomena, vossa virgem e mártir, caminhemos para Vós, imitando os seus exemplos. Por Nosso Senhor Jesus Cristo. Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - A Descoberta de seu Corpo",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como Nosso Senhor permitiu que o corpo de Santa Filomena fosse descoberto nos nossos tempos, nos subterrâneos de Roma, com todos os sinais de ser ela mártir do tempo das perseguições, o que depois se tem verificado por milagres sem número, que desde então se tem feito pela sua intercessão. Oh, como ainda em tempos de tanta incredulidade e de relaxação, não desampara Cristo Nosso Senhor a sua Igreja, o divino Pastor ainda tem tanto cuidado do seu rebanho e de suas desgarradas ovelhas, que as chama de tantos modos! Quem diria que uma mártir desconhecida, que há mais de mil anos deu a vida por Cristo, viria a servir de mais um argumento da verdade do cristianismo, um martelo dos hereges e dos incrédulos! Oh, poder de Deus! Eu vos adoro, Senhor, e vos peço que, pela intercessão dessa vossa serva, me abrais os olhos da alma, para que eu viva como verdadeiro cristão.</p>
+                </div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - O Nascimento Milagroso",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como os pais da nossa santa, ainda pagãos, não tinham filhos a quem deixassem suas riquezas. Por serem como príncipes de sangue real, isto muito os contristava. Sucedeu que um santo médico que estava aos serviços desses príncipes, levado de um zelo cristão, lhes pregou as verdades da fé e lhes prometeu que, se se convertessem à verdadeira religião, Deus lhes havia de dar a prole que desejavam. Assim sucedeu. Convertidos à fé, Nosso Senhor lhes deu esta filha, a quem no batismo puseram o nome de Filomena, que quer dizer “filha da luz”, pois que, na realidade, foi ela o fruto da luz celeste que iluminou seus pais. Que quer dizer a conversão desses dois príncipes e o nome santo que deram à santa menina? Não parece tudo isto um bom prognóstico das conversões futuras que se haviam de obrar por meio dessa santa virgem e mártir? Louvores sejam dados a Deus, por tudo isso. Oh, que estimação não devemos nós fazer da nossa vocação à santa religião do Crucificado! Ai de quem não vive conforme a fé que professa!</p>
+                </div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - A Viagem a Roma e a Provação",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como, encantados os pais da nossa santa com a sua formosura e ótimas qualidades, nunca a perdiam de vista. E, tendo de fazer uma viagem a Roma para não perderem seus estados e sofrerem uma guerra, que o Imperador Diocleciano lhes queria declarar, puseram-se a caminho da cidade, trazendo em sua companhia sua santa filha. Falaram ao imperador e lhe expuseram suas pretensões, obtendo dele quanto queriam, contanto que lhe houvessem de dar por esposa sua filha. Cedeu o pai imediatamente, julgando ter conseguido, além do que pretendia, uma felicidade e honra que nunca esperava. Que laço vos arma o Inferno, ó santíssima donzela? Que será de vós, unida em consórcio com o maior inimigo do nome cristão que até agora se tem sustentado do sangue de tantos mártires! Oh, como é verdade que a vida de um cristão está sujeita a contínuas tentações. Ai de Filomena, se cede!</p>
+                </div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - A Força da Virgindade Consagrada",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos o ânimo resoluto da nossa Santa Filomena, quando, propondo-lhe seus pais o consórcio com o Imperador Diocleciano, ela lhes respondeu que por amor de homem mortal não podia faltar ao que primeiro tinha prometido a Jesus Cristo, Deus imortal, isto é, de ser sua esposa, guardando intacta sua virgindade. “Minha virgindade lhe pertence”, dizia a santa, “não posso jamais dispor dela.” Todas as rogativas de seus pais foram inúteis e permaneceu como imóvel rochedo açoitado de furiosas ondas. Então, seus pais o contaram ao imperador, que deu ordem que a santa lhe fosse apresentada. Admiremos a virtude e força cristã, e o poder da divina graça em uma menina de treze anos, a quem não abala o poder de um imperador romano, como Diocleciano. E roguemos à nossa santa que nos alcance do seu divino Esposo Jesus Cristo o dom da fortaleza, e a estimação da virtude angélica da castidade.</p>
+                </div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - A Prisão e o Ataque do Tirano",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como, conduzida Filomena por seus próprios pais à presença do imperador e usando este de todos os meios de persuasão, brandura, promessas e, enfim, de terríveis ameaças, a tudo se tornou imóvel Filomena, com a graça do Senhor. Tornou-se furioso o tirano, e mandou que a santa fosse reclusa em uma das prisões do palácio, e aí carregada de cadeias e só se lhe desse o sustento de pão e água para não morrer. Todos os dias ia o imperador vê-la e dar-lhe novos ataques, alguns tão fortes que, se não fosse a graça particular do Divino Espírito, correria muito perigo a sua continência. Que pode o homem, ainda que seja o senhor do mundo, como Diocleciano, contra o poder da graça do Onipotente! Temamos e amemos a Deus, diante de quem todo o poder do mundo nada mais é que pó, que o vento espalha e dissipa.</p>
+                </div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - A Consolação de Nossa Senhora",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como a prisão de Santa Filomena durou 37 dias, continuando os ataques do imperador, que a santa venceu sempre com o favor de Deus. Findo esse tempo, a Mãe de misericórdia e Rainha das Virgens apareceu à santa com o Menino nos braços, animando-a, consolando-a e prognosticando-lhe que aquela prisão se lhe ia acabar quando fizesse 40 dias; mas que se preparasse para maiores provas e mais excêntricos tormentos. Ó Senhor Deus, como tratais Vós os vossos escolhidos e as vossas castas esposas neste mundo! Mas não é de admirar, se nos lembrarmos que primeiro foi Ele assim tratado, e sua santíssima Mãe, seu precursor, seus Apóstolos, centenas e milhares de mártires e, finalmente, todos os seus amigos neste mundo. Todos eles são discípulos de um Mestre crucificado. Ora, o discípulo não é mais que o Mestre. Soframos neste mundo, para sermos premiados no Céu por uma eternidade. Valei-nos, ó bem-aventurada santa virgem e mártir Filomena.</p>
+                </div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - Os Tormentos e o Socorro dos Anjos",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como, passados 40 dias de cárcere, e desenganado o imperador, que nada conseguia da nossa santa, a mandou publicamente açoitar, e com tanta crueldade, que seu corpo todo em sangue parecia uma chaga: e, parecendo que ia morrer já, a mandou outra vez para a prisão. Ali lhe apareceram dois anjos que, derramando um precioso bálsamo sobre suas chagas, as curaram perfeitamente. Diocleciano atribuiu tudo a seus falsos deuses e de novo a queria persuadir a seus intentos, e, vendo a sua constância, a mandou lançar no rio com uma âncora ao pescoço. Mas quem como Deus! Nada pode o homem contra o Onipotente. Os anjos salvam a Filomena, e ela sai ilesa na praia, e tudo fica frustrado, seguindo-se a conversão de muita gente, que assistia a esse espetáculo.</p>
+                </div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - O Triunfo Final pelo Martírio",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos como, por duas vezes, foi a nossa santa flechada, depois de ter sido arrastada pelas ruas de Roma; na segunda vez, eram flechas incendiadas. Vendo, pois, o tirano que nem a água, nem o fogo, nem os açoites eram capazes de lhe tirar a vida e ir contra o poder de Deus, mandou que fosse degolada. E voou ao Céu aquele puríssimo espírito em uma sexta-feira pelas três horas da tarde. Louvores eternos vos sejam dados, ó Senhor onipotente, pois concedestes à vossa Igreja mais uma advogada a nosso favor. Ela se compadeça de todos os seus devotos, e lhes alcance de Deus o dom da fortaleza e a vitória sobre os nossos inimigos da alma, para que tenhamos a felicidade de a ver e tratar na glória eterna. Amém.</p>
+                </div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - A Glória de Santa Filomena",
+                content: `<div class="day-specific-content">
+                    <p>Consideremos a misericórdia de Nosso Senhor, por ter concedido à sua Igreja no nosso tempo a descoberta do corpo de Santa Filomena, uma menina de treze anos que, depois de tantos tormentos, e depois de ter recusado dar a mão de esposa a um imperador romano, morreu por não querer perder a joia da castidade, que tinha consagrado a Deus. Ponderemos no que é feito hoje daquele monstro e tirano Diocleciano, que tantos mártires sacrificou à sua vingança, e no que é feito de Filomena, onde está a alma daquele, e onde a alma desta. Estimemos a angélica virtude da pureza, detestemos o vício oposto mais que a peste que desola as cidades. Agradeçamos a Providência Divina, que continua a prover a religião de milagres sem número que se estão fazendo no túmulo de Santa Filomena, e nos entreguemos de todo o coração à proteção desta santa. Ó virgem mártir Filomena, olhai para nós lá dessa glória de que gozais, pedi pelos vossos devotos para que todos vos vejamos na glória. Amém.</p>
+                </div>`
+            }
+        ]
+    },
+
     santa_josefina_bakhita: {
         saintName: "Santa Josefina Bakhita",
         novenaTitle: "Novena a Santa Josefina Bakhita",
@@ -6128,5 +6273,419 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
                 content: `<div class="day-specific-content"><p>Santos Luís e Zélia Martin, consagrados no coração da família de Nazaré, ensinai-nos o desejo de consagração. Amém.<br/><br/>Santos Luís e Zélia Martin, vos pedimos a consagração, para nós mesmos, nossas famílias e todas as famílias do mundo. Amém.<br/><br/>Santa Zélia Martin, através de Santa Teresinha, dai-nos o amor da vida. Amém.<br/><br/>São Luís Martin, rei de tua família, através de Santa Teresinha, ensinai-nos a liturgia da família, onde podemos ser chamados de sacerdotes, profetas e reis. Amém.</p></div>`
             }
         ]
+    },
+
+    santa_clara: {
+        saintName: "Santa Clara de Assis",
+        novenaTitle: "Novena a Santa Clara",
+        description: "Novena em honra a Santa Clara de Assis, fundadora das Clarissas e companheira espiritual de São Francisco.",
+        image: "https://i.pinimg.com/1200x/d7/b0/23/d7b0236f1f90e81037fe208b1459b797.jpg",
+        imageObjectPosition: "top",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração inicial para todos os dias</h4>
+            <p>Deus, vinde em nosso auxílio.<br>Senhor, socorrei-nos e salvai-nos.</p>
+            <p>“Querida Santa Clara, que seguistes de perto São Francisco, na vida de pobreza e no amor ao próximo e a Deus, olhai carinhosamente para o mundo de hoje, tão necessitado de vossa proteção. Ouvi meu pedido e concedei-me a graça que vos peço com fé e confiança. Como verdadeiro necessitado, rogo-vos que me alcanceis de Cristo a saúde espiritual e corporal, para mim e meus familiares. Sobretudo, peço a vossa ajuda para o problema que me aflige …(especificar o problema). Atendei-me, Santa Clara, pela força que tendes junto a Deus e pela fé que me faz buscar vossa proteção. Amém.”</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração final para todos os dias</h4>
+            <p>Após reflexão e meditação, em louvor a Maria Santíssima, rezar um mistério do terço.</p>
+            <div class="w-16 h-px bg-white/20 my-6 mx-auto"></div>
+            <h4 class="section-title">Oração a Santa Clara</h4>
+            <p>Ó amável Santa Clara, por teu amor à infância de Jesus, alcança-nos a proteção sobre nossa família;<br>
+            Por teu amor à Paixão de Jesus, alcança-nos força e coragem na provação.<br>
+            Por teu amor à Igreja, alcança-nos a fé, a esperança e a caridade.<br>
+            Por teu amor aos irmãos, alcança-nos a graça que vos pedimos.<br>
+            Por teu amor à oração, alcança-nos o desejo de estar com o Senhor.<br>
+            Por teu amor à pobreza, alcança-nos desprender-nos dos vícios e pecados.<br>
+            Por tua Santa Morte, alcança-nos também a nós,<br>
+            uma vida e morte santas nas mãos da Virgem Maria.<br>
+            Amém.</p>
+        </div>`,
+        days: [
+            {
+                day: "1º Dia",
+                title: "Primeiro Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Uma voz cantava ao longe, entre o luar e as pedras.<br>
+                        E nos palácios fechados, entregues às sentinelas,<br>
+                        exaustas de tantas morte, de tantas guerras,<br>
+                        Estremeciam os sonhos no coração das donzelas.<br>
+                        Ah! Que estranha serenata, eco de invisíveis festas!<br>
+                        A que se dirigiam palavras de amor tão belas, tão ditosas (de que divinos poetas?),<br>
+                        como as que andavam lá fora pelas ruas e vielas,<br>
+                        diáfanas à lua, graves nas pedras?”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>Era a voz de Francisco, porque Clara sabia do alvoroço em Assis. O rico, ambicioso e gentil jovem, filho de um comerciante e rei de noitadas e suntuosas festas, de repente, deu uma guinada fantástica em sua vida. Até então, a vida dele estava baseada no luxo, nos prazeres e futilidades do mundo. Uns o chamavam de louco, outros de excêntrico. Clara se deixava questionar.</p>
+                    <p class="mt-4">Para ela o rumo novo da vida de Francisco se tornara um espinho de interrogações. Francisco falava de Deus e com Deus; falava de Deus para todas as criaturas. Tornando-se homem/transparência de Cristo, do Evangelho e da Mensagem Viva de um ideal.</p>
+                </div>`
+            },
+            {
+                day: "2º Dia",
+                title: "Segundo Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Fechai os olhos, donzelas, sobre a estranha serenata!<br>
+                        Não é por vós que suspira, enamorada…<br>
+                        Fala com dona pobreza, o homem que na noite passa.<br>
+                        Por ela se transfigura, que é a sua Amada!<br>
+                        Por ela esquece o que tinha: prestígio, família, casa.<br>
+                        Fechai os olhos, donzelas! (Mas se sentis perturbada pela grande voz<br>
+                        na noite a solidão da alma, abandonai o que tendes<br>
+                        e segui, também, sem nada essa flor da juventude que canta e passa!).”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>Francisco é feliz e, cantando segue o Cristo pobre e humilde. A Boa Nova tocou profundamente a alma sensível de Clara, que sentiu, no seu interior, vibrar acordes uníssonos aos de Francisco. Era, então, preciso se encontrar com ele. Precisava saber que, dentro de Clara, a chama do novo ideal de vida evangélica estava latente. Foi o início da amizade indestrutível, cujo elo era o amor mais puro e genuíno a Jesus Cristo.</p>
+                </div>`
+            },
+            {
+                day: "3º Dia",
+                title: "Terceiro Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Cantara ao longe Francisco, jogral de Deus deslumbrado.<br>
+                        Quem se mirara em seus olhos, seguira atrás de seu passo!<br>
+                        (Um filho de mercadores pode ser mais que um fidalgo,<br>
+                        se Deus o espera com seu comovido abraço…).<br>
+                        Ah! Que celeste destino, ser pobre e andar a seu lado!<br>
+                        Só de perfeita alegria levar repleto o regaço!<br>
+                        Beijar leprosos sem se sentir enojado!<br>
+                        Converter homens e bichos!<br>
+                        Falar com os anjos do espaço! (Ah, quem fora à sombra,<br>
+                        ao menos, desse jogral deslumbrado!).”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>A descoberta da pobreza como valor evangélico, como libertação interior, como imitação de Cristo Pobre encontrou o coração de Francisco e Clara. Eles quiseram ser pobres e viram na pobreza a condição para o seguimento do Mestre que diz: “Vá, vende tudo o que tens, dá aos pobres e siga-me”. Santa Clara seguiu à risca seu amigo Francisco. A grande luta de sua vida foi ser fiel à pobreza escolhida.</p>
+                </div>`
+            },
+            {
+                day: "4º Dia",
+                title: "Quarto Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Voz luminosa da noite, feliz de quem te entendia!”<br>
+                        (Num palácio mui guardado, levantou-se uma menina: já não pode ser quem era,<br>
+                        tão bem guarnida, com seus vestidos bordados,<br>
+                        de veludo e musselina; já não quer saber de noivos: outra é a sua vida.<br>
+                        Fecha as portas, desce a treva, que com seu nome ilumina.<br>
+                        Que são lágrimas? Pelo silêncio caminha).<br>
+                        Um vasto campo deserto, a larga estrada divina!<br>
+                        Ah! Feliz itinerário!<br>
+                        Sobrenatural partida!”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>Clara, a primeira Franciscana, era uma jovem de escola que contava com 18 anos de idade. Jovem, mas madura para dar resposta à audaciosa proposta de doação e entrega que a radicalidade de Francisco lhe propunha. Entregou-se ao Cristo Pobre como Virgem Pobre. A confiança de Clara no Pai que cuida das “Aves do Céu” e dos “Lírios do Campo” foi sem limites. Ela enfrentou bispos, cardeais e o próprio Papa na defesa de seu direito de viver o Santo Evangelho de Nosso Senhor Jesus Cristo, pobre, como ela O entendia.</p>
+                </div>`
+            },
+            {
+                day: "5º Dia",
+                title: "Quinto Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Escutai nobres fidalgos: a menina que criastes é uma vaga sombra,<br>
+                        fora de vossa vontade, livre de enganos e traves.<br>
+                        É uma estrela que procura outra vez a eternidade!<br>
+                        Despida de suas joias e de seus faustosos trajes,<br>
+                        inclina a cabeça com terna humildade.<br>
+                        Cortam-lhe as tranças: ramo de luz nos altares,<br>
+                        mais clara do que seu nome, no fogo da caridade<br>
+                        queima o que fora e tivera: ultrapassa a que criastes!”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>No dia 19 de março de 1212, Domingo de Ramos, na Catedral de São Rufino, o bispo distribui os ramos bentos. Clara não via o que se passava ao seu redor, pois era o dia combinado com Francisco para a execução de seu audacioso plano de servir a Deus na pobreza; na humildade de Jesus Cristo e de Sua Mãe Santíssima.</p>
+                    <p class="mt-4">Na calada da noite, acompanhada por sua prima Pacífica e num gesto de coragem e fortaleza, Clara, intrepidamente, foge de seu palácio. Isso, em sua época e em sua idade, demonstrava que, na radicalidade de opção, Clara era de extraordinária fibra, de uma estrutura humana e espiritual excepcionais.</p>
+                </div>`
+            },
+            {
+                day: "6º Dia",
+                title: "Sexto Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Voltaram os cavalheiros, com grande espanto na cara.<br>
+                        Palácios tristes… Inútil espada…<br>
+                        Que grandes paixões ocultas nas altas muralhas!<br>
+                        Pasmado, o povo contempla aquela chegada.<br>
+                        (Longe ficara a menina que servir a Deus sonhara, de glórias vãs esquecida,<br>
+                        da família separada. Força nenhuma a seus votos a arrancara.<br>
+                        Aos pés de Cristo caía: não desejava mais nada).<br>
+                        Olhavam-se os mercadores, com grande espanto na cara.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Francisco, com seus companheiros, a esperam com tochas acesas na igrejinha de Nossa Senhora dos Anjos da Porciúncula. Aí, aos pés da Virgem Maria, Francisco corta a linda cabeleira de Clara. Gesto simbólico de uma entrega total a Deus.<br>
+                    As vestes ricas são trocadas por um hábito simples, marrom, cor da terra ou das cotovias; e, por cinto, Francisco lhe entrega a rústica corda. Estava vestida a nova esposa de Cristo.<br>
+                    Francisco leva-a para o Mosteiro das Beneditinas onde estaria mais segura. A família fez tudo para trazer de novo a fugitiva para casa. Clara estava armada com a força de Deus vencendo todas as ameaças.</p>
+                </div>`
+            },
+            {
+                day: "7º Dia",
+                title: "Sétimo Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Do pano mais velho usava.<br>
+                        Do pão mais velho comia.<br>
+                        Num leito de vides secas e de cilícios vestida,<br>
+                        em travesseiro de pedra, seu curto sono dormia.<br>
+                        Cada vez mais pobre tinha de ser sua vida,<br>
+                        entre orações e trabalhos e milagres que fazia,<br>
+                        a salvar a humanidade dolorida.<br>
+                        Mãos no altar, a acender luzes, pés na pedra fria.<br>
+                        Humilde, entre as companheiras; diante do mal,<br>
+                        destemida, irmã Clara, em seu mosteiro, tênue vivia.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Damião é um conventinho fora dos muros de Assis. A igrejinha em ruínas foi restaurada por Francisco. Aí está o crucifixo bizantino que lhe falara: “Francisco, vai e restaura a minha Igreja”. Para esse lugar tão querido, que lhe recordava profundamente a própria conversão, é que Francisco conduziu suas primeiras discípulas. O conventinho pequeno, pobre e humilde encantou o coração de Clara e, rapidamente, se povoou de vozes juvenis cantando dia e noite os louvores de Deus.</p>
+                </div>`
+            },
+            {
+                day: "8º Dia",
+                title: "Oitavo Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Já quarenta anos passaram: é uma velhinha<br>
+                        a menina que, por amor à pobreza, se despojou do que tinha,<br>
+                        fez-se monja e foi com tanta alegria servir a Deus nos altares,<br>
+                        e, entre luz e ladainha, rogar pelos pecadores em agonia.<br>
+                        Já passaram quarenta anos: e hoje a morte se avizinha.<br>
+                        (Tão doente, o corpo! A alma, tão festiva!<br>
+                        Os grandes olhos abertos uma lágrima sustinham:<br>
+                        não se perdesse no mundo o seu sonho de menina!)”.
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>Santa Clara, mulher de fé, possuía um poder maravilhoso que arrancava de Deus os maiores prodígios. Esses favores extraordinários nunca eram para si, mas para ir em socorro daqueles que padeciam de enfermidade.<br>
+                    Orava, fazia o sinal da Cruz e o milagre acontecia. Multiplicou pães, curou doentes das mais diversas enfermidades. Adivinhou secretos sofrimentos e tribulações que padeciam muitas pessoas, foi uma bênção de Deus para todos que a conheceram.</p>
+                    <p class="mt-4">Ainda hoje, Clara continua sua missão ao lado dos atribulados. Há pouco tempo, reencontraram Santa Clara e os jornais se encheram das manifestações de gratidão pela humilde apaixonada por Jesus. Novenas e orações se multiplicam e ela continua sua ação poderosa como intercessora junto a Deus, por todos que a invocam.</p>
+                </div>`
+            },
+            {
+                day: "9º Dia",
+                title: "Nono Dia",
+                content: `<div class="day-specific-content">
+                    <h4>Reflexão:</h4>
+                    <blockquote class="brand-border pl-4 italic mb-4">
+                        “Já seus olhos se fecharam. E agora rezam-lhe ofícios.<br>
+                        (Tecem-lhe os anjos grinaldas no divino Paraíso. ‘Pomba argêntea!’ cantam, ‘Estrela claríssima!’).<br>
+                        Irmã Clara, humilde foste, muito além do que é preciso!…<br>
+                        O caminho me ensinaste: o que fiz foi vir contigo.<br>
+                        (Assim conversam, gloriosos, Santa Clara e São Francisco,<br>
+                        Cantam os anjos alegres: vede o seu sorriso!).<br>
+                        Que assim partem deste mundo os santos, com seus serviços.<br>
+                        Entre os humanos tormentos, são exemplo e aviso,<br>
+                        pois estamos tão cercados de ciladas e inimigos!<br>
+                        ‘Santa! Santa! Santa Clara!’ os anjos cantam.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>A vida de Clara se passou no silêncio e na humildade de uma vida reclusa e pobre. Mas Deus, que exalta os humildes, quis que sua serva tivesse uma morte gloriosa e seu sepultamento fosse uma apoteose. Clara vivia os seus últimos momentos neste mundo rodeado por suas irmãs. A certa altura, diz baixinho: “Vai, segura minha alma, pois tens um bom guia para o caminho. Aquele que te criou, te ama ternamente, como uma mãe a teu filhinho querido!”. Ela falava com sua alma e, assim, acrescentou: “Sê bendito, Senhor, por me haveres criado!”. Foram suas últimas palavras.</p>
+                </div>`
+            }
+        ]
+    },
+
+    sao_maximiliano_kolbe: {
+        saintName: "São Maximiliano Kolbe",
+        novenaTitle: "Novena a São Maximiliano Kolbe",
+        description: "Novena em honra a São Maximiliano Kolbe, o mártir da caridade de Auschwitz.",
+        image: "https://bibliotecacatolica.com.br/wp-content/uploads/2024/08/Sao-Maximiliano-Maria-Kolbe-4-654x1024.jpg",
+        imageObjectPosition: "top",
+        initialPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração inicial para todos os dias</h4>
+            <p>Senhor, vinde ao nosso encontro neste dia, em que estamos aqui reunidos para rememorar a vida do Fr. Maximiliano Maria Kolbe e as obras que ele fez em vosso nome aqui na Terra, e pedir a sua intercessão. Fazei de nós servidores do reino, pescadores de homens e amantes de vossa Santíssima Mãe.</p>
+            <p class="mt-4">Ó Maria, rogai por nós, para que esta novena transforme nossos corações, melhore nossas atitudes, aumente nossa fé e nos torne felizes.</p>
+        </div>`,
+        finalPrayer: `<div class="prayer-block">
+            <h4 class="section-title">Oração final para todos os dias</h4>
+            <p>Enviai-nos em missão, Senhor, para que até o próximo encontro estejamos firmes em vosso caminho e dispostos a dar a vida pelo irmão, amando e perdoando sem medida. Que, assim como São Maximiliano testemunhou a Cristo, consigamos também nós dar os mesmos passos e frutos. Fazei de nós vosso instrumento. Cuidai de nós concedendo a vossa bênção de cada dia.</p>
+            <p class="mt-4">Ó Maria, concebida sem pecado, rogai por nós que recorremos a vós e por todos quantos não recorrem, especialmente pelos inimigos da Santa Igreja e por todos quantos são a vós recomendados.</p>
+            <p class="mt-4 font-semibold">Pai Nosso; Ave-Maria; Glória ao Pai.</p>
+            <p class="mt-4 italic">(Fazer o pedido.)</p>
+        </div>`,
+        days: [
+            {
+                day: "1º Dia",
+                title: "Primeiro Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Deixemos que a Imaculada nos conduza.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, padroeiro dos nossos difíceis tempos, ensinai-nos a confiar tudo e sempre à Maria Imaculada, nossa Mãe. Ensinai-nos a conquistar os nossos irmãos pela bondade. Ensinai-nos a vencer o mal com o bem. Ensinai-nos a buscar, em todas as coisas, o lado mais otimista, que nos faz generosos e alegres, que nos faz instrumentos da paz. Amém.</p>
+                </div>`
+            },
+            {
+                day: "2º Dia",
+                title: "Segundo Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Só o amor constrói.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, vós, que vencestes a Segunda Guerra Mundial com a força do amor, mostrai a todos que só o amor constrói. Dizei ao mundo que o poder é o amor, e não mísseis, bombas biológicas ou atômicas. São Maximiliano, ajudai-nos a perdoar e a pedir perdão. Amém.</p>
+                </div>`
+            },
+            {
+                day: "3º Dia",
+                title: "Terceiro Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Deixemos a Divina Providência agir em nós.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, vós, que sabíeis permitir ao Espírito Santo agir em cada momento de vossa vida, mostrai a todos nós que o caminho certo é este: deixar tudo à Providência Divina. Queremos vos agradecer por ser um exemplo de consagração plena à Imaculada, tendo a fé de que ela fará tudo melhor. Nós vos pedimos: intercedei por nós, para que possamos ser instrumentos nas mãos da Imaculada, levando a outros a felicidade de também nela confiar. Amém.</p>
+                </div>`
+            },
+            {
+                day: "4º Dia",
+                title: "Quarto Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Entreguemos tudo à Imaculada a fim de que faça o que quiser.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano, nós também desejamos renovar o nosso amor à Maria Imaculada. Necessitamos do acompanhamento da Mãe de Jesus. Ajudai-nos a lembrar sempre que ao nosso lado está presente a Imaculada, nossa Mãe. Amém.</p>
+                </div>`
+            },
+            {
+                day: "5º Dia",
+                title: "Quinto Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “O amor de Deus nos constrange.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano, vós, que cumpristes o novo mandamento do amor até o fim oferecendo-vos pelo irmão, ensinai-nos a contemplar o mistério do amor. Ajudai-nos a amar o amor e a crescer na caridade. Convencei-nos da necessidade de nos converter novamente. Dizei-nos que podemos mais, que devemos ser santos, porque Deus nos ama. Pedi a Imaculada por nós, para que tenhamos vontade de servir. Amém.</p>
+                </div>`
+            },
+            {
+                day: "6º Dia",
+                title: "Sexto Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “O Espírito Santo age pela Imaculada, sua Esposa.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, servo humilde da Imaculada, vós descobristes o segredo de renovar a face da Terra, de transformar e santificar tudo no Espírito Santo pela Imaculada. Nós vos pedimos: velai por nós. Conduzi-nos pelos caminhos justos, para que saibamos escutar a Palavra de Deus e conservá-la em nosso coração. Ensinai-nos onde está a verdade.</p>
+                    <p class="mt-4">Mostrai-nos o exemplo da Imaculada — cheia do Espírito Santo — para que nós produzamos dia a dia os frutos do amor, da paz, da alegria, da paciência, da bondade, da fidelidade e da liberdade. Amém.</p>
+                </div>`
+            },
+            {
+                day: "7º Dia",
+                title: "Sétimo Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “O ódio divide, separa e destrói, enquanto o amor une, edifica, dá paz.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, zeloso missionário do Evangelho e filho predileto da Igreja, dai coragem aos católicos para anunciar a Boa-Nova da salvação até os confins da Terra. Inspirai-nos, para que cada um de nós edifique a Igreja com o testemunho da própria vida na fé e no amor. Ajudai-nos a renovar a nossa fidelidade ao Papa e a empenhar-nos no seu serviço, para que todos os cristãos sejam unidos, tornando-se um só corpo ao redor do único Mestre e Pastor Jesus Cristo, que é o caminho, a verdade e a vida. Amém.</p>
+                </div>`
+            },
+            {
+                day: "8º Dia",
+                title: "Oitavo Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Esforçai-vos por suportar os defeitos uns dos outros, porque este é o amor maior.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, vós, que doastes a vida por um pai de família, renovai as nossas famílias. Padroeiro dos casais e das famílias, fazei com que os casais se amem reciprocamente, que vivam na fidelidade até a morte, que os maridos respeitem a dignidade das esposas. Dizei aos nossos casais que a verdadeira felicidade se encontra na caridade recíproca, e que não procurem os interesses próprios no divórcio, no adultério, no aborto, na liberdade sexual, no prazer e no dinheiro. Ensinai que todos sejam generosos e perseverantes na oração, que observem os mandamentos e vivam na graça santificante. Amém.</p>
+                </div>`
+            },
+            {
+                day: "9º Dia",
+                title: "Nono Dia",
+                content: `<div class="day-specific-content">
+                    <h5 class="font-bold text-lg text-primary mb-2">Reflexão</h5>
+                    <blockquote class="border-l-4 border-primary/45 pl-4 italic my-4 text-stone-700 dark:text-stone-300">
+                        “Na base de cada boa ação há esforço e sacrifício.”
+                    </blockquote>
+                    <h4 class="mt-4">Meditação:</h4>
+                    <p>São Maximiliano Kolbe, vós, que consolastes e servistes, como sacerdote, aos prisioneiros, e vos consumastes no martírio por amor ao próximo, transformai os homens de hoje no mundo inteiro. Admirando a vossa coragem, força, fé e caridade, sejam capazes de doação, dedicação, disposição, generosidade, sinceridade, solidariedade, justiça e respeito mútuo. Infundi em todos nós o desejo de empenhar-nos na construção do reino de Deus, usando todos os meios acessíveis, e até doar a nossa própria vida. São Maximiliano, mártir pelo amor e pela fé, rogai por nós. Amém.</p>
+                </div>`
+            }
+        ]
+    },
+    santa_dulce_pobres: {
+        novenaTitle: 'Novena a Santa Dulce dos Pobres',
+        description: 'Santa Dulce Lopes Pontes, o anjo bom da Bahia, dedicou sua vida ao serviço dos mais necessitados, vivendo a caridade de Cristo de forma heroica.',
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração inicial para todos os dias</h4><div class="prayer-block"><p>Ó Senhor Jesus, presente no Santíssimo Sacramento, venho, por meio desta novena e adoração, seguindo o exemplo de irmã Dulce, o anjo bom do Brasil, que passava noites e noites na Vossa presença, interceder e rezar pelos mais necessitados tanto de bens materiais como de bens espirituais.</p><p>Quero, por isso, recorrer à intercessão desta Vossa serva, a bem-aventurada Dulce dos Pobres, para que vós, Senhor, possais olhar para a pobreza da minha alma, que se inclina diante da Vossa misericórdia para pedir aquilo que necessito (fazer o pedido).</p></div></div>`,
+        finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração final para todos os dias</h4><div class="prayer-block"><p>Rezar um Pai-Nosso, três Ave-Marias e um Glória ao Pai.</p><p class="mt-4 font-semibold">Santa Dulce dos Pobres, rogai por nós.</p></div></div>`,
+        days: [
+            { day: '1º dia', title: 'Busquemos a conversão do coração', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Mateus 19,1-10. <b>Canto sugerido:</b> Oração pela Família.</p><h4>Meditação:</h4><p>Irmã Dulce, ainda conhecida pelo nome de Maria Rita, era uma menina de 13 anos que gostava muito de brincar e se divertir. Porém, a tia dela, Madaleninha, querendo que ela visse a vida de uma forma diferente, ensinando-lhe que a vida não é só brincadeiras e divertimentos, mas, assim como a vida tem rosas, existem também os espinhos, levou-a para que ela conhecesse as dificuldades, os sofrimentos, a pobreza e a miséria que atingia a muitas pessoas. Foi ao visitar os pobres com a tia dela que a bem-aventurada Dulce teve o seu primeiro encontro com os pobres e com a realidade dura da vida.</p><p>Naquele momento, o Senhor já começou a chamar a sua serva para trabalhar na sua seara. A garota, que só pensava em brincar, passou a escutar o apelo de Jesus que lhe dizia: “todas as vezes que fizestes isso a um destes pequeninos, que são meus irmãos, foi a mim que o fizestes!” (Mt 25, 40).</p><h4 class="mt-4">Oremos:</h4><p>Ó Deus, Pai de bondade, livrai-nos do egoísmo e das ilusões deste mundo, para que atendendo ao chamado do Vosso Filho, a exemplo da bem-aventurada Dulce, possamos ser sensíveis às necessidades espirituais e corporais dos nossos irmãos, ajudando através da nossa conversão na construção do seu projeto de salvação no mundo. Por Cristo Nosso Senhor. Amém.</p></div>` },
+            { day: '2º dia', title: 'Dizer sim à vontade de Deus', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Mateus 5, 43-48. <b>Canto sugerido:</b> Como barro nas mãos do Oleiro…</p><h4>Meditação:</h4><p>Em 13 de agosto de 1933, no convento do Carmo em São Cristovão, Sergipe, a jovem Maria Rita dá o seu sim a Cristo, tomando o hábito das missionárias da Imaculada Conceição da Mãe de Deus, recebendo o nome religioso de Irmã Dulce, em homenagem a mãe dela. Porém, esse nome já revelava aquilo que a nossa beata seria para os pobres, por meio dos seus gestos de amor e caridade, a doçura do amor de Cristo.</p><p>Irmã Dulce colocará em prática as palavras que sua madre fundadora dirigiu a ela naquele dia de consagração “que a humildade da Mãe celeste reine nos seus corações, que a sua pureza resplandeça em vocês, que a sua simplicidade e retidão sejam um estímulo para a sua perfeição em cada ato; sigam como verdadeiras e fiéis filhas de Maria”. Por isso, a bem-aventurada Dulce afirmará que a vocação é o ideal de santificar-se e que também os outros se santifiquem.</p><h4 class="mt-4">Oremos:</h4><p>Ó Pai criador de todas as coisas, que nos chama à perfeição, por meio do seu Filho Jesus Cristo, concede-nos a graça de vivermos a vocação de filhos de Deus, para que servindo a Vós na Vossa Igreja e nos irmãos, possamos contribuir com o nosso sim, a exemplo de Maria e da bem-aventurada Dulce, na realização do Vosso projeto de salvação. Amém</p></div>` },
+            { day: '3º dia', title: 'Mulher entregue à oração', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Mateus 7,1-12. <b>Canto sugerido:</b> com Jesus tudo pode ser mudado.</p><h4>Meditação:</h4><p>A bem-aventurada Dulce dos pobres acreditava que por sermos criaturas sem força devíamos buscar a nossa força em Deus, já que só podemos dar aos outros aquilo que temos e recebemos de Deus. Por isso, para suportamos as lidas de cada dia, as imperfeições do próximo, amando-o sem restrição, precisamos, por meio da oração, segundo a religiosa, encontrar a força de servir e de amar no amor de Deus.</p><h4 class="mt-4">Oremos:</h4><p>Senhor, dá-nos a graça de que por meio da vida de oração e da intimidade convosco, experimentando o Seu amor e escutando a Sua vontade, por meio da meditação da Vossa Palavra, possamos aprender a amar e servir a Vós e aos irmãos com a nossa vida, transmitindo aquilo que nos concede por meio da oração. Amém.</p></div>` },
+            { day: '4º dia', title: 'Mulher eucarística', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> João 6, 30-40. <b>Canto sugerido:</b> Se calarem a voz dos profetas.</p><h4>Meditação:</h4><p>“O amor não é sentimento, não é emotividade. O amor é fiel, generoso. O amor não é dependência. O amor é reciprocidade. Jesus me dá o pão da vida para distribuí-lo com o irmão” (Irmã Dulce). Essa frase da bem-aventurada Dulce revela o quanto tudo aquilo que ela viveu e fez tinha uma única fonte: Jesus Cristo. E este Jesus ela encontrava-O todos os dias no altar da eucaristia, onde ela alimentava a sua vida com o amor de Cristo, unindo o seu coração ao d’Ele, por meio da comunhão diária e, com isso, cultivando um único sentimento e um único objetivo com Cristo, amar e servir.</p><h4 class="mt-4">Oremos:</h4><p>Ó Senhor infundi em nossa alma o desejo de buscar constantemente alimentar a nossa vida no amor de Cristo, oferecido na eucaristia, para que a exemplo da Bem aventurada Dulce, possamos fortalecidos pelo vosso amor, amar sem limites o nosso irmão ao ponto de entregarmos a nossa vida pela sua salvação. Amém.</p></div>` },
+            { day: '5º dia', title: 'Modelo de missionária do Salvador', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Marcos 16, 9-20. <b>Canto sugerido:</b> navegar.</p><h4>Meditação:</h4><p>Irmã Dulce, apaixonada pela causa do Evangelho, sempre se preocupou com o anúncio da Palavra de Deus, já que, para ela, só por meio da vivencia desta Palavra de vida é que a pessoa humana poderia encaminhar a sua vida e a do seu próximo para Deus, Sumo bem para todos nós. Por isso, uma das suas primeiras atividades evangelizadoras foi a de dar catequese no horário de almoço aos operários das fábricas em Salvador na Península Itapagipana. E continuou com esse trabalho evangelizador quando fundou o Hospital Santo Antônio, sempre preocupada em falar de Deus aos seus pacientes e aos funcionários do hospital.</p><h4 class="mt-4">Oremos:</h4><p>Ó Deus de bondade, faz-nos ouvintes atentos da Vossa Palavra de Vida, para que, nos tornando discípulos do Vosso Filho Jesus, possamos, a exemplo da bem-aventurada Dulce, anunciá-Lo com a nossa vida e com os nossos gestos, edificando, assim, o Vosso reino de paz, justiça e solidariedade. Por Cristo Nosso Senhor. Amém.</p></div>` },
+            { day: '6º dia', title: 'Um exemplo de humildade', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Mateus 5, 1-16. <b>Canto sugerido:</b> Oração de São Francisco.</p><h4>Meditação:</h4><p>Um dos fatos mais conhecidos da vida do anjo bom do Brasil é que: ao estar visitando as famílias pobres em um dos bairros de Salvador, a religiosa encontra um jovem jornaleiro que lhe pede ajuda, dizendo-a em um tom suplicante “Irmã, não me deixe morrer na rua”. Ao olhar para aquele garoto pobre — que lhe suplicava socorro —, a santa religiosa não hesitou, não tendo nada para oferecer naquele momento a este jovem, ela pediu a um banhista, que passava naquela rua e naquele momento, que arrombasse a porta de algumas casas abandonadas, para que ela abrigasse aquele enfermo nessas casas desabitadas, a fim de cuidar melhor dele.</p><p>Olhando para esse gesto de coragem e de profundo amor ao próximo, Irmã Dulce sacrificou a sua boa fama, arrombando aquelas casas, visando o bem e a salvação daquele menino. Irmã Dulce foi insultada e perseguida por muitos, por causa deste seu gesto, mas isso não importava a ela, pois o que era realmente importante era o bem-estar do seu irmão.</p><h4 class="mt-4">Oremos:</h4><p>Deus de misericórdia, concede-nos, pela Vossa graça, a virtude da humildade, para que, seguindo os passos da bem-aventurada Dulce dos pobres, possamos, esquecendo de nós mesmos, vencer o nosso egoísmo, para buscar o bem e a salvação dos nossos irmãos. Por Cristo nosso Senhor. Amém.</p></div>` },
+            { day: '7º dia', title: 'Uma alma que espera no Senhor', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Romanos 8,18-25. <b>Canto sugerido:</b> Amar somente a Ti.</p><h4>Meditação:</h4><p>O tão conhecido Hospital Santo Antônio, que atende a milhares de pacientes carentes que vêm de todo estado da Bahia, procurando atendimento médico, é o fruto de uma atitude de fé da religiosa baiana. Não tendo onde abrigar os seus doentes e sendo expulsa de todos os lugares, onde se instalava com eles, pediu a superiora do seu convento para abrigá-los no galinheiro ao lado do convento e, tendo a permissão dela, colocou lá 70 doentes, assim, deu início à sua obra de caridade. Só uma mulher de fé e que confia tão plenamente em Deus pode transformar o impossível para o nosso humano em possível, por meio da fé em Cristo. “Tudo posso Naquele que me fortalece”.</p><h4 class="mt-4">Oremos:</h4><p>Senhor, nosso Salvador, aumenta a nossa esperança nas Vossas promessas de vida plena, para que, confiando no Vosso amor, possamos transformar, por meio da fé, como a bem-aventurada Dulce, o impossível para nós em possível para Vós. Amém.</p></div>` },
+            { day: '8º dia', title: 'Expressão da força de Deus', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Romanos 8, 26-30. <b>Canto sugerido:</b> Cântico de Maria.</p><h4>Meditação:</h4><p>Irmã Dulce, apesar de ter uma saúde muito frágil, devido à sua doença pulmonar que possibilitava ela utilizar apenas 45% do pulmão, nunca se deixou abater pela sua fragilidade humana, mas, buscando a sua força em Deus, trabalhava, incansavelmente, pelo crescimento da Sua Obra de amor. Colocava sempre o problema dos outros à frente dos seus. Isso demonstra que nada a amedrontava nem a fazia retroceder no cumprimento da vontade de Deus na sua vida. Essa serenidade era mantida pela religiosa, por causa da sua confiança em Deus.</p><h4 class="mt-4">Oremos:</h4><p>Ó Senhor, nosso salvador, que dispusestes as graças necessárias para a nossa salvação, por meio da sua Igreja, fazei com que nós, seguindo os passos da bem-aventurada Dulce, por meio da confiança plena no Vosso amor, possamos superar as dificuldades da vida com serenidade, não deixando que o desespero tome conta do nosso coração. Amém.</p></div>` },
+            { day: '9º dia', title: 'Uma vida totalmente consagrada a Deus', content: `<div class="day-specific-content"><p><b>Palavra de Deus:</b> Filipenses 1, 18b-26. <b>Canto sugerido:</b> Permanecei em mim é teu pedido Senhor…</p><h4>Meditação:</h4><p>A vida do anjo bom do Brasil foi uma vida totalmente dedicada ao projeto de Deus, pois viveu plenamente a caridade ao se interessar pelo bem e pela salvação do outro, tanto na dimensão material e humana como na dimensão espiritual. Ao viver a sua vida como dom de serviço a Deus e aos irmãos, tornou-se exemplo para todos os batizados, mostrando o que é viver como filha de Deus e consagrada, fazendo tudo para aproximar-se do Senhor e levando outros a se aproximarem desta fonte de salvação e vida, que é Cristo, a partir das suas ações de amor.</p><h4 class="mt-4">Oremos:</h4><p>Senhor da Igreja, impulsiona-nos a viver o nosso batismo, como viveu a bem-aventurada Dulce, para que, consagrando a nossa vida ao Senhor, possamos trabalhar para a nossa salvação e a do nosso irmão, realizando, assim, o projeto de amor, que o nosso Deus preparou para toda a humanidade. Amém.</p></div>` }
+        ]
+    },
+    assuncao_nossa_senhora: {
+        novenaTitle: 'Novena da Assunção de Nossa Senhora',
+        description: 'Textos breves para meditar sobre a Assunção da Bem-aventurada Virgem Maria, nos dias que precedem esta grande solenidade do mês de agosto.',
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração preparatória</h4><div class="prayer-block"><p>Vinde, Espírito Santo, enchei o coração dos vossos fiéis e acendei neles o fogo do vosso amor.</p><p>℣. Enviai o vosso Espírito, e tudo será criado.<br>℟. E renovareis a face da terra.</p><p>Oremos. Ó Deus, que instruístes os corações dos vossos fiéis com a luz do Espírito Santo, concedei-nos amar, no mesmo Espírito, o que é reto e gozar sempre a sua consolação. Por Cristo, Senhor nosso. ℟. Amém.</p><h5 class="mt-4 font-semibold text-primary">Hino O gloriosa Virginum</h5><p>Senhora gloriosa,<br>bem mais que o sol brilhais.<br>O Deus que vos criou<br>ao seio amamentais.</p><p>O que Eva destruiu,<br>no Filho recriais;<br>do céu abris a porta<br>e os tristes abrigais.</p><p>Da luz brilhante porta,<br>sois pórtico do Rei.<br>Da Virgem veio a vida.<br>Remidos, bendizei!</p><p>Ao Pai e ao Espírito,<br>poder, louvor, vitória,<br>e ao Filho, que gerastes<br>e vos vestiu de glória.</p></div></div>`,
+        finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Orações finais para todos os dias</h4><div class="prayer-block text-sm"><p>Senhor, tende piedade de nós.<br>Jesus Cristo, tende piedade de nós.<br>Senhor, tende piedade de nós.</p><p>Jesus Cristo, ouvi-nos.<br>Jesus Cristo, atendei-nos.</p><p>Pai celeste que sois Deus, tende piedade de nós.<br>Filho, Redentor do mundo, que sois Deus, tende piedade de nós.<br>Espírito Santo, que sois Deus, tende piedade de nós.<br>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p><p>Santa Maria, rogai por nós.<br>Santa Mãe de Deus,<br>Santa Virgem das virgens,<br>Mãe de Jesus Cristo,<br>Mãe da divina graça,<br>Mãe puríssima,<br>Mãe castíssima,<br>Mãe imaculada,<br>Mãe intacta,<br>Mãe amável,<br>Mãe admirável,<br>Mãe do bom conselho,<br>Mãe do Criador,<br>Mãe do Salvador,<br>Mãe da Igreja,<br>Virgem prudentíssima,<br>Virgem venerável,<br>Virgem louvável,<br>Virgem poderosa,<br>Virgem clemente,<br>Virgem fiel,<br>Espelho de justiça,<br>Sede de sabedoria,<br>Causa da nossa alegria,<br>Vaso espiritual,<br>Vaso honorífico,<br>Vaso insigne de devoção,<br>Rosa mística,<br>Torre de Davi,<br>Torre de marfim,<br>Casa de ouro,<br>Arca da aliança,<br>Porta do céu,<br>Estrela da manhã,<br>Saúde dos enfermos,<br>Refúgio dos pecadores,<br>Consoladora dos aflitos,<br>Auxílio dos cristãos,<br>Rainha dos anjos,<br>Rainha dos patriarcas,<br>Rainha dos profetas,<br>Rainha dos apóstolos,<br>Rainha dos mártires,<br>Rainha dos confessores,<br>Rainha das virgens,<br>Rainha de todos os santos,<br>Rainha concebida sem pecado original,<br>Rainha elevada ao céu em corpo e alma,<br>Rainha do sacratíssimo Rosário,<br>Rainha da paz, rogai por nós.</p><p class="mt-4">Cordeiro de Deus, que tirais os pecados do mundo, perdoai-nos Senhor.<br>Cordeiro de Deus, que tirais os pecados do mundo, ouvi-nos Senhor.<br>Cordeiro de Deus, que tirais os pecados do mundo, tende piedade de nós.</p><p class="mt-4">℣. Rogai por nós, Santa Mãe de Deus,<br>℟. Para que sejamos dignos das promessas de Cristo.</p><p class="mt-4">Oremos. Senhor Deus, nós vos suplicamos que concedais aos vossos servos perpétua saúde de alma e de corpo; e que, pela gloriosa intercessão da bem-aventurada sempre Virgem Maria, sejamos livres da presente tristeza e gozemos da eterna alegria. Por Cristo, Nosso Senhor. Amém.</p><p class="mt-4">℣. Fostes exaltada, ó Santa Mãe de Deus.<br>℟. Sobre os coros dos anjos ao reino celeste.</p><p class="mt-4">Oremos. Perdoai aos vossos servos, Senhor, nós vos pedimos, os nossos delitos, de modo que, não vos podendo agradar com nossas ações, sejamos salvos pela intercessão da Mãe de vosso Filho, nosso Senhor. — Deus, pastor e chefe de todos os fiéis, olhai propício para o vosso servo N., que quisestes presidisse à vossa Igreja, e dai-lhe, nós vos pedimos, servir por palavra e exemplo àqueles a quem governa, para que chegue, com a grei a ele confiada, à vida eterna. — Deus, nosso refúgio e fortaleza, ouvi as piedosas preces da vossa Igreja, vós, que sois o autor da piedade, e concedei-nos alcançar de fato o que confiantes vos pedimos. Por Cristo, Senhor nosso. Amém.</p></div></div>`,
+        days: [
+            { day: '1º dia', title: 'Glória de Maria na morte, preparada para bem morrer', content: `<div class="day-specific-content"><p>Consideremos a glória de Maria no momento da morte, para a qual se preparou durante a vida toda pelo desejo ardente de ver a Deus e de estar unida ao seu Filho na consumada perfeição dos méritos que ela dia após dia entesourava. Refletindo no quanto difere da de Maria a nossa atitude perante a morte, rezemos assim:</p><p class="mt-4">1. Ó Virgem Santíssima, que vos preparastes para uma santa morte vivendo em constante anelo de ver a Deus face a face: afastai de nós todo vão desejo das coisas caducas da terra. — Três Ave-Marias.</p><p>2. Ó Virgem Santíssima, que vos preparastes para uma santa morte suspirando em vida por estar unida sempre ao vosso Filho, Jesus: alcançai-nos a graça de vivermos fiéis a Ele até a morte. — Três Ave-Marias.</p><p>3. Ó Virgem Santíssima, que para morrer santamente acumulastes um cabedal de méritos e virtudes incalculável: alcançai-nos, por vossa intercessão, o conhecimento de que apenas a virtude e a graça de Deus são a estrada que conduz à salvação. — Três Ave-Marias.</p><p class="mt-4 italic">Elevemos o nosso louvor a Maria, tão solícita de sua santa morte, e, exaltando-lhe as glórias, nos associemos aos nove coros angélicos que a acompanharam em sua Assunção, dizendo com o primeiro coro...</p></div>` },
+            { day: '2º dia', title: 'Assistida pelos Apóstolos e por seu Filho', content: `<div class="day-specific-content"><p>Consideremos a glória de Maria ao morrer, consolada não só pelos Apóstolos e santos, mas por seu próprio Filho, Jesus Cristo. Contemplando a alegria que por tão singular favor lhe foi dado experimentar na hora derradeira, nos encomendemos a ela assim:</p><p class="mt-4">1. Ó Virgem gloriosa, que merecestes, para consolo vosso, morrer na presença dos Apóstolos e dos santos: impetrai-nos a graça de expirarmos assistidos por vós e por nossos santos de devoção. — Três Ave-Marias.</p><p>2. Ó Virgem gloriosa, que no trânsito da morte fostes consolada com a visão do vosso Filho, Jesus: rogai para que nós, recebendo a Jesus no santíssimo Viático, também sejamos consolados naquela hora. — Três Ave-Marias.</p><p>3. Ó Virgem gloriosa, que entregastes o espírito nos braços de Jesus: ajudai-nos a entregar o nosso, de alma purificada, nos braços dele, assim na vida como na morte, sempre solícitos em fazer a sua santíssima vontade. — Três Ave-Marias.</p><p class="mt-4 italic">Glorifiquemos a Maria, assistida na hora da morte pelos Apóstolos e por seu Filho, Jesus. Aplaudindo o seu triunfo, digamos consolados com o segundo coro dos anjos...</p></div>` },
+            { day: '3º dia', title: 'Ao expirar por puro êxtase de amor', content: `<div class="day-specific-content"><p>Consideremos a glória de Maria Santíssima ao morrer, que entregou a alma por efeito de um puro êxtase de amor. Desejando abrasar-nos também nós neste santo amor, recorramos a ela assim:</p><p class="mt-4">1. Ó beatíssima Virgem Maria, que por efeito de um veementíssimo amor a Deus deixastes a vida mortal: dai-nos a graça, segundo a vontade de Deus, de sentirmos acesa em nós esta chama viva de amor. — Três Ave-Marias.</p><p>2. Ó beatíssima Virgem Maria, que, morrendo de pura caridade divina, nos ensinastes qual deve ser o nosso afeto para com Deus: impetrai-nos a graça de nunca nos separarmos dele, nem na vida nem na morte. — Três Ave-Marias.</p><p>3. Ó beatíssima Virgem Maria, que, ao deixar esta vida mortal por força de um puro êxtase de amor, nos destes a conhecer qual fosse o amor que em vosso Coração sempre ardera: concedei-nos, por vossa intercessão, ao menos uma faísca desta chama, a fim de nos arrependermos sinceramente de nossas culpas. — Três Ave-Marias.</p><p class="mt-4 italic">Exaltemos com o terceiro coro dos anjos a glória inexplicável de Maria, inflamada de amor a Deus, e com ele digamos...</p></div>` },
+            { day: '4º dia', title: 'Em seu corpo defunto', content: `<div class="day-specific-content"><p>Consideremos a glória de Maria depois da morte em seu corpo defunto, que, adornado de maravilhoso esplendor e majestade, recendia fragrâncias dignas do Paraíso, e à vista do qual se produziram inumeráveis prodígios. Meditando em nossas misérias, supliquemos assim:</p><p class="mt-4">1. Ó puríssima Senhora, que por vossa virginal pureza merecestes a glória de resplandecer majestosa em vosso corpo defunto: alcançai-nos força para combater em nós todo espírito de impureza. — Três Ave-Marias.</p><p>2. Ó puríssima Senhora, cujo corpo, em razão de vossas singulares virtudes, mereceu recender perfumes de Paraíso: fazei que a nossa vida seja edificante para o próximo, e que não tornemos a ser ocasião de escândalo com nossos maus exemplos. — Três Ave-Marias.</p><p>3. Ó puríssima Senhora, à vista de cujo corpo foram curadas inúmeras enfermidades: curai-nos, por vossa intercessão, de todas as enfermidades da alma. — Três Ave-Marias.</p><p class="mt-4 italic">Alegremo-nos pela glória que teve Maria em seu corpo defunto, e nos unamos ao quarto coro dos anjos para exaltar a grandeza dela, dizendo...</p></div>` },
+            { day: '5º dia', title: 'Em seu corpo ressuscitado', content: `<div class="day-specific-content"><p>Consideremos a glória de Maria depois da morte, cujo corpo, ressuscitado por virtude do Altíssimo, adquiriu os dotes de claridade e sutileza, agilidade e impassibilidade. Consolados com a excelência de tão grande glória, invoquemos a Maria assim:</p><p class="mt-4">1. Ó excelsa Senhora, ressuscitada gloriosamente por Deus: sede-nos propícia, e que, à semelhança vossa, também nós ressuscitemos gloriosos no dia do Juízo Final. — Três Ave-Marias.</p><p>2. Ó excelsa Senhora, exaltada com a claridade e a sutileza do vosso corpo ressuscitado, em razão do exemplo e da humildade de vossa vida mortal: intercedei por nós, a fim de que, livres de toda arrogância, e destruídas as desordens do amor-próprio, sejamos revestidos de santa humildade. — Três Ave-Marias.</p><p>3. Ó excelsa Senhora, por aquela agilidade e impassibilidade que, em recompensa da espiritual diligência e da grande paciência que vos distinguiram durante a vida nesta terra, vos tornam tão gloriosa em vosso corpo ressuscitado: dai-nos coragem de mortificar com firmeza o nosso corpo e de reprimir com paciência suas inclinações desordenadas. — Três Ave-Marias.</p><p class="mt-4 italic">Tributemos a Maria devotos louvores e, engrandecendo a glória que redundou em seu corpo glorificado, a exaltemos com o quinto coro dos anjos, dizendo...</p></div>` },
+            { day: '6º dia', title: 'Em sua Assunção ao Céu', content: `<div class="day-specific-content"><p>Consideremos que Maria foi gloriosamente assunta ao Céu, cortejada das legiões celestes e das almas libertas, por mérito dela, do Purgatório. Aplaudindo este majestoso triunfo, façamos nossas humildes súplicas, invocando-a assim:</p><p class="mt-4">1. Ó grande Rainha, que fostes assunta com tanta majestade ao reino da paz eterna: afastai de nós todo pensamento carnal e impetrai-nos a graça de termos sempre firme o nosso coração na contemplação dos bens eternos do Paraíso. — Três Ave-Marias.</p><p>2. Ó grande Rainha, que em vossa Assunção ao Céu fostes cortejada pelas hierarquias celestes: dai-nos força para resistir às insídias dos nossos inimigos, e fazei-nos corresponder às inspirações dos santos anjos que continuamente vos assistem e aos quais hoje governais. — Três Ave-Marias.</p><p>3. Ó grande Rainha, pela glória que em vossa Assunção ao Céu recebestes das almas libertas, por mérito vosso, do Purgatório: dai-nos a graça de nos vermos livres da escravidão do pecado e de mercermos vos louvar por toda a eternidade. — Três Ave-Marias.</p><p class="mt-4 italic">Não cessemos de aplaudir o majestoso triunfo de Maria e as glórias singulares a ela comunicadas em sua Assunção ao Céu. Associando-lhe nossas homenagens, a honremos com o sexto coro dos anjos, dizendo...</p></div>` },
+            { day: '7º dia', title: 'Rainha do universo', content: `<div class="day-specific-content"><p>Consideremos a glória que Maria tem no Céu por ter sido constituída Rainha do universo, e por receber um incessante tributo de louvor e reverência da imensa multidão dos anjos e santos do Paraíso. Prostrados ante o trono de sua majestade, imploremos o seu socorro assim:</p><p class="mt-4">1. Ó soberana Rainha do universo, que por vossos incomparáveis méritos fostes exaltada a tão grande glória no Céu: olhai compassiva para as nossas misérias e acolhei-nos sob o benigno influxo de vossa proteção. — Três Ave-Marias.</p><p>2. Ó soberana Rainha do universo, que recebeis continuamente a adoração e a vassalagem de toda a corte celeste: dignai-vos, vo-lo suplicamos, ser por nós invocada, e fazei que as nossas súplicas vos sejam oferecidas com aquela reverência que convém à vossa dignidade e grandeza. — Três Ave-Marias.</p><p>3. Ó soberana Rainha do universo, pela glória que a vós provém do eminente posto que ocupais no Céu: dignai-vos inscrever-nos no número de vossos servos, e impetrai-nos a graça de observarmos com prontidão os Mandamentos de nosso Deus e Senhor. — Três Ave-Marias.</p><p class="mt-4 italic">Tomemos parte na consolação que experimentam os anjos ao exaltarem a Maria, e, exultando também nós por reconhecê-la elevada à glória de Rainha do universo, digamos com o sétimo coro...</p></div>` },
+            { day: '8º dia', title: 'A coroa que a adorna', content: `<div class="day-specific-content"><p>Consideremos a glória que Maria tem no Céu pelo diadema real que ela recebeu de seu divino Filho e pelo amplo conhecimento que ela tem das coisas mais altas e ocultas, passadas, presentes e futuras. Cheios de veneração pela honra singularíssima desta grande Rainha, recorramos a ela assim:</p><p class="mt-4">1. Ó incomparável Rainha, que tendes no alto do Céu a glória de haverdes recebido do vosso divino Filho um preciosíssimo diadema real por coroa: fazei-nos partícipes de vossa nobre virtude e concedei-nos a graça de, purificados os nossos sentimentos, nos tornarmos dignos de ser coroados convosco no Paraíso. — Três Ave-Marias.</p><p>2. Ó incomparável Rainha, pelo amplo conhecimento a vós concedido de todas as coisas da terra, perdoai-nos, para glória vossa, os nossos atrevimentos passados, e não permitais que tornemos a vos desprezar com a libertinagem de nossa língua e de nossos sentimentos. — Três Ave-Marias.</p><p>3. Ó incomparável Rainha, que desejais sejam os homem puros e limpos para serem dignos do vosso Deus: alcançai-nos o perdão dos nossos pecados e ajudai-nos a pôr nossos olhares, nossos gestos e nossos ações a serviço do engrandecimento da Majestade divina. — Três Ave-Marias.</p><p class="mt-4 italic">Purifiquemos o nosso coração, a fim de louvarmos dignamente a Maria. Pela glória que ela possui graças à coroa que lhe adorna a fronte real, unamos nossa humilde demonstração de afeto dizendo jubilosos com o oitavo coro dos anjos...</p></div>` },
+            { day: '9º dia', title: 'Proteção que dispensa aos homens', content: `<div class="day-specific-content"><p>Consideremos a glória que Maria tem no Céu por ser protetora dos homens e pela grande solicitude com que os pode socorrer em suas necessidades. Animados de viva fé por termos como protetora no Céu a Mãe do nosso Deus, com todo o coração lhe supliquemos assim:</p><p class="mt-4">1. Ó Maria, poderosíssima Protetora nossa, que tendes no Céu a glória de ser Advogada dos homens: livrai-nos das mãos do infernal inimigo, e entregai-nos nos braços do nosso Deus e Criador. — Três Ave-Marias.</p><p>2. Ó Maria, poderosíssima Protetora nossa, que, sendo no céu Advogada dos homens, vos desvelais por que cheguem todos à salvação: fazei que não desesperemos com a memória de nossas transgressões passadas. — Três Ave-Marias.</p><p>3. Ó Maria, poderosíssima Protetora nossa, que no desempenho do vosso ofício folgais de os homens suplicarem continuamente a vós: alcançai-nos o espírito da verdadeira devoção e a graça de vos invocarmos durante toda a nossa vida, sobretudo na hora tremenda de nossa morte. — Três Ave-Marias.</p><p class="mt-4 italic">Celebremos de coração as glórias de Maria e, consolados de a termos no Céu por Advogada nossa, nos unamos ao nono coro dos anjos para louvá-la, dizendo...</p></div>` }
+        ]
+    },
+    santo_afonso_ligorio: {
+        novenaTitle: 'Novena a Santo Afonso de Ligório',
+        description: 'Doutor da Igreja e fundador dos Redentoristas. Grande mestre da teologia moral e do amor a Cristo e a Maria.',
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração preparatória</h4><div class="prayer-block"><p>Pelo sinal da Santa Cruz, livrai-nos Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, e do Filho, e do Espírito Santo. Amém.</p></div></div>`,
+        finalPrayer: `<div class="final-prayer-text"><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><h4 class="section-title">Oração final</h4><div class="prayer-block"><p class="mt-4 font-semibold text-center">Santo Afonso Maria de Ligório, rogai por nós!</p></div></div>`,
+        days: [
+            { day: '1º Dia', title: 'Oração para todos os dias', content: `<div class="day-specific-content"><p><b>I.</b> Admirável Santo Afonso, que, profetizado enquanto criança pelo glorioso São Francisco de Jerônimo a ser um santo destinado a viver longamente e operar grandes coisas na vinha do Senhor, desde a mais tenra idade edificastes a todos pela fuga do divertimento, até mesmo o legítimo, pelo exercício constante da mais sólida piedade, pela humildade mais profunda em meio aos mais gloriosos sucessos na carreira das letras e das ciências.</p><p>Vós, que a uma única palavra indecente proferida por um colega de sua idade por ter perdido num jogo, imediatamente rejeitastes o dinheiro que vos era devido como vencedor, protestando que abomináveis qualquer ganho que custasse uma ofensa a Deus, então vos retirastes para um bosque próximo para chorar amargamente pelo pecado do outro.</p><p>Vós, que tendo perdido por um descuido inocente uma causa que defendestes como advogado com o maior empenho, resolvestes imediatamente abandonar aquele mundo que vos prometia as maiores fortunas pela conspicuidade de vosso nascimento e pela singularidade de vossos talentos.</p><p>Impetrai-nos, vos pedimos, a graça de sempre aborrecer tudo aquilo que pode de alguma maneira contaminar nossa alma, de conduzir-nos sempre de maneira a edificar todos os nossos amigos e de valer-nos de todos os contratempos e de todas as desgraças para desapegar nosso coração do mundo, e não aspirar senão ao Céu.</p><p class="mt-4 font-semibold text-center">Pai-Nosso; Ave-Maria; Glória ao Pai.</p><p class="italic text-center mb-6">(Fazer o pedido)</p><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><p><b>II.</b> Admirável Santo Afonso, que, alistado na milícia eclesiástica, apesar de todas as tentações da carne que vos opuseram parentes muito amorosos, vos dispusestes a trancar-vos em um claustro ou levar a vida de perfeição que já vos estava preparada desde muito cedo, e vos tornastes o modelo de todos os sacerdotes pela pregação mais eloquente, pela oração mais fervorosa e pela incansável aplicação ao ministério das confissões.</p><p>Mais tarde vos tornastes, por ordem divina, fundador de uma nova congregação de eclesiásticos, como vós inteiramente consagrados à santificação de si mesmos pela mais rigorosa pobreza, pela mais exata obediência, pela mais assídua oração, pela penitência mais severa, tanto pelo aperfeiçoamento de seus próximos como pelo mais eficaz ministério de missões, especialmente para os povos mais abandonados.</p><p>Tolerastes com resignação inamovível o abandono de vossos companheiros, os rumores do mundo, sempre mau, e as provas que o Senhor vos quis fazer com as enfermidades mais incômodas.</p><p>Implorai, vos pedimos, por todos nós, a graça de resistir sempre com vigor às sugestões dos nossos inimigos, para que, fiéis em seguir todas as inspirações divinas, nos dediquemos incessantemente à prática da mais perfeita de todas as virtudes cristãs, sem que nunca nos deixemos desanimar pelas contradições dos homens.</p><p class="mt-4 font-semibold text-center">Pai-Nosso; Ave-Maria; Glória ao Pai.</p><p class="italic text-center mb-6">(Fazer o pedido)</p><div class="w-16 h-px bg-white/20 my-6 mx-auto"></div><p><b>III.</b> Admirável Santo Afonso, que, favorecido por Deus com as maravilhas mais estupendas, ora para multiplicar vossa pessoa para ao mesmo tempo confessar em casa e pregar na igreja, ora para aparecer a todo o povo como o sol, vosso auxiliar dava testemunho de vossas palavras ao ensinardes a mais viva confiança na proteção de Maria.</p><p>Vós, que nunca deixastes de praticar a mais dolorosa mortificação, flagelando-se até correr o sangue, tornando todos os vossos alimentos amargos, escolhendo sempre para si a morada mais incômoda e insalubre.</p><p>Vós, que sendo depois feito bispo de Santa Ágata, voltastes a ser o amor e a edificação de todos os vossos súditos espirituais, fazendo-vos tudo por todos para ganhá-los para Jesus Cristo.</p><p>Por humildade tão profunda, segundo a qual vos julgastes insuficiente para suportar o peso do bispado, e pela qual também o renunciastes logo que obtivestes licença e vos fizestes retirar à cela mais desconfortável da casa de missão por vós fundada, desejando ser sempre tratado como o último dos pobres.</p><p>Pelo voto então inaudito, de jamais ficar no ócio, que fizestes como simples sacerdote, o qual cumpristes rigorosamente até a vossa morte.</p><p>Enfim, pelos abundantes frutos que proporcionastes com as muitas obras por vós fundadas para combater os incrédulos, converter os pecadores, aperfeiçoar as almas piedosas, orientar os eclesiásticos no caminho mais seguro para a santificação de si mesmos e de seus próximos.</p><p>Implorai, vos pedimos, por todos nós, a graça de sempre nos considerarmos indignos dos favores divinos, de multiplicar sempre nossos cuidados para tornar cada vez mais curta nossa eleição para a glória, e de usar sempre nossos talentos e forças para ganhar nossos irmãos para Deus; para que assim, depois de termos nos esmerado incessantemente na vossa imitação na Terra, passemos a desfrutar da participação em vossa glória no Céu.</p><p class="mt-4 font-semibold text-center">Pai-Nosso; Ave-Maria; Glória ao Pai.</p><p class="italic text-center mb-6">(Fazer o pedido)</p></div>` },
+            { day: '2º Dia', title: '', content: '' },
+            { day: '3º Dia', title: '', content: '' },
+            { day: '4º Dia', title: '', content: '' },
+            { day: '5º Dia', title: '', content: '' },
+            { day: '6º Dia', title: '', content: '' },
+            { day: '7º Dia', title: '', content: '' },
+            { day: '8º Dia', title: '', content: '' },
+            { day: '9º Dia', title: '', content: '' }
+        ]
     }
+
+, sao_joao_vianney: {
+    title: 'Novena a São João Maria Vianney',
+    description: "Novena em honra ao Santo Cura d'Ars, padroeiro dos párocos e modelo de amor à Eucaristia e à reconciliação.",
+    initialPrayer: `<div class="prayer-block"><h4>Apresentação</h4><p>João Maria Batista Vianney - Santo Cura d'Ars - foi um sacerdote francês. Muito antes de ser canonizado pelo papa Pio XI, em 1925, já era venerado como santo. O seu corpo incorrupto, encontra-se na igreja da paróquia de Ars, que se tornou um grande santuário de peregrinação. São João Maria Batista Vianney foi proclamado pelo Papa Pio XI Padroeiro dos Párocos e dos Sacerdotes que têm Cura de Almas no mundo todo, por Carta Apostólica datada de 20 de abril de 1929. Devido o seu exemplo de pastor, associa-se informalmente à sua memória, em 04 de agosto, a comemoração do dia do Padre. Foi um grande confessor, tinha o dom da profecia, recebia ataques físicos do demônio e viveu entregue à mortificação e à oração.</p></div>`,
+    finalPrayer: `<div class="prayer-block"><h4 class="section-title">Oração Final Diária</h4><p>Ó Santo Cura d’Ars, tenho confiança em vossa intercessão. Intercedei especialmente por mim durante esta novena.</p><p class="italic">(pedir a graça desejada)</p><p class="mt-4 font-semibold">Reza-se: Pai-Nosso, Ave Maria, Glória ao Pai.</p><p class="mt-2 font-bold">São João Maria Vianney, rogai por nós!</p></div>`,
+    days: [
+      { day: 'Primeiro Dia', title: 'Fé Ardente', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, vós nascestes de uma mãe profundamente cristã e dela recebestes, juntamente com a fé, o amor de Deus e da oração. Pequenino ainda, éreis surpreendido de joelhos diante da imagem de Nossa Senhora. Vossa alma era naturalmente atraída para as coisas do alto. No entanto, quanto vos custou quando tivestes que corresponder à vossa vocação! Quantos obstáculos e contradições da parte dos homens! E depois, quanto lutastes e sofrestes para chegardes a ser o Sacerdote perfeito que fostes! Mas, vosso espírito de fé tão profundo vos sustentou em todos vossos combates.</p><p>Ó grande Santo, vós conheceis os desejos de minha alma: eu gostaria de melhor servir ao Deus do qual já recebi tantos favores. Para isso, obtende-me mais coragem e, sobretudo, mais espírito de fé. Muitos dos meus pensamentos, palavras e ações são inúteis para minha santificação e salvação, pois esse espírito sobrenatural ainda não anima minha vida. Fazei que isso mude de agora em diante.</p></div>' },
+      { day: 'Segundo Dia', title: 'Esperança', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, que confiança tinham as multidões em vossas orações! Vós não podíeis sair de vossa casa paroquial ou de vossa pobre igreja sem estardes cercado de almas suplicantes que se dirigiam a vós, do mesmo modo como se dirigiriam ao próprio Jesus em Sua vida mortal. E vós, bom Santo, por vossas palavras cheias de eternidade, as excitáveis à esperança. Vós que sempre confiastes inteiramente no Coração de Deus, obtende-me uma confiança profunda e filial em Sua adorável Providência. Que a esperança nos bens celestes encha meu coração de coragem e me ajude a praticar sempre os divinos mandamentos.</p></div>' },
+      { day: 'Terceiro Dia', title: 'Caridade', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, quão grande foi a caridade da qual fizestes prova a Deus e ao próximo. Não podíeis pregar sobre o amor de Deus sem derramar ardentes lágrimas e, em vossos últimos anos, parecia que não podíeis falar de outra coisa, nem viver para outra coisa. Quanto ao próximo, para o consolar, absolver e santificar, vós vos sacrificastes até o extremo limite de vossas forças. Herói da caridade, inspirai-me um maior amor de Deus, amor que se exprima mais por atos do que por palavras. Concedei-me amar a meu próximo generosa e cristãmente.</p></div>' },
+      { day: 'Quarto Dia', title: 'Contrição dos Pecados', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, que fostes sempre duro contra o pecado, mas sempre acolhedor e compassivo para com o pecador, eu venho a vós como se ainda vivêsseis, como se pudésseis me atender ajoelhado aos vossos pés. Inclinado a mim, vós escutais a confidência arrependida das minhas fraquezas e misérias. Sacerdote do Senhor, confessor infatigável, se isso não é nada mais que um sonho do meu coração, obtende-me pelo menos o horror ao pecado. Vós queríeis que em primeiro lugar se evitassem as ocasiões perigosas. Tomarei, sob vosso conselho, a resolução de romper com todos os hábitos repreensíveis e más ocasiões. Ajudai-me hoje a examinar minha consciência.</p></div>' },
+      { day: 'Quinto Dia', title: 'Hábito da Confissão Frequente', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, vós sabeis que importância tem, na vida do cristão, uma confissão bem feita. Foi para buscar os felizes frutos da confissão para milhões de almas, que consentistes em ficar durante dezesseis horas por dia como que prisioneiro, sem ar e sem luz, entre as rudes madeiras de um confessionário. Ah! Eu percebo que, se tomo o excelente hábito da confissão frequente, se me preparo bem, se tenho sempre um arrependimento suficiente de minhas faltas, não somente minha perseverança final, mas a santificação da minha alma está assegurada. Pedi por mim esta graça.</p></div>' },
+      { day: 'Sexto Dia', title: 'Devoção à Santa Missa e à Comunhão', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, cujo grande e, frequentemente, único conforto nesse mundo miserável foi a presença real de Jesus no sacrário, vossa grande alegria não era a de distribuir a Comunhão aos peregrinos que vos visitavam? Vós afastáveis da Santa Mesa as almas que recusavam a corrigir-se, mas às almas de boa vontade, abríeis de par em par as portas do festim eucarístico. Ó grande Santo, que cada dia na Santa Missa, comungastes com o ardor de um Serafim, concedei-me um pouco do vosso fervor. Com a graça de ter a alma limpa de qualquer pecado mortal, obtende-me o desejo sincero de aproveitar da comunhão, desta visita divina que embalsamava vosso coração.</p></div>' },
+      { day: 'Sétimo Dia', title: 'Vida de Oração', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, tornaram-se célebres os ataques infernais que tivestes de suportar. Para fazer-vos sucumbir ante a fadiga, de modo a abandonardes vossa missão sublime de convertedor, o demônio veio perturbar durante longos anos o curto repouso de vossas noites. Mas, vós o vencestes pela mortificação e oração. Ó poderoso Protetor, vós sabeis que o tentador deseja-me o mal e que ele odeia minha alma batizada e crente. Ele quer fazer-me cair no pecado para que eu perca o gosto pela virtude e pelos sacramentos. Mas, bom Santo de Ars, vós afastareis de mim as armadilhas do inimigo.</p></div>' },
+      { day: 'Oitavo Dia', title: 'Prática da Santa Pureza', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, uma testemunha de vossa vida, edificado pela modéstia e delicada pureza que se irradiavam de toda a vossa pessoa, fez de vós este magnífico elogio: “Parecia um anjo em carne mortal”. Com que atratividade e entusiasmo pregastes aos fiéis estas belas virtudes, cujo perfume, dizíeis, “assemelha-se ao de uma vinha em flor”. Eu vos peço, uni vossa intercessão à de Maria Imaculada e à de vossa cara e pequena Santa Filomena a fim de que eu guarde sempre, como Deus pede de mim, a pureza do meu coração. Vós que dirigistes tantas almas ao cume das virtudes, defendei-me contra as tentações e obtende-me a graça de sempre vencê-las.</p></div>' },
+      { day: 'Nono Dia', title: 'Perseverança na Graça de Deus', content: '<div class="day-specific-content"><p>Ó São João Maria Vianney, vossos preciosos restos mortais repousam hoje em um magnífico relicário, presente dos padres da França. E essa glória terrena nada mais é do que uma pálida imagem da glória inefável que gozais junto de Deus. Durante vossa vida aqui na terra, nas horas de fadiga costumáveis dizer: “Descansaremos na outra vida!” É a realidade: vós estais agora na paz eterna, na eterna felicidade. Ah! Como eu desejo seguir-vos um dia. Desde o céu vos ouço dizer-me: “É necessário trabalhar e lutar enquanto se está neste mundo”. Ensinai-me, portanto, a trabalhar na salvação da minha alma, a dar o bom conselho e o bom exemplo, a fazer o bem em redor de mim, a fim de que tenha parte, como vós, na felicidade dos Eleitos.</p></div>' }
+    ]
+  },
 };

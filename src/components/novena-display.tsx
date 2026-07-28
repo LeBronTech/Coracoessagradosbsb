@@ -669,7 +669,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     width={200}
                     height={280}
                     className="w-40 h-56 md:w-48 md:h-64 rounded-2xl object-cover border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10"
-                    style={{ objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'top center' }}
+                    style={{
+                      objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center',
+                      transform: ((novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition) === 'top'
+                        ? 'scale(1.18) translateY(-10%)'
+                        : 'none'
+                    }}
                     priority
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">

@@ -2531,7 +2531,8 @@ _Projeto Corações Sagrados❤️‍🔥_`;
                             id="santo-dia-main-image"
                             src={todaySaintInfo.imageUrl} 
                             alt={todaySaintInfo.name} 
-                            className="w-full h-full object-cover object-center" 
+                            className="w-full h-full object-cover transition-all duration-500" 
+                            style={{ objectPosition: (todaySaintInfo as any).imageObjectPosition || 'center', transform: (todaySaintInfo as any).imageObjectPosition === 'top' ? 'scale(1.15) translateY(-8%)' : 'none' }}
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-transparent to-transparent"></div>
                           <div className="absolute bottom-3 left-3 right-3 flex justify-between items-end">                            <div>

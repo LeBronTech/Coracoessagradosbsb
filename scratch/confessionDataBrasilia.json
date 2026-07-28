@@ -1,0 +1,1030 @@
+[
+  {
+    "city": "Arniqueiras & Riacho Fundo I",
+    "parishes": [
+      {
+        "name": "Paróquia Maria Auxiliadora",
+        "address": "Arniqueiras & Riacho Fundo I",
+        "times": "Terça e quinta: a partir das 19:00 | Capela N. Sra. das Graças - Quarta: a partir das 19:00 | Capela Maria Mãe do Bom Pastor - Sexta: a partir das 19:00",
+        "instagram": "https://www.instagram.com/maria_auxiliadora_arniqueira"
+      },
+      {
+        "name": "Paróquia São Miguel Arcanjo",
+        "address": "Arniqueiras & Riacho Fundo I",
+        "times": "Terça: 20:00 às 21:00 | Quinta: 18:00 às 19:15 | Sexta: 08:00 às 09:30 | Primeiro sábado do mês: após a missa das 19:30",
+        "instagram": "https://www.instagram.com/saomiguelr1"
+      },
+      {
+        "name": "Paróquia São Domingos Sávio",
+        "address": "Arniqueiras & Riacho Fundo I",
+        "times": "Quarta e quinta: 18:00 às 19:15",
+        "instagram": "https://www.instagram.com/paroquiasaodomingossavio"
+      }
+    ]
+  },
+  {
+    "city": "Fercal & Itapoã",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Fercal & Itapoã",
+        "times": "Quinta e sexta: de 17:00 às 18:30 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/pnsafercal"
+      },
+      {
+        "name": "Paróquia São Luís Orione",
+        "address": "Fercal & Itapoã",
+        "times": "Terça e quinta: 09:00 às 11:00 e 15:00 às 16:00 | Sábado: por agendamento",
+        "instagram": "https://www.instagram.com/paroquiaslo"
+      }
+    ]
+  },
+  {
+    "city": "Vicente Pires & 26 de Setembro",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora das Vitórias",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Terça: depois da missa das 19:30 | Quarta: a partir das 09:30 | Sexta e sábado: depois da missa das 07:00",
+        "instagram": "https://www.instagram.com/pnsdasvitorias"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Esperança",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Terça e sexta: a partir de 18:30 | Quinta: depois da missa das 19:30 | Capela N. Sra. Aparecida - Quinta: depois da missa das 07:00",
+        "instagram": "https://www.instagram.com/pnse_vp"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Auxiliadora",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Terça a sexta: 14:30 às 17:00",
+        "instagram": "https://www.instagram.com/pnsauxiliadora.brasilia"
+      },
+      {
+        "name": "Paróquia São Francisco de Assis",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Terça e quinta: de 17:00 às 19:00 | Sábado: de 17:00 às 18:30",
+        "instagram": "https://www.instagram.com/saofranciscovp"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Quinta: de 18:00 às 19:16",
+        "instagram": "https://www.instagram.com/paroquiasaojose.vp"
+      },
+      {
+        "name": "Paróquia Santa Bernadete",
+        "address": "Vicente Pires & 26 de Setembro",
+        "times": "Terça a domingo: 40 min antes das missas | Capela N. Sra. das Lágrimas - Terça e domingo: 40 min antes das missas | Capela Santa Rita / Divina Misericórdia / N. Sra. Aparecida: 40 min antes das missas",
+        "instagram": "https://www.instagram.com/pnsantabernadete"
+      }
+    ]
+  },
+  {
+    "city": "Ceilândia & Sol Nascente",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora da Glória",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: 30 min antes/depois das missas | Sábado e domingo: depois das missas | Capela São José Operário - Terça a sexta: depois das missas",
+        "instagram": "https://www.instagram.com/pnsg.oficial"
+      },
+      {
+        "name": "Paróquia São Francisco de Assis",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Quarta a sábado: de 17:30 às 19:00 | Capela N. Sra. de Fátima - Terça: de 17:30 às 19:00",
+        "instagram": "https://www.instagram.com/psfranciscocsccul"
+      },
+      {
+        "name": "Paróquia da Ressurreição",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça, quinta e sexta: a partir das 16:00 | Quarta: depois da missa das 19:00 | Sábado: a partir de 09:00 | Capela do Divino Espírito Santo - Quinta: a partir de 17:00",
+        "instagram": "https://www.instagram.com/paroquiadaressurreicao"
+      },
+      {
+        "name": "Paróquia São Marcos e São Lucas",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Quinta e sexta: a partir de 19:00 | Sexta: a partir de 15:00 | Sábado: a partir de 17:00 | Domingo: 17:00 e 19:00",
+        "instagram": "https://www.instagram.com/psmsl_ofm"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Natividade",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: a partir de 18:00",
+        "instagram": "https://www.instagram.com/psnatividade"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a quinta: 09:30 às 11:00 e 14:30 às 17:00 | Sábado: 09:00 às 11:00",
+        "instagram": "https://www.instagram.com/perpetuo_socorro_capuchinhos"
+      },
+      {
+        "name": "Paróquia São Pedro Apóstolo",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça: 09:30 às 11:00 | Quarta, quinta e sexta: 17:05 às 18:30 | Sábado: 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquiasaopedropsul"
+      },
+      {
+        "name": "Paróquia Cristo Rei",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça, quarta e sexta: 08:00 às 12:00 e 15:00 às 18:00 | Quinta: 15:00 às 18:00 | Sábado: 09:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquia_cristorei"
+      },
+      {
+        "name": "Paróquia Senhor Bom Jesus",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: a partir de 18:00 | Domingo: a partir de 09:00 | Capela Sta. Ana e São Joaquim - Sábado: a partir de 16:00",
+        "instagram": "https://www.instagram.com/p.senhorbomjesus"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Assunção",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: 16:00 às 18:00 | Sábado: 09:00 às 12:00",
+        "instagram": "https://www.instagram.com/pnsassuncaoceilandia"
+      },
+      {
+        "name": "Paróquia Santo Antônio",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: 17:00 às 18:45 | Sábado: 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquiasantoantoniodf"
+      },
+      {
+        "name": "Paróquia Santíssima Trindade",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a quinta: 10:00 às 12:00 e 16:30 às 18:15 | Capela Todos os Santos - Quarta e sexta: 18:00 às 19:15",
+        "instagram": "https://www.instagram.com/santissimatrinda.df"
+      },
+      {
+        "name": "Paróquia Sagrado Coração de Jesus e São José",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça a sexta: 17:00 às 19:00",
+        "instagram": "https://www.instagram.com/sagrado.coracao"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Quarta, sexta e sábado: 16:00 às 18:00 | Comunidade Espírito Santo - Terça: 16:00 às 18:00 | Comunidade Santo Antônio - Terça: 19:00 às 20:00 | Comunidade N. Sra. da Anunciação - Quinta: 18:00 às 20:00 | Comunidade Santa Clara - Sexta: 19:00 às 20:00 | Comunidade N. Sra. da Abadia - Sábado: antes da missa",
+        "instagram": "https://www.instagram.com/sjoseoperario"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Lourdes",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça, quinta e sexta: 18:00 às 19:00 | Capela São José - Sábado: 18:00 às 19:00 | Capela N. Sra. Aparecida - Domingo: 11:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquianourdes"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Paz",
+        "address": "Ceilândia & Sol Nascente",
+        "times": "Terça e quarta: depois da missa | Quinta: a partir de 17:00 e depois da missa",
+        "instagram": "https://www.instagram.com/enhoradapaz"
+      }
+    ]
+  },
+  {
+    "city": "Paranoá",
+    "parishes": [
+      {
+        "name": "Paróquia Santa Maria dos Pobres",
+        "address": "Paranoá",
+        "times": "Terça, quinta e sexta: de 16:00 às 18:00 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/santamariadospobres"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Paranoá",
+        "times": "Quinta: de 15:00 às 17:00 | Sexta: de 15:00 às 17:00 e depois da missa | Sábado: de 09:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquian.sraaparecidapadf"
+      },
+      {
+        "name": "Paróquia São José de Anchieta",
+        "address": "Paranoá",
+        "times": "Terça a sexta: de 17:30 às 19:00",
+        "instagram": "https://www.instagram.com/paroquiasaojosedeanchieta"
+      }
+    ]
+  },
+  {
+    "city": "Águas Claras",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora da Assunção",
+        "address": "Águas Claras",
+        "times": "Terça a sexta: de 16:00 às 18:00 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquiaassuncaoaguasclaras"
+      },
+      {
+        "name": "Paróquia Bom Jesus dos Aflitos",
+        "address": "Águas Claras",
+        "times": "Terça e quinta: de 17:00 às 19:00 | Sábado: de 09:30 às 11:00 | Capela N. Sra. do Amparo - Quarta: de 17:00 às 19:00 | Capela Santa Clara - Sexta: de 17:00 às 19:00",
+        "instagram": "https://www.instagram.com/paroquiaaflitos"
+      },
+      {
+        "name": "Paróquia São João Paulo II",
+        "address": "Águas Claras",
+        "times": "Terça a quinta: de 17:00 às 18:45",
+        "instagram": "https://www.instagram.com/psjp_ii"
+      }
+    ]
+  },
+  {
+    "city": "Samambaia",
+    "parishes": [
+      {
+        "name": "Paróquia Maria de Nazaré",
+        "address": "Samambaia",
+        "times": "Quinta: a partir de 18:00",
+        "instagram": "https://www.instagram.com/pmariadenazare"
+      },
+      {
+        "name": "Paróquia Santa Luzia",
+        "address": "Samambaia",
+        "times": "Terça e quinta: 09:00 às 11:00 e 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/santaluzia13"
+      },
+      {
+        "name": "Paróquia São João Evangelista",
+        "address": "Samambaia",
+        "times": "Quinta: depois da missa das 19:30 | Sexta: 08:30 às 12:00 e 14:30 às 16:00",
+        "instagram": "https://www.instagram.com/psje.sam"
+      },
+      {
+        "name": "Paróquia Santo Inácio de Loyola",
+        "address": "Samambaia",
+        "times": "Terça e quinta: 16:00 às 18:00 | Sábado: 09:30 às 11:30",
+        "instagram": "https://www.instagram.com/psfloyola"
+      },
+      {
+        "name": "Paróquia Imaculada Conceição de Maria",
+        "address": "Samambaia",
+        "times": "Terça: depois da missa | Sábado: de 08:00 às 11:00",
+        "instagram": "https://www.instagram.com/imaculadaconceicaodemaria"
+      },
+      {
+        "name": "Paróquia Nossa Senhora das Graças",
+        "address": "Samambaia",
+        "times": "Terça a sexta: a partir das 19:00 | Sábado: a partir das 18:00",
+        "instagram": "https://www.instagram.com/paroquia_nsg"
+      },
+      {
+        "name": "Paróquia Nossa Senhora das Dores",
+        "address": "Samambaia",
+        "times": "Terça, quarta, sexta e sábado: 18:00 às 19:00 | Quinta: a partir de 19:30",
+        "instagram": "https://www.instagram.com/pnsdoresdf"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Samambaia",
+        "times": "Terça a sexta: a partir de 18:00",
+        "instagram": "https://www.instagram.com/psojo_sam"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Samambaia",
+        "times": "Terça a sexta: de 18:00 às 18:50 | Quinta e sexta: de 17:00 às 19:00 | Sábado: de 10:30 às 12:00",
+        "instagram": "https://www.instagram.com/paroquia_nsaparecida"
+      }
+    ]
+  },
+  {
+    "city": "Gama",
+    "parishes": [
+      {
+        "name": "Paróquia São Sebastião (Setor Leste)",
+        "address": "Gama",
+        "times": "Terça e quarta: a partir de 07:00 | Terça, quinta e sexta: de 18:00 às 19:00",
+        "instagram": "https://www.instagram.com/saosebastiaogama"
+      },
+      {
+        "name": "Paróquia São Lázaro (Engenho das Lajes)",
+        "address": "Gama",
+        "times": "Quinta: de 18:00 às 19:30 ou por agendamento",
+        "instagram": "https://www.instagram.com/paroquiasaolazaroengenho"
+      },
+      {
+        "name": "Paróquia Imaculada Conceição",
+        "address": "Gama",
+        "times": "Quinta: a partir de 17:00",
+        "instagram": "https://www.instagram.com/paroquiaimaculadagama"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Gama",
+        "times": "Terça: de 09:30 às 11:00, 16:00 às 18:00 e 18:00 às 19:00 | Quarta: de 09:30 às 11:00 | Domingo: de 17:00 às 18:30",
+        "instagram": "https://www.instagram.com/paroquia_nsra_aparecida"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Auxiliadora dos Cristãos",
+        "address": "Gama",
+        "times": "Terça e quinta: de 14:00 às 18:00",
+        "instagram": "https://www.instagram.com/auxiliadoradoscristaos"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Fátima",
+        "address": "Gama",
+        "times": "Quarta e sexta: de 15:00 às 17:30",
+        "instagram": "https://www.instagram.com/pnsfatimagamadf"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Carmo",
+        "address": "Gama",
+        "times": "Quarta e sexta: de 09:36 às 11:30",
+        "instagram": "https://www.instagram.com/paroquianossasenhoradocarmo"
+      },
+      {
+        "name": "Paróquia Santíssima Trindade",
+        "address": "Gama",
+        "times": "Quarta e sexta: de 14:30 às 16:30 (confissões por agendamento)",
+        "instagram": "https://www.instagram.com/strindadegama"
+      }
+    ]
+  },
+  {
+    "city": "Núcleo Bandeirante & Candangolândia",
+    "parishes": [
+      {
+        "name": "Paróquia São João Bosco",
+        "address": "Núcleo Bandeirante & Candangolândia",
+        "times": "Verificar na secretaria da paróquia a disponibilidade dos padres",
+        "instagram": "https://www.instagram.com/dombosconb"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Núcleo Bandeirante & Candangolândia",
+        "times": "Terça: depois da missa | Quarta a sexta: de 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/paroquiasfcandanga"
+      }
+    ]
+  },
+  {
+    "city": "Sobradinho",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Sobradinho",
+        "times": "Segunda a sábado: 17:00 às 18:50 | Domingo: 07:00 às 07:50, 09:30 às 09:50 e 17:00 às 18:50",
+        "instagram": "https://www.instagram.com/paroquiansaparecidasob2"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Conceição Aparecida",
+        "address": "Sobradinho",
+        "times": "Quinta: a partir de 20:00 | Domingo: a partir de 18:00 | Capela N. Sra. de Fátima - Quinta: a partir de 20:00 | Capela Sagrado Coração de Jesus - Sexta: a partir de 18:30",
+        "instagram": "https://www.instagram.com/nsca.paroquia"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Imaculada Conceição",
+        "address": "Sobradinho",
+        "times": "Terça e quarta: de 17:30 às 18:30 | Sábado: de 09:30 às 10:30",
+        "instagram": "https://www.instagram.com/comunica.imaculada"
+      },
+      {
+        "name": "Paróquia Bom Jesus dos Migrantes",
+        "address": "Sobradinho",
+        "times": "Sexta: de 09:00 às 11:00",
+        "instagram": "https://www.instagram.com/paroquia_bjm"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Rosário de Fátima",
+        "address": "Sobradinho",
+        "times": "Terça e sexta: de 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/nsrf_sobradinho"
+      }
+    ]
+  },
+  {
+    "city": "Brazlândia",
+    "parishes": [
+      {
+        "name": "Santuário Menino Jesus",
+        "address": "Brazlândia",
+        "times": "Terça, quarta e sexta: 09:00 às 11:00 e 15:00 às 17:00 | Quinta: de 19:00 às 20:00",
+        "instagram": "https://www.instagram.com/santuariomeninojesus"
+      },
+      {
+        "name": "Paróquia São José",
+        "address": "Brazlândia",
+        "times": "Terça e quinta: de 16:30 às 19:00 | Sábado: de 09:30 às 12:00",
+        "instagram": "https://www.instagram.com/psjbrazlandia"
+      },
+      {
+        "name": "Paróquia São Sebastião",
+        "address": "Brazlândia",
+        "times": "Terça: depois da missa | Quinta: a partir de 17:00",
+        "instagram": "https://www.instagram.com/pssbrazx"
+      },
+      {
+        "name": "Paróquia São Paulo",
+        "address": "Brazlândia",
+        "times": "Terça e sexta: horários por agendamento | Sábado: de 09:00 às 12:00",
+        "instagram": "https://www.instagram.com/psaopaulo8"
+      }
+    ]
+  },
+  {
+    "city": "Riacho Fundo II",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora da Medalha Milagrosa",
+        "address": "Riacho Fundo II",
+        "times": "Quinta e sexta: de 15:00 às 16:30 | Sábado: de 09:00 às 11:00",
+        "instagram": "https://www.instagram.com/raiosdamedalha"
+      }
+    ]
+  },
+  {
+    "city": "Asa Norte",
+    "parishes": [
+      {
+        "name": "Basílica São Francisco de Assis",
+        "address": "Asa Norte",
+        "times": "Segunda: de 18:30 às 20:00 | Terça a sexta: 09:00 às 11:30 e 15:30 às 20:00 | Sábado: de 17:30 às 19:00 | Domingo: 08:00 às 13:00 e 16:30 às 20:30",
+        "instagram": "https://www.instagram.com/basilicasaofranciscodf"
+      },
+      {
+        "name": "Santuário Nossa Senhora da Saúde",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: 10:00 às 12:00 e 17:00 às 18:00",
+        "instagram": "https://www.instagram.com/nossasenhoradasaudedf"
+      },
+      {
+        "name": "Paróquia Nossa Senhora das Graças da Medalha Milagrosa",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: a partir de 17:00",
+        "instagram": "https://www.instagram.com/pnsg.asanorte"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Consolata",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: 08:00 às 10:00 e 14:30 às 17:30",
+        "instagram": "https://www.instagram.com/pnsconsolata"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Asa Norte",
+        "times": "30 minutos antes das missas",
+        "instagram": "https://www.instagram.com/saojoseoperariobsb"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Esperança",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: de 16:00 às 18:00",
+        "instagram": "https://www.instagram.com/pnse_esperanca"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Rosário de Pompéia",
+        "address": "Asa Norte",
+        "times": "Quinta: de 15:00 às 18:00 | Primeira sexta do mês: de 16:00 às 18:00",
+        "instagram": "https://www.instagram.com/rosariodepompeiavp"
+      },
+      {
+        "name": "Paróquia Divino Espírito Santo",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: de 08:00 às 11:00 | Sábado: de 14:00 às 16:00 (confissões por agendamento)",
+        "instagram": "https://www.instagram.com/divinoespiritosantonorte"
+      },
+      {
+        "name": "Paróquia do Verbo Divino",
+        "address": "Asa Norte",
+        "times": "Terça a sexta: de 16:15 às 18:45",
+        "instagram": "https://www.instagram.com/paroquiaverbodivino"
+      },
+      {
+        "name": "Capelania Militar São Miguel Arcanjo e Santo Expedito",
+        "address": "Asa Norte",
+        "times": "Terça e quinta (por agendamento): de 09:00 às 11:00 e de 15:00 às 17:00 | Quarta (por agendamento): de 16:00 às 20:00 | Sexta: de 17:00 às 19:00",
+        "instagram": "https://www.instagram.com/capelaniasaomiguel303"
+      }
+    ]
+  },
+  {
+    "city": "Planaltina",
+    "parishes": [
+      {
+        "name": "Paróquia Divino Espírito Santo",
+        "address": "Planaltina",
+        "times": "Quinta e sábado: a partir de 17:00 | Capela São Miguel - Sexta: de 18:00 às 19:00",
+        "instagram": "https://www.instagram.com/paroquiadivinodf"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Nazaré",
+        "address": "Planaltina",
+        "times": "Terça, quinta e sexta: de 18:00 às 19:15 | Capela Santo Agostinho - Quarta: a partir de 19:15",
+        "instagram": "https://www.instagram.com/pns.nazare"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Fátima",
+        "address": "Planaltina",
+        "times": "Terça, quinta e sexta: de 18:00 até começar a missa",
+        "instagram": "https://www.instagram.com/nsradefatima_pascom"
+      },
+      {
+        "name": "Paróquia Sagrado Coração de Jesus",
+        "address": "Planaltina",
+        "times": "Quarta: de 17:30 até a missa e depois da missa até 21:00",
+        "instagram": "https://www.instagram.com/paroquia_sgresus"
+      },
+      {
+        "name": "Paróquia Santa Luzia",
+        "address": "Planaltina",
+        "times": "Quinta: depois das missas e de 17:30 às 19:30 | Capela São Vicente - Quarta: depois da missa | Capela Nossa Senhora das Graças - Quarta: depois da missa | Capela Nossa Senhora da Esperança - Quarta: a partir de 18:00",
+        "instagram": "https://www.instagram.com/pascom._santaluzia"
+      },
+      {
+        "name": "Paróquia Santa Rita de Cássia",
+        "address": "Planaltina",
+        "times": "Terça: durante a missa (50 senhas) | Quarta e sexta: de 08:30 às 10:30 (10 senhas) | Quinta: de 15:00 às 16:00 (10 senhas) | Capela São José - Segunda segunda-feira do mês: a partir de 19:00 | Capela São Francisco de Assis - Terceira sexta-feira do mês: a partir de 19:00 | Capela Imaculada Conceição - Quarta quarta-feira do mês: a partir de 19:00",
+        "instagram": "https://www.instagram.com/paroquiasantarita22"
+      },
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "Planaltina",
+        "times": "Quinta: de 15:00 às 18:00",
+        "instagram": "https://www.instagram.com/Pascom_PNSA"
+      },
+      {
+        "name": "Paróquia São Sebastião",
+        "address": "Planaltina",
+        "times": "Terça e sexta: de 17:30 às 19:00 | Quarta: a partir de 08:00 | Quinta: de 19:30 às 21:00 | Capela Santa Teresinha do Menino Jesus - Primeiro domingo do mês: 18:00 às 19:00 (de 2 em 2 semanas)",
+        "instagram": "https://www.instagram.com/pascom__sstaosebastiao"
+      },
+      {
+        "name": "Paróquia São Vicente de Paulo",
+        "address": "Planaltina",
+        "times": "Terça, quinta e sexta: de 17:00 às 19:00 | Capela N. Sra. das Graças - Quarta: depois da missa",
+        "instagram": "https://www.instagram.com/psvicentedepaulodf"
+      }
+    ]
+  },
+  {
+    "city": "Park Way",
+    "parishes": [
+      {
+        "name": "Santuário do Imaculado Coração de Maria",
+        "address": "Park Way",
+        "times": "Terça a sexta: de 17:00 às 19:00 e de 20:15 às 21:30 | Sábado: de 08:30 às 10:30",
+        "instagram": "https://www.instagram.com/imaculadocoracaodf"
+      },
+      {
+        "name": "Paróquia Sagrada Família",
+        "address": "Park Way",
+        "times": "30 minutos antes das missas",
+        "instagram": "https://www.instagram.com/sagradafamiliaparkway"
+      },
+      {
+        "name": "Paróquia Divino Espírito Santo Paráclito",
+        "address": "Park Way",
+        "times": "Terça e quinta: de 15:30 às 19:00",
+        "instagram": "https://www.instagram.com/paroquiaguarabonita"
+      }
+    ]
+  },
+  {
+    "city": "Setor Militar Urbano",
+    "parishes": [
+      {
+        "name": "Catedral Militar Rainha da Paz",
+        "address": "Setor Militar Urbano",
+        "times": "Quarta e sexta: de 17:00 às 18:00",
+        "instagram": "https://www.instagram.com/catedralmilitarrainhadapaz"
+      },
+      {
+        "name": "Capelania Militar São Francisco de Assis (Oratório do Soldado)",
+        "address": "Setor Militar Urbano",
+        "times": "Terça e quinta: de 17:00 às 18:00 | Quarta e domingo: de 18:00 às 18:50 | Primeira sexta-feira do mês: de 18:00 às 18:50",
+        "instagram": "https://www.instagram.com/oratorio_soldado_df"
+      }
+    ]
+  },
+  {
+    "city": "Noroeste",
+    "parishes": [
+      {
+        "name": "Paróquia São Charbel",
+        "address": "Noroeste",
+        "times": "Antes e depois das missas (também durante as missas quando 2 padres estão na paróquia)",
+        "instagram": "https://www.instagram.com/paroquiasaocharbel"
+      }
+    ]
+  },
+  {
+    "city": "Jardim Botânico",
+    "parishes": [
+      {
+        "name": "Paróquia Santa Clara e São Francisco de Assis",
+        "address": "Jardim Botânico",
+        "times": "Quinta e sexta: de 18:00 às 19:00",
+        "instagram": "https://www.instagram.com/paroquiacsf"
+      },
+      {
+        "name": "Paróquia Sagrados Corações de Jesus e Maria",
+        "address": "Jardim Botânico",
+        "times": "Terça, quinta e sexta: de 15:00 às 17:30",
+        "instagram": "https://www.instagram.com/sagradoscoracoesdejesusemaria"
+      },
+      {
+        "name": "Paróquia São João Paulo II",
+        "address": "Jardim Botânico",
+        "times": "Terça a sexta: de 19:00 às 20:00 | Sábado: de 09:30 às 11:00",
+        "instagram": "https://www.instagram.com/paroquia_sjoaopaulo2jb"
+      }
+    ]
+  },
+  {
+    "city": "Cruzeiro",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora das Dores",
+        "address": "Cruzeiro",
+        "times": "Terça a sexta: a partir de 08:00 e a partir de 18:15 | Sábado e domingo: a partir de 07:15 e a partir de 18:15 | Primeiro sábado do mês: 08:15",
+        "instagram": "https://www.instagram.com/nsdores"
+      },
+      {
+        "name": "Paróquia Santa Teresinha",
+        "address": "Cruzeiro",
+        "times": "Terça a sexta: de 14:30 às 17:00",
+        "instagram": "https://www.instagram.com/santateresinhacruzeiro"
+      },
+      {
+        "name": "Paróquia São Pio de Pietrelcina",
+        "address": "Cruzeiro",
+        "times": "Terça a sexta: de 17:00 às 18:40 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/psao"
+      }
+    ]
+  },
+  {
+    "city": "Guará & Lúcio Costa",
+    "parishes": [
+      {
+        "name": "Paróquia Santíssima Trindade",
+        "address": "Guará & Lúcio Costa",
+        "times": "Quarta: de 14:00 às 14:45 | Domingo: de 09:00 às 09:45",
+        "instagram": "https://www.instagram.com/santissimanaweb"
+      },
+      {
+        "name": "Paróquia São Paulo Apóstolo",
+        "address": "Guará & Lúcio Costa",
+        "times": "Terça a sábado: a partir de 09:00 (com senhas) e a partir de 14:30 (com senhas)",
+        "instagram": "https://www.instagram.com/pspa_argbrasilia"
+      },
+      {
+        "name": "Paróquia Maria Imaculada",
+        "address": "Guará & Lúcio Costa",
+        "times": "Terça, quarta e sexta: de 18:00 às 18:45 | Quinta: de 07:00 às 08:00, de 18:00 às 18:45 e de 20:00 às 21:00 | Sábado: de 07:30 às 09:00 | Primeira sexta-feira do mês: de 20:00 às 21:00",
+        "instagram": "https://www.instagram.com/paroquiamariaimaculada"
+      },
+      {
+        "name": "Paróquia São João Paulo II",
+        "address": "Guará & Lúcio Costa",
+        "times": "Terça a sexta: de 18:30 às 19:20",
+        "instagram": "https://www.instagram.com/capelasaogp2guara"
+      }
+    ]
+  },
+  {
+    "city": "Recanto das Emas",
+    "parishes": [
+      {
+        "name": "Paróquia São Rafael Arcanjo",
+        "address": "Recanto das Emas",
+        "times": "Quinta: de 18:00 às 19:00 e depois da missa | Sexta: de 16:00 às 17:00 | Primeiro e terceiro sábados do mês: de 10:00 às 12:00 | Capela São Pio de Pietrelcina - Terça: de 18:00 às 19:00",
+        "instagram": "https://www.instagram.com/psaorafael"
+      },
+      {
+        "name": "Paróquia São Gabriel Arcanjo",
+        "address": "Recanto das Emas",
+        "times": "Terça e quinta: depois da missa | Sábado: de 09:00 às 11:30 | Segunda a sexta: solicitar a visita do padre à sua casa na secretaria | Capela Santos Anjos da Guarda - Terça a sexta: depois da missa das 07:30",
+        "instagram": "https://www.instagram.com/psaogabrielarcanjo"
+      },
+      {
+        "name": "Paróquia São Miguel Arcanjo",
+        "address": "Recanto das Emas",
+        "times": "Quarta: de 15:00 às 17:00 | Quinta: depois da missa das 19:30 até 22:00 | Sexta: aconselhamento espiritual agendado na secretaria | Capela São Francisco de Assis - Quarta: depois da missa",
+        "instagram": "https://www.instagram.com/psmarecanto"
+      },
+      {
+        "name": "Paróquia São José Operário",
+        "address": "Recanto das Emas",
+        "times": "Terça a sexta: de 10:00 às 12:00 e de 15:00 às 18:00 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/saojoseoperariodf"
+      },
+      {
+        "name": "Paróquia São Francisco de Assis",
+        "address": "Recanto das Emas",
+        "times": "Quarta: de 18:00 às 19:30 | Primeiro sábado do mês: de 08:00 às 09:00 | Capela São Josemaria Escrivá - Quarta: de 18:00 às 19:30",
+        "instagram": "https://www.instagram.com/psfranciscorecanto"
+      }
+    ]
+  },
+  {
+    "city": "São Sebastião",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora Aparecida",
+        "address": "São Sebastião",
+        "times": "Terça, quinta e sexta: de 18:00 às 19:00 | Quarta: de 16:00 às 18:30",
+        "instagram": "https://www.instagram.com/paroquia.maeaparecida"
+      },
+      {
+        "name": "Paróquia Santo Afonso",
+        "address": "São Sebastião",
+        "times": "Quinta e sexta: de 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/paroquia.santo.afonso"
+      },
+      {
+        "name": "Paróquia São Francisco de Assis",
+        "address": "São Sebastião",
+        "times": "Terça, quinta e sexta: de 17:00 às 19:00",
+        "instagram": "https://www.instagram.com/psfatororoo"
+      },
+      {
+        "name": "Paróquia Cristo Redentor",
+        "address": "São Sebastião",
+        "times": "Quinta: de 15:00 às 17:30",
+        "instagram": "https://www.instagram.com/paroquia_cristo_redentor_ss"
+      }
+    ]
+  },
+  {
+    "city": "Santa Maria",
+    "parishes": [
+      {
+        "name": "Paróquia São José",
+        "address": "Santa Maria",
+        "times": "Quinta e sexta: de 16:00 às 18:00 | Sábado: de 09:00 às 11:30",
+        "instagram": "https://www.instagram.com/psaojose"
+      },
+      {
+        "name": "Paróquia Santa Mãe de Deus",
+        "address": "Santa Maria",
+        "times": "Terça, quinta e sexta: de 15:00 às 18:00 | Sábado: de 09:00 às 12:00",
+        "instagram": "https://www.instagram.com/paroquiasantamaededeus"
+      },
+      {
+        "name": "Paróquia Nossa Senhora da Providência",
+        "address": "Santa Maria",
+        "times": "Terça, quarta e sexta: 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/paroquiadaprovidencia"
+      },
+      {
+        "name": "Paróquia Sagrada Família de Nazaré",
+        "address": "Santa Maria",
+        "times": "Terça e quinta: a partir de 18:30 | Capela Cristo Rei - Quarta e sexta: a partir de 18:30",
+        "instagram": "https://www.instagram.com/paroquiasagradafamiliasanta"
+      }
+    ]
+  },
+  {
+    "city": "Lago Sul",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora do Perpétuo Socorro",
+        "address": "Lago Sul",
+        "times": "Terça, quarta e sexta: de 09:00 às 11:00 e de 14:00 às 17:00 | Quinta: a partir de 18:30",
+        "instagram": "https://www.instagram.com/pscorrolagosul"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Nazaré",
+        "address": "Lago Sul",
+        "times": "Quarta: de 08:00 às 10:30 e após a missa das 19:30",
+        "instagram": "https://www.instagram.com/pnsnazarelagosul"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Rosário",
+        "address": "Lago Sul",
+        "times": "Terça e quinta: a partir das 09:30 e a partir das 18:00 | Quarta: a partir das 18:00 | Sexta: a partir das 18:00",
+        "instagram": "https://www.instagram.com/rosario_lagosul26"
+      },
+      {
+        "name": "Paróquia São Pedro de Alcântara",
+        "address": "Lago Sul",
+        "times": "Terça a sexta: das 17:00 às 18:00",
+        "instagram": "https://www.instagram.com/paroquiasaopedrodealcantara"
+      }
+    ]
+  },
+  {
+    "city": "Taguatinga",
+    "parishes": [
+      {
+        "name": "Santuário Nossa Senhora do Perpétuo Socorro",
+        "address": "Taguatinga",
+        "times": "Terça a sexta: a partir de 17:30",
+        "instagram": "https://www.instagram.com/perpetuosocorrodff"
+      },
+      {
+        "name": "Paróquia São José",
+        "address": "Taguatinga",
+        "times": "Terça a domingo: a partir de 18:00",
+        "instagram": "https://www.instagram.com/alosaojose"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Fátima",
+        "address": "Taguatinga",
+        "times": "Terça a sexta: de 09:00 às 11:00 e de 15:00 às 17:00 | Sábado: a partir de 09:00 com limite de 100 senhas",
+        "instagram": "https://www.instagram.com/pnsfatima"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Carmo",
+        "address": "Taguatinga",
+        "times": "Quinta: de 15:00 às 17:00 | Sexta e sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/pnsc_taguatinga"
+      },
+      {
+        "name": "Paróquia Imaculada Conceição",
+        "address": "Taguatinga",
+        "times": "Terça e quinta: de 16:00 às 18:00 | Sexta: de 10:00 às 11:30 | Sábado: de 09:30 às 11:30",
+        "instagram": "https://www.instagram.com/paroquiaimaculadatag"
+      },
+      {
+        "name": "Paróquia Imaculado Coração de Maria",
+        "address": "Taguatinga",
+        "times": "Quarta e sexta-feira: de 09:00 às 11:00",
+        "instagram": "https://www.instagram.com/psicm_taguatinga"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Lourdes",
+        "address": "Taguatinga",
+        "times": "Quarta: de 20:00 às 21:00 | Quarta: depois da missa | Sábado: de 16:30 às 17:30",
+        "instagram": "https://www.instagram.com/pnsdelourdes_df"
+      },
+      {
+        "name": "Paróquia São Pedro",
+        "address": "Taguatinga",
+        "times": "Confissões por agendamento",
+        "instagram": "https://www.instagram.com/paroquiasaopedrotagdf"
+      },
+      {
+        "name": "Paróquia São Pedro e São Paulo",
+        "address": "Taguatinga",
+        "times": "Terça a sexta: das 17:00 às 18:00 | Quinta: depois da missa até 21:45",
+        "instagram": "https://www.instagram.com/paroquiaspsmnorte"
+      },
+      {
+        "name": "Paróquia São Vicente de Paulo",
+        "address": "Taguatinga",
+        "times": "Terça a sábado: de 09:00 às 11:00 | Quarta: de 15:00 às 17:00 | Quinta: depois da missa das 19:30 (durante a adoração)",
+        "instagram": "https://www.instagram.com/psvp.taqua"
+      },
+      {
+        "name": "Paróquia Cristo Redentor",
+        "address": "Taguatinga",
+        "times": "Terça, quinta e sexta: de 16:00 às 19:00 | Sábado: de 10:00 às 11:00",
+        "instagram": "https://www.instagram.com/paroquiacristoredentordf"
+      },
+      {
+        "name": "Paróquia Santa Teresinha",
+        "address": "Taguatinga",
+        "times": "Quarta e sexta: de 09:30 às 12:00",
+        "instagram": "https://www.instagram.com/santateresinhataguatinga"
+      },
+      {
+        "name": "Paróquia São Judas Tadeu",
+        "address": "Taguatinga",
+        "times": "Terça a sexta: a partir de 18:30",
+        "instagram": "https://www.instagram.com/ostdf"
+      },
+      {
+        "name": "Paróquia Sagrada Família",
+        "address": "Taguatinga",
+        "times": "Terça: de 15:00 às 17:00 | Quinta: de 20:30 às 21:30 | Sexta e sábado: de 10:00 às 11:50",
+        "instagram": "https://www.instagram.com/sfam.de.taguatinga"
+      }
+    ]
+  },
+  {
+    "city": "Estrutural",
+    "parishes": [
+      {
+        "name": "Paróquia Nossa Senhora do Encontro com Deus",
+        "address": "Estrutural",
+        "times": "Terça a sábado: de 17:30 às 18:45 | Domingo: de 07:15 às 07:55; de 09:30 às 10:00; de 18:30 às 19:00",
+        "instagram": "https://www.instagram.com/pnsed"
+      },
+      {
+        "name": "Paróquia Jesus Bom Pastor",
+        "address": "Estrutural",
+        "times": "Segunda a sábado: de 17:45 às 18:45",
+        "instagram": "https://www.instagram.com/paroquiaibp_estrutural"
+      }
+    ]
+  },
+  {
+    "city": "Lago Norte",
+    "parishes": [
+      {
+        "name": "Santuário da Mãe e Rainha Três Vezes Admirável de Schoenstatt",
+        "address": "Lago Norte",
+        "times": "Terça a sexta: a partir de 18:30 | Sábado: a partir de 15:00 | Domingo: a partir de 09:30; a partir de 15:00",
+        "instagram": "https://www.instagram.com/tabor.daspromessas"
+      },
+      {
+        "name": "Paróquia Nossa Senhora do Lago",
+        "address": "Lago Norte",
+        "times": "Sábado: de 09:30 às 11:00",
+        "instagram": "https://www.instagram.com/nossasenhoradolago"
+      },
+      {
+        "name": "Paróquia Pai Nosso",
+        "address": "Lago Norte",
+        "times": "Confissões por agendamento",
+        "instagram": "https://www.instagram.com/paroquiapainosso"
+      },
+      {
+        "name": "Paróquia Santo Antônio e Sant'Anna Galvão",
+        "address": "Lago Norte",
+        "times": "Terça a sexta: depois da missa das 06:30 | Quarta: de 18:30 às 19:30 | Capela N. Sra. dos Migrantes - Terça: de 18:30 às 19:30",
+        "instagram": "https://www.instagram.com/paasgalvao"
+      }
+    ]
+  },
+  {
+    "city": "Asa Sul",
+    "parishes": [
+      {
+        "name": "Catedral Metropolitana Nossa Senhora Aparecida",
+        "address": "Asa Sul",
+        "times": "Terça a sexta: de 10:00 às 12:45 | Sábado: de 10:00 às 12:00",
+        "instagram": "https://www.instagram.com/catedralbrasilia"
+      },
+      {
+        "name": "Santuário Nossa Senhora de Fátima",
+        "address": "Asa Sul",
+        "times": "Terça a sexta: de 14:30 às 16:00 (por agendamento)",
+        "instagram": "https://www.instagram.com/pnsfatimabsb"
+      },
+      {
+        "name": "Santuário Nossa Senhora do Carmo",
+        "address": "Asa Sul",
+        "times": "Terça a sexta: de 15:00 às 17:00",
+        "instagram": "https://www.instagram.com/santuario.docarmo"
+      },
+      {
+        "name": "Santuário do Santíssimo Sacramento",
+        "address": "Asa Sul",
+        "times": "Segunda a sábado: 30 minutos antes das missas | Terça a sexta: de 09:30 às 11:00 | Terça e quinta: de 15:00 às 16:30",
+        "instagram": "https://www.instagram.com/santissimobsb"
+      },
+      {
+        "name": "Santuário São João Bosco",
+        "address": "Asa Sul",
+        "times": "Terça a sexta: de 17:30 às 19:00",
+        "instagram": "https://www.instagram.com/santuariosaojoaobosco"
+      },
+      {
+        "name": "Santuário Santo Antônio",
+        "address": "Asa Sul",
+        "times": "Domingo: durante as missas",
+        "instagram": "https://www.instagram.com/santoantoniobsb"
+      },
+      {
+        "name": "Paróquia Nossa Senhora de Guadalupe",
+        "address": "Asa Sul",
+        "times": "Terça a sexta: de 17:00 às 19:00",
+        "instagram": "https://www.instagram.com/guadalupe_bsb"
+      },
+      {
+        "name": "Paróquia São Camilo de Lélis",
+        "address": "Asa Sul",
+        "times": "Segunda a sexta: de 15:30 e 17:00",
+        "instagram": "https://www.instagram.com/paroquiasaocamilodf"
+      },
+      {
+        "name": "Paróquia Santa Cruz e Santa Edwiges",
+        "address": "Asa Sul",
+        "times": "Terça, quarta e sexta: de 15:00 às 16:30",
+        "instagram": "https://www.instagram.com/paroquiasantacruzesantaedwiges"
+      },
+      {
+        "name": "Paróquia Sagrado Coração de Jesus e Nossa Senhora das Mercês",
+        "address": "Asa Sul",
+        "times": "Todos os dias: 30 minutos antes das missas | Primeira sexta-feira do mês: das 14:00 às 18:45",
+        "instagram": "https://www.instagram.com/sagrado_merces"
+      },
+      {
+        "name": "Paróquia Santa Rita de Cássia",
+        "address": "Asa Sul",
+        "times": "Quinta e sexta: de 17:00 às 18:00 | Sábado: de 09:00 às 11:00",
+        "instagram": "https://www.instagram.com/psrc_df"
+      },
+      {
+        "name": "Paróquia Santo Cura d'Ars",
+        "address": "Asa Sul",
+        "times": "Terça e sexta: depois das missas das 06:00, das 12:15 e das 18:00",
+        "instagram": "https://www.instagram.com/curadarsdf"
+      },
+      {
+        "name": "Paróquia Bom Jesus",
+        "address": "Asa Sul",
+        "times": "Sexta: de 16:00 às 18:00",
+        "instagram": "https://www.instagram.com/paroquiabomjesusbsb"
+      },
+      {
+        "name": "Capelania Militar do Espírito Santo",
+        "address": "Asa Sul",
+        "times": "Segunda a sexta: antes ou depois da missa das 12:00 (confirmar na secretaria) | Sábado: durante a missa das 18:10",
+        "instagram": "https://www.instagram.com/capelania_espirito_santo"
+      }
+    ]
+  }
+]
