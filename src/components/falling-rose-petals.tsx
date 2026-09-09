@@ -190,86 +190,78 @@ export function FallingRosePetals({
   );
 }
 
+const ROSE_CORNER_IMAGE_URL = 'https://www.pngarts.com/files/4/Rose-PNG-Pic.png';
+const ROSE_CORNER_LOCAL_FALLBACK = '/images/rose-png-pic.png';
+
 /**
- * Rosas decorativas aplicadas nas bordas e cantos do modal
+ * Rosas decorativas aplicadas nos 4 cantos do modal de Santa Terezinha
+ * Utiliza a imagem oficial Rose-PNG-Pic com acabamento e posicionamento estético
  */
 export function SantaTerezinhaRosesOverlay() {
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    if (e.currentTarget.src !== ROSE_CORNER_LOCAL_FALLBACK) {
+      e.currentTarget.src = ROSE_CORNER_LOCAL_FALLBACK;
+    }
+  };
+
   return (
-    <div className="pointer-events-none absolute inset-0 z-15 overflow-hidden select-none">
-      {/* Canto Superior Esquerdo - Buquê de Rosas */}
-      <div className="absolute -top-3 -left-3 md:-top-4 md:-left-4 w-28 h-28 md:w-36 md:h-36 opacity-85 transition-transform hover:scale-105 duration-300">
-        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
-          {/* Folhas verdes */}
-          <path d="M 20,40 C 10,25 25,10 40,20 C 30,35 30,35 20,40 Z" fill="#15803d" opacity="0.85" />
-          <path d="M 40,20 C 55,10 70,25 60,40 C 45,30 45,30 40,20 Z" fill="#166534" opacity="0.9" />
-          <path d="M 15,55 C 5,45 10,30 25,35 C 22,48 22,48 15,55 Z" fill="#14532d" opacity="0.85" />
-          {/* Rosa Principal (Vermelha) */}
-          <circle cx="38" cy="38" r="22" fill="#be123c" />
-          <path d="M 24,38 C 24,30 32,24 38,24 C 44,24 52,30 52,38 C 52,46 44,52 38,52 C 32,52 24,46 24,38 Z" fill="#e11d48" />
-          <path d="M 28,34 C 32,28 42,28 46,34 C 48,39 44,45 38,45 C 32,45 28,39 28,34 Z" fill="#f43f5e" />
-          <circle cx="38" cy="36" r="6" fill="#fb7185" />
-          <circle cx="38" cy="35" r="3" fill="#ffe4e6" />
-          {/* Botão de Rosa secundário (Rosa claro) */}
-          <circle cx="62" cy="24" r="14" fill="#be123c" />
-          <circle cx="62" cy="24" r="10" fill="#fb7185" />
-          <circle cx="62" cy="23" r="4" fill="#fff1f2" />
-        </svg>
+    <div className="pointer-events-none absolute inset-0 z-20 overflow-hidden select-none">
+      {/* Canto Superior Esquerdo */}
+      <div className="absolute -top-3 -left-3 md:-top-5 md:-left-5 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 opacity-95 transition-transform hover:scale-105 duration-300">
+        <img
+          src={ROSE_CORNER_IMAGE_URL}
+          onError={handleImageError}
+          alt="Rosa de Santa Terezinha"
+          loading="eager"
+          className="w-full h-full object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] -rotate-12 transform-gpu"
+        />
       </div>
 
-      {/* Canto Superior Direito - Buquê de Rosas */}
-      <div className="absolute -top-3 -right-3 md:-top-4 md:-right-4 w-28 h-28 md:w-36 md:h-36 opacity-85 transition-transform hover:scale-105 duration-300">
-        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
-          {/* Folhas verdes espelhadas */}
-          <path d="M 80,40 C 90,25 75,10 60,20 C 70,35 70,35 80,40 Z" fill="#15803d" opacity="0.85" />
-          <path d="M 60,20 C 45,10 30,25 40,40 C 55,30 55,30 60,20 Z" fill="#166534" opacity="0.9" />
-          <path d="M 85,55 C 95,45 90,30 75,35 C 78,48 78,48 85,55 Z" fill="#14532d" opacity="0.85" />
-          {/* Rosa Principal (Vermelha) */}
-          <circle cx="62" cy="38" r="22" fill="#be123c" />
-          <path d="M 76,38 C 76,30 68,24 62,24 C 56,24 48,30 48,38 C 48,46 56,52 62,52 C 68,52 76,46 76,38 Z" fill="#e11d48" />
-          <path d="M 72,34 C 68,28 58,28 54,34 C 52,39 56,45 62,45 C 68,45 72,39 72,34 Z" fill="#f43f5e" />
-          <circle cx="62" cy="36" r="6" fill="#fb7185" />
-          <circle cx="62" cy="35" r="3" fill="#ffe4e6" />
-          {/* Botão de Rosa secundário */}
-          <circle cx="38" cy="24" r="14" fill="#be123c" />
-          <circle cx="38" cy="24" r="10" fill="#fb7185" />
-          <circle cx="38" cy="23" r="4" fill="#fff1f2" />
-        </svg>
+      {/* Canto Superior Direito */}
+      <div className="absolute -top-3 -right-3 md:-top-5 md:-right-5 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 opacity-95 transition-transform hover:scale-105 duration-300">
+        <img
+          src={ROSE_CORNER_IMAGE_URL}
+          onError={handleImageError}
+          alt="Rosa de Santa Terezinha"
+          loading="eager"
+          className="w-full h-full object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] scale-x-[-1] rotate-12 transform-gpu"
+        />
       </div>
 
-      {/* Canto Inferior Esquerdo - Rosa elegante */}
-      <div className="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 w-24 h-24 md:w-32 md:h-32 opacity-80">
-        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
-          <path d="M 25,60 C 15,75 30,90 45,80 C 35,65 35,65 25,60 Z" fill="#15803d" opacity="0.8" />
-          <path d="M 50,75 C 65,85 75,70 65,55 C 55,65 55,65 50,75 Z" fill="#166534" opacity="0.8" />
-          <circle cx="38" cy="62" r="18" fill="#be123c" />
-          <circle cx="38" cy="62" r="12" fill="#e11d48" />
-          <circle cx="38" cy="61" r="6" fill="#fb7185" />
-        </svg>
+      {/* Canto Inferior Esquerdo */}
+      <div className="absolute -bottom-3 -left-3 md:-bottom-5 md:-left-5 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 opacity-90 transition-transform hover:scale-105 duration-300">
+        <img
+          src={ROSE_CORNER_IMAGE_URL}
+          onError={handleImageError}
+          alt="Rosa de Santa Terezinha"
+          loading="lazy"
+          className="w-full h-full object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] scale-y-[-1] -rotate-12 transform-gpu"
+        />
       </div>
 
-      {/* Canto Inferior Direito - Rosa elegante */}
-      <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 w-24 h-24 md:w-32 md:h-32 opacity-80">
-        <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-md">
-          <path d="M 75,60 C 85,75 70,90 55,80 C 65,65 65,65 75,60 Z" fill="#15803d" opacity="0.8" />
-          <path d="M 50,75 C 35,85 25,70 35,55 C 45,65 45,65 50,75 Z" fill="#166534" opacity="0.8" />
-          <circle cx="62" cy="62" r="18" fill="#be123c" />
-          <circle cx="62" cy="62" r="12" fill="#e11d48" />
-          <circle cx="62" cy="61" r="6" fill="#fb7185" />
-        </svg>
+      {/* Canto Inferior Direito */}
+      <div className="absolute -bottom-3 -right-3 md:-bottom-5 md:-right-5 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 opacity-90 transition-transform hover:scale-105 duration-300">
+        <img
+          src={ROSE_CORNER_IMAGE_URL}
+          onError={handleImageError}
+          alt="Rosa de Santa Terezinha"
+          loading="lazy"
+          className="w-full h-full object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] scale-[-1] rotate-12 transform-gpu"
+        />
       </div>
 
-      {/* Rosas flutuantes decorativas nas bordas laterais */}
-      <div className="hidden md:block absolute top-1/3 -left-3 w-10 h-10 opacity-70">
-        <span className="text-2xl drop-shadow-md">🌹</span>
+      {/* Delicados botões/ícones de rosa nas margens laterais */}
+      <div className="hidden lg:block absolute top-1/3 -left-2 w-8 h-8 opacity-75 drop-shadow-md">
+        <span className="text-2xl select-none">🌹</span>
       </div>
-      <div className="hidden md:block absolute top-2/3 -left-3 w-10 h-10 opacity-70">
-        <span className="text-2xl drop-shadow-md">🌸</span>
+      <div className="hidden lg:block absolute top-2/3 -left-2 w-8 h-8 opacity-75 drop-shadow-md">
+        <span className="text-2xl select-none">🌹</span>
       </div>
-      <div className="hidden md:block absolute top-1/3 -right-3 w-10 h-10 opacity-70">
-        <span className="text-2xl drop-shadow-md">🌸</span>
+      <div className="hidden lg:block absolute top-1/3 -right-2 w-8 h-8 opacity-75 drop-shadow-md">
+        <span className="text-2xl select-none">🌹</span>
       </div>
-      <div className="hidden md:block absolute top-2/3 -right-3 w-10 h-10 opacity-70">
-        <span className="text-2xl drop-shadow-md">🌹</span>
+      <div className="hidden lg:block absolute top-2/3 -right-2 w-8 h-8 opacity-75 drop-shadow-md">
+        <span className="text-2xl select-none">🌹</span>
       </div>
     </div>
   );
