@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
 import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
-import { cn, formatSaintName } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -35,7 +35,7 @@ function SaintImages({ saints, isOpen, selectedIndex, onSelect }: { saints: Sain
     return (
       <div className={cn("saint-image-wrapper single", isOpen && "open")}>
         <Image
-          src={saints[0].imageUrl}
+          src={getProxiedImageUrl(saints[0].imageUrl)}
           alt={saints[0].name}
           width={64}
           height={64}
@@ -52,7 +52,7 @@ function SaintImages({ saints, isOpen, selectedIndex, onSelect }: { saints: Sain
         {saints.map((saint, index) => (
           <Image
             key={saint.name}
-            src={saint.imageUrl}
+            src={getProxiedImageUrl(saint.imageUrl)}
             alt={saint.name}
             width={64}
             height={64}
@@ -376,7 +376,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", isOpen ? "rounded-t-lg" : "rounded-lg")}>
               {/* Blurred saint image background */}
               <img
-                src={currentSaintData.imageUrl}
+                src={getProxiedImageUrl(currentSaintData.imageUrl)}
                 alt=""
                 aria-hidden
                 className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50"

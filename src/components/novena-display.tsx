@@ -5,11 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand } from 'lucide-react';
-import { cn, formatSaintName } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
+import { FallingRosePetals, SantaTerezinhaRosesOverlay } from '@/components/falling-rose-petals';
 
 
 const themeClasses: Record<Theme, string> = {
@@ -220,6 +221,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
   const [isAutoDisplay, setIsAutoDisplay] = useState(false);
+  const [showRoseRain, setShowRoseRain] = useState<boolean>(true);
   const alertTimerRef = useRef<NodeJS.Timeout | null>(null);
   const alertContainerRef = useRef<HTMLDivElement>(null);
   const novenaContentRef = useRef<HTMLDivElement>(null);
@@ -548,22 +550,38 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   );
 
 
+  const isSantaTerezinha = Boolean(
+    saint?.id === 'teresinha' ||
+    saint?.id === 'santa_teresinha' ||
+    novena?.novenaTitle?.toLowerCase().includes('terezinha') ||
+    novena?.novenaTitle?.toLowerCase().includes('teresinha')
+  );
+
   return (
     <main
       id="main-card"
       className={cn(
-        'main-card glass-card rounded-3xl p-6 md:p-10 relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col gap-6',
+        'main-card glass-card rounded-3xl p-6 md:p-10 relative shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden flex flex-col gap-6 transition-all duration-700',
         themeClasses[theme],
         theme,
-        getAnimationClass()
+        getAnimationClass(),
+        isSantaTerezinha && 'ring-2 ring-rose-400/50 shadow-[0_20px_60px_rgba(225,29,72,0.28)]'
       )}
       style={theme === 'theme-green' ? { backgroundColor: '#011a11', color: 'white' } : undefined}
     >
+      {/* === Efeito de Rosas Decorativas e Animação de Pétalas Caindo para Santa Terezinha === */}
+      {isSantaTerezinha && (
+        <>
+          <SantaTerezinhaRosesOverlay />
+          <FallingRosePetals isActive={showRoseRain} />
+        </>
+      )}
+
       {/* === Blurred image background for the entire card === */}
       {saint && (
         <>
           <img
-            src={(novena as any)?.image || saint.imageUrl}
+            src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
             alt=""
             aria-hidden
             className="absolute inset-0 w-full h-full object-cover blur-[50px] opacity-40 pointer-events-none transition-all duration-1000"
@@ -574,23 +592,53 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       )}
 
       <div className="flex items-center justify-between relative z-50 w-full px-2">
-        <Button
-          onClick={copyNovenaText}
-          variant="ghost"
-          size="icon"
-          className={cn(
-            'rounded-full h-10 w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95',
-            theme === 'theme-light-gray' || theme === 'theme-default'
-              ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
-              : 'border-white/20 hover:bg-white/10 text-white'
+        <div className="flex items-center gap-2">
+          <Button
+            onClick={copyNovenaText}
+            variant="ghost"
+            size="icon"
+            className={cn(
+              'rounded-full h-10 w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95',
+              theme === 'theme-light-gray' || theme === 'theme-default'
+                ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
+                : 'border-white/20 hover:bg-white/10 text-white'
+            )}
+            title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
+          >
+            <Copy className="w-5 h-5" />
+          </Button>
+
+          {isSantaTerezinha && (
+            <button
+              onClick={() => setShowRoseRain(prev => !prev)}
+              className={cn(
+                "px-3 py-1.5 rounded-full text-xs font-semibold border backdrop-blur-md transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer",
+                showRoseRain
+                  ? "bg-rose-500/25 text-white border-rose-300/60 hover:bg-rose-500/35 ring-1 ring-rose-400/50"
+                  : "bg-white/15 text-stone-200 border-white/25 hover:bg-white/25"
+              )}
+              title={showRoseRain ? "Pausar chuva de pétalas de rosas" : "Ativar chuva de pétalas de rosas"}
+            >
+              <span className="text-sm">🌹</span>
+              <span className="hidden sm:inline">Chuva de Rosas:</span>
+              <span className="font-bold">{showRoseRain ? 'Ativa' : 'Pausada'}</span>
+            </button>
           )}
-          title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
-        >
-          <Copy className="w-5 h-5" />
-        </Button>
+        </div>
 
         <ThemeSelector theme={theme} setTheme={setTheme} />
       </div>
+
+      {/* Faixa especial de promessa de Santa Terezinha */}
+      {isSantaTerezinha && (
+        <div className="relative z-20 -mt-2 -mb-2 mx-auto text-center px-4 py-1.5 bg-rose-950/40 backdrop-blur-md border border-rose-300/40 rounded-full shadow-lg">
+          <p className="text-xs md:text-sm font-medium text-rose-100 flex items-center justify-center gap-2">
+            <span className="animate-bounce">🌹</span>
+            <span className="italic font-serif">“Do céu eu farei cair sobre a Terra uma chuva de Rosas”</span>
+            <span className="animate-bounce">🌹</span>
+          </p>
+        </div>
+      )}
 
       {/* Seletor de versão da novena */}
       {novena.versions && novena.versions.length > 0 && (
@@ -629,7 +677,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         {/* === Container for blurred image background === */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
           <Image
-            src={(novena as any)?.image || saint.imageUrl}
+            src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
             alt=""
             aria-hidden
             fill
@@ -664,7 +712,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               <DialogTrigger asChild>
                 <div className="relative group/img cursor-zoom-in flex-shrink-0">
                   <Image
-                    src={(novena as any)?.image || saint.imageUrl}
+                    src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
                     alt={saint.name}
                     width={200}
                     height={280}
@@ -697,7 +745,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                       
                       <div className="relative">
                         <Image
-                          src={getHighResUrl((novena as any)?.image || saint.imageUrl)}
+                          src={getProxiedImageUrl(getHighResUrl((novena as any)?.image || saint.imageUrl))}
                           alt={saint.name}
                           width={1200}
                           height={1600}
@@ -824,7 +872,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
             )}
           >
-            <Image src="https://i.postimg.cc/g24cJdKG/whatsapp-icone-5.png" alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
+            <Image src={getProxiedImageUrl("https://i.postimg.cc/g24cJdKG/whatsapp-icone-5.png")} alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
             <span className="text-sm font-semibold">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'} também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
           </a>
           <a
@@ -836,7 +884,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               theme === 'theme-light-gray' ? 'bg-black/10 hover:bg-black/20 text-stone-800' : 'bg-white/10 hover:bg-white/20 text-white'
             )}
           >
-            <Image src="https://iili.io/Kpy9S3P.png" alt="Instagram" width={20} height={20} className="w-5 h-5" />
+            <Image src={getProxiedImageUrl("https://iili.io/Kpy9S3P.png")} alt="Instagram" width={20} height={20} className="w-5 h-5" />
             <span className="text-sm font-semibold">Segue a gente no Insta</span>
           </a>
         </div>

@@ -76,3 +76,12 @@ export function formatSaintName(name: string, abbreviate: boolean = true, full: 
 
   return { main: nameToProcess, additional: '' };
 }
+
+export function getProxiedImageUrl(url?: string | null): string {
+  if (!url) return '';
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    // Se for URL externa, passa pelo proxy da API interna para evitar bloqueios de rede
+    return `/api/proxy-image?url=${encodeURIComponent(url)}`;
+  }
+  return url;
+}

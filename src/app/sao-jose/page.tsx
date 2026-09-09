@@ -20,7 +20,7 @@ import { format, addDays, isSameDay, subDays, startOfDay, parseISO } from "date-
 import { ptBR } from "date-fns/locale";
 import { getConsecrationPresets, ConsecrationPreset } from "@/lib/utils/sao-jose-dates";
 import { LoadingScreen } from "@/components/loading-screen";
-import { cn } from "@/lib/utils";
+import { cn, getProxiedImageUrl } from "@/lib/utils";
 
 export default function SaoJosePage() {
     const [activeSection, setActiveSection] = useState<"home" | "consagracao">("home");
@@ -63,7 +63,10 @@ export default function SaoJosePage() {
             <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
             {/* Header / Hero Section */}
             <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('https://iili.io/fj7jrtj.png')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+                <div 
+                    className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
+                    style={{ backgroundImage: `url('${getProxiedImageUrl('https://iili.io/fj7jrtj.png')}')` }}
+                ></div>
                 <div className="container mx-auto max-w-7xl relative z-10">
                     <Link href="/" onClick={handleBackTransition} className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors">
                         <ChevronLeft className="mr-2 h-5 w-5" />
@@ -99,39 +102,26 @@ export default function SaoJosePage() {
                     </Button>
                     <Button
                         size="lg"
-                        onClick={handleConsagracaoClick}
+                        onClick={() => {
+                            handleConsagracaoClick();
+                            scrollToConsagracaoContent();
+                        }}
                         className={activeSection === "consagracao"
                             ? "bg-green-700 text-white hover:bg-green-800 border-2 border-green-500 shadow-lg shadow-green-900/40"
                             : "bg-white text-green-900 hover:bg-green-50 border-2 border-green-100 shadow-md"
                         }
                     >
                         <BookOpen className="mr-2 h-5 w-5" />
-                        33 Dias de Consagração
+                        Consagração 33 Dias
                     </Button>
                 </div>
             </div>
 
-            <main className="container mx-auto max-w-7xl px-4 pb-12">
-                {/* Timeline e Novenas na página inicial */}
+            {/* Main Content */}
+            <main className="container mx-auto max-w-7xl px-4 py-8">
                 {activeSection === "home" && <HomePageSaoJose />}
                 {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} loadingFinished={loadingFinished} />}
             </main>
-
-            {/* Botão de Compartilhar WhatsApp */}
-            <div className="container mx-auto max-w-7xl px-4 mb-12">
-                <Link href="/sao-jose/compartilhar">
-                    <Button 
-                        size="lg" 
-                        className="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white font-bold py-8 rounded-2xl shadow-xl transition-all hover:scale-[1.02] flex items-center justify-center gap-4"
-                    >
-                        <MessageCircle className="h-8 w-8" />
-                        <div className="text-left">
-                            <p className="text-lg">Para compartilhar no WhatsApp</p>
-                            <p className="text-xs opacity-90 font-normal text-white/80">Copie os textos dos 33 dias formatados</p>
-                        </div>
-                    </Button>
-                </Link>
-            </div>
 
             <Footer />
         </div>
@@ -163,9 +153,11 @@ function HomePageSaoJose() {
 
     const handleSelect = (id: typeof selectedNovena) => {
         setSelectedNovena(prev => prev === id ? null : id);
-        setTimeout(() => {
-            novenaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }, 100);
+        if (selectedNovena !== id) {
+            setTimeout(() => {
+                novenaRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+        }
     };
 
     return (
@@ -191,7 +183,7 @@ function HomePageSaoJose() {
                                         : 'border-green-200 group-hover:border-green-500 group-hover:scale-105'
                                     }`}>
                                     <img
-                                        src={n.imageUrl}
+                                        src={getProxiedImageUrl(n.imageUrl)}
                                         alt={n.name}
                                         className="w-full h-full object-cover object-top"
                                     />

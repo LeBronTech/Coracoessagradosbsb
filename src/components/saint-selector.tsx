@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
-import { cn, formatSaintName } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
 import type { Saint } from '@/lib/data';
 import { novenaData } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -255,7 +255,7 @@ function SaintSelector({
                 return (
                   <>
                     <Image
-                      src={saint.imageUrl}
+                      src={getProxiedImageUrl(saint.imageUrl)}
                       alt={saint.name}
                       width={80}
                       height={80}

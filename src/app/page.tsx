@@ -15,7 +15,7 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, 
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, getProxiedImageUrl } from '@/lib/utils';
 import { parse, differenceInDays, getYear } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -532,7 +532,7 @@ export default function Home() {
           hideClose
           className="w-[85vw] sm:w-[400px] p-0 border-r-[3px] border-black/20 overflow-hidden shadow-2xl backdrop-blur-3xl transition-all duration-500"
           style={{
-            backgroundImage: "linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.55)), url('https://iili.io/BszsZNa.jpg')",
+            backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.55)), url('${getProxiedImageUrl("https://iili.io/BszsZNa.jpg")}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
@@ -569,7 +569,7 @@ export default function Home() {
               <Button
                 className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
               >
-                <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/KpYhaae.png")} alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
                 Espaço Mariano
               </Button>
             </Link>
@@ -578,7 +578,7 @@ export default function Home() {
               <Button
                 className="w-full justify-start gap-2 bg-red-700 hover:bg-red-800 text-white"
               >
-                <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/B5cDUbI.png")} alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
                 Encontre Seu Lugar
               </Button>
             </Link>
@@ -587,7 +587,7 @@ export default function Home() {
               <Button
                 className="w-full justify-start gap-2 bg-green-700 hover:bg-green-800 text-white"
               >
-                <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/KpYhc8u.png")} alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
                 Espaço São José
               </Button>
             </Link>
@@ -687,21 +687,21 @@ export default function Home() {
           <div className="mt-16 w-full flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/espaco-mariano" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
               <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                <Image src="https://iili.io/KpYhaae.png" alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/KpYhaae.png")} alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />
                 <span className="font-brand text-sm text-center font-semibold">Espaço Mariano</span>
               </button>
             </Link>
 
             <Link href="/encontre-seu-lugar" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
               <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-red-700/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={24} height={24} className="w-6 h-6 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/B5cDUbI.png")} alt="Encontre seu lugar" width={24} height={24} className="w-6 h-6 object-contain" />
                 <span className="font-brand text-sm text-center font-semibold">Encontre Seu Lugar</span>
               </button>
             </Link>
 
             <Link href="/sao-jose" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
               <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-green-700/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
-                <Image src="https://iili.io/KpYhc8u.png" alt="São José" width={24} height={24} className="w-6 h-6 object-contain" />
+                <Image src={getProxiedImageUrl("https://iili.io/KpYhc8u.png")} alt="São José" width={24} height={24} className="w-6 h-6 object-contain" />
                 <span className="font-brand text-sm text-center font-semibold">Espaço São José</span>
               </button>
             </Link>

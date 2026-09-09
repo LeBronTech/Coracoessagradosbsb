@@ -28,7 +28,7 @@ import {
     ChevronRight,
     XCircle,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, getProxiedImageUrl } from '@/lib/utils';
 
 // Gera URL do Google Maps automaticamente a partir dos campos disponíveis
 function getMapsUrl(d: { endereco?: string; bairro?: string; paroquia?: string; enderecoMaps?: string }): string | null {
@@ -374,7 +374,7 @@ function DevocaoDialogWrapper({
                 <div className="cursor-pointer group flex flex-col items-center">
                     <div className="relative w-full max-w-[140px]">
                         <Image
-                            src={devocao.imageUrl}
+                            src={getProxiedImageUrl(devocao.imageUrl)}
                             alt={devocao.nome}
                             width={200}
                             height={200}
@@ -418,7 +418,7 @@ function DevocaoDialogWrapper({
                         return (
                             <div className="absolute inset-0 z-0">
                                 <Image 
-                                    src={bgUrl}
+                                    src={getProxiedImageUrl(bgUrl)}
                                     alt={`${activeDevocao.nome} Background`}
                                     fill
                                     className="object-cover object-center opacity-80"
@@ -431,7 +431,7 @@ function DevocaoDialogWrapper({
                     })()}
 
                     <div className="relative w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-xl z-10">
-                        <Image src={activeDevocao.imageUrl} alt={activeDevocao.nome} fill className="object-cover" sizes="96px" />
+                        <Image src={getProxiedImageUrl(activeDevocao.imageUrl)} alt={activeDevocao.nome} fill className="object-cover" sizes="96px" />
                     </div>
                     <DialogClose asChild>
                         <button className="absolute top-3 left-3 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/30 hover:bg-black/50 text-white text-xs font-semibold backdrop-blur-sm transition-all z-20 shadow-sm border border-white/10">
@@ -591,7 +591,7 @@ function DevocaoDialogWrapper({
                                                     className="flex items-center gap-2.5 p-2 rounded-xl border border-gray-100 bg-gray-50/50 hover:bg-red-50/30 hover:border-red-200 transition-all text-left group/sim cursor-pointer"
                                                 >
                                                     <div className="relative w-8 h-8 rounded-full overflow-hidden shrink-0 border border-gray-200 shadow-sm group-hover/sim:scale-105 transition-transform">
-                                                        <Image src={sim.imageUrl} alt={sim.nome} fill className="object-cover" sizes="32px" />
+                                                        <Image src={getProxiedImageUrl(sim.imageUrl)} alt={sim.nome} fill className="object-cover" sizes="32px" />
                                                     </div>
                                                     <div className="min-w-0 flex-1">
                                                         <p className="text-[10px] font-bold text-slate-700 truncate leading-snug group-hover/sim:text-red-900 transition-colors">
@@ -630,7 +630,7 @@ function DevocaoDialogWrapper({
                                             {/* Imagem do logo com marca d'água */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none">
                                                 <Image 
-                                                    src="https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png"
+                                                    src={getProxiedImageUrl("https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png")}
                                                     alt="Logo Marca d'água"
                                                     width={350}
                                                     height={130}
@@ -696,7 +696,7 @@ function DevocaoDialogWrapper({
                                             {/* Imagem do logo com marca d'água */}
                                             <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none">
                                                 <Image 
-                                                    src="https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png"
+                                                    src={getProxiedImageUrl("https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png")}
                                                     alt="Logo Marca d'água"
                                                     width={350}
                                                     height={130}

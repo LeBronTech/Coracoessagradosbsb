@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { Globe, AlertCircle, CheckCircle, Clock, X, ChevronLeft, ChevronRight, Search, Calendar, SlidersHorizontal } from "lucide-react";
 import Image from "next/image";
+import { getProxiedImageUrl } from "@/lib/utils";
 
 import { worldMarianDevotions, MarianDevotion, Continent } from "@/lib/world-devotions-data";
 
@@ -174,7 +175,7 @@ function SearchBar({ continents, allDevotions }: { continents: Continent[]; allD
                                                 <div className="relative w-full max-w-[130px]">
                                                     {(devotion.images?.[0] || devotion.imageUrl) ? (
                                                         <img
-                                                            src={devotion.images?.[0] || devotion.imageUrl}
+                                                            src={getProxiedImageUrl(devotion.images?.[0] || devotion.imageUrl)}
                                                             alt={devotion.name}
                                                             className="aspect-square rounded-full object-cover border-4 w-full transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
                                                             style={{ objectPosition: (devotion as any).objectPosition || 'center' }}
@@ -341,7 +342,7 @@ export function WorldMarianDevotions() {
                                                                 <div className="relative w-full max-w-[140px]">
                                                                     {(devotion.images?.[0] || devotion.imageUrl) ? (
                                                                         <Image
-                                                                            src={devotion.images?.[0] || devotion.imageUrl}
+                                                                            src={getProxiedImageUrl(devotion.images?.[0] || devotion.imageUrl)}
                                                                             alt={devotion.name}
                                                                             width={200}
                                                                             height={200}
@@ -513,9 +514,9 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                         >
                             {allImages[currentImageIndex] ? (
                                 <>
-                                    <img src={allImages[currentImageIndex]} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70" draggable={false} style={{ objectPosition: (devotion as any).objectPosition || 'center' }} />
+                                    <img src={getProxiedImageUrl(allImages[currentImageIndex])} alt="" aria-hidden className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70" draggable={false} style={{ objectPosition: (devotion as any).objectPosition || 'center' }} />
                                     <div className="absolute inset-0 bg-black/15 pointer-events-none" />
-                                    <img src={allImages[currentImageIndex]} alt={devotion.name} className="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-500" draggable={false} style={{ objectPosition: (devotion as any).objectPosition || 'center' }} />
+                                    <img src={getProxiedImageUrl(allImages[currentImageIndex])} alt={devotion.name} className="absolute inset-0 w-full h-full object-contain z-10 transition-opacity duration-500" draggable={false} style={{ objectPosition: (devotion as any).objectPosition || 'center' }} />
                                 </>
                             ) : (
                                 <div className="absolute inset-0 w-full h-full flex items-center justify-center bg-slate-200 dark:bg-slate-800 z-10 transition-opacity duration-500">

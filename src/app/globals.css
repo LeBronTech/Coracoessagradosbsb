@@ -66,7 +66,7 @@
 
   body {
     @apply bg-background text-foreground;
-    background-image: url('https://iili.io/BszsZNa.jpg');
+    background-image: url('/api/proxy-image?url=https://iili.io/BszsZNa.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -218,6 +218,127 @@
   .main-card.theme-dark-gray .prose strong,
   .main-card.theme-red .prose strong {
     color: rgb(255 255 255) !important; /* white */
+  }
+
+  /* ==========================================================================
+     Legibilidade reforçada para textos e letras em vermelho no Modal da Novena
+     Adiciona fundo nítido e elegante para evitar que fiquem apagados
+     ========================================================================== */
+  .main-card span.text-primary,
+  .main-card .litany-response,
+  .main-card .day-specific-content span[class*="text-primary"],
+  .main-card .prayer-block span[class*="text-primary"],
+  .main-card .initial-prayer-text span[class*="text-primary"],
+  .main-card .final-prayer-text span[class*="text-primary"] {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #991b1b !important;
+    padding: 1px 7px;
+    border-radius: 5px;
+    border: 1px solid rgba(220, 38, 38, 0.22);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+    display: inline-block;
+  }
+
+  .main-card h3.text-primary,
+  .main-card h4.text-primary,
+  .main-card h5.text-primary,
+  .main-card .section-title {
+    background-color: rgba(255, 255, 255, 0.94) !important;
+    color: #881337 !important;
+    padding: 3px 12px !important;
+    border-radius: 8px !important;
+    display: inline-block !important;
+    border: 1px solid rgba(136, 19, 55, 0.25) !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12) !important;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .main-card p.text-primary,
+  .main-card .day-specific-content p[class*="text-primary"],
+  .main-card .prayer-block p[class*="text-primary"] {
+    background-color: rgba(255, 255, 255, 0.92);
+    color: #991b1b !important;
+    padding: 3px 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(220, 38, 38, 0.2);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    display: inline-block;
+    font-weight: 600;
+  }
+
+  /* Blocos de oração, avisos e instruções com letras vermelhas */
+  .main-card div.text-primary,
+  .main-card div[class*="text-primary"],
+  .main-card [class*="bg-stone-100"][class*="text-primary"],
+  .main-card [class*="bg-stone-800"][class*="text-primary"],
+  .main-card .prayer-block div[class*="text-primary"],
+  .main-card .final-prayer-text div[class*="text-primary"],
+  .main-card .day-specific-content div[class*="text-primary"],
+  .main-card .instruction-badge {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    color: #881337 !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    border: 1px solid rgba(220, 38, 38, 0.28) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.16) !important;
+    font-weight: 700 !important;
+  }
+
+  .main-card div.text-primary p,
+  .main-card div[class*="text-primary"] p {
+    color: #881337 !important;
+    font-weight: 700 !important;
+  }
+
+  /* Em temas escuros ou coloridos (red, dark-gray, green, default) */
+  .main-card.theme-dark-gray span.text-primary,
+  .main-card.theme-dark-gray p.text-primary,
+  .main-card.theme-dark-gray .litany-response,
+  .main-card.theme-red span.text-primary,
+  .main-card.theme-red p.text-primary,
+  .main-card.theme-red .litany-response,
+  .main-card.theme-green span.text-primary,
+  .main-card.theme-green p.text-primary,
+  .main-card.theme-green .litany-response,
+  .main-card.theme-default span.text-primary,
+  .main-card.theme-default p.text-primary,
+  .main-card.theme-default .litany-response {
+    background-color: rgba(255, 255, 255, 0.95);
+    color: #7f1d1d !important;
+    border-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+  }
+
+  /* Caixas de bênção e intenções (bg-primary/10):
+     Em temas escuros (theme-dark-gray, theme-red), mantemos fundo escuro translúcido elegante
+     para que o texto branco da bênção e da oração permaneça 100% nítido e NÃO seja ofuscado */
+  .main-card.theme-dark-gray [class*="bg-primary/10"],
+  .main-card.theme-red [class*="bg-primary/10"] {
+    background-color: rgba(0, 0, 0, 0.32) !important;
+    border: 1px solid rgba(255, 255, 255, 0.16) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25) !important;
+  }
+
+  .main-card.theme-dark-gray [class*="bg-primary/10"] p,
+  .main-card.theme-red [class*="bg-primary/10"] p {
+    color: rgb(255, 255, 255) !important;
+  }
+
+  /* Em temas claros (theme-light-gray, theme-default, theme-green) */
+  .main-card.theme-light-gray [class*="bg-primary/10"],
+  .main-card.theme-default [class*="bg-primary/10"],
+  .main-card.theme-green [class*="bg-primary/10"] {
+    background-color: rgba(255, 255, 255, 0.6) !important;
+    border: 1px solid rgba(220, 38, 38, 0.18) !important;
+  }
+
+  .main-card.theme-light-gray [class*="bg-primary/10"] p,
+  .main-card.theme-default [class*="bg-primary/10"] p,
+  .main-card.theme-green [class*="bg-primary/10"] p {
+    color: rgb(41, 37, 36) !important;
   }
 
 

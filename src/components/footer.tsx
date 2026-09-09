@@ -1,6 +1,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { getProxiedImageUrl } from '@/lib/utils';
 
 export default function Footer() {
   return (
@@ -10,11 +11,11 @@ export default function Footer() {
 
       <div className="flex justify-center items-center gap-6 my-6">
         <a href="https://www.instagram.com/coracoessagradosbsb?igsh=MXFvaWJtcW1kZHFtNg==" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity duration-300" title="Siga-nos no Instagram">
-          <Image src="https://i.postimg.cc/4xX2zVKw/image.png" alt="Instagram" width={32} height={32} className="w-8 h-8" />
+          <Image src={getProxiedImageUrl("https://i.postimg.cc/4xX2zVKw/image.png")} alt="Instagram" width={32} height={32} className="w-8 h-8" />
           <span className="sr-only">Instagram</span>
         </a>
         <a href="https://chat.whatsapp.com/La88Os582PHKICHfuxFE09" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity duration-300" title="Entre no nosso grupo do WhatsApp">
-          <Image src="https://i.postimg.cc/QdgSCt01/image.png" alt="WhatsApp" width={48} height={48} className="w-12 h-12" />
+          <Image src={getProxiedImageUrl("https://i.postimg.cc/QdgSCt01/image.png")} alt="WhatsApp" width={48} height={48} className="w-12 h-12" />
           <span className="sr-only">WhatsApp</span>
         </a>
         <a href="https://lebrontech.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" className="text-[#333] hover:opacity-80 transition-opacity duration-300" title="Veja nosso trabalho no GitHub">

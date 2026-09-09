@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { cn } from '@/lib/utils';
+import { cn, getProxiedImageUrl } from '@/lib/utils';
 
 interface LoadingScreenProps {
   isLoading: boolean;
@@ -54,7 +54,7 @@ export const LoadingScreen = ({ isLoading, onFinished }: LoadingScreenProps) => 
           !isExiting ? 'scale-100 animate-pulse-and-shrink' : 'scale-75 opacity-0'
       )}>
         <Image
-          src="https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png"
+          src={getProxiedImageUrl("https://i.postimg.cc/ZRrzGs1g/Capa-para-facebook-arquitetura-moderno-vermelho-1.png")}
           alt="Logo Corações Sagrados"
           width={448}
           height={166}

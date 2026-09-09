@@ -8,7 +8,7 @@ import Image from 'next/image';
 import { ComunidadesGallery } from '@/components/comunidades-gallery';
 import { regioesAdministrativas } from '@/lib/comunidades-data';
 import { LoadingScreen } from '@/components/loading-screen';
-import { cn } from '@/lib/utils';
+import { cn, getProxiedImageUrl } from '@/lib/utils';
 
 export default function EncontreSeuLugarPage() {
     const [hydrated, setHydrated] = useState(false);
@@ -64,7 +64,7 @@ export default function EncontreSeuLugarPage() {
                     <div className="text-center">
                         <div className="flex justify-center mb-4">
                             <div className="w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg overflow-hidden border-2 border-white/30">
-                                <Image src="https://iili.io/B5cDUbI.png" alt="Encontre seu lugar" width={48} height={48} className="w-12 h-12 object-contain" />
+                                <Image src={getProxiedImageUrl("https://iili.io/B5cDUbI.png")} alt="Encontre seu lugar" width={48} height={48} className="w-12 h-12 object-contain" />
                             </div>
                         </div>
                         <h1 className="text-4xl md:text-6xl font-bold mb-4 tracking-tight drop-shadow-lg font-brand">

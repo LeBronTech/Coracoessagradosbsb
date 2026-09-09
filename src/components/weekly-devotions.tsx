@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { weeklyDevotions, monthlyDevotions, getLiturgicalInfo } from '@/lib/devotions';
 import type { Devotion, LiturgicalInfo } from '@/lib/devotions';
-import { cn } from '@/lib/utils';
+import { cn, getProxiedImageUrl } from '@/lib/utils';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 import React from 'react';
 import { Skeleton } from './ui/skeleton';
@@ -47,19 +47,19 @@ const Icon = ({ name, className }: { name: string, className?: string }) => {
       </svg>
     ),
     'tuesday': (
-      <Image src="https://iili.io/KpnvJeI.png" alt="Ícone dos Santos Anjos" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
+      <Image src={getProxiedImageUrl("https://iili.io/KpnvJeI.png")} alt="Ícone dos Santos Anjos" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
     ),
     'wednesday': (
-      <Image src="https://iili.io/KpAs5EG.png" alt="Ícone de São José" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
+      <Image src={getProxiedImageUrl("https://iili.io/KpAs5EG.png")} alt="Ícone de São José" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
     ),
     'thursday': (
-        <Image src="https://i.postimg.cc/VkM9w1DB/8.png" alt="Ícone do Santíssimo Sacramento" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
+        <Image src={getProxiedImageUrl("https://i.postimg.cc/VkM9w1DB/8.png")} alt="Ícone do Santíssimo Sacramento" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
     ),
     'friday': (
-      <Image src="https://i.postimg.cc/cLY7WZXF/9.png" alt="Ícone da Paixão de Cristo" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
+      <Image src={getProxiedImageUrl("https://i.postimg.cc/cLY7WZXF/9.png")} alt="Ícone da Paixão de Cristo" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
     ),
     'saturday': (
-      <Image src="https://i.postimg.cc/VkM9w1Dg/10.png" alt="Ícone de Nossa Senhora" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
+      <Image src={getProxiedImageUrl("https://i.postimg.cc/VkM9w1Dg/10.png")} alt="Ícone de Nossa Senhora" width={32} height={32} className={cn("h-8 w-8 object-contain", className)} />
     ),
   };
   return icons[name] || null;

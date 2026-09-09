@@ -6,6 +6,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { CheckCircle, Clock, AlertCircle, BookOpen, X, ArrowLeft, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { worldMarianDevotions } from "@/lib/world-devotions-data";
 import Image from "next/image";
+import { getProxiedImageUrl } from "@/lib/utils";
 
 interface MarianDevotion {
     id: string;
@@ -239,7 +240,7 @@ function DevotionDialogWrapper({ devotion, isPink }: { devotion: MarianDevotion;
                     <div className="relative w-full max-w-[140px]">
                         {devotion.imageUrl ? (
                             <Image
-                                src={devotion.imageUrl}
+                                src={getProxiedImageUrl(devotion.imageUrl)}
                                 alt={devotion.name}
                                 width={200}
                                 height={200}
@@ -358,13 +359,13 @@ function DevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                         {allImages[currentImageIndex] ? (
                             <>
                                 <img
-                                    src={allImages[currentImageIndex]}
+                                    src={getProxiedImageUrl(allImages[currentImageIndex])}
                                     alt=""
                                     className="absolute inset-0 w-full h-full object-cover blur-xl scale-110 opacity-70"
                                 />
                                 <div className="absolute inset-0 bg-black/10 pointer-events-none" />
                                 <img
-                                    src={allImages[currentImageIndex]}
+                                    src={getProxiedImageUrl(allImages[currentImageIndex])}
                                     alt={devotion.name}
                                     className="absolute inset-0 w-full h-full object-contain z-10"
                                     style={{ objectPosition: devotion.objectPosition || 'center' }}
