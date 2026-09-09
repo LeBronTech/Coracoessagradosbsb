@@ -617,10 +617,10 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   ? "bg-rose-500/25 text-white border-rose-300/60 hover:bg-rose-500/35 ring-1 ring-rose-400/50"
                   : "bg-white/15 text-stone-200 border-white/25 hover:bg-white/25"
               )}
-              title={showRoseRain ? "Pausar chuva de pétalas de rosas" : "Ativar chuva de pétalas de rosas"}
+              title={showRoseRain ? "Pausar chuva de pétalas vermelhas" : "Ativar chuva de pétalas vermelhas"}
             >
               <span className="text-sm">🌹</span>
-              <span className="hidden sm:inline">Chuva de Rosas:</span>
+              <span className="hidden sm:inline">Pétalas Vermelhas:</span>
               <span className="font-bold">{showRoseRain ? 'Ativa' : 'Pausada'}</span>
             </button>
           )}

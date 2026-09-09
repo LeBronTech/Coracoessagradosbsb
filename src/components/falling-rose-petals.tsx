@@ -21,18 +21,17 @@ interface Petal {
 }
 
 const PETAL_COLORS = [
-  '#e11d48', // rose-600
-  '#be123c', // rose-700
-  '#f43f5e', // rose-500
-  '#fb7185', // rose-400
-  '#fda4af', // rose-300
-  '#9f1239', // rose-800
-  '#f472b6', // pink-400
+  '#dc2626', // Vermelho vivo
+  '#b91c1c', // Vermelho carmesim
+  '#ef4444', // Vermelho escarlate brilhante
+  '#991b1b', // Vermelho rubi profundo
+  '#be123c', // Vermelho carmim aveludado
+  '#7f1d1d', // Vermelho bordô intenso
 ];
 
 export function FallingRosePetals({
   isActive = true,
-  petalCount = 36,
+  petalCount = 38,
 }: {
   isActive?: boolean;
   petalCount?: number;
@@ -51,24 +50,24 @@ export function FallingRosePetals({
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
     let height = (canvas.height = canvas.parentElement?.clientHeight || window.innerHeight);
 
-    // Cria as pétalas iniciais
+    // Cria as pétalas vermelhas iniciais
     const petals: Petal[] = [];
     for (let i = 0; i < petalCount; i++) {
       petals.push({
         x: Math.random() * width,
         y: Math.random() * height - height * 0.2,
-        size: 14 + Math.random() * 16, // 14px a 30px
-        speedY: 0.8 + Math.random() * 1.6,
-        speedX: (Math.random() - 0.5) * 0.6,
-        swayAmplitude: 0.8 + Math.random() * 1.5,
-        swayFrequency: 0.015 + Math.random() * 0.025,
+        size: 13 + Math.random() * 17, // 13px a 30px
+        speedY: 0.9 + Math.random() * 1.5,
+        speedX: (Math.random() - 0.5) * 0.7,
+        swayAmplitude: 0.9 + Math.random() * 1.6,
+        swayFrequency: 0.016 + Math.random() * 0.024,
         swayAngle: Math.random() * Math.PI * 2,
         rotation: Math.random() * Math.PI * 2,
-        rotationSpeed: (Math.random() - 0.5) * 0.03,
+        rotationSpeed: (Math.random() - 0.5) * 0.028,
         flip: Math.random() * Math.PI * 2,
-        flipSpeed: 0.02 + Math.random() * 0.04,
+        flipSpeed: 0.02 + Math.random() * 0.038,
         color: PETAL_COLORS[Math.floor(Math.random() * PETAL_COLORS.length)],
-        opacity: 0.7 + Math.random() * 0.28,
+        opacity: 0.75 + Math.random() * 0.23,
         petalType: Math.floor(Math.random() * 3),
       });
     }
@@ -85,7 +84,7 @@ export function FallingRosePetals({
       resizeObserver.observe(canvas.parentElement);
     }
 
-    // Desenha uma pétala orgânica realista
+    // Desenha uma pétala vermelha realista
     const drawPetal = (p: Petal) => {
       ctx.save();
       ctx.translate(p.x, p.y);
@@ -95,42 +94,49 @@ export function FallingRosePetals({
       ctx.scale(scaleX, 1);
       ctx.globalAlpha = p.opacity;
 
-      // Gradiente suave de pétala de rosa
-      const grad = ctx.createRadialGradient(0, -p.size * 0.2, p.size * 0.1, 0, 0, p.size);
-      grad.addColorStop(0, '#ffffff');
-      grad.addColorStop(0.25, p.color);
-      grad.addColorStop(1, '#881337'); // sombra bordô na borda da pétala
+      // Gradiente aveludado de pétala de rosa vermelha
+      const grad = ctx.createRadialGradient(-p.size * 0.15, -p.size * 0.2, p.size * 0.08, 0, 0, p.size);
+      grad.addColorStop(0, '#fca5a5'); // reflexo suave na curva
+      grad.addColorStop(0.2, p.color);
+      grad.addColorStop(0.75, p.color);
+      grad.addColorStop(1, '#450a0a'); // borda aveludada bordô escura
 
       ctx.fillStyle = grad;
       ctx.beginPath();
 
       if (p.petalType === 0) {
-        // Pétala formato clássico de gota/coração de rosa
-        ctx.moveTo(0, p.size * 0.8);
-        ctx.bezierCurveTo(-p.size * 0.8, p.size * 0.4, -p.size * 0.7, -p.size * 0.6, 0, -p.size * 0.8);
-        ctx.bezierCurveTo(p.size * 0.7, -p.size * 0.6, p.size * 0.8, p.size * 0.4, 0, p.size * 0.8);
+        // Pétala clássica de rosa vermelha: topo bilobado com base afilada
+        ctx.moveTo(0, p.size * 0.85);
+        ctx.bezierCurveTo(-p.size * 0.85, p.size * 0.35, -p.size * 0.75, -p.size * 0.55, -p.size * 0.2, -p.size * 0.85);
+        ctx.quadraticCurveTo(0, -p.size * 0.65, p.size * 0.2, -p.size * 0.85);
+        ctx.bezierCurveTo(p.size * 0.75, -p.size * 0.55, p.size * 0.85, p.size * 0.35, 0, p.size * 0.85);
       } else if (p.petalType === 1) {
-        // Pétala curvada ao vento
-        ctx.moveTo(0, p.size * 0.7);
-        ctx.bezierCurveTo(-p.size * 0.6, p.size * 0.3, -p.size * 0.9, -p.size * 0.4, -p.size * 0.2, -p.size * 0.9);
-        ctx.bezierCurveTo(p.size * 0.6, -p.size * 0.6, p.size * 0.7, p.size * 0.2, 0, p.size * 0.7);
+        // Pétala em concha / curva ao vento
+        ctx.moveTo(0, p.size * 0.8);
+        ctx.bezierCurveTo(-p.size * 0.7, p.size * 0.3, -p.size * 0.95, -p.size * 0.3, -p.size * 0.3, -p.size * 0.88);
+        ctx.bezierCurveTo(p.size * 0.5, -p.size * 0.65, p.size * 0.75, p.size * 0.15, 0, p.size * 0.8);
       } else {
         // Pétala suave ondulada
-        ctx.moveTo(0, p.size * 0.8);
-        ctx.quadraticCurveTo(-p.size * 0.75, p.size * 0.1, -p.size * 0.3, -p.size * 0.8);
-        ctx.quadraticCurveTo(0, -p.size * 0.6, p.size * 0.3, -p.size * 0.8);
-        ctx.quadraticCurveTo(p.size * 0.75, p.size * 0.1, 0, p.size * 0.8);
+        ctx.moveTo(0, p.size * 0.85);
+        ctx.quadraticCurveTo(-p.size * 0.8, p.size * 0.1, -p.size * 0.35, -p.size * 0.85);
+        ctx.quadraticCurveTo(0, -p.size * 0.7, p.size * 0.35, -p.size * 0.85);
+        ctx.quadraticCurveTo(p.size * 0.8, p.size * 0.1, 0, p.size * 0.85);
       }
 
       ctx.closePath();
       ctx.fill();
 
-      // Nervura central delicada da pétala
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.35)';
-      ctx.lineWidth = 1;
+      // Sombra sutil de volume da pétala
+      ctx.strokeStyle = 'rgba(69, 10, 10, 0.4)';
+      ctx.lineWidth = 0.75;
+      ctx.stroke();
+
+      // Nervura central delicada translúcida
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+      ctx.lineWidth = 0.8;
       ctx.beginPath();
-      ctx.moveTo(0, p.size * 0.6);
-      ctx.quadraticCurveTo(p.size * 0.05, 0, 0, -p.size * 0.5);
+      ctx.moveTo(0, p.size * 0.65);
+      ctx.quadraticCurveTo(p.size * 0.06, 0, 0, -p.size * 0.5);
       ctx.stroke();
 
       ctx.restore();
@@ -248,20 +254,6 @@ export function SantaTerezinhaRosesOverlay() {
           loading="lazy"
           className="w-full h-full object-contain drop-shadow-[0_4px_14px_rgba(0,0,0,0.4)] scale-[-1] rotate-12 transform-gpu"
         />
-      </div>
-
-      {/* Delicados botões/ícones de rosa nas margens laterais */}
-      <div className="hidden lg:block absolute top-1/3 -left-2 w-8 h-8 opacity-75 drop-shadow-md">
-        <span className="text-2xl select-none">🌹</span>
-      </div>
-      <div className="hidden lg:block absolute top-2/3 -left-2 w-8 h-8 opacity-75 drop-shadow-md">
-        <span className="text-2xl select-none">🌹</span>
-      </div>
-      <div className="hidden lg:block absolute top-1/3 -right-2 w-8 h-8 opacity-75 drop-shadow-md">
-        <span className="text-2xl select-none">🌹</span>
-      </div>
-      <div className="hidden lg:block absolute top-2/3 -right-2 w-8 h-8 opacity-75 drop-shadow-md">
-        <span className="text-2xl select-none">🌹</span>
       </div>
     </div>
   );
