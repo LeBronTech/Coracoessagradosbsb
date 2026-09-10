@@ -19,7 +19,7 @@
 
 [Visão Geral](#-sobre-o-projeto) •
 [Funcionalidades](#-funcionalidades-principais) •
-[Tecnologias](#-tecnologias-utilizadas) •
+[Tecnologias](#-tecnologias-e-stacks) •
 [Estrutura](#-estrutura-do-projeto) •
 [Como Executar](#-como-executar-o-projeto) •
 [Variáveis de Ambiente](#-variáveis-de-ambiente)
@@ -67,20 +67,22 @@ O **Corações Sagrados BSB** é uma plataforma web católica concebida para ofe
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+### 🛠️ Tecnologias e Stacks
+<p align="center">
+  
+**Front-End & Mobile**
 
-- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
-- **Linguagem**: [TypeScript](https://www.typescriptlang.org/)
-- **Biblioteca de Interface**: [React 19](https://react.dev/)
-- **Estilização & Componentes**:
-  - [Tailwind CSS](https://tailwindcss.com/)
-  - [Radix UI](https://www.radix-ui.com/) (primitivos acessíveis via shadcn/ui)
-  - [Lucide Icons](https://lucide.dev/)
-  - [Embla Carousel](https://www.embla-carousel.com/)
-- **Tipografia Sacra**: Google Fonts (*Cinzel Decorative* & *EB Garamond*)
-- **Inteligência Artificial**: [Firebase Genkit](https://firebase.google.com/docs/genkit) integrado ao Google Gemini API (`@genkit-ai/googleai`)
-- **Manipulação de Datas**: [date-fns](https://date-fns.org/) com localização em Português (`pt-BR`)
-- **Deploy**: Firebase App Hosting / Vercel
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Next.js](https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) ![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) ![Bootstrap](https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white) ![ReactNative](https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB) ![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+
+**Back-End & Infra**
+
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white) ![Python](https://img.shields.io/badge/Python-eacf00?style=for-the-badge&logo=python&logoColor=02569B) ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![Linux](https://img.shields.io/badge/Linux-048c04?style=for-the-badge&logo=linux&logoColor=black) ![Azure](https://img.shields.io/badge/Azure-0089D6?style=for-the-badge&logo=akasaair&logoColor=white)
+
+**Design & Automação**
+
+![Figma](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-908ae2?style=for-the-badge&logo=cloudera&logoColor=white) ![Photoshop](https://img.shields.io/badge/Adobe%20Photoshop-d11f5d?style=for-the-badge&logo=adonisjs&logoColor=white) ![n8n](https://img.shields.io/badge/n8n-16106b?style=for-the-badge&logo=n8n&logoColor=white)
+
+</p>
 
 ---
 
