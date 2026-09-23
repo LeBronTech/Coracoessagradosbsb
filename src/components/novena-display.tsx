@@ -11,6 +11,7 @@ import type { Theme } from '@/app/page';
 import Image from 'next/image';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { FallingRosePetals, SantaTerezinhaRosesOverlay } from '@/components/falling-rose-petals';
+import { SantaTerezinhaGloryCounter } from '@/components/santa-terezinha-counter';
 
 
 const themeClasses: Record<Theme, string> = {
@@ -1017,7 +1018,36 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   {day.title && <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{day.title}</h4>}
 
                   <div className="day-specific-content">
-                    <NovenaContent htmlContent={day.content} />
+                    {(() => {
+                      if (isSantaTerezinha && day.content.includes('24 vezes')) {
+                        let cleanHtml = day.content.trim();
+                        if (cleanHtml.startsWith('<div class="day-specific-content">') && cleanHtml.endsWith('</div>')) {
+                          cleanHtml = cleanHtml.slice('<div class="day-specific-content">'.length, -6).trim();
+                        }
+                        const finishMarkerIndex = cleanHtml.indexOf('Para finalizar rezar:');
+                        if (finishMarkerIndex !== -1) {
+                          const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
+                          if (divBeforeFinish !== -1) {
+                            const before = cleanHtml.slice(0, divBeforeFinish);
+                            const after = cleanHtml.slice(divBeforeFinish);
+                            return (
+                              <>
+                                <NovenaContent htmlContent={before} />
+                                <SantaTerezinhaGloryCounter dayIndex={index} />
+                                <NovenaContent htmlContent={after} />
+                              </>
+                            );
+                          }
+                        }
+                        return (
+                          <>
+                            <NovenaContent htmlContent={cleanHtml} />
+                            <SantaTerezinhaGloryCounter dayIndex={index} />
+                          </>
+                        );
+                      }
+                      return <NovenaContent htmlContent={day.content} />;
+                    })()}
                   </div>
                 </div>
 
