@@ -50,17 +50,15 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
       updateCount(nextVal);
       triggerHaptic();
 
-      // Animação de pulso e efeito na pétala
       setIsAnimating(true);
-      setTimeout(() => setIsAnimating(false), 260);
+      setTimeout(() => setIsAnimating(false), 240);
 
-      // Gera pequenas pétalas flutuantes como feedback de clique
       const newParticle = {
         id: Date.now() + Math.random(),
-        x: (Math.random() - 0.5) * 40,
-        y: -10 - Math.random() * 20,
+        x: (Math.random() - 0.5) * 36,
+        y: -12 - Math.random() * 16,
       };
-      setParticles(prev => [...prev.slice(-4), newParticle]);
+      setParticles(prev => [...prev.slice(-3), newParticle]);
       setTimeout(() => {
         setParticles(prev => prev.filter(p => p.id !== newParticle.id));
       }, 700);
@@ -80,38 +78,40 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
   };
 
   const isCompleted = count >= TOTAL_GLORIAS;
-  const progressPercent = Math.min(100, Math.round((count / TOTAL_GLORIAS) * 100));
 
   return (
     <div
       className={cn(
         'relative my-4 overflow-hidden rounded-2xl border transition-all duration-500 select-none',
         isCompleted
-          ? 'bg-gradient-to-b from-rose-950/40 via-red-950/30 to-amber-950/30 border-amber-400/50 shadow-[0_10px_35px_rgba(244,63,94,0.25)]'
-          : 'bg-gradient-to-b from-rose-950/20 via-black/25 to-rose-950/30 border-rose-400/30 shadow-lg',
+          ? 'bg-gradient-to-b from-rose-950/30 via-red-950/20 to-amber-950/25 border-amber-400/40 shadow-[0_8px_30px_rgba(244,63,94,0.2)]'
+          : 'bg-gradient-to-b from-rose-950/15 via-black/20 to-rose-950/25 border-rose-400/25 shadow-md',
         className
       )}
     >
-      {/* Brilho decorativo sutil no topo */}
-      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-rose-300/50 to-transparent pointer-events-none" />
-
-      <div className="p-4 sm:p-5 flex flex-col items-center text-center">
-        {/* Título com ícone */}
-        <div className="flex items-center justify-center gap-2 mb-1">
-          <span className="text-base sm:text-lg animate-pulse">🌹</span>
-          <h4 className="text-sm sm:text-base font-bold text-rose-100 font-brand tracking-wide">
-            Contador das 24 Glórias
-          </h4>
-          <span className="text-base sm:text-lg animate-pulse">🌹</span>
+      <div className="p-3.5 sm:p-4 flex flex-col items-center text-center">
+        {/* Caixa com fundo branco contendo a própria oração das 24 vezes */}
+        <div 
+          className="w-full rounded-xl p-4 shadow-md border mb-4 text-left terezinha-prayer-box" 
+          style={{ backgroundColor: '#ffffff', borderColor: '#e5e7eb', color: '#1c1917' }}
+        >
+          <div 
+            className="font-bold mb-1.5 leading-relaxed text-xs sm:text-sm" 
+            style={{ color: '#1c1917', fontWeight: 700 }}
+          >
+            Em seguida rezar 24 vezes, por cada ano de Santa Terezinha na terra:
+          </div>
+          <div 
+            className="italic font-bold leading-relaxed text-xs sm:text-sm gloria-text" 
+            style={{ color: '#9f1239', fontWeight: 700 }}
+          >
+            “Glória ao Pai, ao Filho e ao Espírito Santo como era no princípio, agora e sempre. Amém.”
+          </div>
         </div>
 
-        <p className="text-[11px] sm:text-xs text-rose-200/80 mb-3 max-w-sm">
-          Toque no botão <strong className="text-rose-100">+</strong> ou <strong className="text-rose-100 font-semibold">direto na pétala central</strong> para cada Glória rezada pelos 24 anos de Santa Terezinha.
-        </p>
-
-        {/* Display do contador e controles principais (+, pétala central, -) */}
-        <div className="flex items-center justify-center gap-4 sm:gap-6 my-2 relative">
-          {/* Partículas de pétalas que sobem ao clicar */}
+        {/* Display do contador: botão (-), Pétala Central Clicável e botão (+) */}
+        <div className="flex items-center justify-center gap-4 sm:gap-6 my-1 relative">
+          {/* Partículas de feedback de clique */}
           {particles.map(p => (
             <span
               key={p.id}
@@ -128,17 +128,17 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
             onClick={handleDecrement}
             disabled={count === 0}
             className={cn(
-              'w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all duration-200 shadow-md',
+              'w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-200 shadow-md',
               'bg-white/10 hover:bg-white/20 active:scale-95 border-rose-300/30 text-rose-100',
               count === 0 && 'opacity-30 cursor-not-allowed hover:bg-white/10 active:scale-100'
             )}
             title="Diminuir uma oração (-)"
             aria-label="Diminuir oração"
           >
-            <Minus className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Minus className="w-5 h-5" />
           </button>
 
-          {/* Pétala Central Clicável com Efeito de Pulso e Número */}
+          {/* Pétala Central Clicável com silhueta realista de pétala de rosa */}
           <div className="flex flex-col items-center">
             <button
               type="button"
@@ -149,99 +149,95 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                 isCompleted ? 'cursor-default' : 'cursor-pointer hover:scale-105 active:scale-90',
                 isAnimating && 'scale-110'
               )}
-              title={isCompleted ? '24 orações completadas!' : 'Clique na pétala para somar +1'}
-              aria-label="Clique na pétala para contar uma oração"
+              title={isCompleted ? '24 orações completadas!' : 'Toque na pétala para somar +1'}
+              aria-label="Toque na pétala para contar uma oração"
             >
-              {/* Anel de brilho suave ao redor da pétala */}
+              {/* Brilho suave difuso de fundo */}
               <div
                 className={cn(
                   'absolute -inset-2 rounded-full transition-opacity duration-300 blur-md pointer-events-none',
                   isCompleted
                     ? 'bg-amber-400/40 opacity-100 animate-pulse'
-                    : 'bg-rose-500/30 opacity-70 group-hover:opacity-100'
+                    : 'bg-rose-500/35 opacity-70 group-hover:opacity-100'
                 )}
               />
 
-              {/* Desenho da Pétala em SVG com degradê hiper-realista */}
-              <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center drop-shadow-[0_8px_16px_rgba(225,29,72,0.45)]">
+              {/* Pétala com tamanho compacto anterior e gradiente carmim aveludado */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center drop-shadow-[0_6px_14px_rgba(190,18,60,0.5)]">
                 <svg
                   viewBox="0 0 100 100"
                   className={cn(
                     'w-full h-full transition-transform duration-300',
-                    isAnimating ? 'rotate-6 scale-105' : 'rotate-0'
+                    isAnimating ? 'rotate-3 scale-105' : 'rotate-0'
                   )}
                 >
                   <defs>
-                    {/* Gradiente da pétala de rosa */}
-                    <linearGradient id="rosePetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#f43f5e" />
-                      <stop offset="35%" stopColor="#e11d48" />
-                      <stop offset="75%" stopColor="#be123c" />
-                      <stop offset="100%" stopColor="#881337" />
+                    <radialGradient id="roseVelvetGrad" cx="50%" cy="35%" r="65%">
+                      <stop offset="0%" stopColor="#fb7185" />
+                      <stop offset="30%" stopColor="#e11d48" />
+                      <stop offset="70%" stopColor="#9f1239" />
+                      <stop offset="100%" stopColor="#4c0519" />
+                    </radialGradient>
+
+                    <linearGradient id="roseEdgeHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stopColor="#ffe4e6" stopOpacity="0.8" />
+                      <stop offset="40%" stopColor="#f43f5e" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#881337" stopOpacity="0" />
                     </linearGradient>
-                    {/* Brilho da borda da pétala */}
-                    <linearGradient id="petalHighlight" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#fda4af" stopOpacity="0.8" />
-                      <stop offset="60%" stopColor="#f43f5e" stopOpacity="0.2" />
-                      <stop offset="100%" stopColor="#9f1239" stopOpacity="0" />
-                    </linearGradient>
-                    {/* Gradiente dourado se completou */}
-                    <linearGradient id="goldPetalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" stopColor="#fbbf24" />
-                      <stop offset="50%" stopColor="#f59e0b" />
-                      <stop offset="100%" stopColor="#b45309" />
-                    </linearGradient>
+
+                    <radialGradient id="goldVelvetGrad" cx="50%" cy="35%" r="65%">
+                      <stop offset="0%" stopColor="#fef08a" />
+                      <stop offset="35%" stopColor="#f59e0b" />
+                      <stop offset="75%" stopColor="#b45309" />
+                      <stop offset="100%" stopColor="#78350f" />
+                    </radialGradient>
                   </defs>
 
-                  {/* Silhueta realista da pétala de rosa */}
+                  {/* Silhueta anatômica de pétala de rosa */}
                   <path
-                    d="M 50 8 
-                       C 68 8, 92 25, 92 52 
-                       C 92 78, 68 94, 50 94 
-                       C 32 94, 8 78, 8 52 
-                       C 8 25, 32 8, 50 8 Z"
-                    fill={isCompleted ? 'url(#goldPetalGrad)' : 'url(#rosePetalGrad)'}
+                    d="M 50 12
+                       C 60 4, 82 6, 88 28
+                       C 94 50, 78 78, 50 94
+                       C 22 78, 6 50, 12 28
+                       C 18 6, 40 4, 50 12 Z"
+                    fill={isCompleted ? 'url(#goldVelvetGrad)' : 'url(#roseVelvetGrad)'}
                     stroke={isCompleted ? '#fef08a' : '#fecdd3'}
-                    strokeWidth="1.5"
-                    strokeOpacity="0.7"
+                    strokeWidth="1.2"
+                    strokeOpacity="0.75"
                   />
 
-                  {/* Nervura e curva central da pétala */}
+                  {/* Curva de relevo superior simulando a dobra aveludada da pétala */}
                   <path
-                    d="M 50 14 C 48 35, 49 65, 50 88"
+                    d="M 50 16
+                       C 58 9, 78 11, 83 30
+                       C 87 48, 73 72, 50 86
+                       C 27 72, 13 48, 17 30
+                       C 22 11, 42 9, 50 16 Z"
+                    fill="url(#roseEdgeHighlight)"
+                  />
+
+                  {/* Nervura central delicada da pétala */}
+                  <path
+                    d="M 50 20 C 49 42, 50 68, 50 88"
                     fill="none"
                     stroke={isCompleted ? '#fde047' : '#fda4af'}
                     strokeWidth="1"
-                    strokeDasharray="2 2"
+                    strokeDasharray="2 3"
                     strokeOpacity="0.4"
-                  />
-
-                  {/* Curvatura de volume superior da pétala */}
-                  <path
-                    d="M 28 26 C 42 16, 58 16, 72 26"
-                    fill="none"
-                    stroke={isCompleted ? '#fef9c3' : '#ffe4e6'}
-                    strokeWidth="1.5"
-                    strokeOpacity="0.6"
                   />
                 </svg>
 
-                {/* Número do contador no centro da pétala */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                  <span className="text-xl sm:text-2xl font-extrabold font-brand text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
+                {/* Número do contador perfeitamente legível no centro da pétala */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none pt-0.5">
+                  <span className="text-xl sm:text-2xl font-extrabold font-brand text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                     {count}
                   </span>
-                  <span className="text-[10px] font-semibold text-rose-100/90 drop-shadow">
+                  <span className="text-[9px] sm:text-[10px] font-bold text-rose-100 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                     de {TOTAL_GLORIAS}
                   </span>
                 </div>
               </div>
             </button>
-
-            {/* Texto de apoio sob a pétala */}
-            <span className="text-[10px] sm:text-xs font-semibold text-rose-200 mt-1 uppercase tracking-wider flex items-center gap-1">
-              {isCompleted ? 'Completado!' : 'Toque na pétala'}
-            </span>
           </div>
 
           {/* Botão Aumentar (+) */}
@@ -250,52 +246,41 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
             onClick={handleIncrement}
             disabled={isCompleted}
             className={cn(
-              'w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center border transition-all duration-200 shadow-md',
+              'w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center border transition-all duration-200 shadow-md',
               'bg-rose-600 hover:bg-rose-500 active:scale-95 border-rose-300/40 text-white shadow-rose-900/40',
               isCompleted && 'opacity-30 cursor-not-allowed bg-white/10 hover:bg-white/10 active:scale-100'
             )}
             title="Adicionar uma oração (+)"
             aria-label="Adicionar oração"
           >
-            <Plus className="w-5 h-5 sm:w-6 sm:h-6" />
+            <Plus className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Barra e Grade com os 24 Anos / Pétalas */}
-        <div className="w-full max-w-md mt-3 px-2">
-          {/* Barra de progresso contínua */}
-          <div className="w-full h-2 rounded-full bg-black/40 overflow-hidden border border-white/10 p-[1px]">
-            <div
+        {/* Apenas os 24 Círculos (sem barra de progresso horizontal) */}
+        <div className="w-full max-w-xs mt-3 flex flex-wrap justify-center gap-1.5 sm:gap-2 px-1">
+          {Array.from({ length: TOTAL_GLORIAS }).map((_, i) => (
+            <button
+              key={i}
+              type="button"
+              onClick={() => updateCount(i + 1)}
+              title={`Glória ${i + 1} de 24`}
               className={cn(
-                'h-full rounded-full transition-all duration-300 ease-out',
-                isCompleted
-                  ? 'bg-gradient-to-r from-amber-400 via-rose-400 to-amber-300 shadow-[0_0_12px_rgba(251,191,36,0.8)]'
-                  : 'bg-gradient-to-r from-rose-600 to-rose-400 shadow-[0_0_8px_rgba(244,63,94,0.6)]'
+                'w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full transition-all duration-300 border flex items-center justify-center focus:outline-none cursor-pointer',
+                i < count
+                  ? (isCompleted
+                      ? 'bg-amber-400 border-amber-300 shadow-[0_0_6px_rgba(251,191,36,0.9)] scale-110'
+                      : 'bg-rose-500 border-rose-300 shadow-[0_0_6px_rgba(244,63,94,0.8)] scale-110')
+                  : 'bg-black/25 dark:bg-white/10 border-white/25 hover:border-rose-400/60'
               )}
-              style={{ width: `${progressPercent}%` }}
+              aria-label={`Glória ${i + 1}`}
             />
-          </div>
-
-          {/* 24 marcadores discretos representando cada ano na terra */}
-          <div className="grid grid-cols-12 gap-1 mt-2">
-            {Array.from({ length: TOTAL_GLORIAS }).map((_, i) => (
-              <div
-                key={i}
-                title={`Glória ${i + 1} de 24`}
-                className={cn(
-                  'h-1.5 rounded-full transition-all duration-300',
-                  i < count
-                    ? (isCompleted ? 'bg-amber-400 shadow-[0_0_4px_#fbbf24]' : 'bg-rose-400 shadow-[0_0_4px_#f43f5e]')
-                    : 'bg-white/15'
-                )}
-              />
-            ))}
-          </div>
+          ))}
         </div>
 
         {/* Feedback especial ao atingir 24 orações */}
         {isCompleted && (
-          <div className="mt-3.5 px-4 py-2 rounded-xl bg-amber-500/20 border border-amber-300/40 text-amber-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 animate-in fade-in zoom-in duration-300">
+          <div className="mt-3 px-4 py-2 rounded-xl bg-amber-500/20 border border-amber-300/40 text-amber-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 animate-in fade-in zoom-in duration-300">
             <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
             <span>
               <strong>Glória completada!</strong> 24 orações rezadas pelos 24 anos terrenos de Santa Terezinha.
@@ -303,7 +288,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
           </div>
         )}
 
-        {/* Botão sutil para reiniciar contagem caso o fiel queira rezar novamente */}
+        {/* Botão sutil para zerar o contador */}
         {count > 0 && (
           <button
             type="button"

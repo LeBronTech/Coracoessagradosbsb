@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -76,6 +77,54 @@
 
   .font-brand {
     font-family: 'Cinzel Decorative', serif;
+  }
+
+  .font-cursive,
+  .font-novena-rosas {
+    font-family: 'Great Vibes', 'Alex Brush', 'Dancing Script', cursive !important;
+  }
+
+  /* Desativa capitular gigante EXCLUSIVAMENTE na pseudo-classe ::first-letter */
+  .novena-rosas-title::first-letter,
+  .novena-rosas-container::first-letter,
+  .novena-rosas-container *::first-letter,
+  .initial-prayer-text .novena-rosas-container *::first-letter {
+    all: unset !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    float: none !important;
+    display: inline !important;
+    line-height: inherit !important;
+  }
+
+  .novena-rosas-container {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    text-align: center !important;
+    width: 100% !important;
+  }
+
+  .novena-rosas-title {
+    font-family: 'Great Vibes', 'Alex Brush', 'Dancing Script', cursive !important;
+    text-align: center !important;
+  }
+
+  /* Garante que o texto na caixa branca do contador nunca fique branco ou ilegível */
+  .main-card .terezinha-prayer-box,
+  .terezinha-prayer-box {
+    background-color: #ffffff !important;
+    color: #1c1917 !important;
+  }
+
+  .main-card .terezinha-prayer-box *,
+  .terezinha-prayer-box * {
+    color: #1c1917 !important;
+  }
+
+  .main-card .terezinha-prayer-box .gloria-text,
+  .terezinha-prayer-box .gloria-text {
+    color: #be123c !important;
   }
 
   .saints-nav-container {

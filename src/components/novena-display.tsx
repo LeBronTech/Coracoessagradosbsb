@@ -362,17 +362,41 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         if (api) {
           if (saint && typeof window !== 'undefined') {
             const storageKey = `novena_current_day_${saint.id}_${selectedVersionId}`;
+            const completedKey = `novena_completed_${saint.id}_${selectedVersionId}`;
+            const datesKey = `novena_completed_dates_${saint.id}_${selectedVersionId}`;
+
             const saved = localStorage.getItem(storageKey);
+            let targetIndex = 0;
             if (saved !== null) {
               const savedIndex = parseInt(saved, 10);
               if (!isNaN(savedIndex) && savedIndex >= 0) {
-                api.scrollTo(savedIndex, true);
-              } else {
-                api.scrollTo(0, true);
+                targetIndex = savedIndex;
               }
-            } else {
-              api.scrollTo(0, true);
             }
+
+            // Lógica do relógio: se o dia foi marcado como concluído antes da meia-noite (data anterior a hoje):
+            const completedRaw = localStorage.getItem(completedKey);
+            const datesRaw = localStorage.getItem(datesKey);
+            if (completedRaw && datesRaw) {
+              try {
+                const completedObj: Record<number, boolean> = JSON.parse(completedRaw);
+                const datesObj: Record<number, string> = JSON.parse(datesRaw);
+                const todayStr = new Date().toLocaleDateString('en-CA'); // 'YYYY-MM-DD' no fuso local
+
+                if (completedObj[targetIndex] && datesObj[targetIndex] && datesObj[targetIndex] < todayStr) {
+                  const totalDays = novena?.days?.length || 9;
+                  if (targetIndex + 1 < totalDays) {
+                    targetIndex = targetIndex + 1;
+                    localStorage.setItem(storageKey, targetIndex.toString());
+                  }
+                }
+              } catch (e) {
+                // fallback seguro
+              }
+            }
+
+            api.scrollTo(targetIndex, true);
+            setCurrent(targetIndex);
           } else {
             api.scrollTo(0, true);
           }
@@ -414,14 +438,74 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
   const toggleCompleted = useCallback((index: number) => {
     setCompletedDays(prev => {
-      const newState = { ...prev, [index]: !prev[index] };
+      const isNowCompleted = !prev[index];
+      const newState = { ...prev, [index]: isNowCompleted };
       if (saint && typeof window !== 'undefined') {
         const storageKey = `novena_completed_${saint.id}_${selectedVersionId}`;
         localStorage.setItem(storageKey, JSON.stringify(newState));
+
+        // Registra data da conclusão no fuso local para virada de meia-noite
+        const datesKey = `novena_completed_dates_${saint.id}_${selectedVersionId}`;
+        const savedDatesRaw = localStorage.getItem(datesKey);
+        let datesObj: Record<number, string> = {};
+        if (savedDatesRaw) {
+          try {
+            datesObj = JSON.parse(savedDatesRaw);
+          } catch (e) {}
+        }
+
+        if (isNowCompleted) {
+          datesObj[index] = new Date().toLocaleDateString('en-CA'); // 'YYYY-MM-DD'
+        } else {
+          delete datesObj[index];
+        }
+        localStorage.setItem(datesKey, JSON.stringify(datesObj));
       }
       return newState;
     });
   }, [saint, selectedVersionId]);
+
+  // Monitor do relógio: às 00:00, se a novena foi marcada como concluída antes, pula pro próximo dia automaticamente
+  useEffect(() => {
+    if (!saint || !novena || !api || typeof window === 'undefined') return;
+
+    let midnightTimeout: NodeJS.Timeout;
+
+    const scheduleMidnightCheck = () => {
+      const now = new Date();
+      const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+      const msUntilMidnight = Math.max(1000, nextMidnight.getTime() - now.getTime());
+
+      midnightTimeout = setTimeout(() => {
+        const currentSnap = api.selectedScrollSnap();
+        const completedKey = `novena_completed_${saint.id}_${selectedVersionId}`;
+        const currentKey = `novena_current_day_${saint.id}_${selectedVersionId}`;
+        const totalCount = novena.versions?.find(v => v.id === selectedVersionId)?.days?.length ?? novena.days?.length ?? 9;
+
+        const completedRaw = localStorage.getItem(completedKey);
+        if (completedRaw) {
+          try {
+            const completedObj: Record<number, boolean> = JSON.parse(completedRaw);
+            // Pula exclusivamente se o dia atual foi marcado como concluído
+            if (completedObj[currentSnap] && currentSnap + 1 < totalCount) {
+              const nextDay = currentSnap + 1;
+              localStorage.setItem(currentKey, nextDay.toString());
+              api.scrollTo(nextDay);
+              setCurrent(nextDay);
+            }
+          } catch (e) {}
+        }
+
+        scheduleMidnightCheck();
+      }, msUntilMidnight);
+    };
+
+    scheduleMidnightCheck();
+
+    return () => {
+      if (midnightTimeout) clearTimeout(midnightTimeout);
+    };
+  }, [saint, novena, api, selectedVersionId]);
 
 
 
@@ -1019,30 +1103,41 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
                   <div className="day-specific-content">
                     {(() => {
-                      if (isSantaTerezinha && day.content.includes('24 vezes')) {
+                      if (isSantaTerezinha && (day.content.includes('24 vezes') || day.content.includes('Para finalizar rezar:'))) {
                         let cleanHtml = day.content.trim();
                         if (cleanHtml.startsWith('<div class="day-specific-content">') && cleanHtml.endsWith('</div>')) {
                           cleanHtml = cleanHtml.slice('<div class="day-specific-content">'.length, -6).trim();
                         }
+                        
+                        let before = cleanHtml;
+                        let after = '';
+                        
                         const finishMarkerIndex = cleanHtml.indexOf('Para finalizar rezar:');
                         if (finishMarkerIndex !== -1) {
                           const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
                           if (divBeforeFinish !== -1) {
-                            const before = cleanHtml.slice(0, divBeforeFinish);
-                            const after = cleanHtml.slice(divBeforeFinish);
-                            return (
-                              <>
-                                <NovenaContent htmlContent={before} />
-                                <SantaTerezinhaGloryCounter dayIndex={index} />
-                                <NovenaContent htmlContent={after} />
-                              </>
-                            );
+                            after = cleanHtml.slice(divBeforeFinish);
                           }
                         }
+
+                        const glory24Index = cleanHtml.indexOf('Em seguida rezar 24 vezes');
+                        if (glory24Index !== -1) {
+                          const divBeforeGlory = cleanHtml.lastIndexOf('<div', glory24Index);
+                          if (divBeforeGlory !== -1) {
+                            before = cleanHtml.slice(0, divBeforeGlory);
+                          }
+                        } else if (finishMarkerIndex !== -1) {
+                          const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
+                          if (divBeforeFinish !== -1) {
+                            before = cleanHtml.slice(0, divBeforeFinish);
+                          }
+                        }
+
                         return (
                           <>
-                            <NovenaContent htmlContent={cleanHtml} />
+                            <NovenaContent htmlContent={before} />
                             <SantaTerezinhaGloryCounter dayIndex={index} />
+                            {after && <NovenaContent htmlContent={after} />}
                           </>
                         );
                       }
