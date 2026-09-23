@@ -57,7 +57,7 @@ interface NovenaDisplayProps {
 
 function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Theme | ((prev: Theme) => Theme)) => void }) {
   return (
-    <div className="flex justify-end gap-2.5 bg-background/50 backdrop-blur-sm px-3 py-1.5 rounded-full z-30 mb-4 w-fit ml-auto">
+    <div className="h-9 sm:h-10 flex items-center justify-end gap-2 sm:gap-2.5 bg-background/50 backdrop-blur-sm px-2.5 sm:px-3 rounded-full z-30 shrink-0">
       {(['theme-dark-gray', 'theme-default', 'theme-light-gray', 'theme-red', 'theme-green'] as Theme[]).map((t) => (
         <button
           key={t}
@@ -73,6 +73,18 @@ function ThemeSelector({ theme, setTheme }: { theme: Theme, setTheme: (theme: Th
       ))}
     </div>
   );
+}
+
+function cleanDayTitle(title?: string, dayLabel?: string): string {
+  if (!title) return '';
+  const cleaned = title.replace(/^\s*(\d+º?\s*dia|dia\s*\d+|primeiro\s*dia|segundo\s*dia|terceiro\s*dia|quarto\s*dia|quinto\s*dia|sexto\s*dia|sétimo\s*dia|oitavo\s*dia|nono\s*dia)\s*([–\-—:]\s*)?/i, '').trim();
+  if (!cleaned || /^oração\s+do\s+(\d+º?|primeiro|segundo|terceiro|quarto|quinto|sexto|sétimo|oitavo|nono)\s+dia$/i.test(cleaned)) {
+    return '';
+  }
+  if (dayLabel && cleaned.toLowerCase() === dayLabel.toLowerCase()) {
+    return '';
+  }
+  return cleaned;
 }
 
 function NovenaContent({ htmlContent }: { htmlContent: string }) {
@@ -683,21 +695,21 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             variant="ghost"
             size="icon"
             className={cn(
-              'rounded-full h-10 w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95',
+              'rounded-full h-9 w-9 sm:h-10 sm:w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95 flex items-center justify-center',
               theme === 'theme-light-gray' || theme === 'theme-default'
                 ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
                 : 'border-white/20 hover:bg-white/10 text-white'
             )}
             title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
           >
-            <Copy className="w-5 h-5" />
+            <Copy className="w-4 h-4 sm:w-5 sm:h-5" />
           </Button>
 
           {isSantaTerezinha && (
             <button
               onClick={() => setShowRoseRain(prev => !prev)}
               className={cn(
-                "px-3 py-1.5 rounded-full text-xs font-semibold border backdrop-blur-md transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer",
+                "h-9 sm:h-10 px-3 sm:px-3.5 rounded-full text-xs font-semibold border backdrop-blur-md transition-all flex items-center gap-1.5 shadow-sm active:scale-95 cursor-pointer shrink-0",
                 showRoseRain
                   ? "bg-rose-500/25 text-white border-rose-300/60 hover:bg-rose-500/35 ring-1 ring-rose-400/50"
                   : "bg-white/15 text-stone-200 border-white/25 hover:bg-white/25"
@@ -815,7 +827,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   </div>
                 </div>
               </DialogTrigger>
-              <DialogContent className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
+              <DialogContent showCloseButton={false} className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
                 <DialogHeader className="sr-only">
                   <DialogTitle>{saint.name}</DialogTitle>
                 </DialogHeader>
@@ -824,8 +836,8 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   <div className="relative flex items-center justify-center w-full min-h-[75vh] sm:min-h-[85vh] pt-12">
                     <div className="relative w-fit max-w-full">
                       {/* Custom Close Button — anchored to the image wrapper */}
-                      <DialogClose className="absolute -top-2 -right-2 sm:-top-4 sm:-right-4 z-[110] p-2 rounded-full bg-black/60 hover:bg-black/80 backdrop-blur-md border-2 border-white/30 text-white transition-all hover:scale-110 active:scale-95 shadow-xl">
-                        <X className="w-5 h-5" />
+                      <DialogClose className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-[110] p-1.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/40 text-white transition-all hover:scale-105 active:scale-95 shadow-xl">
+                        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </DialogClose>
                       
                       <div className="relative">
@@ -1099,7 +1111,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
                 <div className={proseClasses}>
                   {day.day && !isSpecialNovena && <h3 className={cn("section-title text-2xl font-bold font-brand mb-2")}>{day.day}</h3>}
-                  {day.title && <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{day.title}</h4>}
+                  {(() => {
+                    const displayTitle = cleanDayTitle(day.title, day.day);
+                    return displayTitle ? (
+                      <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{displayTitle}</h4>
+                    ) : null;
+                  })()}
 
                   <div className="day-specific-content">
                     {(() => {
