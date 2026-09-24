@@ -418,7 +418,13 @@ export default function Home() {
     }
     setSelectedSaintId(id);
     const saint = saints.find(s => s.id === id);
-    if (saint) setSelectedMonth(saint.month);
+    if (saint) {
+      const saintMonths = saint.month.split('/').map(m => m.trim());
+      // Se o mês selecionado atualmente já contém este santo, não altera o mês para evitar recriação do carrossel
+      if (!saintMonths.includes(selectedMonth)) {
+        setSelectedMonth(saintMonths[0]);
+      }
+    }
     
     // Tema específico por santo
     if (id === 'sao_jose_operario' || id === 'sao_jose_19_marco') {
@@ -474,7 +480,10 @@ export default function Home() {
 
     const saint = saints.find(s => s.id === saintId);
     if (saint) {
-      setSelectedMonth(saint.month);
+      const saintMonths = saint.month.split('/').map(m => m.trim());
+      if (!saintMonths.includes(selectedMonth)) {
+        setSelectedMonth(saintMonths[0]);
+      }
       setSelectedSaintId(saintId);
       // Aguarda o fechamento do diálogo (animação) antes de rolar
       // para garantir que a rolagem com comportamento 'smooth' fique visível.

@@ -1,7 +1,7 @@
 
 'use client';
 
-import React, { useState, useEffect, useCallback, memo, useRef } from 'react';
+import React, { useState, useEffect, useCallback, memo, useRef, useMemo } from 'react';
 import Image from 'next/image';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
@@ -153,26 +153,31 @@ function SaintSelector({
     setTodayNumbers({ day: today.getDate(), month: today.getMonth() + 1 });
   }, []);
 
-  const saintsForMonth = saints
-    .filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth))
-    .sort((a, b) => {
-      // Helper to parse "DD/MM"
-      const parseDate = (d: string) => {
-        const [day, month] = d.split('/').map(Number);
-        // Think about year logic for Dec/Jan crossover if needed
-        const year = month > 6 ? 2024 : 2025;
-        return new Date(year, month - 1, day).getTime();
-      };
+  const saintsForMonth = useMemo(() => {
+    return saints
+      .filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth))
+      .sort((a, b) => {
+        // Helper to parse "DD/MM"
+        const parseDate = (d: string) => {
+          const [day, month] = d.split('/').map(Number);
+          // Think about year logic for Dec/Jan crossover if needed
+          const year = month > 6 ? 2024 : 2025;
+          return new Date(year, month - 1, day).getTime();
+        };
 
-      return parseDate(a.startDate) - parseDate(b.startDate);
-    });
+        return parseDate(a.startDate) - parseDate(b.startDate);
+      });
+  }, [saints, selectedMonth]);
 
   const navContainerRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
+  const lastScrolledId = useRef<string | null>(null);
+
   // Scroll the selected saint's item into view (flush to left with padding)
   // Also scroll vertically to the novena display section
   const handleSaintSelect = useCallback((id: string) => {
+    lastScrolledId.current = id;
     onSaintSelect(id);
     setTimeout(() => {
       const container = navContainerRef.current;
@@ -184,8 +189,6 @@ function SaintSelector({
       container.scrollTo({ left: Math.max(0, scrollOffset), behavior: 'smooth' });
     }, 30);
   }, [onSaintSelect]);
-  
-  const lastScrolledId = useRef<string | null>(null);
 
   // Efeito inicial para rolar até a novena mais próxima ou selecionada
   useEffect(() => {
