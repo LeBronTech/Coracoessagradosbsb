@@ -230,6 +230,7 @@ export function getSaintIntercession(saintId?: string, saintName?: string): stri
     sao_luis_montfort: "Mestre da verdadeira devoção à Santíssima Virgem, invocado pela total consagração a Jesus por Maria e vitória sobre as heresias.",
     santa_gianna_beretta: "Padroeira das famílias, mães e gestantes; protetora da vida dos nascituros, da santidade conjugal e dos profissionais de saúde.",
     santa_catarina_siena: "Doutora da Igreja, intercessora pela reforma e unidade da Igreja, fidelidade dos ministros sagrados e sabedoria espiritual nas tribulações.",
+    santa_candida: "Invocada pela pureza do coração, firmeza nas perseguições espirituais e amor corajoso e fraterno aos mártires de Cristo.",
     ns_africa: "Invocada pela reconciliação, fraternidade entre os povos, amparo aos marginalizados e missionários e paz nas nações oprimidas.",
     sao_jose_operario: "Protetor insigne dos trabalhadores, desempregados, operários e de quem busca emprego digno, providência diária e justiça nas relações de trabalho.",
     santo_atanasio: "Baluarte da ortodoxia católica, invocado pela preservação da sã doutrina cristã e firmeza na fé contra falsos ensinamentos.",

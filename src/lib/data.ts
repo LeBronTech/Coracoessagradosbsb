@@ -3548,6 +3548,16 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     }]
   },
   {
+    day: 3,
+    month: 'Outubro',
+    saints: [{
+      name: 'Santa Cândida',
+      imageUrl: 'https://www.santiebeati.it/immagini/Original/72660/72660.JPG',
+      isMartyr: true,
+      story: `<h4>Virgem e Mártir da Via Portuense</h4><p>Santa Cândida foi uma santa virgem e mártir dos primeiros séculos da era cristã em Roma. Segundo os testemunhos mais antigos da tradição da Igreja romana e os itinerários de peregrinos do século VII (como a <em>Notitia ecclesiarum</em>), ela foi sepultada no histórico cemitério de Ponciano, situado ao longo da antiga Via Portuense (na região do atual Monteverde, em Roma), onde existia uma basílica e igreja erigida em sua honra, renovada posteriormente pelo Papa Adriano I.</p><h4>Fidelidade e Caridade Heroica</h4><p>De acordo com piedosas memórias agiográficas transmitidas pela tradição cristã, Santa Cândida teria dado santa e honrosa sepultura ao mártir São Pimênio em suas próprias terras no cemitério de Ponciano. Por essa demonstração corajosa de fé inabalável e amor fraterno aos mártires de Cristo, teria sido também presa, julgada e coroada com a palma do martírio, entregando a sua vida por amor a Jesus Cristo.</p><h4>Memória no Martirológio Romano</h4><p>Celebrada solenemente em 3 de outubro pelo Martirológio Romano ("Em Roma, no cemitério de Ponciano, junto à Via Portuense, Santa Cândida, mártir"), seu nome deriva do latim <em>candidus</em>, que significa 'branca', 'pura' e 'luminosa', refletindo a pureza radiante de sua alma consagrada e o brilho eterno de seu testemunho de sangue derramado pelo Evangelho.</p><p class="mt-4"><b>Oração:</b> Ó Deus Todo-Poderoso, que concedestes a Santa Cândida a graça da pureza virginal e a fortaleza para derramar o seu sangue por Cristo, concedei-nos, por sua intercessão, a fidelidade inabalável no Vosso amor e a coragem de testemunhar o Evangelho em todas as circunstâncias de nossa vida. Por Nosso Senhor Jesus Cristo, Vosso Filho, na unidade do Espírito Santo. Amém.</p><p class="mt-2 italic">Santa Cândida, rogai por nós.</p>`
+    }]
+  },
+  {
     day: 4,
     month: 'Outubro',
     saints: [{
