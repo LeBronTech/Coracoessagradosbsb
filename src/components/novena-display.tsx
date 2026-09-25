@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand } from 'lucide-react';
-import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
@@ -791,14 +791,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           <div className="md:hidden w-full text-center mb-6">
             <div className="flex flex-col items-center leading-tight">
               <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
-              <h2 className="text-2xl font-bold font-brand text-white drop-shadow-lg">
-                {formatSaintName(saint.name, false, true).main}
+              <h2 className="text-2xl font-bold font-brand text-white drop-shadow-lg leading-tight">
+                {getFullSaintName(saint.name)}
               </h2>
-              {formatSaintName(saint.name, false, true).additional && (
-                <p className="text-sm font-normal mt-0.5 text-white/80 drop-shadow">
-                  {formatSaintName(saint.name, false, true).additional}
-                </p>
-              )}
             </div>
           </div>
 
@@ -829,7 +824,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               </DialogTrigger>
               <DialogContent showCloseButton={false} className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
                 <DialogHeader className="sr-only">
-                  <DialogTitle>{saint.name}</DialogTitle>
+                  <DialogTitle>{getFullSaintName(saint.name)}</DialogTitle>
                 </DialogHeader>
                 
                 <div className="relative flex flex-col items-center justify-center gap-4">
@@ -854,7 +849,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                   
                   <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
                     <h3 className="text-white font-brand text-lg sm:text-2xl drop-shadow-lg text-center">
-                      {saint.name}
+                      {getFullSaintName(saint.name)}
                     </h3>
                   </div>
                 </div>
@@ -869,14 +864,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             {/* Título apenas para desktop - aparece ao lado da imagem */}
             <div className="hidden md:flex flex-col items-start leading-tight mb-4">
               <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg">
-                {formatSaintName(saint.name, false, true).main}
+              <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg leading-tight">
+                {getFullSaintName(saint.name)}
               </h2>
-              {formatSaintName(saint.name, false, true).additional && (
-                <p className="text-base md:text-lg font-normal mt-0.5 text-white/80 drop-shadow">
-                  {formatSaintName(saint.name, false, true).additional}
-                </p>
-              )}
             </div>
             
             <p className="italic text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
@@ -1156,6 +1146,18 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                             <SantaTerezinhaGloryCounter dayIndex={index} />
                             {after && <NovenaContent htmlContent={after} />}
                           </>
+                        );
+                      }
+                      if (!day.content || !day.content.trim()) {
+                        return (
+                          <div className="py-8 px-4 text-center">
+                            <p className="text-amber-600 dark:text-amber-400 font-semibold text-base mb-1">
+                              Oração em preparação
+                            </p>
+                            <p className="text-muted-foreground text-sm">
+                              As orações completas desta novena serão disponibilizadas em breve.
+                            </p>
+                          </div>
                         );
                       }
                       return <NovenaContent htmlContent={day.content} />;

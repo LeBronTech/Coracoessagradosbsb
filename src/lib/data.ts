@@ -1212,6 +1212,30 @@ export const novenaData: Record<string, Novena> = {
       content: `<div class="day-specific-content"><p>Eterno Pai, eu Vos ofereço o Preciosíssimo Sangue de Vosso Divino Filho Jesus, em união com todas as Missas que hoje são celebradas em todo o mundo; por todas as santas almas do purgatório, pelos pecadores de todos os lugares, pelos pecadores de toda a Igreja, pelos de minha casa e de meus vizinhos. Amém.</p><p>Dai-lhes, Senhor, o descanso eterno, e a luz perpétua os ilumine. Descansem em paz. Amém.</p></div>`
     }))
   },
+  john_henry_newman: {
+    saintName: 'São John Henry Newman',
+    novenaTitle: 'Novena a São John Henry Newman',
+    description: 'Cardeal, teólogo e grande mestre da fé, intercessor na busca sincera da verdade e na perseverança cristã.',
+    initialPrayer: '',
+    finalPrayer: '',
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: '',
+      content: ''
+    }))
+  },
+  joao_xxiii: {
+    saintName: 'São João XXIII',
+    novenaTitle: 'Novena a São João XXIII',
+    description: 'O amado Papa Bom, que convocou o Concílio Vaticano II com espírito de paz, diálogo e bondade paternal.',
+    initialPrayer: '',
+    finalPrayer: '',
+    days: Array.from({ length: 9 }, (_, i) => ({
+      day: `${i + 1}º Dia`,
+      title: '',
+      content: ''
+    }))
+  },
   imaculada_conceicao: {
     saintName: 'Imaculada Conceição',
     novenaTitle: 'Novena à Imaculada Conceição',
@@ -3050,25 +3074,26 @@ novenaData.santos_anjos_guarda = novenaData.anjo_guarda;
 export const saints: Saint[] = [
   // Janeiro
   { id: 'menino_jesus_praga', name: 'Menino Jesus de Praga', imageUrl: 'https://iili.io/fj7eCDg.png', month: 'Janeiro', startDate: '05/01', endDate: '13/01', feastDay: '14/Jan' }, // Generic feast
-  { id: 'santo_antao', name: 'Santo Antão Abade', imageUrl: 'https://i.pinimg.com/736x/cf/a9/b6/cfa9b672576ad12bf372aecd49d2ef60.jpg', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
-  { id: 'sao_sebastiao', name: 'São Sebastião Mártir', imageUrl: 'https://iili.io/fWNLcba.png', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
-  { id: 'sao_francisco_sales', name: 'São Francisco de Sales Bispo', imageUrl: 'https://iili.io/fWNLRUP.png', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
-  { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino Doutor', imageUrl: 'https://iili.io/fWNLA0B.png', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
-  { id: 'sao_joao_bosco', name: 'São João Bosco Educador', imageUrl: 'https://iili.io/fWNLufV.png', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
-  { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: 'https://i.postimg.cc/d1wh01Cn/ns-candeias.jpg', month: 'Janeiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
-  { id: 'sao_bras', name: 'São Brás Bispo', imageUrl: 'https://i.postimg.cc/3wLskf4q/sao-bras.jpg', month: 'Janeiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
-  { id: 'santa_josefina_bakhita', name: 'Sta. Josefina Bakhita', imageUrl: 'https://iili.io/f6UqHve.png', month: 'Janeiro/Fevereiro', startDate: '30/01', endDate: '07/02', feastDay: '08/Fev' },
+  { id: 'santo_antao', name: 'Santo Antão', imageUrl: 'https://i.pinimg.com/736x/cf/a9/b6/cfa9b672576ad12bf372aecd49d2ef60.jpg', month: 'Janeiro', startDate: '08/01', endDate: '16/01', feastDay: '17/Jan' },
+  { id: 'sao_sebastiao', name: 'São Sebastião', imageUrl: 'https://iili.io/fWNLcba.png', month: 'Janeiro', startDate: '11/01', endDate: '19/01', feastDay: '20/Jan', isMartyr: true },
+  { id: 'sao_francisco_sales', name: 'São Francisco de Sales', imageUrl: 'https://iili.io/fWNLRUP.png', month: 'Janeiro', startDate: '15/01', endDate: '23/01', feastDay: '24/Jan' },
+  { id: 'santo_tomas_aquino', name: 'Santo Tomás de Aquino', imageUrl: 'https://iili.io/fWNLA0B.png', month: 'Janeiro', startDate: '19/01', endDate: '27/01', feastDay: '28/Jan' },
+  { id: 'sao_joao_bosco', name: 'São João Bosco', imageUrl: 'https://iili.io/fWNLufV.png', month: 'Janeiro', startDate: '22/01', endDate: '30/01', feastDay: '31/Jan' },
+  { id: 'ns_candeias', name: 'N.S. das Candeias', imageUrl: 'https://i.postimg.cc/d1wh01Cn/ns-candeias.jpg', month: 'Janeiro/Fevereiro', startDate: '24/01', endDate: '01/02', feastDay: '02/Fev' },
+  { id: 'sao_bras', name: 'São Brás', imageUrl: 'https://i.postimg.cc/3wLskf4q/sao-bras.jpg', month: 'Janeiro/Fevereiro', startDate: '25/01', endDate: '02/02', feastDay: '03/Fev', isMartyr: true },
+  { id: 'santa_josefina_bakhita', name: 'Santa Josefina Bakhita', imageUrl: 'https://iili.io/f6UqHve.png', month: 'Janeiro/Fevereiro', startDate: '30/01', endDate: '07/02', feastDay: '08/Fev' },
 
   // Fevereiro
   { id: 'nossa_senhora_lourdes', name: 'N.S. de Lourdes', imageUrl: 'https://i.postimg.cc/RF4W0Ftw/ns-lourdes.jpg', month: 'Fevereiro', startDate: '02/02', endDate: '10/02', feastDay: '11/Fev' },
   { id: 'sagrada_face', name: 'Sagrada Face', imageUrl: 'https://iili.io/f6UfDCl.jpg', month: 'Fevereiro', startDate: '08/02', endDate: '16/02', feastDay: '17/Fev' },
   { id: 'catedra_sao_pedro', name: 'Cátedra S. Pedro', imageUrl: 'https://iili.io/f6UfQjf.jpg', month: 'Fevereiro', startDate: '13/02', endDate: '21/02', feastDay: '22/Fev' },
   { id: 'sao_casimiro', name: 'São Casimiro', imageUrl: 'https://i.postimg.cc/8zRMHqTg/sao-casimiro-alt.png', month: 'Fevereiro/Março', startDate: '24/02', endDate: '03/03', feastDay: '04/Mar' },
-  { id: 'sao_gabriel_dores', name: 'São Gabriel das Dores Passionista', imageUrl: 'https://i.postimg.cc/qvV22kVL/sao-gabriel-dores.jpg', month: 'Fevereiro', startDate: '18/02', endDate: '26/02', feastDay: '27/Fev' },
-  { id: 'sao_joao_de_deus', name: 'São João de Deus Hospitaleiro', imageUrl: 'https://i.postimg.cc/JzVjj1VN/sao-joao-de-deus.jpg', month: 'Fevereiro/Março', startDate: '27/02', endDate: '07/03', feastDay: '08/Mar' },
+  { id: 'sao_gabriel_dores', name: 'São Gabriel das Dores', imageUrl: 'https://i.postimg.cc/qvV22kVL/sao-gabriel-dores.jpg', month: 'Fevereiro', startDate: '18/02', endDate: '26/02', feastDay: '27/Fev' },
+  { id: 'sao_joao_de_deus', name: 'São João de Deus', imageUrl: 'https://i.postimg.cc/JzVjj1VN/sao-joao-de-deus.jpg', month: 'Fevereiro/Março', startDate: '27/02', endDate: '07/03', feastDay: '08/Mar' },
 
   // Março
-  { id: 'sao_patricio', name: 'São Patrício Bispo', imageUrl: 'https://i.postimg.cc/jq1HdH8R/sao-patricio.png', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
+  { id: 'sao_patricio', name: 'São Patrício', imageUrl: 'https://i.postimg.cc/jq1HdH8R/sao-patricio.png', month: 'Março', startDate: '08/03', endDate: '16/03', feastDay: '17/Mar' },
+  { id: 'sao_jose_19_marco', name: 'São José de Nazaré', imageUrl: 'https://iili.io/fj7jrtj.png', month: 'Março', startDate: '10/03', endDate: '18/03', feastDay: '19/Mar' },
   { id: 'sao_bento_transito', name: 'São Bento (Trânsito)', imageUrl: 'https://i.postimg.cc/3JSmbgvb/sao-bento.png', month: 'Março', startDate: '12/03', endDate: '20/03', feastDay: '21/Mar' },
   { id: 'anunciacao', name: 'Anunciação', imageUrl: 'https://i.postimg.cc/KjsjQDHk/anunciacao.png', month: 'Março', startDate: '16/03', endDate: '24/03', feastDay: '25/Mar' },
 
@@ -3082,7 +3107,7 @@ export const saints: Saint[] = [
   { id: 'sao_marcos', name: 'São Marcos Evangelista', imageUrl: 'https://i.pinimg.com/1200x/13/d9/a0/13d9a05cfc1153588391d66d6ce20c88.jpg', month: 'Abril', startDate: '16/04', endDate: '24/04', feastDay: '25/Abr' },
   { id: 'sao_luis_montfort', name: 'São Luís de Montfort', imageUrl: 'https://i.pinimg.com/736x/de/a5/30/dea530bc046eef333dcde4daec597717.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
   { id: 'santa_gianna_beretta', name: 'Santa Gianna Beretta Molla', imageUrl: 'https://i.pinimg.com/1200x/3e/f0/b2/3ef0b28700ca5d1dbeba832b30a43ff3.jpg', month: 'Abril', startDate: '19/04', endDate: '27/04', feastDay: '28/Abr' },
-  { id: 'santa_catarina_siena', name: 'Sta. Catarina Siena', imageUrl: 'https://i.pinimg.com/736x/fc/e8/7d/fce87d41f3daf1f431638303ccb0d14c.jpg', month: 'Abril', startDate: '20/04', endDate: '28/04', feastDay: '29/Abr' },
+  { id: 'santa_catarina_siena', name: 'Santa Catarina de Sena', imageUrl: 'https://i.pinimg.com/736x/fc/e8/7d/fce87d41f3daf1f431638303ccb0d14c.jpg', month: 'Abril', startDate: '20/04', endDate: '28/04', feastDay: '29/Abr' },
   { id: 'ns_africa', name: 'N.S. da África', imageUrl: 'https://www.a12.com/source/files/originals/Nossa_Senhora_da_Africa.jpg', imageObjectPosition: "top", month: 'Abril', startDate: '21/04', endDate: '29/04', feastDay: '30/Abr' },
   { id: 'sao_jose_operario', name: 'São José Operário', imageUrl: 'https://i.postimg.cc/9QfFWvTB/image.png', month: 'Abril/Maio', startDate: '22/04', endDate: '30/04', feastDay: '01/Mai', isImportant: true },
   { id: 'santo_atanasio', name: 'Santo Atanásio Diácono', imageUrl: 'https://i.pinimg.com/1200x/d6/90/61/d69061c1e40057ed9e54e0cd189b1e5e.jpg', month: 'Abril/Maio', startDate: '23/04', endDate: '01/05', feastDay: '02/Mai' },
@@ -3107,33 +3132,33 @@ export const saints: Saint[] = [
   { id: 'sao_joao_batista', name: 'São João Batista', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/06/santododia-solenidade-do-nascimento-de-joao-batista-2-300x225.jpg', month: 'Junho', startDate: '14/06', endDate: '23/06', feastDay: '24/Jun', isImportant: true },
   { id: 'sao_josemaria_escriva', name: 'São Josemaria Escrivá', imageUrl: 'https://imgs.search.brave.com/pQJ3bX40nmh-Vf5ww0ZVAzn3JcfSlv2-qLrmV0Wq7uA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWdz/LnNlYXJjaC5icmF2/ZS5jb20vckpUOXBl/dTN2MG1kREY2a2U3/T1JxSWlNS2Z4dTdx/UVVYaWk1cmRjcFh3/US9yczpmaXQ6NTAw/OjA6MDowL2c6Y2Uv/YUhSMGNEb3ZMMkpz/YjJjdS9ZMkZ1WTJG/dmJtOTJZUzVqL2Iy/MHZabVZzYVhCbFlY/RjEvYVc1dkwyWnBi/R1Z6THpJdy9NVFV2/TURRdmFtOXpaVzFo/L2NtbGhMV1Z6WTNK/cGRtRXQvT0MweU1E/aDRNekF3TG1wdy9a/dw', month: 'Junho', startDate: '17/06', endDate: '25/06', feastDay: '26/Jun', isImportant: true },
   { id: 'nossa_senhora_perpetuo_socorro', name: 'N.S. Perpétuo Socorro', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2015/06/formacao_1600x1200-conheca-a-novena-a-nossa-senhora-do-perpetuo-socorro-768x576.jpg', month: 'Junho', startDate: '18/06', endDate: '26/06', feastDay: '27/Jun' },
-  { id: 'sao_pedro_paulo', name: 'S. Pedro e Paulo', imageUrl: 'https://i.pinimg.com/736x/57/cc/70/57cc709acf0ab6b69ae01b230bb2c1e5.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun', isImportant: true },
-  { id: 'santa_paulina', name: 'Santa Paulina do Brasil', imageUrl: 'https://cdnv2.moovin.com.br/sjo/imagens/produtos/det/santinhos_de_papel-santa_paulina_-_frente.jpg', month: 'Junho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
+  { id: 'sao_pedro_paulo', name: 'São Pedro e São Paulo', imageUrl: 'https://i.pinimg.com/736x/57/cc/70/57cc709acf0ab6b69ae01b230bb2c1e5.jpg', month: 'Junho', startDate: '20/06', endDate: '28/06', feastDay: '29/Jun', isImportant: true },
+  { id: 'santa_paulina', name: 'Santa Paulina do Brasil', imageUrl: 'https://cdnv2.moovin.com.br/sjo/imagens/produtos/det/santinhos_de_papel-santa_paulina_-_frente.jpg', month: 'Junho/Julho', startDate: '30/06', endDate: '08/07', feastDay: '09/Jul' },
 
   // Julho
   { id: 'sao_bento', name: 'São Bento Abade', imageUrl: 'https://igrejadoscapuchinhos.org/wp-content/uploads/4ad94e1ccf05dc4df776c5a881864a4f.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
-  { id: 'luis_zelia_martin', name: 'S. Luís e S. Zélia Martin', imageUrl: 'https://comshalom.org/wp-content/uploads/2020/07/louis-et-zlie-martin-dalenon-840x502.jpg', month: 'Julho', startDate: '03/07', endDate: '11/07', feastDay: '12/Jul' },
+  { id: 'luis_zelia_martin', name: 'São Luís e Santa Zélia Martin', imageUrl: 'https://comshalom.org/wp-content/uploads/2020/07/louis-et-zlie-martin-dalenon-840x502.jpg', month: 'Julho', startDate: '03/07', endDate: '11/07', feastDay: '12/Jul' },
   { id: 'nossa_senhora_carmo', name: 'N.S. do Carmo', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0K3bRQTrYCLAaf6mIt3aqOikoZlGiCAkMZQ&s', month: 'Julho', startDate: '07/07', endDate: '15/07', feastDay: '16/Jul' },
   { id: 'santa_maria_madalena', name: 'Santa Maria Madalena', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Julho', startDate: '13/07', endDate: '21/07', feastDay: '22/Jul' },
   { id: 'sao_cristovao', name: 'São Cristóvão', imageUrl: 'https://i.pinimg.com/736x/0b/1c/2d/0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e.jpg', month: 'Julho', startDate: '16/07', endDate: '24/07', feastDay: '25/Jul' },
-  { id: 'santa_ana_joaquim', name: 'Sant\'Ana e S. Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
+  { id: 'santa_ana_joaquim', name: 'Sant\'Ana e São Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
   { id: 'santa_marta', name: 'Santa Marta', imageUrl: 'https://i.pinimg.com/736x/2d/3e/4f/2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a.jpg', month: 'Julho', startDate: '20/07', endDate: '28/07', feastDay: '29/Jul' },
   { id: 'santo_inacio_loyola', name: 'Santo Inácio de Loyola', imageUrl: 'https://i.pinimg.com/1200x/13/91/44/1391445cf63d436d020839707bfe6bbb.jpg', month: 'Julho', startDate: '22/07', endDate: '30/07', feastDay: '31/Jul' },
   { id: 'sao_joao_vianney', name: 'São João Vianney', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/08/S%C3%A3o-Jo%C3%A3o-Maria-Vianney-padroeiro-dos-sacerdotes-1-300x225.jpg', month: 'Julho/Agosto', startDate: '26/07', endDate: '03/08', feastDay: '04/Ago' },
 
   // Agosto
   { id: 'santo_afonso_ligorio', name: 'Santo Afonso Maria de Ligório', imageUrl: 'https://i.pinimg.com/736x/33/ed/95/33ed9547ad83c347108e5904154f27d5.jpg', imageObjectPosition: 'top', month: 'Julho/Agosto', startDate: '23/07', endDate: '31/07', feastDay: '01/Ago' },
-  { id: 'santa_clara', name: 'Santa Clara de Assis Fundadora', imageUrl: 'https://i.pinimg.com/1200x/d7/b0/23/d7b0236f1f90e81037fe208b1459b797.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '02/08', endDate: '10/08', feastDay: '11/Ago' },
+  { id: 'santa_clara', name: 'Santa Clara de Assis', imageUrl: 'https://i.pinimg.com/1200x/d7/b0/23/d7b0236f1f90e81037fe208b1459b797.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '02/08', endDate: '10/08', feastDay: '11/Ago' },
   { id: 'santa_filomena', name: 'Santa Filomena', imageUrl: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuLi6GT6v9yke7mPy5LxdsSRrK0d54SrfOve_Ij9Nk575fvhtkZUAZhLlJ2b490Amg-VXICRo6xkJGbAyHtHHa3jvKvbiJdMUQiNvdUYFotoaOIDKLlu-K3yKbdb-P41fAPGOmBW0tnXY/s1600/Santa+Filomena,+Virgem+e+M%C3%A1rtir+(1).jpg', month: 'Agosto', startDate: '01/08', endDate: '09/08', feastDay: '10/Ago', isMartyr: true },
-  { id: 'santa_dulce_pobres', name: 'Santa Dulce dos Pobres Anjo', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2023/07/formacao_reze-a-novena-a-santa-dulce-dos-pobres-1-768x432.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '04/08', endDate: '12/08', feastDay: '13/Ago' },
-  { id: 'sao_maximiliano_kolbe', name: 'Maximiliano', imageUrl: 'https://bibliotecacatolica.com.br/wp-content/uploads/2024/08/Sao-Maximiliano-Maria-Kolbe-4-654x1024.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '05/08', endDate: '13/08', feastDay: '14/Ago', isMartyr: true },
+  { id: 'santa_dulce_pobres', name: 'Santa Dulce dos Pobres', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/6/2023/07/formacao_reze-a-novena-a-santa-dulce-dos-pobres-1-768x432.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '04/08', endDate: '12/08', feastDay: '13/Ago' },
+  { id: 'sao_maximiliano_kolbe', name: 'São Maximiliano Kolbe', imageUrl: 'https://bibliotecacatolica.com.br/wp-content/uploads/2024/08/Sao-Maximiliano-Maria-Kolbe-4-654x1024.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '05/08', endDate: '13/08', feastDay: '14/Ago', isMartyr: true },
   { id: 'assuncao_nossa_senhora', name: 'Assunção de N.S.', imageUrl: 'https://i.pinimg.com/736x/68/ae/53/68ae533a2ee7848b55ad14301a45bb72.jpg', imageObjectPosition: 'top', month: 'Agosto', startDate: '07/08', endDate: '15/08', feastDay: '16/Ago' },
   { id: 'quaresma_sao_miguel', name: 'Quaresma S. Miguel Arcanjo', imageUrl: 'https://r2.padrepauloricardo.org/a5ymh72r8njhd15g6mxf18mjx5s7', month: 'Agosto/Setembro', startDate: '15/08', endDate: '29/09', feastDay: '29/Set' },
-  { id: 'santa_monica', name: 'Santa Mônica, Mãe de S. Agostinho', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/08/Santa-M%C3%B4nica-2-300x225.jpg', month: 'Agosto', startDate: '18/08', endDate: '26/08', feastDay: '27/Ago' },
+  { id: 'santa_monica', name: 'Santa Mônica', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/08/Santa-M%C3%B4nica-2-300x225.jpg', month: 'Agosto', startDate: '18/08', endDate: '26/08', feastDay: '27/Ago' },
   { id: 'santo_agostinho', name: 'Santo Agostinho Bispo', imageUrl: 'https://i.pinimg.com/736x/1a/32/7c/1a327cf0340885bef002e94d4b8c5704.jpg', month: 'Agosto', startDate: '19/08', endDate: '27/08', feastDay: '28/Ago' },
 
   // Setembro
-  { id: 'natividade_nossa_senhora', name: 'Natividade N.S.', imageUrl: 'https://i.postimg.cc/xdrkWgTH/ns-natividade.jpg', month: 'Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
+  { id: 'natividade_nossa_senhora', name: 'Natividade N.S.', imageUrl: 'https://i.postimg.cc/xdrkWgTH/ns-natividade.jpg', month: 'Agosto/Setembro', startDate: '30/08', endDate: '07/09', feastDay: '08/Set' },
   { id: 'exaltacao_santa_cruz', name: 'Exaltação Santa Cruz', imageUrl: 'https://r2.padrepauloricardo.org/nof4tf5546glvqmyt87zehnvqere', month: 'Setembro', startDate: '05/09', endDate: '13/09', feastDay: '14/Set' },
   { id: 'nossa_senhora_dores', name: 'N.S. das Dores', imageUrl: 'https://i.postimg.cc/mkrhQ58s/ns-dores-setembro.jpg', month: 'Setembro', startDate: '06/09', endDate: '14/09', feastDay: '15/Set' },
   { id: 'sao_pio_pietrelcina', name: 'São Pio de Pietrelcina', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/09/23-S%C3%A3o-Pio-de-Pietrelcina-2.jpg', month: 'Setembro', startDate: '14/09', endDate: '22/09', feastDay: '23/Set' },
@@ -3142,43 +3167,41 @@ export const saints: Saint[] = [
   { id: 'santa_teresinha', name: 'Santa Teresinha', imageUrl: 'https://i.postimg.cc/G2y7k85b/image.png', month: 'Setembro/Outubro', startDate: '22/09', endDate: '30/09', feastDay: '01/Out' },
   { id: 'anjo_guarda', name: 'Anjo da Guarda', imageUrl: 'https://i.postimg.cc/251LGdkn/image.png', month: 'Setembro/Outubro', startDate: '23/09', endDate: '01/10', feastDay: '02/Out' },
   { id: 'sao_francisco_assis', name: 'São Francisco de Assis', imageUrl: 'https://i.postimg.cc/fVs0LZz6/sao-francisco-assis.jpg', month: 'Setembro/Outubro', startDate: '25/09', endDate: '03/10', feastDay: '04/Out' },
-
-  // Outubro (as novenas já existentes de Outubro estão mais abaixo no arquivo)
-
-  { id: 'sao_jose_19_marco', name: 'São José de Nazaré', imageUrl: 'https://iili.io/fj7jrtj.png', month: 'Março', startDate: '10/03', endDate: '18/03', feastDay: '19/Mar' },
+  { id: 'faustina', name: 'Santa Faustina Kowalska', imageUrl: 'https://i.postimg.cc/qBKkbHTj/39a80df1d720976f7e55e00f40eadc90-1.jpg', month: 'Setembro/Outubro', startDate: '26/09', endDate: '04/10', feastDay: '05/Out' },
+  { id: 'rosario', name: 'N.S. do Rosário', imageUrl: 'https://i.postimg.cc/2669v1gr/nsr.jpg', month: 'Setembro/Outubro', startDate: '28/09', endDate: '06/10', feastDay: '07/Out' },
+  { id: 'john_henry_newman', name: 'São John Henry Newman', imageUrl: 'https://i.postimg.cc/9fCw5mrL/Photo-of-John-Henry-Newman.jpg', month: 'Setembro/Outubro', startDate: '30/09', endDate: '08/10', feastDay: '09/Out' },
 
   // Outubro
-  { id: 'teresinha', name: 'S. Teresinha', imageUrl: 'https://i.postimg.cc/G2y7k85b/image.png', month: 'Outubro', startDate: '22/09', endDate: '30/09', feastDay: '01/Out' },
-  { id: 'faustina', name: 'Santa Faustina Kowalska', imageUrl: 'https://i.postimg.cc/qBKkbHTj/39a80df1d720976f7e55e00f40eadc90-1.jpg', month: 'Outubro', startDate: '26/09', endDate: '04/10', feastDay: '05/Out' },
-  { id: 'rosario', name: 'N.S. do Rosário', imageUrl: 'https://i.postimg.cc/2669v1gr/nsr.jpg', month: 'Outubro', startDate: '28/09', endDate: '06/10', feastDay: '07/Out' },
+  { id: 'joao_xxiii', name: 'São João XXIII', imageUrl: 'https://i.postimg.cc/d1zCLzsw/Ioannes-XXIII-by-De-Agostini-1958-1963.jpg', month: 'Outubro', startDate: '02/10', endDate: '10/10', feastDay: '11/Out' },
   { id: 'aparecida', name: 'N.S. Aparecida', imageUrl: 'https://i.postimg.cc/Lsyj4XMh/4011bde1376c5422265a41f3a652c540.jpg', month: 'Outubro', startDate: '03/10', endDate: '11/10', feastDay: '12/Out' },
-  { id: 'carlo_acutis', name: 'S. Carlo Acutis', imageUrl: 'https://i.postimg.cc/CKrbWHjb/8a6ca2d967cbe5b8b65b068da82f495e.jpg', month: 'Outubro', startDate: '03/10', endDate: '11/10', feastDay: '12/Out' },
-  { id: 'teresa_avila', name: 'S. Teresa de Ávila', imageUrl: 'https://i.postimg.cc/ht19wsyQ/32654687eb30f846f1f2e9e3edb6f4af.jpg', month: 'Outubro', startDate: '06/10', endDate: '14/10', feastDay: '15/Out' },
-  { id: 'edwiges', name: 'S. Edwiges Duquesa', imageUrl: 'https://i.postimg.cc/pTPYrzkQ/formacao-1600x1200-novena-sta-edwigens.jpg', month: 'Outubro', startDate: '07/10', endDate: '15/10', feastDay: '16/Out' },
-  { id: 'margarida_alacoque', name: 'S. Margarida Alacoque', imageUrl: 'https://i.postimg.cc/J7QHR03S/66339fa28370276f90d041991767bebd.jpg', month: 'Outubro', startDate: '07/10', endDate: '15/10', feastDay: '16/Out' },
-  { id: 'inacio_antioquia', name: 'S. Inácio de Antioquia', imageUrl: 'https://i.postimg.cc/cvWXNVVK/image.png', month: 'Outubro', startDate: '08/10', endDate: '16/10', feastDay: '17/Out', isMartyr: true },
-  { id: 'lucas', name: 'S. Lucas Evangelista', imageUrl: 'https://i.postimg.cc/LXry2CGX/image.png', month: 'Outubro', startDate: '09/10', endDate: '17/10', feastDay: '18/Out', isMartyr: true },
-  { id: 'pedro_alcantara', name: 'S. Pedro de A.', imageUrl: 'https://i.postimg.cc/LnDZnwJ2/image.png', month: 'Outubro', startDate: '10/10', endDate: '18/10', feastDay: '19/Out' },
-  { id: 'jp2', name: 'S. João Paulo II', imageUrl: 'https://i.postimg.cc/bsw1Hqcq/image.png', month: 'Outubro', startDate: '13/10', endDate: '21/10', feastDay: '22/Out' },
-  { id: 'frei_galvao', name: 'S. Frei Galvão', imageUrl: 'https://i.postimg.cc/sBYBCLdn/image.png', month: 'Outubro', startDate: '16/10', endDate: '24/10', feastDay: '25/Out' },
-  { id: 'judas_tadeu', name: 'S. Judas Tadeu Apóstolo', imageUrl: 'https://i.postimg.cc/9wrF08KF/image.png', month: 'Outubro', startDate: '19/10', endDate: '27/10', feastDay: '28/Out', isMartyr: true },
+  { id: 'carlo_acutis', name: 'São Carlo Acutis', imageUrl: 'https://i.postimg.cc/CKrbWHjb/8a6ca2d967cbe5b8b65b068da82f495e.jpg', month: 'Outubro', startDate: '03/10', endDate: '11/10', feastDay: '12/Out' },
+  { id: 'teresa_avila', name: 'Santa Teresa de Ávila', imageUrl: 'https://i.postimg.cc/ht19wsyQ/32654687eb30f846f1f2e9e3edb6f4af.jpg', month: 'Outubro', startDate: '06/10', endDate: '14/10', feastDay: '15/Out' },
+  { id: 'edwiges', name: 'Santa Edwiges', imageUrl: 'https://i.postimg.cc/pTPYrzkQ/formacao-1600x1200-novena-sta-edwigens.jpg', month: 'Outubro', startDate: '07/10', endDate: '15/10', feastDay: '16/Out' },
+  { id: 'margarida_alacoque', name: 'Santa Margarida Maria Alacoque', imageUrl: 'https://i.postimg.cc/J7QHR03S/66339fa28370276f90d041991767bebd.jpg', month: 'Outubro', startDate: '07/10', endDate: '15/10', feastDay: '16/Out' },
+  { id: 'inacio_antioquia', name: 'São Inácio de Antioquia', imageUrl: 'https://i.postimg.cc/cvWXNVVK/image.png', month: 'Outubro', startDate: '08/10', endDate: '16/10', feastDay: '17/Out', isMartyr: true },
+  { id: 'lucas', name: 'São Lucas Evangelista', imageUrl: 'https://i.postimg.cc/LXry2CGX/image.png', month: 'Outubro', startDate: '09/10', endDate: '17/10', feastDay: '18/Out', isMartyr: true },
+  { id: 'pedro_alcantara', name: 'São Pedro de Alcântara', imageUrl: 'https://i.postimg.cc/LnDZnwJ2/image.png', month: 'Outubro', startDate: '10/10', endDate: '18/10', feastDay: '19/Out' },
+  { id: 'jp2', name: 'São João Paulo II', imageUrl: 'https://i.postimg.cc/bsw1Hqcq/image.png', month: 'Outubro', startDate: '13/10', endDate: '21/10', feastDay: '22/Out' },
+  { id: 'frei_galvao', name: 'São Frei Galvão', imageUrl: 'https://i.postimg.cc/sBYBCLdn/image.png', month: 'Outubro', startDate: '16/10', endDate: '24/10', feastDay: '25/Out' },
+  { id: 'judas_tadeu', name: 'São Judas Tadeu', imageUrl: 'https://i.postimg.cc/9wrF08KF/image.png', month: 'Outubro', startDate: '19/10', endDate: '27/10', feastDay: '28/Out', isMartyr: true },
   { id: 'chiara_luce', name: 'Beata Chiara Luce', imageUrl: 'https://i.postimg.cc/YSW99892/image.png', month: 'Outubro', startDate: '20/10', endDate: '28/10', feastDay: '29/Out' },
-  { id: 'todos_santos', name: 'Todos os Santos', imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg', month: 'Outubro', startDate: '23/10', endDate: '31/10', feastDay: '01/Nov' },
-  //Novembro
-  { id: 'almas', name: 'Almas', imageUrl: 'https://i.postimg.cc/G2DDG2TC/dfed164f02d4d4d2bccaa939385df13b.jpg', month: 'Novembro', startDate: '24/10', endDate: '01/11', feastDay: '02/Nov' },
-  { id: 'isabel_hungria', name: 'S. Isabel da Hungria', imageUrl: 'https://iili.io/KpAYfLl.jpg', month: 'Novembro', startDate: '08/11', endDate: '16/11', feastDay: '17/Nov' },
+  { id: 'todos_santos', name: 'Todos os Santos', imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg', month: 'Outubro/Novembro', startDate: '23/10', endDate: '31/10', feastDay: '01/Nov' },
+
+  // Novembro
+  { id: 'almas', name: 'Almas', imageUrl: 'https://i.postimg.cc/G2DDG2TC/dfed164f02d4d4d2bccaa939385df13b.jpg', month: 'Outubro/Novembro', startDate: '24/10', endDate: '01/11', feastDay: '02/Nov' },
+  { id: 'isabel_hungria', name: 'Santa Isabel da Hungria', imageUrl: 'https://iili.io/KpAYfLl.jpg', month: 'Novembro', startDate: '08/11', endDate: '16/11', feastDay: '17/Nov' },
   { id: 'apresentacao_ns', name: 'Apres. de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
   { id: 'ns_saude', name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
-  { id: 'santa_cecilia', name: 'S. Cecília Mártir', imageUrl: 'https://i.postimg.cc/4xDNjn2c/image.png', month: 'Novembro', startDate: '13/11', endDate: '21/11', feastDay: '22/Nov', isMartyr: true },
+  { id: 'santa_cecilia', name: 'Santa Cecília', imageUrl: 'https://i.postimg.cc/4xDNjn2c/image.png', month: 'Novembro', startDate: '13/11', endDate: '21/11', feastDay: '22/Nov', isMartyr: true },
   { id: 'gracas', name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', month: 'Novembro', startDate: '18/11', endDate: '26/11', feastDay: '27/Nov' },
   { id: 'cristo_rei', name: 'Cristo Rei', imageUrl: 'https://iili.io/KpYFw6G.jpg', month: 'Novembro', startDate: '14/11', endDate: '22/11', feastDay: '23/Nov' },
   { id: 'imaculada_conceicao', name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', month: 'Novembro/Dezembro', startDate: '29/11', endDate: '07/12', feastDay: '08/Dez' },
   // Dezembro
   { id: 'guadalupe', name: 'N.S. de Guadalupe', imageUrl: 'https://images.cdn-files-a.com/uploads/5860772/2000_63cdf81a70b88.jpg', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '12/Dez' },
-  { id: 'santa_luzia', name: 'Santa Luzia Mártir', imageUrl: 'https://iili.io/ffgqFiN.png', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '13/Dez', isMartyr: true },
-  { id: 'joao_cruz', name: 'S. João da Cruz', imageUrl: 'https://iili.io/ffgFMWN.jpg', month: 'Dezembro', startDate: '05/12', endDate: '13/12', feastDay: '14/Dez' },
+  { id: 'santa_luzia', name: 'Santa Luzia', imageUrl: 'https://iili.io/ffgqFiN.png', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '13/Dez', isMartyr: true },
+  { id: 'joao_cruz', name: 'São João da Cruz', imageUrl: 'https://iili.io/ffgFMWN.jpg', month: 'Dezembro', startDate: '05/12', endDate: '13/12', feastDay: '14/Dez' },
   { id: 'natal', name: 'Novena de Natal', imageUrl: 'https://iili.io/ffgFVsI.jpg', month: 'Dezembro', startDate: '16/12', endDate: '24/12', feastDay: '25/Dez' },
-  { id: 'maria_mae_deus', name: 'S. Maria Mãe de Deus', imageUrl: 'https://i.postimg.cc/5jcQ5mG4/santa-maria-mae-de-deus.jpg', month: 'Dezembro/Janeiro', startDate: '23/12', endDate: '31/12', feastDay: '01/Jan' },
+  { id: 'maria_mae_deus', name: 'Santa Maria Mãe de Deus', imageUrl: 'https://i.postimg.cc/5jcQ5mG4/santa-maria-mae-de-deus.jpg', month: 'Dezembro/Janeiro', startDate: '23/12', endDate: '31/12', feastDay: '01/Jan' },
   { id: 'epifania', name: 'Epifania', imageUrl: 'https://iili.io/ffgF6ge.jpg', month: 'Dezembro/Janeiro', startDate: '28/12', endDate: '05/01', feastDay: '06/Jan' },
 ];
 

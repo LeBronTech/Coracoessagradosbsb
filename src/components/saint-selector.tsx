@@ -5,7 +5,7 @@ import React, { useState, useEffect, useCallback, memo, useRef, useMemo } from '
 import Image from 'next/image';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
 import type { EmblaOptionsType } from 'embla-carousel';
-import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl, getMainNameFontSize } from '@/lib/utils';
 import type { Saint } from '@/lib/data';
 import { novenaData } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
@@ -273,10 +273,24 @@ function SaintSelector({
                       style={{ objectPosition: (saint as any).imageObjectPosition || 'center' }}
                     />
                     <div className="flex flex-col items-center leading-tight mt-1">
-                      <p className="text-sm font-bold text-gray-800 font-brand">{formatSaintName(saint.name).main}</p>
-                      {formatSaintName(saint.name).additional && (
-                        <p className="text-[10px] font-normal text-gray-500 opacity-80">{formatSaintName(saint.name).additional}</p>
-                      )}
+                      {(() => {
+                        const { main, additional } = formatSaintName(saint.name);
+                        return (
+                          <>
+                            <p className={cn(
+                              "font-bold text-gray-800 font-brand whitespace-nowrap",
+                              getMainNameFontSize(main)
+                            )}>
+                              {main}
+                            </p>
+                            {additional && (
+                              <p className="text-[10px] font-normal text-gray-500 opacity-80 whitespace-nowrap">
+                                {additional}
+                              </p>
+                            )}
+                          </>
+                        );
+                      })()}
                     </div>
                     {novenaData[saint.id]?.novenaTitle?.toLowerCase().includes('trezena') && (
                       <div className="-mt-1 -mb-1 relative flex items-center justify-center">
