@@ -4,8 +4,8 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand } from 'lucide-react';
-import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName } from '@/lib/utils';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand, Lightbulb } from 'lucide-react';
+import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName, getSaintIntercession } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
@@ -243,9 +243,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     function handleInteraction(event: Event) {
       if (isAutoDisplay || !isAlertExpanded) return;
 
-      if (event.type === 'scroll') {
-        setIsAlertExpanded(false);
-      } else if (event.type === 'mousedown' || event.type === 'touchstart') {
+      if (event.type === 'mousedown' || event.type === 'touchstart') {
         if (alertContainerRef.current && !alertContainerRef.current.contains(event.target as Node)) {
           setIsAlertExpanded(false);
         }
@@ -255,13 +253,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     if (isAlertExpanded && !isAutoDisplay) {
       document.addEventListener('mousedown', handleInteraction);
       document.addEventListener('touchstart', handleInteraction);
-      window.addEventListener('scroll', handleInteraction, { passive: true });
     }
 
     return () => {
       document.removeEventListener('mousedown', handleInteraction);
       document.removeEventListener('touchstart', handleInteraction);
-      window.removeEventListener('scroll', handleInteraction);
     };
   }, [isAlertExpanded, isAutoDisplay]);
 
@@ -336,7 +332,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               setIsAlertExpanded(false);
               setIsAutoDisplay(false);
               alertTimerRef.current = null;
-            }, 5000);
+            }, 12000);
           }
           return prev;
         });
@@ -873,67 +869,101 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               {description || ''}
             </p>
             {saint.startDate && (
-              <div ref={alertContainerRef} className="mt-1 relative w-full sm:w-fit mx-auto sm:mx-0">
-                {/* Linha de data e status — Mártir tem prioridade */}
-                <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-0 relative">
+              <div ref={alertContainerRef} className="mt-3 relative w-full">
+                {/* Linha de data, status e botão Dica */}
+                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
                   {saint.isMartyr && (
-                    <span className="text-[10px] font-bold px-3 py-0.5 rounded-full bg-red-700 text-white shadow-lg animate-in fade-in zoom-in duration-300 uppercase tracking-widest z-10">
+                    <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-red-700 text-white shadow-lg animate-in fade-in zoom-in duration-300 uppercase tracking-widest">
                       Mártir
                     </span>
                   )}
-                  <span className={cn(
-                    "inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm",
-                    saint.isMartyr && "-mt-1.5 sm:mt-0 sm:-ml-2"
-                  )}>
+                  <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
                     {novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}: {saint.startDate} a {saint.endDate}
                   </span>
-                  {alertInfo && (
-                    <button
-                      onClick={() => {
-                        setIsAlertExpanded(!isAlertExpanded);
-                        setIsAutoDisplay(false);
-                        if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-                      }}
-                      className="w-7 h-7 rounded-full border-[#D4AF37] border-[1.5px] bg-black/20 backdrop-blur-sm text-[#D4AF37] hover:bg-[#D4AF37]/20 flex items-center justify-center flex-shrink-0 transition-all duration-200 ml-1"
-                    >
-                      <div className="hidden sm:block">
-                        {isAlertExpanded ? <ChevronLeft className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
-                      </div>
-                      <div className="sm:hidden">
-                        <ChevronDown className={cn(
-                          "w-4 h-4 transition-transform duration-300",
-                          isAlertExpanded ? "rotate-180" : "rotate-0"
-                        )} />
-                      </div>
-                    </button>
-                  )}
+                  
+                  {/* Botão translúcido com lâmpada e nome 'Dica' em layout vermelho */}
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsAlertExpanded(!isAlertExpanded);
+                      setIsAutoDisplay(false);
+                      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                    }}
+                    className={cn(
+                      "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md transition-all duration-300 shadow-sm border cursor-pointer select-none",
+                      isAlertExpanded
+                        ? "bg-red-600/40 text-white border-red-400/70 shadow-[0_0_14px_rgba(239,68,68,0.45)] scale-[1.02]"
+                        : "bg-red-950/40 hover:bg-red-900/60 text-red-200 border-red-500/40 hover:border-red-400/70 hover:scale-[1.02]"
+                    )}
+                    title="Ver dica de oração, intercessão e andamento da novena"
+                  >
+                    <Lightbulb className={cn(
+                      "w-3.5 h-3.5 transition-transform duration-300",
+                      isAlertExpanded ? "text-red-300 scale-110" : "text-red-400"
+                    )} />
+                    <span>Dica</span>
+                    <span className={cn(
+                      "text-[9px] transition-transform duration-300 opacity-80",
+                      isAlertExpanded ? "rotate-180" : "rotate-0"
+                    )}>
+                      ▼
+                    </span>
+                  </button>
                 </div>
 
-                {/* Bloco de aviso — Agora como um Pop-up flutuante */}
-                {alertInfo && (
-                  <div
-                    className={cn(
-                      "absolute z-[150] transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]",
-                      // Mobile: below the date capsule
-                      "top-full left-1/2 -translate-x-1/2 w-[88vw] max-w-[260px] mt-2 origin-top",
-                      // Desktop: exactly to the side of the button
-                      "sm:top-1/2 sm:left-full sm:-translate-y-1/2 sm:translate-x-4 sm:w-[320px] sm:origin-left",
-                      isAlertExpanded 
-                        ? "opacity-100 translate-y-0 sm:translate-x-4 scale-100" 
-                        : "opacity-0 -translate-y-4 sm:translate-y-0 sm:translate-x-0 scale-95 pointer-events-none"
-                    )}
-                  >
-                    <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl border flex flex-col items-center justify-center text-center gap-1.5 sm:gap-2 bg-black/85 border-white/20 text-white backdrop-blur-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] ring-1 ring-white/10">
-                      <div className="w-8 h-1 rounded-full bg-white/20 mb-1 sm:hidden" />
-                      <h4 className="font-bold font-brand text-sm sm:text-base mb-0.5 text-[#D4AF37]">
-                        {alertInfo.title}
-                      </h4>
-                      <p className="text-[12px] sm:text-sm text-center opacity-95 leading-relaxed">
-                        {alertInfo.description}
+                {/* Caixa translúcida expansível de Dica & Intercessão — Layout Vermelho */}
+                <div
+                  className={cn(
+                    "w-full transition-all duration-500 ease-in-out overflow-hidden",
+                    isAlertExpanded
+                      ? "max-h-[350px] opacity-100 mt-3 pointer-events-auto"
+                      : "max-h-0 opacity-0 mt-0 pointer-events-none"
+                  )}
+                >
+                  <div className="relative p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-red-950/85 via-red-900/60 to-black/85 border border-red-500/40 text-white backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.5)] ring-1 ring-red-400/20 text-left">
+                    {/* Cabeçalho com ícone de lâmpada e botão de fechar */}
+                    <div className="flex items-center justify-between gap-2 pb-2 mb-2.5 border-b border-red-400/20">
+                      <div className="flex items-center gap-2 text-red-200 font-semibold text-xs sm:text-sm">
+                        <div className="p-1.5 rounded-full bg-red-600/30 border border-red-400/40 shadow-inner">
+                          <Lightbulb className="w-3.5 h-3.5 text-red-300" />
+                        </div>
+                        <span className="tracking-wide">Dica & Intercessão</span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setIsAlertExpanded(false);
+                          setIsAutoDisplay(false);
+                          if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                        }}
+                        className="text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
+                        title="Recolher dica"
+                      >
+                        <X className="w-3.5 h-3.5" />
+                      </button>
+                    </div>
+
+                    {/* Objetivo da oração / Graças pedidas */}
+                    <div className="text-xs sm:text-sm text-white/95 leading-relaxed mb-3">
+                      <span className="text-red-300 font-semibold block mb-0.5">Por que rezar e pedir nesta novena:</span>
+                      <p className="text-white/90">
+                        {getSaintIntercession(saint.id, saint.name)}
                       </p>
                     </div>
+
+                    {/* Andamento da novena integrado */}
+                    {alertInfo && (
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 pt-2.5 border-t border-red-400/20 text-[11px] sm:text-xs text-white/90">
+                        <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-full bg-red-600/40 text-red-100 font-semibold text-[10px] sm:text-[11px] border border-red-400/40 flex-shrink-0 shadow-sm">
+                          {alertInfo.title}
+                        </span>
+                        <span className="leading-snug opacity-95">
+                          {alertInfo.description}
+                        </span>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             )}
 

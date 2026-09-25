@@ -305,6 +305,16 @@ export default function Home() {
     };
   }, [hydrated]);
 
+  useEffect(() => {
+    if (selectedSaintId === 'santa_teresinha') {
+      setTheme('theme-red');
+    } else if (selectedSaintId === 'sao_jose_operario' || selectedSaintId === 'sao_jose_19_marco') {
+      setTheme('theme-green');
+    } else if (selectedSaintId) {
+      setTheme('theme-dark-gray');
+    }
+  }, [selectedSaintId]);
+
 
   const smoothScrollToElement = (target: HTMLElement | null, customOffset?: number) => {
     if (!target) return;
@@ -426,11 +436,13 @@ export default function Home() {
       }
     }
     
-    // Tema específico por santo
-    if (id === 'sao_jose_operario' || id === 'sao_jose_19_marco') {
+    // Tema específico por santo: Santa Terezinha é vermelha, São José é verde, demais voltam para o cinza padrão
+    if (id === 'santa_teresinha') {
+      setTheme('theme-red');
+    } else if (id === 'sao_jose_operario' || id === 'sao_jose_19_marco') {
       setTheme('theme-green');
     } else {
-      setTheme(prev => prev === 'theme-green' ? 'theme-dark-gray' : prev);
+      setTheme('theme-dark-gray');
     }
 
     // Acionar a rolagem suave até a novena selecionada

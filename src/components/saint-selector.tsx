@@ -11,6 +11,7 @@ import { novenaData } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
 import { Heart } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { MartyrSymbol } from '@/components/martyr-symbol';
 
 const OPTIONS: EmblaOptionsType = { loop: true, align: 'center', containScroll: false };
 type EmblaApi = UseEmblaCarouselType[1];
@@ -272,7 +273,7 @@ function SaintSelector({
                       )}
                       style={{ objectPosition: (saint as any).imageObjectPosition || 'center' }}
                     />
-                    <div className="flex flex-col items-center leading-tight mt-1">
+                    <div className="flex flex-col items-center leading-tight mt-1 min-h-[30px] justify-center">
                       {(() => {
                         const { main, additional } = formatSaintName(saint.name);
                         return (
@@ -284,9 +285,17 @@ function SaintSelector({
                               {main}
                             </p>
                             {additional && (
-                              <p className="text-[10px] font-normal text-gray-500 opacity-80 whitespace-nowrap">
-                                {additional}
+                              <p className="text-[10px] font-normal text-gray-500 opacity-80 whitespace-nowrap flex items-center justify-center gap-1">
+                                <span>{additional}</span>
+                                {saint.isMartyr && (
+                                  <MartyrSymbol className="w-3.5 h-3.5 ml-0.5" />
+                                )}
                               </p>
+                            )}
+                            {!additional && saint.isMartyr && (
+                              <div className="flex items-center justify-center">
+                                <MartyrSymbol className="w-3.5 h-3.5" />
+                              </div>
                             )}
                           </>
                         );
@@ -300,15 +309,7 @@ function SaintSelector({
                         </div>
                       </div>
                     )}
-                    {saint.isMartyr && (
-                      <div className="-mt-1 mb-1 bg-red-700/80 text-white px-3 py-0.5 rounded-full text-[9px] font-bold leading-tight shadow-sm uppercase tracking-widest">
-                        Mártir
-                      </div>
-                    )}
-                    <div className={cn(
-                      "mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm",
-                      saint.isMartyr ? "-mt-1" : "mt-1"
-                    )}>
+                    <div className="mt-1 mb-0.5 bg-primary text-primary-foreground px-3 py-0.5 rounded-full text-[11px] font-bold tracking-wide shadow-sm">
                       Início: {saint.startDate}
                     </div>
                   </>
