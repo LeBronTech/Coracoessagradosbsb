@@ -63,13 +63,24 @@ const marianDevotions = [
 
 const getRealSaintIdFromHash = (hashStr: string): string => {
   if (!hashStr) return "";
-  if (hashStr === 'santa_rita') {
-    // Busca se existe santa_rita_cassia ou rita_cassia na base de dados
+  const cleanHash = decodeURIComponent(hashStr).trim().replace(/^#/, '');
+  const normalized = cleanHash.replace(/-/g, '_').toLowerCase();
+
+  if (normalized === 'santa_rita' || normalized === 'rita_cassia' || normalized === 'santa_rita_cassia') {
     const hasSantaRitaCassia = saints.some(s => s.id === 'santa_rita_cassia');
     if (hasSantaRitaCassia) return 'santa_rita_cassia';
     return 'rita_cassia';
   }
-  return hashStr;
+
+  // Verificar correspondência exata de ID ou normalizada
+  const exact = saints.find(s => s.id.toLowerCase() === normalized || s.id.toLowerCase() === cleanHash.toLowerCase());
+  if (exact) return exact.id;
+
+  // Verificar se bate com âncora
+  const byAnchor = saints.find(s => getAnchorForSaint(s.id).toLowerCase() === normalized || getAnchorForSaint(s.id).toLowerCase() === cleanHash.toLowerCase());
+  if (byAnchor) return byAnchor.id;
+
+  return cleanHash;
 };
 
 const getAnchorForSaint = (id: string): string => {
@@ -223,6 +234,14 @@ export default function Home() {
       initialMonthScroll = initialMonth;
       initialSaintScrollId = initialNovenaId;
       setScrollTarget('title');
+
+      if (saintFromHash.id === 'santa_teresinha') {
+        setTheme('theme-red');
+      } else if (saintFromHash.id === 'sao_jose_operario' || saintFromHash.id === 'sao_jose_19_marco') {
+        setTheme('theme-green');
+      } else {
+        setTheme('theme-dark-gray');
+      }
     } else {
       const saintsWithDates = saints.map(s => {
         const [startDay, startMonth] = s.startDate.split('/').map(Number);
@@ -242,26 +261,37 @@ export default function Home() {
         const diffStart = startD.getTime() - todayOnlyDate.getTime();
         const daysUntilStart = Math.ceil(diffStart / (1000 * 60 * 60 * 24));
 
-        return { saint: s, daysUntilStart, endD };
+        return { saint: s, daysUntilStart, endD, startD };
       });
 
-      const closestSaint = saintsWithDates
+      const activeOrUpcoming = saintsWithDates
         .filter(item => item.endD >= todayOnlyDate)
         .sort((a, b) => {
-          if (a.daysUntilStart <= 0 && b.daysUntilStart > 0) return -1;
-          if (b.daysUntilStart <= 0 && a.daysUntilStart > 0) return 1;
-          return Math.abs(a.daysUntilStart) - Math.abs(b.daysUntilStart);
-        })[0];
+          // 1. Novena que começa exatamente hoje tem prioridade máxima
+          if (a.daysUntilStart === 0 && b.daysUntilStart !== 0) return -1;
+          if (b.daysUntilStart === 0 && a.daysUntilStart !== 0) return 1;
+
+          // 2. Novenas em andamento têm prioridade sobre novenas futuras
+          const aIsActive = a.startD <= todayOnlyDate && a.endD >= todayOnlyDate;
+          const bIsActive = b.startD <= todayOnlyDate && b.endD >= todayOnlyDate;
+
+          if (aIsActive && !bIsActive) return -1;
+          if (!aIsActive && bIsActive) return 1;
+
+          if (aIsActive && bIsActive) {
+            return Math.abs(a.daysUntilStart) - Math.abs(b.daysUntilStart);
+          }
+
+          return a.daysUntilStart - b.daysUntilStart;
+        });
+
+      const closestSaint = activeOrUpcoming[0] || saintsWithDates[0];
 
       if (closestSaint) {
         initialSaintScrollId = closestSaint.saint.id;
         const saintMonths = closestSaint.saint.month.split('/').map(m => m.trim());
         const currentMonthName = months[todayOnlyDate.getMonth()];
         initialMonthScroll = saintMonths.includes(currentMonthName) ? currentMonthName : saintMonths[0];
-        // Only set scroll target if we have a specific hash, 
-        // OR if you want it to scroll to the "closest" on every refresh (maybe not desirable for everyone, but let's see)
-        // If there's a hash, we definitely want to scroll.
-        if (hash) setScrollTarget('title');
       }
     }
 
@@ -288,7 +318,16 @@ export default function Home() {
         
         setSelectedMonth(targetMonth);
         setSelectedSaintId(saint.id);
+        setClosestSaintId(saint.id);
         setScrollTarget('title');
+
+        if (saint.id === 'santa_teresinha') {
+          setTheme('theme-red');
+        } else if (saint.id === 'sao_jose_operario' || saint.id === 'sao_jose_19_marco') {
+          setTheme('theme-green');
+        } else {
+          setTheme('theme-dark-gray');
+        }
       }
     };
 
@@ -451,18 +490,7 @@ export default function Home() {
 
   const handleMonthChange = (month: string) => {
     setSelectedMonth(month);
-    const saintsInNewMonth = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(month));
-
-    // Check if the current selected ID is valid for the new month
-    const isValidForMonth = saintsInNewMonth.some(s => s.id === selectedSaintId);
-
-    // Special case for Natal novenas which are not in the main saints list but belong to December
-    const isNatalNovena = (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia') && month === 'Dezembro';
-
-    if (selectedSaintId && !isValidForMonth && !isNatalNovena) {
-      setSelectedSaintId(null);
-    }
-  }
+  };
 
   // Preload images for current month to avoid jank when switching
   useEffect(() => {
