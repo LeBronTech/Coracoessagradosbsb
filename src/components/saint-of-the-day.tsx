@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
 import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
-import { cn, formatSaintName, getProxiedImageUrl } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl, getDropCapClass } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
 import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -564,7 +564,12 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               )}
 
               <div className="p-1">
-                {currentSaintData && <div className="prose prose-sm max-w-none pt-4" dangerouslySetInnerHTML={{ __html: currentSaintData.story }} />}
+                {currentSaintData && (
+                  <div
+                    className={cn("prose prose-sm max-w-none pt-4", getDropCapClass(currentSaintData.story))}
+                    dangerouslySetInnerHTML={{ __html: currentSaintData.story }}
+                  />
+                )}
 
                 {liturgicalData && liturgicalData.readings && (
                   <div ref={liturgySectionRef}>

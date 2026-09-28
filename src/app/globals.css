@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Alex+Brush&family=Dancing+Script:wght@700&family=Great+Vibes&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -79,6 +79,11 @@
     font-family: 'Cinzel Decorative', serif;
   }
 
+  .font-gothic {
+    font-family: 'UnifrakturMaguntia', 'Cinzel Decorative', Georgia, serif;
+    letter-spacing: 0.03em;
+  }
+
   .font-cursive,
   .font-novena-rosas {
     font-family: 'Great Vibes', 'Alex Brush', 'Dancing Script', cursive !important;
@@ -88,12 +93,17 @@
   .novena-rosas-title::first-letter,
   .novena-rosas-container::first-letter,
   .novena-rosas-container *::first-letter,
+  .novena-sacred-opening::first-letter,
+  .novena-sacred-opening *::first-letter,
   .initial-prayer-text .novena-rosas-container *::first-letter {
     all: unset !important;
     font-family: inherit !important;
     font-size: inherit !important;
+    font-weight: inherit !important;
     float: none !important;
     display: inline !important;
+    margin: 0 !important;
+    padding: 0 !important;
     line-height: inherit !important;
   }
 
@@ -155,6 +165,7 @@
   }
 
   .day-specific-content>p:first-of-type::first-letter,
+  .day-specific-content p:first-of-type::first-letter,
   .prayer-request>p:first-of-type::first-letter,
   .prayer-block>p:first-of-type::first-letter,
   .initial-prayer-text>.prayer-block:first-of-type p:first-of-type::first-letter,
@@ -163,17 +174,38 @@
   .prose>blockquote:first-of-type+p::first-letter,
   .saint-day-content .prose>p:first-of-type::first-letter {
     font-family: 'Cinzel Decorative', serif;
-    font-size: 4.5em;
+    font-size: 4.2em;
     font-weight: bold;
     float: left;
-    line-height: 0.9;
-    padding-top: 0.1em;
-    margin-right: 0.25em;
+    line-height: 0.85;
+    padding-top: 0.05em;
+    margin-right: 0.32em;
+    padding-right: 0.04em;
     transition: color 0.4s ease;
+  }
+
+  /* Letras com rabicho ou cauda estendida em Cinzel Decorative (R, K, Ó, O, A, D, M, etc.) */
+  .dropcap-wide p:first-of-type::first-letter,
+  .dropcap-wide.day-specific-content p:first-of-type::first-letter,
+  .day-specific-content .dropcap-wide p:first-of-type::first-letter,
+  .dropcap-wide.prose>p:first-of-type::first-letter {
+    margin-right: 0.48em !important;
+    padding-right: 0.08em !important;
+  }
+
+  /* Letra Q especificamente (tem o maior rabicho/cauda de todos na Cinzel Decorative que cobria a palavra) */
+  .dropcap-q p:first-of-type::first-letter,
+  .dropcap-q.day-specific-content p:first-of-type::first-letter,
+  .day-specific-content .dropcap-q p:first-of-type::first-letter,
+  .dropcap-q.prose>p:first-of-type::first-letter {
+    margin-right: 0.65em !important;
+    padding-right: 0.14em !important;
   }
 
   .main-card.theme-light-gray .day-specific-content>p:first-of-type::first-letter,
   .main-card.theme-default .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-light-gray .day-specific-content p:first-of-type::first-letter,
+  .main-card.theme-default .day-specific-content p:first-of-type::first-letter,
   .main-card.theme-light-gray .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-default .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-light-gray .prayer-block>p:first-of-type::first-letter,
@@ -185,12 +217,19 @@
 
   .main-card.theme-dark-gray .day-specific-content>p:first-of-type::first-letter,
   .main-card.theme-red .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-green .day-specific-content>p:first-of-type::first-letter,
+  .main-card.theme-dark-gray .day-specific-content p:first-of-type::first-letter,
+  .main-card.theme-red .day-specific-content p:first-of-type::first-letter,
+  .main-card.theme-green .day-specific-content p:first-of-type::first-letter,
   .main-card.theme-dark-gray .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-red .prayer-request>p:first-of-type::first-letter,
+  .main-card.theme-green .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-dark-gray .prayer-block>p:first-of-type::first-letter,
   .main-card.theme-red .prayer-block>p:first-of-type::first-letter,
+  .main-card.theme-green .prayer-block>p:first-of-type::first-letter,
   .main-card.theme-dark-gray .prose>h4+p::first-letter,
-  .main-card.theme-red .prose>h4+p::first-letter {
+  .main-card.theme-red .prose>h4+p::first-letter,
+  .main-card.theme-green .prose>h4+p::first-letter {
     color: hsl(var(--primary-foreground));
   }
 

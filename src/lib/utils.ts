@@ -322,3 +322,25 @@ export function getSaintIntercession(saintId?: string, saintName?: string): stri
 
   return "Intercessão poderosa diante de Deus para o alcance de graças espirituais, saúde, paz na família, proteção e fortalecimento na fé católica.";
 }
+
+/**
+ * Detecta a primeira letra de um texto/HTML para aplicar espaçamento dinâmico à capitular
+ * (letras com rabicho/flourish largo como Q, R, K, Ó, A, D, M)
+ */
+export function getDropCapClass(htmlContent?: string | null): string {
+  if (!htmlContent) return '';
+  // Remove tags HTML e procura a primeira letra válida
+  const textMatch = htmlContent.replace(/<[^>]+>/g, ' ').trim().match(/^[^\p{L}]*(\p{L})/u);
+  if (!textMatch) return '';
+  const char = textMatch[1].toUpperCase();
+
+  // Letra Q possui o maior rabicho/cauda na Cinzel Decorative
+  if (char === 'Q') return 'dropcap-q';
+
+  // Letras com cauda ou pernas decorativas largas
+  if (['R', 'K', 'Ó', 'O', 'Õ', 'Ô', 'A', 'Á', 'À', 'Ã', 'Â', 'D', 'M', 'W', 'G', 'C', 'T', 'H'].includes(char)) {
+    return 'dropcap-wide';
+  }
+
+  return 'dropcap-normal';
+}

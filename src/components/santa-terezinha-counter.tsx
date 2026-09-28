@@ -84,7 +84,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
       className={cn(
         'relative my-4 overflow-hidden rounded-2xl border transition-all duration-500 select-none',
         isCompleted
-          ? 'bg-gradient-to-b from-rose-950/30 via-red-950/20 to-amber-950/25 border-amber-400/40 shadow-[0_8px_30px_rgba(244,63,94,0.2)]'
+          ? 'bg-gradient-to-b from-red-950/60 via-red-900/40 to-red-950/60 border-2 border-white/70 shadow-[0_8px_30px_rgba(255,255,255,0.2)]'
           : 'bg-gradient-to-b from-rose-950/15 via-black/20 to-rose-950/25 border-rose-400/25 shadow-md',
         className
       )}
@@ -152,12 +152,12 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
               title={isCompleted ? '24 orações completadas!' : 'Toque na pétala para somar +1'}
               aria-label="Toque na pétala para contar uma oração"
             >
-              {/* Brilho suave difuso de fundo */}
+              {/* Brilho suave difuso de fundo (estático sem pisca-pisca) */}
               <div
                 className={cn(
                   'absolute -inset-2 rounded-full transition-opacity duration-300 blur-md pointer-events-none',
                   isCompleted
-                    ? 'bg-amber-400/40 opacity-100 animate-pulse'
+                    ? 'bg-white/50 opacity-100'
                     : 'bg-rose-500/35 opacity-70 group-hover:opacity-100'
                 )}
               />
@@ -185,11 +185,11 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                       <stop offset="100%" stopColor="#881337" stopOpacity="0" />
                     </linearGradient>
 
-                    <radialGradient id="goldVelvetGrad" cx="50%" cy="35%" r="65%">
-                      <stop offset="0%" stopColor="#fef08a" />
-                      <stop offset="35%" stopColor="#f59e0b" />
-                      <stop offset="75%" stopColor="#b45309" />
-                      <stop offset="100%" stopColor="#78350f" />
+                    <radialGradient id="redCompletedGrad" cx="50%" cy="35%" r="65%">
+                      <stop offset="0%" stopColor="#ef4444" />
+                      <stop offset="35%" stopColor="#dc2626" />
+                      <stop offset="75%" stopColor="#b91c1c" />
+                      <stop offset="100%" stopColor="#7f1d1d" />
                     </radialGradient>
                   </defs>
 
@@ -200,10 +200,10 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                        C 94 50, 78 78, 50 94
                        C 22 78, 6 50, 12 28
                        C 18 6, 40 4, 50 12 Z"
-                    fill={isCompleted ? 'url(#goldVelvetGrad)' : 'url(#roseVelvetGrad)'}
-                    stroke={isCompleted ? '#fef08a' : '#fecdd3'}
-                    strokeWidth="1.2"
-                    strokeOpacity="0.75"
+                    fill={isCompleted ? 'url(#redCompletedGrad)' : 'url(#roseVelvetGrad)'}
+                    stroke={isCompleted ? '#ffffff' : '#fecdd3'}
+                    strokeWidth={isCompleted ? "2" : "1.2"}
+                    strokeOpacity={isCompleted ? "1" : "0.75"}
                   />
 
                   {/* Curva de relevo superior simulando a dobra aveludada da pétala */}
@@ -220,10 +220,10 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                   <path
                     d="M 50 20 C 49 42, 50 68, 50 88"
                     fill="none"
-                    stroke={isCompleted ? '#fde047' : '#fda4af'}
-                    strokeWidth="1"
+                    stroke={isCompleted ? '#ffffff' : '#fda4af'}
+                    strokeWidth={isCompleted ? "1.5" : "1"}
                     strokeDasharray="2 3"
-                    strokeOpacity="0.4"
+                    strokeOpacity={isCompleted ? "0.9" : "0.4"}
                   />
                 </svg>
 
@@ -269,7 +269,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                 'w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full transition-all duration-300 border flex items-center justify-center focus:outline-none cursor-pointer',
                 i < count
                   ? (isCompleted
-                      ? 'bg-amber-400 border-amber-300 shadow-[0_0_6px_rgba(251,191,36,0.9)] scale-110'
+                      ? 'bg-red-600 border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.95)] scale-110'
                       : 'bg-rose-500 border-rose-300 shadow-[0_0_6px_rgba(244,63,94,0.8)] scale-110')
                   : 'bg-black/25 dark:bg-white/10 border-white/25 hover:border-rose-400/60'
               )}
@@ -280,11 +280,9 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
 
         {/* Feedback especial ao atingir 24 orações */}
         {isCompleted && (
-          <div className="mt-3 px-4 py-2 rounded-xl bg-amber-500/20 border border-amber-300/40 text-amber-100 text-xs sm:text-sm font-medium flex items-center justify-center gap-2 animate-in fade-in zoom-in duration-300">
-            <Sparkles className="w-4 h-4 text-amber-300 shrink-0" />
-            <span>
-              <strong>Glória completada!</strong> 24 orações rezadas pelos 24 anos terrenos de Santa Terezinha.
-            </span>
+          <div className="mt-3 px-4 py-2 rounded-xl bg-red-600/40 border-2 border-white/90 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.35)] animate-in fade-in zoom-in duration-300">
+            <Sparkles className="w-4 h-4 text-white shrink-0 drop-shadow-[0_0_8px_rgba(255,255,255,1)]" />
+            <span className="drop-shadow">Concluído!</span>
           </div>
         )}
 

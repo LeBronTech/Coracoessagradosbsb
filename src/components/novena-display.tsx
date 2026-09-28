@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand, Lightbulb } from 'lucide-react';
-import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName, getSaintIntercession } from '@/lib/utils';
+import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName, getSaintIntercession, getDropCapClass } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
 import Image from 'next/image';
@@ -88,7 +88,8 @@ function cleanDayTitle(title?: string, dayLabel?: string): string {
 }
 
 function NovenaContent({ htmlContent }: { htmlContent: string }) {
-  return <div dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+  const dropCapClass = getDropCapClass(htmlContent);
+  return <div className={dropCapClass} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
 }
 
 const HIGH_RES_MAPPING: Record<string, string> = {
@@ -221,6 +222,40 @@ function getHighResUrl(url: string): string {
   return HIGH_RES_MAPPING[url] || url;
 }
 
+function cleanInitialPrayer(html: string): string {
+  if (!html) return '';
+
+  let cleaned = html;
+
+  // 1. Remover parágrafos de indicação litúrgica de sinal da cruz
+  cleaned = cleaned.replace(/<p[^>]*>\s*Fazer o sinal da cruz\.?\s*<\/p>/gi, '');
+  cleaned = cleaned.replace(/<p[^>]*>\s*Inicia-se com o Sinal da Cruz[^<]*<\/p>/gi, '');
+  cleaned = cleaned.replace(/<p[^>]*>\s*Pelo Sinal da Santa Cruz\s*[♱✞]?\s*<br\s*\/?>\s*Vinde Espírito Santo\s*[❦]?\s*<\/p>/gi, '');
+  cleaned = cleaned.replace(/<p[^>]*>\s*Pelo Sinal da Santa Cruz\s*[♱✞]?\s*<br\s*\/?>\s*Em nome do Pai[^<]*<\/p>/gi, '');
+
+  // 2. Remover fórmulas do Sinal da Cruz (ex: "Pelo sinal da Santa Cruz, livra-nos/livrai-me... Amém.")
+  cleaned = cleaned.replace(/<p[^>]*>\s*[♱✞]?\s*Pelo sinal da Santa Cruz[^<]*<\/p>/gi, '');
+  cleaned = cleaned.replace(/<p[^>]*>\s*[♱✞]?\s*Em nome do Pai,?\s*[♱✞]?\s*(?:e\s*)?do Filho\s*[♱✞]?\s*e\s*do\s*[♱✞]?\s*Espírito Santo\.?\s*Amém\.?\s*<\/p>/gi, '');
+  cleaned = cleaned.replace(/<p[^>]*>\s*Comecemos,?\s*Em nome do Pai[^<]*<\/p>/gi, '');
+
+  // 3. Remover títulos órfãos cuja única finalidade era introduzir o Sinal da Cruz já removido
+  cleaned = cleaned.replace(/<h[3-6][^>]*>\s*Sinal da Cruz\s*<\/h[3-6]>/gi, '');
+  cleaned = cleaned.replace(/<h[3-6][^>]*>\s*(?:Início da Novena|Oração Inicial(?:\s*\([^)]*\))?|Oração preparatória)\s*<\/h[3-6]>(?=\s*(?:<div[^>]*>)?\s*<h[3-6])/gi, '');
+  cleaned = cleaned.replace(/<h[3-6][^>]*>\s*(?:Início da Novena|Oração Inicial(?:\s*\([^)]*\))?|Oração preparatória)\s*<\/h[3-6]>(?=\s*<div\s+class="[^"]*(?:bg-|rounded|prayer-block))/gi, '');
+
+  // 4. Remover divs vazias que possam ter sobrado
+  cleaned = cleaned.replace(/<div[^>]*>\s*<\/div>/gi, '');
+  cleaned = cleaned.replace(/<div class="prayer-block">\s*<\/div>/gi, '');
+
+  // 5. Verificar se sobrou conteúdo textual real (não apenas tags vazias)
+  const textOnly = cleaned.replace(/<[^>]*>/g, '').replace(/&nbsp;/g, ' ').trim();
+  if (textOnly.length === 0) {
+    return '';
+  }
+
+  return cleaned.trim();
+}
+
 export default function NovenaDisplay({ saint, novena, theme, setTheme }: NovenaDisplayProps) {
   const [animationState, setAnimationState] = useState<'idle' | 'out' | 'in'>('idle');
   const [api, setApi] = useState<CarouselApi>();
@@ -286,24 +321,69 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         }
       }
 
-      const diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
-      const diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
+      const isQuaresmaSaoMiguel = saint.id === 'quaresma_sao_miguel';
+      const isSundayToday = todayOnlyDate.getDay() === 0;
 
-      if (diffStart >= 0 && diffStart < (novena?.days?.length || 9)) {
-        setCurrentOfficialDayIndex(diffStart);
+      let officialDayIdx: number | null = null;
+      let diffStart = 0;
+      let diffEnd = 0;
+
+      if (isQuaresmaSaoMiguel) {
+        // Na Quaresma de São Miguel Arcanjo NÃO se contam os domingos nos 40 dias de penitência
+        if (todayOnlyDate >= startD && todayOnlyDate <= endD) {
+          if (isSundayToday) {
+            // Aos domingos não há contagem de dia da Quaresma
+            officialDayIdx = null;
+          } else {
+            let nonSundayCount = 0;
+            let cur = new Date(startD);
+            while (cur <= todayOnlyDate) {
+              if (cur.getDay() !== 0) {
+                nonSundayCount++;
+              }
+              cur.setDate(cur.getDate() + 1);
+            }
+            officialDayIdx = Math.min(nonSundayCount - 1, 39);
+          }
+        }
+        diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
+        diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
       } else {
-        setCurrentOfficialDayIndex(null);
+        diffStart = Math.ceil((todayOnlyDate.getTime() - startD.getTime()) / (1000 * 60 * 60 * 24));
+        diffEnd = Math.ceil((endD.getTime() - todayOnlyDate.getTime()) / (1000 * 60 * 60 * 24));
+
+        if (diffStart >= 0 && diffStart < (novena?.days?.length || 9)) {
+          officialDayIdx = diffStart;
+        } else {
+          officialDayIdx = null;
+        }
       }
 
-      // Detectar se é trezena baseado no título
+      setCurrentOfficialDayIndex(officialDayIdx);
+
+      // Detectar se é trezena ou quaresma baseado no título
       const isTrezena = novena?.novenaTitle?.toLowerCase().includes('trezena');
-      const devocaoLabel = isTrezena ? 'trezena' : 'novena';
-      const devocaoLabelCap = isTrezena ? 'Trezena' : 'Novena';
+      const devocaoLabel = isQuaresmaSaoMiguel ? 'quaresma' : (isTrezena ? 'trezena' : 'novena');
+      const devocaoLabelCap = isQuaresmaSaoMiguel ? 'Quaresma' : (isTrezena ? 'Trezena' : 'Novena');
 
       let title = "";
       let description: React.ReactNode = "";
 
-      if (diffStart === 0) {
+      if (isQuaresmaSaoMiguel && todayOnlyDate >= startD && todayOnlyDate <= endD && isSundayToday) {
+        title = "Domingo — Dia do Senhor";
+        description = <>Hoje é domingo: na tradição católica, <strong>não se conta o domingo</strong> nos 40 dias de penitência da Quaresma de São Miguel. É dia de júbilo e descanso espiritual!</>;
+      } else if (isQuaresmaSaoMiguel && officialDayIdx !== null) {
+        if (officialDayIdx === 0) {
+          title = "Inicia Hoje!";
+          description = `A Quaresma de São Miguel Arcanjo começou oficialmente hoje (40 dias de combate espiritual, sem contar os domingos).`;
+        } else if (officialDayIdx === 39) {
+          title = "Último dia (40º Dia)";
+          description = <>Atenção: hoje é o <strong>40º e último dia</strong> da Quaresma de São Miguel Arcanjo antes da grande festa dos Santos Arcanjos.</>;
+        } else {
+          title = "Quaresma em andamento";
+          description = <>A Quaresma de São Miguel está hoje no <strong>{officialDayIdx + 1}º dia</strong> (desconsiderando os domingos). Junte-se às orações!</>;
+        }
+      } else if (diffStart === 0) {
         title = "Inicia Hoje!";
         description = `Esta ${devocaoLabel} começou oficialmente hoje. É o momento perfeito para iniciá-la.`;
       } else if (diffEnd === 0) {
@@ -314,17 +394,34 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         description = <>A {devocaoLabel} está atualmente no <strong>{diffStart + 1}º dia</strong>. Junte-se às orações!</>;
       } else {
         title = "Aviso";
-        description = <>A data oficial inicia em <strong>{saint.startDate}</strong>, mas você pode iniciar e rezar esta {devocaoLabel} em qualquer época ou momento!</>;
+        description = isQuaresmaSaoMiguel
+          ? <>A data oficial inicia em <strong>{saint.startDate}</strong> (até 29/09, sem contar os domingos), mas você pode rezar em qualquer época do ano!</>
+          : <>A data oficial inicia em <strong>{saint.startDate}</strong>, mas você pode iniciar e rezar esta {devocaoLabel} em qualquer época ou momento!</>;
       }
 
       setAlertInfo({ title, description });
 
       // Delay auto-expand to avoid conflict with main entrance animation
       const openTimer = setTimeout(() => {
-        // Only auto-expand if the user hasn't interacted yet (isAutoDisplay would be true or we check isAlertExpanded)
-        // But more importantly, if alertTimerRef is not set by a manual click
         setAlertInfo(prev => {
           if (prev) {
+            // Evitar expandir a dica se o usuário já estiver na posição da aba de dias ou tiver rolado a página
+            if (typeof window !== 'undefined') {
+              if (novenaContentRef.current) {
+                const contentRect = novenaContentRef.current.getBoundingClientRect();
+                // Se a área dos botões de dias/oração já estiver visível ou acima do viewport
+                if (contentRect.top <= window.innerHeight * 0.8) {
+                  return prev;
+                }
+              }
+              if (alertContainerRef.current) {
+                const alertRect = alertContainerRef.current.getBoundingClientRect();
+                if (alertRect.bottom < 50 || window.scrollY > 150) {
+                  return prev;
+                }
+              }
+            }
+
             setIsAlertExpanded(true);
             setIsAutoDisplay(true);
 
@@ -345,6 +442,28 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     }
   }, [saint, novena]);
 
+  // Se a dica foi expandida automaticamente e o usuário começar a rolar a página até a aba de dias, fecha imediatamente
+  useEffect(() => {
+    if (!isAutoDisplay || !isAlertExpanded) return;
+
+    const handleScroll = () => {
+      if (novenaContentRef.current) {
+        const contentRect = novenaContentRef.current.getBoundingClientRect();
+        if (contentRect.top <= window.innerHeight * 0.85) {
+          setIsAlertExpanded(false);
+          setIsAutoDisplay(false);
+          if (alertTimerRef.current) {
+            clearTimeout(alertTimerRef.current);
+            alertTimerRef.current = null;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isAutoDisplay, isAlertExpanded]);
+
   const onSelect = useCallback(() => {
     if (!api) return;
     const newCurrent = api.selectedScrollSnap();
@@ -356,6 +475,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   }, [api, saint, selectedVersionId]);
 
   const scrollTo = useCallback((index: number) => {
+    setIsAlertExpanded(false);
+    setIsAutoDisplay(false);
+    if (alertTimerRef.current) {
+      clearTimeout(alertTimerRef.current);
+      alertTimerRef.current = null;
+    }
     api?.scrollTo(index);
   }, [api]);
 
@@ -557,6 +682,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     };
 
     let fullText = `*${novena.novenaTitle.toUpperCase()}*\n\n`;
+    fullText += `Pelo Sinal da Santa cruz ♱\nVinde Espírito santo ❦\n\n`;
 
     if (novena.initialPrayer) {
       fullText += `*ORAÇÃO INICIAL*\n\n${stripHtml(novena.initialPrayer)}\n\n`;
@@ -620,6 +746,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   };
 
   const isLightTheme = theme === 'theme-light-gray';
+  const isRedTheme = theme === 'theme-red';
 
   const getAnimationClass = () => {
     switch (animationState) {
@@ -783,11 +910,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
         {/* === Content layer === */}
         <div className="relative z-10 flex flex-col p-6 md:p-8">
-          {/* Título apenas para mobile - aparece no topo */}
-          <div className="md:hidden w-full text-center mb-6">
+          {/* Título apenas para mobile - aparece no topo com espaçamento seguro */}
+          <div className="md:hidden w-full text-center mb-6 px-2 relative z-20">
             <div className="flex flex-col items-center leading-tight">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
-              <h2 className="text-2xl font-bold font-brand text-white drop-shadow-lg leading-tight">
+              <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1.5 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
+              <h2 className="text-2xl sm:text-3xl font-bold font-brand text-white drop-shadow-lg leading-snug">
                 {getFullSaintName(saint.name)}
               </h2>
             </div>
@@ -798,22 +925,19 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           <div className="flex flex-col items-center gap-2">
             <Dialog>
               <DialogTrigger asChild>
-                <div className="relative group/img cursor-zoom-in flex-shrink-0">
+                <div className="relative group/img cursor-zoom-in flex-shrink-0 w-40 h-56 md:w-48 md:h-64 rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10 bg-black/40">
                   <Image
                     src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
                     alt={saint.name}
-                    width={200}
-                    height={280}
-                    className="w-40 h-56 md:w-48 md:h-64 rounded-2xl object-cover border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10"
+                    fill
+                    sizes="(max-width: 768px) 160px, 192px"
+                    className="object-cover"
                     style={{
-                      objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center',
-                      transform: ((novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition) === 'top'
-                        ? 'scale(1.18) translateY(-10%)'
-                        : 'none'
+                      objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center'
                     }}
                     priority
                   />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center">
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center pointer-events-none">
                     <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
                   </div>
                 </div>
@@ -1109,15 +1233,35 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           {days.map((day, index) => (
             <CarouselItem key={`content-${index}`}>
               <div className="animate-fade-in">
-                {initialPrayer && (
-                  <div className={proseClasses}>
-                    <div className={cn('initial-prayer-text', !isLightTheme ? '[&_strong]:text-white' : '')}>
-                      <NovenaContent htmlContent={initialPrayer} />
-                    </div>
-                  </div>
-                )}
+                {/* Abertura Sagrada Litúrgica Padronizada com Fonte Gótica na cor Branca */}
+                <div className={cn(
+                  "novena-sacred-opening text-center my-6 py-4 px-4 rounded-2xl max-w-md mx-auto border transition-all duration-300 select-none shadow-md backdrop-blur-md",
+                  isLightTheme
+                    ? "bg-stone-900/85 border-stone-700/80 shadow-md"
+                    : "bg-white/25 border-white/40 shadow-xl ring-1 ring-white/20"
+                )}>
+                  <p className="font-gothic text-2xl sm:text-3xl tracking-wide leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                    Pelo Sinal da Santa cruz ♱
+                  </p>
+                  <p className="font-gothic text-2xl sm:text-3xl tracking-wide mt-1 leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
+                    Vinde Espírito santo ❦
+                  </p>
+                </div>
 
-                {initialPrayer && <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>}
+                {(() => {
+                  const cleanedInitial = initialPrayer ? cleanInitialPrayer(initialPrayer) : '';
+                  if (!cleanedInitial) return null;
+                  return (
+                    <>
+                      <div className={proseClasses}>
+                        <div className={cn('initial-prayer-text', !isLightTheme ? '[&_strong]:text-white' : '')}>
+                          <NovenaContent htmlContent={cleanedInitial} />
+                        </div>
+                      </div>
+                      <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>
+                    </>
+                  );
+                })()}
 
                 {days.length > 1 && (
                   <div className="flex items-center justify-center gap-4 mb-4">
