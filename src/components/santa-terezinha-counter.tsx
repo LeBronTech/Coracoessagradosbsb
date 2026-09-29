@@ -84,7 +84,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
       className={cn(
         'relative my-4 overflow-hidden rounded-2xl border transition-all duration-500 select-none',
         isCompleted
-          ? 'bg-gradient-to-b from-red-950/60 via-red-900/40 to-red-950/60 border-2 border-white/70 shadow-[0_8px_30px_rgba(255,255,255,0.2)]'
+          ? 'bg-gradient-to-b from-red-950/80 via-red-900/60 to-red-950/80 border-2 border-red-700/80 shadow-md'
           : 'bg-gradient-to-b from-rose-950/15 via-black/20 to-rose-950/25 border-rose-400/25 shadow-md',
         className
       )}
@@ -157,7 +157,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                 className={cn(
                   'absolute -inset-2 rounded-full transition-opacity duration-300 blur-md pointer-events-none',
                   isCompleted
-                    ? 'bg-white/50 opacity-100'
+                    ? 'opacity-0'
                     : 'bg-rose-500/35 opacity-70 group-hover:opacity-100'
                 )}
               />
@@ -201,9 +201,9 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                        C 22 78, 6 50, 12 28
                        C 18 6, 40 4, 50 12 Z"
                     fill={isCompleted ? 'url(#redCompletedGrad)' : 'url(#roseVelvetGrad)'}
-                    stroke={isCompleted ? '#ffffff' : '#fecdd3'}
-                    strokeWidth={isCompleted ? "2" : "1.2"}
-                    strokeOpacity={isCompleted ? "1" : "0.75"}
+                    stroke={isCompleted ? '#b91c1c' : '#fecdd3'}
+                    strokeWidth={isCompleted ? "1.5" : "1.2"}
+                    strokeOpacity={isCompleted ? "0.9" : "0.75"}
                   />
 
                   {/* Curva de relevo superior simulando a dobra aveludada da pétala */}
@@ -220,10 +220,10 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                   <path
                     d="M 50 20 C 49 42, 50 68, 50 88"
                     fill="none"
-                    stroke={isCompleted ? '#ffffff' : '#fda4af'}
-                    strokeWidth={isCompleted ? "1.5" : "1"}
+                    stroke={isCompleted ? '#dc2626' : '#fda4af'}
+                    strokeWidth="1"
                     strokeDasharray="2 3"
-                    strokeOpacity={isCompleted ? "0.9" : "0.4"}
+                    strokeOpacity={isCompleted ? "0.7" : "0.4"}
                   />
                 </svg>
 
@@ -269,7 +269,7 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
                 'w-3 h-3 sm:w-3.5 sm:h-3.5 rounded-full transition-all duration-300 border flex items-center justify-center focus:outline-none cursor-pointer',
                 i < count
                   ? (isCompleted
-                      ? 'bg-red-600 border-2 border-white shadow-[0_0_10px_rgba(255,255,255,0.95)] scale-110'
+                      ? 'bg-red-600 border border-red-400/80 scale-105'
                       : 'bg-rose-500 border-rose-300 shadow-[0_0_6px_rgba(244,63,94,0.8)] scale-110')
                   : 'bg-black/25 dark:bg-white/10 border-white/25 hover:border-rose-400/60'
               )}
@@ -280,9 +280,8 @@ export function SantaTerezinhaGloryCounter({ dayIndex, className }: SantaTerezin
 
         {/* Feedback especial ao atingir 24 orações */}
         {isCompleted && (
-          <div className="mt-3 px-4 py-2 rounded-xl bg-red-600/40 border-2 border-white/90 text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(255,255,255,0.35)] animate-in fade-in zoom-in duration-300">
-            <Sparkles className="w-4 h-4 text-white shrink-0 drop-shadow-[0_0_8px_rgba(255,255,255,1)]" />
-            <span className="drop-shadow">Concluído!</span>
+          <div className="mt-3 px-4 py-1.5 rounded-xl bg-red-800/60 border border-red-600 text-white text-xs sm:text-sm font-semibold flex items-center justify-center gap-1.5 shadow-sm">
+            <span>Concluído!</span>
           </div>
         )}
 

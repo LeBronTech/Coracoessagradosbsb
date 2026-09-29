@@ -95,7 +95,17 @@
   .novena-rosas-container *::first-letter,
   .novena-sacred-opening::first-letter,
   .novena-sacred-opening *::first-letter,
-  .initial-prayer-text .novena-rosas-container *::first-letter {
+  .initial-prayer-text .novena-rosas-container *::first-letter,
+  .final-prayer-text::first-letter,
+  .final-prayer-text *::first-letter,
+  .text-center::first-letter,
+  .text-center *::first-letter,
+  [class*="text-center"]::first-letter,
+  [class*="text-center"] *::first-letter,
+  .jaculatory-prayers::first-letter,
+  .jaculatory-prayers *::first-letter,
+  .inline-prayer-pill::first-letter,
+  .inline-prayer-pill *::first-letter {
     all: unset !important;
     font-family: inherit !important;
     font-size: inherit !important;
@@ -105,6 +115,49 @@
     margin: 0 !important;
     padding: 0 !important;
     line-height: inherit !important;
+  }
+
+  /* Pílulas interativas para orações completas inline */
+  .inline-prayer-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: inherit;
+    border-radius: 9999px;
+    padding: 0.05rem 0.5rem;
+    margin: 0.1rem 0.15rem;
+    font-size: 0.9em;
+    font-weight: 600;
+    cursor: pointer;
+    vertical-align: baseline;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  }
+
+  .inline-prayer-pill:hover {
+    background-color: rgba(255, 255, 255, 0.28);
+    border-color: rgba(255, 255, 255, 0.55);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  .theme-light-gray .inline-prayer-pill,
+  .theme-default .inline-prayer-pill {
+    background-color: rgba(136, 19, 55, 0.08);
+    border-color: rgba(136, 19, 55, 0.28);
+    color: #881337;
+  }
+
+  .theme-light-gray .inline-prayer-pill:hover,
+  .theme-default .inline-prayer-pill:hover {
+    background-color: rgba(136, 19, 55, 0.16);
+  }
+
+  .inline-prayer-pill .pill-icon {
+    font-size: 0.85em;
+    opacity: 0.85;
   }
 
   .novena-rosas-container {
@@ -165,11 +218,9 @@
   }
 
   .day-specific-content>p:first-of-type::first-letter,
-  .day-specific-content p:first-of-type::first-letter,
   .prayer-request>p:first-of-type::first-letter,
   .prayer-block>p:first-of-type::first-letter,
   .initial-prayer-text>.prayer-block:first-of-type p:first-of-type::first-letter,
-  .final-prayer-text>.prayer-block:first-of-type p:first-of-type::first-letter,
   .prose>h4+p::first-letter,
   .prose>blockquote:first-of-type+p::first-letter,
   .saint-day-content .prose>p:first-of-type::first-letter {
@@ -185,18 +236,16 @@
   }
 
   /* Letras com rabicho ou cauda estendida em Cinzel Decorative (R, K, Ó, O, A, D, M, etc.) */
-  .dropcap-wide p:first-of-type::first-letter,
-  .dropcap-wide.day-specific-content p:first-of-type::first-letter,
-  .day-specific-content .dropcap-wide p:first-of-type::first-letter,
+  .dropcap-wide.day-specific-content>p:first-of-type::first-letter,
+  .day-specific-content>.dropcap-wide>p:first-of-type::first-letter,
   .dropcap-wide.prose>p:first-of-type::first-letter {
     margin-right: 0.48em !important;
     padding-right: 0.08em !important;
   }
 
   /* Letra Q especificamente (tem o maior rabicho/cauda de todos na Cinzel Decorative que cobria a palavra) */
-  .dropcap-q p:first-of-type::first-letter,
-  .dropcap-q.day-specific-content p:first-of-type::first-letter,
-  .day-specific-content .dropcap-q p:first-of-type::first-letter,
+  .dropcap-q.day-specific-content>p:first-of-type::first-letter,
+  .day-specific-content>.dropcap-q>p:first-of-type::first-letter,
   .dropcap-q.prose>p:first-of-type::first-letter {
     margin-right: 0.65em !important;
     padding-right: 0.14em !important;
@@ -204,8 +253,6 @@
 
   .main-card.theme-light-gray .day-specific-content>p:first-of-type::first-letter,
   .main-card.theme-default .day-specific-content>p:first-of-type::first-letter,
-  .main-card.theme-light-gray .day-specific-content p:first-of-type::first-letter,
-  .main-card.theme-default .day-specific-content p:first-of-type::first-letter,
   .main-card.theme-light-gray .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-default .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-light-gray .prayer-block>p:first-of-type::first-letter,
@@ -218,9 +265,6 @@
   .main-card.theme-dark-gray .day-specific-content>p:first-of-type::first-letter,
   .main-card.theme-red .day-specific-content>p:first-of-type::first-letter,
   .main-card.theme-green .day-specific-content>p:first-of-type::first-letter,
-  .main-card.theme-dark-gray .day-specific-content p:first-of-type::first-letter,
-  .main-card.theme-red .day-specific-content p:first-of-type::first-letter,
-  .main-card.theme-green .day-specific-content p:first-of-type::first-letter,
   .main-card.theme-dark-gray .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-red .prayer-request>p:first-of-type::first-letter,
   .main-card.theme-green .prayer-request>p:first-of-type::first-letter,

@@ -12,6 +12,7 @@ import Image from 'next/image';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { FallingRosePetals, SantaTerezinhaRosesOverlay } from '@/components/falling-rose-petals';
 import { SantaTerezinhaGloryCounter } from '@/components/santa-terezinha-counter';
+import { PrayerModal } from '@/components/prayer-modal';
 
 
 const themeClasses: Record<Theme, string> = {
@@ -87,9 +88,88 @@ function cleanDayTitle(title?: string, dayLabel?: string): string {
   return cleaned;
 }
 
-function NovenaContent({ htmlContent }: { htmlContent: string }) {
-  const dropCapClass = getDropCapClass(htmlContent);
-  return <div className={dropCapClass} dangerouslySetInnerHTML={{ __html: htmlContent }} />;
+export function enrichPrayerHtml(html: string): string {
+  if (!html) return '';
+
+  let inAnchorOrButton = false;
+  return html.replace(/(<\/?[a-zA-Z0-9]+[^>]*>)|([^<]+)/g, (match, tag, text) => {
+    if (tag) {
+      if (/^<(a|button)\b/i.test(tag)) {
+        inAnchorOrButton = true;
+      } else if (/^<\/(a|button)>/i.test(tag)) {
+        inAnchorOrButton = false;
+      }
+      return tag;
+    }
+    if (!text || inAnchorOrButton) return text || '';
+
+    let res = text;
+
+    // Pai-Nosso / Pai Nosso / Pais-Nossos / Pais Nossos / Pater Noster
+    res = res.replace(/\b(Pais[- ]Nossos|Pais Nossos|Pai[- ]Nosso|Pai Nosso|Pater Noster)\b/gi, (m: string) => {
+      return `<button type="button" class="inline-prayer-pill" data-prayer-id="pai-nosso" title="Toque para abrir a oração completa do Pai Nosso">${m} <span class="pill-icon">📖</span></button>`;
+    });
+
+    // Ave-Maria / Ave Maria / Ave-Marias / Ave Marias
+    res = res.replace(/\b(Ave[- ]Marias|Ave Marias|Ave[- ]Maria|Ave Maria)\b/gi, (m: string) => {
+      return `<button type="button" class="inline-prayer-pill" data-prayer-id="ave-maria" title="Toque para abrir a oração completa da Ave Maria">${m} <span class="pill-icon">📖</span></button>`;
+    });
+
+    // Glória ao Pai / Glória à Santíssima Trindade
+    res = res.replace(/\b(Glórias? ao Pai|Glória à Santíssima Trindade)\b/gi, (m: string) => {
+      return `<button type="button" class="inline-prayer-pill" data-prayer-id="gloria" title="Toque para abrir a oração do Glória ao Pai">${m} <span class="pill-icon">📖</span></button>`;
+    });
+
+    // Standalone "Glória" precedido por vírgula ou "e" (ex: "Ave-Maria, Glória" ou "Ave Maria e Glória")
+    res = res.replace(/([,;]|\be\b)\s+(Glórias?)([\s.,;]|$)/gi, (m: string, prefix: string, word: string, suffix: string) => {
+      return `${prefix} <button type="button" class="inline-prayer-pill" data-prayer-id="gloria" title="Toque para abrir a oração do Glória ao Pai">${word} <span class="pill-icon">📖</span></button>${suffix}`;
+    });
+
+    // Credo / Creio em Deus Pai
+    res = res.replace(/\b(Credo|Creio em Deus Pai)\b/g, (m: string) => {
+      return `<button type="button" class="inline-prayer-pill" data-prayer-id="credo" title="Toque para abrir a oração do Credo">${m} <span class="pill-icon">📖</span></button>`;
+    });
+
+    // Salve Rainha / Salve-Rainha
+    res = res.replace(/\b(Salve[- ]Rainha|Salve Rainha)\b/gi, (m: string) => {
+      return `<button type="button" class="inline-prayer-pill" data-prayer-id="salve-rainha" title="Toque para abrir a oração da Salve Rainha">${m} <span class="pill-icon">📖</span></button>`;
+    });
+
+    return res;
+  });
+}
+
+function NovenaContent({
+  htmlContent,
+  enableDropCap = true,
+  onOpenPrayer,
+}: {
+  htmlContent: string;
+  enableDropCap?: boolean;
+  onOpenPrayer?: (id: string) => void;
+}) {
+  const dropCapClass = enableDropCap ? getDropCapClass(htmlContent) : '';
+  const enrichedHtml = enrichPrayerHtml(htmlContent);
+
+  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = (e.target as HTMLElement).closest('[data-prayer-id]');
+    if (target && onOpenPrayer) {
+      const prayerId = target.getAttribute('data-prayer-id');
+      if (prayerId) {
+        e.preventDefault();
+        e.stopPropagation();
+        onOpenPrayer(prayerId);
+      }
+    }
+  };
+
+  return (
+    <div
+      className={dropCapClass}
+      onClick={handleClick}
+      dangerouslySetInnerHTML={{ __html: enrichedHtml }}
+    />
+  );
 }
 
 const HIGH_RES_MAPPING: Record<string, string> = {
@@ -270,6 +350,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
   const [isAutoDisplay, setIsAutoDisplay] = useState(false);
   const [showRoseRain, setShowRoseRain] = useState<boolean>(true);
+  const [activePrayerId, setActivePrayerId] = useState<string | null>(null);
+  const [isPrayerModalOpen, setIsPrayerModalOpen] = useState(false);
+
+  const openPrayerModal = useCallback((prayerId: string) => {
+    setActivePrayerId(prayerId);
+    setIsPrayerModalOpen(true);
+  }, []);
+
   const alertTimerRef = useRef<NodeJS.Timeout | null>(null);
   const alertContainerRef = useRef<HTMLDivElement>(null);
   const novenaContentRef = useRef<HTMLDivElement>(null);
@@ -1233,19 +1321,36 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           {days.map((day, index) => (
             <CarouselItem key={`content-${index}`}>
               <div className="animate-fade-in">
-                {/* Abertura Sagrada Litúrgica Padronizada com Fonte Gótica na cor Branca */}
+                {/* Abertura Sagrada Litúrgica Padronizada com Fonte Gótica e Acesso à Oração Completa */}
                 <div className={cn(
-                  "novena-sacred-opening text-center my-6 py-4 px-4 rounded-2xl max-w-md mx-auto border transition-all duration-300 select-none shadow-md backdrop-blur-md",
+                  "novena-sacred-opening text-center my-4 py-2.5 px-3.5 rounded-xl max-w-sm mx-auto border transition-all duration-300 select-none shadow-md backdrop-blur-md",
                   isLightTheme
                     ? "bg-stone-900/85 border-stone-700/80 shadow-md"
-                    : "bg-white/25 border-white/40 shadow-xl ring-1 ring-white/20"
+                    : "bg-white/25 border-white/40 shadow-lg ring-1 ring-white/20"
                 )}>
-                  <p className="font-gothic text-2xl sm:text-3xl tracking-wide leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-                    Pelo Sinal da Santa cruz ♱
-                  </p>
-                  <p className="font-gothic text-2xl sm:text-3xl tracking-wide mt-1 leading-relaxed text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)]">
-                    Vinde Espírito santo ❦
-                  </p>
+                  <button
+                    type="button"
+                    onClick={() => openPrayerModal('pelo-sinal')}
+                    className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02]"
+                    title="Toque para rezar a oração completa do Pelo Sinal da Santa Cruz"
+                  >
+                    <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                      Pelo Sinal da Santa cruz ♱
+                    </p>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => openPrayerModal('vinde-espirito')}
+                    className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02] mt-0.5"
+                    title="Toque para rezar a oração completa do Vinde Espírito Santo"
+                  >
+                    <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                      Vinde Espírito santo ❦
+                    </p>
+                  </button>
+                  <span className="text-[10px] text-white/70 tracking-wider block mt-1 font-sans">
+                    Toque para rezar a oração completa 📖
+                  </span>
                 </div>
 
                 {(() => {
@@ -1255,7 +1360,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     <>
                       <div className={proseClasses}>
                         <div className={cn('initial-prayer-text', !isLightTheme ? '[&_strong]:text-white' : '')}>
-                          <NovenaContent htmlContent={cleanedInitial} />
+                          <NovenaContent
+                            htmlContent={cleanedInitial}
+                            enableDropCap={false}
+                            onOpenPrayer={openPrayerModal}
+                          />
                         </div>
                       </div>
                       <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>
@@ -1316,9 +1425,15 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
                         return (
                           <>
-                            <NovenaContent htmlContent={before} />
+                            <NovenaContent htmlContent={before} onOpenPrayer={openPrayerModal} />
                             <SantaTerezinhaGloryCounter dayIndex={index} />
-                            {after && <NovenaContent htmlContent={after} />}
+                            {after && (
+                              <NovenaContent
+                                htmlContent={after}
+                                enableDropCap={false}
+                                onOpenPrayer={openPrayerModal}
+                              />
+                            )}
                           </>
                         );
                       }
@@ -1334,7 +1449,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                           </div>
                         );
                       }
-                      return <NovenaContent htmlContent={day.content} />;
+                      return (
+                        <NovenaContent
+                          htmlContent={day.content}
+                          onOpenPrayer={openPrayerModal}
+                        />
+                      );
                     })()}
                   </div>
                 </div>
@@ -1342,7 +1462,11 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                 {finalPrayer && (
                   <div className={proseClasses}>
                     <div className='final-prayer-text'>
-                      <NovenaContent htmlContent={finalPrayer} />
+                      <NovenaContent
+                        htmlContent={finalPrayer}
+                        enableDropCap={false}
+                        onOpenPrayer={openPrayerModal}
+                      />
                     </div>
                   </div>
                 )}
@@ -1399,6 +1523,13 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       </Carousel>
 
       </div>
+
+      <PrayerModal
+        isOpen={isPrayerModalOpen}
+        prayerId={activePrayerId}
+        onClose={() => setIsPrayerModalOpen(false)}
+        onSelectPrayer={(id) => setActivePrayerId(id)}
+      />
     </main>
   );
 }
