@@ -358,39 +358,194 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     setIsPrayerModalOpen(true);
   }, []);
 
+  const isAlertExpandedRef = useRef(isAlertExpanded);
+  useEffect(() => {
+    isAlertExpandedRef.current = isAlertExpanded;
+  }, [isAlertExpanded]);
+
+  const headerRef = useRef<HTMLElement>(null);
   const alertTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const dwellTimerRef = useRef<NodeJS.Timeout | null>(null);
+  const hasUserClosedManuallyRef = useRef<boolean>(false);
+  const lastScrollYRef = useRef<number>(0);
+  const lastScrollTimeRef = useRef<number>(Date.now());
+  const lastSaintIdRef = useRef<string | null>(null);
   const alertContainerRef = useRef<HTMLDivElement>(null);
   const novenaContentRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    function handleInteraction(event: Event) {
-      if (isAutoDisplay || !isAlertExpanded) return;
+  // Verifica se o cabeçalho/bloco inicial da novena está visível e em foco na tela
+  const isHeaderInView = useCallback(() => {
+    const el = headerRef.current || (typeof document !== 'undefined' ? document.getElementById('novena-header') : null);
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    const vh = window.innerHeight;
+    return rect.bottom > 140 && rect.top < vh * 0.85;
+  }, []);
 
-      if (event.type === 'mousedown' || event.type === 'touchstart') {
-        if (alertContainerRef.current && !alertContainerRef.current.contains(event.target as Node)) {
-          setIsAlertExpanded(false);
+  // Verifica se o usuário rolou a página além do cabeçalho da novena para baixo
+  const hasScrolledPastHeader = useCallback(() => {
+    const el = headerRef.current || (typeof document !== 'undefined' ? document.getElementById('novena-header') : null);
+    if (!el) return false;
+    const rect = el.getBoundingClientRect();
+    return rect.bottom <= 120;
+  }, []);
+
+  // Função para acionar a expansão automática inteligente da dica
+  const triggerAutoExpand = useCallback(() => {
+    if (isAlertExpandedRef.current || hasUserClosedManuallyRef.current) return;
+
+    setIsAlertExpanded(true);
+    setIsAutoDisplay(true);
+
+    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+    alertTimerRef.current = setTimeout(() => {
+      // Se o usuário rolou além do cabeçalho, não recolhe para evitar salto de layout
+      if (hasScrolledPastHeader()) {
+        setIsAutoDisplay(false);
+        alertTimerRef.current = null;
+        return;
+      }
+      setIsAlertExpanded(false);
+      setIsAutoDisplay(false);
+      alertTimerRef.current = null;
+    }, 12000);
+  }, [hasScrolledPastHeader]);
+
+  const startDwellTimer = useCallback(() => {
+    if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
+    dwellTimerRef.current = setTimeout(() => {
+      if (
+        isHeaderInView() &&
+        !isAlertExpandedRef.current &&
+        !hasUserClosedManuallyRef.current
+      ) {
+        triggerAutoExpand();
+      }
+      dwellTimerRef.current = null;
+    }, 2000);
+  }, [isHeaderInView, triggerAutoExpand]);
+
+  // Recurso inteligente: expande se o usuário ficar parado ou passar lentamente pelo bloco inicial (2s)
+  // Caso passe rápido, cancela a expansão. Se retornar ao início e ficar 2s, expande também.
+  useEffect(() => {
+    if (!saint?.startDate) return;
+
+    const el = headerRef.current || (typeof document !== 'undefined' ? document.getElementById('novena-header') : null);
+
+    // Se já estiver visível no momento do carregamento ou seleção
+    if (isHeaderInView() && !isAlertExpandedRef.current && !hasUserClosedManuallyRef.current) {
+      startDwellTimer();
+    }
+
+    let observer: IntersectionObserver | null = null;
+    if (el && typeof IntersectionObserver !== 'undefined') {
+      observer = new IntersectionObserver(
+        (entries) => {
+          const entry = entries[0];
+          if (entry.isIntersecting) {
+            if (!isAlertExpandedRef.current && !hasUserClosedManuallyRef.current && !dwellTimerRef.current) {
+              startDwellTimer();
+            }
+          } else {
+            if (dwellTimerRef.current) {
+              clearTimeout(dwellTimerRef.current);
+              dwellTimerRef.current = null;
+            }
+          }
+        },
+        { threshold: 0.25 }
+      );
+      observer.observe(el);
+    }
+
+    const handleScroll = () => {
+      if (typeof window === 'undefined') return;
+
+      const currentY = window.scrollY;
+      const currentTime = Date.now();
+      const timeDelta = Math.max(1, currentTime - lastScrollTimeRef.current);
+      const distance = Math.abs(currentY - lastScrollYRef.current);
+      const speed = distance / timeDelta; // px/ms
+
+      lastScrollYRef.current = currentY;
+      lastScrollTimeRef.current = currentTime;
+
+      // Se desceu além do cabeçalho e havia timer de auto-fechar, cancela para não saltar o layout
+      if (hasScrolledPastHeader() && alertTimerRef.current) {
+        clearTimeout(alertTimerRef.current);
+        alertTimerRef.current = null;
+        setIsAutoDisplay(false);
+      }
+
+      // Se navegou para longe do cabeçalho (> 200px abaixo), reseta o fechamento manual
+      // para que ao voltar ao topo e ficar 2s, possa re-expandir
+      const headerEl = headerRef.current || document.getElementById('novena-header');
+      if (headerEl) {
+        const rect = headerEl.getBoundingClientRect();
+        if (rect.bottom < -150) {
+          hasUserClosedManuallyRef.current = false;
         }
+      }
+
+      const inView = isHeaderInView();
+
+      if (!inView) {
+        if (dwellTimerRef.current) {
+          clearTimeout(dwellTimerRef.current);
+          dwellTimerRef.current = null;
+        }
+      } else {
+        if (isAlertExpandedRef.current || hasUserClosedManuallyRef.current) {
+          if (dwellTimerRef.current) {
+            clearTimeout(dwellTimerRef.current);
+            dwellTimerRef.current = null;
+          }
+          return;
+        }
+
+        // Se estiver passando rápido pelo cabeçalho (speed > 0.8 px/ms), cancela
+        if (speed > 0.8) {
+          if (dwellTimerRef.current) {
+            clearTimeout(dwellTimerRef.current);
+            dwellTimerRef.current = null;
+          }
+        } else {
+          // Passagem lenta ou parado: inicia/mantém contagem de 2s se ainda não ativa
+          if (!dwellTimerRef.current) {
+            startDwellTimer();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => {
+      if (observer) observer.disconnect();
+      window.removeEventListener('scroll', handleScroll);
+      if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
+    };
+  }, [saint?.id, isHeaderInView, hasScrolledPastHeader, startDwellTimer]);
+
+  useEffect(() => {
+    if (!saint) return;
+
+    // Reset alert state somente se o santo mudou de fato
+    if (saint.id !== lastSaintIdRef.current) {
+      lastSaintIdRef.current = saint.id;
+      setIsAlertExpanded(false);
+      setIsAutoDisplay(false);
+      hasUserClosedManuallyRef.current = false;
+      if (alertTimerRef.current) {
+        clearTimeout(alertTimerRef.current);
+        alertTimerRef.current = null;
+      }
+      if (dwellTimerRef.current) {
+        clearTimeout(dwellTimerRef.current);
+        dwellTimerRef.current = null;
       }
     }
 
-    if (isAlertExpanded && !isAutoDisplay) {
-      document.addEventListener('mousedown', handleInteraction);
-      document.addEventListener('touchstart', handleInteraction);
-    }
-
-    return () => {
-      document.removeEventListener('mousedown', handleInteraction);
-      document.removeEventListener('touchstart', handleInteraction);
-    };
-  }, [isAlertExpanded, isAutoDisplay]);
-
-  useEffect(() => {
-    // Reset alert state when saint changes
-    setIsAlertExpanded(false);
-    setIsAutoDisplay(false);
-    if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-
-    if (saint && saint.startDate) {
+    if (saint.startDate) {
       const todayOnlyDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
       
       const [startDayStr, startMonthStr] = saint.startDate.split('/');
@@ -488,69 +643,10 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       }
 
       setAlertInfo({ title, description });
-
-      // Delay auto-expand to avoid conflict with main entrance animation
-      const openTimer = setTimeout(() => {
-        setAlertInfo(prev => {
-          if (prev) {
-            // Evitar expandir a dica se o usuário já estiver na posição da aba de dias ou tiver rolado a página
-            if (typeof window !== 'undefined') {
-              if (novenaContentRef.current) {
-                const contentRect = novenaContentRef.current.getBoundingClientRect();
-                // Se a área dos botões de dias/oração já estiver visível ou acima do viewport
-                if (contentRect.top <= window.innerHeight * 0.8) {
-                  return prev;
-                }
-              }
-              if (alertContainerRef.current) {
-                const alertRect = alertContainerRef.current.getBoundingClientRect();
-                if (alertRect.bottom < 50 || window.scrollY > 150) {
-                  return prev;
-                }
-              }
-            }
-
-            setIsAlertExpanded(true);
-            setIsAutoDisplay(true);
-
-            alertTimerRef.current = setTimeout(() => {
-              setIsAlertExpanded(false);
-              setIsAutoDisplay(false);
-              alertTimerRef.current = null;
-            }, 12000);
-          }
-          return prev;
-        });
-      }, 2000);
-
-      return () => {
-        clearTimeout(openTimer);
-        if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-      };
     }
   }, [saint, novena]);
 
-  // Se a dica foi expandida automaticamente e o usuário começar a rolar a página até a aba de dias, fecha imediatamente
-  useEffect(() => {
-    if (!isAutoDisplay || !isAlertExpanded) return;
 
-    const handleScroll = () => {
-      if (novenaContentRef.current) {
-        const contentRect = novenaContentRef.current.getBoundingClientRect();
-        if (contentRect.top <= window.innerHeight * 0.85) {
-          setIsAlertExpanded(false);
-          setIsAutoDisplay(false);
-          if (alertTimerRef.current) {
-            clearTimeout(alertTimerRef.current);
-            alertTimerRef.current = null;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [isAutoDisplay, isAlertExpanded]);
 
   const onSelect = useCallback(() => {
     if (!api) return;
@@ -563,12 +659,6 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   }, [api, saint, selectedVersionId]);
 
   const scrollTo = useCallback((index: number) => {
-    setIsAlertExpanded(false);
-    setIsAutoDisplay(false);
-    if (alertTimerRef.current) {
-      clearTimeout(alertTimerRef.current);
-      alertTimerRef.current = null;
-    }
     api?.scrollTo(index);
   }, [api]);
 
@@ -849,6 +939,13 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     : "text-primary border-primary/50 hover:bg-primary hover:text-white";
 
   const isSpecialNovena = days.length === 2 && (days[0].title === 'Oração da Novena' || days[1].title === 'Breve história da Apresentação');
+  const isQuaresma = Boolean(
+    saint?.id === 'quaresma_sao_miguel' ||
+    novena?.novenaTitle?.toLowerCase().includes('quaresma') ||
+    saint?.name?.toLowerCase().includes('quaresma')
+  );
+  const isTrezena = Boolean(novena?.novenaTitle?.toLowerCase().includes('trezena'));
+  const devocaoType = isQuaresma ? 'Quaresma' : (isTrezena ? 'Trezena' : 'Novena');
 
   const proseClasses = cn(
     "prose max-w-none prose-blockquote:text-inherit",
@@ -981,7 +1078,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
         </div>
       )}
-      <header id="novena-header" className="w-full relative rounded-3xl mb-10 z-20 shadow-2xl border border-white/10">
+      <header ref={headerRef} id="novena-header" className="w-full relative rounded-3xl mb-10 z-20 shadow-2xl border border-white/10">
         {/* === Container for blurred image background === */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden rounded-3xl">
           <Image
@@ -1001,7 +1098,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           {/* Título apenas para mobile - aparece no topo com espaçamento seguro */}
           <div className="md:hidden w-full text-center mb-6 px-2 relative z-20">
             <div className="flex flex-col items-center leading-tight">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1.5 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
+              <span className="text-xs font-medium uppercase tracking-[0.2em] mb-1.5 text-white/70 drop-shadow">{devocaoType}</span>
               <h2 className="text-2xl sm:text-3xl font-bold font-brand text-white drop-shadow-lg leading-snug">
                 {getFullSaintName(saint.name)}
               </h2>
@@ -1071,7 +1168,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           <div className="flex-1 min-w-0">
             {/* Título apenas para desktop - aparece ao lado da imagem */}
             <div className="hidden md:flex flex-col items-start leading-tight mb-4">
-              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}</span>
+              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{devocaoType}</span>
               <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg leading-tight">
                 {getFullSaintName(saint.name)}
               </h2>
@@ -1090,16 +1187,23 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     </span>
                   )}
                   <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
-                    {novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'}: {saint.startDate} a {saint.endDate}
+                    {devocaoType}: {saint.startDate} a {saint.endDate}
                   </span>
                   
                   {/* Botão translúcido com lâmpada e nome 'Dica' em layout vermelho */}
                   <button
                     type="button"
                     onClick={() => {
-                      setIsAlertExpanded(!isAlertExpanded);
+                      const next = !isAlertExpanded;
+                      setIsAlertExpanded(next);
                       setIsAutoDisplay(false);
+                      if (!next) {
+                        hasUserClosedManuallyRef.current = true;
+                      } else {
+                        hasUserClosedManuallyRef.current = false;
+                      }
                       if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                      if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
                     }}
                     className={cn(
                       "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md transition-all duration-300 shadow-sm border cursor-pointer select-none",
@@ -1146,7 +1250,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                         onClick={() => {
                           setIsAlertExpanded(false);
                           setIsAutoDisplay(false);
+                          hasUserClosedManuallyRef.current = true;
                           if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                          if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
                         }}
                         className="text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
                         title="Recolher dica"
@@ -1202,7 +1308,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             )}
           >
             <Image src={getProxiedImageUrl("https://i.postimg.cc/g24cJdKG/whatsapp-icone-5.png")} alt="WhatsApp" width={20} height={20} className="w-5 h-5" />
-            <span className="text-sm font-semibold">{novena?.novenaTitle?.toLowerCase().includes('trezena') ? 'Trezena' : 'Novena'} também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
+            <span className="text-sm font-semibold">{devocaoType} também disponível no nosso grupo do WhatsApp. (clique aqui)</span>
           </a>
           <a
             href="https://www.instagram.com/coracoessagradosbsb"
