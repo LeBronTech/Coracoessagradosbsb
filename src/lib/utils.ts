@@ -146,6 +146,11 @@ export function getFullSaintName(name: string): string {
     return 'São Pedro de Alcântara';
   }
 
+  // Remove "Quaresma" do início do título para evitar duplicar com a tag "QUARESMA" acima
+  if (/^Quaresma\s+(de\s+)?/i.test(full)) {
+    return full.replace(/^Quaresma\s+(de\s+)?/i, '').trim();
+  }
+
   // Expande abreviações comuns
   full = full.replace(/^S\.\s+/i, (match) => {
     // Determina se é feminino ou masculino baseado no próximo nome

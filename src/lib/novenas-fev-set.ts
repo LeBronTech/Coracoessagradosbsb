@@ -5078,7 +5078,7 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
     },
 
     quaresma_sao_miguel: {
-        saintName: "Quaresma S. Miguel Arcanjo",
+        saintName: "S. Miguel Arcanjo",
         novenaTitle: "Quaresma de São Miguel Arcanjo 2026",
         description: "Quaresma de São Miguel Arcanjo (15 de agosto a 29 de setembro): 40 dias de penitência, combate espiritual, ladainha e consagração ao Príncipe da Milícia Celeste.",
         image: "https://r2.padrepauloricardo.org/a5ymh72r8njhd15g6mxf18mjx5s7",
