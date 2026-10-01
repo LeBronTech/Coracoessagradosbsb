@@ -492,15 +492,19 @@ export default function Home() {
     setSelectedMonth(month);
   };
 
-  // Preload images for current month to avoid jank when switching
+  // Preload images for current month com debounce para não engasgar a rolagem
   useEffect(() => {
     if (!hydrated) return;
     
-    const monthSaints = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth));
-    monthSaints.forEach(saint => {
-      const img = new (window as any).Image();
-      img.src = saint.imageUrl;
-    });
+    const timer = setTimeout(() => {
+      const monthSaints = saints.filter(s => s.month.split('/').map(m => m.trim()).includes(selectedMonth));
+      monthSaints.forEach(saint => {
+        const img = new (window as any).Image();
+        img.src = saint.imageUrl;
+      });
+    }, 350);
+
+    return () => clearTimeout(timer);
   }, [selectedMonth, hydrated, saints]);
 
   const handleSaintOfTheDayNavigation = (direction: 'prev' | 'next') => {

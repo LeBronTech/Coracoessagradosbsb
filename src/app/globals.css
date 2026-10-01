@@ -190,22 +190,67 @@
     color: #be123c !important;
   }
 
+  /* Barra de rolagem contínua do seletor de santos */
   .saints-nav-container {
     scrollbar-width: auto;
-    scrollbar-color: hsl(var(--primary)) #e5e7eb;
+  }
+
+  /* Suporte para Firefox sem quebrar WebKit/Chromium */
+  @supports not selector(::-webkit-scrollbar) {
+    .saints-nav-container {
+      scrollbar-color: #7c0909 #e5e7eb;
+    }
+    .dark .saints-nav-container {
+      scrollbar-color: #dc2626 #1f2937;
+    }
   }
 
   .saints-nav-container::-webkit-scrollbar {
-    height: 10px;
+    height: 9px;
   }
 
   .saints-nav-container::-webkit-scrollbar-track {
     background: #e5e7eb;
+    border-radius: 9999px;
   }
 
+  /* Estado de repouso: tom suave da mesma família do Corações Sagrados (#7c0909) */
   .saints-nav-container::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--primary));
-    border-radius: 0;
+    background-color: #b54f4f;
+    border-radius: 9999px;
+    border: 1.5px solid #e5e7eb;
+    transition: background-color 0.15s ease;
+  }
+
+  /* Ao passar o mouse diretamente na barra: O VERMELHO OFICIAL DA PÁGINA (#7c0909) */
+  .saints-nav-container::-webkit-scrollbar-thumb:hover {
+    background-color: #7c0909;
+    border-color: #e5e7eb;
+  }
+
+  /* Ao clicar e arrastar a barra: Vermelho sagrado profundo (#5a0606) */
+  .saints-nav-container::-webkit-scrollbar-thumb:active {
+    background-color: #5a0606;
+    border-color: #d1d5db;
+  }
+
+  .dark .saints-nav-container::-webkit-scrollbar-track {
+    background: #1f2937;
+  }
+
+  .dark .saints-nav-container::-webkit-scrollbar-thumb {
+    background-color: #a82e2e;
+    border-color: #1f2937;
+  }
+
+  .dark .saints-nav-container::-webkit-scrollbar-thumb:hover {
+    background-color: #dc2626;
+    border-color: #1f2937;
+  }
+
+  .dark .saints-nav-container::-webkit-scrollbar-thumb:active {
+    background-color: #b91c1c;
+    border-color: #374151;
   }
 
   .month-nav-btn {
