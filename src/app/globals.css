@@ -401,8 +401,8 @@
      Legibilidade reforçada para textos e letras em vermelho no Modal da Novena
      Adiciona fundo nítido e elegante para evitar que fiquem apagados
      ========================================================================== */
-  .main-card span.text-primary,
   .main-card .litany-response,
+  .main-card span[class*="text-primary"],
   .main-card .day-specific-content span[class*="text-primary"],
   .main-card .prayer-block span[class*="text-primary"],
   .main-card .initial-prayer-text span[class*="text-primary"],
@@ -417,9 +417,9 @@
     display: inline-block;
   }
 
-  .main-card h3.text-primary,
-  .main-card h4.text-primary,
-  .main-card h5.text-primary,
+  .main-card h3[class*="text-primary"],
+  .main-card h4[class*="text-primary"],
+  .main-card h5[class*="text-primary"],
   .main-card .section-title {
     background-color: rgba(255, 255, 255, 0.94) !important;
     color: #881337 !important;
@@ -433,7 +433,7 @@
     font-weight: 700;
   }
 
-  .main-card p.text-primary,
+  .main-card p[class*="text-primary"],
   .main-card .day-specific-content p[class*="text-primary"],
   .main-card .prayer-block p[class*="text-primary"] {
     background-color: rgba(255, 255, 255, 0.92);
@@ -447,7 +447,6 @@
   }
 
   /* Blocos de oração, avisos e instruções com letras vermelhas */
-  .main-card div.text-primary,
   .main-card div[class*="text-primary"],
   .main-card [class*="bg-stone-100"][class*="text-primary"],
   .main-card [class*="bg-stone-800"][class*="text-primary"],
@@ -464,24 +463,23 @@
     font-weight: 700 !important;
   }
 
-  .main-card div.text-primary p,
   .main-card div[class*="text-primary"] p {
     color: #881337 !important;
     font-weight: 700 !important;
   }
 
   /* Em temas escuros ou coloridos (red, dark-gray, green, default) */
-  .main-card.theme-dark-gray span.text-primary,
-  .main-card.theme-dark-gray p.text-primary,
+  .main-card.theme-dark-gray span[class*="text-primary"],
+  .main-card.theme-dark-gray p[class*="text-primary"],
   .main-card.theme-dark-gray .litany-response,
-  .main-card.theme-red span.text-primary,
-  .main-card.theme-red p.text-primary,
+  .main-card.theme-red span[class*="text-primary"],
+  .main-card.theme-red p[class*="text-primary"],
   .main-card.theme-red .litany-response,
-  .main-card.theme-green span.text-primary,
-  .main-card.theme-green p.text-primary,
+  .main-card.theme-green span[class*="text-primary"],
+  .main-card.theme-green p[class*="text-primary"],
   .main-card.theme-green .litany-response,
-  .main-card.theme-default span.text-primary,
-  .main-card.theme-default p.text-primary,
+  .main-card.theme-default span[class*="text-primary"],
+  .main-card.theme-default p[class*="text-primary"],
   .main-card.theme-default .litany-response {
     background-color: rgba(255, 255, 255, 0.95);
     color: #7f1d1d !important;
@@ -1189,5 +1187,29 @@
   .scrollbar-thin-red::-webkit-scrollbar-thumb {
     background-color: #ef4444;
     border-radius: 9999px;
+  }
+
+  /* Barra de rolagem estilizada para o menu lateral */
+  .custom-sidebar-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(124, 9, 9, 0.45) transparent;
+  }
+
+  .custom-sidebar-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-sidebar-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 9999px;
+  }
+
+  .custom-sidebar-scrollbar::-webkit-scrollbar-thumb {
+    background-color: rgba(124, 9, 9, 0.35);
+    border-radius: 9999px;
+  }
+
+  .custom-sidebar-scrollbar::-webkit-scrollbar-thumb:hover {
+    background-color: #7c0909;
   }
 }

@@ -9,7 +9,8 @@ import { cn, formatSaintName, getProxiedImageUrl, getMainNameFontSize } from '@/
 import type { Saint } from '@/lib/data';
 import { novenaData } from '@/lib/data';
 import { Card, CardContent } from '@/components/ui/card';
-import { Heart } from 'lucide-react';
+import { Heart, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MartyrSymbol } from '@/components/martyr-symbol';
 
@@ -143,6 +144,30 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
     };
   }, [emblaApi, onSelect, onScroll]);
 
+  const handlePrevMonth = useCallback(() => {
+    if (!emblaApi) return;
+    isUserDragging.current = false;
+    emblaApi.scrollPrev();
+    const prevIdx = emblaApi.selectedScrollSnap();
+    const m = months[prevIdx];
+    if (m) {
+      selectedMonthRef.current = m;
+      onMonthChange(m);
+    }
+  }, [emblaApi, months, onMonthChange]);
+
+  const handleNextMonth = useCallback(() => {
+    if (!emblaApi) return;
+    isUserDragging.current = false;
+    emblaApi.scrollNext();
+    const nextIdx = emblaApi.selectedScrollSnap();
+    const m = months[nextIdx];
+    if (m) {
+      selectedMonthRef.current = m;
+      onMonthChange(m);
+    }
+  }, [emblaApi, months, onMonthChange]);
+
   const handleMonthClick = (index: number) => {
     isUserDragging.current = false;
     if (emblaApi) emblaApi.scrollTo(index, false);
@@ -154,26 +179,48 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
   };
 
   return (
-    <div className="overflow-hidden month-carousel py-4 w-full" ref={emblaRef}>
-      <div className="flex touch-pan-y">
-        {months.map((month, index) => (
-          <div
-            className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative embla__slide select-none')}
-            key={month + index}
-            style={{ transform: 'scale(0.7)', opacity: 0.6 }}
-          >
-            <button
-              onClick={() => handleMonthClick(index)}
-              className={cn(
-                'month-nav-btn text-lg font-brand text-gray-600 w-full cursor-pointer',
-                selectedMonth === month && 'active'
-              )}
+    <div className="relative flex items-center justify-between w-full">
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={handlePrevMonth}
+        className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all"
+        aria-label="Mês anterior"
+      >
+        <ChevronLeft className="h-5 w-5" />
+      </Button>
+
+      <div className="overflow-hidden month-carousel py-3 flex-1 mx-1" ref={emblaRef}>
+        <div className="flex touch-pan-y">
+          {months.map((month, index) => (
+            <div
+              className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative embla__slide select-none')}
+              key={month + index}
+              style={{ transform: 'scale(0.7)', opacity: 0.6 }}
             >
-              {month}
-            </button>
-          </div>
-        ))}
+              <button
+                onClick={() => handleMonthClick(index)}
+                className={cn(
+                  'month-nav-btn text-lg font-brand text-gray-600 w-full cursor-pointer',
+                  selectedMonth === month && 'active'
+                )}
+              >
+                {month}
+              </button>
+            </div>
+          ))}
+        </div>
       </div>
+
+      <Button
+        variant="ghost"
+        size="icon"
+        onClick={handleNextMonth}
+        className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all"
+        aria-label="Próximo mês"
+      >
+        <ChevronRight className="h-5 w-5" />
+      </Button>
     </div>
   );
 });
@@ -494,9 +541,36 @@ function SaintSelector({
     };
   }, [performScrollSpy]);
 
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(true);
+
+  const checkScrollLimits = useCallback(() => {
+    const container = navContainerRef.current;
+    if (!container) return;
+    setCanScrollLeft(container.scrollLeft > 10);
+    setCanScrollRight(container.scrollLeft < container.scrollWidth - container.clientWidth - 10);
+  }, []);
+
+  const handleArrowScroll = useCallback((direction: 'left' | 'right') => {
+    const container = navContainerRef.current;
+    if (!container) return;
+    const scrollAmount = direction === 'left' ? -350 : 350;
+    container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    setTimeout(checkScrollLimits, 300);
+  }, [checkScrollLimits]);
+
+  useEffect(() => {
+    checkScrollLimits();
+    const handleResize = () => checkScrollLimits();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [checkScrollLimits, allSortedSaints]);
+
   const handleScroll = useCallback(() => {
     const container = navContainerRef.current;
     if (!container) return;
+
+    checkScrollLimits();
 
     if (isProgrammaticScroll.current) {
       if (programmaticScrollTimer.current) clearTimeout(programmaticScrollTimer.current);
@@ -516,7 +590,7 @@ function SaintSelector({
         performScrollSpy();
       }
     }, 140);
-  }, [performScrollSpy]);
+  }, [performScrollSpy, checkScrollLimits]);
 
   const handleSaintSelect = useCallback((id: string) => {
     lastScrolledId.current = id;
@@ -538,55 +612,89 @@ function SaintSelector({
     <section className="w-full">
       <MonthCarousel months={months} selectedMonth={selectedMonth} onMonthChange={onMonthChange} />
 
-      <div
-        id="saints-icons-container"
-        ref={navContainerRef}
-        onScroll={handleScroll}
-        className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 mt-4 border-t border-gray-300 pt-4"
-      >
-        {allSortedSaints.length > 0 ? (
-          allSortedSaints.map((saint, idx) => {
-            const isFirstOfMonth = idx === 0 || saint.monthIndex !== allSortedSaints[idx - 1].monthIndex;
-            const [startDayStr, startMonthStr] = saint.startDate.split('/');
-            const startDay = Number(startDayStr);
-            const startMonth = Number(startMonthStr);
-            const startsToday = todayNumbers?.day === startDay && todayNumbers?.month === startMonth;
-            const isSelected = selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'));
-            const shouldBlink = startsToday && !isSelected;
+      <div className="relative group/saints-nav mt-4">
+        {/* Seta de navegação esquerda */}
+        <button
+          type="button"
+          onClick={() => handleArrowScroll('left')}
+          disabled={!canScrollLeft}
+          aria-label="Rolar para novenas anteriores"
+          className={cn(
+            "absolute -left-2 sm:-left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center",
+            "bg-white/95 text-stone-700 shadow-md border border-stone-200/90 hover:bg-primary hover:text-white hover:border-primary",
+            "transition-all duration-200 cursor-pointer active:scale-95",
+            !canScrollLeft ? "opacity-0 pointer-events-none" : "opacity-90 hover:opacity-100"
+          )}
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
 
-            const isNearbyMonth = Math.abs(saint.monthIndex - currentMonthIdx) <= 1;
-            const isPriority = isNearbyMonth || idx < 14;
+        <div
+          id="saints-icons-container"
+          ref={navContainerRef}
+          onScroll={handleScroll}
+          className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 border-t border-gray-300 pt-4"
+        >
+          {allSortedSaints.length > 0 ? (
+            allSortedSaints.map((saint, idx) => {
+              const isFirstOfMonth = idx === 0 || saint.monthIndex !== allSortedSaints[idx - 1].monthIndex;
+              const [startDayStr, startMonthStr] = saint.startDate.split('/');
+              const startDay = Number(startDayStr);
+              const startMonth = Number(startMonthStr);
+              const startsToday = todayNumbers?.day === startDay && todayNumbers?.month === startMonth;
+              const isSelected = selectedSaintId === saint.id || (saint.id === 'natal' && (selectedSaintId === 'natal_sao_leao' || selectedSaintId === 'natal_familia'));
+              const shouldBlink = startsToday && !isSelected;
 
-            return (
-              <div
-                key={saint.id}
-                ref={(el) => { itemRefs.current[saint.id] = el; }}
-                className="shrink-0 flex items-start"
-              >
-                <SaintNavItem
-                  saint={saint}
-                  isSelected={isSelected}
-                  shouldBlink={shouldBlink}
-                  isPriority={isPriority}
-                  onSelect={handleSaintSelect}
-                  isFirstOfMonth={isFirstOfMonth && idx > 0}
-                  monthName={months[saint.monthIndex]}
-                />
-              </div>
-            );
-          })
-        ) : (
-          <div className="w-full flex justify-center">
-            <Card className="w-full max-w-sm bg-gray-200/50 border-dashed">
-              <CardContent className="p-6 text-center">
-                <Heart className="mx-auto h-12 w-12 text-primary/50 mb-4" strokeWidth={1} />
-                <p className="font-semibold text-gray-600">
-                  Logo logo teremos novenas aqui. Salve Maria!
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        )}
+              const isNearbyMonth = Math.abs(saint.monthIndex - currentMonthIdx) <= 1;
+              const isPriority = isNearbyMonth || idx < 14;
+
+              return (
+                <div
+                  key={saint.id}
+                  ref={(el) => { itemRefs.current[saint.id] = el; }}
+                  className="shrink-0 flex items-start"
+                >
+                  <SaintNavItem
+                    saint={saint}
+                    isSelected={isSelected}
+                    shouldBlink={shouldBlink}
+                    isPriority={isPriority}
+                    onSelect={handleSaintSelect}
+                    isFirstOfMonth={isFirstOfMonth && idx > 0}
+                    monthName={months[saint.monthIndex]}
+                  />
+                </div>
+              );
+            })
+          ) : (
+            <div className="w-full flex justify-center">
+              <Card className="w-full max-w-sm bg-gray-200/50 border-dashed">
+                <CardContent className="p-6 text-center">
+                  <Heart className="mx-auto h-12 w-12 text-primary/50 mb-4" strokeWidth={1} />
+                  <p className="font-semibold text-gray-600">
+                    Logo logo teremos novenas aqui. Salve Maria!
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+          )}
+        </div>
+
+        {/* Seta de navegação direita */}
+        <button
+          type="button"
+          onClick={() => handleArrowScroll('right')}
+          disabled={!canScrollRight}
+          aria-label="Rolar para próximas novenas"
+          className={cn(
+            "absolute -right-2 sm:-right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 sm:w-10 sm:h-10 rounded-full flex items-center justify-center",
+            "bg-white/95 text-stone-700 shadow-md border border-stone-200/90 hover:bg-primary hover:text-white hover:border-primary",
+            "transition-all duration-200 cursor-pointer active:scale-95",
+            !canScrollRight ? "opacity-0 pointer-events-none" : "opacity-90 hover:opacity-100"
+          )}
+        >
+          <ChevronRight className="w-5 h-5" />
+        </button>
       </div>
     </section>
   );

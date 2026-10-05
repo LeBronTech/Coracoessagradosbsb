@@ -14,7 +14,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTr
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles, CheckCircle2, Flame, RotateCcw } from 'lucide-react';
 import { cn, getProxiedImageUrl } from '@/lib/utils';
 import { parse, differenceInDays, getYear } from 'date-fns';
 import Image from 'next/image';
@@ -120,17 +120,22 @@ export default function Home() {
   const [isNavigating, setIsNavigating] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loadingFinished, setLoadingFinished] = useState(typeof window !== 'undefined' ? globalHasLoaded : false);
-  const [userProgress, setUserProgress] = useState<{ completed: number, ongoing: { id: string, name: string, day: number }[] }>({ completed: 0, ongoing: [] });
+  const [userProgress, setUserProgress] = useState<{ 
+    completed: number; 
+    ongoing: { id: string; name: string; day: number; totalDays: number; imageUrl?: string }[];
+    completedList: { id: string; name: string; totalDays: number; imageUrl?: string }[];
+  }>({ completed: 0, ongoing: [], completedList: [] });
 
   const calculateProgress = useCallback(() => {
     if (typeof window === 'undefined') return;
     
     let completedCount = 0;
-    const ongoingItems: { id: string, name: string, day: number }[] = [];
+    const ongoingItems: { id: string; name: string; day: number; totalDays: number; imageUrl?: string }[] = [];
+    const completedItems: { id: string; name: string; totalDays: number; imageUrl?: string }[] = [];
 
     Object.keys(novenaData).forEach(id => {
       const novena = novenaData[id];
-      const saint = saints.find(s => s.id === id) || (id.startsWith('natal') ? { name: id === 'natal_sao_leao' ? 'São Leão Magno' : 'Sagrada Família' } : null);
+      const saint = saints.find(s => s.id === id) || (id.startsWith('natal') ? { name: id === 'natal_sao_leao' ? 'São Leão Magno' : 'Sagrada Família', imageUrl: 'https://iili.io/2uD5114.jpg' } : null);
       if (!saint) return;
 
       const versionIds = ['tradicional', ...(novena.versions?.map(v => v.id) || [])];
@@ -146,17 +151,33 @@ export default function Home() {
 
             if (daysDone >= totalDays && totalDays > 0) {
               completedCount++;
+              if (!completedItems.some(item => item.id === id)) {
+                completedItems.push({ 
+                  id, 
+                  name: saint.name, 
+                  totalDays, 
+                  imageUrl: (saint as any).imageUrl 
+                });
+              }
             } else if (daysDone > 0) {
               const lastDay = Math.max(...Object.keys(completedDays).map(Number).filter(k => completedDays[k]));
-              ongoingItems.push({ id, name: saint.name, day: lastDay + 1 });
+              if (!ongoingItems.some(item => item.id === id)) {
+                ongoingItems.push({ 
+                  id, 
+                  name: saint.name, 
+                  day: Math.min(lastDay + 1, totalDays), 
+                  totalDays,
+                  imageUrl: (saint as any).imageUrl 
+                });
+              }
             }
           } catch (e) {}
         }
       });
     });
 
-    setUserProgress({ completed: completedCount, ongoing: ongoingItems });
-  }, []);
+    setUserProgress({ completed: completedCount, ongoing: ongoingItems, completedList: completedItems });
+  }, [saints]);
 
   useEffect(() => {
     if (hydrated) {
@@ -583,110 +604,245 @@ export default function Home() {
         <SheetContent 
           side="left" 
           hideClose
-          className="w-[85vw] sm:w-[400px] p-0 border-r-[3px] border-black/20 overflow-hidden shadow-2xl backdrop-blur-3xl transition-all duration-500"
+          className="w-[88vw] sm:w-[420px] p-0 border-r-[3px] border-black/20 shadow-2xl backdrop-blur-3xl transition-all duration-500 flex flex-col h-full overflow-hidden"
           style={{
-            backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.55)), url('${getProxiedImageUrl("https://iili.io/BszsZNa.jpg")}')`,
+            backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.65)), url('${getProxiedImageUrl("https://iili.io/BszsZNa.jpg")}')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat'
           }}
         >
-          {/* Botão de fechar (dentro do SheetContent para evitar bloqueio de cliques do Radix) */}
-          <Button
-            variant="outline"
-            size="icon"
-            onClick={() => setIsMenuOpen(false)}
-            className={`fixed top-2 left-2 z-[200] transition-all duration-700 shadow-xl border-2 ${
-              isHamburgerRed
-                ? 'bg-red-700 text-white border-red-700 scale-110 shadow-red-500/40'
-                : 'bg-white/20 backdrop-blur-md text-primary border-primary/30 hover:bg-white/40'
-            } rounded-full w-12 h-12`}
-          >
-            <Menu className="h-6 w-6" />
-            <span className="sr-only">Fechar menu</span>
-          </Button>
-
-          <SheetHeader className="p-6 bg-white/40 backdrop-blur-md shadow-sm border-b border-black/5 flex flex-col items-center justify-center text-center">
-            <SheetTitle className="text-xl font-brand text-gray-800 text-center w-full">Menu</SheetTitle>
+          {/* Top Bar Fixa com botão de fechar e título */}
+          <div className="p-4 sm:p-5 bg-white/70 backdrop-blur-md shadow-sm border-b border-black/5 flex items-center justify-between shrink-0 relative z-20">
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={() => setIsMenuOpen(false)}
+              className={`transition-all duration-500 shadow-md border-2 ${
+                isHamburgerRed
+                  ? 'bg-red-700 text-white border-red-700 hover:bg-red-800'
+                  : 'bg-white/90 text-primary border-primary/30 hover:bg-white'
+              } rounded-full w-10 h-10`}
+            >
+              <Menu className="h-5 w-5" />
+              <span className="sr-only">Fechar menu</span>
+            </Button>
+            <SheetTitle className="text-xl font-brand text-gray-800 text-center flex-1 mr-10">Menu</SheetTitle>
             <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
-          </SheetHeader>
-          <div className="flex flex-col gap-4 p-6">
-            <ConfessionTimesModal>
-              <Button variant="outline" className="w-full justify-start gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-primary border-2 border-primary font-bold animate-shine">
-                <AlertCircle className="h-5 w-5" />
-                Horários de Confissão
-              </Button>
-            </ConfessionTimesModal>
-
-            <Link href="/espaco-mariano" className="w-full" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
-              <Button
-                className="w-full justify-start gap-2 bg-blue-900 hover:bg-blue-950 text-white"
-              >
-                <Image src={getProxiedImageUrl("https://iili.io/KpYhaae.png")} alt="Nossa Senhora" width={20} height={20} className="w-5 h-5 object-contain" />
-                Espaço Mariano
-              </Button>
-            </Link>
-
-            <Link href="/encontre-seu-lugar" className="w-full" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
-              <Button
-                className="w-full justify-start gap-2 bg-red-700 hover:bg-red-800 text-white"
-              >
-                <Image src={getProxiedImageUrl("https://iili.io/B5cDUbI.png")} alt="Encontre seu lugar" width={20} height={20} className="w-5 h-5 object-contain" />
-                Encontre Seu Lugar
-              </Button>
-            </Link>
-
-            <Link href="/sao-jose" className="w-full" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
-              <Button
-                className="w-full justify-start gap-2 bg-green-700 hover:bg-green-800 text-white"
-              >
-                <Image src={getProxiedImageUrl("https://iili.io/KpYhc8u.png")} alt="São José" width={20} height={20} className="w-5 h-5 object-contain" />
-                Espaço São José
-              </Button>
-            </Link>
-
-            <Link href="/assistente" className="w-full" onClick={(e) => handlePageTransition(e, '/assistente')}>
-              <Button
-                className="w-full justify-start gap-2 bg-stone-600 hover:bg-stone-700 text-stone-100 border border-stone-500/20 shadow-md font-semibold font-brand"
-              >
-                <Sparkles className="h-5 w-5 text-stone-300 animate-pulse" />
-                Assistente de Textos
-              </Button>
-            </Link>
           </div>
 
-          <div className="mt-auto p-6 border-t border-gray-200">
-            <h3 className="text-lg font-brand text-gray-800 mb-4 flex items-center gap-2">
-              <span className="text-xl">📈</span> Seu Progresso
-            </h3>
-            <div className="space-y-4">
-              <div className="bg-white/80 backdrop-blur-sm p-4 rounded-xl shadow-sm border border-primary/10">
-                <p className="text-sm font-semibold text-gray-600 uppercase tracking-wider">Novenas Concluídas</p>
-                <p className="text-3xl font-bold text-primary">{userProgress.completed}</p>
+          {/* Conteúdo com rolagem contínua */}
+          <div className="flex-1 overflow-y-auto custom-sidebar-scrollbar p-5 space-y-6">
+            {/* Atalhos Rápidos */}
+            <div className="flex flex-col gap-3">
+              <ConfessionTimesModal>
+                <Button variant="outline" className="w-full justify-start gap-2.5 bg-white/40 backdrop-blur-md hover:bg-white/60 text-primary border-2 border-primary/40 font-bold shadow-sm transition-all hover:scale-[1.01]">
+                  <AlertCircle className="h-5 w-5 text-primary" />
+                  Horários de Confissão
+                </Button>
+              </ConfessionTimesModal>
+
+              <Link href="/espaco-mariano" className="w-full" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
+                <Button
+                  className="w-full justify-start gap-2.5 bg-blue-900 hover:bg-blue-950 text-white shadow-sm transition-all hover:scale-[1.01]"
+                >
+                  <Image src={getProxiedImageUrl("https://iili.io/KpYhaae.png")} alt="Nossa Senhora" width={22} height={22} className="w-5 h-5 object-contain" />
+                  Espaço Mariano
+                </Button>
+              </Link>
+
+              <Link href="/encontre-seu-lugar" className="w-full" onClick={(e) => handlePageTransition(e, '/encontre-seu-lugar')}>
+                <Button
+                  className="w-full justify-start gap-2.5 bg-red-700 hover:bg-red-800 text-white shadow-sm transition-all hover:scale-[1.01]"
+                >
+                  <Image src={getProxiedImageUrl("https://iili.io/B5cDUbI.png")} alt="Encontre seu lugar" width={22} height={22} className="w-5 h-5 object-contain" />
+                  Encontre Seu Lugar
+                </Button>
+              </Link>
+
+              <Link href="/sao-jose" className="w-full" onClick={(e) => handlePageTransition(e, '/sao-jose')}>
+                <Button
+                  className="w-full justify-start gap-2.5 bg-green-700 hover:bg-green-800 text-white shadow-sm transition-all hover:scale-[1.01]"
+                >
+                  <Image src={getProxiedImageUrl("https://iili.io/KpYhc8u.png")} alt="São José" width={22} height={22} className="w-5 h-5 object-contain" />
+                  Espaço São José
+                </Button>
+              </Link>
+
+              <Link href="/assistente" className="w-full" onClick={(e) => handlePageTransition(e, '/assistente')}>
+                <Button
+                  className="w-full justify-start gap-2.5 bg-stone-700 hover:bg-stone-800 text-stone-100 border border-stone-600/40 shadow-sm font-semibold font-brand transition-all hover:scale-[1.01]"
+                >
+                  <Sparkles className="h-5 w-5 text-amber-300 animate-pulse" />
+                  Assistente de Textos
+                </Button>
+              </Link>
+            </div>
+
+            {/* SEÇÃO DE PROGRESSO DAS NOVENAS */}
+            <div className="pt-4 border-t border-stone-300/70 space-y-5">
+              <div className="flex items-center justify-between">
+                <h3 className="text-lg font-brand text-gray-800 flex items-center gap-2">
+                  <span className="text-xl">📈</span> Seu Progresso
+                </h3>
+                <span className="text-xs bg-stone-200/80 text-stone-700 font-semibold px-2.5 py-0.5 rounded-full">
+                  Devoção
+                </span>
               </div>
-              
-              {userProgress.ongoing.length > 0 && (
-                <div className="space-y-2">
-                  <p className="text-xs font-bold text-gray-500 uppercase tracking-widest px-1">Em andamento</p>
-                  <ScrollArea className="h-48">
-                    <div className="space-y-2 pr-4">
-                      {userProgress.ongoing.map((item, idx) => (
-                        <button 
-                          key={idx} 
+
+              {/* Cards de Resumo */}
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-white/85 backdrop-blur-md p-3.5 rounded-2xl shadow-sm border border-emerald-200/70 flex flex-col">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-bold text-emerald-800 uppercase tracking-wider">Concluídas</span>
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <p className="text-2xl font-extrabold text-emerald-700 font-brand">{userProgress.completed}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5">Novenas rezadas</p>
+                </div>
+
+                <div className="bg-white/85 backdrop-blur-md p-3.5 rounded-2xl shadow-sm border border-primary/20 flex flex-col">
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-xs font-bold text-primary uppercase tracking-wider">Em curso</span>
+                    <Flame className="w-4 h-4 text-amber-600" />
+                  </div>
+                  <p className="text-2xl font-extrabold text-primary font-brand">{userProgress.ongoing.length}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5">Novenas ativas</p>
+                </div>
+              </div>
+
+              {/* Lista: Novenas em Andamento */}
+              <div className="space-y-2.5">
+                <div className="flex items-center justify-between px-1">
+                  <p className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-1.5">
+                    <Flame className="w-3.5 h-3.5 text-amber-600" />
+                    Em andamento ({userProgress.ongoing.length})
+                  </p>
+                </div>
+
+                {userProgress.ongoing.length > 0 ? (
+                  <div className="space-y-2.5">
+                    {userProgress.ongoing.map((item) => {
+                      const pct = Math.min(100, Math.round((item.day / item.totalDays) * 100));
+                      return (
+                        <div
+                          key={item.id}
                           onClick={() => {
                             handleNavigateToNovena(item.id);
                             setIsMenuOpen(false);
                           }}
-                          className="w-full bg-white p-3 rounded-lg shadow-sm border border-gray-200 flex justify-between items-center hover:bg-stone-50 transition-colors group"
+                          className="w-full bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-sm border border-stone-200/90 hover:border-primary/50 hover:shadow-md transition-all group cursor-pointer text-left block"
                         >
-                          <span className="text-sm font-medium text-gray-700 group-hover:text-primary transition-colors">{item.name}</span>
-                          <span className="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full font-bold">Dia {item.day}</span>
-                        </button>
-                      ))}
-                    </div>
-                  </ScrollArea>
+                          <div className="flex items-center gap-3">
+                            {item.imageUrl ? (
+                              <Image
+                                src={getProxiedImageUrl(item.imageUrl)}
+                                alt={item.name}
+                                width={44}
+                                height={44}
+                                className="w-11 h-11 rounded-full object-cover border-2 border-primary/30 shadow-sm shrink-0 group-hover:scale-105 transition-transform"
+                              />
+                            ) : (
+                              <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                                ✞
+                              </div>
+                            )}
+
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center justify-between gap-1">
+                                <h4 className="font-brand font-bold text-sm text-gray-800 group-hover:text-primary transition-colors truncate">
+                                  {item.name}
+                                </h4>
+                                <span className="text-[11px] bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full font-bold whitespace-nowrap shrink-0">
+                                  Dia {item.day} de {item.totalDays}
+                                </span>
+                              </div>
+
+                              {/* Barra de Progresso elegante */}
+                              <div className="mt-2 w-full bg-stone-100 rounded-full h-2 overflow-hidden border border-stone-200/80">
+                                <div
+                                  className="h-full bg-gradient-to-r from-primary to-amber-600 rounded-full transition-all duration-500"
+                                  style={{ width: `${pct}%` }}
+                                />
+                              </div>
+
+                              <div className="flex items-center justify-between mt-1 text-[11px] text-gray-500">
+                                <span>{pct}% concluído</span>
+                                <span className="text-primary font-semibold group-hover:underline">Rezar hoje →</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                ) : (
+                  <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-dashed border-stone-300 text-center">
+                    <p className="text-xs text-stone-600">
+                      Nenhuma novena em andamento no momento. Escolha uma abaixo para iniciar!
+                    </p>
+                  </div>
+                )}
+              </div>
+
+              {/* Lista: Novenas Concluídas */}
+              <div className="space-y-2.5 pt-2">
+                <div className="flex items-center justify-between px-1">
+                  <p className="text-xs font-bold text-gray-700 uppercase tracking-wider flex items-center gap-1.5">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                    Concluídas ({userProgress.completedList.length})
+                  </p>
                 </div>
-              )}
+
+                {userProgress.completedList.length > 0 ? (
+                  <div className="space-y-2">
+                    {userProgress.completedList.map((item) => (
+                      <div
+                        key={item.id}
+                        onClick={() => {
+                          handleNavigateToNovena(item.id);
+                          setIsMenuOpen(false);
+                        }}
+                        className="w-full bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-sm border border-emerald-100/90 hover:border-emerald-300 hover:shadow-md transition-all group cursor-pointer flex items-center justify-between gap-3 text-left"
+                      >
+                        <div className="flex items-center gap-2.5 min-w-0">
+                          {item.imageUrl ? (
+                            <Image
+                              src={getProxiedImageUrl(item.imageUrl)}
+                              alt={item.name}
+                              width={36}
+                              height={36}
+                              className="w-9 h-9 rounded-full object-cover border border-emerald-500/40 shadow-sm shrink-0"
+                            />
+                          ) : (
+                            <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">
+                              ✓
+                            </div>
+                          )}
+                          <div className="min-w-0">
+                            <h4 className="font-brand font-bold text-sm text-gray-800 group-hover:text-emerald-800 transition-colors truncate">
+                              {item.name}
+                            </h4>
+                            <p className="text-[11px] text-gray-500">
+                              {item.totalDays} dias concluídos
+                            </p>
+                          </div>
+                        </div>
+
+                        <span className="text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shrink-0 group-hover:bg-emerald-100 transition-colors">
+                          <RotateCcw className="w-3 h-3" /> Rezar
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-dashed border-stone-300 text-center">
+                    <p className="text-xs text-stone-500">
+                      Ao completar os dias de uma novena, seu progresso ficará registrado aqui.
+                    </p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </SheetContent>
