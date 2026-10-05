@@ -7,6 +7,7 @@
     "genkit:dev": "genkit start -- tsx src/ai/dev.ts",
     "genkit:watch": "genkit start -- tsx --watch src/ai/dev.ts",
     "build": "next build",
+    "build:cpanel": "next build && cp public/.htaccess out/.htaccess && python3 -c \"import shutil; shutil.make_archive('site', 'zip', 'out')\"",
     "start": "next start",
     "lint": "next lint",
     "typecheck": "tsc --noEmit"

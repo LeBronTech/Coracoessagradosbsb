@@ -19,6 +19,8 @@
 
 # production
 /build
+*.zip
+deploy-hostgator.zip
 
 # misc
 .DS_Store
