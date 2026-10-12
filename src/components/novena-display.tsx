@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useEffect, useCallback, useRef } from 'react';
+import { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
+import AutoHeight from 'embla-carousel-auto-height';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand, Lightbulb } from 'lucide-react';
 import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName, getSaintIntercession, getDropCapClass } from '@/lib/utils';
@@ -337,11 +338,15 @@ function cleanInitialPrayer(html: string): string {
 }
 
 export default function NovenaDisplay({ saint, novena, theme, setTheme }: NovenaDisplayProps) {
+  const autoHeightPlugin = useMemo(() => AutoHeight(), []);
   const [animationState, setAnimationState] = useState<'idle' | 'out' | 'in'>('idle');
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [selectedVersionId, setSelectedVersionId] = useState<string>('tradicional');
+  const activeVersion: NovenaVersion | null =
+    novena?.versions?.find(v => v.id === selectedVersionId) ?? null;
+  const days = activeVersion?.days ?? novena?.days ?? [];
   const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
   const [isChanging, setIsChanging] = useState(false);
   const [currentOfficialDayIndex, setCurrentOfficialDayIndex] = useState<number | null>(null);
@@ -820,18 +825,50 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
 
 
+  const syncActiveSlideHeight = useCallback(() => {
+    if (!api) return;
+    const slideNodes = api.slideNodes();
+    const currentIndex = api.selectedScrollSnap();
+    const currentSlide = slideNodes[currentIndex];
+    const container = api.containerNode();
+    if (currentSlide && container) {
+      const contentEl = (currentSlide.firstElementChild as HTMLElement) || currentSlide;
+      const height = contentEl.getBoundingClientRect().height || contentEl.offsetHeight;
+      if (height > 0) {
+        container.style.height = `${Math.ceil(height)}px`;
+      }
+    }
+  }, [api]);
+
   useEffect(() => {
     if (!api) {
       return;
     }
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap());
+    syncActiveSlideHeight();
     api.on("select", onSelect);
+    api.on("select", syncActiveSlideHeight);
+    api.on("reInit", syncActiveSlideHeight);
+    window.addEventListener("resize", syncActiveSlideHeight);
 
     return () => {
       api.off("select", onSelect);
+      api.off("select", syncActiveSlideHeight);
+      api.off("reInit", syncActiveSlideHeight);
+      window.removeEventListener("resize", syncActiveSlideHeight);
     };
-  }, [api, onSelect]);
+  }, [api, onSelect, syncActiveSlideHeight]);
+
+  // Garante que o carrossel re-inicialize e recalcule as alturas ao trocar de novena, versão ou dia
+  useEffect(() => {
+    if (!api) return;
+    const timer = setTimeout(() => {
+      api.reInit();
+      syncActiveSlideHeight();
+    }, 80);
+    return () => clearTimeout(timer);
+  }, [api, days, selectedVersionId, saint?.id, current, isChanging, syncActiveSlideHeight]);
 
   // O localStorage.setItem para o current day foi movido para o onSelect
   // para evitar sobrescrever o estado ao trocar de santo (quando current ainda é do santo anterior).
@@ -902,11 +939,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     );
   }
 
-  const activeVersion: NovenaVersion | null =
-    novena?.versions?.find(v => v.id === selectedVersionId) ?? null;
-
   const { novenaTitle, description } = novena;
-  const days = activeVersion?.days ?? novena.days;
   const initialPrayer = activeVersion?.initialPrayer ?? novena.initialPrayer;
   const finalPrayer = activeVersion?.finalPrayer ?? novena.finalPrayer;
 
@@ -1324,7 +1357,12 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </a>
         </div>
 
-        <Carousel setApi={setApi} className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} opts={{ watchDrag: false }}>
+        <Carousel 
+          plugins={[autoHeightPlugin]} 
+          setApi={setApi} 
+          className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} 
+          opts={{ watchDrag: false }}
+        >
 
         {isAllCompleted && (
           <div className="mb-8 animate-in fade-in zoom-in duration-500">
@@ -1423,9 +1461,9 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
 
 
-        <CarouselContent>
+        <CarouselContent className="items-start transition-[height] duration-300 ease-out">
           {days.map((day, index) => (
-            <CarouselItem key={`content-${index}`}>
+            <CarouselItem key={`content-${index}`} className="h-auto">
               <div className="animate-fade-in">
                 {/* Abertura Sagrada Litúrgica Padronizada com Fonte Gótica e Acesso à Oração Completa */}
                 <div className={cn(
