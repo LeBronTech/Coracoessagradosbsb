@@ -4715,75 +4715,282 @@ export const novenasFevereiroSetembro: Record<string, Novena> = {
         ]
     },
 
-    santa_ana_joaquim: {
-        saintName: "Sant'Ana e São Joaquim",
-        novenaTitle: "Novena a Sant'Ana e São Joaquim",
-        description: "Novena em honra a Sant'Ana e São Joaquim, pais de Maria (26 de julho).",
-        initialPrayer: "",
-        finalPrayer: "",
+    santa_maria_madalena: {
+        saintName: "Santa Maria Madalena",
+        novenaTitle: "Novena a Santa Maria Madalena",
+        description: "Novena em honra a Santa Maria Madalena, Apóstola dos Apóstolos, modelo sublime de conversão, amor penitente e fidelidade à Cruz (13 a 21 de julho).",
+        image: "/images/santos/santa-maria-madalena.jpg",
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Preparatória para Todos os Dias</h4><p>Ó Deus Todo-Poderoso e eterno, cujo Filho unigênito, Jesus Cristo, acolheu com infinita ternura Santa Maria Madalena, libertando-a das trevas do pecado e inflamando o seu coração com um amor ardente e incomparável: concedei-nos, por sua poderosa intercessão, a graça de um arrependimento sincero de todas as nossas culpas e a fidelidade inabalável ao Vosso Evangelho.</p><p class="mt-4">Santa Maria Madalena, Apóstola dos Apóstolos, que não hesitastes em seguir o Divino Mestre até o Calvário e merecestes ser a primeira mensageira da Sua gloriosa Ressurreição, acolhei a nossa prece filial e apresentai a Cristo a intenção particular que vos confiamos nesta novena <em>(mencione aqui a graça que deseja alcançar)</em>. Por Cristo, Nosso Senhor. Amém.</p></div>`,
+        finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração Conclusiva</h4><p>Ó admirável Santa Maria Madalena, que com lágrimas de amor e dor lavastes os pés sagrados do Salvador e os enxugastes com os vossos cabelos, alcançai-nos a graça de amar a Deus sobre todas as coisas e ao próximo com caridade desinteressada. Rogai por nós, bendita penitente, para que sejamos livres das ciladas do inimigo e caminhemos sempre na luz da Páscoa do Senhor.</p><p class="mt-4 text-center font-semibold">Pai-Nosso, Ave-Maria, Glória ao Pai.</p><p class="mt-4 text-center font-bold">Santa Maria Madalena, rogai por nós!</p></div>`,
         days: [
             {
                 day: "Dia 1",
-                title: "1º Dia - A Espera Confiante",
-                content: `<div class="day-specific-content">
-                    <p>Ó gloriosos Sant'Ana e São Joaquim, que suportastes com paciência a dor de não ter filhos durante tantos anos, ensinai-nos a esperar no Senhor. Ajudai-nos a confiar que Deus tem o Seu tempo perfeito para todas as coisas e que as Suas promessas nunca falham.</p>
-                </div>`
+                title: "1º Dia - O Encontro Transformador e a Misericórdia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como o olhar misericordioso de Jesus transformou por completo a vida de Maria Madalena. Libertada pelo Salvador do jugo do mal, sua alma renasceu para a vida da graça. Ela compreendeu que nenhuma miséria humana é maior do que o oceano da divina misericórdia. Onde abundou o pecado, superabundou a graça restauradora de Cristo.</p><p class="mt-4">Peçamos hoje a graça de um profundo recomeço em nossa vida espiritual, entregando ao Senhor todas as nossas fraquezas com a certeza de que Ele nos renova e nos chama à santidade.</p></div>`
             },
             {
                 day: "Dia 2",
-                title: "2º Dia - A Oração Fecunda",
-                content: `<div class="day-specific-content">
-                    <p>Santos avós de Jesus, cujas orações fervorosas rasgaram os Céus e trouxeram ao mundo a Imaculada Virgem Maria, alcançai-nos o dom da oração perseverante. Que nunca desanimemos de pedir as graças necessárias para a nossa salvação e a das nossas famílias.</p>
-                </div>`
+                title: "2º Dia - A Humildade e as Lágrimas do Arrependimento",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos a coragem e a humildade de Maria Madalena quando, sem temer o julgamento dos homens, prostrou-se aos pés de Jesus na casa do fariseu. Suas lágrimas lavaram os pés do Mestre, e seu perfume precioso ungiu Aquele que é a fonte de toda vida. Jesus declarou solenemente: "Muitos pecados lhe foram perdoados, porque ela muito amou".</p><p class="mt-4">Que nós também saibamos quebrar o vaso de alabastro do nosso orgulho e oferecer ao Senhor um coração contrito e humilhado, que Ele jamais despreza.</p></div>`
             },
             {
                 day: "Dia 3",
-                title: "3º Dia - A Família Justa e Santa",
-                content: `<div class="day-specific-content">
-                    <p>Justo Joaquim e terna Ana, que vivestes em perfeita harmonia de amor e obediência à Lei de Deus, abençoai as nossas casas. Fazei com que os nossos lares sejam verdadeiras igrejas domésticas, onde reine a paz, o respeito mútuo e a caridade de Cristo.</p>
-                </div>`
+                title: "3º Dia - A Generosidade no Seguimento e no Serviço",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos a fidelidade com que Maria Madalena acompanhava os passos de Jesus e dos Apóstolos pela Galileia, servindo-os com os seus próprios bens. Ela não reteve nada para si, mas consagrou seu tempo, seus recursos e seu futuro à causa do Reino de Deus. O amor verdadeiro não se contenta com palavras: ele se manifesta em obras de doação e zelo fraterno.</p><p class="mt-4">Roguemos por um coração generoso e desprendido das vaidades do mundo, pronto para servir a Cristo na pessoa dos irmãos necessitados.</p></div>`
             },
             {
                 day: "Dia 4",
-                title: "4º Dia - A Preparação da Morada",
-                content: `<div class="day-specific-content">
-                    <p>Bem-aventurados esposos, que do vosso sangue imaculado gerastes a Arca da Nova Aliança, preparai os nossos corações. Assim como vós preparastes Maria para ser a Mãe de Deus, ajudai-nos a purificar as nossas almas para recebermos dignamente a Jesus na Eucaristia.</p>
-                </div>`
+                title: "4º Dia - A Fortaleza nas Horas da Provação",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como, na dolorosa Paixão do Senhor, enquanto muitos discípulos fugiram amedrontados, Maria Madalena permaneceu vigilante e intrépida. Seu amor era mais forte que o medo das perseguições e dos soldados. Ela acompanhou os passos ensanguentados de Jesus no caminho da amargura, partilhando em espírito as dores do seu Redentor.</p><p class="mt-4">Supliquemos a graça da perseverança nas provações e nos momentos de escuridão da nossa caminhada, sem jamais abandonar a cruz de Cristo.</p></div>`
             },
             {
                 day: "Dia 5",
-                title: "5º Dia - A Educação na Fé",
-                content: `<div class="day-specific-content">
-                    <p>Ó Sant'Ana, que ensinastes a vossa filhinha Maria a ler as Sagradas Escrituras e a amar ao Senhor de todo o coração, rogai pelos pais e educadores. Dai-lhes sabedoria para transmitir a fé católica aos seus filhos, formando neles um caráter firme e piedoso.</p>
-                </div>`
+                title: "5º Dia - A Fidelidade Heróica aos Pés da Cruz",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos a cena tocante do Calvário: junto à Cruz de Jesus estavam Sua Mãe Santíssima, a irmã de Sua Mãe e Maria Madalena. Que consolo imenso o Coração agonizante de Jesus recebeu ao ver aquela filha tão amada firme aos Seus pés, imersa em dor e oração, testemunhando o sacrifício supremo da nossa Redenção!</p><p class="mt-4">Peçamos a graça de sermos discípulos fiéis aos pés da Santa Cruz, unindo os nossos sofrimentos ao sacrifício de Jesus pela salvação do mundo.</p></div>`
             },
             {
                 day: "Dia 6",
-                title: "6º Dia - A Entrega ao Senhor",
-                content: `<div class="day-specific-content">
-                    <p>São Joaquim e Sant'Ana, que cumpristes o vosso voto oferecendo a Menina Maria ao serviço do Templo, ensinai-nos o desapego. Que saibamos entregar a Deus aquilo que mais amamos, reconhecendo que tudo o que possuímos pertence, em primeiro lugar, a Ele.</p>
-                </div>`
+                title: "6º Dia - A Piedade Santa na Sepultura do Salvador",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como Maria Madalena acompanhou piedosamente o sepultamento do corpo bendito de Cristo e permaneceu sentada defronte do túmulo, em recolhimento e vigília de amor. Mesmo quando tudo parecia silêncio e derrota aos olhos do mundo, a chama da sua devoção não se apagou. Ela preparou os aromas mais preciosos para ungir o corpo do Mestre.</p><p class="mt-4">Que a nossa fé nunca desfaleça quando nos depararmos com o silêncio de Deus ou as perdas desta vida, confiando que a morte não tem a última palavra.</p></div>`
             },
             {
                 day: "Dia 7",
-                title: "7º Dia - O Amor Conjugal",
-                content: `<div class="day-specific-content">
-                    <p>Santos esposos, modelos de fidelidade e amor conjugal, protegei os matrimônios. Defendei os casais das crises e das separações, ensinando-os a carregar juntos as cruzes da vida e a encontrar no perdão recíproco a força para um amor duradouro.</p>
-                </div>`
+                title: "7º Dia - A Madrugada do Amor e a Busca Fervorosa",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como, no primeiro dia da semana, sendo ainda escuro, Maria Madalena correu ao sepulcro impelida por uma saudade santa. Ao ver a pedra removida e o túmulo vazio, seu coração se angustiou, pois desejava encontrar o seu Senhor: "Levaram o meu Senhor e não sei onde O puseram". O amor verdadeiro é incansável na busca de Deus.</p><p class="mt-4">Peçamos o dom de buscar a Jesus com renovado ardor em todas as manhãs de nossa vida, na oração assídua e nos santos sacramentos.</p></div>`
             },
             {
                 day: "Dia 8",
-                title: "8º Dia - Os Avós e os Idosos",
-                content: `<div class="day-specific-content">
-                    <p>Avós do Menino Jesus, olhai com carinho para todos os avós e pessoas idosas. Que eles sejam respeitados e valorizados pela sua sabedoria, encontrando na vossa intercessão o consolo nas suas enfermidades e a alegria no convívio familiar.</p>
-                </div>`
+                title: "8º Dia - A Revelação do Ressuscitado e o Chamado pelo Nome",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos o momento mais comovente da história: Jesus ressuscitado aproxima-Se de Madalena que chorava e pronuncia o seu nome com infinita doçura: "Maria!". Ela, voltando-se imediatamente, reconhece a voz divina e exclama com júbilo inefável: "Rabôni!", que quer dizer "Meu Mestre!". Aquele único encontro dissolveu para sempre toda a tristeza em vitória eterna.</p><p class="mt-4">Roguemos a Jesus a graça de reconhecermos a Sua voz quando Ele nos chama pessoalmente pelo nome para a vida nova e a santidade.</p></div>`
             },
             {
                 day: "Dia 9",
-                title: "9º Dia - A Glória Eterna",
-                content: `<div class="day-specific-content">
-                    <p>Ó gloriosos patronos, que no Céu desfrutais da companhia da vossa Filha Imaculada e do vosso Divino Neto, não vos esqueçais de nós, peregrinos neste vale de lágrimas. Guiai-nos pelo caminho da virtude até alcançarmos a felicidade eterna. Amém.</p>
-                </div>`
+                title: "9º Dia - Apóstola dos Apóstolos e Mensageira da Vida",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos o glorioso encargo que Jesus confiou a Santa Maria Madalena: "Vai dizer aos meus irmãos: Subo para meu Pai e vosso Pai, meu Deus e vosso Deus". Ela correu apressadamente aos Apóstolos anunciando a vitória Pascal: "Vi o Senhor!". Por isso a Igreja a venera como Apóstola dos Apóstolos, luzeiro perpétuo de esperança e caridade apostólica.</p><p class="mt-4">Concluamos esta novena consagrando nossa vida a proclamar, por nossas palavras e pelo nosso testemunho de fé, que Jesus Cristo está vivo e reina para sempre em nossos corações.</p></div>`
+            }
+        ]
+    },
+
+    sao_cristovao: {
+        saintName: "São Cristóvão",
+        novenaTitle: "Novena a São Cristóvão Mártir",
+        description: "Novena em honra a São Cristóvão mártir, padroeiro dos motoristas, caminhoneiros, viajantes e de todos os que trilham os caminhos da vida (16 a 24 de julho).",
+        image: "/images/santos/sao-cristovao.jpg",
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Preparatória para Todos os Dias</h4><p>Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, do Filho e do Espírito Santo. Amém.</p><p class="mt-4">Deus eterno e Todo-Poderoso, Senhor dos caminhos e guia dos nossos passos: nós Vos louvamos pela fortaleza admirável do Vosso servo São Cristóvão, que colocou toda a sua força física e espiritual a serviço dos irmãos e mereceu carregar sobre os ombros o Salvador do mundo. Por sua valorosa intercessão de mártir, concedei-nos a graça de caminhar sempre sob a Vossa santa proteção, livres de todo perigo material e espiritual, e dai-nos alcançar o favor particular que Vos pedimos com fé nesta novena <em>(faça aqui o seu pedido)</em>. Por Cristo, Nosso Senhor. Amém.</p></div>`,
+        finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração do Motorista e Bênção dos Viajantes</h4><p>Ó glorioso mártir São Cristóvão, que atravessastes a correnteza violenta do rio com segurança porque leváveis sobre os ombros o Menino Jesus: abençoai a mim e ao meu veículo. Firmai as minhas mãos no volante, iluminai os meus olhos na estrada e guiai os meus passos com prudência e vigilância.</p><p class="mt-4">Guardai-me dos acidentes, dos perigos ocultos, das colisões, dos imprevistos e das imprudências. Dai-me paciência e caridade para com os pedestres e com os outros motoristas. Fazei com que Deus habite sempre em meu coração, para que eu vença todas as correntezas desta vida e chegue são e salvo ao meu destino terreno e, finalmente, à pátria celeste.</p><p class="mt-4 text-center font-semibold">Pai-Nosso, Ave-Maria, Glória ao Pai.</p><p class="mt-4 text-center font-bold">São Cristóvão, rogai por nós e protegei as nossas viagens!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - A Busca pela Verdade e pelo Maior dos Reis",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como Cristóvão, dotado de extraordinária estatura e força física, trazia na alma o desejo nobre de servir unicamente ao rei mais poderoso do mundo. Ao perceber que os reis terrenos temiam as forças das trevas, e que as próprias forças das trevas tremiam diante do sinal da Santa Cruz, compreendeu que o único e verdadeiro Rei soberano do universo é Jesus Cristo.</p><p class="mt-4">Peçamos a intercessão de São Cristóvão para que nunca nos iludamos com as falsas grandezas e poderes deste mundo, escolhendo sempre colocar nossa vida sob o reinado exclusivo de Cristo Jesus.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - A Caridade Concreta no Serviço aos Peregrinos",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Instruído na fé cristã por um sábio eremita, Cristóvão compreendeu que a melhor maneira de agradar a Cristo era servir aos que precisavam. Construiu uma choupana junto a um rio caudaloso e perigoso, dedicando-se dia e noite a transportar nos próprios ombros os viajantes, idosos e peregrinos para que não perecessem nas águas. Toda a sua força converteu-se em instrumento de caridade.</p><p class="mt-4">Roguemos a graça de colocar nossos dons, talentos e força a serviço dos nossos irmãos mais necessitados, vendo em cada pessoa a imagem do próprio Cristo.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - O Chamado Noturno e o Encontro com o Menino Jesus",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como, em uma noite tempestuosa, Cristóvão ouviu a voz de uma criança que pedia para ser transportada para a outra margem. Levantando-se prontamente com caridade e doçura, colocou o frágil Menino sobre os seus ombros largos, apoiou-se em seu cajado e entrou nas águas escuras da correnteza.</p><p class="mt-4">Peçamos a prontidão espiritual para atender aos apelos de Deus em nossa vida cotidiana, mesmo quando o cansaço ou as intempéries tentarem desanimar a nossa caridade.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - O Peso do Mundo e a Doçura do Jugo de Cristo",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>À medida que Cristóvão avançava pelas águas profundas, o peso daquela criança aumentava de modo assombroso. As águas se agitavam e o peso tornava-se quase insuportável, como se carregasse sobre si o peso de todo o universo. Com imenso esforço, fé e perseverança, Cristóvão não desistiu e manteve-se firme até alcançar a margem segura.</p><p class="mt-4">Aprendamos com São Cristóvão a perseverar diante das cruzes e provações pesadas da vida, lembrando que Jesus caminha conosco e não nos deixa sucumbir sob o fardo.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - A Revelação Divina: 'Carregaste o Criador do Mundo'",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Chegando à outra margem, Cristóvão exclamou: "Criança, colocaste-me em tão grande perigo que parecia carregar o mundo inteiro!". O Menino então lhe revelou: "Não te admires, Cristóvão, pois não apenas carregaste o mundo inteiro, mas Aquele que criou o mundo. Eu sou Jesus Cristo, o Rei a quem tu serves!". Como prova, mandou que fincasse seu cajado na terra, e este floresceu e deu frutos na manhã seguinte.</p><p class="mt-4">Adoremos com reverência a grandeza de Nosso Senhor Jesus Cristo, que se fez pequeno para habitar em nosso coração e transformar a nossa pequenez em frutos de salvação.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - O Testemunho Intrépido e a Conversão dos Povos",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Fortalecido por aquele encontro divino e batizado com o nome de Cristóvão (Portador de Cristo), o santo viajou pregando o Evangelho com ardor apostólico. Sua pregação cheia do Espírito Santo e seus milagres tocaram o coração de milhares de pessoas na região da Lícia, convertendo multidões para a fé em Cristo e arrancando-as do paganismo.</p><p class="mt-4">Peçamos a São Cristóvão coragem santa para testemunhar nossa fé católica em nossos ambientes de trabalho, família e amizades, sem medo das críticas do mundo.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - A Fortaleza nas Perseguições e o Martírio Glorioso",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Preso pelas autoridades imperiais por causa de sua fidelidade ao Evangelho, São Cristóvão sofreu cruéis torturas e suplícios, mas recusou-se categoricamente a adorar os ídolos falsos. Pela sua oração e serenidade sob as dores, converteu até mesmo os soldados enviados para torturá-lo. Foi decapitado pela fé, entregando sua alma purificada a Deus e conquistando a coroa imperecível do martírio.</p><p class="mt-4">Roguemos a graça da constância e da lealdade a Cristo até o último instante de nossa vida terrena, preferindo a glória eterna a qualquer facilidade passageira.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - O Protetor nas Estradas e Defensor dos Motoristas",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>A Santa Igreja venera São Cristóvão há muitos séculos como um dos santos intercessores mais amados, invocando-o especialmente como padroeiro e protetor celeste dos motoristas, caminhoneiros, pilotos, marinheiros e condutores. Ele, que venceu as correntezas perigosas das águas, intercede para que todos os viajantes sejam guardados dos perigos das estradas e retornem em paz ao convívio de suas famílias.</p><p class="mt-4">Rezemos hoje por todos os motoristas de ônibus, caminhoneiros, condutores de ambulâncias e por todos os que ganham o pão nas estradas, pedindo a proteção de São Cristóvão para suas jornadas.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - A Chegada Segura à Pátria Celestial",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como toda a nossa existência nesta terra é uma peregrinação rumo ao Reino dos Céus. Enfrentamos diariamente as correntezas das tentações, as curvas difíceis do sofrimento e os nevoeiros da dúvida. São Cristóvão nos ensina que, se levarmos Jesus em nosso coração, chegaremos com certeza à margem gloriosa da eternidade, onde não haverá mais dor nem morte.</p><p class="mt-4">Concluamos esta santa novena renovando nossa consagração a Jesus pelas mãos de São Cristóvão, pedindo-lhe que guie os nossos passos até a vida eterna.</p></div>`
+            }
+        ]
+    },
+
+    santa_ana_joaquim: {
+        saintName: "Sant'Ana e São Joaquim",
+        novenaTitle: "Novena a Sant'Ana e São Joaquim",
+        description: "Novena em honra a Sant'Ana e São Joaquim, pais da Virgem Maria e avós de Nosso Senhor Jesus Cristo, padroeiros dos avós e protetores das famílias (17 a 25 de julho).",
+        image: "/images/santos/santa-ana-sao-joaquim.jpg",
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Preparatória para Todos os Dias</h4><p>Ó gloriosos pais da Rainha do Céu, São Joaquim e Sant'Ana, que fostes escolhidos desde toda a eternidade para dar ao mundo a Imaculada Mãe de Deus: prostrados com profunda veneração diante de vós, celebramos a vossa santidade e a vossa fidelidade à Aliança do Senhor.</p><p class="mt-4">Pela alegria inefável que inundou as vossas almas ao acolherdes nos braços a Menina Maria, alcançai-nos de Jesus, Vosso divino Neto, a bênção de uma fé viva, a santificação das nossas famílias e a graça particular que humildemente vos pedimos nesta novena <em>(mencione aqui a intenção)</em>. Por Cristo, Nosso Senhor. Amém.</p></div>`,
+        finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração Conclusiva pelas Famílias e Avós</h4><p>Ó Deus Todo-Poderoso, que concedestes a São Joaquim e a Sant'Ana a graça sublime de gerarem a Mãe do Vosso Filho unigênito: abençoai as nossas casas, preservai a harmonia nos matrimônios e guardai os nossos filhos e netos nos caminhos da virtude e da piedade cristã.</p><p class="mt-4">Olhai com especial carinho para todos os avós e pessoas idosas: dai-lhes saúde, dignidade, conforto nas enfermidades e a consolação do respeito e amor de seus entes queridos. Que o testemunho santo de São Joaquim e Sant'Ana inspire todas as gerações até a pátria celeste.</p><p class="mt-4 text-center font-semibold">Pai-Nosso, Ave-Maria, Glória ao Pai.</p><p class="mt-4 text-center font-bold">Sant'Ana e São Joaquim, rogai por nós e pelas nossas famílias!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - A Espera Confiante e a Paciência Cristã",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Ó gloriosos Sant'Ana e São Joaquim, que suportastes com admirável paciência a dor da esterilidade durante tantos anos, ensinai-nos a confiar no tempo perfeito de Deus. Quando tudo parecia humanamente impossível, vossa esperança permaneceu inabalável na Providência divina, provando que as promessas do Senhor jamais decepcionam os que Nele confiam.</p><p class="mt-4">Alcançai-nos a virtude da paciência heroica nas provações da vida e a certeza consoladora de que Deus escuta cada uma de nossas lágrimas e orações.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - A Oração Fervorosa e Fecunda",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Santos avós de Jesus, cujas súplicas e jejuns fervorosos rasgaram os Céus e trouxeram ao mundo a aurora da Redenção, alcançai-nos o dom da oração perseverante. Que nunca desanimemos de clamar a Deus pelas necessidades espirituais e temporais de nossas famílias, fazendo da nossa prece um refúgio seguro em meio às tempestades.</p><p class="mt-4">Peçamos a graça de cultivar uma vida íntima de oração diária em nossos lares, onde o nome do Senhor seja sempre bendito e amado.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - A Justiça e a Santidade do Lar",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Justo Joaquim e virtuosa Ana, que vivestes em perfeita harmonia conjugal e obediência fiel à Lei de Deus, abençoai as nossas casas. Fazei com que os nossos lares sejam verdadeiros santuários de paz, onde reine o respeito mútuo, a pureza de costumes, o perdão generoso e a caridade fraterna que une os corações em Cristo.</p><p class="mt-4">Supliquemos a proteção de São Joaquim e Sant'Ana sobre todos os casais, para que vivam o matrimônio como um caminho luminoso de santidade mútua.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - O Nascimento da Imaculada Conceição",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Bem-aventurados esposos, que do vosso sangue gerastes a Criatura mais pura e bela de todo o universo, a Imaculada Virgem Maria, destinada a ser a Mãe de Deus! A vossa casa encheu-se de perfumes celestiais e júbilo angélico ao acolher aquela Menina bendita que viria a esmagar a cabeça da serpente infernal.</p><p class="mt-4">Roguemos a pureza de coração e a graça de mantermos nossa alma limpa de todo pecado mortal, sendo moradas dignas da presença do Espírito Santo.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - A Educação na Sabedoria e na Fé",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Ó doce Sant'Ana e sábio São Joaquim, que ensinastes a vossa santíssima Filha Maria a ler as Sagradas Escrituras e a amar ao Senhor com todo o ardor do coração: rogai por todos os pais e educadores cristãos. Dai-lhes sabedoria e fidelidade para transmitir a fé católica íntegra aos seus filhos e netos, protegendo-os das armadilhas do mundo.</p><p class="mt-4">Rezemos para que as novas gerações descubram a beleza do Evangelho e cresçam em estatura, sabedoria e graça diante de Deus e dos homens.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - A Consagração e a Entrega a Deus",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>São Joaquim e Sant'Ana, que cumpristes o vosso voto sagrado oferecendo a Menina Maria ao serviço do Templo em Jerusalém, ensinai-nos o desprendimento do amor puro. Vós soubestes entregar a Deus o vosso maior tesouro terreno, compreendendo que tudo o que possuímos pertence em primeiro lugar ao Senhor.</p><p class="mt-4">Peçamos a generosidade de colocar em Deus o centro de todos os nossos afetos, consagrando-Lhe com prontidão os nossos filhos e os nossos trabalhos.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - A Fidelidade Conjugal e a Proteção das Famílias",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Santos esposos, modelos perenes de lealdade e fortaleza conjugal, defendei as famílias cristãs contra todas as ciladas do inimigo. Protegei os lares das crises, das divisões e das discórdias, ensinando os cônjuges a carregarem juntos as cruzes cotidianas com paciência e ternura.</p><p class="mt-4">Que a paz e a bênção de Deus repousem sobre cada família, fazendo triunfar o amor verdadeiro onde houver dor ou incompreensão.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - A Bênção dos Avós e a Sabedoria dos Idosos",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Avós venturosos do Menino Jesus, olhai com carinho e ternura infinita para todos os avós e pessoas idosas em todo o mundo. Que eles sejam valorizados pela sua sabedoria e amparados em suas fraquezas corporais, encontrando na vossa intercessão consolo nas dores e júbilo na união familiar.</p><p class="mt-4">Oremos para que a sociedade respeite e acolha os idosos com a dignidade e a reverência que merecem aqueles que tanto se sacrificaram por nós.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - A Coroa Eterna e a Glória Celeste",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Ó gloriosos padroeiros São Joaquim e Sant'Ana, que no Céu desfrutais da glória beatífica ao lado da vossa Filha Imaculada e do vosso Divino Neto Jesus: não vos esqueçais de nós, pobres peregrinos neste vale de lágrimas. Sede nossos advogados junto ao trono da graça divina em todas as horas da nossa vida e na hora da nossa morte.</p><p class="mt-4">Concluamos nossa novena com coração transbordante de gratidão, pedindo a bênção de Sant'Ana e São Joaquim sobre nós e sobre todas as nossas famílias para sempre.</p></div>`
+            }
+        ]
+    },
+
+    santa_marta: {
+        saintName: "Santa Marta",
+        novenaTitle: "Novena Milagrosa a Santa Marta de Betânia",
+        description: "Novena milagrosa em honra a Santa Marta de Betânia, discípula do Senhor, modelo de serviço e amor, e poderosa intercessora nas necessidades urgentes e difíceis (20 a 28 de julho).",
+        image: "/images/santos/santa-marta.jpg",
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Preparatória e Ato de Contrição</h4><p>Em nome do Pai, do Filho e do Espírito Santo. Amém.</p><p class="mt-4">Altíssimo e amantíssimo Redentor nosso, Senhor Jesus Cristo, pelo incomparável e infinito amor com que acolhestes em Betânia a dedicação de Vossa fiel discípula Santa Marta: rogo-Vos humildemente que perdoeis todos os meus pecados, dos quais me arrependo de todo o coração. Pela intercessão e merecimentos de Santa Marta, concedei-me a graça de Vos servir com pureza de alma, e dai-me o favor particular que confio à sua intercessão nesta novena <em>(apresente aqui a sua aflição ou pedido urgente)</em>. Amém.</p></div>`,
+        finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Invocação Milagrosa a Santa Marta</h4><p>Ó gloriosa e bendita Santa Marta de Betânia, acolhei-me sob a vossa santa proteção e amparo. Pela imensa felicidade que tivestes em hospedar e servir o Divino Salvador em vossa casa, consolai-me nas minhas aflições e angústias presentes.</p><p class="mt-4">Vós que, pelo poder da oração e da Cruz de Cristo, dominastes todas as forças do mal e as feras da tribulação, alcançai-me a graça de vencer todas as adversidades da vida, de ver resolvida a causa urgente que hoje vos apresento e de viver em santa paz na presença de Deus até o fim dos meus dias.</p><p class="mt-4 text-center font-semibold">Pai-Nosso, Ave-Maria, Glória ao Pai.</p><p class="mt-4 text-center font-bold">Santa Marta de Betânia, rogai por nós e atendei as nossas súplicas!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - A Hospitalidade e o Serviço Diligente em Betânia",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos a generosidade com que Santa Marta abria as portas de sua casa em Betânia para acolher o Divino Mestre e Seus Apóstolos. Enquanto outros fechavam as portas ao Salvador, Marta cuidava de cada detalhe com amor e dedicação, preparando o repouso para o Senhor após longas caminhadas de evangelização.</p><p class="mt-4">Peçamos a Santa Marta um coração acolhedor e pronto para o serviço ao próximo, aprendendo que acolher o irmão necessitado é acolher a Cristo em pessoa.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - A Escuta da Palavra e o Equilíbrio Espiritual",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como Jesus, ao admoestar amorosamente Santa Marta ("Marta, Marta, tu te preocupas e te agitas com muitas coisas, mas uma só é necessária"), não reprovou o seu serviço dedicado, mas convidou-a a unir a ação exterior à contemplação interior. Marta aprendeu a lição do Mestre e uniu harmoniosamente a oração ao trabalho.</p><p class="mt-4">Roguemos a graça de manter uma alma serena e centrada na presença de Deus, sem nos deixarmos sufocar pela ansiedade e pelas preocupações passageiras do mundo.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - A Confiança Plena em Meio à Dor da Perda",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Quando seu irmão Lázaro faleceu e o luto abateu o lar de Betânia, Marta, ao saber que Jesus se aproximava, correu ao Seu encontro. Em meio às lágrimas, sua fé brilhou como tocha ardente ao declarar: "Senhor, se tivesses estado aqui, meu irmão não teria morrido. Mas mesmo agora, eu sei que tudo o que pedires a Deus, Ele to concederá".</p><p class="mt-4">Peçamos a firmeza de fé nas horas mais difíceis de luto, enfermidade e dor, confiando que o Senhor nunca Se atrasa em Seu socorro amoroso.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - A Sublime Profissão de Fé no Cristo",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Diante das palavras declaredas por Jesus: "Eu sou a Ressurreição e a Vida; quem crê em Mim, ainda que morra, viverá. Crês nisto?", Santa Marta pronunciou uma das mais belas profissões de fé de todo o Evangelho: "Sim, Senhor, eu creio que Tu és o Cristo, o Filho de Deus vivo que devia vir ao mundo!".</p><p class="mt-4">Supliquemos a Deus uma fé viva, corajosa e inabalável na divindade de Jesus Cristo e no poder de Sua vitória sobre o pecado e a morte.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - A Esperança que Remove as Pedras da Sepultura",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Junto ao sepulcro de Lázaro, Jesus ordenou: "Tirai a pedra". Embora a razão humana vacilasse diante dos quatro dias de sepultura, Marta obedeceu e presenciou a glória de Deus se manifestar quando Jesus clamou: "Lázaro, vem para fora!". As situações aparentemente mortas e sem solução ganham vida nova diante do poder do Salvador.</p><p class="mt-4">Roguemos a Santa Marta para que interceda pelas causas que nos parecem impossíveis ou sepultadas, confiando no poder ilimitado de Cristo Jesus.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - O Banquete de Ação de Graças e o Louvor",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Pouco antes da Paixão, ofereceram em Betânia um banquete a Jesus. O Evangelho relata com simplicidade e beleza: "E Marta servia". Ela servia agora com júbilo redobrado, com um coração transbordante de gratidão pelo milagre recebido, oferecendo o melhor de si Àquele que ressuscitou o seu irmão.</p><p class="mt-4">Aprendamos a agradecer a Deus de todo o coração por cada benefício e graça alcançada, perseverando na adoração e no serviço generoso.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - A Vitória sobre o Mal e a Força na Evangelização",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>A tradição cristã narra que, após a dispersão dos discípulos por causa das perseguições, Santa Marta partiu com seus irmãos para evangelizar o sul da Gália (França). Com a oração ardente, a água benta e o sinal da Cruz, dominou a ferocidade de feras terríveis (a Tarasca) que assolavam a região de Tarascon, libertando a população e convertendo todos a Cristo.</p><p class="mt-4">Invoquemos a poderosa intercessão de Santa Marta para vencermos todas as tentações e perigos espirituais que tentam abalar nossa paz e fé.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - O Refúgio nas Horas de Urgência e Necessidade",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Por sua pronta solicitude no auxílio aos que sofrem e por sua amizade íntima com o Senhor Jesus, Santa Marta é invocada pelo povo cristão como milagrosa advogada nas necessidades urgentes, nas tribulações materiais, nos problemas domésticos e nas aflições do coração. Ninguém que recorre com fé à sua proteção fica desamparado.</p><p class="mt-4">Entreguemos com confiança irrestrita a nossa causa urgente nas mãos abençoadas de Santa Marta, crendo que ela apresentará nosso pedido diretamente a Jesus.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - O Repouso Eterno na Morada Celeste",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Ao findar sua peregrinação terrena consumida de amor e boas obras, Santa Marta foi recebida no Céu pelo próprio Jesus, que lhe disse: "Vem, bendita serva fiel, entra no gozo do teu Senhor". Na pátria eterna, ela agora descansa de suas fadigas e contempla face a face Aquele que tanto amou e serviu nesta terra.</p><p class="mt-4">Concluamos esta novena pedindo a Santa Marta que nos alcance a perseverança final e a graça de sermos recebidos um dia no Reino eterno da glória. Amém.</p></div>`
+            }
+        ]
+    },
+
+    santo_inacio_loyola: {
+        saintName: "Santo Inácio de Loyola",
+        novenaTitle: "Novena a Santo Inácio de Loyola",
+        description: "Novena tradicional em honra a Santo Inácio de Loyola, fundador da Companhia de Jesus, mestre dos Exercícios Espirituais e valoroso soldado de Cristo na defesa da fé e pela maior glória de Deus (22 a 30 de julho).",
+        image: "/images/santos/santo-inacio-loyola.jpg",
+        initialPrayer: `<div class="initial-prayer-text"><h4 class="section-title">Oração Preparatória para Todos os Dias</h4><p>Pelo sinal da Santa Cruz, livrai-nos, Deus, nosso Senhor, dos nossos inimigos. Em nome do Pai, do Filho e do Espírito Santo. Amém.</p><p class="mt-4">Ó Glorioso Santo Inácio de Loyola, valoroso cavaleiro do Reino de Deus e mestre insigne do discernimento dos espíritos: prostrado aos pés da Divina Majestade, arrependo-me de coração de todos os meus pecados, com que tantas vezes ofendi a Deus, soberano e sumo Bem. Pelo ardente zelo com que consagrastes vossa vida para procurar em tudo a Maior Glória de Deus (<em>Ad Maiorem Dei Gloriam</em>), obtende-me do Coração de Jesus a graça de uma sincera conversão, a fortaleza para combater sob o estandarte da Cruz e o favor particular que confio à vossa intercessão nesta novena <em>(mencione aqui a sua intenção particular)</em>. Por Cristo, Nosso Senhor. Amém.</p></div>`,
+        finalPrayer: `<div class="final-prayer-text"><h4 class="section-title">Oração Conclusiva</h4><p>Ó Deus, que para espalhar a Vossa maior glória fortalecestes a Igreja militante com a fundação da Companhia de Jesus por meio de Santo Inácio de Loyola: concedei-nos que, pelejando na terra a exemplo e com a proteção de tão ilustre capitão, mereçamos ser coroados com ele na glória eterna do Céu.</p><h4 class="section-title mt-6">Tomai, Senhor, e Recebei (Suscipe)</h4><p class="italic">Tomai, Senhor, e recebei toda a minha liberdade, a minha memória, o meu entendimento e toda a minha vontade, tudo o que tenho e possuo. Vós me destes todas as coisas; a Vós, Senhor, as devolvo. Tudo é Vosso, disponde de tudo inteiramente segundo a Vossa santíssima vontade. Dai-me somente o Vosso amor e a Vossa graça, pois esta me basta. Amém.</p><p class="mt-4 text-center font-semibold">Pai-Nosso, Ave-Maria, Glória ao Pai.</p><p class="mt-4 text-center font-bold">Santo Inácio de Loyola, rogai por nós!</p></div>`,
+        days: [
+            {
+                day: "Dia 1",
+                title: "1º Dia - A Conversão e o Triunfo da Graça sobre as Vaidades",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Consideremos como o fidalgo Íñigo de Loyola, ferido na perna por uma bala de canhão no cerco de Pamplona em 1521, viu desmoronar todos os seus sonhos de glória militar e de romance mundano. Durante a convalescença no castelo de Loyola, pediu livros de cavalaria para passar o tempo, mas só encontrou a Vida de Cristo e a Legenda Áurea (vida dos santos). Ao ler as façanhas de São Francisco de Assis e São Domingos de Gusmão, o Espírito Santo tocou-lhe o coração: "E se eu fizesse o que fez São Francisco? E se eu fizesse o que fez São Domingos?".</p><p class="mt-4">Inácio percebeu a diferença entre os pensamentos do mundo — que o deixavam vazio e triste — e as aspirações de santidade, que enchiam sua alma de profunda consolação e paz. Começava ali a sua memorável conversão.</p><h4 class="section-title mt-4">Oração do 1º Dia</h4><p>Ó Glorioso Santo Inácio, que soubestes reconhecer na dor da enfermidade a voz salvadora de Deus que vos chamava das vaidades passageiras à verdadeira santidade: arrancai do meu coração o apego aos aplausos do mundo e ensinai-me a discernir os movimentos da graça, escolhendo sempre o caminho que conduz ao Céu. Amém.</p></div>`
+            },
+            {
+                day: "Dia 2",
+                title: "2º Dia - A Vigília das Armas e a Consagração a Nossa Senhora",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Convertido pela graça, Santo Inácio despediu-se de sua parentela e peregrinou até o Santuário de Nossa Senhora de Montserrat. Diante da imagem milagrosa da Mãe de Deus, fez uma confissão geral de toda a sua vida passada que durou três dias inteiros. Na noite da Anunciação de 1522, realizou a sua solene Vigília das Armas espirituais: despiu seus trajes de nobre e rico cavaleiro, doou-os a um mendigo, vestiu uma túnica grosseira de saco e pendurou a sua espada e o seu punhal junto ao altar da Virgem Santíssima.</p><p class="mt-4">A partir daquela noite sagrada, Inácio já não era soldado dos reis da terra, mas cavaleiro e servo consagrado de Jesus Cristo e de Sua Santa Mãe.</p><h4 class="section-title mt-4">Oração do 2º Dia</h4><p>Ó Santo Inácio, humilde e fiel devoto da Mãe de Deus, que aos pés da Virgem em Montserrat despojastes vossas armas para vestir a armadura da fé e da caridade: colocai-me sob a proteção maternal de Maria Santíssima e dai-me a coragem de renunciar a tudo o que me afasta do seguimento incondicional de Jesus. Amém.</p></div>`
+            },
+            {
+                day: "Dia 3",
+                title: "3º Dia - A Oração, os Combates e a Luz de Manresa",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>De Montserrat, Inácio retirou-se para a vila de Manresa, abrigando-se numa gruta solitária às margens do rio Cardoner. Ali passou quase um ano em rigorosíssima oração, jejuns e penitência. Sofreu terríveis provações espirituais, angústias, escrúpulos e desolações em que o inimigo tentou levá-lo ao desespero; porém, confiando unicamente na misericórdia divina, saiu vitorioso da tempestade.</p><p class="mt-4">Junto ao rio Cardoner, recebeu uma iluminação intelectual tão alta dos mistérios divinos que mais tarde declarou que todas as coisas aprendidas em toda a sua vida não se comparavam ao que Deus lhe fez compreender naquele único instante. Nascia ali o tesouro inestimável dos seus Exercícios Espirituais.</p><h4 class="section-title mt-4">Oração do 3º Dia</h4><p>Ó mestre admirável da vida interior, que na solidão de Manresa aprendestes a vencer as tentações do desânimo e recebestes as luzes mais profundas da contemplação: socorrei-me nas minhas noites escuras e ensinai-me a perseverar na oração fiel mesmo quando a aridez ou a tentação cercarem a minha alma. Amém.</p></div>`
+            },
+            {
+                day: "Dia 4",
+                title: "4º Dia - O Princípio e Fundamento da Vida",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Santo Inácio colocou no alicerce de sua espiritualidade o sublime Princípio e Fundamento: "O homem é criado para louvar, reverenciar e servir a Deus Nosso Senhor, e mediante isto salvar a sua alma. E as outras coisas sobre a face da terra são criadas para o homem, para que o ajudem a atingir o fim para o qual é criado".</p><p class="mt-4">Disto conclui Inácio a necessidade da santa indiferença cristã: não devemos desejar mais a saúde do que a enfermidade, a riqueza do que a pobreza, a honra do que a desonra, a vida longa do que a curta, mas somente desejar e escolher aquilo que mais diretamente nos conduz ao fim para o qual fomos criados — a salvação e a glória de Deus.</p><h4 class="section-title mt-4">Oração do 4º Dia</h4><p>Ó Santo Inácio, cuja alma era plenamente livre e desprendida de todas as criaturas terrenas: alcançai-me a graça de ordenar retamente a minha vida, para que eu use das coisas criadas com pureza de intenção e nunca coloque criatura alguma no lugar supremo que pertence somente ao meu Deus e Criador. Amém.</p></div>`
+            },
+            {
+                day: "Dia 5",
+                title: "5º Dia - A Meditação dos Dois Estandartes e o Combate Espiritual",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Nos Exercícios Espirituais, Santo Inácio propõe a célebre contemplação dos Dois Estandartes. De um lado, o chefe dos rebeldes, Lúcifer, que arregimenta seus demônios para espalhar redes de engano sobre o mundo, atraindo os homens primeiro pela cobiça das riquezas, depois pela vanglória e honras humanas, até precipitá-los na soberba mortal.</p><p class="mt-4">Do outro lado resplandece o doce e supremo Capitão, Jesus Cristo, que envia Seus apóstolos e discípulos a todos os homens com o estandarte da Santa Cruz, convidando-os à santa pobreza material e espiritual, ao desprezo das honras do mundo e à perfeita humildade, mãe de todas as virtudes.</p><h4 class="section-title mt-4">Oração do 5º Dia</h4><p>Ó invicto campeão de Cristo, Santo Inácio de Loyola: ajudai-me a desmascarar as seduções e armadilhas do demônio. Dai-me coragem para militar sem receio sob o glorioso Estandarte da Cruz do Senhor Jesus, escolhendo a humildade e a verdade antes que a vaidade do mundo. Amém.</p></div>`
+            },
+            {
+                day: "Dia 6",
+                title: "6º Dia - A Fundação da Companhia de Jesus e o Zelo Missionário",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Compreendendo que para servir a Deus no mundo precisava de companheiros instruídos e santos, Inácio, aos 33 anos, começou a estudar gramática latina ao lado de crianças. Mais tarde, na Universidade de Paris, reuniu em torno de si um grupo de homens admiráveis, entre eles São Francisco Xavier e o Beato Pedro Fabro. Em 15 de agosto de 1534, na capela de Montmartre, consagraram-se a Deus com votos perpétuos.</p><p class="mt-4">Aprovada solenemente pelo Papa Paulo III em 1540, nascia a Companhia de Jesus, uma ordem de soldados espirituais prontos para ir a qualquer canto da terra — das cortes da Europa às florestas da América e às terras do Oriente —, para defender a Fé Católica e ensinar a doutrina cristã aos povos.</p><h4 class="section-title mt-4">Oração do 6º Dia</h4><p>Ó glorioso Patriarca Santo Inácio, pai de uma multidão de santos e mártires valorosos: infundi em todos os cristãos um ardente zelo apostólico pela salvação dos pecadores, para que ninguém se canse de anunciar o Evangelho e levar a luz de Cristo a todos os corações. Amém.</p></div>`
+            },
+            {
+                day: "Dia 7",
+                title: "7º Dia - O Amor Filial e a Fidelidade Heroica à Igreja e ao Papa",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Numa época turbulenta de divisões, heresias e revoltas contra a Igreja Católica, Santo Inácio brilhou como coluna inabalável de ortodoxia e lealdade à Santa Sé. Em suas "Regras para Sentir com a Igreja", ensinou que o verdadeiro discípulo de Cristo ama a Esposa Mística do Senhor de todo o coração e nela confia como mestra infalível da verdade.</p><p class="mt-4">Além dos três votos religiosos tradicionais de pobreza, castidade e obediência, Santo Inácio instituiu o célebre quarto voto dos jesuítas: a obediência incondicional ao Romano Pontífice, Vigário de Cristo na terra, dispondo-se a partir imediatamente a qualquer missão que o Papa determinar, sem questionamento nem demora.</p><h4 class="section-title mt-4">Oração do 7º Dia</h4><p>Ó zeloso protetor da Fé, Santo Inácio de Loyola: livrai a Santa Igreja de todas as divisões e heresias. Concedei ao Santo Padre, aos bispos e a todo o clero a firmeza na doutrina dos Apóstolos, e a nós, fiéis, um amor sincero e filial ao Vigário de Cristo. Amém.</p></div>`
+            },
+            {
+                day: "Dia 8",
+                title: "8º Dia - A Paciência nas Tribulações e o Amor à Cruz",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>A vida de Santo Inácio foi marcada por contínuas e duríssimas cruzes. Foi preso e interrogado várias vezes pelas autoridades civis e inquisitoriais por causa de sua pregação leiga; sofreu calúnias injustas em Roma; viu muitas de suas obras enfrentarem incompreensões cruéis; e durante seus longos anos como Superior Geral em Roma, sofreu dores físicas excruciantes decorrentes de suas enfermidades no estômago e na vesícula.</p><p class="mt-4">Em todas essas provações, Inácio jamais perdeu a serenidade do semblante nem a paz do coração. Costumava dizer que não desejava nada mais ardente do que ser insultado e perseguido por amor a Jesus Cristo, pois a Cruz é a vestimenta com que o Rei dos reis honra os Seus soldados mais diletos.</p><h4 class="section-title mt-4">Oração do 8º Dia</h4><p>Ó mestre admirável da fortaleza cristã, Santo Inácio: alcançai-me de Deus a graça de suportar com paciência santa e amor sobrenatural as contrariedades, as doenças e as contradições desta vida, unindo todos os meus sofrimentos à Paixão redentora de Jesus Cristo. Amém.</p></div>`
+            },
+            {
+                day: "Dia 9",
+                title: "9º Dia - A Maior Glória de Deus e a Consumação no Amor Divino",
+                content: `<div class="day-specific-content"><h4 class="section-title">Meditação</h4><p>Ao contemplar as estrelas do firmamento pela janela de seu humilde quarto em Roma, Santo Inácio exclamava com lágrimas de comoção nos olhos: "Oh, quão vil me parece a terra quando contemplo o Céu!". O segredo ardente de toda a sua existência resumia-se em seu lema imortal: <em>Ad Maiorem Dei Gloriam</em> — Para a Maior Glória de Deus.</p><p class="mt-4">Na véspera de sua morte santa, em 31 de julho de 1556, entregou serenamente o seu espírito a Deus, repetindo o dulcíssimo Nome de Jesus. Toda a sua vida foi um cântico vivo de oferenda total, sintetizado na oração do <em>Suscipe</em>: nada mais desejava a não ser o amor e a graça do Redentor, que lhe bastavam com plenitude para toda a eternidade.</p><h4 class="section-title mt-4">Oração do 9º Dia</h4><p>Ó glorioso Pai Santo Inácio de Loyola, que agora triunfais no Céu na companhia de Cristo e de Nossa Senhora: iluminai os meus passos até o fim dos meus dias nesta terra. Fazei que em tudo o que eu pensar, disser ou realizar, eu procure unicamente a maior glória de Deus e a santificação dos meus irmãos, para que mereça contemplar com convosco a glória eterna do Paraíso. Amém.</p></div>`
             }
         ]
     },

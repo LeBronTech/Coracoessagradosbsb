@@ -3139,11 +3139,11 @@ export const saints: Saint[] = [
   { id: 'sao_bento', name: 'São Bento Abade', imageUrl: 'https://igrejadoscapuchinhos.org/wp-content/uploads/4ad94e1ccf05dc4df776c5a881864a4f.jpg', month: 'Julho', startDate: '02/07', endDate: '10/07', feastDay: '11/Jul' },
   { id: 'luis_zelia_martin', name: 'São Luís e Santa Zélia Martin', imageUrl: 'https://comshalom.org/wp-content/uploads/2020/07/louis-et-zlie-martin-dalenon-840x502.jpg', month: 'Julho', startDate: '03/07', endDate: '11/07', feastDay: '12/Jul' },
   { id: 'nossa_senhora_carmo', name: 'N.S. do Carmo', imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0K3bRQTrYCLAaf6mIt3aqOikoZlGiCAkMZQ&s', month: 'Julho', startDate: '07/07', endDate: '15/07', feastDay: '16/Jul' },
-  { id: 'santa_maria_madalena', name: 'Santa Maria Madalena', imageUrl: 'https://i.pinimg.com/736x/9a/0b/1c/9a0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d.jpg', month: 'Julho', startDate: '13/07', endDate: '21/07', feastDay: '22/Jul' },
-  { id: 'sao_cristovao', name: 'São Cristóvão', imageUrl: 'https://i.pinimg.com/736x/0b/1c/2d/0b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e.jpg', month: 'Julho', startDate: '16/07', endDate: '24/07', feastDay: '25/Jul' },
-  { id: 'santa_ana_joaquim', name: 'Sant\'Ana e São Joaquim', imageUrl: 'https://i.pinimg.com/736x/1c/2d/3e/1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
-  { id: 'santa_marta', name: 'Santa Marta', imageUrl: 'https://i.pinimg.com/736x/2d/3e/4f/2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7a.jpg', month: 'Julho', startDate: '20/07', endDate: '28/07', feastDay: '29/Jul' },
-  { id: 'santo_inacio_loyola', name: 'Santo Inácio de Loyola', imageUrl: 'https://i.pinimg.com/1200x/13/91/44/1391445cf63d436d020839707bfe6bbb.jpg', month: 'Julho', startDate: '22/07', endDate: '30/07', feastDay: '31/Jul' },
+  { id: 'santa_maria_madalena', name: 'Santa Maria Madalena', imageUrl: '/images/santos/santa-maria-madalena.jpg', month: 'Julho', startDate: '13/07', endDate: '21/07', feastDay: '22/Jul' },
+  { id: 'sao_cristovao', name: 'São Cristóvão', imageUrl: '/images/santos/sao-cristovao.jpg', month: 'Julho', startDate: '16/07', endDate: '24/07', feastDay: '25/Jul', isMartyr: true },
+  { id: 'santa_ana_joaquim', name: 'Sant\'Ana e São Joaquim', imageUrl: '/images/santos/santa-ana-sao-joaquim.jpg', month: 'Julho', startDate: '17/07', endDate: '25/07', feastDay: '26/Jul' },
+  { id: 'santa_marta', name: 'Santa Marta', imageUrl: '/images/santos/santa-marta.jpg', month: 'Julho', startDate: '20/07', endDate: '28/07', feastDay: '29/Jul' },
+  { id: 'santo_inacio_loyola', name: 'Santo Inácio de Loyola', imageUrl: '/images/santos/santo-inacio-loyola.jpg', month: 'Julho', startDate: '22/07', endDate: '30/07', feastDay: '31/Jul' },
   { id: 'sao_joao_vianney', name: 'São João Vianney', imageUrl: 'https://img.cancaonova.com/cnimages/canais/uploads/sites/2/2022/08/S%C3%A3o-Jo%C3%A3o-Maria-Vianney-padroeiro-dos-sacerdotes-1-300x225.jpg', month: 'Julho/Agosto', startDate: '26/07', endDate: '03/08', feastDay: '04/Ago' },
 
   // Agosto

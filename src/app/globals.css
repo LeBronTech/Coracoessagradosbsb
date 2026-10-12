@@ -463,9 +463,28 @@
     font-weight: 700 !important;
   }
 
-  .main-card div[class*="text-primary"] p {
+  .main-card div[class*="text-primary"] p,
+  .main-card.theme-dark-gray .final-prayer-text div[class*="text-primary"] p,
+  .main-card.theme-red .final-prayer-text div[class*="text-primary"] p,
+  .main-card.theme-dark-gray .day-specific-content div[class*="text-primary"] p,
+  .main-card.theme-red .day-specific-content div[class*="text-primary"] p,
+  .main-card.theme-dark-gray .instruction-badge p,
+  .main-card.theme-red .instruction-badge p,
+  .main-card .instruction-badge p {
     color: #881337 !important;
     font-weight: 700 !important;
+  }
+
+  /* Pílulas de oração quando dentro de blocos destacados ou caixas claras */
+  .main-card div[class*="text-primary"] .inline-prayer-pill,
+  .main-card .final-prayer-text div[class*="text-primary"] .inline-prayer-pill,
+  .main-card .day-specific-content div[class*="text-primary"] .inline-prayer-pill,
+  .main-card .instruction-badge .inline-prayer-pill,
+  .main-card [class*="bg-stone-100"] .inline-prayer-pill,
+  .main-card [class*="bg-white"] .inline-prayer-pill {
+    background-color: rgba(136, 19, 55, 0.08) !important;
+    border-color: rgba(136, 19, 55, 0.28) !important;
+    color: #881337 !important;
   }
 
   /* Em temas escuros ou coloridos (red, dark-gray, green, default) */
