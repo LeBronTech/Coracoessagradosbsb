@@ -845,9 +845,16 @@ export const worldMarianDevotions: Continent[] = [
                 country: "Brasil (SP)",
                 countryFlag: "🇧🇷",
                 date: "8 de Dezembro",
-                imageUrl: "/images/ns_santa_cabeca.jpg",
-                description: "A cabeça milagrosa do rio Tietê",
-                fullDescription: "Em 1829, pescadores encontraram apenas a cabeça de uma imagem no Rio Tietê. Milagres começaram a acontecer e um santuário foi construído em Cachoeira Paulista. É invocada para curar dores de cabeça e doenças mentais.",
+                imageUrl: "https://i.postimg.cc/gc1gBbbD/ns-santa-cabeca.jpg",
+                objectPosition: "center 10%",
+                images: [
+                    "https://i.postimg.cc/gc1gBbbD/ns-santa-cabeca.jpg",
+                    "/images/ns_santa_cabeca.jpg",
+                    "/images/ns_santa_cabeca_altar.jpg",
+                    "/images/ns_santa_cabeca_santuario.jpg"
+                ],
+                description: "A cabeça milagrosa resgatada do Rio Tietê e Padroeira das aflições da mente",
+                fullDescription: "O MILAGRE DA CABEÇA NO RIO TIETÊ\n\nA devoção a Nossa Senhora de Santa Cabeça nasceu no ano de 1829, nas águas do Rio Tietê, em São Paulo. Dois pescadores lançaram suas redes e retiraram das águas a cabeça esculpida de uma imagem de Nossa Senhora, em terracota e traços delicados, miraculosamente preservada das correntezas. Sem saber como proceder com a sagrada relíquia, entregaram-na a uma piedosa senhora da região chamada Rosa Maria, que lhe dedicou um oratório com velas e orações. Logo começaram a ocorrer milagres impressionantes e curas extraordinárias entre os vizinhos e viajantes que ali rezavam.\n\nO SANTUÁRIO DIOCESANO EM CACHOEIRA PAULISTA\n\nA fama dos prodígios espalhou-se rapidamente por todo o Vale do Paraíba. Com o afluxo crescente de peregrinos, foi erguida uma capela e, mais tarde, o grandioso Santuário Diocesano de Santa Cabeça, localizado em Cachoeira Paulista (SP). A sagrada cabeça foi entronizada no altar-mor dentro de um resplendor dourado com raios solares sustentado por dois anjos esculpidos. O santuário tornou-se um dos mais procurados centros de romaria do estado, com festa solene celebrada no dia 8 de Dezembro, Solenidade da Imaculada Conceição.\n\nINTERCESSORA NAS ENFERMIDADES DA CABEÇA E DA MENTE\n\nNossa Senhora de Santa Cabeça é invocada especialmente para o alívio e cura de dores de cabeça crônicas, enxaquecas, enfermidades cerebrais, angústias, depressão e perturbações mentais. Inúmeros ex-votos e testemunhos de fé na sala de milagres do Santuário atestam as graças alcançadas por sua intercessão maternal.\n\nREFERÊNCIA ÀS IMAGENS DA NOSSA GALERIA:\n• Imagem 1 (Padrão/Capa): Imagem devocional e processional de Nossa Senhora, coroada, trazendo o Menino Jesus no braço esquerdo e segurando com carinho na mão direita a relíquia da Santa Cabeça entre flores.\n• Imagem 2: O relicário de ouro com raios resplendentes onde está guardada a milagrosa cabeça encontrada no rio, sustentado por dois anjos no altar.\n• Imagem 3: A visão completa do altar-mor neogótico em mármore, ornamentado com colunas nobres e orquídeas brancas no Santuário Diocesano.\n• Imagem 4: A fachada histórica do Santuário Diocesano de Santa Cabeça em Cachoeira Paulista (SP), cercada de verde e pelas tradicionais escadarias de peregrinação.\n\nORAÇÃO\nÓ misericordiosa Virgem Maria, sob o título de Santa Cabeça: Vós que vos manifestastes nas águas para socorrer os que sofrem, intercedei por nós perante Deus. Curai nossas enfermidades físicas e mentais, dai paz aos nossos pensamentos, livrai-nos de toda angústia e guiai-nos na luz do vosso Divino Filho. Amém.",
                 status: "approved",
                 statusNote: "Santuário Diocesano"
             },
@@ -856,10 +863,17 @@ export const worldMarianDevotions: Continent[] = [
                 name: "N.S. do Bom Despacho",
                 country: "Brasil (MG)",
                 countryFlag: "🇧🇷",
-                date: "Mai",
-                imageUrl: "/images/ns_bom_despacho.png",
-                description: "Padroeira de Bom Despacho",
-                fullDescription: "Devoção portuguesa (dedicada à prontidão de Maria em atender, 'despachar' os pedidos). Muito forte em Minas Gerais.",
+                date: "31 de Maio",
+                imageUrl: "https://i.postimg.cc/6q1qzfmd/ns-santa-cabeca.png",
+                objectPosition: "top",
+                images: [
+                    "https://i.postimg.cc/6q1qzfmd/ns-santa-cabeca.png",
+                    "/images/ns_bom_despacho.png",
+                    "/images/ns_bom_despacho_matriz.jpg",
+                    "/images/ns_bom_despacho_altar.jpg"
+                ],
+                description: "Padroeira do Bom Despacho das Almas e das causas justas",
+                fullDescription: "A ORIGEM DA DEVOÇÃO E O 'BOM DESPACHO' DAS ALMAS\n\nO título mariano de Nossa Senhora do Bom Despacho tem suas origens em Portugal no século XVII, associado primitivamente à invocação de Nossa Senhora do Bom Despacho das Almas. No linguajar jurídico e canônico da época, o termo 'despacho' refere-se à sentença favorável, à decisão benévola e ao encaminhamento benevolente emitido pelo tribunal. Na fé católica, a Virgem Maria é a Advogada Celeste que intercede junto a Cristo (o Supremo Juiz) para que as súplicas dos fiéis e o destino eterno das almas recebam um 'bom despacho', alcançando perdão, graça e salvação, livrando-os das ciladas do demônio (o 'mau despacho').\n\nA CIDADE E A TRADIÇÃO EM MINAS GERAIS\n\nA devoção foi trazida ao Brasil colonial pelos portugueses e bandeirantes no século XVIII. Em Minas Gerais, devotos fundaram uma capela dedicada à Virgem do Bom Despacho no centro-oeste mineiro em ação de graças pelo êxito de suas expedições. O povoado cresceu ao redor da devoção e deu origem ao município de Bom Despacho (MG). A grandiosa festa da Padroeira é celebrada solenemente em 31 de Maio, encerramento do mês mariano e festa da Visitação de Nossa Senhora, reunindo fiéis de toda a Diocese de Luz com procissões, novenas solenes e coroação.\n\nICONOGRAFIA E SIMBOLOGIA\n\nA representação clássica de Nossa Senhora do Bom Despacho mostra a Virgem acolhendo os pedidos com benevolência de Mãe. Tradicionalmente, traz o Menino Jesus em um dos braços enquanto o Salvador abençoa a terra. Em representações antigas, Maria trazia uma pena ou um livro, simbolizando o registro e encaminhamento das orações ao Céu. Na estatuária colonial de Minas Gerais, a imagem barroca apresenta mãos postas ao peito em constante atitude de oração e acolhimento maternal.\n\nREFERÊNCIA ÀS IMAGENS DA NOSSA GALERIA:\n• Imagem 1 (Padrão/Capa): Pintura sacra clássica e comovente retratando Nossa Senhora em manto azul com o Menino Jesus abençoando o mundo, amparada por uma corte de anjos celestes.\n• Imagem 2: A histórica imagem barroca da Padroeira venerada na Diocese de Luz em Bom Despacho (MG), com seu esplendoroso resplendor dourado.\n• Imagem 3: A imponente fachada e torre neogótica da Igreja Matriz de Bom Despacho (MG), marco histórico de fé do centro-oeste mineiro.\n• Imagem 4: O altar-mor neogótico com colunas esculpidas e a imagem no nicho central sobre a cruz sagrada.\n\nORAÇÃO\nÓ Mãe amabilíssima do Bom Despacho, refúgio seguro dos pecadores e consoladora dos aflitos: Confiando em vossa poderosa intercessão junto ao trono de Deus, coloco em vossas mãos as minhas súplicas e necessidades (apresentar a intenção). Despachai favoravelmente o meu pedido perante vosso Filho Jesus e concedei-me a graça da perseverança na fé e da santidade de vida. Amém.",
                 status: "approved"
             },
             {

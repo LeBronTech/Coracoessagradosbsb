@@ -341,12 +341,10 @@ export function WorldMarianDevotions() {
                                                             <div id={`world-devotion-${devotion.id}`} className="cursor-pointer group flex flex-col items-center">
                                                                 <div className="relative w-full max-w-[140px]">
                                                                     {(devotion.images?.[0] || devotion.imageUrl) ? (
-                                                                        <Image
+                                                                        <img
                                                                             src={getProxiedImageUrl(devotion.images?.[0] || devotion.imageUrl)}
                                                                             alt={devotion.name}
-                                                                            width={200}
-                                                                            height={200}
-                                                                            className="aspect-square rounded-full object-cover border-4 transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
+                                                                            className="aspect-square rounded-full object-cover border-4 w-full transition-all duration-300 shadow-md group-hover:shadow-xl group-hover:scale-105 border-blue-200 group-hover:border-blue-400"
                                                                             style={{ objectPosition: (devotion as any).objectPosition || 'center' }}
                                                                         />
                                                                     ) : (
