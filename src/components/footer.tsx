@@ -24,12 +24,71 @@ export default function Footer() {
         </a>
       </div>
 
-      <p>&copy; {new Date().getFullYear()} Corações Sagrados BSB. Todos os direitos reservados.</p>
+      <p className="inline-flex items-center justify-center flex-wrap gap-1.5 text-xs sm:text-sm text-stone-700 font-medium px-4 leading-relaxed">
+        <span>&copy; {new Date().getFullYear()} Corações Sagrados BSB, a serviço da Santa Igreja Católica Apostólica Romana</span>
+        <VaticanFlag className="w-4 h-4 sm:w-5 sm:h-5 inline-block shadow-xs rounded-[2px] border border-stone-300/80 shrink-0" />
+      </p>
       <p className="mt-2 text-sm">
         <a href="https://lebrontech.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-700 transition-colors">
           Desenvolvido por: LeBronDev-Designer™
         </a>
       </p>
     </footer>
+  );
+}
+
+function VaticanFlag({ className = "w-5 h-5" }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 100 100"
+      className={className}
+      xmlns="http://www.w3.org/2000/svg"
+      role="img"
+      aria-label="Bandeira do Vaticano"
+      title="Bandeira do Vaticano"
+    >
+      <clipPath id="vatican-clip">
+        <rect width="100" height="100" rx="2" />
+      </clipPath>
+      <g clipPath="url(#vatican-clip)">
+        {/* Metade Esquerda: Amarelo Ouro Papal */}
+        <rect x="0" y="0" width="50" height="100" fill="#FFE000" />
+        {/* Metade Direita: Branco */}
+        <rect x="50" y="0" width="50" height="100" fill="#FFFFFF" />
+
+        {/* Tiara Papal */}
+        <path d="M75 14 L75 18 M73 16 L77 16" stroke="#D4AF37" strokeWidth="1.5" strokeLinecap="round" />
+        <ellipse cx="75" cy="22" rx="4" ry="2.5" fill="#FFE000" stroke="#C59B27" strokeWidth="0.8" />
+        <path d="M68 28 C68 24 82 24 82 28 Z" fill="#FFE000" stroke="#C59B27" strokeWidth="0.8" />
+        <path d="M66 35 C66 30 84 30 84 35 Z" fill="#FFE000" stroke="#C59B27" strokeWidth="0.8" />
+        <path d="M64 42 C64 36 86 36 86 42 Z" fill="#FFE000" stroke="#C59B27" strokeWidth="0.8" />
+
+        {/* Ínfulas (fitas vermelhas da tiara) */}
+        <path d="M72 42 C70 48 68 55 65 60" stroke="#C8102E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+        <path d="M78 42 C80 48 82 55 85 60" stroke="#C8102E" strokeWidth="1.2" fill="none" strokeLinecap="round" />
+
+        {/* Chave de Ouro */}
+        <g stroke="#D4AF37" strokeWidth="2.5" strokeLinecap="round">
+          <line x1="60" y1="72" x2="88" y2="44" />
+          <path d="M88 44 L92 48 L90 50 L87 47 L85 49 L83 47" fill="none" stroke="#D4AF37" strokeWidth="1.5" strokeLinejoin="round" />
+        </g>
+        <circle cx="60" cy="72" r="4.5" fill="none" stroke="#D4AF37" strokeWidth="2" />
+        <circle cx="60" cy="72" r="1.5" fill="#D4AF37" />
+
+        {/* Chave de Prata */}
+        <g stroke="#9E9E9E" strokeWidth="2.5" strokeLinecap="round">
+          <line x1="90" y1="72" x2="62" y2="44" />
+          <path d="M62 44 L58 48 L60 50 L63 47 L65 49 L67 47" fill="none" stroke="#9E9E9E" strokeWidth="1.5" strokeLinejoin="round" />
+        </g>
+        <circle cx="90" cy="72" r="4.5" fill="none" stroke="#9E9E9E" strokeWidth="2" />
+        <circle cx="90" cy="72" r="1.5" fill="#9E9E9E" />
+
+        {/* Cordão Vermelho com Nó */}
+        <path d="M68 64 C75 58 75 58 82 64" stroke="#C8102E" strokeWidth="1.5" fill="none" />
+        <circle cx="75" cy="58" r="2.5" fill="#C8102E" />
+        <path d="M75 60 L73 70 M75 60 L77 70" stroke="#C8102E" strokeWidth="1" strokeLinecap="round" />
+      </g>
+      <rect width="100" height="100" rx="2" fill="none" stroke="rgba(0,0,0,0.12)" strokeWidth="1" />
+    </svg>
   );
 }
