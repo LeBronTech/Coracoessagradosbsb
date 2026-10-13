@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, type CarouselApi } from '@/components/ui/carousel';
 import AutoHeight from 'embla-carousel-auto-height';
 import { Button } from '@/components/ui/button';
-import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand, Lightbulb } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Copy, ChevronDown, ChevronLeft, ChevronRight, Check, Maximize2, X, Hand, Lightbulb, RotateCcw } from 'lucide-react';
 import { cn, formatSaintName, getProxiedImageUrl, getFullSaintName, getSaintIntercession, getDropCapClass } from '@/lib/utils';
 import type { Saint, Novena, NovenaVersion } from '@/lib/data';
 import type { Theme } from '@/app/page';
@@ -777,9 +777,23 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         }
         localStorage.setItem(datesKey, JSON.stringify(datesObj));
       }
+
+      // Se concluiu todos os dias da novena, faz rolagem suave até o bloco de parabéns!
+      if (isNowCompleted) {
+        const totalCompleted = Object.values(newState).filter(Boolean).length;
+        if (totalCompleted === days.length && days.length > 0) {
+          setTimeout(() => {
+            const congratsElement = document.getElementById(`novena-opening-card-${index}`) || novenaContentRef.current;
+            if (congratsElement) {
+              congratsElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+          }, 150);
+        }
+      }
+
       return newState;
     });
-  }, [saint, selectedVersionId]);
+  }, [saint, selectedVersionId, days.length]);
 
   // Monitor do relógio: às 00:00, se a novena foi marcada como concluída antes, pula pro próximo dia automaticamente
   useEffect(() => {
@@ -950,9 +964,15 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const handleResetNovena = () => {
     if (saint && typeof window !== 'undefined') {
       const storageKey = `novena_completed_${saint.id}_${selectedVersionId}`;
+      const datesKey = `novena_completed_dates_${saint.id}_${selectedVersionId}`;
       localStorage.removeItem(storageKey);
+      localStorage.removeItem(datesKey);
       setCompletedDays({});
       api?.scrollTo(0);
+      setCurrent(0);
+      setTimeout(() => {
+        scrollToNovenaStart();
+      }, 100);
     }
   };
 
@@ -1364,27 +1384,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           opts={{ watchDrag: false }}
         >
 
-        {isAllCompleted && (
-          <div className="mb-8 animate-in fade-in zoom-in duration-500">
-            <div className={cn(
-              "p-6 rounded-2xl text-center border-2 border-primary/50 flex flex-col items-center gap-4",
-              isLightTheme ? "bg-red-50 text-red-900" : "bg-red-900/30 text-white backdrop-blur-sm"
-            )}>
-              <div className="text-4xl">🙏</div>
-              <h3 className="text-xl font-bold font-brand">Parabéns! Você concluiu esta novena.</h3>
-              <p className="text-sm opacity-90">Deseja reiniciar sua jornada de oração para esta novena?</p>
-              <Button 
-                onClick={handleResetNovena}
-                className={cn(
-                  "rounded-full px-6 py-2 text-xs font-bold uppercase tracking-widest transition-all hover:scale-105 shadow-md",
-                  "bg-primary text-white border border-white/20 hover:bg-red-800"
-                )}
-              >
-                Sim, começar de novo
-              </Button>
-            </div>
-          </div>
-        )}
+
 
         {days.length > 1 && (
           <div ref={novenaContentRef} className="flex flex-col gap-3 mb-4">
@@ -1465,36 +1465,73 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           {days.map((day, index) => (
             <CarouselItem key={`content-${index}`} className="h-auto">
               <div className="animate-fade-in">
-                {/* Abertura Sagrada Litúrgica Padronizada com Fonte Gótica e Acesso à Oração Completa */}
-                <div className={cn(
-                  "novena-sacred-opening text-center my-4 py-2.5 px-3.5 rounded-xl max-w-sm mx-auto border transition-all duration-300 select-none shadow-md backdrop-blur-md",
-                  isLightTheme
-                    ? "bg-stone-900/85 border-stone-700/80 shadow-md"
-                    : "bg-white/25 border-white/40 shadow-lg ring-1 ring-white/20"
-                )}>
-                  <button
-                    type="button"
-                    onClick={() => openPrayerModal('pelo-sinal')}
-                    className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02]"
-                    title="Toque para rezar a oração completa do Pelo Sinal da Santa Cruz"
-                  >
-                    <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
-                      Pelo Sinal da Santa cruz ♱
-                    </p>
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => openPrayerModal('vinde-espirito')}
-                    className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02] mt-0.5"
-                    title="Toque para rezar a oração completa do Vinde Espírito Santo"
-                  >
-                    <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
-                      Vinde Espírito santo ❦
-                    </p>
-                  </button>
-                  <span className="text-[10px] text-white/70 tracking-wider block mt-1 font-sans">
-                    Toque para rezar a oração completa 📖
-                  </span>
+                {/* Bloco Litúrgico de Abertura Sagrada ou Parabéns ao Concluir */}
+                <div
+                  id={`novena-opening-card-${index}`}
+                  className={cn(
+                    "novena-sacred-opening text-center my-4 py-3 px-4 rounded-xl max-w-sm mx-auto border transition-all duration-500 shadow-md backdrop-blur-md",
+                    isAllCompleted
+                      ? (isLightTheme
+                          ? "bg-red-50 text-red-950 border-2 border-primary/50 shadow-lg"
+                          : theme === 'theme-green'
+                            ? "bg-emerald-950/70 text-white border-2 border-emerald-400/60 shadow-xl ring-1 ring-amber-300/30"
+                            : "bg-red-950/70 text-white border-2 border-red-400/60 shadow-xl ring-1 ring-amber-300/30")
+                      : (isLightTheme
+                          ? "bg-stone-900/85 border-stone-700/80 shadow-md text-white select-none"
+                          : "bg-white/25 border-white/40 shadow-lg ring-1 ring-white/20 text-white select-none")
+                  )}
+                >
+                  {isAllCompleted ? (
+                    <div className="flex flex-col items-center gap-2 text-center animate-in fade-in zoom-in-95 duration-500">
+                      <div className="text-3xl animate-bounce">🙏</div>
+                      <h3 className="text-lg sm:text-xl font-bold font-brand tracking-wide leading-snug">
+                        Parabéns! Você concluiu esta novena.
+                      </h3>
+                      <p className={cn(
+                        "text-xs leading-relaxed max-w-xs",
+                        isLightTheme ? "text-stone-700" : "text-white/85"
+                      )}>
+                        Deseja reiniciar sua jornada de oração para esta novena?
+                      </p>
+                      <Button 
+                        onClick={handleResetNovena}
+                        size="sm"
+                        className={cn(
+                          "mt-1 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md flex items-center gap-1.5",
+                          "bg-primary text-white border border-white/20 hover:bg-red-800"
+                        )}
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                        Sim, começar de novo
+                      </Button>
+                    </div>
+                  ) : (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => openPrayerModal('pelo-sinal')}
+                        className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02]"
+                        title="Toque para rezar a oração completa do Pelo Sinal da Santa Cruz"
+                      >
+                        <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                          Pelo Sinal da Santa cruz ♱
+                        </p>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => openPrayerModal('vinde-espirito')}
+                        className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02] mt-0.5"
+                        title="Toque para rezar a oração completa do Vinde Espírito Santo"
+                      >
+                        <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                          Vinde Espírito santo ❦
+                        </p>
+                      </button>
+                      <span className="text-[10px] text-white/70 tracking-wider block mt-1 font-sans">
+                        Toque para rezar a oração completa 📖
+                      </span>
+                    </>
+                  )}
                 </div>
 
                 {(() => {
