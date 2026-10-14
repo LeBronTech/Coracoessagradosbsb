@@ -1,3 +1,9 @@
 {
-  "$schema": "https://app.kilo.ai/config.json"
+  "$schema": "https://app.kilo.ai/config.json",
+  "agent": {
+    "code": {
+      "model": "google/gemini-3.5-flash-lite"
+    }
+  },
+  "model": "google/gemini-3.5-flash-lite"
 }

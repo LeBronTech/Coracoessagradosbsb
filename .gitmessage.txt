@@ -1,0 +1,14 @@
+# <tipo>(<escopo>): <descrição em português no presente>
+#
+# --- TIPOS DE COMMITS ---
+# feat:     Nova funcionalidade
+# fix:      Correção de bug
+# docs:     Alteração em documentação
+# style:    Ajustes de formatação, sem alterar lógica
+# refactor: Refatoração de código (sem mudar comportamento)
+# perf:     Melhoria de desempenho
+# test:     Adiciona ou ajusta testes
+# chore:    Ajustes em dependências, configurações ou build
+#
+# Exemplo:
+# feat(novena): adiciona nova imagem do santo do dia

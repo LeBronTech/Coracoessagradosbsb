@@ -28,6 +28,7 @@ export default function SaoJosePage() {
     const [hydrated, setHydrated] = useState(false);
     const [loadingFinished, setLoadingFinished] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
+    const [navigatingTheme, setNavigatingTheme] = useState<string>("sao-jose");
     const router = useRouter();
 
     React.useEffect(() => {
@@ -36,6 +37,7 @@ export default function SaoJosePage() {
 
     const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
+        setNavigatingTheme("default");
         setIsNavigating(true);
         setTimeout(() => {
             router.push('/');
@@ -59,7 +61,11 @@ export default function SaoJosePage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated || isNavigating} onFinished={() => setLoadingFinished(true)} />
+            <LoadingScreen 
+                isLoading={!hydrated || isNavigating} 
+                theme={isNavigating ? navigatingTheme : "sao-jose"} 
+                onFinished={() => setLoadingFinished(true)} 
+            />
             <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
             {/* Header / Hero Section */}
             <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">

@@ -350,7 +350,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
   const [completedDays, setCompletedDays] = useState<Record<number, boolean>>({});
   const [isChanging, setIsChanging] = useState(false);
   const [currentOfficialDayIndex, setCurrentOfficialDayIndex] = useState<number | null>(null);
-  
+
   const [alertInfo, setAlertInfo] = useState<{ title: string, description: React.ReactNode } | null>(null);
   const [isAlertExpanded, setIsAlertExpanded] = useState(false);
   const [isAutoDisplay, setIsAutoDisplay] = useState(false);
@@ -552,15 +552,15 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
     if (saint.startDate) {
       const todayOnlyDate = new Date(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-      
+
       const [startDayStr, startMonthStr] = saint.startDate.split('/');
       const [endDayStr, endMonthStr] = saint.endDate.split('/');
       const startMonth = Number(startMonthStr);
       const endMonth = Number(endMonthStr);
-      
+
       let startD = new Date(todayOnlyDate.getFullYear(), startMonth - 1, Number(startDayStr));
       let endD = new Date(todayOnlyDate.getFullYear(), endMonth - 1, Number(endDayStr));
-      
+
       if (endMonth < startMonth) {
         if (todayOnlyDate.getMonth() < 6) {
           startD.setFullYear(todayOnlyDate.getFullYear() - 1);
@@ -671,7 +671,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
     if (novena) {
       setIsChanging(true);
       setAnimationState('out');
-      
+
       const outTimer = setTimeout(() => {
         setAnimationState('in');
         setIsChanging(false);
@@ -767,7 +767,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
         if (savedDatesRaw) {
           try {
             datesObj = JSON.parse(savedDatesRaw);
-          } catch (e) {}
+          } catch (e) { }
         }
 
         if (isNowCompleted) {
@@ -823,7 +823,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
               api.scrollTo(nextDay);
               setCurrent(nextDay);
             }
-          } catch (e) {}
+          } catch (e) { }
         }
 
         scheduleMidnightCheck();
@@ -1058,7 +1058,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
             className={cn(
               'rounded-full h-9 w-9 sm:h-10 sm:w-10 shrink-0 border-2 bg-white/10 backdrop-blur-md transition-all hover:scale-110 active:scale-95 flex items-center justify-center',
               theme === 'theme-light-gray' || theme === 'theme-default'
-                ? 'border-stone-200 hover:bg-black/5 text-stone-600' 
+                ? 'border-stone-200 hover:bg-black/5 text-stone-600'
                 : 'border-white/20 hover:bg-white/10 text-white'
             )}
             title={days.length === 1 ? 'Copiar oração' : `Copiar texto dos ${days.length} dias`}
@@ -1159,189 +1159,189 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </div>
 
           <div className="flex flex-col md:flex-row items-center gap-6 md:gap-10 text-center md:text-left">
-          {/* Square image with rounded corners — with zoom on hover and modal on click */}
-          <div className="flex flex-col items-center gap-2">
-            <Dialog>
-              <DialogTrigger asChild>
-                <div className="relative group/img cursor-zoom-in flex-shrink-0 w-40 h-56 md:w-48 md:h-64 rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10 bg-black/40">
-                  <Image
-                    src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
-                    alt={saint.name}
-                    fill
-                    sizes="(max-width: 768px) 160px, 192px"
-                    className="object-cover"
-                    style={{
-                      objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center'
-                    }}
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center pointer-events-none">
-                    <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
-                  </div>
-                </div>
-              </DialogTrigger>
-              <DialogContent showCloseButton={false} className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
-                <DialogHeader className="sr-only">
-                  <DialogTitle>{getFullSaintName(saint.name)}</DialogTitle>
-                </DialogHeader>
-                
-                <div className="relative flex flex-col items-center justify-center gap-4">
-                  <div className="relative flex items-center justify-center w-full min-h-[75vh] sm:min-h-[85vh] pt-12">
-                    <div className="relative w-fit max-w-full">
-                      {/* Custom Close Button — anchored to the image wrapper */}
-                      <DialogClose className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-[110] p-1.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/40 text-white transition-all hover:scale-105 active:scale-95 shadow-xl">
-                        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
-                      </DialogClose>
-                      
-                      <div className="relative">
-                        <Image
-                          src={getProxiedImageUrl(getHighResUrl((novena as any)?.image || saint.imageUrl))}
-                          alt={saint.name}
-                          width={1200}
-                          height={1600}
-                          className="max-h-[75vh] sm:max-h-[85vh] w-auto max-w-[95vw] object-contain rounded-lg drop-shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-500"
-                        />
-                      </div>
+            {/* Square image with rounded corners — with zoom on hover and modal on click */}
+            <div className="flex flex-col items-center gap-2">
+              <Dialog>
+                <DialogTrigger asChild>
+                  <div className="relative group/img cursor-zoom-in flex-shrink-0 w-40 h-56 md:w-48 md:h-64 rounded-2xl overflow-hidden border-4 border-white/30 shadow-2xl transition-all duration-500 group-hover/img:scale-105 group-hover/img:shadow-white/20 ring-1 ring-white/10 bg-black/40">
+                    <Image
+                      src={getProxiedImageUrl((novena as any)?.image || saint.imageUrl)}
+                      alt={saint.name}
+                      fill
+                      sizes="(max-width: 768px) 160px, 192px"
+                      className="object-cover"
+                      style={{
+                        objectPosition: (novena as any)?.imageObjectPosition || (saint as any)?.imageObjectPosition || 'center'
+                      }}
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 rounded-2xl flex items-center justify-center pointer-events-none">
+                      <Maximize2 className="w-6 h-6 text-white drop-shadow-lg" />
                     </div>
                   </div>
-                  
-                  <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
-                    <h3 className="text-white font-brand text-lg sm:text-2xl drop-shadow-lg text-center">
-                      {getFullSaintName(saint.name)}
-                    </h3>
-                  </div>
-                </div>
-              </DialogContent>
-            </Dialog>
-            <p className="text-[10px] md:text-xs font-bold text-white/60 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
-              <Hand className="w-3 h-3" /> Clique para ver a imagem
-            </p>
-          </div>
+                </DialogTrigger>
+                <DialogContent showCloseButton={false} className="max-w-[95vw] sm:max-w-[90vw] lg:max-w-[85vw] p-0 overflow-hidden bg-transparent border-none shadow-none focus:outline-none">
+                  <DialogHeader className="sr-only">
+                    <DialogTitle>{getFullSaintName(saint.name)}</DialogTitle>
+                  </DialogHeader>
 
-          <div className="flex-1 min-w-0">
-            {/* Título apenas para desktop - aparece ao lado da imagem */}
-            <div className="hidden md:flex flex-col items-start leading-tight mb-4">
-              <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{devocaoType}</span>
-              <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg leading-tight">
-                {getFullSaintName(saint.name)}
-              </h2>
-            </div>
-            
-            <p className="italic text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
-              {description || ''}
-            </p>
-            {saint.startDate && (
-              <div ref={alertContainerRef} className="mt-3 relative w-full">
-                {/* Linha de data, status e botão Dica */}
-                <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
-                  {saint.isMartyr && (
-                    <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-red-700 text-white shadow-lg animate-in fade-in zoom-in duration-300 uppercase tracking-widest">
-                      Mártir
-                    </span>
-                  )}
-                  <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
-                    {devocaoType}: {saint.startDate} a {saint.endDate}
-                  </span>
-                  
-                  {/* Botão translúcido com lâmpada e nome 'Dica' em layout vermelho */}
-                  <button
-                    type="button"
-                    onClick={() => {
-                      const next = !isAlertExpanded;
-                      setIsAlertExpanded(next);
-                      setIsAutoDisplay(false);
-                      if (!next) {
-                        hasUserClosedManuallyRef.current = true;
-                      } else {
-                        hasUserClosedManuallyRef.current = false;
-                      }
-                      if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-                      if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
-                    }}
-                    className={cn(
-                      "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md transition-all duration-300 shadow-sm border cursor-pointer select-none",
-                      isAlertExpanded
-                        ? "bg-red-600/40 text-white border-red-400/70 shadow-[0_0_14px_rgba(239,68,68,0.45)] scale-[1.02]"
-                        : "bg-red-950/40 hover:bg-red-900/60 text-red-200 border-red-500/40 hover:border-red-400/70 hover:scale-[1.02]"
-                    )}
-                    title="Ver dica de oração, intercessão e andamento da novena"
-                  >
-                    <Lightbulb className={cn(
-                      "w-3.5 h-3.5 transition-transform duration-300",
-                      isAlertExpanded ? "text-red-300 scale-110" : "text-red-400"
-                    )} />
-                    <span>Dica</span>
-                    <span className={cn(
-                      "text-[9px] transition-transform duration-300 opacity-80",
-                      isAlertExpanded ? "rotate-180" : "rotate-0"
-                    )}>
-                      ▼
-                    </span>
-                  </button>
-                </div>
+                  <div className="relative flex flex-col items-center justify-center gap-4">
+                    <div className="relative flex items-center justify-center w-full min-h-[75vh] sm:min-h-[85vh] pt-12">
+                      <div className="relative w-fit max-w-full">
+                        {/* Custom Close Button — anchored to the image wrapper */}
+                        <DialogClose className="absolute -top-2 -right-2 sm:-top-3 sm:-right-3 z-[110] p-1.5 rounded-full bg-black/70 hover:bg-black/90 backdrop-blur-md border border-white/40 text-white transition-all hover:scale-105 active:scale-95 shadow-xl">
+                          <X className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                        </DialogClose>
 
-                {/* Caixa translúcida expansível de Dica & Intercessão — Layout Vermelho */}
-                <div
-                  className={cn(
-                    "w-full transition-all duration-500 ease-in-out overflow-hidden",
-                    isAlertExpanded
-                      ? "max-h-[350px] opacity-100 mt-3 pointer-events-auto"
-                      : "max-h-0 opacity-0 mt-0 pointer-events-none"
-                  )}
-                >
-                  <div className="relative p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-red-950/85 via-red-900/60 to-black/85 border border-red-500/40 text-white backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.5)] ring-1 ring-red-400/20 text-left">
-                    {/* Cabeçalho com ícone de lâmpada e botão de fechar */}
-                    <div className="flex items-center justify-between gap-2 pb-2 mb-2.5 border-b border-red-400/20">
-                      <div className="flex items-center gap-2 text-red-200 font-semibold text-xs sm:text-sm">
-                        <div className="p-1.5 rounded-full bg-red-600/30 border border-red-400/40 shadow-inner">
-                          <Lightbulb className="w-3.5 h-3.5 text-red-300" />
+                        <div className="relative">
+                          <Image
+                            src={getProxiedImageUrl(getHighResUrl((novena as any)?.image || saint.imageUrl))}
+                            alt={saint.name}
+                            width={1200}
+                            height={1600}
+                            className="max-h-[75vh] sm:max-h-[85vh] w-auto max-w-[95vw] object-contain rounded-lg drop-shadow-[0_0_50px_rgba(0,0,0,0.8)] animate-in zoom-in-95 duration-500"
+                          />
                         </div>
-                        <span className="tracking-wide">Dica & Intercessão</span>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => {
-                          setIsAlertExpanded(false);
-                          setIsAutoDisplay(false);
-                          hasUserClosedManuallyRef.current = true;
-                          if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
-                          if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
-                        }}
-                        className="text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
-                        title="Recolher dica"
-                      >
-                        <X className="w-3.5 h-3.5" />
-                      </button>
                     </div>
 
-                    {/* Objetivo da oração / Graças pedidas */}
-                    <div className="text-xs sm:text-sm text-white/95 leading-relaxed mb-3">
-                      <span className="text-red-300 font-semibold block mb-0.5">Por que rezar e pedir nesta novena:</span>
-                      <p className="text-white/90">
-                        {getSaintIntercession(saint.id, saint.name)}
-                      </p>
+                    <div className="bg-black/40 backdrop-blur-md px-6 py-2 rounded-full border border-white/10">
+                      <h3 className="text-white font-brand text-lg sm:text-2xl drop-shadow-lg text-center">
+                        {getFullSaintName(saint.name)}
+                      </h3>
                     </div>
+                  </div>
+                </DialogContent>
+              </Dialog>
+              <p className="text-[10px] md:text-xs font-bold text-white/60 uppercase tracking-widest flex items-center gap-1.5 animate-pulse">
+                <Hand className="w-3 h-3" /> Clique para ver a imagem
+              </p>
+            </div>
 
-                    {/* Andamento da novena integrado */}
-                    {alertInfo && (
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 pt-2.5 border-t border-red-400/20 text-[11px] sm:text-xs text-white/90">
-                        <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-full bg-red-600/40 text-red-100 font-semibold text-[10px] sm:text-[11px] border border-red-400/40 flex-shrink-0 shadow-sm">
-                          {alertInfo.title}
-                        </span>
-                        <span className="leading-snug opacity-95">
-                          {alertInfo.description}
-                        </span>
-                      </div>
+            <div className="flex-1 min-w-0">
+              {/* Título apenas para desktop - aparece ao lado da imagem */}
+              <div className="hidden md:flex flex-col items-start leading-tight mb-4">
+                <span className="text-sm md:text-base font-medium uppercase tracking-[0.2em] mb-1 text-white/70 drop-shadow">{devocaoType}</span>
+                <h2 className="text-3xl md:text-4xl font-bold font-brand text-white drop-shadow-lg leading-tight">
+                  {getFullSaintName(saint.name)}
+                </h2>
+              </div>
+
+              <p className="italic text-white/85 drop-shadow text-sm md:text-base leading-relaxed">
+                {description || ''}
+              </p>
+              {saint.startDate && (
+                <div ref={alertContainerRef} className="mt-3 relative w-full">
+                  {/* Linha de data, status e botão Dica */}
+                  <div className="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                    {saint.isMartyr && (
+                      <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-red-700 text-white shadow-lg animate-in fade-in zoom-in duration-300 uppercase tracking-widest">
+                        Mártir
+                      </span>
                     )}
+                    <span className="inline-block text-xs font-bold px-4 py-1 rounded-full bg-white/20 backdrop-blur-sm text-white border border-white/15 shadow-sm">
+                      {devocaoType}: {saint.startDate} a {saint.endDate}
+                    </span>
+
+                    {/* Botão translúcido com lâmpada e nome 'Dica' em layout vermelho */}
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const next = !isAlertExpanded;
+                        setIsAlertExpanded(next);
+                        setIsAutoDisplay(false);
+                        if (!next) {
+                          hasUserClosedManuallyRef.current = true;
+                        } else {
+                          hasUserClosedManuallyRef.current = false;
+                        }
+                        if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                        if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
+                      }}
+                      className={cn(
+                        "inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-md transition-all duration-300 shadow-sm border cursor-pointer select-none",
+                        isAlertExpanded
+                          ? "bg-red-600/40 text-white border-red-400/70 shadow-[0_0_14px_rgba(239,68,68,0.45)] scale-[1.02]"
+                          : "bg-red-950/40 hover:bg-red-900/60 text-red-200 border-red-500/40 hover:border-red-400/70 hover:scale-[1.02]"
+                      )}
+                      title="Ver dica de oração, intercessão e andamento da novena"
+                    >
+                      <Lightbulb className={cn(
+                        "w-3.5 h-3.5 transition-transform duration-300",
+                        isAlertExpanded ? "text-red-300 scale-110" : "text-red-400"
+                      )} />
+                      <span>Dica</span>
+                      <span className={cn(
+                        "text-[9px] transition-transform duration-300 opacity-80",
+                        isAlertExpanded ? "rotate-180" : "rotate-0"
+                      )}>
+                        ▼
+                      </span>
+                    </button>
+                  </div>
+
+                  {/* Caixa translúcida expansível de Dica & Intercessão — Layout Vermelho */}
+                  <div
+                    className={cn(
+                      "w-full transition-all duration-500 ease-in-out overflow-hidden",
+                      isAlertExpanded
+                        ? "max-h-[350px] opacity-100 mt-3 pointer-events-auto"
+                        : "max-h-0 opacity-0 mt-0 pointer-events-none"
+                    )}
+                  >
+                    <div className="relative p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br from-red-950/85 via-red-900/60 to-black/85 border border-red-500/40 text-white backdrop-blur-xl shadow-[0_15px_35px_rgba(0,0,0,0.5)] ring-1 ring-red-400/20 text-left">
+                      {/* Cabeçalho com ícone de lâmpada e botão de fechar */}
+                      <div className="flex items-center justify-between gap-2 pb-2 mb-2.5 border-b border-red-400/20">
+                        <div className="flex items-center gap-2 text-red-200 font-semibold text-xs sm:text-sm">
+                          <div className="p-1.5 rounded-full bg-red-600/30 border border-red-400/40 shadow-inner">
+                            <Lightbulb className="w-3.5 h-3.5 text-red-300" />
+                          </div>
+                          <span className="tracking-wide">Dica & Intercessão</span>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setIsAlertExpanded(false);
+                            setIsAutoDisplay(false);
+                            hasUserClosedManuallyRef.current = true;
+                            if (alertTimerRef.current) clearTimeout(alertTimerRef.current);
+                            if (dwellTimerRef.current) clearTimeout(dwellTimerRef.current);
+                          }}
+                          className="text-white/70 hover:text-white p-1 rounded-full hover:bg-white/10 transition-colors"
+                          title="Recolher dica"
+                        >
+                          <X className="w-3.5 h-3.5" />
+                        </button>
+                      </div>
+
+                      {/* Objetivo da oração / Graças pedidas */}
+                      <div className="text-xs sm:text-sm text-white/95 leading-relaxed mb-3">
+                        <span className="text-red-300 font-semibold block mb-0.5">Por que rezar e pedir nesta novena:</span>
+                        <p className="text-white/90">
+                          {getSaintIntercession(saint.id, saint.name)}
+                        </p>
+                      </div>
+
+                      {/* Andamento da novena integrado */}
+                      {alertInfo && (
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 pt-2.5 border-t border-red-400/20 text-[11px] sm:text-xs text-white/90">
+                          <span className="inline-flex items-center w-fit px-2.5 py-0.5 rounded-full bg-red-600/40 text-red-100 font-semibold text-[10px] sm:text-[11px] border border-red-400/40 flex-shrink-0 shadow-sm">
+                            {alertInfo.title}
+                          </span>
+                          <span className="leading-snug opacity-95">
+                            {alertInfo.description}
+                          </span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )}
+              )}
 
+            </div>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
 
       <div className="relative w-full">
         {isChanging && (
@@ -1377,46 +1377,21 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           </a>
         </div>
 
-        <Carousel 
-          plugins={[autoHeightPlugin]} 
-          setApi={setApi} 
-          className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")} 
+        <Carousel
+          plugins={[autoHeightPlugin]}
+          setApi={setApi}
+          className={cn("w-full transition-opacity duration-500", isChanging ? "opacity-0" : "opacity-100")}
           opts={{ watchDrag: false }}
         >
 
 
 
-        {days.length > 1 && (
-          <div ref={novenaContentRef} className="flex flex-col gap-3 mb-4">
-            <div className="flex flex-col items-center gap-2 w-full">
-              {/* Primeira Linha: Dias 1 a 5 */}
-              <div className="flex flex-wrap gap-2 justify-center">
-                {days.slice(0, 5).map((day, index) => {
-                  const isToday = currentOfficialDayIndex === index;
-                  const isCurrent = current === index;
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => scrollTo(index)}
-                      className={cn(
-                        'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200 border border-transparent',
-                        isCurrent
-                          ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
-                          : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'),
-                        isToday && !isCurrent ? (theme === 'theme-light-gray' ? 'border-primary/50 bg-primary/10' : 'border-white/50 bg-white/20') : ''
-                      )}
-                    >
-                      {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
-                      {completedDays[index] && <Check className="w-3.5 h-3.5" />}
-                    </button>
-                  );
-                })}
-              </div>
-              {/* Segunda Linha: Dias 6+ */}
-              {days.length > 5 && (
+          {days.length > 1 && (
+            <div ref={novenaContentRef} className="flex flex-col gap-3 mb-4">
+              <div className="flex flex-col items-center gap-2 w-full">
+                {/* Primeira Linha: Dias 1 a 5 */}
                 <div className="flex flex-wrap gap-2 justify-center">
-                  {days.slice(5).map((day, idx) => {
-                    const index = idx + 5;
+                  {days.slice(0, 5).map((day, index) => {
                     const isToday = currentOfficialDayIndex === index;
                     const isCurrent = current === index;
                     return (
@@ -1437,271 +1412,296 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                     );
                   })}
                 </div>
-              )}
-            </div>
+                {/* Segunda Linha: Dias 6+ */}
+                {days.length > 5 && (
+                  <div className="flex flex-wrap gap-2 justify-center">
+                    {days.slice(5).map((day, idx) => {
+                      const index = idx + 5;
+                      const isToday = currentOfficialDayIndex === index;
+                      const isCurrent = current === index;
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => scrollTo(index)}
+                          className={cn(
+                            'px-3 py-1 flex items-center gap-1.5 text-sm font-semibold rounded-full transition-all duration-200 border border-transparent',
+                            isCurrent
+                              ? (theme === 'theme-light-gray' ? 'bg-primary text-white' : 'bg-white text-primary')
+                              : (theme === 'theme-light-gray' ? 'bg-black/10 text-stone-600 hover:bg-black/20' : 'bg-white/10 text-white hover:bg-white/20'),
+                            isToday && !isCurrent ? (theme === 'theme-light-gray' ? 'border-primary/50 bg-primary/10' : 'border-white/50 bg-white/20') : ''
+                          )}
+                        >
+                          {isSpecialNovena ? (index === 0 ? 'Oração' : 'História') : `Dia ${index + 1}`}
+                          {completedDays[index] && <Check className="w-3.5 h-3.5" />}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
 
-            <div className="flex flex-col gap-3">
-              {/* BARRA DE PROGRESSO SEGMENTADA */}
-              <div className="flex gap-1.5 w-full h-2.5 mb-2">
-                {Array.from({ length: days.length || 9 }).map((_, i) => (
-                  <div 
-                    key={i}
-                    className={cn(
-                      "h-full flex-1 rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/10",
-                      i < completedCount 
-                        ? "bg-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)] scale-y-125 translate-y-[-1px]" 
-                        : "bg-black/30 backdrop-blur-sm"
-                    )}
-                  />
-                ))}
+              <div className="flex flex-col gap-3">
+                {/* BARRA DE PROGRESSO SEGMENTADA */}
+                <div className="flex gap-1.5 w-full h-2.5 mb-2">
+                  {Array.from({ length: days.length || 9 }).map((_, i) => (
+                    <div
+                      key={i}
+                      className={cn(
+                        "h-full flex-1 rounded-full transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/10",
+                        i < completedCount
+                          ? "bg-primary shadow-[0_0_15px_rgba(var(--primary-rgb),0.6)] scale-y-125 translate-y-[-1px]"
+                          : "bg-black/30 backdrop-blur-sm"
+                      )}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
 
 
 
-        <CarouselContent className="items-start transition-[height] duration-300 ease-out">
-          {days.map((day, index) => (
-            <CarouselItem key={`content-${index}`} className="h-auto">
-              <div className="animate-fade-in">
-                {/* Bloco Litúrgico de Abertura Sagrada ou Parabéns ao Concluir */}
-                <div
-                  id={`novena-opening-card-${index}`}
-                  className={cn(
-                    "novena-sacred-opening text-center my-4 py-3 px-4 rounded-xl max-w-sm mx-auto border transition-all duration-500 shadow-md backdrop-blur-md",
-                    isAllCompleted
-                      ? (isLightTheme
+          <CarouselContent className="items-start transition-[height] duration-300 ease-out">
+            {days.map((day, index) => (
+              <CarouselItem key={`content-${index}`} className="h-auto">
+                <div className="animate-fade-in">
+                  {/* Bloco Litúrgico de Abertura Sagrada ou Parabéns ao Concluir */}
+                  <div
+                    id={`novena-opening-card-${index}`}
+                    className={cn(
+                      "novena-sacred-opening text-center my-4 py-3 px-4 rounded-xl max-w-sm mx-auto border transition-all duration-500 shadow-md backdrop-blur-md",
+                      isAllCompleted
+                        ? (isLightTheme
                           ? "bg-red-50 text-red-950 border-2 border-primary/50 shadow-lg"
                           : theme === 'theme-green'
                             ? "bg-emerald-950/70 text-white border-2 border-emerald-400/60 shadow-xl ring-1 ring-amber-300/30"
                             : "bg-red-950/70 text-white border-2 border-red-400/60 shadow-xl ring-1 ring-amber-300/30")
-                      : (isLightTheme
+                        : (isLightTheme
                           ? "bg-stone-900/85 border-stone-700/80 shadow-md text-white select-none"
                           : "bg-white/25 border-white/40 shadow-lg ring-1 ring-white/20 text-white select-none")
-                  )}
-                >
-                  {isAllCompleted ? (
-                    <div className="flex flex-col items-center gap-2 text-center animate-in fade-in zoom-in-95 duration-500">
-                      <div className="text-3xl animate-bounce">🙏</div>
-                      <h3 className="text-lg sm:text-xl font-bold font-brand tracking-wide leading-snug">
-                        Parabéns! Você concluiu esta novena.
-                      </h3>
-                      <p className={cn(
-                        "text-xs leading-relaxed max-w-xs",
-                        isLightTheme ? "text-stone-700" : "text-white/85"
-                      )}>
-                        Deseja reiniciar sua jornada de oração para esta novena?
-                      </p>
-                      <Button 
-                        onClick={handleResetNovena}
-                        size="sm"
-                        className={cn(
-                          "mt-1 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md flex items-center gap-1.5",
-                          "bg-primary text-white border border-white/20 hover:bg-red-800"
-                        )}
-                      >
-                        <RotateCcw className="w-3.5 h-3.5" />
-                        Sim, começar de novo
-                      </Button>
-                    </div>
-                  ) : (
-                    <>
-                      <button
-                        type="button"
-                        onClick={() => openPrayerModal('pelo-sinal')}
-                        className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02]"
-                        title="Toque para rezar a oração completa do Pelo Sinal da Santa Cruz"
-                      >
-                        <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
-                          Pelo Sinal da Santa cruz ♱
-                        </p>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => openPrayerModal('vinde-espirito')}
-                        className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02] mt-0.5"
-                        title="Toque para rezar a oração completa do Vinde Espírito Santo"
-                      >
-                        <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
-                          Vinde Espírito santo ❦
-                        </p>
-                      </button>
-                      <span className="text-[10px] text-white/70 tracking-wider block mt-1 font-sans">
-                        Toque para rezar a oração completa 📖
-                      </span>
-                    </>
-                  )}
-                </div>
-
-                {(() => {
-                  const cleanedInitial = initialPrayer ? cleanInitialPrayer(initialPrayer) : '';
-                  if (!cleanedInitial) return null;
-                  return (
-                    <>
-                      <div className={proseClasses}>
-                        <div className={cn('initial-prayer-text', !isLightTheme ? '[&_strong]:text-white' : '')}>
-                          <NovenaContent
-                            htmlContent={cleanedInitial}
-                            enableDropCap={false}
-                            onOpenPrayer={openPrayerModal}
-                          />
-                        </div>
-                      </div>
-                      <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>
-                    </>
-                  );
-                })()}
-
-                {days.length > 1 && (
-                  <div className="flex items-center justify-center gap-4 mb-4">
-                    <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
-                    <p className="text-sm font-bold">
-                      {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
-                    </p>
-                    <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
-                  </div>
-                )}
-
-                <div className={proseClasses}>
-                  {day.day && !isSpecialNovena && <h3 className={cn("section-title text-2xl font-bold font-brand mb-2")}>{day.day}</h3>}
-                  {(() => {
-                    const displayTitle = cleanDayTitle(day.title, day.day);
-                    return displayTitle ? (
-                      <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{displayTitle}</h4>
-                    ) : null;
-                  })()}
-
-                  <div className="day-specific-content">
-                    {(() => {
-                      if (isSantaTerezinha && (day.content.includes('24 vezes') || day.content.includes('Para finalizar rezar:'))) {
-                        let cleanHtml = day.content.trim();
-                        if (cleanHtml.startsWith('<div class="day-specific-content">') && cleanHtml.endsWith('</div>')) {
-                          cleanHtml = cleanHtml.slice('<div class="day-specific-content">'.length, -6).trim();
-                        }
-                        
-                        let before = cleanHtml;
-                        let after = '';
-                        
-                        const finishMarkerIndex = cleanHtml.indexOf('Para finalizar rezar:');
-                        if (finishMarkerIndex !== -1) {
-                          const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
-                          if (divBeforeFinish !== -1) {
-                            after = cleanHtml.slice(divBeforeFinish);
-                          }
-                        }
-
-                        const glory24Index = cleanHtml.indexOf('Em seguida rezar 24 vezes');
-                        if (glory24Index !== -1) {
-                          const divBeforeGlory = cleanHtml.lastIndexOf('<div', glory24Index);
-                          if (divBeforeGlory !== -1) {
-                            before = cleanHtml.slice(0, divBeforeGlory);
-                          }
-                        } else if (finishMarkerIndex !== -1) {
-                          const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
-                          if (divBeforeFinish !== -1) {
-                            before = cleanHtml.slice(0, divBeforeFinish);
-                          }
-                        }
-
-                        return (
-                          <>
-                            <NovenaContent htmlContent={before} onOpenPrayer={openPrayerModal} />
-                            <SantaTerezinhaGloryCounter dayIndex={index} />
-                            {after && (
-                              <NovenaContent
-                                htmlContent={after}
-                                enableDropCap={false}
-                                onOpenPrayer={openPrayerModal}
-                              />
-                            )}
-                          </>
-                        );
-                      }
-                      if (!day.content || !day.content.trim()) {
-                        return (
-                          <div className="py-8 px-4 text-center">
-                            <p className="text-amber-600 dark:text-amber-400 font-semibold text-base mb-1">
-                              Oração em preparação
-                            </p>
-                            <p className="text-muted-foreground text-sm">
-                              As orações completas desta novena serão disponibilizadas em breve.
-                            </p>
-                          </div>
-                        );
-                      }
-                      return (
-                        <NovenaContent
-                          htmlContent={day.content}
-                          onOpenPrayer={openPrayerModal}
-                        />
-                      );
-                    })()}
-                  </div>
-                </div>
-
-                {finalPrayer && (
-                  <div className={proseClasses}>
-                    <div className='final-prayer-text'>
-                      <NovenaContent
-                        htmlContent={finalPrayer}
-                        enableDropCap={false}
-                        onOpenPrayer={openPrayerModal}
-                      />
-                    </div>
-                  </div>
-                )}
-
-                <div className="mt-4 flex flex-col items-center gap-3">
-                  <Button 
-                    onClick={() => toggleCompleted(index)}
-                    className={cn(
-                      'inline-flex items-center gap-2 rounded-xl px-8 py-3.5 transition-all duration-300 shadow-lg font-bold text-sm uppercase tracking-wider',
-                      completedDays[index] 
-                        ? 'bg-green-600 hover:bg-green-700 text-white border-transparent scale-105 shadow-green-500/20' 
-                        : (isLightTheme 
-                            ? 'bg-white hover:bg-stone-50 text-stone-800 border-2 border-stone-200 hover:shadow-md' 
-                            : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:shadow-white/5')
                     )}
                   >
-                    {completedDays[index] ? <><Check className="w-5 h-5 animate-in zoom-in duration-300" /> Concluído</> : "Marcar como concluído"}
-                  </Button>
+                    {isAllCompleted ? (
+                      <div className="flex flex-col items-center gap-2 text-center animate-in fade-in zoom-in-95 duration-500">
+                        <div className="text-3xl animate-bounce">🙏</div>
+                        <h3 className="text-lg sm:text-xl font-bold font-brand tracking-wide leading-snug">
+                          Parabéns! Você concluiu esta novena.
+                        </h3>
+                        <p className={cn(
+                          "text-xs leading-relaxed max-w-xs",
+                          isLightTheme ? "text-stone-700" : "text-white/85"
+                        )}>
+                          Deseja reiniciar sua jornada de oração para esta novena?
+                        </p>
+                        <Button
+                          onClick={handleResetNovena}
+                          size="sm"
+                          className={cn(
+                            "mt-1 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-wider transition-all hover:scale-105 shadow-md flex items-center gap-1.5",
+                            "bg-primary text-white border border-white/20 hover:bg-red-800"
+                          )}
+                        >
+                          <RotateCcw className="w-3.5 h-3.5" />
+                          Sim, começar de novo
+                        </Button>
+                      </div>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => openPrayerModal('pelo-sinal')}
+                          className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02]"
+                          title="Toque para rezar a oração completa do Pelo Sinal da Santa Cruz"
+                        >
+                          <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                            Pelo Sinal da Santa cruz ♱
+                          </p>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => openPrayerModal('vinde-espirito')}
+                          className="group block w-full text-center focus:outline-none cursor-pointer transition-transform hover:scale-[1.02] mt-0.5"
+                          title="Toque para rezar a oração completa do Vinde Espírito Santo"
+                        >
+                          <p className="font-gothic text-lg sm:text-xl tracking-wide leading-snug text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.7)] group-hover:text-amber-200 transition-colors">
+                            Vinde Espírito santo ❦
+                          </p>
+                        </button>
+                        <span className="text-[10px] text-white/70 tracking-wider block mt-1 font-sans">
+                          Toque para rezar a oração completa 📖
+                        </span>
+                      </>
+                    )}
+                  </div>
 
-                  {/* BARRA MENOR DE FEEDBACK SEGMENTADA */}
-                  <div className="flex gap-1 w-56 h-2 mt-2">
-                    {Array.from({ length: days.length || 9 }).map((_, i) => (
-                      <div 
-                        key={i}
-                        className={cn(
-                          "h-full flex-1 rounded-full transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/5",
-                          i < completedCount 
-                            ? "bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.5)] scale-y-125" 
-                            : "bg-black/25 backdrop-blur-sm"
-                        )}
-                      />
-                    ))}
+                  {(() => {
+                    const cleanedInitial = initialPrayer ? cleanInitialPrayer(initialPrayer) : '';
+                    if (!cleanedInitial) return null;
+                    return (
+                      <>
+                        <div className={proseClasses}>
+                          <div className={cn('initial-prayer-text', !isLightTheme ? '[&_strong]:text-white' : '')}>
+                            <NovenaContent
+                              htmlContent={cleanedInitial}
+                              enableDropCap={false}
+                              onOpenPrayer={openPrayerModal}
+                            />
+                          </div>
+                        </div>
+                        <div className="w-16 h-px bg-white/20 my-8 mx-auto"></div>
+                      </>
+                    );
+                  })()}
+
+                  {days.length > 1 && (
+                    <div className="flex items-center justify-center gap-4 mb-4">
+                      <CarouselPrevious className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} />
+                      <p className="text-sm font-bold">
+                        {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
+                      </p>
+                      <CarouselNext className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} />
+                    </div>
+                  )}
+
+                  <div className={proseClasses}>
+                    {day.day && !isSpecialNovena && <h3 className={cn("section-title text-2xl font-bold font-brand mb-2")}>{day.day}</h3>}
+                    {(() => {
+                      const displayTitle = cleanDayTitle(day.title, day.day);
+                      return displayTitle ? (
+                        <h4 className={cn("text-xl italic mb-4", isLightTheme ? 'text-stone-500' : 'text-stone-300')}>{displayTitle}</h4>
+                      ) : null;
+                    })()}
+
+                    <div className="day-specific-content">
+                      {(() => {
+                        if (isSantaTerezinha && (day.content.includes('24 vezes') || day.content.includes('Para finalizar rezar:'))) {
+                          let cleanHtml = day.content.trim();
+                          if (cleanHtml.startsWith('<div class="day-specific-content">') && cleanHtml.endsWith('</div>')) {
+                            cleanHtml = cleanHtml.slice('<div class="day-specific-content">'.length, -6).trim();
+                          }
+
+                          let before = cleanHtml;
+                          let after = '';
+
+                          const finishMarkerIndex = cleanHtml.indexOf('Para finalizar rezar:');
+                          if (finishMarkerIndex !== -1) {
+                            const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
+                            if (divBeforeFinish !== -1) {
+                              after = cleanHtml.slice(divBeforeFinish);
+                            }
+                          }
+
+                          const glory24Index = cleanHtml.indexOf('Em seguida rezar 24 vezes');
+                          if (glory24Index !== -1) {
+                            const divBeforeGlory = cleanHtml.lastIndexOf('<div', glory24Index);
+                            if (divBeforeGlory !== -1) {
+                              before = cleanHtml.slice(0, divBeforeGlory);
+                            }
+                          } else if (finishMarkerIndex !== -1) {
+                            const divBeforeFinish = cleanHtml.lastIndexOf('<div', finishMarkerIndex);
+                            if (divBeforeFinish !== -1) {
+                              before = cleanHtml.slice(0, divBeforeFinish);
+                            }
+                          }
+
+                          return (
+                            <>
+                              <NovenaContent htmlContent={before} onOpenPrayer={openPrayerModal} />
+                              <SantaTerezinhaGloryCounter dayIndex={index} />
+                              {after && (
+                                <NovenaContent
+                                  htmlContent={after}
+                                  enableDropCap={false}
+                                  onOpenPrayer={openPrayerModal}
+                                />
+                              )}
+                            </>
+                          );
+                        }
+                        if (!day.content || !day.content.trim()) {
+                          return (
+                            <div className="py-8 px-4 text-center">
+                              <p className="text-amber-600 dark:text-amber-400 font-semibold text-base mb-1">
+                                Oração em preparação
+                              </p>
+                              <p className="text-muted-foreground text-sm">
+                                As orações completas desta novena serão disponibilizadas em breve.
+                              </p>
+                            </div>
+                          );
+                        }
+                        return (
+                          <NovenaContent
+                            htmlContent={day.content}
+                            onOpenPrayer={openPrayerModal}
+                          />
+                        );
+                      })()}
+                    </div>
+                  </div>
+
+                  {finalPrayer && (
+                    <div className={proseClasses}>
+                      <div className='final-prayer-text'>
+                        <NovenaContent
+                          htmlContent={finalPrayer}
+                          enableDropCap={false}
+                          onOpenPrayer={openPrayerModal}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="mt-4 flex flex-col items-center gap-3">
+                    <Button
+                      onClick={() => toggleCompleted(index)}
+                      className={cn(
+                        'inline-flex items-center gap-2 rounded-xl px-8 py-3.5 transition-all duration-300 shadow-lg font-bold text-sm uppercase tracking-wider',
+                        completedDays[index]
+                          ? 'bg-green-600 hover:bg-green-700 text-white border-transparent scale-105 shadow-green-500/20'
+                          : (isLightTheme
+                            ? 'bg-white hover:bg-stone-50 text-stone-800 border-2 border-stone-200 hover:shadow-md'
+                            : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:shadow-white/5')
+                      )}
+                    >
+                      {completedDays[index] ? <><Check className="w-5 h-5 animate-in zoom-in duration-300" /> Concluído</> : "Marcar como concluído"}
+                    </Button>
+
+                    {/* BARRA MENOR DE FEEDBACK SEGMENTADA */}
+                    <div className="flex gap-1 w-56 h-2 mt-2">
+                      {Array.from({ length: days.length || 9 }).map((_, i) => (
+                        <div
+                          key={i}
+                          className={cn(
+                            "h-full flex-1 rounded-full transition-all duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] border border-white/5",
+                            i < completedCount
+                              ? "bg-green-500 shadow-[0_0_12px_rgba(34,197,94,0.5)] scale-y-125"
+                              : "bg-black/25 backdrop-blur-sm"
+                          )}
+                        />
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-        {days.length > 1 && (
-          <div className="flex items-center justify-center gap-4 mt-8">
-            <CarouselPrevious 
-              onClick={() => { api?.scrollPrev(); scrollToNovenaStart(); }}
-              className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)} 
-            />
-            <p className="text-sm font-bold">
-              {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
-            </p>
-            <CarouselNext 
-              onClick={() => { api?.scrollNext(); scrollToNovenaStart(); }}
-              className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)} 
-            />
-          </div>
-        )}
-      </Carousel>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          {days.length > 1 && (
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <CarouselPrevious
+                onClick={() => { api?.scrollPrev(); scrollToNovenaStart(); }}
+                className={cn("relative -left-0 top-0 translate-y-0", arrowClasses)}
+              />
+              <p className="text-sm font-bold">
+                {isSpecialNovena ? (current === 0 ? 'Oração' : 'História') : `Dia ${current + 1}`}
+              </p>
+              <CarouselNext
+                onClick={() => { api?.scrollNext(); scrollToNovenaStart(); }}
+                className={cn("relative -right-0 top-0 translate-y-0", arrowClasses)}
+              />
+            </div>
+          )}
+        </Carousel>
 
       </div>
 

@@ -20,6 +20,7 @@ export default function EspacoMarianoPage() {
     const [showScrollTop, setShowScrollTop] = React.useState(false);
     const [hydrated, setHydrated] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
+    const [navigatingTheme, setNavigatingTheme] = useState<string>("espaco-mariano");
     const router = useRouter();
 
     React.useEffect(() => {
@@ -28,6 +29,7 @@ export default function EspacoMarianoPage() {
 
     const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
+        setNavigatingTheme("default");
         setIsNavigating(true);
         setTimeout(() => {
             router.push('/');
@@ -56,7 +58,10 @@ export default function EspacoMarianoPage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated || isNavigating} />
+            <LoadingScreen 
+                isLoading={!hydrated || isNavigating} 
+                theme={isNavigating ? navigatingTheme : "espaco-mariano"} 
+            />
             <div className={cn("min-h-screen bg-gradient-to-br from-blue-50 via-white to-sky-50 dark:from-slate-950 dark:via-slate-900 dark:to-blue-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
                 {/* Header / Hero Section */}
                 <header className="bg-gradient-to-r from-blue-800 via-blue-700 to-blue-800 text-white py-12 px-4 shadow-2xl relative overflow-hidden">

@@ -118,8 +118,18 @@ export default function Home() {
   const [closestSaintId, setClosestSaintId] = useState<string | null>(null);
   const [isHamburgerRed, setIsHamburgerRed] = useState(false);
   const [isNavigating, setIsNavigating] = useState(false);
+  const [navigatingTheme, setNavigatingTheme] = useState<string>('default');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [loadingFinished, setLoadingFinished] = useState(typeof window !== 'undefined' ? globalHasLoaded : false);
+  const scrollPosRef = useRef(0);
+
+  useEffect(() => {
+    const handleWindowScroll = () => {
+      scrollPosRef.current = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+    };
+    window.addEventListener('scroll', handleWindowScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleWindowScroll);
+  }, []);
   const [userProgress, setUserProgress] = useState<{ 
     completed: number; 
     ongoing: { id: string; name: string; day: number; totalDays: number; imageUrl?: string }[];
@@ -432,8 +442,35 @@ export default function Home() {
     }
   }, [selectedSaintId, hydrated, scrollTarget, loadingFinished]);
 
+  // Restaurar a posição exata de rolagem quando o usuário volta de um dos espaços
+  useEffect(() => {
+    if (hydrated) {
+      const savedScroll = sessionStorage.getItem('home_return_scroll_pos');
+      if (savedScroll !== null) {
+        const targetScroll = parseInt(savedScroll, 10);
+        if (!isNaN(targetScroll)) {
+          window.scrollTo({ top: targetScroll, behavior: 'instant' });
+          const t1 = setTimeout(() => {
+            window.scrollTo({ top: targetScroll, behavior: 'instant' });
+          }, 60);
+          const t2 = setTimeout(() => {
+            window.scrollTo({ top: targetScroll, behavior: 'instant' });
+            sessionStorage.removeItem('home_return_scroll_pos');
+          }, 350);
+          return () => {
+            clearTimeout(t1);
+            clearTimeout(t2);
+          };
+        }
+      }
+    }
+  }, [hydrated]);
+
   useEffect(() => {
     if (loadingFinished && hydrated) {
+      if (sessionStorage.getItem('home_return_scroll_pos')) {
+        return;
+      }
       const hash = window.location.hash;
       const hasSaintHash = hash && saints.some(s => getAnchorForSaint(s.id) === hash.substring(1) || s.id === hash.substring(1));
       if (!hasSaintHash) {
@@ -562,8 +599,24 @@ export default function Home() {
 
   const handlePageTransition = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
     e.preventDefault();
+    try {
+      const currentScroll = window.scrollY || scrollPosRef.current || 0;
+      sessionStorage.setItem('home_return_scroll_pos', currentScroll.toString());
+    } catch (err) {
+      console.error('Error saving scroll position', err);
+    }
+    setIsMenuOpen(false);
+    if (url.includes('sao-jose')) {
+      setNavigatingTheme('sao-jose');
+    } else if (url.includes('espaco-mariano')) {
+      setNavigatingTheme('espaco-mariano');
+    } else if (url.includes('encontre-seu-lugar')) {
+      setNavigatingTheme('encontre-seu-lugar');
+    } else {
+      setNavigatingTheme('default');
+    }
     setIsNavigating(true);
-    // Add 100ms delay to allow some animation frames before moving to Next.js router
+    // Delay de 1000ms para exibir a transição pulsante antes de navegar
     setTimeout(() => {
         router.push(url);
     }, 1000); 
@@ -573,6 +626,7 @@ export default function Home() {
     <React.Fragment>
       <LoadingScreen 
         isLoading={isNavigating || (!globalHasLoaded && !hydrated)} 
+        theme={isNavigating ? navigatingTheme : 'default'}
         onFinished={() => {
           if (!isNavigating) {
             setLoadingFinished(true);

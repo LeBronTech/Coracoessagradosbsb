@@ -13,6 +13,7 @@ import { cn, getProxiedImageUrl } from '@/lib/utils';
 export default function EncontreSeuLugarPage() {
     const [hydrated, setHydrated] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
+    const [navigatingTheme, setNavigatingTheme] = useState<string>("encontre-seu-lugar");
     const router = useRouter();
 
     React.useEffect(() => {
@@ -21,6 +22,7 @@ export default function EncontreSeuLugarPage() {
 
     const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
         e.preventDefault();
+        setNavigatingTheme("default");
         setIsNavigating(true);
         setTimeout(() => {
             router.push('/');
@@ -38,7 +40,10 @@ export default function EncontreSeuLugarPage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen isLoading={!hydrated || isNavigating} />
+            <LoadingScreen 
+                isLoading={!hydrated || isNavigating} 
+                theme={isNavigating ? navigatingTheme : "encontre-seu-lugar"} 
+            />
             <div className={cn("min-h-screen bg-gradient-to-br from-red-50 via-white to-red-50 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
             {/* ── Header ── */}
             <header className="bg-gradient-to-r from-red-800 via-red-700 to-red-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
