@@ -45,7 +45,7 @@ export function MarianTimeline() {
         { month: "Julho", date: "26/07", title: "Sant'Ana (Mãe de Maria)", description: "Embora a festa seja da mãe, a devoção é intrinsecamente ligada à 'Menina Maria'" },
 
         // AGOSTO
-        { month: "Agosto", date: "02/08", title: "Nossa Senhora dos Anjos", description: "Festa franciscana do perdão de Assis (Porciúncula)" },
+        { month: "Agosto", date: "02/08", title: "Nossa Senhora dos Anjos", description: "Festa franciscana da Porciúncula e Indulgência Plenária do Perdão de Assis concedida a São Francisco" },
         { month: "Agosto", date: "05/08", title: "Nossa Senhora das Neves", description: "Padroeira da Paraíba (João Pessoa) e ligada à Basílica de Santa Maria Maior" },
         { month: "Agosto", date: "15/08", title: "Assunção de Nossa Senhora", description: "Solenidade. Também celebrada como Nossa Senhora da Glória ou da Guia" },
         { month: "Agosto", date: "22/08", title: "Nossa Senhora Rainha", description: "Oitava da Assunção, celebrando a realeza de Maria" },

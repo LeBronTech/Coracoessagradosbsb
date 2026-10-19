@@ -506,7 +506,8 @@ export const worldMarianDevotions: Continent[] = [
             },
             {
                 id: "lipa",
-                name: "Maria, Medianeira de Todas as Graças",
+                name: "N.S. das Graças",
+                fullName: "Maria, Medianeira de Todas as Graças",
                 country: "Filipinas",
                 countryFlag: "🇵🇭",
                 date: "12 de Setembro",

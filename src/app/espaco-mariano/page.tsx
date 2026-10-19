@@ -218,7 +218,7 @@ function HeroSearchBar() {
         if (!q && !filterContinent && !filterMonth) return [];
         return allDevotions.filter(d => {
             const cName = devotionToContinentMap.get(d.id) ?? "";
-            const matchText = !q || [d.name, (d as any).country ?? "", d.date, d.description ?? "", cName]
+            const matchText = !q || [d.name, (d as any).fullName ?? "", (d as any).country ?? "", d.date, d.description ?? "", cName]
                 .some(v => v.toLowerCase().includes(q));
             const matchCont = !filterContinent || cName === filterContinent;
             const matchMonth = !filterMonth || d.date.toLowerCase().includes(filterMonth.toLowerCase());
