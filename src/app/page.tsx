@@ -14,7 +14,7 @@ import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetTr
 import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from '@/components/ui/alert-dialog';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogClose } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
-import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles, CheckCircle2, Flame, RotateCcw } from 'lucide-react';
+import { Menu, ChevronLeft, ChevronRight, BookOpen, MapPin, Users, Sparkles, CheckCircle2, Flame, RotateCcw, Calendar } from 'lucide-react';
 import { cn, getProxiedImageUrl } from '@/lib/utils';
 import { parse, differenceInDays, getYear } from 'date-fns';
 import Image from 'next/image';
@@ -107,6 +107,7 @@ export default function Home() {
   const novenaDisplaySectionRef = useRef<HTMLDivElement>(null);
   const scrollTimeoutRef = useRef<number | null>(null);
   const [isSaintOfTheDayOpen, setIsSaintOfTheDayOpen] = useState(false);
+  const [isSaintOfTheDayToday, setIsSaintOfTheDayToday] = useState(true);
   const [showJoseNovenaDialog, setShowJoseNovenaDialog] = useState(false);
   const [isJoseDialogOpen, setIsJoseDialogOpen] = useState(false);
   const [isMarianDialogOpen, setIsMarianDialogOpen] = useState(false);
@@ -574,6 +575,14 @@ export default function Home() {
     }, 200);
   }
 
+  const handleSaintOfTheDayGoToToday = () => {
+    setIsSaintOfTheDayOpen(false);
+    setTimeout(() => {
+      saintOfTheDayRef.current?.goToToday();
+      saintOfTheDaySectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 200);
+  }
+
   const handleNavigateToNovena = (saintId: string) => {
     setShowJoseNovenaDialog(false);
     setShowNatalNovenaDialog(false);
@@ -924,30 +933,58 @@ export default function Home() {
               triggerTheme={theme}
               isOpenInitially={isSaintOfTheDayOpen}
               onToggle={setIsSaintOfTheDayOpen}
+              onIsTodayChange={setIsSaintOfTheDayToday}
             />
             <div
               className={cn(
-                "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex items-center justify-center gap-2 z-20"
+                "absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center justify-center z-20"
               )}
             >
-              <Button
-                variant="outline"
-                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
-                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('prev'); }}
+              <div className="flex items-center justify-center gap-2">
+                <Button
+                  variant="outline"
+                  className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                  onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('prev'); }}
+                >
+                  Dia anterior
+                </Button>
+                <Button
+                  variant="outline"
+                  className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
+                  onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('next'); }}
+                >
+                  Próximo dia
+                </Button>
+              </div>
+
+              {/* Botão Hoje abaixo dos botões centralizado, surgindo apenas quando não for o dia atual */}
+              <div
+                className={cn(
+                  "absolute top-full mt-2 flex items-center justify-center transition-all duration-300 ease-out",
+                  !isSaintOfTheDayToday
+                    ? "opacity-100 translate-y-0 scale-100 pointer-events-auto"
+                    : "opacity-0 -translate-y-2 scale-90 pointer-events-none"
+                )}
               >
-                Dia anterior
-              </Button>
-              <Button
-                variant="outline"
-                className="h-8 px-4 bg-white/70 backdrop-blur-sm text-primary hover:bg-primary hover:text-primary-foreground shadow-lg border-primary/20 border"
-                onClick={(e) => { e.stopPropagation(); e.currentTarget.blur(); handleSaintOfTheDayNavigation('next'); }}
-              >
-                Próximo dia
-              </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="h-7 px-3.5 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md text-primary hover:bg-primary hover:text-primary-foreground shadow-md border-primary/30 border text-xs font-semibold rounded-full flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    e.currentTarget.blur();
+                    handleSaintOfTheDayGoToToday();
+                  }}
+                  title="Voltar para a data de hoje"
+                >
+                  <Calendar className="w-3.5 h-3.5 text-primary" />
+                  Hoje
+                </Button>
+              </div>
             </div>
           </div>
 
-          <div className="mt-16 w-full flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-20 w-full flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/espaco-mariano" onClick={(e) => handlePageTransition(e, '/espaco-mariano')}>
               <button className="flex flex-row items-center justify-center gap-3 px-4 py-3 bg-blue-900/90 text-white rounded-lg shadow-md cursor-pointer transition-all hover:scale-105 hover:shadow-xl w-auto">
                 <Image src={getProxiedImageUrl("https://iili.io/KpYhaae.png")} alt="Nossa Senhora" width={24} height={24} className="w-6 h-6 object-contain" />

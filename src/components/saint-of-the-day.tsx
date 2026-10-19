@@ -121,15 +121,17 @@ export function SaintOfTheDaySkeleton() {
 export interface SaintOfTheDayRef {
   navigate: (direction: 'prev' | 'next') => void;
   openAndScrollToLiturgy: () => void;
+  goToToday: () => void;
 }
 
 interface SaintOfTheDayProps {
   triggerTheme: NovenaTheme;
   isOpenInitially?: boolean;
   onToggle?: (isOpen: boolean) => void;
+  onIsTodayChange?: (isToday: boolean) => void;
 }
 
-const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ triggerTheme, isOpenInitially = false, onToggle }, ref) => {
+const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ triggerTheme, isOpenInitially = false, onToggle, onIsTodayChange }, ref) => {
   const liturgySectionRef = useRef<HTMLDivElement>(null);
   const pendingSlideRef = useRef<number | null>(null);
   const [openAccordion, setOpenAccordion] = useState(isOpenInitially);
@@ -321,22 +323,67 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     }, 350);
   }, []);
 
+  const goToToday = useCallback(() => {
+    const today = new Date();
+    const currentMonthName = allMonths[today.getMonth()];
+    const dayOfMonth = today.getDate();
+
+    if (selectedMonth !== currentMonthName) {
+      const targetIndex = months.indexOf(currentMonthName);
+      if (targetIndex !== -1) {
+        const saintsForTodayMonth = saintsOfTheDay.filter(s => s.month === currentMonthName);
+        const exactIndex = saintsForTodayMonth.findIndex(day => day.day === dayOfMonth);
+        const fallbackIndex = saintsForTodayMonth.findIndex(day => day.day >= dayOfMonth);
+        const targetSlide = exactIndex !== -1 ? exactIndex : (fallbackIndex !== -1 ? fallbackIndex : 0);
+
+        pendingSlideRef.current = targetSlide;
+        monthCarouselApi?.scrollTo(targetIndex);
+      }
+    } else {
+      const saintsForTodayMonth = saintsOfTheDay.filter(s => s.month === currentMonthName);
+      const exactIndex = saintsForTodayMonth.findIndex(day => day.day === dayOfMonth);
+      const fallbackIndex = saintsForTodayMonth.findIndex(day => day.day >= dayOfMonth);
+      const targetSlide = exactIndex !== -1 ? exactIndex : (fallbackIndex !== -1 ? fallbackIndex : 0);
+
+      setCurrentSlide(targetSlide);
+      setSelectedSaintInDayIndex(0);
+    }
+
+    if (openAccordion) {
+      setOpenAccordion(false);
+    }
+  }, [months, selectedMonth, monthCarouselApi, openAccordion]);
+
   useImperativeHandle(ref, () => ({
     navigate: handleNavigation,
     openAndScrollToLiturgy,
+    goToToday,
   }));
-
 
   const toggleAccordion = () => {
     const newOpenState = !openAccordion;
     setOpenAccordion(newOpenState);
   }
 
+  const dayData = saintsForCurrentMonth[currentSlide];
+
+  const prevIsTodayRef = useRef<boolean | null>(null);
+  useEffect(() => {
+    if (!dayData) return;
+    const now = new Date();
+    const currentMonthName = allMonths[now.getMonth()];
+    const todayNum = now.getDate();
+    const isShowingToday = dayData.month === currentMonthName && dayData.day === todayNum;
+    if (prevIsTodayRef.current !== isShowingToday) {
+      prevIsTodayRef.current = isShowingToday;
+      onIsTodayChange?.(isShowingToday);
+    }
+  }, [dayData, onIsTodayChange]);
+
   if (!hydrated || !selectedMonth) {
     return <SaintOfTheDaySkeleton />;
   }
 
-  const dayData = saintsForCurrentMonth[currentSlide];
   if (!dayData) {
     return <div className="p-4 text-center text-gray-500">Nenhum santo encontrado para este mês.</div>;
   }
