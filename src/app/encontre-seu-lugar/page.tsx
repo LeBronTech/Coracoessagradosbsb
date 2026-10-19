@@ -9,6 +9,7 @@ import { ComunidadesGallery } from '@/components/comunidades-gallery';
 import { regioesAdministrativas } from '@/lib/comunidades-data';
 import { LoadingScreen } from '@/components/loading-screen';
 import { cn, getProxiedImageUrl } from '@/lib/utils';
+import Footer from '@/components/footer';
 
 export default function EncontreSeuLugarPage() {
     const [hydrated, setHydrated] = useState(false);
@@ -113,6 +114,8 @@ export default function EncontreSeuLugarPage() {
                     Quer cadastrar seu grupo ou movimento? Entre em contato com a administração.
                 </p>
             </main>
+
+            <Footer />
         </div>
       </React.Fragment>
     );

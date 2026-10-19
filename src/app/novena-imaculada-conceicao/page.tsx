@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft } from "lucide-react";
 import Link from "next/link";
+import Footer from "@/components/footer";
 
 export default function NovenaImaculadaConceicao() {
   return (
@@ -191,6 +192,8 @@ export default function NovenaImaculadaConceicao() {
         </section>
 
       </main>
+
+      <Footer />
     </div>
   );
 }

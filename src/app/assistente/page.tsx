@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
+import Footer from "@/components/footer";
 import { 
   ChevronLeft, 
   ChevronRight,
@@ -3299,6 +3300,8 @@ Compartilhe 😉!
           </TabsContent>
 
         </Tabs>
+
+        <Footer />
       </div>
     </div>
   );

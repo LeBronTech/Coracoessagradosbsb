@@ -14,6 +14,7 @@ import { ConsecrationSection } from "@/components/consecration-section";
 import Image from "next/image";
 import { worldMarianDevotions, MarianDevotion } from "@/lib/world-devotions-data";
 import { LoadingScreen } from "@/components/loading-screen";
+import Footer from "@/components/footer";
 
 export default function EspacoMarianoPage() {
     const [activeSection, setActiveSection] = useState<"galeria" | "oracoes" | "rosario" | "consagracao">("galeria");
@@ -146,6 +147,8 @@ export default function EspacoMarianoPage() {
                         <OracoesSection />
                     )}
                 </main>
+
+                <Footer />
 
                 {/* Back to Top Button */}
                 {showScrollTop && (

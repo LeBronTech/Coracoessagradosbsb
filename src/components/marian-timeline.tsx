@@ -31,6 +31,7 @@ export function MarianTimeline() {
         // MAIO - Mês de Maria
         { month: "Maio", date: "08/05", title: "Nossa Senhora da Estrela", description: "Também Nossa Senhora de Luján, padroeira da Argentina" },
         { month: "Maio", date: "13/05", title: "Nossa Senhora de Fátima", description: "Uma das devoções mais populares no Brasil. Aparições em Portugal (1917)" },
+        { month: "Maio", date: "13/05", title: "Nossa Senhora do Mel", description: "Imagem milagrosa que verte mel, sal e azeite (Mirassol/SP) e grande devoção de doçura maternal (PR)" },
         { month: "Maio", date: "24/05", title: "Nossa Senhora Auxiliadora", description: "Padroeira da Família Salesiana, de Goiânia e de Palmas" },
         { month: "Maio", date: "26/05", title: "Nossa Senhora de Caravaggio", description: "Grande devoção no sul do Brasil (imigrantes italianos)" },
         { month: "Maio", date: "31/05", title: "Visitação de Nossa Senhora", description: "Festa litúrgica que encerra o mês de Maria, lembrando a visita a Santa Isabel" },
