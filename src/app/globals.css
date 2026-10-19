@@ -594,7 +594,8 @@
 
   /* Saint of the Day Accordion */
   .saint-day-trigger {
-    @apply text-primary-foreground transition-all duration-300;
+    @apply text-primary-foreground;
+    transition: background-color 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease;
   }
 
   .saint-day-trigger.theme-red {
@@ -635,12 +636,16 @@
   }
 
   .saint-name-container {
-    @apply transition-transform duration-200 ease-in-out;
+    @apply transition-[transform,opacity] duration-300 ease-out;
   }
 
   .group.is-open .saint-name-container {
     transform: none;
     @apply min-w-0 flex-1 justify-center;
+  }
+
+  .saint-day-content {
+    contain: content;
   }
 
   .saint-day-content.theme-light {
@@ -674,9 +679,10 @@
 
   /* Saint of the Day Images */
   .saint-image-wrapper {
-    @apply relative flex items-center justify-center transition-all duration-200 ease-in-out shrink-0;
+    @apply relative flex items-center justify-center shrink-0;
     width: 4rem;
     height: 4rem;
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   @media (min-width: 768px) {
@@ -747,7 +753,7 @@
     width: 5rem;
     height: 5rem;
     transform: none;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .group.is-open .saint-image-wrapper.single .saint-image {
@@ -811,7 +817,7 @@
     width: 5rem;
     height: 5rem;
     transform: none;
-    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   @media (min-width: 640px) {

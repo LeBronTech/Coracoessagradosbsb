@@ -386,12 +386,13 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
   const openAndScrollToLiturgy = useCallback(() => {
     setOpenAccordion(true);
+    onToggle?.(true);
     setTimeout(() => {
       if (liturgySectionRef.current) {
         liturgySectionRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 350);
-  }, []);
+  }, [onToggle]);
 
   const goToToday = useCallback(() => {
     const today = new Date();
@@ -421,8 +422,9 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
     if (openAccordion) {
       setOpenAccordion(false);
+      onToggle?.(false);
     }
-  }, [months, selectedMonth, monthCarouselApi, openAccordion]);
+  }, [months, selectedMonth, monthCarouselApi, openAccordion, onToggle]);
 
   useImperativeHandle(ref, () => ({
     navigate: handleNavigation,
@@ -433,7 +435,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const toggleAccordion = () => {
     const newOpenState = !openAccordion;
     setOpenAccordion(newOpenState);
-  }
+    onToggle?.(newOpenState);
+  };
 
   const dayData = saintsForCurrentMonth[currentSlide];
 
@@ -484,24 +487,27 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 w-full saint-day-trigger relative",
-              isOpen ? "rounded-b-none p-4 sm:p-5 md:p-6 lg:p-7" : "",
+              "flex-1 p-3.5 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left",
+              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7" : "",
               triggerTheme
             )}
           >
             {/* Background container with overflow-hidden to clip the blurred image but allow children to overflow the button */}
-            <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", isOpen ? "rounded-t-lg" : "rounded-lg")}>
-              {/* Blurred saint image background */}
+            <div className={cn("absolute inset-0 overflow-hidden pointer-events-none transform-gpu", isOpen ? "rounded-t-lg" : "rounded-lg")}>
+              {/* Blurred saint image background - ultra leve e ágil */}
               <img
                 key={currentSaintData.imageUrl}
                 src={getProxiedImageUrl(currentSaintData.imageUrl)}
                 alt=""
                 aria-hidden
-                className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50 transition-opacity duration-500"
-                style={{ objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center' }}
+                className="absolute inset-0 w-full h-full object-cover blur-[10px] md:blur-[40px] scale-110 md:scale-[2] opacity-45 pointer-events-none transform-gpu"
+                style={{ 
+                  objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center',
+                  transform: 'translateZ(0)'
+                }}
               />
               {/* Theme-colored overlay */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60 pointer-events-none" />
             </div>
 
             <div className="flex items-center gap-3.5 sm:gap-5 md:gap-7 lg:gap-9 text-left w-full relative z-10">
@@ -525,7 +531,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   {dayData.day} de {dayData.month}
                 </div>
                 <div className={cn(
-                  "font-brand font-semibold mt-2 text-left flex flex-wrap gap-x-2 gap-y-1 items-center",
+                  "font-brand font-semibold mt-1.5 sm:mt-2 text-left flex flex-wrap gap-x-2 gap-y-1 items-center w-full min-w-0 max-w-full overflow-hidden",
                   isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
                   {(() => {
@@ -546,87 +552,114 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
                     const totalCombinedLength = combinedMainLength + combinedAdditionalLength;
 
-                    let mainFontSizeClass = "";
-                    let addFontSizeClass = "";
-                    let ampFontSizeClass = "";
-
-                    if (isOpen) {
-                      // Modo aberto (apenas 1 santo visível por vez)
-                      const isNameVeryLong = combinedMainLength > 10;
-                      const isNameHuge = combinedMainLength > 15;
-
-                      if (isNameHuge) {
-                        mainFontSizeClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
-                        addFontSizeClass = "text-base sm:text-lg md:text-xl lg:text-2xl mt-1";
-                      } else if (isNameVeryLong) {
-                        mainFontSizeClass = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl";
-                        addFontSizeClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl mt-1";
-                      } else {
-                        mainFontSizeClass = "text-2xl sm:text-3xl md:text-5xl lg:text-6xl";
-                        addFontSizeClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl mt-1";
-                      }
-                      ampFontSizeClass = "text-xl sm:text-2xl md:text-3xl";
-                    } else {
-                      // Modo fechado (pode ter múltiplos santos)
-                      if (dayData.saints.length > 1) {
-                        // Múltiplos santos
-                        if (totalCombinedLength > 30) {
-                          mainFontSizeClass = "text-[11px] sm:text-xs md:text-sm";
-                          addFontSizeClass = "text-[9px] -mt-0.5";
-                          ampFontSizeClass = "text-xs sm:text-sm";
-                        } else if (totalCombinedLength > 20) {
-                          mainFontSizeClass = "text-xs sm:text-sm md:text-base";
-                          addFontSizeClass = "text-[9px] sm:text-[10px] -mt-0.5";
-                          ampFontSizeClass = "text-xs sm:text-sm";
-                        } else {
-                          mainFontSizeClass = "text-sm sm:text-base";
-                          addFontSizeClass = "text-[10px] -mt-0.5";
-                          ampFontSizeClass = "text-sm sm:text-base";
-                        }
-                      } else {
-                        // Santo único
-                        const isNameVeryLong = combinedMainLength > 10;
-                        const isNameHuge = combinedMainLength > 15;
-
-                        if (isNameHuge) {
-                          mainFontSizeClass = "text-base";
-                          addFontSizeClass = "text-[9px] -mt-0.5";
-                        } else if (isNameVeryLong) {
-                          mainFontSizeClass = "text-lg";
-                          addFontSizeClass = "text-[10px] -mt-0.5";
-                        } else {
-                          mainFontSizeClass = "text-xl";
-                          addFontSizeClass = "text-[10px] -mt-0.5";
-                        }
-                        ampFontSizeClass = "text-base";
-                      }
-                    }
+                    let ampFontSizeClass = "text-xs sm:text-sm";
 
                     return visibleSaints.map((s, idx, filteredSaints) => {
                       const { main, additional } = formatSaintName(s.name, true, isOpen);
+                      const mainLen = main.length;
+                      const addLen = additional ? additional.length : 0;
+
+                      let mainFontSizeClass = "";
+                      let addFontSizeClass = "";
+
+                      if (isOpen) {
+                        // Modo ABERTO (Modal)
+                        // Escala inteligente no mobile para caber rigorosamente em 1 linha cada
+                        if (mainLen > 20) {
+                          mainFontSizeClass = "text-sm sm:text-base md:text-2xl lg:text-3xl";
+                        } else if (mainLen > 14) {
+                          mainFontSizeClass = "text-base sm:text-lg md:text-3xl lg:text-4xl";
+                        } else if (mainLen > 9) {
+                          mainFontSizeClass = "text-lg sm:text-xl md:text-4xl lg:text-5xl";
+                        } else {
+                          mainFontSizeClass = "text-xl sm:text-2xl md:text-5xl lg:text-6xl";
+                        }
+
+                        if (addLen > 24) {
+                          addFontSizeClass = "text-[10px] sm:text-xs md:text-sm lg:text-base mt-0.5";
+                        } else if (addLen > 16) {
+                          addFontSizeClass = "text-[11px] sm:text-xs md:text-base lg:text-lg mt-0.5 sm:mt-1";
+                        } else if (addLen > 9) {
+                          addFontSizeClass = "text-xs sm:text-sm md:text-lg lg:text-xl mt-0.5 sm:mt-1";
+                        } else {
+                          addFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl mt-0.5 sm:mt-1";
+                        }
+                      } else {
+                        // Modo FECHADO
+                        if (dayData.saints.length > 1) {
+                          // Múltiplos santos no card fechado
+                          if (totalCombinedLength > 30) {
+                            mainFontSizeClass = "text-[10px] sm:text-xs md:text-sm";
+                            addFontSizeClass = "text-[8.5px] sm:text-[9.5px] md:text-[11px] -mt-0.5";
+                            ampFontSizeClass = "text-[10px] sm:text-xs";
+                          } else if (totalCombinedLength > 20) {
+                            mainFontSizeClass = "text-[11px] sm:text-xs md:text-base";
+                            addFontSizeClass = "text-[9px] sm:text-[10px] md:text-xs -mt-0.5";
+                            ampFontSizeClass = "text-xs sm:text-sm";
+                          } else {
+                            mainFontSizeClass = "text-xs sm:text-sm md:text-lg";
+                            addFontSizeClass = "text-[10px] sm:text-xs md:text-sm -mt-0.5";
+                            ampFontSizeClass = "text-xs sm:text-sm";
+                          }
+                        } else {
+                          // Santo único no card fechado
+                          if (mainLen > 18) {
+                            mainFontSizeClass = "text-xs sm:text-sm md:text-base";
+                          } else if (mainLen > 12) {
+                            mainFontSizeClass = "text-sm sm:text-base md:text-lg";
+                          } else if (mainLen > 7) {
+                            mainFontSizeClass = "text-base sm:text-lg md:text-xl";
+                          } else {
+                            mainFontSizeClass = "text-lg sm:text-xl md:text-2xl";
+                          }
+
+                          if (addLen > 22) {
+                            addFontSizeClass = "text-[9px] sm:text-[10px] md:text-xs -mt-0.5";
+                          } else if (addLen > 14) {
+                            addFontSizeClass = "text-[10px] sm:text-xs md:text-sm -mt-0.5";
+                          } else {
+                            addFontSizeClass = "text-xs sm:text-sm md:text-base -mt-0.5";
+                          }
+                        }
+                      }
 
                       return (
-                        <div key={s.name} className={cn(
-                          "flex items-center gap-1.5 transition-all duration-500 animate-in fade-in zoom-in duration-300",
-                          isOpen ? "w-full justify-center mb-2" : ""
-                        )}>
+                        <div 
+                          key={s.name} 
+                          className={cn(
+                            "flex items-center gap-1.5 min-w-0 max-w-full",
+                            isOpen ? "w-full justify-center mb-1" : ""
+                          )}
+                        >
                           <div className={cn(
-                            "flex flex-col leading-tight transition-all duration-500",
-                            isOpen ? "items-center text-center" : (isOpen && dayData.saints.length > 1 ? "md:items-end md:text-right" : "items-start text-left")
+                            "flex flex-col leading-tight min-w-0 max-w-full overflow-hidden",
+                            isOpen 
+                              ? "items-center text-center" 
+                              : (isOpen && dayData.saints.length > 1 ? "md:items-end md:text-right" : "items-start text-left")
                           )}>
-                            <span className={cn(
-                              "font-bold transition-all duration-500 font-brand",
-                              mainFontSizeClass
-                            )}>{main}</span>
+                            <span 
+                              className={cn(
+                                "font-bold font-brand truncate whitespace-nowrap block max-w-full tracking-tight transition-colors duration-200",
+                                mainFontSizeClass
+                              )}
+                              title={main}
+                            >
+                              {main}
+                            </span>
                             {additional && (
-                              <span className={cn(
-                                "font-normal opacity-90 transition-all duration-500",
-                                addFontSizeClass
-                              )}>{additional}</span>
+                              <span 
+                                className={cn(
+                                  "font-normal opacity-90 truncate whitespace-nowrap block max-w-full tracking-normal transition-colors duration-200",
+                                  addFontSizeClass
+                                )}
+                                title={additional}
+                              >
+                                {additional}
+                              </span>
                             )}
                           </div>
                           {idx < filteredSaints.length - 1 && (
-                            <span className={cn("opacity-30 font-light px-0.5", ampFontSizeClass)}>&</span>
+                            <span className={cn("opacity-40 font-light px-0.5 shrink-0", ampFontSizeClass)}>&</span>
                           )}
                         </div>
                       );
@@ -634,130 +667,141 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   })()}
                 </div>
               </div>
-              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-200", isOpen && "rotate-180", "text-primary-foreground")} />
+              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]", isOpen && "rotate-180", "text-primary-foreground")} />
             </div>
           </button>
 
-          {isOpen && (
-            <div 
-              className={cn("relative p-6 pt-12 rounded-b-lg shadow-inner-top saint-day-content", triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`)}
-              style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
-            >
-              <ThemeSelector theme={theme} setTheme={setTheme} />
+          <div 
+            className={cn(
+              "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] transform-gpu",
+              isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr] pointer-events-none"
+            )}
+            style={{ willChange: 'grid-template-rows' }}
+          >
+            <div className="overflow-hidden min-h-0">
+              <div 
+                className={cn(
+                  "relative p-4 sm:p-6 pt-10 sm:pt-12 rounded-b-lg shadow-inner-top saint-day-content",
+                  triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`
+                )}
+                style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
+              >
+                  <ThemeSelector theme={theme} setTheme={setTheme} />
 
-              {dayData.saints.length > 1 && (
-                <div className="mb-4 flex justify-center gap-2">
-                  {dayData.saints.map((saint, saintIndex) => {
-                    const isGreen = triggerTheme === 'theme-green';
-                    const activeTheme = isGreen ? 'dark' : theme;
-                    
-                    return (
-                      <Button
-                        key={saint.name}
-                        variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
-                        size="sm"
-                        onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
-                        className={cn(
-                          'transition-all duration-200',
-                          activeTheme === 'light'
-                            ? selectedSaintInDayIndex === saintIndex
-                              ? 'bg-primary text-primary-foreground'
-                              : 'bg-black/5 hover:bg-black/10 text-primary'
-                            : selectedSaintInDayIndex === saintIndex
-                              ? 'bg-accent text-accent-foreground'
-                              : 'bg-white/10 hover:bg-white/20 text-white'
-                        )}
-                      >
-                        <div className="flex flex-col items-center leading-tight">
-                          <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
-                          {formatSaintName(saint.name, true, true).additional && (
-                            <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
+                  {dayData.saints.length > 1 && (
+                    <div className="mb-4 flex justify-center gap-2">
+                      {dayData.saints.map((saint, saintIndex) => {
+                        const isGreen = triggerTheme === 'theme-green';
+                        const activeTheme = isGreen ? 'dark' : theme;
+                        
+                        return (
+                          <Button
+                            key={saint.name}
+                            variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
+                            size="sm"
+                            onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
+                            className={cn(
+                              'transition-all duration-200',
+                              activeTheme === 'light'
+                                ? selectedSaintInDayIndex === saintIndex
+                                  ? 'bg-primary text-primary-foreground'
+                                  : 'bg-black/5 hover:bg-black/10 text-primary'
+                                : selectedSaintInDayIndex === saintIndex
+                                  ? 'bg-accent text-accent-foreground'
+                                  : 'bg-white/10 hover:bg-white/20 text-white'
+                            )}
+                          >
+                            <div className="flex flex-col items-center leading-tight">
+                              <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
+                              {formatSaintName(saint.name, true, true).additional && (
+                                <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
+                              )}
+                            </div>
+                          </Button>
+                        );
+                      })}
+                    </div>
+                  )}
+
+                  <div className="p-1">
+                    {currentSaintData && (
+                      <div
+                        className={cn("prose prose-sm max-w-none pt-4", getDropCapClass(currentSaintData.story))}
+                        dangerouslySetInnerHTML={{ __html: currentSaintData.story }}
+                      />
+                    )}
+
+                    {liturgicalData && liturgicalData.readings && (
+                      <div ref={liturgySectionRef}>
+                      <div className="mt-8 pt-6 border-t border-gray-200/50">
+                        <div className="mb-4">
+                          <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
+                            <span className="text-2xl">📖</span> Liturgia do Dia
+                          </h3>
+                          <div className="flex flex-wrap items-center gap-2">
+                            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary uppercase tracking-wider border border-primary/20">
+                              {seasonTranslation[liturgicalData.season] || liturgicalData.season}
+                            </span>
+                            {liturgicalData.description && (
+                              <span className="text-sm font-medium text-gray-600 italic">
+                                {liturgicalData.description}
+                              </span>
+                            )}
+                          </div>
+                        </div>
+                        <div className="bg-white/50 rounded-lg p-4 space-y-4 shadow-sm border border-gray-100/50">
+
+                          {liturgicalData.readings.firstReading && (
+                            <div>
+                              <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">1ª Leitura</span>
+                              <p className="font-medium text-gray-800">{liturgicalData.readings.firstReading}</p>
+                            </div>
                           )}
+
+                          {liturgicalData.readings.psalm && (
+                            <div>
+                              <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">Salmo Responsorial</span>
+                              <p className="font-medium text-gray-800">{liturgicalData.readings.psalm}</p>
+                            </div>
+                          )}
+
+                          {liturgicalData.readings.secondReading && (
+                            <div>
+                              <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">2ª Leitura</span>
+                              <p className="font-medium text-gray-800">{liturgicalData.readings.secondReading}</p>
+                            </div>
+                          )}
+
+                          {liturgicalData.readings.gospel && (
+                            <div className="border-l-4 border-primary pl-3 py-1 bg-primary/5 rounded-r-md">
+                              <span className="text-xs font-bold uppercase text-primary tracking-wider">Evangelho</span>
+                              <p className="font-bold text-gray-900 text-lg font-brand">{liturgicalData.readings.gospel}</p>
+                            </div>
+                          )}
+                          <div className="mt-2 text-center">
+                            <span className={cn(
+                              "text-xs px-2 py-1 rounded-full border",
+                              liturgicalData.color === 'Roxo' ? "border-purple-500 text-purple-700 bg-purple-50" :
+                                liturgicalData.color === 'Branco' ? "border-gray-300 text-gray-600 bg-white" :
+                                  liturgicalData.color === 'Vermelho' ? "border-red-500 text-red-700 bg-red-50" :
+                                    liturgicalData.color === 'Verde' ? "border-green-500 text-green-700 bg-green-50" :
+                                      liturgicalData.color === 'Rosa' ? "border-pink-500 text-pink-700 bg-pink-50" :
+                                        "border-gray-300 text-gray-600"
+                            )}>
+                              Cor Litúrgica: {liturgicalData.color}
+                            </span>
+                          </div>
                         </div>
-                      </Button>
-                    );
-                  })}
+                      </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              )}
-
-              <div className="p-1">
-                {currentSaintData && (
-                  <div
-                    className={cn("prose prose-sm max-w-none pt-4", getDropCapClass(currentSaintData.story))}
-                    dangerouslySetInnerHTML={{ __html: currentSaintData.story }}
-                  />
-                )}
-
-                {liturgicalData && liturgicalData.readings && (
-                  <div ref={liturgySectionRef}>
-                  <div className="mt-8 pt-6 border-t border-gray-200/50">
-                    <div className="mb-4">
-                      <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
-                        <span className="text-2xl">📖</span> Liturgia do Dia
-                      </h3>
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-primary/10 text-primary uppercase tracking-wider border border-primary/20">
-                          {seasonTranslation[liturgicalData.season] || liturgicalData.season}
-                        </span>
-                        {liturgicalData.description && (
-                          <span className="text-sm font-medium text-gray-600 italic">
-                            {liturgicalData.description}
-                          </span>
-                        )}
-                      </div>
-                    </div>
-                    <div className="bg-white/50 rounded-lg p-4 space-y-4 shadow-sm border border-gray-100/50">
-
-                      {liturgicalData.readings.firstReading && (
-                        <div>
-                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">1ª Leitura</span>
-                          <p className="font-medium text-gray-800">{liturgicalData.readings.firstReading}</p>
-                        </div>
-                      )}
-
-                      {liturgicalData.readings.psalm && (
-                        <div>
-                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">Salmo Responsorial</span>
-                          <p className="font-medium text-gray-800">{liturgicalData.readings.psalm}</p>
-                        </div>
-                      )}
-
-                      {liturgicalData.readings.secondReading && (
-                        <div>
-                          <span className="text-xs font-bold uppercase text-gray-500 tracking-wider">2ª Leitura</span>
-                          <p className="font-medium text-gray-800">{liturgicalData.readings.secondReading}</p>
-                        </div>
-                      )}
-
-                      {liturgicalData.readings.gospel && (
-                        <div className="border-l-4 border-primary pl-3 py-1 bg-primary/5 rounded-r-md">
-                          <span className="text-xs font-bold uppercase text-primary tracking-wider">Evangelho</span>
-                          <p className="font-bold text-gray-900 text-lg font-brand">{liturgicalData.readings.gospel}</p>
-                        </div>
-                      )}
-                      <div className="mt-2 text-center">
-                        <span className={cn(
-                          "text-xs px-2 py-1 rounded-full border",
-                          liturgicalData.color === 'Roxo' ? "border-purple-500 text-purple-700 bg-purple-50" :
-                            liturgicalData.color === 'Branco' ? "border-gray-300 text-gray-600 bg-white" :
-                              liturgicalData.color === 'Vermelho' ? "border-red-500 text-red-700 bg-red-50" :
-                                liturgicalData.color === 'Verde' ? "border-green-500 text-green-700 bg-green-50" :
-                                  liturgicalData.color === 'Rosa' ? "border-pink-500 text-pink-700 bg-pink-50" :
-                                    "border-gray-300 text-gray-600"
-                        )}>
-                          Cor Litúrgica: {liturgicalData.color}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                  </div>
-                )}
               </div>
             </div>
-          )}
+          </div>
         </div>
       </div>
-    </div>
   );
 });
 
