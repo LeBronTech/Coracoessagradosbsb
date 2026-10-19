@@ -673,6 +673,8 @@ export default function AssistentePage() {
 
   // --- Estados de navegação dos dias por novena (Envios de Hoje) ---
   const [selectedDayPerNovena, setSelectedDayPerNovena] = useState<Record<string, number>>({});
+  const [range15StatePerNovena, setRange15StatePerNovena] = useState<Record<string, number>>({});
+  const [range13StatePerNovena, setRange13StatePerNovena] = useState<Record<string, number>>({});
   const [expandedNovenas, setExpandedNovenas] = useState<Record<string, boolean>>({});
 
   useEffect(() => {
@@ -1343,6 +1345,75 @@ Compartilhe 😉!
     }
     
     return fullText.trim();
+  };
+
+  const getDaysRangeNovenaText = (id: string, startDay: number, endDay: number, emojis: [string, string]) => {
+    const novena = novenaData[id];
+    if (!novena) return "";
+    
+    let fullText = "";
+    const minDay = Math.max(1, startDay);
+    const maxDay = Math.min(novena.days.length, endDay);
+    for (let i = minDay; i <= maxDay; i++) {
+      fullText += getFormattedNovenaTextCompact(id, i, emojis) + "\n\n" + "=".repeat(30) + "\n\n";
+    }
+    
+    return fullText.trim();
+  };
+
+  const handleCopyRange15 = (novenaId: string, emojis: [string, string]) => {
+    const currentState = range15StatePerNovena[novenaId] || 0;
+    if (currentState === 0) {
+      const text = getDaysRangeNovenaText(novenaId, 1, 5, emojis);
+      navigator.clipboard.writeText(text);
+      toast({
+        title: "Dias 1 a 5 Copiados!",
+        description: "O texto dos dias 1 a 5 foi copiado para a área de transferência.",
+        duration: 2500,
+      });
+      setRange15StatePerNovena(prev => ({ ...prev, [novenaId]: 1 }));
+    } else {
+      const text = getDaysRangeNovenaText(novenaId, 5, 9, emojis);
+      navigator.clipboard.writeText(text);
+      toast({
+        title: "Dias 5 a 9 Copiados!",
+        description: "O texto dos dias 5 a 9 foi copiado para a área de transferência.",
+        duration: 2500,
+      });
+      setRange15StatePerNovena(prev => ({ ...prev, [novenaId]: 0 }));
+    }
+  };
+
+  const handleCopyRange13 = (novenaId: string, emojis: [string, string]) => {
+    const currentState = range13StatePerNovena[novenaId] || 0;
+    if (currentState === 0) {
+      const text = getDaysRangeNovenaText(novenaId, 1, 3, emojis);
+      navigator.clipboard.writeText(text);
+      toast({
+        title: "Dias 1 a 3 Copiados!",
+        description: "O texto dos dias 1 a 3 foi copiado para a área de transferência.",
+        duration: 2500,
+      });
+      setRange13StatePerNovena(prev => ({ ...prev, [novenaId]: 1 }));
+    } else if (currentState === 1) {
+      const text = getDaysRangeNovenaText(novenaId, 4, 6, emojis);
+      navigator.clipboard.writeText(text);
+      toast({
+        title: "Dias 4 a 6 Copiados!",
+        description: "O texto dos dias 4 a 6 foi copiado para a área de transferência.",
+        duration: 2500,
+      });
+      setRange13StatePerNovena(prev => ({ ...prev, [novenaId]: 2 }));
+    } else {
+      const text = getDaysRangeNovenaText(novenaId, 7, 9, emojis);
+      navigator.clipboard.writeText(text);
+      toast({
+        title: "Dias 7 a 9 Copiados!",
+        description: "O texto dos dias 7 a 9 foi copiado para a área de transferência.",
+        duration: 2500,
+      });
+      setRange13StatePerNovena(prev => ({ ...prev, [novenaId]: 0 }));
+    }
   };
 
   const getDiaZeroTextCompact = (id: string, isInstagram: boolean, emojis: [string, string]) => {
@@ -2233,40 +2304,66 @@ Compartilhe 😉!
                                 </div>
                               </div>
                             ) : (
-                              /* Dias 1 a 9 - Meditação WhatsApp */
+                              /* Dias 1 a 9 - Barra de Ações de Cópia */
                               <div className="space-y-2">
-                                <div className="flex justify-between items-center bg-stone-900 border border-white/5 px-3.5 py-2 rounded-xl">
-                                  <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider flex items-center gap-1">
-                                    <Send className="w-3.5 h-3.5" /> WhatsApp Meditação
-                                  </span>
-                                  <div className="flex gap-2">
-                                    <Button 
-                                      onClick={() => handleCopyText(getAllDaysNovenaText(item.id, emojis), `enviado_novena_${item.id}_todos`)}
-                                      size="sm"
-                                      className={cn(
-                                        "h-7 px-3.5 text-[10px] font-bold rounded-full gap-1 transition-all active:scale-95",
-                                        copiedHistory[`enviado_novena_${item.id}_todos`]
-                                          ? "bg-amber-600 text-stone-950 hover:bg-amber-500"
-                                          : "bg-amber-700 hover:bg-amber-800 text-white"
-                                      )}
-                                    >
-                                      {copiedHistory[`enviado_novena_${item.id}_todos`] ? <Check className="w-3.5 h-3.5 text-stone-950" /> : <Copy className="w-3.5 h-3.5" />}
-                                      {copiedHistory[`enviado_novena_${item.id}_todos`] ? "Tudo Copiado!" : "Copiar 9 Dias"}
-                                    </Button>
-                                    <Button 
+                                <div className="flex flex-wrap items-center justify-between sm:justify-end gap-1.5 sm:gap-2 bg-stone-900 border border-white/5 p-2 rounded-xl">
+                                  {/* Copiar Dia Individual Selecionado */}
+                                  <Button 
                                     onClick={() => handleCopyText(formattedText, `enviado_novena_${item.id}_dia_${selDay}`)}
                                     size="sm"
                                     className={cn(
-                                      "h-7 px-3.5 text-[10px] font-bold rounded-full gap-1 transition-all active:scale-95",
+                                      "h-7 px-2.5 sm:px-3 text-[10px] font-bold rounded-lg sm:rounded-full gap-1 transition-all active:scale-95 shrink-0",
                                       copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`]
                                         ? "bg-emerald-600 text-stone-950 hover:bg-emerald-500"
                                         : "bg-emerald-700 hover:bg-emerald-800 text-white"
                                     )}
+                                    title={`Copiar meditação do Dia ${selDay}`}
                                   >
                                     {copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`] ? <Check className="w-3.5 h-3.5 text-stone-950" /> : <Copy className="w-3.5 h-3.5" />}
-                                    {copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`] ? "Texto Copiado!" : "Copiar WhatsApp"}
+                                    {copiedHistory[`enviado_novena_${item.id}_dia_${selDay}`] ? "Dia Copiado!" : `Copiar Dia ${selDay}`}
                                   </Button>
-                                  </div>
+
+                                  {/* Botão Copiar de 1-5 que muda para Copiar de 5-9 */}
+                                  <Button 
+                                    onClick={() => handleCopyRange15(item.id, emojis)}
+                                    size="sm"
+                                    className="h-7 px-2.5 sm:px-3 text-[10px] font-bold rounded-lg sm:rounded-full gap-1 transition-all active:scale-95 bg-sky-700 hover:bg-sky-800 text-white shrink-0 shadow-sm"
+                                    title="Copiar bloco de dias (alterna entre 1-5 e 5-9)"
+                                  >
+                                    <Copy className="w-3.5 h-3.5" />
+                                    {(range15StatePerNovena[item.id] || 0) === 0 ? "Copiar de 1-5" : "Copiar de 5-9"}
+                                  </Button>
+
+                                  {/* Botão Copiar de 1-3 que muda para 4-6 e 7-9 */}
+                                  <Button 
+                                    onClick={() => handleCopyRange13(item.id, emojis)}
+                                    size="sm"
+                                    className="h-7 px-2.5 sm:px-3 text-[10px] font-bold rounded-lg sm:rounded-full gap-1 transition-all active:scale-95 bg-purple-700 hover:bg-purple-800 text-white shrink-0 shadow-sm"
+                                    title="Copiar bloco de dias (alterna entre 1-3, 4-6 e 7-9)"
+                                  >
+                                    <Copy className="w-3.5 h-3.5" />
+                                    {(range13StatePerNovena[item.id] || 0) === 0 
+                                      ? "Copiar de 1-3" 
+                                      : (range13StatePerNovena[item.id] || 0) === 1 
+                                        ? "Copiar de 4-6" 
+                                        : "Copiar de 7-9"}
+                                  </Button>
+
+                                  {/* Botão Copiar Todos os 9 Dias */}
+                                  <Button 
+                                    onClick={() => handleCopyText(getAllDaysNovenaText(item.id, emojis), `enviado_novena_${item.id}_todos`)}
+                                    size="sm"
+                                    className={cn(
+                                      "h-7 px-2.5 sm:px-3 text-[10px] font-bold rounded-lg sm:rounded-full gap-1 transition-all active:scale-95 shrink-0",
+                                      copiedHistory[`enviado_novena_${item.id}_todos`]
+                                        ? "bg-amber-600 text-stone-950 hover:bg-amber-500"
+                                        : "bg-amber-700 hover:bg-amber-800 text-white"
+                                    )}
+                                    title="Copiar a novena completa de 9 dias"
+                                  >
+                                    {copiedHistory[`enviado_novena_${item.id}_todos`] ? <Check className="w-3.5 h-3.5 text-stone-950" /> : <Copy className="w-3.5 h-3.5" />}
+                                    {copiedHistory[`enviado_novena_${item.id}_todos`] ? "Tudo Copiado!" : "Copiar 9 Dias"}
+                                  </Button>
                                 </div>
                                 <ScrollArea className="h-60 p-4 bg-stone-950/80 border border-white/5 rounded-2xl font-mono text-[10px] leading-relaxed whitespace-pre-wrap text-stone-300">
                                   {formattedText}

@@ -8,7 +8,7 @@ import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calenda
 import { cn, formatSaintName, getProxiedImageUrl, getDropCapClass } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
 import useEmblaCarousel from 'embla-carousel-react';
 import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
@@ -30,48 +30,118 @@ const seasonTranslation: Record<string, string> = {
   'Easter': 'Tempo da Páscoa'
 };
 
+function SingleSaintImage({ saint, isOpen }: { saint: SaintStory; isOpen: boolean }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const proxiedUrl = getProxiedImageUrl(saint.imageUrl);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [proxiedUrl]);
+
+  return (
+    <div className={cn("saint-image-wrapper single relative", isOpen && "open")}>
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/35 backdrop-blur-[2px] z-20 pointer-events-none animate-in fade-in duration-200">
+          <Loader2 className="w-5 h-5 md:w-7 md:h-7 text-white animate-spin drop-shadow-md" />
+        </div>
+      )}
+      <Image
+        key={proxiedUrl}
+        src={proxiedUrl}
+        alt={saint.name}
+        width={64}
+        height={64}
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+        className={cn(
+          "saint-image transition-opacity duration-300",
+          isLoading ? "opacity-20" : "opacity-100"
+        )}
+        style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
+      />
+    </div>
+  );
+}
+
+function MultipleSaintImageItem({
+  saint,
+  index,
+  isOpen,
+  selectedIndex,
+  onSelect,
+}: {
+  saint: SaintStory;
+  index: number;
+  isOpen: boolean;
+  selectedIndex: number;
+  onSelect?: (index: number) => void;
+}) {
+  const [isLoading, setIsLoading] = useState(true);
+  const proxiedUrl = getProxiedImageUrl(saint.imageUrl);
+
+  useEffect(() => {
+    setIsLoading(true);
+  }, [proxiedUrl]);
+
+  return (
+    <div
+      onClick={(e) => {
+        if (isOpen && onSelect) {
+          e.stopPropagation();
+          onSelect(index);
+        }
+      }}
+      className={cn(
+        "saint-image",
+        `image-${index}`,
+        "relative overflow-hidden flex items-center justify-center p-0",
+        isOpen && index !== selectedIndex && "cursor-pointer hover:brightness-110 active:scale-95",
+        isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
+      )}
+      style={{
+        cursor: isOpen && index !== selectedIndex ? 'pointer' : 'default',
+        objectPosition: (saint as any).imageObjectPosition ?? 'center',
+      }}
+    >
+      {isLoading && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/35 backdrop-blur-[2px] rounded-full z-10 pointer-events-none animate-in fade-in duration-200">
+          <Loader2 className="w-4 h-4 text-white animate-spin drop-shadow-md" />
+        </div>
+      )}
+      <Image
+        key={proxiedUrl}
+        src={proxiedUrl}
+        alt={saint.name}
+        width={64}
+        height={64}
+        onLoad={() => setIsLoading(false)}
+        onError={() => setIsLoading(false)}
+        className={cn(
+          "w-full h-full object-cover rounded-full transition-opacity duration-300",
+          isLoading ? "opacity-20" : "opacity-100"
+        )}
+        style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
+      />
+    </div>
+  );
+}
+
 function SaintImages({ saints, isOpen, selectedIndex, onSelect }: { saints: SaintStory[]; isOpen: boolean; selectedIndex: number; onSelect?: (index: number) => void; }) {
   if (saints.length === 1) {
-    return (
-      <div className={cn("saint-image-wrapper single", isOpen && "open")}>
-        <Image
-          src={getProxiedImageUrl(saints[0].imageUrl)}
-          alt={saints[0].name}
-          width={64}
-          height={64}
-          className="saint-image"
-          style={{ objectPosition: (saints[0] as any).imageObjectPosition ?? 'center' }}
-        />
-      </div>
-    );
+    return <SingleSaintImage saint={saints[0]} isOpen={isOpen} />;
   }
 
   if (saints.length > 1) {
     return (
       <div className={cn("saint-image-wrapper multiple", `count-${saints.length}`, isOpen && "open")}>
         {saints.map((saint, index) => (
-          <Image
-            key={saint.name}
-            src={getProxiedImageUrl(saint.imageUrl)}
-            alt={saint.name}
-            width={64}
-            height={64}
-            onClick={(e) => {
-              if (isOpen && onSelect) {
-                e.stopPropagation();
-                onSelect(index);
-              }
-            }}
-            className={cn(
-              "saint-image",
-              `image-${index}`,
-              isOpen && index !== selectedIndex && "cursor-pointer hover:brightness-110 active:scale-95",
-              isOpen && (index === selectedIndex ? 'saint-image--active' : 'saint-image--inactive')
-            )}
-            style={{ 
-              objectPosition: (saint as any).imageObjectPosition ?? 'center',
-              cursor: isOpen && index !== selectedIndex ? 'pointer' : 'default'
-            }}
+          <MultipleSaintImageItem
+            key={saint.name + saint.imageUrl}
+            saint={saint}
+            index={index}
+            isOpen={isOpen}
+            selectedIndex={selectedIndex}
+            onSelect={onSelect}
           />
         ))}
       </div>
@@ -423,10 +493,11 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", isOpen ? "rounded-t-lg" : "rounded-lg")}>
               {/* Blurred saint image background */}
               <img
+                key={currentSaintData.imageUrl}
                 src={getProxiedImageUrl(currentSaintData.imageUrl)}
                 alt=""
                 aria-hidden
-                className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50"
+                className="absolute inset-0 w-full h-full object-cover blur-[60px] scale-[2.5] opacity-50 transition-opacity duration-500"
                 style={{ objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center' }}
               />
               {/* Theme-colored overlay */}

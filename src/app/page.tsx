@@ -108,6 +108,7 @@ export default function Home() {
   const scrollTimeoutRef = useRef<number | null>(null);
   const [isSaintOfTheDayOpen, setIsSaintOfTheDayOpen] = useState(false);
   const [isSaintOfTheDayToday, setIsSaintOfTheDayToday] = useState(true);
+  const [showAdminAssistente, setShowAdminAssistente] = useState(false);
   const [showJoseNovenaDialog, setShowJoseNovenaDialog] = useState(false);
   const [isJoseDialogOpen, setIsJoseDialogOpen] = useState(false);
   const [isMarianDialogOpen, setIsMarianDialogOpen] = useState(false);
@@ -690,7 +691,13 @@ export default function Home() {
               <Menu className="h-5 w-5" />
               <span className="sr-only">Fechar menu</span>
             </Button>
-            <SheetTitle className="text-xl font-brand text-gray-800 text-center flex-1 mr-10">Menu</SheetTitle>
+            <SheetTitle 
+              onClick={() => setShowAdminAssistente(prev => !prev)}
+              className="text-xl font-brand text-gray-800 text-center flex-1 mr-10 cursor-pointer select-none transition-colors hover:text-stone-950 active:scale-95"
+              title="Menu"
+            >
+              Menu
+            </SheetTitle>
             <SheetDescription className="sr-only">Menu principal de navegação.</SheetDescription>
           </div>
 
@@ -732,14 +739,18 @@ export default function Home() {
                 </Button>
               </Link>
 
-              <Link href="/assistente" className="w-full" onClick={(e) => handlePageTransition(e, '/assistente')}>
-                <Button
-                  className="w-full justify-start gap-2.5 bg-stone-700 hover:bg-stone-800 text-stone-100 border border-stone-600/40 shadow-sm font-semibold font-brand transition-all hover:scale-[1.01]"
-                >
-                  <Sparkles className="h-5 w-5 text-amber-300 animate-pulse" />
-                  Assistente de Textos
-                </Button>
-              </Link>
+              {showAdminAssistente && (
+                <div className="animate-in fade-in slide-in-from-top-2 duration-300">
+                  <Link href="/assistente" className="w-full" onClick={(e) => handlePageTransition(e, '/assistente')}>
+                    <Button
+                      className="w-full justify-start gap-2.5 bg-stone-700 hover:bg-stone-800 text-stone-100 border border-stone-600/40 shadow-sm font-semibold font-brand transition-all hover:scale-[1.01]"
+                    >
+                      <Sparkles className="h-5 w-5 text-amber-300 animate-pulse" />
+                      Assistente de Textos
+                    </Button>
+                  </Link>
+                </div>
+              )}
             </div>
 
             {/* SEÇÃO DE PROGRESSO DAS NOVENAS */}
