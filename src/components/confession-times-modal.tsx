@@ -79,39 +79,61 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
     setSelectedCity('');
     setSelectedDay(null);
 
-    // Se mudar para Brasília, seleciona a primeira cidade
+    // Seleciona a primeira cidade automaticamente para nunca deixar vazio
     if (region === 'Brasília') {
       const firstBrasCity = confessionData.find(d => !d.isGroup);
       if (firstBrasCity) setSelectedCity(firstBrasCity.city);
+    } else {
+      const entornoGroup = confessionData.find(d => d.isGroup && d.city === 'Entorno (GO)');
+      const firstEntornoCity = entornoGroup?.subCities?.[0];
+      if (firstEntornoCity) setSelectedCity(firstEntornoCity.city);
+    }
+
+    if (saintsNavRef.current) {
+      saintsNavRef.current.scrollTo({ left: 0, behavior: 'smooth' });
     }
   };
 
   const handleCityChange = (city: string, isGroup: boolean = false) => {
     if (isGroup) {
-      // Se é um grupo, apenas marca o grupo como selecionado
       setSelectedGroup(selectedGroup === city ? null : city);
       setSelectedCity('');
     } else {
-      // Se é uma cidade normal, seleciona a cidade
       setSelectedCity(city);
-      const selectedButton = saintsNavRef.current?.querySelector(`[data-city="${city}"]`);
-      if (selectedButton) {
-        selectedButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      if (saintsNavRef.current) {
+        const selectedButton = saintsNavRef.current.querySelector<HTMLElement>(`[data-city="${city}"]`);
+        if (selectedButton) {
+          const container = saintsNavRef.current;
+          const scrollLeft = selectedButton.offsetLeft - (container.clientWidth / 2) + (selectedButton.clientWidth / 2);
+          container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+        }
       }
     }
   };
 
   const handleSubCityChange = (subCity: string) => {
     setSelectedCity(subCity);
-    const selectedButton = subCitiesNavRef.current?.querySelector(`[data-city="${subCity}"]`);
-    if (selectedButton) {
-      selectedButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    if (saintsNavRef.current) {
+      const selectedButton = saintsNavRef.current.querySelector<HTMLElement>(`[data-city="${subCity}"]`);
+      if (selectedButton) {
+        const container = saintsNavRef.current;
+        const scrollLeft = selectedButton.offsetLeft - (container.clientWidth / 2) + (selectedButton.clientWidth / 2);
+        container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+      }
     }
   };
 
   const handleDayChange = (day: string) => {
     setSelectedDay(prev => prev === day ? null : day);
-  }
+    if (daysNavRef.current) {
+      const selectedButton = daysNavRef.current.querySelector<HTMLElement>(`[data-day="${day}"]`);
+      if (selectedButton) {
+        const container = daysNavRef.current;
+        const scrollLeft = selectedButton.offsetLeft - (container.clientWidth / 2) + (selectedButton.clientWidth / 2);
+        container.scrollTo({ left: Math.max(0, scrollLeft), behavior: 'smooth' });
+      }
+    }
+  };
 
   const filteredParishes = useMemo(() => {
     let cityData = confessionData.find((data) => data.city === selectedCity);
@@ -208,25 +230,25 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         <DialogContent
           id="confissoes"
-          className="max-h-[90vh] overflow-y-auto w-[95vw] sm:w-[90vw] md:max-w-2xl rounded-lg flex flex-col items-center [&>button:not(.custom-close-button)]:hidden p-0 gap-0"
+          className="max-h-[92vh] h-full sm:h-auto overflow-hidden w-[96vw] sm:w-[90vw] md:max-w-2xl rounded-2xl flex flex-col items-stretch [&>button:not(.custom-close-button)]:hidden p-0 gap-0 border border-stone-300 shadow-2xl"
           style={{ backgroundImage: 'linear-gradient(to bottom, #ffffff 0%, #e0e0e0 25%, #c3c3c3 50%, #949da4 100%)' }}
         >
-          <DialogHeader className="bg-red-800 text-white p-3 sticky top-0 z-50 w-full flex flex-row items-center justify-between shadow-md">
-            <div className="flex items-center gap-2 flex-1">
+          <DialogHeader className="bg-red-800 text-white p-3 shrink-0 w-full flex flex-row items-center justify-between shadow-md z-30">
+            <div className="flex items-center gap-2 flex-1 min-w-0">
               {isSearchOpen ? (
-                <div className="flex items-center w-full bg-white rounded-md overflow-hidden animate-in fade-in slide-in-from-left-2 duration-300">
-                  <Search className="h-4 w-4 text-gray-500 ml-2" />
+                <div className="flex items-center w-full bg-white rounded-lg overflow-hidden animate-in fade-in slide-in-from-left-2 duration-300 shadow-inner">
+                  <Search className="h-4 w-4 text-gray-500 ml-2.5 shrink-0" />
                   <Input
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Pesquisar paróquia..."
-                    className="border-0 focus-visible:ring-0 text-gray-800 h-8 bg-transparent"
+                    className="border-0 focus-visible:ring-0 text-gray-800 h-8 bg-transparent min-w-0 flex-1 text-sm"
                     autoFocus
                   />
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="h-8 w-8 text-gray-500 hover:text-gray-700"
+                    className="h-8 w-8 text-gray-500 hover:text-gray-700 shrink-0"
                     onClick={() => {
                       setIsSearchOpen(false);
                       setSearchQuery('');
@@ -237,13 +259,14 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
                 </div>
               ) : (
                 <>
-                  <div className="w-8"></div> {/* Spacer to center title roughly */}
-                  <DialogTitle className="text-center flex-1 text-base md:text-lg">Horários de Confissão</DialogTitle>
+                  <div className="w-8 shrink-0"></div> {/* Spacer to center title roughly */}
+                  <DialogTitle className="text-center flex-1 text-base md:text-lg font-brand tracking-wide truncate">Horários de Confissão</DialogTitle>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-white hover:bg-red-700 hover:text-white h-8 w-8"
+                    className="text-white hover:bg-red-700 hover:text-white h-8 w-8 shrink-0"
                     onClick={() => setIsSearchOpen(true)}
+                    title="Pesquisar"
                   >
                     <Search className="h-5 w-5" />
                   </Button>
@@ -252,7 +275,8 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
             </div>
             <button
               onClick={() => setIsOpen(false)}
-              className="custom-close-button p-1 ml-2 text-white border-2 border-white rounded-full hover:bg-white/20 transition-colors duration-200"
+              className="custom-close-button p-1 ml-2 text-white border-2 border-white rounded-full hover:bg-white/20 transition-colors duration-200 shrink-0"
+              title="Fechar"
             >
               <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -260,70 +284,114 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
             </button>
           </DialogHeader>
 
-          <div className="p-4 w-full overflow-y-auto">
-            <div className="mb-4 sticky top-0 z-40 bg-white/80 backdrop-blur-md py-2 -mx-4 px-4 shadow-sm">
-              <div className="mb-3">
-                <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Região</label>
-                <div className="overflow-x-auto pb-2 saints-nav-container hide-scrollbar" ref={regionNavRef}>
-                  <div className="flex flex-nowrap gap-2">
-                    <button
-                      onClick={() => handleRegionChange('Brasília')}
-                      className={`flex-shrink-0 px-4 py-2 text-sm rounded-full border-2 transition-colors duration-200 whitespace-nowrap font-semibold ${selectedRegion === 'Brasília'
-                        ? 'bg-red-800 text-white border-red-800 shadow-md'
-                        : 'text-gray-700 border-gray-400 hover:border-red-800 hover:text-red-800 bg-white'
-                        }`}>
-                      Brasília
-                    </button>
-                    <button
-                      onClick={() => handleRegionChange('Entorno (GO)')}
-                      className={`flex-shrink-0 px-4 py-2 text-sm rounded-full border-2 transition-colors duration-200 whitespace-nowrap font-semibold ${selectedRegion === 'Entorno (GO)'
-                        ? 'bg-red-800 text-white border-red-800 shadow-md'
-                        : 'text-gray-700 border-gray-400 hover:border-red-800 hover:text-red-800 bg-white'
-                        }`}>
-                      Entorno (GO)
-                    </button>
-                  </div>
-                </div>
+          {/* Painel de Filtros Fixo no Topo do Modal (sem -mx-4, contido dentro do modal) */}
+          <div className="shrink-0 w-full bg-white/95 backdrop-blur-md px-3.5 sm:px-4 py-2.5 border-b border-stone-300/80 shadow-sm z-20 space-y-2">
+            {/* Região */}
+            <div>
+              <div className="flex items-center justify-between mb-1">
+                <label className="font-bold text-gray-800 text-[11px] uppercase tracking-wider">Região</label>
+                {selectedDay && (
+                  <button
+                    onClick={() => setSelectedDay(null)}
+                    className="text-[10px] text-red-700 font-semibold hover:underline flex items-center gap-0.5 cursor-pointer"
+                  >
+                    Limpar dia
+                  </button>
+                )}
               </div>
-
-              <div className="mb-2">
-                <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Cidades</label>
-                <div className="overflow-x-auto pb-2 saints-nav-container hide-scrollbar" ref={saintsNavRef}>
-                  <div className="flex flex-nowrap">
-                    {citiesByRegion.map((data) => (
-                      <button
-                        key={data.city}
-                        data-city={data.city}
-                        onClick={() => handleCityChange(data.city, data.isGroup)}
-                        className={`flex-shrink-0 px-3 py-1.5 text-sm mr-2 rounded-full border transition-colors duration-200 whitespace-nowrap ${selectedCity === data.city ? 'bg-red-800 text-white border-red-800 font-semibold shadow-sm' : 'text-gray-600 border-gray-300 hover:border-red-800 hover:text-red-800'}`}>
-                        {data.city}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-
-
-              <div>
-                <label className="block font-bold mb-1 text-gray-800 text-xs uppercase tracking-wide">Dia da Semana</label>
-                <div className="overflow-x-auto pb-1 saints-nav-container hide-scrollbar" ref={daysNavRef}>
-                  <div className="flex flex-nowrap">
-                    {DAYS_OF_WEEK.map((day) => (
-                      <button
-                        key={day}
-                        onClick={() => handleDayChange(day)}
-                        className={`flex-shrink-0 px-3 py-1.5 text-xs mr-2 rounded-full border transition-colors duration-200 whitespace-nowrap ${selectedDay === day ? 'bg-red-100 text-red-800 border-red-800 font-semibold' : 'text-gray-600 border-gray-300 hover:bg-gray-50'}`}
-                      >
-                        {day}
-                      </button>
-                    ))}
-                  </div>
+              <div
+                className="overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                ref={regionNavRef}
+              >
+                <div className="flex flex-nowrap gap-1.5 sm:gap-2 items-center">
+                  <button
+                    onClick={() => handleRegionChange('Brasília')}
+                    className={`shrink-0 px-3.5 py-1 text-xs sm:text-sm rounded-full border-2 transition-all duration-200 whitespace-nowrap font-semibold cursor-pointer ${
+                      selectedRegion === 'Brasília'
+                        ? 'bg-red-800 text-white border-red-800 shadow-sm'
+                        : 'text-gray-700 border-gray-300 hover:border-red-800 hover:text-red-800 bg-white'
+                    }`}
+                  >
+                    Brasília
+                  </button>
+                  <button
+                    onClick={() => handleRegionChange('Entorno (GO)')}
+                    className={`shrink-0 px-3.5 py-1 text-xs sm:text-sm rounded-full border-2 transition-all duration-200 whitespace-nowrap font-semibold cursor-pointer ${
+                      selectedRegion === 'Entorno (GO)'
+                        ? 'bg-red-800 text-white border-red-800 shadow-sm'
+                        : 'text-gray-700 border-gray-300 hover:border-red-800 hover:text-red-800 bg-white'
+                    }`}
+                  >
+                    Entorno (GO)
+                  </button>
                 </div>
               </div>
             </div>
 
-            <div className="w-full min-h-[300px]">
+            {/* Cidades */}
+            <div>
+              <label className="block font-bold mb-1 text-gray-800 text-[11px] uppercase tracking-wider">
+                Cidades {citiesByRegion.length > 0 && <span className="font-normal text-gray-500">({citiesByRegion.length})</span>}
+              </label>
+              <div
+                className="overflow-x-auto pb-1 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                ref={saintsNavRef}
+              >
+                <div className="flex flex-nowrap gap-1.5 items-center">
+                  {citiesByRegion.map((data) => {
+                    const isSelected = selectedCity === data.city;
+                    return (
+                      <button
+                        key={data.city}
+                        data-city={data.city}
+                        onClick={() => handleCityChange(data.city, data.isGroup)}
+                        className={`shrink-0 px-2.5 sm:px-3 py-1 text-xs rounded-full border transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                          isSelected
+                            ? 'bg-red-800 text-white border-red-800 font-semibold shadow-sm'
+                            : 'text-gray-700 bg-white border-gray-300 hover:border-red-800 hover:text-red-800'
+                        }`}
+                      >
+                        {data.city}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* Dia da Semana */}
+            <div>
+              <label className="block font-bold mb-1 text-gray-800 text-[11px] uppercase tracking-wider">Dia da Semana</label>
+              <div
+                className="overflow-x-auto pb-0.5 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+                ref={daysNavRef}
+              >
+                <div className="flex flex-nowrap gap-1.5 items-center">
+                  {DAYS_OF_WEEK.map((day) => {
+                    const isSelected = selectedDay === day;
+                    return (
+                      <button
+                        key={day}
+                        data-day={day}
+                        onClick={() => handleDayChange(day)}
+                        className={`shrink-0 px-2.5 py-1 text-[11px] sm:text-xs rounded-full border transition-all duration-200 whitespace-nowrap cursor-pointer ${
+                          isSelected
+                            ? 'bg-red-800 text-white border-red-800 font-bold shadow-sm'
+                            : 'text-gray-700 bg-white border-gray-300 hover:bg-gray-100 hover:text-red-800'
+                        }`}
+                      >
+                        {day}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Lista de Paróquias (único container com scroll vertical) */}
+          <div className="flex-1 overflow-y-auto p-3.5 sm:p-4 w-full">
+            <div className="w-full min-h-[250px]">
               {filteredParishes.length > 0 ? (
                 <div>
                   {filteredParishes.map((parish, index) => {
@@ -331,11 +399,11 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
                     return (
                       <div
                         key={parish.name}
-                        className={`mb-4 p-4 rounded-lg shadow-lg transition-all duration-300 hover:scale-[1.01] ${isRedBg ? 'bg-red-800 text-white' : 'bg-white text-gray-800'}`}>
-                        <h3 className="text-lg font-bold break-words text-center leading-tight mb-1">{parish.name}</h3>
-                        <p className="text-sm break-words text-center opacity-90 mb-2">{parish.address}</p>
+                        className={`mb-4 p-4 rounded-xl shadow-md transition-all duration-300 hover:scale-[1.01] ${isRedBg ? 'bg-red-800 text-white' : 'bg-white text-gray-800'}`}>
+                        <h3 className="text-base sm:text-lg font-bold break-words text-center leading-tight mb-1">{parish.name}</h3>
+                        <p className="text-xs sm:text-sm break-words text-center opacity-90 mb-2">{parish.address}</p>
                         <div className={`w-full h-px mb-3 ${isRedBg ? 'bg-white/30' : 'bg-gray-200'}`}></div>
-                        <p className="text-sm break-words text-center font-medium leading-relaxed">{parish.times}</p>
+                        <p className="text-xs sm:text-sm break-words text-center font-medium leading-relaxed">{parish.times}</p>
                         <div className="flex items-center justify-center flex-wrap mt-4 gap-2">
                           <a
                             href={(parish as { location?: string }).location || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${parish.name} ${parish.address} DF`)}`}
@@ -365,8 +433,8 @@ export function ConfessionTimesModal({ children }: ConfessionTimesModalProps) {
                 </div>
               ) : (
                 <div className="text-center py-10 opacity-60">
-                  <p className="text-lg font-semibold">Nenhuma paróquia encontrada</p>
-                  <p className="text-sm">Tente ajustar os filtros de cidade ou dia.</p>
+                  <p className="text-base sm:text-lg font-semibold">Nenhuma paróquia encontrada</p>
+                  <p className="text-xs sm:text-sm">Tente ajustar os filtros de cidade ou dia.</p>
                 </div>
               )}
             </div>

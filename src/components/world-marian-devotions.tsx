@@ -69,7 +69,7 @@ function SearchBar({ continents, allDevotions }: { continents: Continent[]; allD
                         value={query}
                         onChange={e => setQuery(e.target.value)}
                         placeholder="Buscar por nome, país, data ou continente…"
-                        className="flex-1 bg-transparent outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm sm:text-base"
+                        className="flex-1 min-w-0 bg-transparent outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm sm:text-base"
                         aria-label="Pesquisar devoções marianas"
                         autoComplete="off"
                     />
@@ -77,7 +77,7 @@ function SearchBar({ continents, allDevotions }: { continents: Continent[]; allD
                         {isSearching && (
                             <button
                                 onClick={clearAll}
-                                className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors"
+                                className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center hover:bg-red-100 dark:hover:bg-red-900/40 transition-colors shrink-0"
                                 aria-label="Limpar busca"
                             >
                                 <X className="w-3.5 h-3.5 text-slate-500 dark:text-slate-300" />
@@ -85,14 +85,14 @@ function SearchBar({ continents, allDevotions }: { continents: Continent[]; allD
                         )}
                         <button
                             onClick={() => setShowFilters(v => !v)}
-                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                            className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                                 showFilters || filterContinent || filterMonth
                                     ? 'bg-blue-600 text-white shadow-sm'
                                     : 'bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 hover:bg-blue-100 dark:hover:bg-blue-900/60'
                             }`}
                             aria-label="Mostrar filtros"
                         >
-                            <SlidersHorizontal className="w-3.5 h-3.5" />
+                            <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" />
                             <span className="hidden sm:inline">Filtros</span>
                             {(filterContinent || filterMonth) && (
                                 <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 inline-block" />

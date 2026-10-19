@@ -230,7 +230,7 @@ function HeroSearchBar() {
                     value={query}
                     onChange={e => setQuery(e.target.value)}
                     placeholder="Buscar título, país, data, continente…"
-                    className="flex-1 bg-transparent outline-none text-white placeholder-white/60 text-sm sm:text-base"
+                    className="flex-1 min-w-0 bg-transparent outline-none text-white placeholder-white/60 text-sm sm:text-base"
                     aria-label="Pesquisar devoções marianas"
                     autoComplete="off"
                 />
@@ -238,7 +238,7 @@ function HeroSearchBar() {
                     {isSearching && (
                         <button
                             onClick={clearAll}
-                            className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors"
+                            className="w-7 h-7 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors shrink-0"
                             aria-label="Limpar busca"
                         >
                             <X className="w-4 h-4 text-white" />
@@ -246,14 +246,14 @@ function HeroSearchBar() {
                     )}
                     <button
                         onClick={() => setShowFilters(v => !v)}
-                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold transition-all duration-200 ${
+                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-semibold whitespace-nowrap transition-all duration-200 shrink-0 ${
                             showFilters || filterContinent || filterMonth
                                 ? 'bg-white text-blue-800'
                                 : 'bg-white/20 text-white hover:bg-white/30'
                         }`}
                         aria-label="Filtros"
                     >
-                        <SlidersHorizontal className="w-3.5 h-3.5" />
+                        <SlidersHorizontal className="w-3.5 h-3.5 shrink-0" />
                         <span className="hidden sm:inline">Filtros</span>
                         {(filterContinent || filterMonth) && (
                             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 inline-block" />
@@ -263,7 +263,7 @@ function HeroSearchBar() {
             </div>
 
             {/* Filtros avançados */}
-            <div className={`overflow-hidden transition-all duration-300 ${showFilters ? 'max-h-24 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
+            <div className={`overflow-hidden transition-all duration-300 ${showFilters ? 'max-h-72 sm:max-h-36 opacity-100 mt-3' : 'max-h-0 opacity-0'}`}>
                 <div className="flex flex-wrap gap-3">
                     <div className="flex items-center gap-2 flex-1 min-w-[180px]">
                         <Globe className="w-4 h-4 text-white/70 flex-shrink-0" />

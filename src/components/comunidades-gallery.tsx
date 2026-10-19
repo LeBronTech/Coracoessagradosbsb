@@ -886,25 +886,25 @@ export function ComunidadesGallery({ regioes }: Props) {
             </div>
 
             {/* ── Busca + Filtros ── */}
-            <div className="flex gap-3 mb-4">
-                <div className="relative flex-1">
-                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-red-500" />
+            <div className="flex gap-2 sm:gap-3 mb-4 items-center">
+                <div className="relative flex-1 min-w-0">
+                    <Search className="absolute left-3.5 sm:left-4 top-1/2 -translate-y-1/2 h-4 w-4 text-red-500" />
                     <input
                         type="text"
                         placeholder="Buscar grupo, paróquia, bairro..."
                         value={busca}
                         onChange={(e) => setBusca(e.target.value)}
-                        className="w-full pl-11 pr-4 py-2.5 rounded-xl border-2 border-red-200 bg-white focus:outline-none focus:border-red-500 text-sm text-gray-700 placeholder-gray-400 shadow-sm transition-colors"
+                        className="w-full min-w-0 pl-10 sm:pl-11 pr-4 py-2.5 rounded-xl border-2 border-red-200 bg-white focus:outline-none focus:border-red-500 text-sm text-gray-700 placeholder-gray-400 shadow-sm transition-colors"
                     />
                 </div>
                 <button
                     onClick={() => setPainelAberto((v) => !v)}
-                    className={`relative flex items-center gap-2 px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all shadow-sm ${painelAberto || totalAtivos > 0
+                    className={`relative flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2.5 rounded-xl border-2 font-semibold text-sm transition-all shadow-sm shrink-0 whitespace-nowrap ${painelAberto || totalAtivos > 0
                         ? 'bg-red-600 border-red-600 text-white'
                         : 'bg-white border-red-200 text-red-800 hover:bg-red-50'
                         }`}
                 >
-                    <SlidersHorizontal className="h-4 w-4" />
+                    <SlidersHorizontal className="h-4 w-4 shrink-0" />
                     <span className="hidden sm:inline">Filtros</span>
                     {totalAtivos > 0 && (
                         <span className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-white text-red-700 text-[10px] font-bold flex items-center justify-center border border-red-300 shadow">
