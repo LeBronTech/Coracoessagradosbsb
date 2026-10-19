@@ -7,7 +7,7 @@
       "text": "Escreva sempre as mensagens de commit em português do Brasil (pt-BR), seguindo estritamente o padrão Conventional Commits (ex: feat: adiciona recurso, fix: corrige bug, docs: atualiza documentação, chore: manutenção). Seja claro, conciso e use verbos no presente."
     }
   ],
-  "git.inputValidation": "warn",
+  "git.inputValidation": true,
   "git.inputValidationLength": 72,
   "git.inputValidationSubjectLength": 50
 }

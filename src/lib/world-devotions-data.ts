@@ -25,7 +25,7 @@ export const worldMarianDevotions: Continent[] = [
     {
         name: "Europa",
         emoji: "🇪🇺",
-        iconUrl: "https://i.postimg.cc/wxW169jQ/europa-icon-white.jpg",
+        iconUrl: "/continents/europa.svg",
         devotions: [
             // PRIORIDADE ALTA / FASE 1 & 2
             {
@@ -386,7 +386,7 @@ export const worldMarianDevotions: Continent[] = [
     {
         name: "Ásia",
         emoji: "🌏",
-        iconUrl: "https://i.postimg.cc/XN2rVnY6/asia-icon.jpg",
+        iconUrl: "/continents/asia.svg",
         devotions: [
             {
                 id: "la_vang",
@@ -521,7 +521,7 @@ export const worldMarianDevotions: Continent[] = [
     {
         name: "África e Oriente Médio",
         emoji: "🌍",
-        iconUrl: "https://i.postimg.cc/T1H1QJ47/africa-icon.jpg",
+        iconUrl: "/continents/africa.svg",
         devotions: [
             {
                 id: "kibeho",
@@ -569,7 +569,7 @@ export const worldMarianDevotions: Continent[] = [
     {
         name: "Américas",
         emoji: "🌎",
-        iconUrl: "https://i.postimg.cc/dQWhqJVJ/americas-icon.jpg",
+        iconUrl: "/continents/americas.svg",
         devotions: [
             // BRASIL - REGIONAIS
             {
@@ -942,7 +942,7 @@ export const worldMarianDevotions: Continent[] = [
     {
         name: "Oceania",
         emoji: "🌏",
-        iconUrl: "https://i.postimg.cc/d3S3njxj/oceania-icon.jpg",
+        iconUrl: "/continents/oceania.svg",
         devotions: [
             {
                 id: "auxiliadora_australia",

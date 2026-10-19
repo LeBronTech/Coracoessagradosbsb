@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <defs>
+    <!-- Clip globe to sphere -->
+    <clipPath id="globe-clip-americas">
+      <circle cx="32" cy="32" r="27" />
+    </clipPath>
+
+    <!-- Deep Ocean Gradient -->
+    <radialGradient id="ocean-americas" cx="32%" cy="28%" r="68%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="55%" stop-color="#0284C7" />
+      <stop offset="100%" stop-color="#0369A1" />
+    </radialGradient>
+
+    <!-- Emerald Landmass Gradient -->
+    <linearGradient id="land-americas" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4ADE80" />
+      <stop offset="100%" stop-color="#16A34A" />
+    </linearGradient>
+
+    <!-- 3D Atmospheric Shadow on Sphere Edge -->
+    <radialGradient id="shadow-americas" cx="50%" cy="50%" r="50%">
+      <stop offset="72%" stop-color="#0F172A" stop-opacity="0" />
+      <stop offset="100%" stop-color="#0F172A" stop-opacity="0.35" />
+    </radialGradient>
+
+    <!-- Top Gloss Specular Highlight -->
+    <linearGradient id="gloss-americas" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+  </defs>
+
+  <!-- Drop Shadow behind Globe for Depth -->
+  <circle cx="32" cy="33.5" r="27" fill="#0F172A" fill-opacity="0.1" />
+
+  <!-- Ocean Sphere Base -->
+  <circle cx="32" cy="32" r="27" fill="url(#ocean-americas)" />
+
+  <!-- Landmasses -->
+  <g clip-path="url(#globe-clip-americas)" fill="url(#land-americas)" stroke="#15803D" stroke-width="0.35">
+    <path d="M 8 13 C 13 11 16 14 14 17 C 11 18 8 16 8 13 Z" />
+    <path d="M 14 11 C 24 8 34 9 38 15 C 35 19 27 21 19 20 Z" />
+    <path d="M 36 7 C 42 6 45 10 42 14 C 38 14 36 10 36 7 Z" />
+    <path d="M 14 19 C 25 18 35 19 35 25 C 31 29 21 29 15 27 Z" />
+    <path d="M 15 26 C 21 27 23 32 21 35 C 18 36 15 31 15 26 Z" />
+    <path d="M 21 35 C 24 36 25 39 24 41 C 22 41 21 38 21 35 Z" />
+    <path d="M 27 33 C 31 33 33 35 30 36 Z" />
+    <path d="M 24 39 C 30 38 38 39 40 43 C 36 44 28 44 24 39 Z" />
+    <path d="M 31 43 C 41 43 43 48 40 52 C 33 53 29 48 31 43 Z" />
+    <path d="M 24 41 C 26 45 25 52 24 55 C 23 54 23 47 24 41 Z" />
+    <path d="M 25 51 C 31 50 31 55 27 58 C 25 58 24 54 25 51 Z" />
+  </g>
+
+  <!-- 3D Globe Edge Shadow -->
+  <circle cx="32" cy="32" r="27" fill="url(#shadow-americas)" pointer-events="none" />
+
+  <!-- Spherical Gloss Reflection Highlight -->
+  <ellipse cx="25" cy="18" rx="14" ry="7" fill="url(#gloss-americas)" transform="rotate(-25 25 18)" pointer-events="none" clip-path="url(#globe-clip-americas)" />
+
+  <!-- Polished Outer Rim -->
+  <circle cx="32" cy="32" r="27" fill="none" stroke="#BAE6FD" stroke-width="1.2" stroke-opacity="0.65" />
+</svg>

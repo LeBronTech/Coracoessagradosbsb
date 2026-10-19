@@ -45,8 +45,8 @@ function VaticanFlag({ className = "w-5 h-5" }: { className?: string }) {
       xmlns="http://www.w3.org/2000/svg"
       role="img"
       aria-label="Bandeira do Vaticano"
-      title="Bandeira do Vaticano"
     >
+      <title>Bandeira do Vaticano</title>
       <clipPath id="vatican-clip">
         <rect width="100" height="100" rx="2" />
       </clipPath>
