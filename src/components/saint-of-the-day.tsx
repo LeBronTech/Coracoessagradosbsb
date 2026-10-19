@@ -39,22 +39,22 @@ function SingleSaintImage({ saint, isOpen }: { saint: SaintStory; isOpen: boolea
   }, [proxiedUrl]);
 
   return (
-    <div className={cn("saint-image-wrapper single relative", isOpen && "open")}>
+    <div className={cn("saint-image-wrapper single relative shrink-0", isOpen && "open")}>
       {isLoading && (
         <div className="absolute inset-0 flex items-center justify-center rounded-full bg-black/35 backdrop-blur-[2px] z-20 pointer-events-none animate-in fade-in duration-200">
-          <Loader2 className="w-5 h-5 md:w-7 md:h-7 text-white animate-spin drop-shadow-md" />
+          <Loader2 className="w-5 h-5 md:w-8 md:h-8 text-white animate-spin drop-shadow-md" />
         </div>
       )}
       <Image
         key={proxiedUrl}
         src={proxiedUrl}
         alt={saint.name}
-        width={64}
-        height={64}
+        width={220}
+        height={220}
         onLoad={() => setIsLoading(false)}
         onError={() => setIsLoading(false)}
         className={cn(
-          "saint-image transition-opacity duration-300",
+          "saint-image transition-opacity duration-300 w-full h-full rounded-full object-cover",
           isLoading ? "opacity-20" : "opacity-100"
         )}
         style={{ objectPosition: (saint as any).imageObjectPosition ?? 'center' }}
@@ -484,8 +484,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow w-full saint-day-trigger relative",
-              isOpen ? "rounded-b-none pb-20 md:pb-16" : "",
+              "flex-1 p-4 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 w-full saint-day-trigger relative",
+              isOpen ? "rounded-b-none p-4 sm:p-5 md:p-6 lg:p-7" : "",
               triggerTheme
             )}
           >
@@ -504,7 +504,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60" />
             </div>
 
-            <div className="flex items-center gap-3 md:gap-4 text-left w-full relative z-10">
+            <div className="flex items-center gap-3.5 sm:gap-5 md:gap-7 lg:gap-9 text-left w-full relative z-10">
               <SaintImages 
                 saints={dayData.saints} 
                 isOpen={isOpen} 
@@ -512,9 +512,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 onSelect={setSelectedSaintInDayIndex}
               />
               <div className={cn(
-                "flex flex-1 flex-col items-start saint-name-container",
-                isOpen && "items-center md:items-start",
-                isOpen && dayData.saints.length > 1 && "md:items-end"
+                "flex flex-1 flex-col min-w-0 saint-name-container",
+                isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center"
               )}>
                 <div className={cn(
                   "date-capsule flex items-center gap-2",
@@ -557,16 +556,16 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                       const isNameHuge = combinedMainLength > 15;
 
                       if (isNameHuge) {
-                        mainFontSizeClass = "text-xl md:text-3xl";
-                        addFontSizeClass = "text-lg md:text-xl mt-1";
+                        mainFontSizeClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
+                        addFontSizeClass = "text-base sm:text-lg md:text-xl lg:text-2xl mt-1";
                       } else if (isNameVeryLong) {
-                        mainFontSizeClass = "text-2xl md:text-4xl";
-                        addFontSizeClass = "text-xl md:text-2xl mt-1";
+                        mainFontSizeClass = "text-2xl sm:text-3xl md:text-4xl lg:text-5xl";
+                        addFontSizeClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl mt-1";
                       } else {
-                        mainFontSizeClass = "text-3xl md:text-5xl";
-                        addFontSizeClass = "text-xl md:text-2xl mt-1";
+                        mainFontSizeClass = "text-2xl sm:text-3xl md:text-5xl lg:text-6xl";
+                        addFontSizeClass = "text-lg sm:text-xl md:text-2xl lg:text-3xl mt-1";
                       }
-                      ampFontSizeClass = "text-xl md:text-2xl";
+                      ampFontSizeClass = "text-xl sm:text-2xl md:text-3xl";
                     } else {
                       // Modo fechado (pode ter múltiplos santos)
                       if (dayData.saints.length > 1) {
