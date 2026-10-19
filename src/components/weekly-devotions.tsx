@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { weeklyDevotions, monthlyDevotions, getLiturgicalInfo } from '@/lib/devotions';
 import type { Devotion, LiturgicalInfo } from '@/lib/devotions';
 import { cn, getProxiedImageUrl } from '@/lib/utils';
@@ -73,6 +73,9 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
   const [today, setToday] = useState<Date | null>(null);
   const [liturgicalInfo, setLiturgicalInfo] = useState<LiturgicalInfo | null>(null);
   const [selectedDevotion, setSelectedDevotion] = useState<'weekly' | 'monthly' | null>(null);
+  const [renderedDevotion, setRenderedDevotion] = useState<'weekly' | 'monthly' | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+  const closeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
     // This ensures that the date is consistent and not affected by client-side re-renders.
@@ -80,6 +83,33 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
     setToday(now);
     setLiturgicalInfo(getLiturgicalInfo(now));
   }, []);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimeoutRef.current) clearTimeout(closeTimeoutRef.current);
+    };
+  }, []);
+
+  const handleDevotionClick = (type: 'weekly' | 'monthly') => {
+    if (closeTimeoutRef.current) {
+      clearTimeout(closeTimeoutRef.current);
+      closeTimeoutRef.current = null;
+    }
+
+    if (selectedDevotion === type) {
+      // Iniciar animação suave de fechamento / desaparecimento
+      setSelectedDevotion(null);
+      setIsClosing(true);
+      closeTimeoutRef.current = setTimeout(() => {
+        setRenderedDevotion(null);
+        setIsClosing(false);
+      }, 300);
+    } else {
+      setIsClosing(false);
+      setSelectedDevotion(type);
+      setRenderedDevotion(type);
+    }
+  };
 
   if (!today || !liturgicalInfo) {
     return <DevotionSkeleton />;
@@ -139,7 +169,7 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
           <Tooltip>
             <TooltipTrigger asChild>
               <button 
-                onClick={() => setSelectedDevotion(selectedDevotion === 'monthly' ? null : 'monthly')}
+                onClick={() => handleDevotionClick('monthly')}
                 className={cn(
                   "devotion-item devotion-item--default transition-all duration-300",
                   selectedDevotion === 'monthly' && "ring-2 ring-primary ring-offset-2 scale-105"
@@ -163,7 +193,7 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
             <TooltipTrigger asChild>
                 <div className="devotion-item-wrapper">
                     <button 
-                        onClick={() => setSelectedDevotion(selectedDevotion === 'weekly' ? null : 'weekly')}
+                        onClick={() => handleDevotionClick('weekly')}
                         className={cn(
                             'devotion-item group transition-all duration-300', 
                             dailyColorClasses[dayOfWeek],
@@ -187,39 +217,55 @@ const WeeklyDevotions = ({ onLiturgyClick }: WeeklyDevotionsProps) => {
         </TooltipProvider>
       </div>
 
-      {/* Reference text section below */}
-      {selectedDevotion && (
-        <div className={cn(
-          "w-full max-w-lg mt-4 p-4 rounded-xl border-2 text-center animate-in fade-in slide-in-from-top-2 duration-500 shadow-lg text-white font-medium",
-          selectedDevotion === 'monthly' && "bg-[#9ca3af] border-[#9ca3af]",
-          selectedDevotion === 'weekly' && dayOfWeek === 0 && "bg-[#dc2626] border-[#dc2626]",
-          selectedDevotion === 'weekly' && dayOfWeek === 1 && "bg-[#6b7280] border-[#6b7280]",
-          selectedDevotion === 'weekly' && dayOfWeek === 2 && "bg-[#b45309] border-[#b45309]",
-          selectedDevotion === 'weekly' && dayOfWeek === 3 && "bg-[#16a34a] border-[#16a34a]",
-          selectedDevotion === 'weekly' && dayOfWeek === 4 && "bg-[#2e1065] border-[#1e0a45]",
-          selectedDevotion === 'weekly' && dayOfWeek === 5 && "bg-[#b91c1c] border-[#b91c1c]",
-          selectedDevotion === 'weekly' && dayOfWeek === 6 && "bg-[#38bdf8] border-[#38bdf8]"
-        )}>
-          <p className="text-xs font-bold mb-2 uppercase tracking-widest opacity-90">
-            {selectedDevotion === 'weekly' ? weeklyDevotion.title : `Devoção Mensal: ${monthlyDevotion.name}`}
-          </p>
-          <div className="text-sm leading-relaxed">
-            {selectedDevotion === 'weekly' ? (
-              <>
-                {dayOfWeek === 0 && "O Domingo é o dia do Senhor, celebrando a Ressurreição de Jesus como base da nossa esperança e fé."}
-                {dayOfWeek === 1 && "Dedicada ao Espírito Santo e às Almas do Purgatório, orando pela luz divina e pelo descanso dos fiéis falecidos."}
-                {dayOfWeek === 2 && "Honramos os Santos Anjos, mensageiros de Deus e nossos protetores constantes em todos os momentos da vida."}
-                {dayOfWeek === 3 && "Dia dedicado a São José, Padroeiro da Igreja e das famílias, modelo de trabalho, silêncio e fé profunda."}
-                {dayOfWeek === 4 && "Dia da Eucaristia e do Sacerdócio, lembramos a Última Ceia e adoramos o Santíssimo Sacramento no altar."}
-                {dayOfWeek === 5 && "Contemplamos a Paixão de Cristo e o Sagrado Coração de Jesus, expressando nosso amor e reparação pelo Seu sacrifício."}
-                {dayOfWeek === 6 && "Tradicionalmente dedicado a Nossa Senhora, nossa Mãe e Medianeira de todas as graças junto ao Seu Filho."}
-              </>
-            ) : (
-              `A Santa Igreja dedica o mês de ${monthlyDevotion.name} à devoção ao ${monthlyDevotion.devotion}, convidando-nos a meditar sobre este mistério.`
-            )}
-          </div>
+      {/* Reference text section below with collapse/expand and fade/scale animation */}
+      <div
+        className={cn(
+          "w-full max-w-lg grid transition-all duration-300 ease-in-out",
+          renderedDevotion && !isClosing
+            ? "grid-rows-[1fr] opacity-100 mt-4"
+            : "grid-rows-[0fr] opacity-0 mt-0 pointer-events-none"
+        )}
+      >
+        <div className="overflow-hidden">
+          {renderedDevotion && (
+            <div
+              className={cn(
+                "p-4 rounded-xl border-2 text-center shadow-lg text-white font-medium transition-all duration-300 ease-out transform-gpu",
+                !isClosing
+                  ? "translate-y-0 scale-100 opacity-100"
+                  : "-translate-y-2 scale-95 opacity-0",
+                renderedDevotion === 'monthly' && "bg-[#9ca3af] border-[#9ca3af]",
+                renderedDevotion === 'weekly' && dayOfWeek === 0 && "bg-[#dc2626] border-[#dc2626]",
+                renderedDevotion === 'weekly' && dayOfWeek === 1 && "bg-[#6b7280] border-[#6b7280]",
+                renderedDevotion === 'weekly' && dayOfWeek === 2 && "bg-[#b45309] border-[#b45309]",
+                renderedDevotion === 'weekly' && dayOfWeek === 3 && "bg-[#16a34a] border-[#16a34a]",
+                renderedDevotion === 'weekly' && dayOfWeek === 4 && "bg-[#2e1065] border-[#1e0a45]",
+                renderedDevotion === 'weekly' && dayOfWeek === 5 && "bg-[#b91c1c] border-[#b91c1c]",
+                renderedDevotion === 'weekly' && dayOfWeek === 6 && "bg-[#38bdf8] border-[#38bdf8]"
+              )}
+            >
+              <p className="text-xs font-bold mb-2 uppercase tracking-widest opacity-90">
+                {renderedDevotion === 'weekly' ? weeklyDevotion.title : `Devoção Mensal: ${monthlyDevotion.name}`}
+              </p>
+              <div className="text-sm leading-relaxed">
+                {renderedDevotion === 'weekly' ? (
+                  <>
+                    {dayOfWeek === 0 && "O Domingo é o dia do Senhor, celebrando a Ressurreição de Jesus como base da nossa esperança e fé."}
+                    {dayOfWeek === 1 && "Dedicada ao Espírito Santo e às Almas do Purgatório, orando pela luz divina e pelo descanso dos fiéis falecidos."}
+                    {dayOfWeek === 2 && "Honramos os Santos Anjos, mensageiros de Deus e nossos protetores constantes em todos os momentos da vida."}
+                    {dayOfWeek === 3 && "Dia dedicado a São José, Padroeiro da Igreja e das famílias, modelo de trabalho, silêncio e fé profunda."}
+                    {dayOfWeek === 4 && "Dia da Eucaristia e do Sacerdócio, lembramos a Última Ceia e adoramos o Santíssimo Sacramento no altar."}
+                    {dayOfWeek === 5 && "Contemplamos a Paixão de Cristo e o Sagrado Coração de Jesus, expressando nosso amor e reparação pelo Seu sacrifício."}
+                    {dayOfWeek === 6 && "Tradicionalmente dedicado a Nossa Senhora, nossa Mãe e Medianeira de todas as graças junto ao Seu Filho."}
+                  </>
+                ) : (
+                  `A Santa Igreja dedica o mês de ${monthlyDevotion.name} à devoção ao ${monthlyDevotion.devotion}, convidando-nos a meditar sobre este mistério.`
+                )}
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };
