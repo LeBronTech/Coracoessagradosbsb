@@ -4,20 +4,21 @@ import { cn } from "@/lib/utils";
 import React, { useState, useRef, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronLeft, BookOpen, Heart, ArrowUp, Search, X, SlidersHorizontal, Globe, Calendar } from "lucide-react";
+import { ChevronLeft, BookOpen, Heart, ArrowUp, Search, X, SlidersHorizontal, Globe, Calendar, Baby } from "lucide-react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { MarianGallery, devotions as regionalDevotions } from "@/components/marian-gallery";
 import { WorldMarianDevotions } from "@/components/world-marian-devotions";
 import { RosarySection } from "@/components/rosary-section";
 import { ConsecrationSection } from "@/components/consecration-section";
+import { NineMonthsWithMary } from "@/components/nine-months-with-mary";
 import Image from "next/image";
 import { worldMarianDevotions, MarianDevotion } from "@/lib/world-devotions-data";
 import { LoadingScreen } from "@/components/loading-screen";
 import Footer from "@/components/footer";
 
 export default function EspacoMarianoPage() {
-    const [activeSection, setActiveSection] = useState<"galeria" | "oracoes" | "rosario" | "consagracao">("galeria");
+    const [activeSection, setActiveSection] = useState<"galeria" | "nove_meses" | "oracoes" | "rosario" | "consagracao">("galeria");
     const [showScrollTop, setShowScrollTop] = React.useState(false);
     const [hydrated, setHydrated] = useState(false);
     const [isNavigating, setIsNavigating] = useState(false);
@@ -103,6 +104,24 @@ export default function EspacoMarianoPage() {
                         </Button>
                         <Button
                             size="lg"
+                            variant={activeSection === "nove_meses" ? "default" : "outline"}
+                            onClick={() => setActiveSection("nove_meses")}
+                            className={`transition-all duration-300 ${activeSection === "nove_meses" ? "bg-blue-700 hover:bg-blue-800 shadow-lg scale-105" : "hover:bg-blue-50"}`}
+                        >
+                            <Baby className="mr-2 h-5 w-5" />
+                            9 Meses com Maria
+                        </Button>
+                        <Button
+                            size="lg"
+                            variant={activeSection === "consagracao" ? "default" : "outline"}
+                            onClick={() => setActiveSection("consagracao")}
+                            className={`transition-all duration-300 ${activeSection === "consagracao" ? "bg-blue-700 hover:bg-blue-800 shadow-lg scale-105" : "hover:bg-blue-50"}`}
+                        >
+                            <Heart className="mr-2 h-5 w-5" />
+                            Consagração
+                        </Button>
+                        <Button
+                            size="lg"
                             variant={activeSection === "rosario" ? "default" : "outline"}
                             onClick={() => setActiveSection("rosario")}
                             className={`transition-all duration-300 ${activeSection === "rosario" ? "bg-blue-700 hover:bg-blue-800 shadow-lg scale-105" : "hover:bg-blue-50"}`}
@@ -119,15 +138,6 @@ export default function EspacoMarianoPage() {
                             <BookOpen className="mr-2 h-5 w-5" />
                             Orações Marianas
                         </Button>
-                        <Button
-                            size="lg"
-                            variant={activeSection === "consagracao" ? "default" : "outline"}
-                            onClick={() => setActiveSection("consagracao")}
-                            className={`transition-all duration-300 ${activeSection === "consagracao" ? "bg-blue-700 hover:bg-blue-800 shadow-lg scale-105" : "hover:bg-blue-50"}`}
-                        >
-                            <Heart className="mr-2 h-5 w-5" />
-                            Consagração
-                        </Button>
                     </div>
 
                     {/* Content Sections */}
@@ -139,6 +149,8 @@ export default function EspacoMarianoPage() {
                             {/* Devoções Marianas pelo Mundo */}
                             <WorldMarianDevotions />
                         </div>
+                    ) : activeSection === "nove_meses" ? (
+                        <NineMonthsWithMary />
                     ) : activeSection === "rosario" ? (
                         <RosarySection />
                     ) : activeSection === "consagracao" ? (

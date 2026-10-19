@@ -1,785 +1,945 @@
 "use client";
 
-import React, { useState } from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { ChevronDown, ChevronUp, Heart, BookOpen } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import Image from "next/image";
+import { format, addDays, startOfDay, parseISO } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { 
+  Heart, 
+  Calendar as CalendarIcon, 
+  CheckCircle2, 
+  ChevronLeft, 
+  ChevronDown, 
+  ChevronUp, 
+  Check, 
+  BookOpen, 
+  Download, 
+  MessageCircle, 
+  Sparkles, 
+  Link as LinkIcon, 
+  Flame,
+  ShieldCheck,
+  RotateCcw
+} from "lucide-react";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Separator } from "@/components/ui/separator";
+import { 
+  getMarianConsecrationPresets, 
+  getCustomMarianPreset, 
+  MarianConsecrationPreset 
+} from "@/lib/utils/marian-consecration-dates";
+import { 
+  MARIAN_CONSECRATION_DAYS, 
+  MarianConsecrationDay 
+} from "@/lib/marian-consecration-days-data";
+import { getProxiedImageUrl } from "@/lib/utils";
 
 export function ConsecrationSection() {
-    const [expandedWeek, setExpandedWeek] = useState<number | null>(null);
-    const [showFormula, setShowFormula] = useState(false);
-    const [showMethod, setShowMethod] = useState(false);
-    const [showPrayers, setShowPrayers] = useState(false);
-    const [expandedPrayer, setExpandedPrayer] = useState<string | null>(null);
+  const [selectedGoalId, setSelectedGoalId] = useState<string>("aparecida");
+  const [customStartDate, setCustomStartDate] = useState<Date>(new Date());
+  const [tempDate, setTempDate] = useState<string>(format(new Date(), "yyyy-MM-dd"));
+  const [completedDays, setCompletedDays] = useState<number[]>([]);
+  const [year] = useState<number>(new Date().getFullYear());
+  const [activeTab, setActiveTab] = useState<string>("dia-1");
 
-    const preliminaryDays = [
-        { day: 1, theme: "Fugir do pecado", reference: "Mt 5,23; Mt 11,12" },
-        { day: 2, theme: "Cumprir os mandamentos", reference: "Lc 9,23; Jo 14,15-24; Mt 7,21" },
-        { day: 3, theme: "Temor de Deus", reference: "Mt 25,13; Lc 12,4-5; Mt 7,13-14; Mt 18,9" },
-        { day: 4, theme: "Fidelidade", reference: "Mt 6,24; Lc 9,62; Lc 16,10; Mt 7,24" },
-        { day: 5, theme: "Importância da oração", reference: "Mc 11,24-25; Lc 11; Lc 18,1; Mt 26,41; Mt 6,5" },
-        { day: 6, theme: "Conhecimento da Verdade", reference: "Lc 5,8-17" },
-        { day: 7, theme: "Humildade e mansidão", reference: "Mt 20,26-27; Mt 5,44; Mt 20,16; Mt 5,39-40; Lc 14,11; Mt 18,3; Mt 11,29" },
-        { day: 8, theme: "Paciência e caridade para com o próximo", reference: "Mt 9 e 7,1-2; Mt 18,10; At 20,35; Mt 5,23-24" },
-        { day: 9, theme: "Mortificação, Penitência e Sofrimento", reference: "Lc 9,23; Mt 6,16; Lc 15,7" },
-        { day: 10, theme: "Perseguição e incompreensão", reference: "Mt 6,5-10; Lc 6,22-23; Jo 15,18-19" },
-        { day: 11, theme: "Desapego de tudo", reference: "Mt 6,19-20; Mc 10,23; Lc 10,18-25; Lc 6,24; Lc 14,26; Mt 19,29; Mt 19,21" },
-        { day: 12, theme: "Confiança na Providência", reference: "Mt 22,11-28; Jo 6,51-52; Lc 21,17-18; Lc 10 e 12,7; Jo 3,17; Lc 12,22-30" }
-    ];
+  // Visualizadores adicionais
+  const [showFormula, setShowFormula] = useState(false);
+  const [showMethod, setShowMethod] = useState(false);
+  const [showPrayers, setShowPrayers] = useState(false);
+  const [expandedPrayer, setExpandedPrayer] = useState<string | null>(null);
 
-    const weeks = [
-        {
-            title: "12 Dias Preliminares: Desapego do Mundo",
-            subtitle: "Renúncia ao espírito do mundo",
-            intro: "\"Não estareis vós, sem perceber, no caminho largo do mundo, que é o caminho da perdição?\" - São Luís de Montfort",
-            days: preliminaryDays,
-            prayers: ["Veni Creator", "Ave Maris Stella"]
-        },
-        {
-            title: "Primeira Semana: Conhecimento Próprio",
-            subtitle: "Conhecer-se para humilhar-se",
-            intro: "\"Para esvaziar-nos de nós mesmos é preciso, primeiramente, conhecer bem, pela luz do Espírito Santo, nosso fundo mau, nossa incapacidade, nossa fraqueza, nossa inconstância, nossa indignidade e nossa iniquidade.\" - São Luís de Montfort",
-            days: [
-                { day: 1, theme: "Pecados da 1ª Infância", reference: "Exame de consciência" },
-                { day: 2, theme: "Pecados da Infância", reference: "Exame de consciência" },
-                { day: 3, theme: "Pecados da Adolescência", reference: "Exame de consciência" },
-                { day: 4, theme: "Pecados da Idade Adulta", reference: "Exame de consciência" },
-                { day: 5, theme: "Paixão Dominante", reference: "Descobrir o vício principal" },
-                { day: 6, theme: "Transposição da paixão dominante para o amor a Deus", reference: "Buscar em Deus o verdadeiro bem" }
-            ],
-            prayers: ["Jaculatórias: 'Domine, ut videam', 'Noverim me'", "Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
-        },
-        {
-            title: "Segunda Semana: Conhecimento de Maria",
-            subtitle: "Maria: Doce e forte, Zelosa e prudente, Humilde e corajosa, Pura e fecunda",
-            intro: "\"Como uma alma é feliz quando está inteiramente possuída e governada pelo espírito de Maria!\" - São Luís de Montfort",
-            days: [
-                { day: 1, theme: "Doce e Forte", reference: "Maria Fons - A doçura e força da água" },
-                { day: 2, theme: "Zelosa e Prudente", reference: "A Visitação - Lc 1,39-56" },
-                { day: 3, theme: "Humilde", reference: "Magnificat - Lc 1,46-55" },
-                { day: 4, theme: "Corajosa", reference: "Maria ao pé da Cruz - Jo 19,25-27" },
-                { day: 5, theme: "Pura", reference: "Virgem das Virgens" },
-                { day: 6, theme: "Fecunda", reference: "Mãe de Cristo e nossa Mãe" }
-            ],
-            prayers: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Um Rosário ou pelo menos um Terço"]
-        },
-        {
-            title: "Terceira Semana: Conhecimento de Jesus Cristo",
-            subtitle: "O amor de Cristo manifestado em seu sofrimento",
-            intro: "\"Entre todas as razões que nos podem excitar a amar Jesus Cristo, a mais poderosa é a quantidade de dores que Ele quis sofrer para nos testemunhar seu amor.\" - São Luís de Montfort",
-            days: [
-                { day: 1, theme: "A excelência daquele que sofre", reference: "Quem é Jesus que sofre por nós" },
-                { day: 2, theme: "A qualidade das pessoas por quem Ele sofre", reference: "Os homens, eu" },
-                { day: 3, theme: "Quantidade e qualidade dos sofrimentos (corpo)", reference: "Paixão de Cristo" },
-                { day: 4, theme: "Quantidade e qualidade dos sofrimentos (alma)", reference: "Solidão, traição, desonra" },
-                { day: 5, theme: "Sofrimentos de amigos, inimigos, autoridades", reference: "Abandono e perseguição" },
-                { day: 6, theme: "Amor aos homens manifestado durante o sofrimento", reference: "Perdão na Cruz" }
-            ],
-            prayers: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santo Nome de Jesus"]
+  const presets = getMarianConsecrationPresets(year);
+
+  // Preset selecionado
+  const selectedPreset: MarianConsecrationPreset = selectedGoalId === "custom"
+    ? getCustomMarianPreset(customStartDate)
+    : (presets.find(p => p.id === selectedGoalId) || presets[0]);
+
+  // Identificar dia atual da consagração
+  const today = startOfDay(new Date());
+  const diffInDays = Math.floor((today.getTime() - startOfDay(selectedPreset.startDate).getTime()) / (1000 * 60 * 60 * 24));
+  const currentConsagracaoDay = diffInDays >= 0 && diffInDays < 33 ? diffInDays + 1 : null;
+
+  // Persistência em localStorage
+  useEffect(() => {
+    try {
+      const savedGoal = localStorage.getItem("mariano-consagracao-goal");
+      if (savedGoal) {
+        setSelectedGoalId(savedGoal);
+      }
+
+      const savedCustomDate = localStorage.getItem("mariano-consagracao-custom-date");
+      if (savedCustomDate) {
+        const parsed = new Date(savedCustomDate);
+        if (!isNaN(parsed.getTime())) {
+          setCustomStartDate(parsed);
+          setTempDate(format(parsed, "yyyy-MM-dd"));
         }
-    ];
+      }
 
-    const toggleWeek = (weekIndex: number) => {
-        setExpandedWeek(expandedWeek === weekIndex ? null : weekIndex);
-    };
+      const savedCompleted = localStorage.getItem("mariano-consagracao-completed");
+      if (savedCompleted) {
+        setCompletedDays(JSON.parse(savedCompleted));
+      }
+    } catch (e) {
+      console.error("Erro ao carregar dados da consagração", e);
+    }
+  }, []);
 
-    return (
-        <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500">
-            <h2 className="text-4xl font-bold text-blue-900 dark:text-blue-100 text-center mb-6 font-brand flex items-center justify-center gap-3">
-                <Heart className="w-10 h-10 text-red-500" />
-                Consagração a Jesus por Maria
-                <Heart className="w-10 h-10 text-red-500" />
-            </h2>
+  // Foco no dia sugerido ao carregar
+  const once = useRef(false);
+  useEffect(() => {
+    if (!once.current && currentConsagracaoDay) {
+      setActiveTab(`dia-${currentConsagracaoDay}`);
+      setTimeout(() => {
+        const element = document.getElementById(`trigger-dia-${currentConsagracaoDay}`);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      }, 300);
+      once.current = true;
+    }
+  }, [currentConsagracaoDay]);
 
-            <p className="text-center text-slate-600 dark:text-slate-400 max-w-3xl mx-auto mb-8">
-                A Consagração a Jesus por Maria, segundo São Luís Maria de Montfort, é o caminho mais perfeito para se unir a Cristo. São 33 dias de preparação (12 preliminares + 21 dias divididos em 3 semanas) para entregar-se totalmente a Jesus pelas mãos de Maria.
-            </p>
+  useEffect(() => {
+    try {
+      localStorage.setItem("mariano-consagracao-completed", JSON.stringify(completedDays));
+    } catch (e) {
+      console.error(e);
+    }
+  }, [completedDays]);
 
-            {/* Botões de Navegação */}
-            <div className="flex justify-center gap-4 mb-8 flex-wrap">
-                <button
-                    onClick={() => {
-                        setShowFormula(false);
-                        setShowMethod(!showMethod);
-                        setShowPrayers(false);
-                    }}
-                    className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2"
-                >
-                    <BookOpen className="w-5 h-5" />
-                    {showMethod ? "Ver os 33 Dias" : "Método de Meditação"}
-                </button>
-                <button
-                    onClick={() => {
-                        setShowMethod(false);
-                        setShowFormula(false);
-                        setShowPrayers(!showPrayers);
-                    }}
-                    className="px-8 py-4 bg-gradient-to-r from-purple-600 to-purple-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2"
-                >
-                    <BookOpen className="w-5 h-5" />
-                    {showPrayers ? "Ver os 33 Dias" : "Orações"}
-                </button>
-                <button
-                    onClick={() => {
-                        setShowMethod(false);
-                        setShowFormula(!showFormula);
-                        setShowPrayers(false);
-                    }}
-                    className="px-8 py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition-all hover:scale-105 flex items-center gap-2"
-                >
-                    <Heart className="w-5 h-5" />
-                    {showFormula ? "Ver os 33 Dias" : "Fórmula de Consagração"}
-                </button>
+  useEffect(() => {
+    try {
+      localStorage.setItem("mariano-consagracao-goal", selectedGoalId);
+    } catch (e) {
+      console.error(e);
+    }
+  }, [selectedGoalId]);
+
+  useEffect(() => {
+    try {
+      localStorage.setItem("mariano-consagracao-custom-date", customStartDate.toISOString());
+    } catch (e) {
+      console.error(e);
+    }
+  }, [customStartDate]);
+
+  const toggleDay = (day: number) => {
+    setCompletedDays(prev =>
+      prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]
+    );
+  };
+
+  const isDayCompleted = (day: number) => completedDays.includes(day);
+
+  const handleTabChange = (value: string) => {
+    setActiveTab(value);
+    setTimeout(() => {
+      const triggerElement = document.getElementById("trigger-" + value);
+      if (triggerElement) {
+        triggerElement.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      }
+    }, 100);
+  };
+
+  const handleConfirmCustomDate = () => {
+    try {
+      const parsed = parseISO(tempDate);
+      if (!isNaN(parsed.getTime())) {
+        setCustomStartDate(parsed);
+      }
+    } catch (e) {
+      console.error("Data inválida", e);
+    }
+  };
+
+  return (
+    <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 max-w-6xl mx-auto">
+      {/* ── Título Principal ── */}
+      <div className="text-center space-y-3">
+        <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-100 dark:bg-blue-950/60 text-blue-800 dark:text-blue-300 font-semibold text-xs border border-blue-200 dark:border-blue-800">
+          <Heart className="w-4 h-4 text-red-500 fill-red-500" />
+          <span>Método de São Luís Maria Grignion de Montfort</span>
+        </div>
+        <h2 className="text-3xl sm:text-5xl font-bold font-brand text-blue-950 dark:text-blue-100">
+          33 Dias de Consagração a Jesus por Maria
+        </h2>
+        <p className="text-base text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
+          A Santa Escravidão de Amor: o caminho mais perfeito, doce, rápido e seguro para se unir intimamente a Nosso Senhor Jesus Cristo pelas mãos puríssimas da Santíssima Virgem.
+        </p>
+      </div>
+
+      {/* ── Botões de Auxílio / Recursos Rápidos no Topo ── */}
+      <div className="flex justify-center gap-3 flex-wrap">
+        <Button
+          variant={showMethod ? "default" : "outline"}
+          onClick={() => {
+            setShowFormula(false);
+            setShowPrayers(false);
+            setShowMethod(!showMethod);
+          }}
+          className={`font-semibold text-xs sm:text-sm rounded-xl transition-all ${
+            showMethod ? "bg-blue-700 text-white" : "border-blue-200 text-blue-900 dark:text-blue-200 hover:bg-blue-50"
+          }`}
+        >
+          <BookOpen className="w-4 h-4 mr-2" />
+          {showMethod ? "Ocultar Método" : "Método de Meditação (7 Passos)"}
+        </Button>
+
+        <Button
+          variant={showPrayers ? "default" : "outline"}
+          onClick={() => {
+            setShowMethod(false);
+            setShowFormula(false);
+            setShowPrayers(!showPrayers);
+          }}
+          className={`font-semibold text-xs sm:text-sm rounded-xl transition-all ${
+            showPrayers ? "bg-purple-700 text-white" : "border-purple-200 text-purple-900 dark:text-purple-200 hover:bg-purple-50"
+          }`}
+        >
+          <Sparkles className="w-4 h-4 mr-2 text-purple-500" />
+          {showPrayers ? "Ocultar Orações" : "Orações da Consagração"}
+        </Button>
+
+        <Button
+          variant={showFormula ? "default" : "outline"}
+          onClick={() => {
+            setShowMethod(false);
+            setShowPrayers(false);
+            setShowFormula(!showFormula);
+          }}
+          className={`font-semibold text-xs sm:text-sm rounded-xl transition-all ${
+            showFormula ? "bg-red-700 text-white" : "border-red-200 text-red-900 dark:text-red-200 hover:bg-red-50"
+          }`}
+        >
+          <Heart className="w-4 h-4 mr-2 text-red-500" />
+          {showFormula ? "Ocultar Fórmula" : "Fórmula Solene de Consagração"}
+        </Button>
+      </div>
+
+      {/* ── Seção Expansível: Método de Meditação ── */}
+      {showMethod && (
+        <Card className="border-2 border-blue-200 dark:border-blue-900 shadow-xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-slate-900 dark:to-blue-950/30 animate-in fade-in duration-300">
+          <CardHeader className="bg-blue-100/60 dark:bg-blue-900/30 pb-3">
+            <CardTitle className="text-xl font-bold font-brand text-blue-900 dark:text-blue-100 flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-blue-600" />
+              Esquema Geral da Meditação Diária (São Luís de Montfort)
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-4 text-xs sm:text-sm text-slate-700 dark:text-slate-300">
+            <div className="grid md:grid-cols-2 gap-3">
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">1. Presença de Deus</h5>
+                <p>Pôr-se reverentemente na presença de Deus, contemplando Jesus e Maria no mistério proposto para o dia.</p>
+              </div>
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">2. Súplica</h5>
+                <p>Pedir a Deus, por Maria, a graça do período: desapego do mundo, conhecimento de si, de Maria ou de Jesus.</p>
+              </div>
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">3. Oferecimento</h5>
+                <p>Oferecer as orações prescritas com amor filial, despojando-se de qualquer vanglória humana.</p>
+              </div>
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">4. Meditar a Verdade</h5>
+                <p>Ler atentamente o trecho bíblico e a reflexão do Tratado, perguntando-se: 'O que Deus me pede hoje?'.</p>
+              </div>
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">5. Afetos da Vontade</h5>
+                <p>Produzir atos de amor, gratidão, contrição, louvor e entrega filial à Mãe Santíssima.</p>
+              </div>
+              <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+                <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">6. Resoluções Práticas</h5>
+                <p>Tomar um propósito concreto para o dia (ex: vencer a ira, guardar a pureza dos olhos, rezar o terço).</p>
+              </div>
+            </div>
+            <div className="p-3.5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-sm">
+              <h5 className="font-bold text-blue-900 dark:text-blue-200 mb-1">7. Orações Finais</h5>
+              <p>Rezar as orações do dia (Veni Creator, Ave Maris Stella, Ladainhas) selando a resolução diante do Senhor.</p>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* ── Seção Expansível: Orações da Consagração ── */}
+      {showPrayers && (
+        <Card className="border-2 border-purple-200 dark:border-purple-900 shadow-xl bg-gradient-to-br from-purple-50 to-violet-50 dark:from-slate-900 dark:to-purple-950/30 animate-in fade-in duration-300">
+          <CardHeader className="bg-purple-100/60 dark:bg-purple-900/30 pb-3">
+            <CardTitle className="text-xl font-bold font-brand text-purple-900 dark:text-purple-100 flex items-center gap-2">
+              <Sparkles className="w-5 h-5 text-purple-600" />
+              Orações Tradicionais da Consagração
+            </CardTitle>
+            <CardDescription>Clique na oração para abrir e rezar o texto completo</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-4 text-xs sm:text-sm">
+            {/* Veni Creator */}
+            <div className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-purple-200 dark:border-purple-800 shadow-sm">
+              <button 
+                onClick={() => setExpandedPrayer(expandedPrayer === "veni" ? null : "veni")}
+                className="w-full flex items-center justify-between font-bold text-base text-purple-900 dark:text-purple-200"
+              >
+                <span>🕊️ Veni Creator Spiritus (Vinde, Espírito Criador)</span>
+                {expandedPrayer === "veni" ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              {expandedPrayer === "veni" && (
+                <div className="mt-3 pt-3 border-t border-purple-100 dark:border-purple-900 italic text-slate-700 dark:text-slate-300 space-y-2 whitespace-pre-line font-serif">
+                  {`Vem, ó criador Espírito, as almas dos teus visita;
+os corações que criastes, enche de graça infinita.
+
+Tu, Paráclito és chamado, Dom do Pai celestial,
+Fogo, caridade, fonte viva e unção espiritual.
+
+Tu dás septiforme graça; dedo és da destra paterna;
+Do Pai, solene promessa, dás força da voz suprema.
+
+Nossa razão esclarece, Teu amor no peito acende,
+Do nosso corpo a fraqueza com tua força defende.
+
+De nós afasta o inimigo. Dá que Deus Pai e seu Filho
+Por ti nós bem conheçamos, e em ti, Espírito de ambos,
+Em todo tempo creiamos.
+
+A Deus Pai se dê a glória e ao Filho ressuscitado,
+Paráclito e a ti também com louvor perpetuado. Amém.
+
+V. Enviai o vosso Espírito e tudo será criado.
+R. E renovareis a face da terra.
+
+Oremos: Ó Deus, que instruístes os corações de vossos fiéis com a luz do Espírito Santo, concedei-nos que, no mesmo Espírito, conheçamos o que é reto, e gozemos sempre as suas consolações. Por Cristo Nosso Senhor. Amém.`}
+                </div>
+              )}
             </div>
 
-            {/* Método de Meditação */}
-            {showMethod && (
-                <Card className="border-2 border-blue-200 shadow-2xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
-                    <CardHeader className="bg-gradient-to-r from-blue-100 to-sky-100 dark:from-blue-900/30 dark:to-sky-900/30">
-                        <CardTitle className="text-3xl text-center text-blue-900 dark:text-blue-100 font-brand">
-                            Esquema Geral da Meditação Diária
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-8 px-8 pb-8">
-                        <div className="space-y-6">
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    a) Presença de Deus
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Pôr-se na presença de Deus, através de Nosso Senhor Jesus Cristo contemplado juntamente com Nossa Senhora (durante a Encarnação, no presépio, em Nazaré, no Templo, na via-crúcis, no Calvário, etc.).
-                                </p>
-                            </div>
+            {/* Ave Maris Stella */}
+            <div className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-purple-200 dark:border-purple-800 shadow-sm">
+              <button 
+                onClick={() => setExpandedPrayer(expandedPrayer === "ave" ? null : "ave")}
+                className="w-full flex items-center justify-between font-bold text-base text-purple-900 dark:text-purple-200"
+              >
+                <span>⭐ Ave Maris Stella (Ave, do Mar Estrela)</span>
+                {expandedPrayer === "ave" ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              {expandedPrayer === "ave" && (
+                <div className="mt-3 pt-3 border-t border-purple-100 dark:border-purple-900 italic text-slate-700 dark:text-slate-300 space-y-2 whitespace-pre-line font-serif">
+                  {`Ave, do mar Estrela, de Deus mãe bela,
+Sempre virgem, da morada celeste Feliz entrada.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    b) Súplica
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Suplicar a Nosso Senhor, através de Maria Santíssima, a graça própria do período: desprezo do mundo, conhecimento próprio, de Nossa Senhora ou de Nosso Senhor.
-                                </p>
-                            </div>
+Ó tu que ouviste da boca do anjo a saudação;
+Dá-nos a paz e quietação; e o nome da Eva troca.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    c) Oferecimento
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Oferecer por essa intenção uma das orações determinadas por São Luís de Montfort.
-                                </p>
-                            </div>
+As prisões aos réus desata e a nós cegos alumia;
+De tudo que nos maltrata nos livra, o bem nos granjeia.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    d) Meditar
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Ato da inteligência: "O que eu devo saber?" Meditar sobre as verdades propostas, escolhendo entre os textos do cronograma.
-                                </p>
-                            </div>
+Ostenta que és mãe, fazendo que os rogos do povo seu
+Ouça aquele que, nascendo por nós, quis ser filho teu.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    e) Afetos
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Atos da vontade: "O que eu devo querer?" Produzir e explicitar afetos.
-                                </p>
-                            </div>
+Ó virgem especiosa, toda cheia de ternura,
+Extintos nossos pecados dá-nos pureza e bravura.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    f) Resoluções
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Formular resoluções práticas e precisas (determinadas na matéria, no tempo, no espaço, nas circunstâncias) e em pequeno número, oferecendo-as a Nosso Senhor pelas mãos de Maria e suplicando força para cumpri-las.
-                                </p>
-                            </div>
+Dá-nos uma vida pura, põe-nos em vida segura,
+Para que a Jesus gozemos e sempre nos alegremos.
 
-                            <div className="p-5 bg-white dark:bg-slate-800 rounded-xl border-l-4 border-blue-500 shadow-md">
-                                <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                    g) Orações Finais
-                                </h4>
-                                <p className="text-slate-700 dark:text-slate-300">
-                                    Oferecer nesta intenção alguma(s) outra(s) das orações determinadas por São Luís (os exercícios remanescentes podem ser feitos em outro momento do dia).
-                                </p>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            )}
-
-            {/* Seção: Orações */}
-            {showPrayers && (
-                <div className="space-y-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
-                    {/* Veni Creator */}
-                    <Card className="border-2 border-purple-200 shadow-xl bg-gradient-to-br from-purple-50 to-violet-50 dark:from-purple-950/20 dark:to-violet-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "veni" ? null : "veni")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-purple-900 dark:text-purple-100">
-                                    Veni Creator Spiritus
-                                </CardTitle>
-                                {expandedPrayer === "veni" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                        </CardHeader>
-                        {expandedPrayer === "veni" && (
-                            <CardContent className="pt-6 space-y-4 text-slate-700 dark:text-slate-300">
-                                <p className="italic">Vem, ó criador Espírito,<br />As almas dos teus visita;<br />Os corações que criastes,<br />Enche de graça infinita.</p>
-                                <p className="italic">Tu, Paráclito és chamado<br />Dom do Pai celestial,<br />Fogo, caridade, fonte<br />Viva unção espiritual.</p>
-                                <p className="italic">Tu dás septiforme graça;<br />Dedo és da destra paterna;<br />Do Pai, solene promessa,<br />Dás força da voz suprema.</p>
-                                <p className="italic">Nossa razão esclarece,<br />Teu amor no peito acende,<br />Do nosso corpo a fraqueza<br />Com tua força defende.</p>
-                                <p className="italic">De nós afasta o inimigo.<br />Dá que Deus Pai e seu Filho<br />Por ti nós bem conheçamos,<br />E em ti, Espírito de ambos<br />Em todo tempo creiamos.</p>
-                                <p className="italic">A Deus Pai se dê a glória<br />E ao Filho ressuscitado,<br />Paráclito e a ti também<br />Com louvor perpetuado. Amém</p>
-                                <div className="mt-4 p-3 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                                    <p className="text-sm"><strong>V.</strong> Envia o vosso Espírito, e a tudo será criado.</p>
-                                    <p className="text-sm"><strong>R.</strong> E renovareis a face da terra.</p>
-                                    <p className="text-sm mt-2"><strong>Oremos:</strong> Ó Deus, que instruístes os corações de vossos fiéis com a luz do Espírito Santo, concedei-nos que, no mesmo Espírito, conheçamos o que é reto, e gozemos sempre as suas consolações. Por Cristo Nosso Senhor. Amém</p>
-                                </div>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Ave Maris Stella */}
-                    <Card className="border-2 border-blue-200 shadow-xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "ave" ? null : "ave")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-blue-900 dark:text-blue-100">
-                                    Ave Maris Stella
-                                </CardTitle>
-                                {expandedPrayer === "ave" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                        </CardHeader>
-                        {expandedPrayer === "ave" && (
-                            <CardContent className="pt-6 space-y-4 text-slate-700 dark:text-slate-300">
-                                <p className="italic">Ave, do mar Estrela<br />De Deus mãe bela,<br />Sempre virgem, da morada<br />Celeste Feliz entrada.</p>
-                                <p className="italic">Ó tu que ouviste da boca<br />Do anjo a saudação;<br />Dá-nos a paz e quietação;<br />E o nome da Eva troca.</p>
-                                <p className="italic">As prisões aos réus desata.<br />E a nós cegos alumia;<br />De tudo que nos maltrata<br />Nos livra, o bem nos granjeia.</p>
-                                <p className="italic">Ostenta que és mãe, fazendo<br />Que os rogos do povo seu<br />Ouça aquele que, nascendo<br />Por nós, quis ser filho teu.</p>
-                                <p className="italic">Ó virgem especiosa,<br />Toda cheia de ternura,<br />Extintos nossos pecados<br />Dá-nos pureza e bravura,</p>
-                                <p className="italic">Dá-nos uma vida pura,<br />Põe-nos em vida segura,<br />Para que a Jesus gozemos,<br />E sempre nos alegremos.</p>
-                                <p className="italic">A Deus Pai veneremos:<br />A Jesus Cristo também:<br />E ao Espírito Santo; demos<br />Aos três um louvor: Amém.</p>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Oração de Santo Agostinho */}
-                    <Card className="border-2 border-amber-200 shadow-xl bg-gradient-to-br from-amber-50 to-yellow-50 dark:from-amber-950/20 dark:to-yellow-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "agostinho" ? null : "agostinho")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-amber-900 dark:text-amber-100">
-                                    Oração de Santo Agostinho
-                                </CardTitle>
-                                {expandedPrayer === "agostinho" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                        </CardHeader>
-                        {expandedPrayer === "agostinho" && (
-                            <CardContent className="pt-6 space-y-4 text-slate-700 dark:text-slate-300 text-sm">
-                                <p>Vós sois, ó Jesus, o Cristo, meu Pai santo, meu Deus misericordioso, meu Rei infinitamente grande; sois meu bom pastor, meu único mestre, meu auxílio cheio de bondade, meu bem-amado de uma beleza maravilhosa, meu pão vivo, meu sacerdote eterno, meu guia para a pátria, minha verdadeira luz, minha santa doçura, meu reto caminho, sapiência minha preclara, minha pura simplicidade, minha paz e concórdia; sois, enfim, toda a minha salvaguarda, minha herança preciosa, minha eterna salvação…</p>
-                                <p>Ó Jesus Cristo, amável Senhor, por que, em toda a minha vida, amei, por que desejei outra coisa senão vós? Onde estava eu quando não pensava em vós? Ah! que, pelo menos, a partir deste momento meu coração só deseje a vós e por vós se abrase, Senhor Jesus! Desejos de minha alma, correi, que já bastante tardastes; apressai-vos para o fim a que aspirais; procurai em verdade aquele que procurais. Ó Jesus, anátema seja quem não vos ama. Aquele que não vos ama seja repleto de amarguras. Ó doce Jesus, sede o amor, as delícias, a admiração de todo coração dignamente consagrado à vossa glória. Deus de meu coração e minha partilha, Jesus Cristo, que em vós meu coração desfaleça, e sede vós mesmo a minha vida. Acenda-se em minha alma a brasa ardente de vosso amor e se converta num incêndio todo divino, a arder para sempre no altar de meu coração; que inflame o íntimo do meu ser, e abrase o âmago de minha alma; para que no dia de minha morte eu apareça diante de vós inteiramente consumido em vosso amor.</p>
-                                <p className="text-center font-bold">Amém</p>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Ladainha do Espírito Santo */}
-                    <Card className="border-2 border-red-200 shadow-xl bg-gradient-to-br from-red-50 to-rose-50 dark:from-red-950/20 dark:to-rose-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "espirito" ? null : "espirito")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-red-900 dark:text-red-100">
-                                    Ladainha do Espírito Santo
-                                </CardTitle>
-                                {expandedPrayer === "espirito" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                            <p className="text-sm text-red-700 dark:text-red-300 mt-2">Dias Preliminares e Todas as Semanas</p>
-                        </CardHeader>
-                        {expandedPrayer === "espirito" && (
-                            <CardContent className="pt-6 space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Jesus Cristo, tende piedade de nós.</p>
-                                <p>Divino Espírito Santo, ouvi-nos.</p>
-                                <p>Espírito Paráclito, atendei-nos.</p>
-                                <p>Deus Pai dos céus, tende piedade de nós.</p>
-                                <p>Deus Filho, redentor do mundo, tende piedade de nós.</p>
-                                <p>Deus Espírito Santo, tende piedade de nós.</p>
-                                <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
-                                <div className="ml-4 space-y-1">
-                                    <p>Espírito da verdade, tende piedade de nós.</p>
-                                    <p>Espírito da sabedoria,</p>
-                                    <p>Espírito da inteligência,</p>
-                                    <p>Espírito da fortaleza,</p>
-                                    <p>Espírito da piedade,</p>
-                                    <p>Espírito do bom conselho,</p>
-                                    <p>Espírito da ciência,</p>
-                                    <p>Espírito do santo temor,</p>
-                                    <p>Espírito da caridade,</p>
-                                    <p>Espírito da alegria,</p>
-                                    <p>Espírito da paz,</p>
-                                    <p>Espírito das virtudes,</p>
-                                    <p>Espírito de toda graça,</p>
-                                    <p>Espírito da adoção dos filhos de Deus,</p>
-                                    <p>Purificador das nossas almas,</p>
-                                    <p>Santificador e guia da Igreja Católica,</p>
-                                    <p>Distribuidor dos dons celestes,</p>
-                                    <p>Conhecedor dos pensamentos e das intenções do coração,</p>
-                                    <p>Doçura dos que começam a vos servir,</p>
-                                    <p>Coroa dos perfeitos,</p>
-                                    <p>Alegria dos anjos,</p>
-                                    <p>Luz dos patriarcas,</p>
-                                    <p>Inspiração dos profetas,</p>
-                                    <p>Palavra e sabedoria dos apóstolos,</p>
-                                    <p>Vitória dos mártires,</p>
-                                    <p>Ciência dos confessores,</p>
-                                    <p>Pureza das virgens,</p>
-                                    <p>Unção de todos os santos,</p>
-                                </div>
-                                <p className="font-semibold mt-4">Sede-nos propício, perdoai-nos, Senhor.</p>
-                                <p className="font-semibold">Sede-nos propício, atendei-nos, Senhor.</p>
-                                <div className="ml-4 space-y-1">
-                                    <p>De todo o pecado, livrai-nos, Senhor.</p>
-                                    <p>De todas as tentações e ciladas do demônio,</p>
-                                    <p>De toda a presunção e desesperação,</p>
-                                    <p>Do ataque à verdade conhecida,</p>
-                                    <p>Da inveja da graça fraterna,</p>
-                                    <p>De toda a obstinação e impenitência,</p>
-                                    <p>De toda a negligência e tepor do espírito,</p>
-                                    <p>De toda a impureza da mente e do corpo,</p>
-                                    <p>De todas as heresias e erros,</p>
-                                    <p>De todo o mau espírito,</p>
-                                    <p>Da morte má e eterna,</p>
-                                </div>
-                                <div className="bg-red-50 dark:bg-red-900/30 p-3 rounded-lg mt-4">
-                                    <p><strong>V.</strong> Enviai o vosso Espírito e tudo será criado.</p>
-                                    <p><strong>R.</strong> E renovareis a face da terra.</p>
-                                    <p className="mt-2"><strong>Oremos:</strong> Deus, que instruístes o coração de vossos fiéis, com a luz do Espírito Santo, concedei-nos que, no mesmo Espírito, conheçamos o que é reto, e gozemos sempre as suas consolações. Por Cristo, Nosso Senhor. Amém.</p>
-                                </div>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Ladainha de Nossa Senhora */}
-                    <Card className="border-2 border-blue-200 shadow-xl bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "maria" ? null : "maria")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-blue-900 dark:text-blue-100">
-                                    Ladainha de Nossa Senhora
-                                </CardTitle>
-                                {expandedPrayer === "maria" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                            <p className="text-sm text-blue-700 dark:text-blue-300 mt-2">Primeira Semana</p>
-                        </CardHeader>
-                        {expandedPrayer === "maria" && (
-                            <CardContent className="pt-6 space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Cristo, tende piedade de nós.</p>
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Cristo, ouvi-nos.</p>
-                                <p>Cristo, atendei-nos.</p>
-                                <p>Deus Pai do céu, tende piedade de nós.</p>
-                                <p>Deus Filho Redentor do mundo, tende piedade de nós.</p>
-                                <p>Deus Espírito Santo, tende piedade de nós.</p>
-                                <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
-                                <div className="ml-4 space-y-1 mt-3">
-                                    <p>Santa Maria, rogai por nós.</p>
-                                    <p>Santa Mãe de Deus,</p>
-                                    <p>Santa Virgem das virgens,</p>
-                                    <p>Mãe de Cristo,</p>
-                                    <p>Mãe da Igreja,</p>
-                                    <p>Mãe de misericórdia,</p>
-                                    <p>Mãe da divina graça,</p>
-                                    <p>Mãe da esperança,</p>
-                                    <p>Mãe puríssima,</p>
-                                    <p>Mãe castíssima,</p>
-                                    <p>Mãe sempre virgem,</p>
-                                    <p>Mãe imaculada,</p>
-                                    <p>Mãe digna de amor,</p>
-                                    <p>Mãe admirável,</p>
-                                    <p>Mãe do bom conselho,</p>
-                                    <p>Mãe do Criador,</p>
-                                    <p>Mãe do Salvador,</p>
-                                    <p>Virgem prudentíssima,</p>
-                                    <p>Virgem venerável,</p>
-                                    <p>Virgem louvável,</p>
-                                    <p>Virgem poderosa,</p>
-                                    <p>Virgem clemente,</p>
-                                    <p>Virgem fiel,</p>
-                                    <p>Espelho de perfeição,</p>
-                                    <p>Sede da Sabedoria,</p>
-                                    <p>Fonte de nossa alegria,</p>
-                                    <p>Vaso espiritual,</p>
-                                    <p>Tabernáculo da eterna glória,</p>
-                                    <p>Moradia consagrada a Deus,</p>
-                                    <p>Rosa mística,</p>
-                                    <p>Torre de Davi,</p>
-                                    <p>Torre de marfim,</p>
-                                    <p>Casa de ouro,</p>
-                                    <p>Arca da aliança,</p>
-                                    <p>Porta do céu,</p>
-                                    <p>Estrela da manhã,</p>
-                                    <p>Saúde dos enfermos,</p>
-                                    <p>Refúgio dos pecadores,</p>
-                                    <p>Socorro dos migrantes,</p>
-                                    <p>Consoladora dos aflitos,</p>
-                                    <p>Auxílio dos cristãos,</p>
-                                    <p>Rainha dos Anjos,</p>
-                                    <p>Rainha dos Patriarcas,</p>
-                                    <p>Rainha dos Profetas,</p>
-                                    <p>Rainha dos Apóstolos,</p>
-                                    <p>Rainha dos Mártires,</p>
-                                    <p>Rainha dos confessores da fé,</p>
-                                    <p>Rainha das Virgens,</p>
-                                    <p>Rainha de todos os Santos,</p>
-                                    <p>Rainha concebida sem pecado original,</p>
-                                    <p>Rainha assunta ao céu,</p>
-                                    <p>Rainha do santo Rosário,</p>
-                                    <p>Rainha da paz,</p>
-                                </div>
-                                <div className="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg mt-4">
-                                    <p><strong>V.</strong> Rogai por nós, santa Mãe de Deus.</p>
-                                    <p><strong>R.</strong> Para que sejamos dignos das promessas de Cristo.</p>
-                                </div>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Ladainha do Santo Nome de Jesus */}
-                    <Card className="border-2 border-yellow-200 shadow-xl bg-gradient-to-br from-yellow-50 to-amber-50 dark:from-yellow-950/20 dark:to-amber-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "jesus" ? null : "jesus")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-yellow-900 dark:text-yellow-100">
-                                    Ladainha do Santíssimo Nome de Jesus
-                                </CardTitle>
-                                {expandedPrayer === "jesus" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                            <p className="text-sm text-yellow-700 dark:text-yellow-300 mt-2">Terceira Semana</p>
-                        </CardHeader>
-                        {expandedPrayer === "jesus" && (
-                            <CardContent className="pt-6 space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Jesus Cristo, tende piedade de nós.</p>
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Jesus Cristo, ouvi-nos.</p>
-                                <p>Jesus Cristo, atendei-nos.</p>
-                                <p>Pai celeste, que sois Deus, tende piedade de nós.</p>
-                                <p>Filho, Redentor do mundo, que sois Deus, tende piedade de nós.</p>
-                                <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
-                                <div className="ml-4 space-y-1 mt-3">
-                                    <p>Jesus, filho de Deus vivo, tende piedade de nós.</p>
-                                    <p>Jesus, pureza da luz eterna,</p>
-                                    <p>Jesus, rei da glória,</p>
-                                    <p>Jesus, sol de justiça,</p>
-                                    <p>Jesus, filho da Virgem Maria,</p>
-                                    <p>Jesus amável,</p>
-                                    <p>Jesus, admirável,</p>
-                                    <p>Jesus, Deus forte,</p>
-                                    <p>Jesus, pai do futuro século,</p>
-                                    <p>Jesus, anjo do grande conselho,</p>
-                                    <p>Jesus, poderosíssimo,</p>
-                                    <p>Jesus, pacienciosíssimo,</p>
-                                    <p>Jesus, obedientíssimo,</p>
-                                    <p>Jesus, manso e humilde de coração,</p>
-                                    <p>Jesus, amante da castidade,</p>
-                                    <p>Jesus, amador nosso,</p>
-                                    <p>Jesus, Deus da Paz,</p>
-                                    <p>Jesus, autor da vida,</p>
-                                    <p>Jesus, exemplar das virtudes,</p>
-                                    <p>Jesus, zelador das almas,</p>
-                                    <p>Jesus, nosso refúgio,</p>
-                                    <p>Jesus, pai dos pobres,</p>
-                                    <p>Jesus, tesouro dos fiéis,</p>
-                                    <p>Jesus, boníssimo pastor,</p>
-                                    <p>Jesus, luz verdadeira,</p>
-                                    <p>Jesus, sabedoria eterna,</p>
-                                    <p>Jesus, bondade infinita,</p>
-                                    <p>Jesus, nosso caminho e nossa vida,</p>
-                                    <p>Jesus, alegria dos anjos,</p>
-                                    <p>Jesus, rei dos patriarcas,</p>
-                                    <p>Jesus, mestre dos apóstolos,</p>
-                                    <p>Jesus, doutor dos evangelistas,</p>
-                                    <p>Jesus, fortaleza dos mártires,</p>
-                                    <p>Jesus, luz dos confessores,</p>
-                                    <p>Jesus, pureza das virgens,</p>
-                                    <p>Jesus, coroa de todos os santos,</p>
-                                </div>
-                                <div className="bg-yellow-50 dark:bg-yellow-900/30 p-3 rounded-lg mt-4">
-                                    <p><strong>Oremos:</strong> Senhor Jesus Cristo, que dissestes: "Pedi e recebereis, buscai e achareis, batei e abrir-se-vos-á", nós Vos suplicamos que concedais a nós, que Vos pedimos, os sentimentos afetivos de Vosso divino amor, a fim de que nós Vos amemos de todo o coração e que esse amor transcenda por nossas ações. Permiti que tenhamos sempre, Senhor, um igual temor e amor pelo Vosso Santo Nome, pois não deixais de governar aqueles que estabeleceis na firmeza do Vosso amor. Vós que viveis e reinais para todo o sempre. Amém.</p>
-                                </div>
-                            </CardContent>
-                        )}
-                    </Card>
-
-                    {/* Ladainha do Sagrado Coração */}
-                    <Card className="border-2 border-rose-200 shadow-xl bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20">
-                        <CardHeader
-                            className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                            onClick={() => setExpandedPrayer(expandedPrayer === "coracao" ? null : "coracao")}
-                        >
-                            <div className="flex items-center justify-between">
-                                <CardTitle className="text-2xl text-rose-900 dark:text-rose-100">
-                                    Ladainha do Sagrado Coração de Jesus
-                                </CardTitle>
-                                {expandedPrayer === "coracao" ? <ChevronUp className="w-6 h-6" /> : <ChevronDown className="w-6 h-6" />}
-                            </div>
-                            <p className="text-sm text-rose-700 dark:text-rose-300 mt-2">Terceira Semana</p>
-                        </CardHeader>
-                        {expandedPrayer === "coracao" && (
-                            <CardContent className="pt-6 space-y-2 text-slate-700 dark:text-slate-300 text-sm">
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Jesus Cristo, tende piedade de nós.</p>
-                                <p>Senhor, tende piedade de nós.</p>
-                                <p>Jesus Cristo, ouvi-nos.</p>
-                                <p>Jesus Cristo, atendei-nos.</p>
-                                <p>Pai celeste, que sois Deus, tende piedade de nós.</p>
-                                <p>Filho, Redentor do mundo, que sois Deus, tende piedade de nós.</p>
-                                <p>Espírito Santo, que sois Deus, tende piedade de nós.</p>
-                                <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
-                                <div className="ml-4 space-y-1 mt-3">
-                                    <p>Coração de Jesus, Filho do Pai eterno, tende piedade de nós.</p>
-                                    <p>Coração de Jesus, formado pelo Espírito Santo no seio da Virgem Mãe,</p>
-                                    <p>Coração de Jesus, unido substancialmente ao Verbo de Deus,</p>
-                                    <p>Coração de Jesus, de majestade infinita,</p>
-                                    <p>Coração de Jesus, templo santo de Deus,</p>
-                                    <p>Coração de Jesus, tabernáculo do Altíssimo,</p>
-                                    <p>Coração de Jesus, casa de Deus e porta do Céu,</p>
-                                    <p>Coração de Jesus, fornalha ardente de caridade,</p>
-                                    <p>Coração de Jesus, receptáculo de justiça e de amor,</p>
-                                    <p>Coração de Jesus, cheio de bondade e de amor,</p>
-                                    <p>Coração de Jesus, abismo de todas as virtudes,</p>
-                                    <p>Coração de Jesus, digníssimo de todo o louvor,</p>
-                                    <p>Coração de Jesus, Rei e centro de todos os corações,</p>
-                                    <p>Coração de Jesus, no qual estão todos os tesouros da sabedoria e ciência,</p>
-                                    <p>Coração de Jesus, no qual habita toda a plenitude da divindade,</p>
-                                    <p>Coração de Jesus, no qual o Pai põe todas as suas complacências,</p>
-                                    <p>Coração de Jesus, de cuja plenitude todos nós participamos,</p>
-                                    <p>Coração de Jesus, desejo das colinas eternas,</p>
-                                    <p>Coração de Jesus, paciente e de muita misericórdia,</p>
-                                    <p>Coração de Jesus, rico para todos que vos invocam,</p>
-                                    <p>Coração de Jesus, fonte de vida e santidade,</p>
-                                    <p>Coração de Jesus, propiciação por nossos pecados,</p>
-                                    <p>Coração de Jesus, saturado de opróbrios,</p>
-                                    <p>Coração de Jesus, esmagado de dor por causa dos nossos pecados,</p>
-                                    <p>Coração de Jesus, feito obediente até a morte,</p>
-                                    <p>Coração de Jesus, transpassado pela lança,</p>
-                                    <p>Coração de Jesus, fonte de toda consolação,</p>
-                                    <p>Coração de Jesus, nossa vida e ressurreição,</p>
-                                    <p>Coração de Jesus, nossa paz e reconciliação,</p>
-                                    <p>Coração de Jesus, vítima dos pecadores,</p>
-                                    <p>Coração de Jesus, salvação dos que em vós esperam,</p>
-                                    <p>Coração de Jesus, esperança dos que morrem em vós,</p>
-                                    <p>Coração de Jesus, delícias de todos os santos,</p>
-                                </div>
-                                <div className="bg-rose-50 dark:bg-rose-900/30 p-3 rounded-lg mt-4">
-                                    <p><strong>V.</strong> Jesus, manso e humilde de coração,</p>
-                                    <p><strong>R.</strong> Fazei o nosso coração semelhante ao vosso.</p>
-                                    <p className="mt-2"><strong>Oremos:</strong> Deus eterno e todo-poderoso, olhai para o Coração do vosso diletíssimo Filho e para os louvores e satisfações que Ele, em nome dos pecadores, vos tem tributado; e, deixando-vos aplacar, perdoai aos que imploram a vossa misericórdia, em nome de vosso mesmo Filho, Jesus Cristo, que convosco vive e reina na unidade do Espírito Santo. Amém.</p>
-                                </div>
-                            </CardContent>
-                        )}
-                    </Card>
+A Deus Pai veneremos, a Jesus Cristo também,
+E ao Espírito Santo; demos aos três um louvor: Amém.`}
                 </div>
-            )}
+              )}
+            </div>
 
-            {/* Fórmula de Consagração */}
-            {showFormula ? (
-                <Card className="border-2 border-red-200 shadow-2xl bg-gradient-to-br from-red-50 to-pink-50 dark:from-red-950/20 dark:to-pink-950/20 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-4 duration-300">
-                    <CardHeader className="bg-gradient-to-r from-red-100 to-pink-100 dark:from-red-900/30 dark:to-pink-900/30">
-                        <CardTitle className="text-3xl text-center text-red-900 dark:text-red-100 font-brand">
-                            Fórmula de Consagração a Jesus por Maria
-                        </CardTitle>
-                    </CardHeader>
-                    <CardContent className="pt-8 px-8 pb-8">
-                        <div className="space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed">
-                            <p className="text-center italic text-lg font-semibold text-red-800 dark:text-red-200">
-                                (Reze esta fórmula no 33º dia e renove-a diariamente)
-                            </p>
+            {/* Magnificat */}
+            <div className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-purple-200 dark:border-purple-800 shadow-sm">
+              <button 
+                onClick={() => setExpandedPrayer(expandedPrayer === "magnificat" ? null : "magnificat")}
+                className="w-full flex items-center justify-between font-bold text-base text-purple-900 dark:text-purple-200"
+              >
+                <span>🎶 O Magnificat (Cântico da Virgem Maria - Lc 1,46-55)</span>
+                {expandedPrayer === "magnificat" ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              {expandedPrayer === "magnificat" && (
+                <div className="mt-3 pt-3 border-t border-purple-100 dark:border-purple-900 italic text-slate-700 dark:text-slate-300 space-y-2 whitespace-pre-line font-serif">
+                  {`A minha alma engrandece ao Senhor,
+e o meu espírito se alegra em Deus, meu Salvador,
+porque olhou para a humildade de sua serva.
 
-                            <div className="space-y-4 text-base">
-                                <p>
-                                    Ó Eterna e Encarnada Sabedoria! Ó amabilíssimo e adorabilíssimo Jesus, verdadeiro Deus e verdadeiro homem, Filho único do Eterno Pai e de Maria sempre Virgem!
-                                </p>
+Doravante todas as gerações me chamarão bem-aventurada,
+porque o Todo-Poderoso fez em mim grandes coisas;
+o seu nome é santo,
+e sua misericórdia se estende de geração em geração
+sobre os que o temem.
 
-                                <p>
-                                    Eu Vos adoro profundamente no seio e nos esplendores de Vosso Pai, durante a eternidade, e no seio virginal de Maria, Vossa digníssima Mãe, no tempo de Vossa Encarnação.
-                                </p>
+Manifestou o poder do seu braço:
+desconcertou os corações dos soberbos.
+Derrubou do trono os poderosos
+e exaltou os humildes.
+Saciou de bens os famintos
+e despediu os ricos de mãos vazias.
 
-                                <p>
-                                    Dou-Vos graças por Vos haverdes aniquilado, tomando a forma de escravo, para me libertar da cruel escravidão do demônio.
-                                </p>
-
-                                <p>
-                                    Louvo-Vos e glorifico-Vos por Vos haverdes dignado submeter-Vos a Maria, Vossa Santíssima Mãe, em todas as coisas, a fim de me tornar, por Ela, Vosso fiel escravo.
-                                </p>
-
-                                <p>
-                                    Mas, ai de mim! Ingrato e infiel como tenho sido, não guardei as promessas que tão solenemente Vos fiz no meu Batismo. Não cumpri as minhas obrigações; não mereço ser chamado Vosso filho, nem Vosso escravo; e, como nada há em mim que não mereça Vossas repulsas e Vossa cólera, não ouso mais, por mim mesmo, aproximar-me de Vossa santíssima e augusta Majestade.
-                                </p>
-
-                                <p>
-                                    É por isso que recorro à intercessão e à misericórdia de Vossa Santíssima Mãe, que me destes por Medianeira junto de Vós; e é por seu intermédio que espero obter de Vós a contrição e o perdão de meus pecados, a aquisição e a conservação da Sabedoria.
-                                </p>
-
-                                <p className="font-bold text-red-800 dark:text-red-200">
-                                    Saúdo-Vos, pois, ó Maria Imaculada, Tabernáculo vivo da Divindade, onde a Eterna Sabedoria escondida quer ser adorada pelos anjos e pelos homens.
-                                </p>
-
-                                <p className="font-bold text-red-800 dark:text-red-200">
-                                    Saúdo-Vos, ó Rainha do Céu e da terra, a cujo império está submetido tudo o que está abaixo de Deus.
-                                </p>
-
-                                <p>
-                                    Saúdo-Vos, ó Refúgio seguro dos pecadores, cuja misericórdia a ninguém falta. Atendei aos desejos que tenho da Divina Sabedoria e recebei, para isso, os votos e ofertas que minha baixeza Vos apresenta.
-                                </p>
-
-                                <p className="font-bold text-lg text-red-900 dark:text-red-100 bg-red-100 dark:bg-red-900/30 p-4 rounded-lg border-l-4 border-red-500">
-                                    Eu, (diga seu nome), pecador infiel, renovo e ratifico hoje em vossas mãos os votos do meu Batismo: renuncio para sempre a Satanás, a suas pompas e a suas obras, e dou-me inteiramente a Jesus Cristo, a Sabedoria Encarnada, para carregar a minha cruz em Seu seguimento todos os dias da minha vida, e a fim de que Lhe seja mais fiel do que até aqui tenho sido.
-                                </p>
-
-                                <p className="font-bold text-lg text-red-900 dark:text-red-100">
-                                    Hoje, na presença de toda a Corte Celestial, escolho-Vos, ó Maria, por minha Mãe e Senhora. Entrego-Vos e consagro-Vos, como Vosso escravo, meu corpo e minha alma, meus bens interiores e exteriores, e até o valor de minhas boas ações passadas, presentes e futuras, deixando-Vos inteiro e pleno direito de dispor de mim e de tudo o que me pertence, sem exceção, segundo o Vosso beneplácito, para a maior glória de Deus, no tempo e na eternidade.
-                                </p>
-
-                                <p>
-                                    Recebei, ó Virgem benignissima, esta pequena oferta de minha escravidão, em honra e união com a submissão que a Sabedoria Eterna quis ter à Vossa maternidade; em homenagem ao poder que ambos tendes sobre este vermezinho e miserável pecador; e em ação de graças pelos privilégios com que a Santíssima Trindade Vos favoreceu.
-                                </p>
-
-                                <p>
-                                    Protesto que quero, de ora em diante, como Vosso verdadeiro escravo, procurar a Vossa honra e obedecer-Vos em todas as coisas.
-                                </p>
-
-                                <p className="font-bold text-red-800 dark:text-red-200">
-                                    Ó Mãe admirável, apresentai-me a Vosso amado Filho, como Seu escravo perpétuo, a fim de que, tendo-me Ele remido por Vós, também por Vós me receba.
-                                </p>
-
-                                <p className="font-bold text-red-800 dark:text-red-200">
-                                    Ó Mãe de misericórdia, fazei-me a graça de obter a verdadeira Sabedoria de Deus, e colocai-me para esse fim no número daqueles que amais, que ensinais, que guiais, que alimentais e protegeis como filhos e escravos Vossos.
-                                </p>
-
-                                <p>
-                                    Ó Virgem fiel, fazei-me em tudo tão perfeito discípulo, imitador e escravo da Sabedoria Encarnada, Jesus Cristo, Vosso Filho, que eu chegue, por Vossa intercessão e exemplo, à plenitude de Sua idade na terra e de Sua glória nos Céus.
-                                </p>
-
-                                <p className="text-center font-bold text-lg mt-6">
-                                    Amém.
-                                </p>
-                            </div>
-
-                            <div className="mt-8 p-4 bg-red-100 dark:bg-red-900/30 rounded-lg border-l-4 border-red-500">
-                                <p className="text-sm font-semibold text-red-900 dark:text-red-100">
-                                    📌 Importante: No dia da Consagração é fortemente recomendável que se esteja em estado de graça e, sendo possível, que se comungue, recitando a consagração durante a ação de graças. São Luís sugere também que se ofereça a Nossa Senhora um presente.
-                                </p>
-                            </div>
-                        </div>
-                    </CardContent>
-                </Card>
-            ) : !showMethod && (
-                <div className="space-y-6 max-w-5xl mx-auto">
-                    {weeks.map((week, weekIndex) => (
-                        <Card
-                            key={weekIndex}
-                            className="border-2 border-blue-200 shadow-xl overflow-hidden transition-all duration-300 bg-gradient-to-br from-blue-50 to-sky-50 dark:from-blue-950/20 dark:to-sky-950/20"
-                        >
-                            <CardHeader
-                                className="cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50 transition-colors"
-                                onClick={() => toggleWeek(weekIndex)}
-                            >
-                                <div className="flex items-center justify-between">
-                                    <div>
-                                        <CardTitle className="text-2xl text-blue-800 dark:text-blue-200 flex items-center gap-3">
-                                            <span className="w-2 h-8 bg-current rounded-full"></span>
-                                            {week.title}
-                                        </CardTitle>
-                                        <p className="text-sm text-slate-600 dark:text-slate-400 mt-2 ml-5 italic">
-                                            {week.subtitle}
-                                        </p>
-                                    </div>
-                                    {expandedWeek === weekIndex ? (
-                                        <ChevronUp className="w-6 h-6 text-blue-600" />
-                                    ) : (
-                                        <ChevronDown className="w-6 h-6 text-blue-600" />
-                                    )}
-                                </div>
-                            </CardHeader>
-
-                            {expandedWeek === weekIndex && (
-                                <CardContent className="pt-6 px-8 pb-8 space-y-6">
-                                    <div className="p-5 bg-blue-50 dark:bg-blue-900/30 rounded-xl border-l-4 border-blue-500">
-                                        <p className="text-slate-700 dark:text-slate-300 italic">
-                                            {week.intro}
-                                        </p>
-                                    </div>
-
-                                    {week.days.map((dayInfo) => (
-                                        <div
-                                            key={dayInfo.day}
-                                            className="p-5 bg-white/70 dark:bg-slate-800/70 rounded-xl border-l-4 border-blue-500 shadow-md hover:shadow-lg transition-shadow"
-                                        >
-                                            <div className="flex items-start gap-4">
-                                                <div className="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-full flex items-center justify-center font-bold text-lg">
-                                                    {dayInfo.day}
-                                                </div>
-                                                <div className="flex-1">
-                                                    <h4 className="font-bold text-lg text-blue-900 dark:text-blue-100 mb-2">
-                                                        {dayInfo.theme}
-                                                    </h4>
-                                                    <p className="text-sm text-slate-600 dark:text-slate-400">
-                                                        {dayInfo.reference}
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ))}
-
-                                    <div className="mt-6 p-5 bg-amber-50 dark:bg-amber-900/30 rounded-xl border-l-4 border-amber-500">
-                                        <h4 className="font-bold text-amber-900 dark:text-amber-100 mb-3">
-                                            📿 Orações Diárias:
-                                        </h4>
-                                        <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300">
-                                            {week.prayers.map((prayer, idx) => (
-                                                <li key={idx}>• {prayer}</li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </CardContent>
-                            )}
-                        </Card>
-                    ))}
-
-                    <div className="p-6 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950/30 dark:to-emerald-950/30 rounded-2xl border-2 border-green-200 dark:border-green-800 shadow-lg">
-                        <h3 className="text-xl font-bold text-green-900 dark:text-green-100 mb-4 text-center flex items-center justify-center gap-2">
-                            <Heart className="w-6 h-6 text-red-500" />
-                            Dia 33: Dia da Consagração
-                        </h3>
-                        <p className="text-slate-700 dark:text-slate-300 text-center mb-4">
-                            Após os 33 dias de preparação, você estará pronto para fazer sua Consagração a Jesus por Maria!
-                        </p>
-                        <ul className="space-y-2 text-slate-700 dark:text-slate-300 list-disc ml-6 text-sm">
-                            <li>Escolha uma data significativa (festa de Nossa Senhora, aniversário, etc.)</li>
-                            <li>Conte 33 dias para trás a partir dessa data para começar a preparação</li>
-                            <li>Esteja em estado de graça (confesse-se antes)</li>
-                            <li>Se possível, comungue no dia da consagração</li>
-                            <li>Reze a fórmula durante a ação de graças após a comunhão</li>
-                            <li>Ofereça um presente a Nossa Senhora</li>
-                            <li>Renove sua consagração todos os dias</li>
-                        </ul>
-                    </div>
+Acolheu a Israel, seu servo,
+lembrado da sua misericórdia,
+como prometera aos nossos pais,
+em favor de Abraão e de sua descendência para sempre. Amém.`}
                 </div>
-            )}
+              )}
+            </div>
+
+            {/* Ladainha de Nossa Senhora */}
+            <div className="p-4 bg-white dark:bg-slate-800 rounded-xl border border-purple-200 dark:border-purple-800 shadow-sm">
+              <button 
+                onClick={() => setExpandedPrayer(expandedPrayer === "ladainha_ns" ? null : "ladainha_ns")}
+                className="w-full flex items-center justify-between font-bold text-base text-purple-900 dark:text-purple-200"
+              >
+                <span>🌹 Ladainha Lauretana de Nossa Senhora</span>
+                {expandedPrayer === "ladainha_ns" ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+              </button>
+              {expandedPrayer === "ladainha_ns" && (
+                <div className="mt-3 pt-3 border-t border-purple-100 dark:border-purple-900 text-slate-700 dark:text-slate-300 space-y-1.5 text-xs sm:text-sm">
+                  <p>Senhor, tende piedade de nós. Cristo, tende piedade de nós. Senhor, tende piedade de nós.</p>
+                  <p>Jesus Cristo, ouvi-nos. Jesus Cristo, atendei-nos.</p>
+                  <p>Deus Pai dos Céus, tende piedade de nós.</p>
+                  <p>Deus Filho, Redentor do mundo, tende piedade de nós.</p>
+                  <p>Deus Espírito Santo, tende piedade de nós.</p>
+                  <p>Santíssima Trindade, que sois um só Deus, tende piedade de nós.</p>
+                  <div className="grid sm:grid-cols-2 gap-1 pt-2 font-serif italic">
+                    <p>Santa Maria, rogai por nós.</p>
+                    <p>Santa Mãe de Deus, rogai por nós.</p>
+                    <p>Santa Virgem das Virgens, rogai por nós.</p>
+                    <p>Mãe de Cristo, rogai por nós.</p>
+                    <p>Mãe da Igreja, rogai por nós.</p>
+                    <p>Mãe da Divina Graça, rogai por nós.</p>
+                    <p>Mãe Puríssima, rogai por nós.</p>
+                    <p>Mãe Castíssima, rogai por nós.</p>
+                    <p>Mãe Imaculada, rogai por nós.</p>
+                    <p>Mãe Intacta, rogai por nós.</p>
+                    <p>Mãe Amável, rogai por nós.</p>
+                    <p>Mãe Admirável, rogai por nós.</p>
+                    <p>Mãe do Bom Conselho, rogai por nós.</p>
+                    <p>Mãe do Criador, rogai por nós.</p>
+                    <p>Mãe do Salvador, rogai por nós.</p>
+                    <p>Virgem Prudentíssima, rogai por nós.</p>
+                    <p>Virgem Venerável, rogai por nós.</p>
+                    <p>Virgem Louvável, rogai por nós.</p>
+                    <p>Virgem Poderosa, rogai por nós.</p>
+                    <p>Virgem Clemente, rogai por nós.</p>
+                    <p>Virgem Fiel, rogai por nós.</p>
+                    <p>Espelho de Justiça, rogai por nós.</p>
+                    <p>Sede da Sabedoria, rogai por nós.</p>
+                    <p>Causa da nossa alegria, rogai por nós.</p>
+                    <p>Vaso Espiritual, rogai por nós.</p>
+                    <p>Vaso Honorífico, rogai por nós.</p>
+                    <p>Vaso Insigne de Devoção, rogai por nós.</p>
+                    <p>Rosa Mística, rogai por nós.</p>
+                    <p>Torre de Davi, rogai por nós.</p>
+                    <p>Torre de Marfim, rogai por nós.</p>
+                    <p>Casa de Ouro, rogai por nós.</p>
+                    <p>Arca da Aliança, rogai por nós.</p>
+                    <p>Porta do Céu, rogai por nós.</p>
+                    <p>Estrela da Manhã, rogai por nós.</p>
+                    <p>Saúde dos Enfermos, rogai por nós.</p>
+                    <p>Refúgio dos Pecadores, rogai por nós.</p>
+                    <p>Consoladora dos Aflitos, rogai por nós.</p>
+                    <p>Auxílio dos Cristãos, rogai por nós.</p>
+                    <p>Rainha dos Anjos, rogai por nós.</p>
+                    <p>Rainha dos Patriarcas, rogai por nós.</p>
+                    <p>Rainha dos Profetas, rogai por nós.</p>
+                    <p>Rainha dos Apóstolos, rogai por nós.</p>
+                    <p>Rainha dos Mártires, rogai por nós.</p>
+                    <p>Rainha dos Confessores, rogai por nós.</p>
+                    <p>Rainha das Virgens, rogai por nós.</p>
+                    <p>Rainha de Todos os Santos, rogai por nós.</p>
+                    <p>Rainha Concebida Sem Pecado Original, rogai por nós.</p>
+                    <p>Rainha Assunta ao Céu, rogai por nós.</p>
+                    <p>Rainha do Santo Rosário, rogai por nós.</p>
+                    <p>Rainha da Família, rogai por nós.</p>
+                    <p>Rainha da Paz, rogai por nós.</p>
+                  </div>
+                  <p className="pt-2 font-bold">Cordeiro de Deus, que tirais o pecado do mundo, perdoai-nos, Senhor.</p>
+                  <p className="font-bold">Cordeiro de Deus, que tirais o pecado do mundo, ouvi-nos, Senhor.</p>
+                  <p className="font-bold">Cordeiro de Deus, que tirais o pecado do mundo, tende piedade de nós.</p>
+                </div>
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {/* ── Seção Expansível: Fórmula Solene de Consagração ── */}
+      {showFormula && (
+        <Card className="border-2 border-red-200 dark:border-red-900 shadow-xl bg-gradient-to-br from-red-50 to-rose-50 dark:from-slate-900 dark:to-red-950/30 animate-in fade-in duration-300">
+          <CardHeader className="bg-red-100/60 dark:bg-red-900/30 pb-3">
+            <CardTitle className="text-xl font-bold font-brand text-red-900 dark:text-red-100 flex items-center gap-2">
+              <Heart className="w-5 h-5 text-red-600 fill-red-500" />
+              Fórmula Solene de Consagração a Jesus Cristo, a Sabedoria Encarnada, pelas Mãos de Maria
+            </CardTitle>
+            <CardDescription>Escrita por São Luís Maria Grignion de Montfort (rezada no 33º dia)</CardDescription>
+          </CardHeader>
+          <CardContent className="pt-6 space-y-4 text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-relaxed font-serif whitespace-pre-line bg-white/70 dark:bg-slate-800/60 p-6 rounded-2xl border border-red-200 dark:border-red-800 shadow-inner">
+            {`Ó Sabedoria eterna e encarnada! Ó amabilíssimo e adorável Jesus, verdadeiro Deus e verdadeiro homem, Filho único do Pai Eterno e de Maria, sempre Virgem! Adoro-Vos profundamente no seio e nos esplendores de vosso Pai, durante a eternidade; e adoro-Vos também no seio virginal de Maria, vossa digníssima Mãe, no tempo da vossa Encarnação.
+
+Agradeço-Vos por terdes aniquilado a Vós mesmo, tomando a forma de um escravo, para livrar-me do cruel cativeiro do demônio. Louvo-Vos e glorifico-Vos por terdes querido submeter-Vos a Maria, vossa santa Mãe, em todas as coisas, a fim de, por Ela, tornar-me vosso fiel escravo. Mas, ai de mim! Ingrato e infiel que sou, não guardei os votos e as promessas que tão solenemente Vos fiz no meu Batismo; não cumpri as minhas obrigações; não mereço ser chamado vosso filho, nem vosso escravo.
+
+Recorro, pois, à misericórdia e à intercessão de vossa Santíssima Mãe, que me destes por Medianeira junto de Vós, e é por seu intermédio que espero obter de Vós a contrição e o perdão dos meus pecados, a aquisição e a conservação da Sabedoria.
+
+Ave, pois, ó Maria Imaculada, Tabernáculo vivo da Divindade, onde a Sabedoria eterna oculta quer ser adorada pelos anjos e pelos homens! Ave, ó Rainha do Céu e da Terra, a cujo império está sujeito tudo o que está abaixo de Deus! Ave, ó refúgio seguro dos pecadores, cuja misericórdia a ninguém falta! Atendei aos desejos que tenho da divina Sabedoria e recebei para esse fim os votos e as ofertas que a minha baixeza Vos apresenta:
+
+Eu, [diga o seu nome completo], pecador infiel, renovo e ratifico hoje, em vossas mãos, as promessas do meu Batismo: renuncio para sempre a Satanás, às suas pompas e às suas obras, e dou-me inteiramente a Jesus Cristo, a Sabedoria Encarnada, para levar a minha cruz atrás d'Ele, todos os dias de minha vida, e a fim de Lhe ser mais fiel do que tenho sido até agora.
+
+Na presença de toda a corte celeste, escolho-Vos hoje para minha Mãe e Senhora. Entrego-Vos e consagro-Vos, na qualidade de escravo, o meu corpo e a minha alma, os meus bens interiores e exteriores, e o próprio valor das minhas boas ações passadas, presentes e futuras, deixando-Vos inteiro e pleno direito de dispor de mim e de tudo o que me pertence, sem exceção, segundo o vosso beneplácito, para a maior glória de Deus, no tempo e na eternidade.
+
+Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e união daquela submissão que a Sabedoria Eterna quis ter à vossa maternidade; em homenagem ao poder que tendes ambos sobre este vermezinho e miserável pecador; e em ação de graças pelos privilégios com que a Santíssima Trindade Vos favoreceu. Protesto que quero doravante, como vosso verdadeiro escravo, procurar a vossa honra e obedecer-Vos em todas as coisas.
+
+Ó Mãe admirável, apresentai-me ao vosso querido Filho na qualidade de escravo eterno, a fim de que, tendo-me Ele resgatado por Vós, por Vós me receba! Ó Mãe de misericórdia, concedei-me a graça de obter a verdadeira Sabedoria de Deus e de colocar-me, para esse fim, no número daqueles que amais, ensinais, guiais, sustentais e protegeis como vossos filhos e vossos escravos.
+
+Ó Virgem fiel, tornai-me em todas as coisas um tão perfeito discípulo, imitador e escravo da Sabedoria Encarnada, Jesus Cristo, vosso Filho, que eu chegue, por vossa intercessão e a vosso exemplo, à plenitude da sua idade na Terra e da sua glória no Céu. Amém!`}
+          </CardContent>
+        </Card>
+      )}
+
+      {/* ── CARD SELETOR DE DATA E PLANEJADOR (IDÊNTICO AO DE SÃO JOSÉ) ── */}
+      <Card className="border-2 border-blue-300 dark:border-blue-800 shadow-xl bg-white dark:bg-slate-900 overflow-hidden">
+        <div className="bg-gradient-to-r from-blue-800 via-blue-700 to-indigo-800 p-5 text-white">
+          <h3 className="text-xl sm:text-2xl font-bold font-brand flex items-center gap-2.5">
+            <CalendarIcon className="h-6 w-6 text-amber-300" />
+            Planeje sua Consagração a Nossa Senhora
+          </h3>
+          <p className="text-xs sm:text-sm text-blue-100 mt-1">
+            Escolha uma festa mariana para concluir seus 33 dias ou defina sua data personalizada
+          </p>
         </div>
-    );
+
+        <CardContent className="pt-6">
+          <div className="grid md:grid-cols-2 gap-6 items-end">
+            <div className="space-y-3">
+              <label className="text-sm font-bold text-blue-900 dark:text-blue-300 ml-1 block">
+                Escolha a Festa Mariana da sua Consagração:
+              </label>
+              <Select value={selectedGoalId} onValueChange={setSelectedGoalId}>
+                <SelectTrigger className="w-full border-2 border-blue-200 focus:ring-blue-500 h-12 rounded-xl text-slate-800 dark:text-slate-100">
+                  <SelectValue placeholder="Selecione uma data festiva" />
+                </SelectTrigger>
+                <SelectContent className="max-h-80">
+                  {presets.map((p) => (
+                    <SelectItem key={p.id} value={p.id} className="py-2 cursor-pointer">
+                      <span className="font-semibold">{p.name}</span>
+                    </SelectItem>
+                  ))}
+                  <SelectItem value="custom" className="py-2 cursor-pointer font-bold text-blue-700">
+                    ✨ Escolha Livre (Personalizada)
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+
+              {selectedGoalId === "custom" && (
+                <div className="p-4 bg-blue-50 dark:bg-slate-800 rounded-xl border-2 border-blue-200 dark:border-blue-700 space-y-3 animate-in fade-in">
+                  <p className="text-xs font-bold text-blue-800 dark:text-blue-300 uppercase tracking-wider">
+                    Data de Início da Consagração (1º Dia):
+                  </p>
+                  <div className="flex gap-2">
+                    <Input
+                      type="date"
+                      value={tempDate}
+                      onChange={(e) => setTempDate(e.target.value)}
+                      className="h-10 border-2 border-blue-200 flex-1 rounded-lg"
+                    />
+                    <Button
+                      onClick={handleConfirmCustomDate}
+                      className="bg-blue-800 hover:bg-blue-900 text-white font-bold h-10 px-5 rounded-lg"
+                    >
+                      Confirmar
+                    </Button>
+                  </div>
+                  <div className="flex items-center gap-2 pt-1">
+                    <p className="text-xs text-blue-700 dark:text-blue-300">Quer começar hoje?</p>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const d = new Date();
+                        setCustomStartDate(d);
+                        setTempDate(format(d, "yyyy-MM-dd"));
+                      }}
+                      className="text-xs font-bold text-blue-800 dark:text-blue-200 underline hover:text-blue-950"
+                    >
+                      Sim, iniciar hoje
+                    </button>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Painel de Datas: Início e Festa */}
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-blue-950/40 rounded-2xl p-4 border-2 border-blue-200 dark:border-blue-800 flex justify-around items-center text-center shadow-inner">
+              <div>
+                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Início (1º dia)</p>
+                <p className="text-base sm:text-lg font-bold text-blue-950 dark:text-blue-100 capitalize">
+                  {format(selectedPreset.startDate, "dd 'de' MMMM", { locale: ptBR })}
+                </p>
+              </div>
+              <div className="h-10 w-[2px] bg-blue-200 dark:bg-blue-800" />
+              <div>
+                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Festa (33º dia)</p>
+                <p className="text-base sm:text-lg font-bold text-blue-950 dark:text-blue-100 capitalize">
+                  {format(selectedPreset.feastDate, "dd 'de' MMMM", { locale: ptBR })}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Destaque do Progresso do Dia Atual */}
+          {currentConsagracaoDay && (
+            <div className="mt-5 p-3.5 bg-emerald-100/90 dark:bg-emerald-950/40 border-2 border-emerald-300 dark:border-emerald-700 rounded-xl flex items-center justify-center gap-2.5 shadow-sm animate-pulse">
+              <CheckCircle2 className="h-5 w-5 text-emerald-700 dark:text-emerald-400 shrink-0" />
+              <p className="text-xs sm:text-sm font-bold text-emerald-900 dark:text-emerald-100 text-center">
+                Seu progresso recomendado para hoje: <span className="underline text-sm font-black">Dia {currentConsagracaoDay}</span>
+              </p>
+            </div>
+          )}
+
+          <p className="text-[11px] text-slate-500 mt-4 text-center italic">
+            * O seu progresso diário e a meta selecionada ficam salvos automaticamente neste navegador.
+          </p>
+        </CardContent>
+      </Card>
+
+      {/* ── Recursos para a Devoção ── */}
+      <Card className="border border-blue-200 dark:border-blue-900 shadow-md bg-white dark:bg-slate-900">
+        <CardHeader className="bg-slate-50 dark:bg-slate-800/40 pb-3">
+          <CardTitle className="text-xl font-bold font-brand text-blue-900 dark:text-blue-100 flex items-center gap-2">
+            <Download className="w-5 h-5 text-blue-600" />
+            Recursos e Materiais para a Consagração
+          </CardTitle>
+          <CardDescription>Baixe os livros e materiais essenciais para o seu retiro espiritual</CardDescription>
+        </CardHeader>
+        <CardContent className="pt-6">
+          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3.5">
+            <a
+              href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3.5 rounded-xl border-2 border-blue-200 hover:border-blue-400 dark:border-blue-800 bg-blue-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <BookOpen className="w-7 h-7 text-blue-700 mb-2" />
+                <h4 className="font-bold text-sm text-blue-950 dark:text-blue-100 leading-tight">Tratado da Verdadeira Devoção</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">São Luís Maria de Montfort</p>
+              </div>
+              <p className="text-[11px] font-bold text-blue-700 dark:text-blue-300 mt-3 flex items-center gap-1">
+                📥 Baixar PDF
+              </p>
+            </a>
+
+            <div className="p-3.5 rounded-xl border-2 border-purple-200 hover:border-purple-400 dark:border-purple-800 bg-purple-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <Heart className="w-7 h-7 text-purple-700 mb-2" />
+                <h4 className="font-bold text-sm text-purple-950 dark:text-purple-100 leading-tight">Fórmula de Consagração</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Para imprimir, assinar e datar</p>
+              </div>
+              <button
+                onClick={() => setShowFormula(true)}
+                className="text-[11px] font-bold text-purple-700 dark:text-purple-300 mt-3 text-left hover:underline"
+              >
+                📄 Ver Fórmula Solene
+              </button>
+            </div>
+
+            <div className="p-3.5 rounded-xl border-2 border-amber-200 hover:border-amber-400 dark:border-amber-800 bg-amber-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between">
+              <div>
+                <ShieldCheck className="w-7 h-7 text-amber-700 mb-2" />
+                <h4 className="font-bold text-sm text-amber-950 dark:text-amber-100 leading-tight">A Cadeia de Consagração</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">Correntinha como sinal de pertença</p>
+              </div>
+              <p className="text-[11px] font-semibold text-amber-800 dark:text-amber-300 mt-3">
+                ⛓️ Sacramental de Amor
+              </p>
+            </div>
+
+            <a
+              href="https://chat.whatsapp.com/LNU3BDbd2wK81q3RZ8QhK1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-3.5 rounded-xl border-2 border-emerald-200 hover:border-emerald-400 dark:border-emerald-800 bg-emerald-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between"
+            >
+              <div>
+                <MessageCircle className="w-7 h-7 text-emerald-700 mb-2" />
+                <h4 className="font-bold text-sm text-emerald-950 dark:text-emerald-100 leading-tight">Grupo de Consagração</h4>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">WhatsApp de oração diária</p>
+              </div>
+              <p className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 mt-3 flex items-center gap-1">
+                💬 Participar do Grupo
+              </p>
+            </a>
+          </div>
+        </CardContent>
+      </Card>
+
+      {/* ── OS 33 DIAS DE PREPARAÇÃO: TABS E ACOMPANHAMENTO ── */}
+      <Card className="border-2 border-blue-200 dark:border-blue-900 shadow-xl bg-white dark:bg-slate-900">
+        <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-blue-950/40 pb-3">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div>
+              <CardTitle className="text-xl sm:text-2xl font-bold font-brand text-blue-900 dark:text-blue-100">
+                Os 33 Dias de Preparação
+              </CardTitle>
+              <CardDescription className="text-xs sm:text-sm">
+                Acompanhe as leituras, meditações e as devoções marianas catalogadas para cada dia
+              </CardDescription>
+            </div>
+            {currentConsagracaoDay && (
+              <Badge className="bg-emerald-600 text-white font-bold text-xs self-start sm:self-auto">
+                Hoje: Dia {currentConsagracaoDay}
+              </Badge>
+            )}
+          </div>
+        </CardHeader>
+
+        <CardContent className="pt-6">
+          <div className="flex justify-between items-center mb-2 px-1 text-[11px] font-bold uppercase tracking-wider text-blue-800 dark:text-blue-300">
+            <span className="flex items-center gap-1">
+              <ChevronLeft className="w-3.5 h-3.5" /> Arraste para ver todos os 33 dias
+            </span>
+            <span className="text-slate-500">
+              {completedDays.length} de 33 concluídos ({Math.round((completedDays.length / 33) * 100)}%)
+            </span>
+          </div>
+
+          <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
+            {/* Barra de rolagem horizontal com os 33 botões */}
+            <ScrollArea
+              id="marian-day-selection-bar"
+              className="w-full whitespace-nowrap rounded-2xl border-2 border-blue-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-2 mb-6 shadow-inner [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+            >
+              <TabsList className="flex w-fit h-auto p-0 bg-transparent flex-row relative mb-2">
+                {MARIAN_CONSECRATION_DAYS.map((diaInfo) => {
+                  const completed = isDayCompleted(diaInfo.dia);
+                  const isToday = currentConsagracaoDay === diaInfo.dia;
+
+                  return (
+                    <TabsTrigger
+                      key={diaInfo.dia}
+                      id={`trigger-dia-${diaInfo.dia}`}
+                      value={`dia-${diaInfo.dia}`}
+                      className={`min-w-[95px] sm:min-w-[105px] py-2.5 px-3 rounded-xl transition-all m-1 flex flex-col items-center justify-center gap-1 border-2 relative cursor-pointer ${
+                        completed
+                          ? "bg-blue-900 text-white border-blue-900 hover:bg-blue-800 font-bold"
+                          : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-blue-300 shadow-sm"
+                      } ${isToday ? "ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-105" : ""}
+                      data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:border-blue-600`}
+                    >
+                      {completed && <Check className="h-3.5 w-3.5 text-emerald-300 mb-0.5" />}
+                      <span className="font-bold text-xs sm:text-sm">Dia {diaInfo.dia}</span>
+                      {isToday && (
+                        <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                        </span>
+                      )}
+                    </TabsTrigger>
+                  );
+                })}
+              </TabsList>
+              <ScrollBar orientation="horizontal" className="h-1.5" />
+            </ScrollArea>
+
+            {/* Conteúdo de cada dia dos 33 dias */}
+            {MARIAN_CONSECRATION_DAYS.map((diaInfo) => (
+              <TabsContent key={diaInfo.dia} value={`dia-${diaInfo.dia}`}>
+                <ConsagracaoDayCard
+                  diaInfo={diaInfo}
+                  isCompleted={isDayCompleted(diaInfo.dia)}
+                  onToggle={() => toggleDay(diaInfo.dia)}
+                  onOpenPrayers={() => {
+                    setShowPrayers(true);
+                    window.scrollTo({ top: 300, behavior: "smooth" });
+                  }}
+                  onOpenFormula={() => {
+                    setShowFormula(true);
+                    window.scrollTo({ top: 300, behavior: "smooth" });
+                  }}
+                />
+              </TabsContent>
+            ))}
+          </Tabs>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// ── Card do Dia da Consagração (integrado com a Devoção da Galeria) ──
+function ConsagracaoDayCard({
+  diaInfo,
+  isCompleted,
+  onToggle,
+  onOpenPrayers,
+  onOpenFormula
+}: {
+  diaInfo: MarianConsecrationDay;
+  isCompleted: boolean;
+  onToggle: () => void;
+  onOpenPrayers: () => void;
+  onOpenFormula: () => void;
+}) {
+  return (
+    <Card className={`border-none shadow-lg transition-colors duration-300 overflow-hidden ${
+      isCompleted ? "bg-blue-50/40 dark:bg-blue-950/20" : "bg-white dark:bg-slate-900"
+    }`}>
+      {/* Header do Dia */}
+      <CardHeader className="bg-gradient-to-r from-blue-100/50 to-indigo-100/50 dark:from-slate-800 dark:to-blue-950/40 pb-4">
+        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+          <div className="space-y-1">
+            <div className="flex items-center gap-2 flex-wrap">
+              <Badge className="bg-blue-800 text-white font-bold text-xs">
+                {diaInfo.dia}º Dia da Preparação
+              </Badge>
+              <Badge variant="outline" className="border-blue-400 text-blue-800 dark:text-blue-300 font-semibold text-xs">
+                {diaInfo.semana}
+              </Badge>
+              <Badge variant="secondary" className="text-slate-600 dark:text-slate-300 text-xs">
+                {diaInfo.fase}
+              </Badge>
+            </div>
+            <CardTitle className="text-xl sm:text-2xl font-bold font-brand text-blue-950 dark:text-blue-100 pt-1">
+              {diaInfo.titulo}
+            </CardTitle>
+          </div>
+
+          {/* Checkbox de Conclusão */}
+          <div className="flex items-center gap-2.5 bg-white dark:bg-slate-800 px-4 py-2.5 rounded-2xl border-2 border-blue-200 dark:border-blue-800 shadow-sm shrink-0 self-start sm:self-auto">
+            <Checkbox
+              id={`check-marian-${diaInfo.dia}`}
+              checked={isCompleted}
+              onCheckedChange={onToggle}
+              className="h-5 w-5 border-2 border-blue-600 data-[state=checked]:bg-blue-700"
+            />
+            <label
+              htmlFor={`check-marian-${diaInfo.dia}`}
+              className="text-xs font-bold uppercase tracking-wider text-blue-900 dark:text-blue-200 cursor-pointer select-none"
+            >
+              {isCompleted ? "Dia Concluído ✓" : "Marcar Concluído"}
+            </label>
+          </div>
+        </div>
+      </CardHeader>
+
+      <CardContent className="pt-6 space-y-6">
+        {/* ── CARD DA DEVOÇÃO MARIANA DA GALERIA HOMENAGEADA NO DIA ── */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-sky-50/80 dark:from-slate-800/90 dark:via-slate-800 dark:to-blue-950/40 border-2 border-blue-200/80 dark:border-blue-800 shadow-sm">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-blue-400 shadow-md shrink-0">
+              <Image
+                src={getProxiedImageUrl(diaInfo.devocaoImagem)}
+                alt={diaInfo.devocaoNome}
+                fill
+                className="object-cover object-center"
+                sizes="96px"
+              />
+            </div>
+            <div className="space-y-1.5 text-center sm:text-left flex-1">
+              <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300">
+                  Devoção Mariana Inspiradora do Dia:
+                </span>
+                <Badge variant="outline" className="text-amber-800 dark:text-amber-300 border-amber-300 text-[10px] font-bold">
+                  Galeria de Devoções
+                </Badge>
+              </div>
+              <h4 className="text-lg sm:text-xl font-bold font-brand text-blue-950 dark:text-blue-100">
+                {diaInfo.devocaoNome}
+              </h4>
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-snug">
+                {diaInfo.devocaoDescricao}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Leitura Bíblica e do Tratado */}
+        <div className="grid sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">
+          <div className="p-3.5 bg-blue-50 dark:bg-blue-950/30 rounded-xl border-l-4 border-blue-500">
+            <p className="font-bold text-blue-900 dark:text-blue-200 mb-0.5">📖 Palavra de Deus:</p>
+            <p className="text-slate-700 dark:text-slate-300">{diaInfo.passagemBiblica}</p>
+          </div>
+          <div className="p-3.5 bg-amber-50 dark:bg-amber-950/30 rounded-xl border-l-4 border-amber-500">
+            <p className="font-bold text-amber-900 dark:text-amber-200 mb-0.5">📜 Tratado / Leitura Espiritual:</p>
+            <p className="text-slate-700 dark:text-slate-300">{diaInfo.leituraTratado}</p>
+          </div>
+        </div>
+
+        {/* Meditação Diária */}
+        <div className="space-y-2">
+          <h4 className="font-bold text-sm uppercase tracking-wider text-blue-900 dark:text-blue-200 flex items-center gap-1.5">
+            <BookOpen className="w-4 h-4 text-blue-600" />
+            Meditação para a Alma:
+          </h4>
+          <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-serif bg-slate-50 dark:bg-slate-800/60 p-5 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-inner">
+            {diaInfo.meditacao}
+          </p>
+        </div>
+
+        {/* Orações do Dia */}
+        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-900 to-indigo-950 text-white space-y-3 shadow-md">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <h4 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-sky-200 flex items-center gap-2">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              Orações Prescritas para Hoje:
+            </h4>
+            <div className="flex gap-2">
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={onOpenPrayers}
+                className="text-xs bg-white/10 hover:bg-white/20 text-white border-white/30 h-7"
+              >
+                Abrir Textos das Orações
+              </Button>
+              {diaInfo.dia === 33 && (
+                <Button
+                  size="sm"
+                  onClick={onOpenFormula}
+                  className="text-xs bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold h-7"
+                >
+                  Fórmula Solene
+                </Button>
+              )}
+            </div>
+          </div>
+          <div className="flex flex-wrap gap-2 pt-1">
+            {diaInfo.oracoes.map((oracao, idx) => (
+              <span
+                key={idx}
+                className="px-3 py-1 rounded-full bg-white/15 text-blue-100 text-xs font-semibold border border-white/20"
+              >
+                • {oracao}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Conclusão do 33º dia */}
+        {diaInfo.dia === 33 && (
+          <div className="p-6 bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-950/40 dark:to-slate-900 rounded-2xl border-2 border-amber-400 shadow-xl space-y-3 text-center">
+            <p className="text-2xl font-bold font-brand text-amber-950 dark:text-amber-200 flex items-center justify-center gap-2">
+              <Heart className="w-6 h-6 text-red-600 fill-red-500" />
+              Parabéns! Você Chegou ao Dia da Consagração Total!
+              <Heart className="w-6 h-6 text-red-600 fill-red-500" />
+            </p>
+            <p className="text-sm text-slate-700 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              Você completou os 33 dias de preparação. Hoje é o dia de participar da Santa Missa em estado de graça, comungar com fervor de amor e assinar solenemente a fórmula da Consagração a Jesus por Maria!
+            </p>
+            <Button
+              onClick={onOpenFormula}
+              className="bg-red-700 hover:bg-red-800 text-white font-bold px-8 py-3 rounded-xl shadow-lg hover:scale-105 transition-all"
+            >
+              📜 Ler e Assinar a Fórmula Solene de Consagração
+            </Button>
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
 }
