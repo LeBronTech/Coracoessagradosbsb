@@ -1,7 +1,9 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import { novenaData } from "@/lib/data";
+import { novenaData, saints } from "@/lib/data";
+import NovenaDisplay from "@/components/novena-display";
+import type { Theme } from "@/app/page";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Footer from "@/components/footer";
@@ -138,6 +140,7 @@ export default function SaoJosePage() {
 // Página inicial do Espaço São José
 function HomePageSaoJose() {
     const [selectedNovena, setSelectedNovena] = useState<'sao_jose_19_marco' | 'sao_jose_operario' | null>(null);
+    const [theme, setTheme] = useState<Theme>('theme-green');
     const novenaRef = useRef<HTMLDivElement>(null);
 
     const novenas = [
@@ -212,10 +215,17 @@ function HomePageSaoJose() {
                 </div>
             </section>
 
-            {/* Painel de exibição da novena — mesmo layout da aba de novenas */}
-            <div ref={novenaRef}>
+            {/* Painel de exibição da novena — mesmo layout da página principal */}
+            <div ref={novenaRef} className="max-w-5xl mx-auto w-full">
                 {selectedNovena && (
-                    <NovenaInlineDisplay novenaId={selectedNovena} />
+                    <div className="animate-in fade-in duration-500">
+                        <NovenaDisplay
+                            novena={novenaData[selectedNovena]}
+                            saint={saints.find(s => s.id === selectedNovena) || null}
+                            theme={theme}
+                            setTheme={setTheme}
+                        />
+                    </div>
                 )}
             </div>
 
@@ -224,117 +234,6 @@ function HomePageSaoJose() {
 
             {/* Ladainha como botão no final */}
             <LadainhaSaoJose />
-        </div>
-    );
-}
-
-
-// Componente que exibe a novena inline com o layout da aba de novenas
-function NovenaInlineDisplay({ novenaId }: { novenaId: 'sao_jose_19_marco' | 'sao_jose_operario' }) {
-    const novena = novenaData[novenaId];
-    const [currentDay, setCurrentDay] = useState(0);
-    const [selectedVersionId, setSelectedVersionId] = useState('tradicional');
-    const scrollRef = useRef<HTMLDivElement>(null);
-
-    React.useEffect(() => {
-        setCurrentDay(0);
-        setSelectedVersionId('tradicional');
-    }, [novenaId]);
-
-    const scrollToStart = () => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    };
-
-    if (!novena) return null;
-
-    const activeVersion = novena.versions?.find((v: any) => v.id === selectedVersionId) ?? null;
-    const days = activeVersion?.days ?? novena.days;
-    const initialPrayer = activeVersion?.initialPrayer ?? novena.initialPrayer;
-    const finalPrayer = activeVersion?.finalPrayer ?? novena.finalPrayer;
-    const singleDay = days.length === 1;
-
-    return (
-        <div
-            ref={scrollRef}
-            className="rounded-2xl p-6 md:p-10 shadow-2xl text-white mt-2 mb-4"
-            style={{ backgroundColor: '#14532d' }}
-        >
-            {/* Seletor de versão (apenas para São José 19/03) */}
-            {novena.versions && novena.versions.length > 0 && (
-                <div className="mb-6">
-                    <p className="text-xs uppercase tracking-widest font-bold text-center mb-3 opacity-70">Escolha a versão da novena</p>
-                    <div className="flex flex-wrap justify-center gap-2">
-                        <button
-                            onClick={() => { setSelectedVersionId('tradicional'); setCurrentDay(0); }}
-                            className={`px-4 py-2 rounded-full text-sm font-semibold border-2 transition-all ${selectedVersionId === 'tradicional' ? 'bg-white text-green-900 border-white shadow-lg scale-105' : 'bg-white/10 text-white border-white/30 hover:bg-white/20'}`}
-                        >✝ Tradicional</button>
-                        {novena.versions.map((v: any) => (
-                            <button key={v.id}
-                                onClick={() => { setSelectedVersionId(v.id); setCurrentDay(0); }}
-                                className={`px-4 py-2 rounded-full text-sm font-semibold border-2 transition-all ${selectedVersionId === v.id ? 'bg-white text-green-900 border-white shadow-lg scale-105' : 'bg-white/10 text-white border-white/30 hover:bg-white/20'}`}
-                            >{v.name}</button>
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            {/* Cabeçalho */}
-            <div className="text-center mb-6">
-                <h3 className="font-bold text-2xl md:text-3xl">{novena.novenaTitle}</h3>
-                <p className="text-white/70 text-sm mt-1">{novena.description}</p>
-            </div>
-
-            {/* Oração inicial */}
-            {initialPrayer && (
-                <div className="prose prose-invert max-w-none mb-6 text-white/90"
-                    dangerouslySetInnerHTML={{ __html: initialPrayer }} />
-            )}
-
-            {/* Navegação por dias */}
-            {!singleDay && (
-                <div className="flex justify-center flex-wrap gap-2 mb-6">
-                    {days.map((_: any, i: number) => (
-                        <button key={i} onClick={() => setCurrentDay(i)}
-                            className={`px-3 py-1 text-sm font-semibold rounded-full transition-all ${currentDay === i ? 'bg-white text-green-900' : 'bg-white/10 text-white hover:bg-white/20'}`}>
-                            Dia {i + 1}
-                        </button>
-                    ))}
-                </div>
-            )}
-
-            {/* Conteúdo do dia */}
-            <div className="bg-white/5 rounded-xl p-5 md:p-8">
-                {!singleDay && (
-                    <h4 className="font-bold text-xl mb-4 text-white/90">{days[currentDay]?.title}</h4>
-                )}
-                <div className="prose prose-invert max-w-none text-white/90"
-                    dangerouslySetInnerHTML={{ __html: days[currentDay]?.content ?? '' }} />
-            </div>
-
-            {/* Navegação anterior/próximo */}
-            {!singleDay && (
-                <div className="flex items-center justify-center gap-6 mt-6">
-                    <button onClick={() => { setCurrentDay(d => Math.max(0, d - 1)); scrollToStart(); }} disabled={currentDay === 0}
-                        className="px-4 py-2 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 disabled:opacity-30 transition-all text-sm font-semibold">
-                        ← Anterior
-                    </button>
-                    <span className="text-sm font-bold opacity-70">Dia {currentDay + 1} de {days.length}</span>
-                    <button onClick={() => { setCurrentDay(d => Math.min(days.length - 1, d + 1)); scrollToStart(); }} disabled={currentDay === days.length - 1}
-                        className="px-4 py-2 rounded-full bg-white/10 text-white border border-white/20 hover:bg-white/20 disabled:opacity-30 transition-all text-sm font-semibold">
-                        Próximo →
-                    </button>
-                </div>
-            )}
-
-            {/* Oração final */}
-            {finalPrayer && (
-                <div className="prose prose-invert max-w-none mt-8 pt-6 border-t border-white/20 text-white/90"
-                    dangerouslySetInnerHTML={{ __html: finalPrayer }} />
-            )}
-
-            <p className="text-center font-bold mt-8 text-white/80">São José, rogai por nós! ✝</p>
         </div>
     );
 }
