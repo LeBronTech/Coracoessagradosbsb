@@ -487,8 +487,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 p-3.5 sm:p-4 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left",
-              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7" : "",
+              "flex-1 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left",
+              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7 is-open" : "h-[96px] sm:h-[104px] md:h-[112px] p-3 sm:p-4 overflow-hidden",
               triggerTheme
             )}
           >
@@ -510,7 +510,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60 pointer-events-none" />
             </div>
 
-            <div className="flex items-center gap-3.5 sm:gap-5 md:gap-7 lg:gap-9 text-left w-full relative z-10">
+            <div className={cn("flex items-center gap-3 sm:gap-4 md:gap-6 text-left w-full relative z-10", !isOpen && "h-full")}>
               <SaintImages 
                 saints={dayData.saints} 
                 isOpen={isOpen} 
@@ -519,19 +519,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               />
               <div className={cn(
                 "flex flex-1 flex-col min-w-0 saint-name-container",
-                isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center"
+                !isOpen ? "items-start justify-center h-full overflow-hidden" : (isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center")
               )}>
                 <div className={cn(
-                  "date-capsule flex items-center gap-2",
+                  "date-capsule w-fit self-start flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0",
                   isOpen && "text-xs md:text-right"
                 )}>
                   {currentSaintData.isMartyr && (
-                    <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-widest animate-in fade-in slide-in-from-bottom-1">Mártir</span>
+                    <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-wider animate-in fade-in slide-in-from-bottom-1 leading-none shrink-0">Mártir</span>
                   )}
-                  {dayData.day} de {dayData.month}
+                  <span className="whitespace-nowrap shrink-0 text-xs sm:text-sm font-bold leading-none">
+                    {dayData.day} de {dayData.month}
+                  </span>
                 </div>
                 <div className={cn(
-                  "font-brand font-semibold mt-1.5 sm:mt-2 text-left flex flex-wrap gap-x-2 gap-y-1 items-center w-full min-w-0 max-w-full overflow-hidden",
+                  "font-brand font-semibold text-left flex flex-wrap gap-x-2 gap-y-0.5 items-center w-full min-w-0 max-w-full overflow-hidden",
+                  !isOpen ? "mt-1 sm:mt-1.5" : "mt-1.5 sm:mt-2",
                   isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
                   {(() => {
@@ -585,40 +588,55 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                           addFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl mt-0.5 sm:mt-1";
                         }
                       } else {
-                        // Modo FECHADO
+                        // Modo FECHADO: Padronizado para a altura ideal (exatamente como Todos os Santos)
                         if (dayData.saints.length > 1) {
                           // Múltiplos santos no card fechado
                           if (totalCombinedLength > 30) {
                             mainFontSizeClass = "text-[10px] sm:text-xs md:text-sm";
-                            addFontSizeClass = "text-[8.5px] sm:text-[9.5px] md:text-[11px] -mt-0.5";
+                            addFontSizeClass = "text-[8.5px] sm:text-[9px] md:text-[11px] -mt-0.5";
                             ampFontSizeClass = "text-[10px] sm:text-xs";
                           } else if (totalCombinedLength > 20) {
-                            mainFontSizeClass = "text-[11px] sm:text-xs md:text-base";
+                            mainFontSizeClass = "text-[11px] sm:text-xs md:text-sm";
                             addFontSizeClass = "text-[9px] sm:text-[10px] md:text-xs -mt-0.5";
-                            ampFontSizeClass = "text-xs sm:text-sm";
+                            ampFontSizeClass = "text-[10px] sm:text-xs";
                           } else {
-                            mainFontSizeClass = "text-xs sm:text-sm md:text-lg";
-                            addFontSizeClass = "text-[10px] sm:text-xs md:text-sm -mt-0.5";
+                            mainFontSizeClass = "text-xs sm:text-sm md:text-base";
+                            addFontSizeClass = "text-[9.5px] sm:text-xs md:text-sm -mt-0.5";
                             ampFontSizeClass = "text-xs sm:text-sm";
                           }
                         } else {
                           // Santo único no card fechado
-                          if (mainLen > 18) {
-                            mainFontSizeClass = "text-xs sm:text-sm md:text-base";
-                          } else if (mainLen > 12) {
-                            mainFontSizeClass = "text-sm sm:text-base md:text-lg";
-                          } else if (mainLen > 7) {
-                            mainFontSizeClass = "text-base sm:text-lg md:text-xl";
-                          } else {
-                            mainFontSizeClass = "text-lg sm:text-xl md:text-2xl";
-                          }
+                          const hasAdditional = Boolean(additional);
 
-                          if (addLen > 22) {
-                            addFontSizeClass = "text-[9px] sm:text-[10px] md:text-xs -mt-0.5";
-                          } else if (addLen > 14) {
-                            addFontSizeClass = "text-[10px] sm:text-xs md:text-sm -mt-0.5";
+                          if (hasAdditional) {
+                            // Tem subtítulo (ex: Solenidade de Todos os Santos)
+                            if (mainLen > 18) {
+                              mainFontSizeClass = "text-xs sm:text-sm md:text-base";
+                            } else if (mainLen > 12) {
+                              mainFontSizeClass = "text-[13px] sm:text-base md:text-lg";
+                            } else {
+                              mainFontSizeClass = "text-sm sm:text-base md:text-lg";
+                            }
+
+                            if (addLen > 22) {
+                              addFontSizeClass = "text-[9px] sm:text-[10px] md:text-xs -mt-0.5";
+                            } else if (addLen > 14) {
+                              addFontSizeClass = "text-[10px] sm:text-[11px] md:text-xs -mt-0.5";
+                            } else {
+                              addFontSizeClass = "text-[10.5px] sm:text-xs md:text-sm -mt-0.5";
+                            }
                           } else {
-                            addFontSizeClass = "text-xs sm:text-sm md:text-base -mt-0.5";
+                            // NÃO tem subtítulo (ex: S. Evaristo)
+                            // Dimensionamento perfeito que garante que nunca empurre o card
+                            if (mainLen > 18) {
+                              mainFontSizeClass = "text-xs sm:text-sm md:text-base";
+                            } else if (mainLen > 12) {
+                              mainFontSizeClass = "text-sm sm:text-base md:text-lg";
+                            } else if (mainLen > 7) {
+                              mainFontSizeClass = "text-base sm:text-lg md:text-xl";
+                            } else {
+                              mainFontSizeClass = "text-base sm:text-lg md:text-xl";
+                            }
                           }
                         }
                       }

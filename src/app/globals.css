@@ -595,7 +595,27 @@
   /* Saint of the Day Accordion */
   .saint-day-trigger {
     @apply text-primary-foreground;
-    transition: background-color 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease;
+    transition: background-color 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease, height 0.25s ease;
+  }
+
+  .saint-day-trigger:not(.is-open) {
+    height: 96px;
+    padding: 0.75rem 0.875rem;
+    overflow: hidden;
+  }
+
+  @media (min-width: 640px) {
+    .saint-day-trigger:not(.is-open) {
+      height: 104px;
+      padding: 0.875rem 1rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .saint-day-trigger:not(.is-open) {
+      height: 112px;
+      padding: 1rem 1.25rem;
+    }
   }
 
   .saint-day-trigger.theme-red {
@@ -632,7 +652,7 @@
   }
 
   .saint-day-trigger .date-capsule {
-    @apply bg-white/70 backdrop-blur-sm text-primary text-sm font-bold px-3 py-1 rounded-full shadow transition-all duration-200;
+    @apply bg-white/75 backdrop-blur-sm text-primary text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full shadow transition-all duration-200 inline-flex items-center shrink-0 whitespace-nowrap w-fit self-start max-w-full leading-none;
   }
 
   .saint-name-container {
@@ -687,7 +707,8 @@
 
   @media (min-width: 768px) {
     .saint-image-wrapper {
-      width: 6rem;
+      width: 5rem;
+      height: 5rem;
     }
   }
 
@@ -696,10 +717,16 @@
     @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-300 ease-in-out transform-gpu;
   }
 
+  @media (min-width: 768px) {
+    .saint-image-wrapper .saint-image {
+      @apply w-20 h-20;
+    }
+  }
+
   .saint-image-wrapper.multiple {
     @apply shrink-0;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 4rem;
+    height: 4rem;
   }
 
   @media (min-width: 768px) {
@@ -711,9 +738,15 @@
 
 
   .saint-image-wrapper.multiple .saint-image {
-    @apply w-12 h-12; /* Reduzido de w-16 */
+    @apply w-11 h-11;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: absolute;
+  }
+
+  @media (min-width: 768px) {
+    .saint-image-wrapper.multiple .saint-image {
+      @apply w-14 h-14;
+    }
   }
 
   /* Logica de sobreposicao para 2 santos */
