@@ -26,7 +26,7 @@ export default function Footer({ className }: { className?: string } = {}) {
 
       <p className="inline-flex items-center justify-center flex-wrap gap-1.5 text-xs sm:text-sm text-stone-700 dark:text-stone-300 font-medium px-4 leading-relaxed">
         <span>&copy; {new Date().getFullYear()} Corações Sagrados BSB, a serviço da Santa Igreja Católica Apostólica Romana</span>
-        <VaticanFlag className="w-4 h-4 sm:w-5 sm:h-5 inline-block shadow-xs rounded-[2px] border border-stone-300/80 shrink-0" />
+        <VaticanFlag className="w-3.5 h-3.5 sm:w-4 sm:h-4 inline-block shadow-xs rounded-[2px] border border-stone-300/80 shrink-0 align-middle -mt-0.5" />
       </p>
       <p className="mt-2 text-sm">
         <a href="https://lebrontech.github.io/Portfolio/" target="_blank" rel="noopener noreferrer" className="hover:text-sky-700 dark:hover:text-sky-400 transition-colors">
@@ -37,7 +37,7 @@ export default function Footer({ className }: { className?: string } = {}) {
   );
 }
 
-function VaticanFlag({ className = "w-5 h-5" }: { className?: string }) {
+function VaticanFlag({ className = "w-3.5 h-3.5" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 100 100"

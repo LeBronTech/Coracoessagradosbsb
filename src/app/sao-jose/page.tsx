@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useMemo, useEffect, useCallback } from "react";
 import { novenaData, saints } from "@/lib/data";
 import NovenaDisplay from "@/components/novena-display";
 import type { Theme } from "@/app/page";
@@ -137,11 +137,123 @@ export default function SaoJosePage() {
     );
 }
 
+// Borda circular dividida em 9 partes para sinalizar os 9 dias completos da novena
+function NineSegmentBorder({
+    completedDays = 0,
+    totalDays = 9,
+    active = false,
+}: {
+    completedDays?: number;
+    totalDays?: number;
+    active?: boolean;
+}) {
+    // 9 segmentos uniformemente distribuídos por 360° (40° por parte)
+    // Traço bem fino, refinado e com divisões nítidas
+    const segments = useMemo(() => {
+        const cx = 50;
+        const cy = 50;
+        const r = 46.5; // Raio proporcional ajustado à borda
+        const segmentAngle = 360 / totalDays; // 40°
+        const gap = 4.5; // 4.5° de vão entre cada parte
+        const arcSpan = segmentAngle - gap; // 35.5° de traço por dia
+
+        return Array.from({ length: totalDays }, (_, i) => {
+            const startAngle = -90 + i * segmentAngle + gap / 2;
+            const endAngle = startAngle + arcSpan;
+
+            const startRad = (startAngle * Math.PI) / 180;
+            const endRad = (endAngle * Math.PI) / 180;
+
+            const x1 = cx + r * Math.cos(startRad);
+            const y1 = cy + r * Math.sin(startRad);
+            const x2 = cx + r * Math.cos(endRad);
+            const y2 = cy + r * Math.sin(endRad);
+
+            const isCompleted = i < completedDays;
+
+            return {
+                index: i,
+                dayNumber: i + 1,
+                path: `M ${x1.toFixed(3)} ${y1.toFixed(3)} A ${r} ${r} 0 0 1 ${x2.toFixed(3)} ${y2.toFixed(3)}`,
+                isCompleted,
+            };
+        });
+    }, [totalDays, completedDays]);
+
+    return (
+        <svg
+            viewBox="0 0 100 100"
+            className="absolute inset-0 w-full h-full pointer-events-none transition-all duration-300"
+        >
+            {segments.map((seg) => (
+                <path
+                    key={seg.index}
+                    d={seg.path}
+                    fill="none"
+                    strokeWidth={active ? "2.2" : "1.8"}
+                    strokeLinecap="round"
+                    className={cn(
+                        "transition-all duration-300",
+                        seg.isCompleted
+                            ? "stroke-green-600 dark:stroke-green-400 opacity-100"
+                            : active
+                                ? "stroke-green-400/35 dark:stroke-green-800/40"
+                                : "stroke-green-300/40 dark:stroke-green-900/40"
+                    )}
+                />
+            ))}
+        </svg>
+    );
+}
+
 // Página inicial do Espaço São José
 function HomePageSaoJose() {
     const [selectedNovena, setSelectedNovena] = useState<'sao_jose_19_marco' | 'sao_jose_operario' | null>(null);
     const [theme, setTheme] = useState<Theme>('theme-green');
+    const [completedMap, setCompletedMap] = useState<Record<string, number>>({});
     const novenaRef = useRef<HTMLDivElement>(null);
+
+    const loadCompletedProgress = useCallback(() => {
+        if (typeof window === 'undefined') return;
+        const newMap: Record<string, number> = {};
+        const novenaIds = ['sao_jose_19_marco', 'sao_jose_operario'];
+        const versionIds = ['tradicional', 'curta', 'completa'];
+
+        for (const id of novenaIds) {
+            let maxCount = 0;
+            for (const v of versionIds) {
+                const key = `novena_completed_${id}_${v}`;
+                const raw = localStorage.getItem(key);
+                if (raw) {
+                    try {
+                        const parsed = JSON.parse(raw);
+                        if (typeof parsed === 'object' && parsed !== null) {
+                            const count = Object.values(parsed).filter(Boolean).length;
+                            if (count > maxCount) maxCount = count;
+                        }
+                    } catch (e) {}
+                }
+            }
+            newMap[id] = maxCount;
+        }
+        setCompletedMap(newMap);
+    }, []);
+
+    useEffect(() => {
+        loadCompletedProgress();
+
+        const handleUpdate = () => {
+            loadCompletedProgress();
+        };
+
+        window.addEventListener('storage', handleUpdate);
+        window.addEventListener('novena-progress-updated', handleUpdate);
+
+        return () => {
+            window.removeEventListener('storage', handleUpdate);
+            window.removeEventListener('novena-progress-updated', handleUpdate);
+        };
+    }, [loadCompletedProgress]);
 
     const novenas = [
         {
@@ -172,33 +284,57 @@ function HomePageSaoJose() {
     return (
         <div className="space-y-10">
 
-            {/* Círculos de seleção das novenas */}
+            {/* Círculos de seleção das novenas com contorno dividido em 9 partes */}
             <section>
-                <h2 className="text-3xl font-bold text-green-900 dark:text-green-100 text-center mb-8">
-                    Novenas a São José
-                </h2>
+                <div className="text-center mb-8">
+                    <h2 className="text-3xl font-bold text-green-900 dark:text-green-100">
+                        Novenas a São José
+                    </h2>
+                    <p className="text-sm md:text-base text-green-800/75 dark:text-green-300/80 font-medium mt-1.5 tracking-wide">
+                        Escolha sua novena abaixo
+                    </p>
+                </div>
                 <div className="flex flex-wrap justify-center gap-10">
                     {novenas.map((n) => {
                         const active = selectedNovena === n.id;
+                        const completedDays = completedMap[n.id] || 0;
                         return (
                             <button
                                 key={n.id}
                                 onClick={() => handleSelect(n.id)}
                                 className="flex flex-col items-center gap-3 group focus:outline-none"
                             >
-                                <div className={`relative w-28 h-28 md:w-36 md:h-36 rounded-full overflow-hidden border-4 transition-all duration-300 shadow-lg
-                                    ${active
-                                        ? 'border-green-600 ring-4 ring-green-300 scale-110 shadow-green-300/60'
-                                        : 'border-green-200 group-hover:border-green-500 group-hover:scale-105'
-                                    }`}>
-                                    <img
-                                        src={getProxiedImageUrl(n.imageUrl)}
-                                        alt={n.name}
-                                        className="w-full h-full object-cover object-top"
+                                <div className={cn(
+                                    "relative w-28 h-28 md:w-36 md:h-36 rounded-full transition-all duration-300 flex items-center justify-center p-1 md:p-1.5",
+                                    active
+                                        ? "scale-105 shadow-md shadow-green-500/10"
+                                        : "group-hover:scale-102 shadow-sm hover:shadow-md"
+                                )}>
+                                    {/* Contorno fino dividido em 9 partes sinalizando os dias completos da novena */}
+                                    <NineSegmentBorder
+                                        completedDays={completedDays}
+                                        totalDays={9}
+                                        active={active}
                                     />
-                                    {active && (
-                                        <div className="absolute inset-0 bg-green-900/20 flex items-center justify-center">
-                                            <span className="text-white text-2xl">✝</span>
+
+                                    {/* Imagem do santo recortada em círculo */}
+                                    <div className="relative w-full h-full rounded-full overflow-hidden shadow-inner border border-stone-200/40 dark:border-stone-800/40">
+                                        <img
+                                            src={getProxiedImageUrl(n.imageUrl)}
+                                            alt={n.name}
+                                            className="w-full h-full object-cover object-top"
+                                        />
+                                        {active && (
+                                            <div className="absolute inset-0 bg-green-900/15 flex items-center justify-center">
+                                                <span className="text-white text-xl md:text-2xl drop-shadow-sm">✝</span>
+                                            </div>
+                                        )}
+                                    </div>
+
+                                    {/* Badge discreto com a contagem dos dias completos */}
+                                    {completedDays > 0 && (
+                                        <div className="absolute -bottom-1 bg-green-700 text-white text-[10px] md:text-xs font-semibold px-2 py-0.5 rounded-full shadow-sm border border-white dark:border-slate-900 flex items-center gap-1 z-10 animate-in zoom-in duration-200">
+                                            <span>{completedDays}/9 dias</span>
                                         </div>
                                     )}
                                 </div>
@@ -243,9 +379,14 @@ function NovenasSaoJose() {
 
     return (
         <div className="space-y-8">
-            <h2 className="text-3xl font-bold text-green-900 dark:text-green-100 text-center mb-6">
-                Novenas a São José
-            </h2>
+            <div className="text-center mb-6">
+                <h2 className="text-3xl font-bold text-green-900 dark:text-green-100">
+                    Novenas a São José
+                </h2>
+                <p className="text-sm md:text-base text-green-800/75 dark:text-green-300/80 font-medium mt-1.5 tracking-wide">
+                    Escolha sua novena abaixo
+                </p>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-6">
                 {/* Novena 19 de Março */}

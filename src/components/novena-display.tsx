@@ -776,6 +776,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
           delete datesObj[index];
         }
         localStorage.setItem(datesKey, JSON.stringify(datesObj));
+        window.dispatchEvent(new CustomEvent('novena-progress-updated', { detail: { novenaId: saint.id } }));
       }
 
       // Se concluiu todos os dias da novena, faz rolagem suave até o bloco de parabéns!
@@ -968,6 +969,7 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
       localStorage.removeItem(storageKey);
       localStorage.removeItem(datesKey);
       setCompletedDays({});
+      window.dispatchEvent(new CustomEvent('novena-progress-updated', { detail: { novenaId: saint.id } }));
       api?.scrollTo(0);
       setCurrent(0);
       setTimeout(() => {
@@ -1664,7 +1666,14 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
                             : 'bg-white/10 hover:bg-white/20 text-white border-2 border-white/20 hover:shadow-white/5')
                       )}
                     >
-                      {completedDays[index] ? <><Check className="w-5 h-5 animate-in zoom-in duration-300" /> Concluído</> : "Marcar como concluído"}
+                      {completedDays[index] ? (
+                        <>
+                          <Check className="w-5 h-5 animate-in zoom-in duration-300" />
+                          {isSpecialNovena ? 'Concluído' : `${index + 1}º Dia Concluído`}
+                        </>
+                      ) : (
+                        isSpecialNovena ? 'Concluir' : `Concluir ${index + 1}º Dia`
+                      )}
                     </Button>
 
                     {/* BARRA MENOR DE FEEDBACK SEGMENTADA */}
