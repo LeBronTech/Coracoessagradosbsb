@@ -31,13 +31,29 @@ const seasonTranslation: Record<string, string> = {
   'Easter': 'Tempo da Páscoa'
 };
 
+// Cache global em memória para imagens já carregadas na sessão
+const globalLoadedImages = new Set<string>();
+
 function SingleSaintImage({ saint, isOpen }: { saint: SaintStory; isOpen: boolean }) {
-  const [isLoading, setIsLoading] = useState(true);
   const proxiedUrl = getProxiedImageUrl(saint.imageUrl);
+  const [prevUrl, setPrevUrl] = useState(proxiedUrl);
+  const [isLoading, setIsLoading] = useState(() => !globalLoadedImages.has(proxiedUrl));
+
+  if (prevUrl !== proxiedUrl) {
+    setPrevUrl(proxiedUrl);
+    setIsLoading(!globalLoadedImages.has(proxiedUrl));
+  }
 
   useEffect(() => {
-    setIsLoading(true);
-  }, [proxiedUrl]);
+    if (!isLoading) return;
+
+    // Timeout de segurança: se após 2.5s o evento não disparar, libera a exibição da imagem
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [proxiedUrl, isLoading]);
 
   return (
     <div className={cn("saint-image-wrapper single relative shrink-0", isOpen && "open")}>
@@ -52,8 +68,20 @@ function SingleSaintImage({ saint, isOpen }: { saint: SaintStory; isOpen: boolea
         alt={saint.name}
         width={220}
         height={220}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)}
+        priority={true}
+        onLoad={() => {
+          if (proxiedUrl) globalLoadedImages.add(proxiedUrl);
+          setIsLoading(false);
+        }}
+        onError={() => {
+          setIsLoading(false);
+        }}
+        ref={(node) => {
+          if (node && (node as any).complete && (node as any).naturalWidth > 0) {
+            if (proxiedUrl) globalLoadedImages.add(proxiedUrl);
+            setIsLoading(false);
+          }
+        }}
         className={cn(
           "saint-image transition-opacity duration-300 w-full h-full rounded-full object-cover",
           isLoading ? "opacity-20" : "opacity-100"
@@ -77,12 +105,25 @@ function MultipleSaintImageItem({
   selectedIndex: number;
   onSelect?: (index: number) => void;
 }) {
-  const [isLoading, setIsLoading] = useState(true);
   const proxiedUrl = getProxiedImageUrl(saint.imageUrl);
+  const [prevUrl, setPrevUrl] = useState(proxiedUrl);
+  const [isLoading, setIsLoading] = useState(() => !globalLoadedImages.has(proxiedUrl));
+
+  if (prevUrl !== proxiedUrl) {
+    setPrevUrl(proxiedUrl);
+    setIsLoading(!globalLoadedImages.has(proxiedUrl));
+  }
 
   useEffect(() => {
-    setIsLoading(true);
-  }, [proxiedUrl]);
+    if (!isLoading) return;
+
+    // Timeout de segurança: se após 2.5s o evento não disparar, libera a exibição da imagem
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2500);
+
+    return () => clearTimeout(timer);
+  }, [proxiedUrl, isLoading]);
 
   return (
     <div
@@ -115,8 +156,20 @@ function MultipleSaintImageItem({
         alt={saint.name}
         width={64}
         height={64}
-        onLoad={() => setIsLoading(false)}
-        onError={() => setIsLoading(false)}
+        priority={true}
+        onLoad={() => {
+          if (proxiedUrl) globalLoadedImages.add(proxiedUrl);
+          setIsLoading(false);
+        }}
+        onError={() => {
+          setIsLoading(false);
+        }}
+        ref={(node) => {
+          if (node && (node as any).complete && (node as any).naturalWidth > 0) {
+            if (proxiedUrl) globalLoadedImages.add(proxiedUrl);
+            setIsLoading(false);
+          }
+        }}
         className={cn(
           "w-full h-full object-cover rounded-full transition-opacity duration-300",
           isLoading ? "opacity-20" : "opacity-100"
