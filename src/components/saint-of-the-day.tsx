@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { saintsOfTheDay, months as allMonths } from '@/lib/data';
 import type { SaintStory } from '@/lib/data';
 import { liturgicalCalendar, type LiturgicalDay } from '@/lib/liturgical-calendar';
+import { resolveSaintsWithPriority, getDynamicLiturgicalDay } from '@/lib/liturgy-engine';
 import { cn, formatSaintName, getProxiedImageUrl, getDropCapClass } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
@@ -239,8 +240,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     return saintsOfTheDay.filter(day => day.month === selectedMonth);
   }, [selectedMonth]);
 
-  // Calculate liturgical data early to respect hook order
-  // We need to derive dayData logic here or use a safe fallback
+  // Calculate liturgical data dynamically to support multiannual cycles and movable feasts
   const liturgicalData = useMemo(() => {
     if (!selectedMonth) return null;
     const currentDayData = saintsForCurrentMonth[currentSlide];
@@ -250,26 +250,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     const monthIndex = allMonths.indexOf(currentDayData.month); // 0-11
     if (monthIndex === -1) return null;
 
-    // Determine year based on month name for the available dataset (primarily 2026)
-    const year = ['Dezembro'].includes(currentDayData.month) && currentDayData.day >= 1 ? 2025 : 2026;
+    const currentYear = new Date().getFullYear();
+    const date = new Date(currentYear, monthIndex, currentDayData.day);
 
-    const monthStr = String(monthIndex + 1).padStart(2, '0');
-    const dayStr = String(currentDayData.day).padStart(2, '0');
-    const dateStr = `${year}-${monthStr}-${dayStr}`;
-
-    return liturgicalCalendar.find(d => d.date === dateStr);
+    return getDynamicLiturgicalDay(date);
   }, [saintsForCurrentMonth, currentSlide, allMonths, selectedMonth]);
 
   const handleMonthChange = useCallback((monthIndex: number) => {
     const month = months[monthIndex];
     setSelectedMonth(month);
-    
+
     // Se houver um slide pendente (definido pela navegação manual), usa-o. 
     // Caso contrário, reseta para 0.
     const targetSlide = pendingSlideRef.current !== null ? pendingSlideRef.current : 0;
     setCurrentSlide(targetSlide);
     pendingSlideRef.current = null;
-    
+
     setSelectedSaintInDayIndex(0);
     if (openAccordion) {
       setOpenAccordion(false);
@@ -333,7 +329,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
         // Encontra o próximo mês que tem santos
         let nextMonthIndex = (currentMonthIndex + 1) % 12;
         let found = false;
-        
+
         for (let i = 0; i < 11; i++) {
           const month = months[nextMonthIndex];
           if (saintsOfTheDay.some(day => day.month === month)) {
@@ -369,7 +365,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
         if (found) {
           const prevMonth = months[prevMonthIndex];
           const prevMonthSaints = saintsOfTheDay.filter(day => day.month === prevMonth);
-          
+
           pendingSlideRef.current = prevMonthSaints.length - 1;
           monthCarouselApi?.scrollTo(prevMonthIndex);
         }
@@ -438,7 +434,24 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
     onToggle?.(newOpenState);
   };
 
-  const dayData = saintsForCurrentMonth[currentSlide];
+  const rawDayData = saintsForCurrentMonth[currentSlide];
+
+  // Regra de Ouro Litúrgica: A comemoração da data móvel SEMPRE tem prioridade absoluta,
+  // aparecendo em primeiro lugar (índice 0) e com destaque à frente do santo fixo do dia.
+  const dayData = useMemo(() => {
+    if (!rawDayData) return null;
+    const monthIndex = allMonths.indexOf(rawDayData.month);
+    if (monthIndex === -1) return rawDayData;
+
+    const currentYear = new Date().getFullYear();
+    const date = new Date(currentYear, monthIndex, rawDayData.day);
+
+    const prioritizedSaints = resolveSaintsWithPriority(rawDayData.saints, date);
+    return {
+      ...rawDayData,
+      saints: prioritizedSaints
+    };
+  }, [rawDayData, allMonths]);
 
   const prevIsTodayRef = useRef<boolean | null>(null);
   useEffect(() => {
@@ -487,12 +500,12 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 shadow-md hover:shadow-lg transition-all duration-700 ease-[cubic-bezier(0.25,1,0.35,1)] w-full saint-day-trigger relative text-left overflow-hidden",
-              isOpen ? "rounded-t-lg rounded-b-none is-open" : "rounded-lg",
+              "flex-1 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left",
+              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7 is-open" : "h-[96px] sm:h-[104px] md:h-[112px] p-3 sm:p-4 overflow-hidden",
               triggerTheme
             )}
           >
-            {/* Background container with overflow-hidden to clip the blurred image */}
+            {/* Background container with overflow-hidden to clip the blurred image but allow children to overflow the button */}
             <div className={cn("absolute inset-0 overflow-hidden pointer-events-none transform-gpu", isOpen ? "rounded-t-lg" : "rounded-lg")}>
               {/* Blurred saint image background - ultra leve e ágil */}
               <img
@@ -501,7 +514,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 alt=""
                 aria-hidden
                 className="absolute inset-0 w-full h-full object-cover blur-[10px] md:blur-[40px] scale-110 md:scale-[2] opacity-45 pointer-events-none transform-gpu"
-                style={{ 
+                style={{
                   objectPosition: (currentSaintData as any).imageObjectPosition ?? 'center',
                   transform: 'translateZ(0)'
                 }}
@@ -511,29 +524,29 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             </div>
 
             <div className={cn("flex items-center gap-3 sm:gap-4 md:gap-6 text-left w-full relative z-10", !isOpen && "h-full")}>
-              <SaintImages 
-                saints={dayData.saints} 
-                isOpen={isOpen} 
-                selectedIndex={selectedSaintInDayIndex} 
+              <SaintImages
+                saints={dayData.saints}
+                isOpen={isOpen}
+                selectedIndex={selectedSaintInDayIndex}
                 onSelect={setSelectedSaintInDayIndex}
               />
               <div className={cn(
-                "flex flex-1 flex-col min-w-0 saint-name-container justify-center",
-                !isOpen ? "items-start h-full" : (isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start")
+                "flex flex-1 flex-col min-w-0 saint-name-container",
+                !isOpen ? "items-start justify-center h-full overflow-hidden" : (isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center")
               )}>
                 <div className={cn(
-                  "date-capsule w-fit self-start flex items-center gap-1.5 sm:gap-2 max-w-full overflow-hidden shrink-0",
+                  "date-capsule w-fit self-start flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0",
                   isOpen && "text-xs md:text-right"
                 )}>
                   {currentSaintData.isMartyr && (
-                    <span className="text-[7.5px] sm:text-[8.5px] md:text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-wider leading-none shrink-0 inline-flex items-center">Mártir</span>
+                    <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-wider animate-in fade-in slide-in-from-bottom-1 leading-none shrink-0">Mártir</span>
                   )}
-                  <span className="truncate min-w-0 text-[11px] sm:text-xs md:text-sm font-bold leading-none">
+                  <span className="whitespace-nowrap shrink-0 text-xs sm:text-sm font-bold leading-none">
                     {dayData.day} de {dayData.month}
                   </span>
                 </div>
                 <div className={cn(
-                  "font-brand font-semibold text-left flex flex-wrap gap-x-2 gap-y-0.5 items-center w-full min-w-0 max-w-full overflow-hidden transition-all duration-300",
+                  "font-brand font-semibold text-left flex flex-wrap gap-x-2 gap-y-0.5 items-center w-full min-w-0 max-w-full overflow-hidden",
                   !isOpen ? "mt-1 sm:mt-1.5" : "mt-1.5 sm:mt-2",
                   isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
@@ -567,15 +580,15 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
                       if (isOpen) {
                         // Modo ABERTO (Modal)
-                        // Escala inteligente no mobile e desktop para fluidez e estabilidade
+                        // Escala inteligente no mobile para caber rigorosamente em 1 linha cada
                         if (mainLen > 20) {
-                          mainFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl";
+                          mainFontSizeClass = "text-sm sm:text-base md:text-2xl lg:text-3xl";
                         } else if (mainLen > 14) {
-                          mainFontSizeClass = "text-base sm:text-lg md:text-2xl lg:text-3xl";
+                          mainFontSizeClass = "text-base sm:text-lg md:text-3xl lg:text-4xl";
                         } else if (mainLen > 9) {
-                          mainFontSizeClass = "text-lg sm:text-xl md:text-3xl lg:text-4xl";
+                          mainFontSizeClass = "text-lg sm:text-xl md:text-4xl lg:text-5xl";
                         } else {
-                          mainFontSizeClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
+                          mainFontSizeClass = "text-xl sm:text-2xl md:text-5xl lg:text-6xl";
                         }
 
                         if (addLen > 24) {
@@ -583,9 +596,9 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                         } else if (addLen > 16) {
                           addFontSizeClass = "text-[11px] sm:text-xs md:text-base lg:text-lg mt-0.5 sm:mt-1";
                         } else if (addLen > 9) {
-                          addFontSizeClass = "text-xs sm:text-sm md:text-base lg:text-lg mt-0.5 sm:mt-1";
+                          addFontSizeClass = "text-xs sm:text-sm md:text-lg lg:text-xl mt-0.5 sm:mt-1";
                         } else {
-                          addFontSizeClass = "text-sm sm:text-base md:text-lg lg:text-xl mt-0.5 sm:mt-1";
+                          addFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl mt-0.5 sm:mt-1";
                         }
                       } else {
                         // Modo FECHADO: Padronizado para a altura ideal (exatamente como Todos os Santos)
@@ -642,20 +655,22 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                       }
 
                       return (
-                        <div 
-                          key={s.name} 
+                        <div
+                          key={s.name}
                           className={cn(
-                            "flex items-center gap-1.5 min-w-0 max-w-full transition-all duration-300",
-                            isOpen ? "w-full mb-0.5 sm:mb-1" : ""
+                            "flex items-center gap-1.5 min-w-0 max-w-full",
+                            isOpen ? "w-full justify-center mb-1" : ""
                           )}
                         >
                           <div className={cn(
-                            "flex flex-col leading-tight min-w-0 max-w-full overflow-hidden items-start text-left",
-                            isOpen && dayData.saints.length > 1 && "md:items-end md:text-right"
+                            "flex flex-col leading-tight min-w-0 max-w-full overflow-hidden",
+                            isOpen
+                              ? "items-center text-center"
+                              : (isOpen && dayData.saints.length > 1 ? "md:items-end md:text-right" : "items-start text-left")
                           )}>
-                            <span 
+                            <span
                               className={cn(
-                                "font-bold font-brand truncate whitespace-nowrap block max-w-full tracking-tight transition-all duration-300",
+                                "font-bold font-brand truncate whitespace-nowrap block max-w-full tracking-tight transition-colors duration-200",
                                 mainFontSizeClass
                               )}
                               title={main}
@@ -663,9 +678,9 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                               {main}
                             </span>
                             {additional && (
-                              <span 
+                              <span
                                 className={cn(
-                                  "font-normal opacity-90 truncate whitespace-nowrap block max-w-full tracking-normal transition-all duration-300",
+                                  "font-normal opacity-90 truncate whitespace-nowrap block max-w-full tracking-normal transition-colors duration-200",
                                   addFontSizeClass
                                 )}
                                 title={additional}
@@ -683,73 +698,72 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   })()}
                 </div>
               </div>
-              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.35,1)]", isOpen && "rotate-180", "text-primary-foreground")} />
+              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]", isOpen && "rotate-180", "text-primary-foreground")} />
             </div>
           </button>
 
-          <div 
+          <div
             className={cn(
-              "grid transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.25,1,0.35,1)] transform-gpu",
+              "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] transform-gpu",
               isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr] pointer-events-none"
             )}
             style={{ willChange: 'grid-template-rows' }}
           >
             <div className="overflow-hidden min-h-0">
-              <div 
+              <div
                 className={cn(
-                  "relative p-4 sm:p-6 pt-10 sm:pt-12 rounded-b-lg shadow-inner-top saint-day-content transition-all duration-700 ease-[cubic-bezier(0.25,1,0.35,1)]",
-                  isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none",
+                  "relative p-4 sm:p-6 pt-10 sm:pt-12 rounded-b-lg shadow-inner-top saint-day-content",
                   triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`
                 )}
                 style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}
               >
-                  <ThemeSelector theme={theme} setTheme={setTheme} />
+                <ThemeSelector theme={theme} setTheme={setTheme} />
 
-                  {dayData.saints.length > 1 && (
-                    <div className="mb-4 flex justify-center gap-2">
-                      {dayData.saints.map((saint, saintIndex) => {
-                        const isGreen = triggerTheme === 'theme-green';
-                        const activeTheme = isGreen ? 'dark' : theme;
-                        
-                        return (
-                          <Button
-                            key={saint.name}
-                            variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
-                            size="sm"
-                            onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
-                            className={cn(
-                              'transition-all duration-200',
-                              activeTheme === 'light'
-                                ? selectedSaintInDayIndex === saintIndex
-                                  ? 'bg-primary text-primary-foreground'
-                                  : 'bg-black/5 hover:bg-black/10 text-primary'
-                                : selectedSaintInDayIndex === saintIndex
-                                  ? 'bg-accent text-accent-foreground'
-                                  : 'bg-white/10 hover:bg-white/20 text-white'
+                {dayData.saints.length > 1 && (
+                  <div className="mb-4 flex justify-center gap-2">
+                    {dayData.saints.map((saint, saintIndex) => {
+                      const isGreen = triggerTheme === 'theme-green';
+                      const activeTheme = isGreen ? 'dark' : theme;
+
+                      return (
+                        <Button
+                          key={saint.name}
+                          variant={selectedSaintInDayIndex === saintIndex ? 'default' : 'outline'}
+                          size="sm"
+                          onClick={(e) => { e.stopPropagation(); setSelectedSaintInDayIndex(saintIndex); }}
+                          className={cn(
+                            'transition-all duration-200',
+                            activeTheme === 'light'
+                              ? selectedSaintInDayIndex === saintIndex
+                                ? 'bg-primary text-primary-foreground'
+                                : 'bg-black/5 hover:bg-black/10 text-primary'
+                              : selectedSaintInDayIndex === saintIndex
+                                ? 'bg-accent text-accent-foreground'
+                                : 'bg-white/10 hover:bg-white/20 text-white'
+                          )}
+                        >
+                          <div className="flex flex-col items-center leading-tight">
+                            <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
+                            {formatSaintName(saint.name, true, true).additional && (
+                              <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
                             )}
-                          >
-                            <div className="flex flex-col items-center leading-tight">
-                              <span className="font-bold">{formatSaintName(saint.name, true, true).main}</span>
-                              {formatSaintName(saint.name, true, true).additional && (
-                                <span className="text-[9px] font-normal opacity-80">{formatSaintName(saint.name, true, true).additional}</span>
-                              )}
-                            </div>
-                          </Button>
-                        );
-                      })}
-                    </div>
+                          </div>
+                        </Button>
+                      );
+                    })}
+                  </div>
+                )}
+
+                <div className="p-1">
+                  {currentSaintData && (
+                    <div
+                      className={cn("prose prose-sm max-w-none pt-4", getDropCapClass(currentSaintData.story))}
+                      dangerouslySetInnerHTML={{ __html: currentSaintData.story }}
+                    />
                   )}
 
-                  <div className="p-1">
-                    {currentSaintData && (
-                      <div
-                        className={cn("prose prose-sm max-w-none pt-4", getDropCapClass(currentSaintData.story))}
-                        dangerouslySetInnerHTML={{ __html: currentSaintData.story }}
-                      />
-                    )}
-
-                    {liturgicalData && liturgicalData.readings && (
-                      <div ref={liturgySectionRef}>
+                  {liturgicalData && liturgicalData.readings && (
+                    <div ref={liturgySectionRef}>
                       <div className="mt-8 pt-6 border-t border-gray-200/50">
                         <div className="mb-4">
                           <h3 className="font-brand text-xl font-bold text-primary flex items-center gap-2 mb-1">
@@ -810,18 +824,19 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                           </div>
                         </div>
                       </div>
-                      </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
   );
 });
 
 SaintOfTheDay.displayName = 'SaintOfTheDay';
 
 export default SaintOfTheDay;
+

@@ -195,6 +195,7 @@
     .saints-nav-container {
       scrollbar-color: #7c0909 #e5e7eb;
     }
+
     .dark .saints-nav-container {
       scrollbar-color: #dc2626 #1f2937;
     }
@@ -364,7 +365,8 @@
   .main-card.theme-default .initial-prayer-text p,
   .main-card.theme-light-gray .final-prayer-text p,
   .main-card.theme-default .final-prayer-text p {
-    color: rgb(41 37 36) !important; /* stone-800 */
+    color: rgb(41 37 36) !important;
+    /* stone-800 */
   }
 
   /* Cores do texto para temas escuros */
@@ -378,18 +380,21 @@
   .main-card.theme-red .initial-prayer-text p,
   .main-card.theme-dark-gray .final-prayer-text p,
   .main-card.theme-red .final-prayer-text p {
-    color: rgb(255 255 255) !important; /* white */
+    color: rgb(255 255 255) !important;
+    /* white */
   }
 
   /* Cores para elementos strong */
   .main-card.theme-light-gray .prose strong,
   .main-card.theme-default .prose strong {
-    color: rgb(28 25 23) !important; /* stone-900 */
+    color: rgb(28 25 23) !important;
+    /* stone-900 */
   }
 
   .main-card.theme-dark-gray .prose strong,
   .main-card.theme-red .prose strong {
-    color: rgb(255 255 255) !important; /* white */
+    color: rgb(255 255 255) !important;
+    /* white */
   }
 
   /* ==========================================================================
@@ -595,39 +600,26 @@
   /* Saint of the Day Accordion */
   .saint-day-trigger {
     @apply text-primary-foreground;
-    transition: background-color 0.5s ease, border-radius 0.5s ease, box-shadow 0.5s ease, padding 0.65s cubic-bezier(0.25, 1, 0.35, 1), min-height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
-    min-height: 96px;
+    transition: background-color 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease, height 0.25s ease;
+  }
+
+  .saint-day-trigger:not(.is-open) {
+    height: 96px;
     padding: 0.75rem 0.875rem;
     overflow: hidden;
   }
 
   @media (min-width: 640px) {
-    .saint-day-trigger {
-      min-height: 104px;
+    .saint-day-trigger:not(.is-open) {
+      height: 104px;
       padding: 0.875rem 1rem;
     }
   }
 
   @media (min-width: 768px) {
-    .saint-day-trigger {
-      min-height: 112px;
+    .saint-day-trigger:not(.is-open) {
+      height: 112px;
       padding: 1rem 1.25rem;
-    }
-  }
-
-  .saint-day-trigger.is-open {
-    padding: 0.875rem 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .saint-day-trigger.is-open {
-      padding: 1.125rem 1.25rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    .saint-day-trigger.is-open {
-      padding: 1.25rem 1.5rem;
     }
   }
 
@@ -665,11 +657,11 @@
   }
 
   .saint-day-trigger .date-capsule {
-    @apply bg-white/80 backdrop-blur-sm text-primary text-xs sm:text-sm font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-sm transition-all duration-300 inline-flex items-center w-fit self-start max-w-full leading-none overflow-hidden shrink-0;
+    @apply bg-white/75 backdrop-blur-sm text-primary text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full shadow transition-all duration-200 inline-flex items-center shrink-0 whitespace-nowrap w-fit self-start max-w-full leading-none;
   }
 
   .saint-name-container {
-    @apply transition-[transform,opacity] duration-500 ease-out;
+    transition: transform 300ms ease-out, opacity 300ms ease-out;
   }
 
   .group.is-open .saint-name-container {
@@ -715,7 +707,7 @@
     @apply relative flex items-center justify-center shrink-0;
     width: 4rem;
     height: 4rem;
-    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   @media (min-width: 768px) {
@@ -727,7 +719,7 @@
 
 
   .saint-image-wrapper .saint-image {
-    @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-700 ease-in-out transform-gpu;
+    @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-300 ease-in-out transform-gpu;
   }
 
   @media (min-width: 768px) {
@@ -752,7 +744,7 @@
 
   .saint-image-wrapper.multiple .saint-image {
     @apply w-11 h-11;
-    transition: all 0.65s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: absolute;
   }
 
@@ -796,27 +788,28 @@
 
   /* Adaptação progressiva do círculo do santo por dispositivo no modal aberto */
   .group.is-open .saint-image-wrapper.single {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
     transform: none;
-    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .group.is-open .saint-image-wrapper.single .saint-image {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
     @apply border-2 border-white/90 shadow-md;
   }
 
   /* Tablet / Intermediário (>= 640px) */
   @media (min-width: 640px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 6rem;
-      height: 6rem;
+      width: 6.5rem;
+      height: 6.5rem;
     }
+
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 6rem;
-      height: 6rem;
+      width: 6.5rem;
+      height: 6.5rem;
       @apply border-[3px];
     }
   }
@@ -824,12 +817,13 @@
   /* Tablet Grande / Laptop (>= 768px) */
   @media (min-width: 768px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 8rem;
-      height: 8rem;
+      width: 8.5rem;
+      height: 8.5rem;
     }
+
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 8rem;
-      height: 8rem;
+      width: 8.5rem;
+      height: 8.5rem;
       @apply border-4 shadow-xl;
     }
   }
@@ -837,12 +831,13 @@
   /* Desktop (>= 1024px) - preenche com maestria o espaço amplo sem cobrir o texto */
   @media (min-width: 1024px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 10rem;
-      height: 10rem;
+      width: 10.5rem;
+      height: 10.5rem;
     }
+
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 10rem;
-      height: 10rem;
+      width: 10.5rem;
+      height: 10.5rem;
       @apply border-4 shadow-2xl;
     }
   }
@@ -850,20 +845,21 @@
   /* Desktop Amplo / Telas Grandes (>= 1280px) */
   @media (min-width: 1280px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 11rem;
-      height: 11rem;
+      width: 11.5rem;
+      height: 11.5rem;
     }
+
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 11rem;
-      height: 11rem;
+      width: 11.5rem;
+      height: 11.5rem;
     }
   }
 
   .group.is-open .saint-image-wrapper.multiple {
-    width: 4.5rem;
-    height: 4.5rem;
+    width: 5rem;
+    height: 5rem;
     transform: none;
-    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
+    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   @media (min-width: 640px) {
@@ -936,12 +932,15 @@
     .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-0 {
       transform: translate(-90%, 25%) scale(0.8);
     }
+
     .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-1 {
       transform: translate(-10%, 25%) scale(0.8);
     }
+
     .group.is-open .saint-image-wrapper.multiple .saint-image--inactive.image-2 {
       transform: translate(-50%, 50%) scale(0.8);
     }
+
     .group.is-open .saint-name-container {
       margin-left: 0.25rem;
     }
@@ -949,7 +948,7 @@
 
 
   /* Ajuste específico para quando o ativo é o do meio ou fim, para garantir que os outros fiquem visíveis */
-  .group.is-open .saint-image-wrapper.multiple .saint-image--active ~ .saint-image--inactive {
+  .group.is-open .saint-image-wrapper.multiple .saint-image--active~.saint-image--inactive {
     /* Imagens que vem DEPOIS do ativo no DOM */
   }
 
@@ -1176,15 +1175,15 @@
   .devotion-item.devotion-item--thursday {
     @apply border-[#2e1065] bg-white;
   }
-  
+
   .devotion-item.devotion-item--thursday .devotion-icon {
     color: #2e1065;
   }
-  
+
   .devotion-item.devotion-item--thursday .text-sm {
     color: #1e0a45;
   }
-  
+
   .devotion-item.devotion-item--thursday .text-xs {
     color: #4c1d95;
   }
@@ -1273,22 +1272,40 @@
   }
 
   @keyframes manual-glow-pulse {
-    0%, 100% { box-shadow: 0 0 0 0 hsl(var(--primary) / 0.8); }
-    50% { box-shadow: 0 0 0 15px hsl(var(--primary) / 0); }
+
+    0%,
+    100% {
+      box-shadow: 0 0 0 0 hsl(var(--primary) / 0.8);
+    }
+
+    50% {
+      box-shadow: 0 0 0 15px hsl(var(--primary) / 0);
+    }
   }
+
   .glow-pulse-ring {
     animation: manual-glow-pulse 8s ease-in-out infinite !important;
   }
 
   @keyframes shine {
-    0% { transform: translateX(-150%) skewX(-15deg); }
-    20% { transform: translateX(250%) skewX(-15deg); }
-    100% { transform: translateX(250%) skewX(-15deg); }
+    0% {
+      transform: translateX(-150%) skewX(-15deg);
+    }
+
+    20% {
+      transform: translateX(250%) skewX(-15deg);
+    }
+
+    100% {
+      transform: translateX(250%) skewX(-15deg);
+    }
   }
+
   .animate-shine {
     position: relative;
     overflow: hidden;
   }
+
   .animate-shine::after {
     content: "";
     position: absolute;
@@ -1296,12 +1313,10 @@
     left: 0;
     width: 100px;
     height: 100%;
-    background: linear-gradient(
-      to right,
-      transparent,
-      rgba(255, 255, 255, 0.6),
-      transparent
-    );
+    background: linear-gradient(to right,
+        transparent,
+        rgba(255, 255, 255, 0.6),
+        transparent);
     animation: shine 4s ease-in-out infinite;
     pointer-events: none;
   }
@@ -1313,7 +1328,8 @@
   }
 
   .scrollbar-thin-red::-webkit-scrollbar {
-    height: 5px; /* Fina */
+    height: 5px;
+    /* Fina */
   }
 
   .scrollbar-thin-red::-webkit-scrollbar-track {

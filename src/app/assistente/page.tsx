@@ -30,6 +30,7 @@ import {
   Bell
 } from "lucide-react";
 import { saints, novenaData, saintsOfTheDay } from "@/lib/data";
+import { resolveSaintsWithPriority } from "@/lib/liturgy-engine";
 import { addDays, subDays, format, parse, differenceInDays } from "date-fns";
 import { ptBR } from "date-fns/locale";
 
@@ -753,11 +754,16 @@ export default function AssistentePage() {
     });
   }, [selectedMonth]);
 
-  // Adapta o Santo do Dia selecionado baseado na data do navegador do assistente
+  // Adapta o Santo do Dia selecionado baseado na data do navegador do assistente com prioridade para datas móveis
   const todaySaintData = useMemo(() => {
     const day = santoDiaDate.getDate();
     const month = MESES[santoDiaDate.getMonth()];
-    return saintsOfTheDay.find(s => s.day === day && s.month === month);
+    const raw = saintsOfTheDay.find(s => s.day === day && s.month === month);
+    if (!raw) return undefined;
+    return {
+      ...raw,
+      saints: resolveSaintsWithPriority(raw.saints, santoDiaDate)
+    };
   }, [santoDiaDate]);
 
   // Alertas de santos importantes para Hoje e Amanhã
