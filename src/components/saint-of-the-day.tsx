@@ -500,12 +500,12 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
           <button
             onClick={toggleAccordion}
             className={cn(
-              "flex-1 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left",
-              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7 is-open" : "h-[96px] sm:h-[104px] md:h-[112px] p-3 sm:p-4 overflow-hidden",
+              "flex-1 rounded-lg shadow-md hover:shadow-lg transition-colors duration-200 w-full saint-day-trigger relative text-left overflow-hidden",
+              isOpen ? "rounded-b-none p-3.5 sm:p-5 md:p-6 lg:p-7 is-open" : "h-[96px] sm:h-[104px] md:h-[112px] p-3 sm:p-4",
               triggerTheme
             )}
           >
-            {/* Background container with overflow-hidden to clip the blurred image but allow children to overflow the button */}
+            {/* Background container with overflow-hidden to clip the blurred image */}
             <div className={cn("absolute inset-0 overflow-hidden pointer-events-none transform-gpu", isOpen ? "rounded-t-lg" : "rounded-lg")}>
               {/* Blurred saint image background - ultra leve e ágil */}
               <img
@@ -523,7 +523,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-current/20 to-current/40 opacity-60 pointer-events-none" />
             </div>
 
-            <div className={cn("flex items-center gap-3 sm:gap-4 md:gap-6 text-left w-full relative z-10", !isOpen && "h-full")}>
+            <div className={cn("flex items-center gap-2.5 sm:gap-4 md:gap-6 text-left w-full min-w-0 max-w-full relative z-10", !isOpen && "h-full")}>
               <SaintImages
                 saints={dayData.saints}
                 isOpen={isOpen}
@@ -531,22 +531,24 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                 onSelect={setSelectedSaintInDayIndex}
               />
               <div className={cn(
-                "flex flex-1 flex-col min-w-0 saint-name-container",
-                !isOpen ? "items-start justify-center h-full overflow-hidden" : (isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center")
+                "flex flex-1 flex-col min-w-0 max-w-full overflow-hidden saint-name-container",
+                !isOpen ? "items-start justify-center h-full" : (isOpen && dayData.saints.length > 1 ? "items-start md:items-end" : "items-start justify-center")
               )}>
                 <div className={cn(
-                  "date-capsule w-fit self-start flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shrink-0",
+                  "date-capsule w-fit self-start flex items-center gap-1.5 sm:gap-2 shrink-0 max-w-full overflow-hidden",
                   isOpen && "text-xs md:text-right"
                 )}>
                   {currentSaintData.isMartyr && (
-                    <span className="text-[8px] sm:text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-wider animate-in fade-in slide-in-from-bottom-1 leading-none shrink-0">Mártir</span>
+                    <span className="text-[7.5px] sm:text-[8.5px] md:text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-red-700 text-white shadow-sm uppercase tracking-wider leading-none shrink-0 inline-flex items-center">
+                      Mártir
+                    </span>
                   )}
-                  <span className="whitespace-nowrap shrink-0 text-xs sm:text-sm font-bold leading-none">
+                  <span className="truncate min-w-0 text-[11px] sm:text-xs md:text-sm font-bold leading-none">
                     {dayData.day} de {dayData.month}
                   </span>
                 </div>
                 <div className={cn(
-                  "font-brand font-semibold text-left flex flex-wrap gap-x-2 gap-y-0.5 items-center w-full min-w-0 max-w-full overflow-hidden",
+                  "font-brand font-semibold text-left flex flex-wrap gap-x-2 gap-y-0.5 items-center w-full min-w-0 max-w-full overflow-hidden transition-all duration-300",
                   !isOpen ? "mt-1 sm:mt-1.5" : "mt-1.5 sm:mt-2",
                   isOpen && dayData.saints.length > 1 && "md:justify-end"
                 )}>
@@ -580,15 +582,15 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
 
                       if (isOpen) {
                         // Modo ABERTO (Modal)
-                        // Escala inteligente no mobile para caber rigorosamente em 1 linha cada
+                        // Escala inteligente no mobile e desktop para fluidez e estabilidade
                         if (mainLen > 20) {
-                          mainFontSizeClass = "text-sm sm:text-base md:text-2xl lg:text-3xl";
+                          mainFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl";
                         } else if (mainLen > 14) {
-                          mainFontSizeClass = "text-base sm:text-lg md:text-3xl lg:text-4xl";
+                          mainFontSizeClass = "text-base sm:text-lg md:text-2xl lg:text-3xl";
                         } else if (mainLen > 9) {
-                          mainFontSizeClass = "text-lg sm:text-xl md:text-4xl lg:text-5xl";
+                          mainFontSizeClass = "text-lg sm:text-xl md:text-3xl lg:text-4xl";
                         } else {
-                          mainFontSizeClass = "text-xl sm:text-2xl md:text-5xl lg:text-6xl";
+                          mainFontSizeClass = "text-xl sm:text-2xl md:text-3xl lg:text-4xl";
                         }
 
                         if (addLen > 24) {
@@ -596,9 +598,9 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                         } else if (addLen > 16) {
                           addFontSizeClass = "text-[11px] sm:text-xs md:text-base lg:text-lg mt-0.5 sm:mt-1";
                         } else if (addLen > 9) {
-                          addFontSizeClass = "text-xs sm:text-sm md:text-lg lg:text-xl mt-0.5 sm:mt-1";
+                          addFontSizeClass = "text-xs sm:text-sm md:text-base lg:text-lg mt-0.5 sm:mt-1";
                         } else {
-                          addFontSizeClass = "text-sm sm:text-base md:text-xl lg:text-2xl mt-0.5 sm:mt-1";
+                          addFontSizeClass = "text-sm sm:text-base md:text-lg lg:text-xl mt-0.5 sm:mt-1";
                         }
                       } else {
                         // Modo FECHADO: Padronizado para a altura ideal (exatamente como Todos os Santos)
@@ -658,19 +660,17 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                         <div
                           key={s.name}
                           className={cn(
-                            "flex items-center gap-1.5 min-w-0 max-w-full",
-                            isOpen ? "w-full justify-center mb-1" : ""
+                            "flex items-center gap-1.5 min-w-0 max-w-full transition-all duration-300",
+                            isOpen ? "w-full mb-0.5 sm:mb-1" : ""
                           )}
                         >
                           <div className={cn(
-                            "flex flex-col leading-tight min-w-0 max-w-full overflow-hidden",
-                            isOpen
-                              ? "items-center text-center"
-                              : (isOpen && dayData.saints.length > 1 ? "md:items-end md:text-right" : "items-start text-left")
+                            "flex flex-col leading-tight min-w-0 max-w-full overflow-hidden items-start text-left",
+                            isOpen && dayData.saints.length > 1 && "md:items-end md:text-right"
                           )}>
                             <span
                               className={cn(
-                                "font-bold font-brand truncate whitespace-nowrap block max-w-full tracking-tight transition-colors duration-200",
+                                "font-bold font-brand truncate whitespace-nowrap block max-w-full tracking-tight transition-all duration-300",
                                 mainFontSizeClass
                               )}
                               title={main}
@@ -680,7 +680,7 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                             {additional && (
                               <span
                                 className={cn(
-                                  "font-normal opacity-90 truncate whitespace-nowrap block max-w-full tracking-normal transition-colors duration-200",
+                                  "font-normal opacity-90 truncate whitespace-nowrap block max-w-full tracking-normal transition-all duration-300",
                                   addFontSizeClass
                                 )}
                                 title={additional}
@@ -698,13 +698,13 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                   })()}
                 </div>
               </div>
-              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)]", isOpen && "rotate-180", "text-primary-foreground")} />
+              <ChevronDown className={cn("h-4 w-4 shrink-0 transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.35,1)]", isOpen && "rotate-180", "text-primary-foreground")} />
             </div>
           </button>
 
           <div
             className={cn(
-              "grid transition-[grid-template-rows] duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] transform-gpu",
+              "grid transition-[grid-template-rows] duration-700 ease-[cubic-bezier(0.25,1,0.35,1)] transform-gpu",
               isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr] pointer-events-none"
             )}
             style={{ willChange: 'grid-template-rows' }}
@@ -712,7 +712,8 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
             <div className="overflow-hidden min-h-0">
               <div
                 className={cn(
-                  "relative p-4 sm:p-6 pt-10 sm:pt-12 rounded-b-lg shadow-inner-top saint-day-content",
+                  "relative p-4 sm:p-6 pt-10 sm:pt-12 rounded-b-lg shadow-inner-top saint-day-content transition-all duration-700 ease-[cubic-bezier(0.25,1,0.35,1)]",
+                  isOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none",
                   triggerTheme === 'theme-green' ? 'theme-dark' : `theme-${theme}`
                 )}
                 style={triggerTheme === 'theme-green' ? { backgroundColor: '#14532d', color: 'white' } : undefined}

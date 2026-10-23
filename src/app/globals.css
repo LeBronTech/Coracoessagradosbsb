@@ -656,12 +656,28 @@
     @apply text-primary-foreground !important;
   }
 
+  .saint-day-trigger.is-open {
+    padding: 0.875rem 1rem;
+  }
+
+  @media (min-width: 640px) {
+    .saint-day-trigger.is-open {
+      padding: 1.125rem 1.25rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .saint-day-trigger.is-open {
+      padding: 1.25rem 1.5rem;
+    }
+  }
+
   .saint-day-trigger .date-capsule {
-    @apply bg-white/75 backdrop-blur-sm text-primary text-xs sm:text-sm font-bold px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full shadow transition-all duration-200 inline-flex items-center shrink-0 whitespace-nowrap w-fit self-start max-w-full leading-none;
+    @apply bg-white/80 backdrop-blur-sm text-primary text-xs sm:text-sm font-bold px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full shadow-sm transition-all duration-300 inline-flex items-center w-fit self-start max-w-full leading-none overflow-hidden shrink-0;
   }
 
   .saint-name-container {
-    transition: transform 300ms ease-out, opacity 300ms ease-out;
+    @apply transition-[transform,opacity] duration-500 ease-out;
   }
 
   .group.is-open .saint-name-container {
@@ -707,7 +723,7 @@
     @apply relative flex items-center justify-center shrink-0;
     width: 4rem;
     height: 4rem;
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
   }
 
   @media (min-width: 768px) {
@@ -719,7 +735,7 @@
 
 
   .saint-image-wrapper .saint-image {
-    @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-300 ease-in-out transform-gpu;
+    @apply w-16 h-16 rounded-full object-cover border-2 border-white shadow-sm transition-all duration-700 ease-in-out transform-gpu;
   }
 
   @media (min-width: 768px) {
@@ -744,7 +760,7 @@
 
   .saint-image-wrapper.multiple .saint-image {
     @apply w-11 h-11;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.65s cubic-bezier(0.25, 1, 0.35, 1);
     position: absolute;
   }
 
@@ -788,28 +804,28 @@
 
   /* Adaptação progressiva do círculo do santo por dispositivo no modal aberto */
   .group.is-open .saint-image-wrapper.single {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     transform: none;
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
   }
 
   .group.is-open .saint-image-wrapper.single .saint-image {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     @apply border-2 border-white/90 shadow-md;
   }
 
   /* Tablet / Intermediário (>= 640px) */
   @media (min-width: 640px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 6.5rem;
-      height: 6.5rem;
+      width: 6rem;
+      height: 6rem;
     }
 
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 6.5rem;
-      height: 6.5rem;
+      width: 6rem;
+      height: 6rem;
       @apply border-[3px];
     }
   }
@@ -817,13 +833,13 @@
   /* Tablet Grande / Laptop (>= 768px) */
   @media (min-width: 768px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 8.5rem;
-      height: 8.5rem;
+      width: 8rem;
+      height: 8rem;
     }
 
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 8.5rem;
-      height: 8.5rem;
+      width: 8rem;
+      height: 8rem;
       @apply border-4 shadow-xl;
     }
   }
@@ -831,13 +847,13 @@
   /* Desktop (>= 1024px) - preenche com maestria o espaço amplo sem cobrir o texto */
   @media (min-width: 1024px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 10.5rem;
-      height: 10.5rem;
+      width: 10rem;
+      height: 10rem;
     }
 
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 10.5rem;
-      height: 10.5rem;
+      width: 10rem;
+      height: 10rem;
       @apply border-4 shadow-2xl;
     }
   }
@@ -845,21 +861,21 @@
   /* Desktop Amplo / Telas Grandes (>= 1280px) */
   @media (min-width: 1280px) {
     .group.is-open .saint-image-wrapper.single {
-      width: 11.5rem;
-      height: 11.5rem;
+      width: 11rem;
+      height: 11rem;
     }
 
     .group.is-open .saint-image-wrapper.single .saint-image {
-      width: 11.5rem;
-      height: 11.5rem;
+      width: 11rem;
+      height: 11rem;
     }
   }
 
   .group.is-open .saint-image-wrapper.multiple {
-    width: 5rem;
-    height: 5rem;
+    width: 4.5rem;
+    height: 4.5rem;
     transform: none;
-    transition: width 0.3s cubic-bezier(0.25, 1, 0.5, 1), height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    transition: width 0.65s cubic-bezier(0.25, 1, 0.35, 1), height 0.65s cubic-bezier(0.25, 1, 0.35, 1);
   }
 
   @media (min-width: 640px) {

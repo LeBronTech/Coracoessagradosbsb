@@ -254,11 +254,11 @@ export const MOVABLE_FEASTS_DEFINITIONS: MovableFeastDefinition[] = [
   },
   {
     id: 'christ-the-king',
-    name: 'Solenidade de Nosso Senhor Jesus Cristo, Rei do Universo',
+    name: 'Solenidade de Cristo Rei',
     daysFromEaster: 9999, // Calculado especialmente via getFirstSundayOfAdvent
     color: 'Branco',
     category: 'Solemnity',
-    imageUrl: 'https://images.unsplash.com/photo-1544427920-c49ccfb85579?q=80&w=600&auto=format&fit=crop',
+    imageUrl: '/images/santos/solenidade-cristo-rei.jpg',
     story: '<h4>A Majestade Universal e Amorosa do Bom Pastor</h4><p>A Solenidade de Cristo Rei, instituída pelo Papa Pio XI em 1925 através da encíclica <em>Quas Primas</em>, marca o glorioso encerramento do ano litúrgico católico. No último domingo do Tempo Comum (34º Domingo), a Igreja proclama a soberania universal e eterna de Jesus Cristo sobre toda a criação, a história humana e os corações.</p><p class="mt-4">O Reino de Jesus não é construído sobre o poder político, armas ou ambições temporais, mas se manifesta no amor desinteressado, na verdade e na entrega suprema da vida na Cruz. Como nos lembra o Prefácio litúrgico, seu reino é um <em>"reino de verdade e de vida, reino de santidade e de graça, reino de justiça, de amor e de paz"</em>.</p><p class="mt-4">Ao coroar o ano da Igreja celebrando a Cristo Rei, os fiéis renovam o compromisso de permitir que a graça do Evangelho reine em suas famílias, em suas ações profissionais e na sociedade inteira.</p><p class="mt-4"><b>Oração:</b> Deus eterno e todo-poderoso, que quisestes fundar todas as coisas no vosso Filho amado, Rei do universo, fazei que toda a criação, libertada da escravidão do pecado, sirva à vossa majestade e vos glorifique eternamente. Por nosso Senhor Jesus Cristo. Amém.</p>'
   }
 ];

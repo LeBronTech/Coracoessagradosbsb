@@ -3188,13 +3188,13 @@ export const saints: Saint[] = [
   { id: 'todos_santos', name: 'Todos os Santos', imageUrl: 'https://i.postimg.cc/j29jkK7b/download.jpg', month: 'Outubro/Novembro', startDate: '23/10', endDate: '31/10', feastDay: '01/Nov' },
 
   // Novembro
-  { id: 'almas', name: 'Almas', imageUrl: 'https://i.postimg.cc/G2DDG2TC/dfed164f02d4d4d2bccaa939385df13b.jpg', month: 'Outubro/Novembro', startDate: '24/10', endDate: '01/11', feastDay: '02/Nov' },
-  { id: 'isabel_hungria', name: 'Santa Isabel da Hungria', imageUrl: 'https://iili.io/KpAYfLl.jpg', month: 'Novembro', startDate: '08/11', endDate: '16/11', feastDay: '17/Nov' },
+  { id: 'almas', name: 'Fiéis Defuntos', imageUrl: '/images/santos/fiei-defuntos.jpg', month: 'Outubro/Novembro', startDate: '24/10', endDate: '01/11', feastDay: '02/Nov' },
+  { id: 'isabel_hungria', name: 'Sta. Isabel da Hungria', imageUrl: '/images/santos/santa-isabel-hungria.jpg', month: 'Novembro', startDate: '08/11', endDate: '16/11', feastDay: '17/Nov' },
   { id: 'apresentacao_ns', name: 'Apres. de N.S.', imageUrl: 'https://i.postimg.cc/3Js86PzK/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
   { id: 'ns_saude', name: 'N.S. da Saúde', imageUrl: 'https://i.postimg.cc/RCdhqSqh/image.png', month: 'Novembro', startDate: '12/11', endDate: '20/11', feastDay: '21/Nov' },
-  { id: 'santa_cecilia', name: 'Santa Cecília', imageUrl: 'https://i.postimg.cc/4xDNjn2c/image.png', month: 'Novembro', startDate: '13/11', endDate: '21/11', feastDay: '22/Nov', isMartyr: true },
+  { id: 'santa_cecilia', name: 'Sta. Cecília', imageUrl: '/images/santos/santa-cecilia.jpg', month: 'Novembro', startDate: '13/11', endDate: '21/11', feastDay: '22/Nov', isMartyr: true },
   { id: 'gracas', name: 'N.S. das Graças', imageUrl: 'https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png', month: 'Novembro', startDate: '18/11', endDate: '26/11', feastDay: '27/Nov' },
-  { id: 'cristo_rei', name: 'Cristo Rei', imageUrl: 'https://iili.io/KpYFw6G.jpg', month: 'Novembro', startDate: '14/11', endDate: '22/11', feastDay: '23/Nov' },
+  { id: 'cristo_rei', name: 'Solenidade de Cristo Rei', imageUrl: '/images/santos/solenidade-cristo-rei.jpg', month: 'Novembro', startDate: '14/11', endDate: '22/11', feastDay: '23/Nov' },
   { id: 'imaculada_conceicao', name: 'Imaculada Conceição', imageUrl: 'https://iili.io/KpAtISf.png', month: 'Novembro/Dezembro', startDate: '29/11', endDate: '07/12', feastDay: '08/Dez' },
   // Dezembro
   { id: 'guadalupe', name: 'N.S. de Guadalupe', imageUrl: 'https://images.cdn-files-a.com/uploads/5860772/2000_63cdf81a70b88.jpg', month: 'Dezembro', startDate: '04/12', endDate: '12/12', feastDay: '12/Dez' },
@@ -3840,7 +3840,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [{
       name: 'Fiéis Defuntos',
-      imageUrl: 'https://i.postimg.cc/G2DDG2TC/dfed164f02d4d4d2bccaa939385df13b.jpg',
+      imageUrl: '/images/santos/fiei-defuntos.jpg',
       story: `<h4>A Igreja Padecente</h4><p>Logo após celebrar a glória da Igreja Triunfante, a Igreja Militante volta seu olhar e seu coração para a Igreja Padecente: as almas dos fiéis que partiram deste mundo na amizade com Deus, mas que ainda precisam de uma purificação final para entrar na alegria plena do Céu. Esta purificação é o que a doutrina católica chama de Purgatório. Não é um "segundo inferno", mas uma antecâmara do Céu, um estado de purificação no amor, onde as almas, já salvas, se preparam para o encontro definitivo com a santidade de Deus.</p><h4>O Vínculo da Oração</h4><p>A Comemoração de Todos os Fiéis Defuntos é um dia de profunda caridade cristã. Acreditamos firmemente, com base na Tradição da Igreja, que as nossas orações, sacrifícios e, sobretudo, a Santa Missa oferecida por eles, podem ajudá-los e aliviar seus sofrimentos. É um poderoso exercício da Comunhão dos Santos, que une a Igreja da terra, do Céu e do Purgatório. Ao rezar pelos que nos precederam, expressamos nossa fé na ressurreição e nossa esperança de reencontrá-los um dia na pátria celeste.</p><h4>Esperança na Vida Eterna</h4><p>Visitar os cemitérios, acender velas, rezar pelos falecidos não são atos de tristeza mórbida, mas de fé e esperança. Recordamos com carinho aqueles que amamos, agradecemos pelo dom de suas vidas e os entregamos à misericórdia infinita de Deus. Este dia nos confronta com a reality da morte, não como um fim, mas como uma passagem para a Vida Eterna, reafirmando a nossa fé em Cristo, que venceu a morte e nos abriu as portas do Céu.</p><p class="mt-4"><b>Oração:</b> Dai-lhes, Senhor, o descanso eterno, e a luz perpétua os ilumine. Que as almas dos fiéis defuntos, pela misericórdia de Deus, descansem em paz. Amém.</p><p class="mt-2 italic">Almas do purgatório, intercedei por nós.</p>`
     }]
   },
@@ -3848,7 +3848,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 3,
     month: 'Novembro',
     saints: [{
-      name: 'São Martinho de Porres',
+      name: 'S. Martinho de Porres',
       imageUrl: 'https://i.postimg.cc/Y0tMTg84/image.png',
       story: '<p>São Martinho de Porres, conhecido como o "santo da vassoura", é um poderoso exemplo de humildade e caridade. Nascido em Lima, Peru, em 1579, filho de um nobre espanhol e de uma ex-escrava panamenha, enfrentou desde cedo o preconceito por ser mulato. Ingressou na Ordem Dominicana como irmão leigo e dedicou sua vida aos serviços mais humildes do convento, como varrer, cozinhar e cuidar da enfermaria. Sua caridade não conhecia limites, estendendo-se a todos os pobres, doentes e até aos animais. Sua vida é um testemunho de que a santidade floresce no serviço humilde e no amor sem distinção.</p>'
     }]
@@ -3857,7 +3857,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 4,
     month: 'Novembro',
     saints: [{
-      name: 'São Carlos Borromeu',
+      name: 'S. Carlos Borromeu',
       imageUrl: 'https://i.postimg.cc/zf6wN0G5/image.png',
       story: '<p>São Carlos Borromeu foi um cardeal e arcebispo de Milão no século XVI, uma das figuras mais importantes da Reforma Católica. Sobrinho do Papa Pio IV, renunciou a uma vida de luxo para se dedicar inteiramente à reforma da sua diocese, aplicando com zelo os decretos do Concílio de Trento. Fundou seminários para a formação do clero, visitou todas as paróquias e, durante a peste de 1576, destacou-se pela sua caridade heroica, cuidando pessoalmente dos doentes e gastando toda a sua fortuna para ajudar os necessitados. É um modelo de pastor zeloso e de amor à Igreja.</p>'
     }]
@@ -3866,8 +3866,8 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 5,
     month: 'Novembro',
     saints: [{
-      name: 'São Zacarias e Santa Isabel',
-      imageUrl: 'https://i.postimg.cc/90FQnjHQ/image.png',
+      name: 'S. Zacarias e Sta. Isabel',
+      imageUrl: '/images/santos/sao-zacarias-santa-isabel.jpg',
       story: '<p>São Zacarias e Santa Isabel são os pais de São João Batista. O Evangelho de Lucas nos apresenta este casal como "justos diante de Deus, que caminhavam irrepreensivelmente em todos os mandamentos e preceitos do Senhor". Apesar da idade avançada e da esterilidade de Isabel, eles nunca perderam a fé e a esperança. Deus recompensou sua fidelidade com o milagre do nascimento de João, o precursor do Messias. Eles são um modelo de casal santo, que viveu a sua fé no dia a dia e acolheu com alegria a vontade de Deus em suas vidas.</p>'
     }]
   },
@@ -3875,7 +3875,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 6,
     month: 'Novembro',
     saints: [{
-      name: 'São Nuno de Santa Maria',
+      name: 'S. Nuno de Santa Maria',
       imageUrl: 'https://i.postimg.cc/cH1WsM9V/image.png',
       story: '<p>São Nuno Álvares Pereira, conhecido como o Santo Condestável, foi um herói nacional português do século XIV. Como comandante militar, liderou o exército português em vitórias decisivas que garantiram a independência de Portugal. Após a morte de sua esposa e o cumprimento de seus deveres para com a pátria, renunciou a todas as suas honras e riquezas e ingressou como irmão leigo na Ordem do Carmo, que ele mesmo havia fundado. Viveu o resto de seus dias em pobreza e oração, mostrando que a santidade pode ser alcançada tanto no campo de batalha quanto no silêncio do claustro.</p>'
     }]
@@ -3884,7 +3884,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 7,
     month: 'Novembro',
     saints: [{
-      name: 'São Vilibrordo',
+      name: 'S. Vilibrordo',
       imageUrl: 'https://i.postimg.cc/qvBW6MX7/image.png',
       story: '<p>São Vilibrordo, conhecido como o "Apóstolo dos Frísios", foi um monge beneditino inglês que, no século VII, liderou uma missão evangelizadora na Frísia (atuais Holanda e Luxemburgo). Com o apoio do Papa e dos reis francos, ele trabalhou incansavelmente para levar a fé cristã a povos pagãos, enfrentando perigos e incompreensões. Foi consagrado bispo de Utrecht e fundou mosteiros que se tornaram centros de cultura e evangelização. Sua vida é um exemplo de zelo missionário e de inculturação da fé.</p>'
     }]
@@ -3894,12 +3894,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'Santa Isabel da Trindade',
+        name: 'Sta. Isabel da Trindade',
         imageUrl: 'https://i.postimg.cc/nzfk73bT/image.png',
         story: '<p>Isabel Catez, carmelita descalça de Dijon, França, viveu uma vida curta (1880-1906) mas de uma intensidade espiritual extraordinária. Sua missão foi descobrir o "segredo da felicidade": a presença da Santíssima Trindade habitando no mais íntimo de sua alma. Ela se via como "louvor de glória" da Trindade, oferecendo sua vida e seus sofrimentos em união com Cristo. Sua espiritualidade, profundamente teológica e acessível, convida-nos a tomar consciência desta presença divina em nós e a viver cada momento como um ato de amor e adoração.</p>'
       },
       {
-        name: 'São Deodato I, Papa',
+        name: 'S. Deodato I, Papa',
         imageUrl: 'https://i.postimg.cc/zfCWm54m/image.png',
         story: '<p>São Deodato I, Papa no início do século VII, é lembrado pelo seu grande amor ao clero e ao povo de Roma. Foi o primeiro Papa a usar o selo papal de chumbo ("bulla") nos documentos pontifícios, uma prática que continua até hoje. Em um tempo de calamidades, como terremotos e lepra, ele se dedicou com caridade heroica ao cuidado dos doentes e necessitados. Seu pontificado foi um testemunho de serviço humilde e de paternidade espiritual para com a Igreja de Roma.</p>'
       }
@@ -3918,7 +3918,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 10,
     month: 'Novembro',
     saints: [{
-      name: 'São Leão Magno',
+      name: 'S. Leão Magno',
       imageUrl: 'https://i.postimg.cc/NjYhYCpF/image.png',
       story: '<p>São Leão Magno, Papa no século V, foi um dos maiores defensores da fé católica. Em um tempo de grandes heresias cristológicas, ele defendeu com clareza e autoridade a doutrina das duas naturezas de Cristo, divina e humana, unidas numa só Pessoa. Seu famoso "Tomo a Flaviano" foi a base para a definição dogmática do Concílio de Calcedônia. Além de grande teólogo, foi também um pastor corajoso. Em 452, enfrentou Átila, o Huno, e conseguiu evitar que Roma fosse saqueada. É um modelo de Papa, que une a solidez da doutrina à coragem pastoral.</p>'
     }]
@@ -3927,7 +3927,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 11,
     month: 'Novembro',
     saints: [{
-      name: 'São Martinho de Tours',
+      name: 'S. Martinho de Tours',
       imageUrl: 'https://iili.io/Kpnr9DB.jpg',
       story: '<p>São Martinho de Tours é um dos santos mais populares da Europa. Nascido na Panônia (atual Hungria), era soldado romano. O episódio mais famoso de sua vida ocorreu when, ainda catecúmeno, encontrou um pobre a tremer de frio às portas da cidade de Amiens. Sem hesitar, cortou seu manto ao meio com a espada e deu metade ao pobre. Na noite seguinte, Cristo apareceu-lhe em sonho, vestido com a metade do manto que ele havia dado. Este evento marcou sua conversão. Deixou o exército, foi batizado e tornou-se monge e, mais tarde, bispo de Tours. Sua vida foi um exemplo de caridade e zelo evangelizador.</p>'
     }]
@@ -3936,7 +3936,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 12,
     month: 'Novembro',
     saints: [{
-      name: 'São Josafá Kuncewicz',
+      name: 'S. Josafá Kuncewicz',
       imageUrl: 'https://iili.io/KpzoCFV.png',
       story: '<p>São Josafá, arcebispo de Polotsk no século XVII, foi um ardente apóstolo da unidade dos cristãos. Viveu em uma época de grande divisão entre católicos e ortodoxos na Europa Oriental. Dedicou sua vida a promover a união da Igreja Ortodoxa com Roma, através do diálogo, da pregação e da reforma do clero. Seu zelo pela unidade, no entanto, atraiu o ódio dos que se opunham à união. Foi brutalmente assassinado por uma multidão enfurecida, tornando-se um mártir da unidade da Igreja. Seu sangue derramado é uma semente de esperança para o ecumenismo.</p>',
       isMartyr: true
@@ -3947,12 +3947,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'São Diogo de Alcalá',
+        name: 'S. Diogo de Alcalá',
         imageUrl: 'https://iili.io/KpuuHiX.png',
         story: '<p>São Diogo, irmão leigo franciscano do século XV, é um exemplo de santidade vivida na humildade e no serviço. Embora analfabeto, possuía uma sabedoria divina que atraía a ele muitas pessoas em busca de conselho. Sua vida foi marcada por uma caridade extraordinária para com os pobres e doentes. O "milagre das flores", em que os pães que levava escondido para os pobres se transformaram em flores, é um belo símbolo de sua caridade, que transformava o simples em extraordinário.</p>'
       },
       {
-        name: 'São Nicolau I, Papa',
+        name: 'S. Nicolau I, Papa',
         imageUrl: 'https://iili.io/KpuYJ8g.png',
         story: '<p>São Nicolau I, conhecido como "o Grande", foi um dos Papas mais enérgicos e influentes da Idade Média. Em um tempo de grande instabilidade política, ele defendeu com firmeza a autoridade da Sé Apostólica contra as interferências dos imperadores e príncipes. Lutou contra a corrupção do clero e defendeu a santidade do matrimônio. Seu pontificado foi um marco na afirmação da independência e da missão universal da Igreja.</p>'
       }
@@ -3963,13 +3963,13 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'Santos Estêvão T. Cuénot e Mártires',
+        name: 'S. Estêvão T. Cuénot e Mártires',
         imageUrl: 'https://iili.io/KpAYnr7.png',
         story: '<p>A Igreja celebra hoje a memória de um grupo de mártires do Vietnã, liderados pelo bispo Santo Estêvão Teodoro Cuénot. Missionário francês das Missões Estrangeiras de Paris, dedicou 30 anos de sua vida à evangelização do Vietnã, em meio a perseguições ferozes. Preso e condenado à morte, morreu na prisão antes da execução, consumindo seu martírio no sofrimento. Com ele, celebramos a multidão de cristãos vietnamitas que deram a vida por Cristo.</p>',
         isMartyr: true
       },
       {
-        name: 'Santo Estanislau Kostka',
+        name: 'S. Estanislau Kostka',
         imageUrl: 'https://iili.io/KpAYC1S.jpg',
         story: '<p>Santo Estanislau Kostka, jovem nobre polonês do século XVI, é um modelo para a juventude. Sentindo um forte chamado para a vida religiosa jesuíta, enfrentou a oposição ferrenha de sua família. Para realizar sua vocação, fugiu de casa e caminhou mais de 500 quilômetros a pé até Roma, para ser admitido na Companhia de Jesus. Sua vida no noviciado foi curta, mas intensa em amor a Deus e a Maria. Morreu aos 18 anos, deixando um exemplo de determinação e pureza de coração.</p>'
       }
@@ -3979,7 +3979,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 15,
     month: 'Novembro',
     saints: [{
-      name: 'Santo Alberto Magno',
+      name: 'S. Alberto Magno',
       imageUrl: 'https://iili.io/KpAYBB2.jpg',
       story: '<p>Santo Alberto Magno, dominicano alemão do século XIII, foi um dos maiores intelectuais da Idade Média. Conhecido como o "Doutor Universal", seu conhecimento abrangia teologia, filosofia, ciências naturais, astronomia, química e muito mais. Foi um pioneiro no diálogo entre a fé e a razão, mostrando que a ciência e a religião não se opõem, mas se complementam. Foi mestre de São Tomás de Aquino, a quem defendeu e cujo génio reconheceu. Sua vida nos ensina a buscar a verdade em todas as áreas do conhecimento, sempre com o olhar voltado para Deus, a fonte de toda a verdade.</p>'
     }]
@@ -3988,8 +3988,8 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 16,
     month: 'Novembro',
     saints: [{
-      name: 'Santa Margarida da Escócia',
-      imageUrl: 'https://iili.io/KpAYfLl.jpg',
+      name: 'Sta. Margarida da Escócia',
+      imageUrl: '/images/santos/santa-margarida-escocia.jpg',
       story: '<p>Santa Margarida, rainha da Escócia no século XI, foi um exemplo luminoso de como a santidade pode florescer na vida familiar e no exercício do poder. Neta do rei da Inglaterra, casou-se com o rei Malcolm III da Escócia. Como rainha, usou sua influência para reformar a Igreja na Escócia, promovendo a disciplina eclesiástica, fundando mosteiros e igrejas, e incentivando a prática dos sacramentos. Ao mesmo tempo, foi uma esposa e mãe exemplar, educando seus oito filhos na fé cristã. Sua vida foi marcada por uma intensa caridade para com os pobres e órfãos, a quem servia pessoalmente todos os dias.</p>'
     }]
   },
@@ -3997,8 +3997,8 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 17,
     month: 'Novembro',
     saints: [{
-      name: 'Santa Isabel da Hungria',
-      imageUrl: 'https://i.postimg.cc/pdDpq2dk/image.png',
+      name: 'Sta. Isabel da Hungria',
+      imageUrl: '/images/santos/santa-isabel-hungria.jpg',
       story: '<p>Santa Isabel, princesa da Hungria e duquesa da Turíngia no século XIII, é um dos mais belos exemplos de caridade cristã. Desde jovem, renunciou ao luxo da corte para viver uma vida de simplicidade e serviço aos pobres. Após a morte prematura de seu marido, a quem amava profundamente, dedicou-se inteiramente aos necessitados, fundando um hospital onde ela mesma cuidava dos doentes. O famoso "milagre das rosas" - em que o pão que levava escondido para os pobres se transformou em rosas - simboliza a beleza de sua caridade, que transformava o pão material em alimento para a alma.</p>'
     }]
   },
@@ -4022,7 +4022,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
         isMartyr: true
       },
       {
-        name: 'São Rafael Kalinowski',
+        name: 'S. Rafael Kalinowski',
         imageUrl: 'https://iili.io/f9QXCSR.jpg',
         story: '<p>São Rafael Kalinowski, engenheiro militar e líder de uma insurreição polonesa contra o domínio russo, foi condenado à morte e depois exilado na Sibéria. Após dez anos de trabalhos forçados, onde foi um anjo de consolação para os outros prisioneiros, ingressou na Ordem dos Carmelitas Descalços. Como sacerdote, tornou-se um diretor espiritual muito procurado, conhecido pela sua sabedoria e discernimento. É um modelo de reconciliação e de fé que supera as maiores provações.</p>'
       }
@@ -4033,7 +4033,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'São Félix de Valois',
+        name: 'S. Félix de Valois',
         imageUrl: 'https://iili.io/fHTsnqv.png',
         story: '<p>São Félix de Valois, príncipe francês, renunciou a uma vida na corte para viver como eremita. Juntamente com São João de Matha, fundou a Ordem da Santíssima Trindade, dedicada à redenção dos cristãos cativos dos mouros. Os trinitários dedicavam-se a recolher esmolas para pagar o resgate dos escravos, arriscando a própria vida em missões perigosas. São Félix é um exemplo de renúncia ao mundo e de amor heróico aos irmãos mais sofredores.</p>'
       }
@@ -4052,8 +4052,8 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 22,
     month: 'Novembro',
     saints: [{
-      name: 'Santa Cecília',
-      imageUrl: 'https://i.postimg.cc/4xDNjn2c/image.png',
+      name: 'Sta. Cecília',
+      imageUrl: '/images/santos/santa-cecilia.jpg',
       story: '<p>Santa Cecília, virgem e mártir romana dos primeiros séculos, é a padroeira da música e dos músicos. Segundo a tradição, no dia de seu casamento com um nobre pagão, while os instrumentos musicais tocavam, Cecília cantava em seu coração apenas para o Senhor, a quem havia consagrado sua virgindade. Converteu seu marido, Valeriano, e seu cunhado, Tibúrcio, que também foram martirizados. Condenada à morte, sobreviveu a uma tentativa de asfixia e, finally, foi decapitada. Sua vida nos ensina que a verdadeira música é aquela que brota de um coração que ama a Deus sobre todas as coisas.</p>',
       isMartyr: true
     }]
@@ -4063,12 +4063,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'São Columbano',
+        name: 'S. Columbano',
         imageUrl: 'https://iili.io/fHuYjt4.png',
         story: '<p>São Columbano foi um monge e missionário irlandês, uma das figuras mais influentes do cristianismo no início da Idade Média. Fundou numerosos mosteiros na Europa continental, que se tornaram centros de cultura, oração e evangelização. Era conhecido pela sua rigorosa disciplina monástica, mas também pelo seu zelo missionário e pela sua coragem em repreender os vícios dos reis e nobres. É um dos padroeiros da Europa.</p>'
       },
       {
-        name: 'São Clemente I, Papa',
+        name: 'S. Clemente I, Papa',
         imageUrl: 'https://iili.io/fHuYhNf.jpg',
         story: '<p>São Clemente, terceiro sucessor de São Pedro, governou a Igreja no final do primeiro século. A sua "Carta aos Coríntios" é um dos documentos mais importantes da era pós-apostólica, um testemunho da autoridade do Bispo de Roma e da sua solicitude por todas as Igrejas. Foi martirizado no exílio, segundo a tradição, e é um elo precioso na cadeia da sucessão apostólica, que nos une diretamente a Cristo e aos Apóstolos.</p>',
         isMartyr: true
@@ -4080,7 +4080,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'S. André Dung-Lac e J. Teófanes Venard',
+        name: 'S. André Dung-Lac e Teófanes Vénard',
         imageUrl: 'https://iili.io/fHuhIKG.png',
         story: '<p>Santo André Dung-Lac (1795-1839) foi um sacerdote vietnamita e catequista que dedicou sua vida à evangelização e ao serviço pastoral no Vietnã. Como membro do clero nativo, enfrentou perseguições constantes durante o reinado do imperador Minh Mang, que perseguiu brutalmente os cristãos. André Dung-Lac não apenas celebrava os sacramentos secretamente, mas também guiava espiritualmente as comunidades cristãs perseguidas, demonstrando uma coragem extraordinária e uma fé inabalável. Foi capturado, torturado e finalmente martirizado em 1839.</p><p>João Teófanes Venard (1829-1861) foi um sacerdote e missionário francês pertencente à Sociedade das Missões Estrangeiras de Paris. Chegou ao Vietnã como missionário apostólico com o ardor de propagar o Evangelho. Seus escritos, especialmente sua correspondência, revelam uma alma profundamente apaixonada por Cristo e um amor genuíno pelo povo vietnamita. Teófanes trabalhou incansavelmente na evangelização, formando sacerdotes locais como André Dung-Lac. Durante a perseguição, oferecia-se voluntariamente para ser capturado a fim de poupar seus catequistas. Foi martirizado em 1861.</p><p>Estes dois santos, embora separados por gerações, estão unidos na memória da Igreja como símbolos da perseverança cristã no Vietnã. Seu martírio marca a fidelidade de inúmeros cristãos vietnamitas que preferiram a morte a renunciar à fé. Entre os séculos XVII e XIX, 117 mártires vietnamitas foram canonizados, representando bispos, sacerdotes, religiosos e leigos. Sua coragem inspira-nos a viver com autenticidade nossa fé, dispostos a testemunhar Cristo mesmo diante das maiores adversidades. O sangue dos mártires é semente de novos cristãos.</p>',
         isMartyr: true
@@ -4091,7 +4091,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 25,
     month: 'Novembro',
     saints: [{
-      name: 'Santa Catarina de Alexandria',
+      name: 'Sta. Catarina de Alexandria',
       imageUrl: 'https://i.postimg.cc/s2FFt7gs/image.png',
       story: '<p>Santa Catarina de Alexandria, virgem e mártir do século IV, é uma das santas mais veneradas da Igreja. De nobre linhagem e dotada de uma inteligência extraordinária, converteu-se ao cristianismo e dedicou-se ao estudo da filosofia e da teologia. A tradição conta que, durante a perseguição do imperador Maximino, ela confundiu os 50 filósofos mais sábios do império, que tentaram fazê-la renunciar à fé, e acabou por convertê-los. Foi condenada a morrer numa roda com lâminas, que se quebrou milagrosamente ao seu toque. Finalmente, foi decapitada. É a padroeira dos estudantes, filósofos e de todos os que buscam a sabedoria.</p>',
       isMartyr: true
@@ -4102,12 +4102,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'São Leonardo de Porto Maurício',
+        name: 'S. Leonardo de Porto Maurício',
         imageUrl: 'https://iili.io/fHuDZwN.png',
         story: '<p>São Leonardo, frade franciscano do século XVIII, foi um dos maiores pregadores de missões populares de seu tempo. Percorreu a Itália a pé, pregando com um fervor que convertia multidões. É conhecido sobretudo por sua devoção à Via-Sacra, tendo sido o grande promotor desta prática piedosa, erigindo mais de 500 Vias-Sacras por toda a Itália, incluindo a famosa do Coliseu de Roma. Sua vida nos ensina a importância de meditar na Paixão de Cristo.</p>'
       },
       {
-        name: 'Beato Tiago Alberione',
+        name: 'B. Tiago Alberione',
         imageUrl: 'https://iili.io/fHuD8ZP.jpg',
         story: '<p>O Beato Tiago Alberione, sacerdote italiano, foi um apóstolo moderno que compreendeu a importância de evangelizar através dos meios de comunicação. Fundou a Família Paulina, um conjunto de congregações religiosas e institutos seculares dedicados ao apostolado da imprensa, do cinema, da rádio e da televisão. Sua visão profética continua a inspirar a Igreja a usar todas as tecnologias modernas para anunciar o Evangelho a todos os povos.</p>'
       },
@@ -4132,12 +4132,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'Santa Catarina Labouré',
+        name: 'Sta. Catarina Labouré',
         imageUrl: 'https://iili.io/fHuDOyQ.jpg',
         story: '<p>Santa Catarina Labouré, a humilde Filha da Caridade a quem N.S. apareceu em 1830, viveu o resto de sua vida no anonimato, trabalhando num asilo de idosos em Paris. Ninguém, exceto seu diretor espiritual, sabia que ela era a vidente da Medalha Milagrosa. Sua vida foi um exemplo de humildade, silêncio e serviço. Ela guardou o "segredo da Rainha" em seu coração, mostrando que a verdadeira grandeza está em se apagar para que Deus possa brilhar.</p>'
       },
       {
-        name: 'São Tiago da Marca',
+        name: 'S. Tiago da Marca',
         imageUrl: 'https://iili.io/fHuDkuV.webp',
         story: '<p>São Tiago da Marca, franciscano do século XV, foi um pregador incansável e reformador da Ordem. Dotado de uma grande inteligência e de um zelo ardente, combateu as heresias de seu tempo e promoveu a paz entre as cidades italianas. Foi também um dos iniciadores dos "Montes de Piedade", uma espécie de banco de empréstimos sem juros para ajudar os pobres a escapar da usura, um testemunho de sua preocupação social.</p>'
       }
@@ -4148,12 +4148,12 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     month: 'Novembro',
     saints: [
       {
-        name: 'São Francisco Antônio Fasani',
+        name: 'S. Francisco Antônio Fasani',
         imageUrl: 'https://iili.io/fHuDi8v.jpg',
         story: '<p>São Francisco Antônio Fasani, frade franciscano conventual do século XVIII, foi um "doutor" para os humildes e um "pai" para os pobres. Dotado de grande sabedoria teológica, preferiu dedicar-se à pregação popular e ao confessionário, onde passava horas a fio. Sua caridade para com os necessitados era lendária. É um modelo de pastor que une a profundidade da doutrina à simplicidade do amor.</p>'
       },
       {
-        name: 'São Saturnino de Tolosa',
+        name: 'S. Saturnino de Tolosa',
         imageUrl: 'https://iili.io/fHuDPcJ.jpg',
         story: '<p>São Saturnino foi o primeiro bispo de Tolosa, na Gália (atual França), no século III. Em um ambiente de paganismo dominante, ele pregou corajosamente o Evangelho. A tradição conta que, por se recusar a sacrificar aos ídolos, foi amarrado a um touro furioso e arrastado pelas escadas do Capitólio, consumando seu martírio. Sua coragem e fidelidade foram a semente da fé cristã naquela região.</p>',
         isMartyr: true
@@ -4164,7 +4164,7 @@ export const saintsOfTheDay: SaintOfTheDayData[] = [
     day: 30,
     month: 'Novembro',
     saints: [{
-      name: 'Santo André, Apóstolo',
+      name: 'S. André, Apóstolo',
       imageUrl: 'https://iili.io/KpAtzcG.jpg',
       story: '<p>Santo André, irmão de Simão Pedro, foi o primeiro dos Apóstolos a ser chamado por Jesus. Era discípulo de João Batista e, when este apontou para Jesus dizendo "Eis o Cordeiro de Deus", André seguiu imediatamente o Mestre. A sua primeira ação como discípulo foi levar o seu próprio irmão a Jesus, dizendo: "Encontrámos o Messias". Por isso, é chamado de "Protocleto" (o primeiro chamado). Após o Pentecostes, a tradição diz que ele pregou o Evangelho em várias regiões, incluindo a Grécia, onde foi martirizado em Patras, crucificado numa cruz em forma de X, que hoje leva o seu nome. É um modelo de prontidão em seguir Jesus e de zelo em levar os outros a Ele.</p>',
       isMartyr: true
@@ -4510,7 +4510,7 @@ saintsOfTheDay.push(...saintsOfTheDayDecember);
     let n = name.toLowerCase();
     
     const prefixes = [
-      "sao ", "santo ", "santa ", "sta. ", "s. ", "ns. ", 
+      "sao ", "santo ", "santa ", "sta. ", "sta ", "s. ", "ns. ", "b. ", "beato ", "beata ",
       "nossa senhora de ", "nossa senhora do ", "nossa senhora da ", "nossa senhora das ", "nossa senhora ",
       "n.s. de ", "n.s. do ", "n.s. da ", "n.s. das ", "n.s. "
     ];
@@ -4538,23 +4538,30 @@ saintsOfTheDay.push(...saintsOfTheDayDecember);
   const imageMap = new Map<string, string>();
 
   // Popula a partir da lista principal de santos (Novenas)
+  // Imagens locais (/images/...) têm prioridade máxima de qualidade e estabilidade
   saints.forEach(s => {
     if (s.imageUrl) {
       const norm = normalizeName(s.name);
-      if (norm) imageMap.set(norm, s.imageUrl);
+      if (norm) {
+        const existing = imageMap.get(norm);
+        if (!existing || (s.imageUrl.startsWith('/') && !existing.startsWith('/'))) {
+          imageMap.set(norm, s.imageUrl);
+        }
+      }
     }
   });
 
   // Popula/atualiza a partir de saintsOfTheDay (Santo do Dia)
-  // Prioriza links externos (http) caso um esteja em formato local e o outro externo
   saintsOfTheDay.forEach(day => {
     day.saints?.forEach(s => {
       if (s.imageUrl) {
         const norm = normalizeName(s.name);
         if (norm) {
           const existing = imageMap.get(norm);
-          if (!existing || (s.imageUrl.startsWith("http") && !existing.startsWith("http"))) {
+          if (!existing) {
             imageMap.set(norm, s.imageUrl);
+          } else if (s.imageUrl.startsWith('/') && !existing.startsWith('/')) {
+            imageMap.set(norm, s.imageUrl); // Imagem local tem precedência absoluta
           }
         }
       }
