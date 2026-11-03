@@ -27,6 +27,13 @@ export default function EspacoMarianoPage() {
 
     React.useEffect(() => {
         setHydrated(true);
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            const sectionParam = params.get("secao") || params.get("section");
+            if (sectionParam === "consagracao" || window.location.hash === "#consagracao") {
+                setActiveSection("consagracao");
+            }
+        }
     }, []);
 
     const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {

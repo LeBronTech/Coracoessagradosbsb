@@ -134,17 +134,18 @@ export default function Home() {
   }, []);
   const [userProgress, setUserProgress] = useState<{ 
     completed: number; 
-    ongoing: { id: string; name: string; day: number; totalDays: number; imageUrl?: string }[];
-    completedList: { id: string; name: string; totalDays: number; imageUrl?: string }[];
+    ongoing: { id: string; name: string; day: number; totalDays: number; imageUrl?: string; path?: string; colorTheme?: 'primary' | 'blue' | 'green' }[];
+    completedList: { id: string; name: string; totalDays: number; imageUrl?: string; path?: string; colorTheme?: 'primary' | 'blue' | 'green' }[];
   }>({ completed: 0, ongoing: [], completedList: [] });
 
   const calculateProgress = useCallback(() => {
     if (typeof window === 'undefined') return;
     
     let completedCount = 0;
-    const ongoingItems: { id: string; name: string; day: number; totalDays: number; imageUrl?: string }[] = [];
-    const completedItems: { id: string; name: string; totalDays: number; imageUrl?: string }[] = [];
+    const ongoingItems: { id: string; name: string; day: number; totalDays: number; imageUrl?: string; path?: string; colorTheme?: 'primary' | 'blue' | 'green' }[] = [];
+    const completedItems: { id: string; name: string; totalDays: number; imageUrl?: string; path?: string; colorTheme?: 'primary' | 'blue' | 'green' }[] = [];
 
+    // 1. Novenas Tradicionais
     Object.keys(novenaData).forEach(id => {
       const novena = novenaData[id];
       const saint = saints.find(s => s.id === id) || (id.startsWith('natal') ? { name: id === 'natal_sao_leao' ? 'São Leão Magno' : 'Sagrada Família', imageUrl: 'https://iili.io/2uD5114.jpg' } : null);
@@ -188,6 +189,122 @@ export default function Home() {
       });
     });
 
+    // 2. Consagração a Nossa Senhora (Espaço Mariano - 33 Dias)
+    const marianSaved = localStorage.getItem("mariano-consagracao-completed");
+    if (marianSaved) {
+      try {
+        const marianDays = JSON.parse(marianSaved);
+        if (Array.isArray(marianDays) && marianDays.length > 0) {
+          const daysDone = marianDays.length;
+          if (daysDone >= 33) {
+            completedCount++;
+            if (!completedItems.some(item => item.id === "consagracao_mariana")) {
+              completedItems.push({
+                id: "consagracao_mariana",
+                name: "Consagração a Nossa Senhora",
+                totalDays: 33,
+                imageUrl: "https://iili.io/KpYhaae.png",
+                path: "/espaco-mariano?secao=consagracao#consagracao",
+                colorTheme: "blue"
+              });
+            }
+          } else {
+            let activeMarianDay = Math.max(...marianDays);
+            const savedCurrentDay = localStorage.getItem("mariano-consagracao-current-day");
+            if (savedCurrentDay) {
+              const p = parseInt(savedCurrentDay, 10);
+              if (!isNaN(p) && p >= 1 && p <= 33) {
+                activeMarianDay = p;
+              }
+            }
+            // Lógica 00h (virada de meia-noite)
+            const savedDates = localStorage.getItem("mariano-consagracao-completed-dates");
+            if (savedDates) {
+              try {
+                const datesObj = JSON.parse(savedDates);
+                const todayStr = new Date().toLocaleDateString('en-CA');
+                if (marianDays.includes(activeMarianDay) && datesObj[activeMarianDay.toString()] && datesObj[activeMarianDay.toString()] < todayStr) {
+                  if (activeMarianDay + 1 <= 33) {
+                    activeMarianDay = activeMarianDay + 1;
+                  }
+                }
+              } catch (e) {}
+            }
+
+            if (!ongoingItems.some(item => item.id === "consagracao_mariana")) {
+              ongoingItems.push({
+                id: "consagracao_mariana",
+                name: "Consagração a Nossa Senhora",
+                day: Math.min(activeMarianDay, 33),
+                totalDays: 33,
+                imageUrl: "https://iili.io/KpYhaae.png",
+                path: "/espaco-mariano?secao=consagracao#consagracao",
+                colorTheme: "blue"
+              });
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
+    // 3. Consagração a São José (Espaço São José - 33 Dias)
+    const joseSaved = localStorage.getItem("sao-jose-consagracao-completed");
+    if (joseSaved) {
+      try {
+        const joseDays = JSON.parse(joseSaved);
+        if (Array.isArray(joseDays) && joseDays.length > 0) {
+          const daysDone = joseDays.length;
+          if (daysDone >= 33) {
+            completedCount++;
+            if (!completedItems.some(item => item.id === "consagracao_sao_jose")) {
+              completedItems.push({
+                id: "consagracao_sao_jose",
+                name: "Consagração a São José",
+                totalDays: 33,
+                imageUrl: "https://iili.io/KpYhc8u.png",
+                path: "/sao-jose?secao=consagracao#consagracao",
+                colorTheme: "green"
+              });
+            }
+          } else {
+            let activeJoseDay = Math.max(...joseDays);
+            const savedCurrentDay = localStorage.getItem("sao-jose-consagracao-current-day");
+            if (savedCurrentDay) {
+              const p = parseInt(savedCurrentDay, 10);
+              if (!isNaN(p) && p >= 1 && p <= 33) {
+                activeJoseDay = p;
+              }
+            }
+            // Lógica 00h (virada de meia-noite)
+            const savedDates = localStorage.getItem("sao-jose-consagracao-completed-dates");
+            if (savedDates) {
+              try {
+                const datesObj = JSON.parse(savedDates);
+                const todayStr = new Date().toLocaleDateString('en-CA');
+                if (joseDays.includes(activeJoseDay) && datesObj[activeJoseDay.toString()] && datesObj[activeJoseDay.toString()] < todayStr) {
+                  if (activeJoseDay + 1 <= 33) {
+                    activeJoseDay = activeJoseDay + 1;
+                  }
+                }
+              } catch (e) {}
+            }
+
+            if (!ongoingItems.some(item => item.id === "consagracao_sao_jose")) {
+              ongoingItems.push({
+                id: "consagracao_sao_jose",
+                name: "Consagração a São José",
+                day: Math.min(activeJoseDay, 33),
+                totalDays: 33,
+                imageUrl: "https://iili.io/KpYhc8u.png",
+                path: "/sao-jose?secao=consagracao#consagracao",
+                colorTheme: "green"
+              });
+            }
+          }
+        }
+      } catch (e) {}
+    }
+
     setUserProgress({ completed: completedCount, ongoing: ongoingItems, completedList: completedItems });
   }, [saints]);
 
@@ -196,6 +313,25 @@ export default function Home() {
       calculateProgress();
     }
   }, [hydrated, calculateProgress]);
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      calculateProgress();
+    }
+  }, [isMenuOpen, calculateProgress]);
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const handleProgressUpdate = () => {
+      calculateProgress();
+    };
+    window.addEventListener('novena-progress-updated', handleProgressUpdate);
+    window.addEventListener('storage', handleProgressUpdate);
+    return () => {
+      window.removeEventListener('novena-progress-updated', handleProgressUpdate);
+      window.removeEventListener('storage', handleProgressUpdate);
+    };
+  }, [calculateProgress]);
 
   useEffect(() => {
     if (!marianCarouselApi) return
@@ -615,7 +751,7 @@ export default function Home() {
     }
   }
 
-  const handlePageTransition = (e: React.MouseEvent<HTMLAnchorElement>, url: string) => {
+  const handlePageTransition = (e: React.MouseEvent<HTMLElement>, url: string) => {
     e.preventDefault();
     try {
       const currentScroll = window.scrollY || scrollPosRef.current || 0;
@@ -806,14 +942,27 @@ export default function Home() {
                   <div className="space-y-2.5">
                     {userProgress.ongoing.map((item) => {
                       const pct = Math.min(100, Math.round((item.day / item.totalDays) * 100));
+                      const isBlue = item.colorTheme === 'blue';
+                      const isGreen = item.colorTheme === 'green';
                       return (
                         <div
                           key={item.id}
-                          onClick={() => {
-                            handleNavigateToNovena(item.id);
+                          onClick={(e) => {
+                            if (item.path) {
+                              handlePageTransition(e, item.path);
+                            } else {
+                              handleNavigateToNovena(item.id);
+                            }
                             setIsMenuOpen(false);
                           }}
-                          className="w-full bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-sm border border-stone-200/90 hover:border-primary/50 hover:shadow-md transition-all group cursor-pointer text-left block"
+                          className={cn(
+                            "w-full bg-white/95 backdrop-blur-sm p-3.5 rounded-2xl shadow-sm border transition-all group cursor-pointer text-left block",
+                            isBlue
+                              ? "border-blue-200/90 hover:border-blue-500 hover:shadow-md hover:shadow-blue-500/10"
+                              : isGreen
+                              ? "border-emerald-200/90 hover:border-emerald-500 hover:shadow-md hover:shadow-emerald-500/10"
+                              : "border-stone-200/90 hover:border-primary/50 hover:shadow-md"
+                          )}
                         >
                           <div className="flex items-center gap-3">
                             {item.imageUrl ? (
@@ -822,35 +971,98 @@ export default function Home() {
                                 alt={item.name}
                                 width={44}
                                 height={44}
-                                className="w-11 h-11 rounded-full object-cover border-2 border-primary/30 shadow-sm shrink-0 group-hover:scale-105 transition-transform"
+                                className={cn(
+                                  "w-11 h-11 rounded-full object-cover shadow-sm shrink-0 group-hover:scale-105 transition-transform",
+                                  isBlue
+                                    ? "border-2 border-blue-400/50"
+                                    : isGreen
+                                    ? "border-2 border-emerald-400/50"
+                                    : "border-2 border-primary/30"
+                                )}
                               />
                             ) : (
-                              <div className="w-11 h-11 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm shrink-0">
+                              <div
+                                className={cn(
+                                  "w-11 h-11 rounded-full flex items-center justify-center font-bold text-sm shrink-0",
+                                  isBlue
+                                    ? "bg-blue-100 text-blue-700"
+                                    : isGreen
+                                    ? "bg-emerald-100 text-emerald-700"
+                                    : "bg-primary/10 text-primary"
+                                )}
+                              >
                                 ✞
                               </div>
                             )}
 
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center justify-between gap-1">
-                                <h4 className="font-brand font-bold text-sm text-gray-800 group-hover:text-primary transition-colors truncate">
+                                <h4
+                                  className={cn(
+                                    "font-brand font-bold text-sm transition-colors truncate",
+                                    isBlue
+                                      ? "text-blue-950 group-hover:text-blue-700"
+                                      : isGreen
+                                      ? "text-stone-900 group-hover:text-emerald-700"
+                                      : "text-gray-800 group-hover:text-primary"
+                                  )}
+                                >
                                   {item.name}
                                 </h4>
-                                <span className="text-[11px] bg-primary/10 text-primary border border-primary/20 px-2 py-0.5 rounded-full font-bold whitespace-nowrap shrink-0">
+                                <span
+                                  className={cn(
+                                    "text-[11px] px-2 py-0.5 rounded-full font-bold whitespace-nowrap shrink-0 border",
+                                    isBlue
+                                      ? "bg-blue-50 text-blue-700 border-blue-200"
+                                      : isGreen
+                                      ? "bg-emerald-50 text-emerald-700 border-emerald-200"
+                                      : "bg-primary/10 text-primary border-primary/20"
+                                  )}
+                                >
                                   Dia {item.day} de {item.totalDays}
                                 </span>
                               </div>
 
-                              {/* Barra de Progresso elegante */}
-                              <div className="mt-2 w-full bg-stone-100 rounded-full h-2 overflow-hidden border border-stone-200/80">
+                              {/* Barra de Progresso elegante e fina */}
+                              <div
+                                className={cn(
+                                  "mt-2 w-full rounded-full h-1.5 overflow-hidden border",
+                                  isBlue
+                                    ? "bg-blue-100/80 border-blue-200/60"
+                                    : isGreen
+                                    ? "bg-emerald-100/80 border-emerald-200/60"
+                                    : "bg-stone-100 border-stone-200/80"
+                                )}
+                              >
                                 <div
-                                  className="h-full bg-gradient-to-r from-primary to-amber-600 rounded-full transition-all duration-500"
+                                  className={cn(
+                                    "h-full rounded-full transition-all duration-500",
+                                    isBlue
+                                      ? "bg-gradient-to-r from-blue-600 to-indigo-600"
+                                      : isGreen
+                                      ? "bg-gradient-to-r from-emerald-600 to-teal-600"
+                                      : "bg-gradient-to-r from-primary to-amber-600"
+                                  )}
                                   style={{ width: `${pct}%` }}
                                 />
                               </div>
 
                               <div className="flex items-center justify-between mt-1 text-[11px] text-gray-500">
-                                <span>{pct}% concluído</span>
-                                <span className="text-primary font-semibold group-hover:underline">Rezar hoje →</span>
+                                <span className={isBlue ? "text-blue-700 font-medium" : ""}>
+                                  {pct}% concluído
+                                </span>
+                                <span
+                                  className={cn(
+                                    "font-semibold group-hover:underline",
+                                    isBlue
+                                      ? "text-blue-700"
+                                      : isGreen
+                                      ? "text-emerald-700"
+                                      : "text-primary"
+                                  )}
+                                >
+                                  Rezar hoje →
+                                </span>
                               </div>
                             </div>
                           </div>
@@ -861,7 +1073,7 @@ export default function Home() {
                 ) : (
                   <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-dashed border-stone-300 text-center">
                     <p className="text-xs text-stone-600">
-                      Nenhuma novena em andamento no momento. Escolha uma abaixo para iniciar!
+                      Nenhuma novena ou consagração em andamento no momento. Escolha uma abaixo para iniciar!
                     </p>
                   </div>
                 )}
@@ -878,49 +1090,87 @@ export default function Home() {
 
                 {userProgress.completedList.length > 0 ? (
                   <div className="space-y-2">
-                    {userProgress.completedList.map((item) => (
-                      <div
-                        key={item.id}
-                        onClick={() => {
-                          handleNavigateToNovena(item.id);
-                          setIsMenuOpen(false);
-                        }}
-                        className="w-full bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-sm border border-emerald-100/90 hover:border-emerald-300 hover:shadow-md transition-all group cursor-pointer flex items-center justify-between gap-3 text-left"
-                      >
-                        <div className="flex items-center gap-2.5 min-w-0">
-                          {item.imageUrl ? (
-                            <Image
-                              src={getProxiedImageUrl(item.imageUrl)}
-                              alt={item.name}
-                              width={36}
-                              height={36}
-                              className="w-9 h-9 rounded-full object-cover border border-emerald-500/40 shadow-sm shrink-0"
-                            />
-                          ) : (
-                            <div className="w-9 h-9 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs shrink-0">
-                              ✓
-                            </div>
+                    {userProgress.completedList.map((item) => {
+                      const isBlue = item.colorTheme === 'blue';
+                      return (
+                        <div
+                          key={item.id}
+                          onClick={(e) => {
+                            if (item.path) {
+                              handlePageTransition(e, item.path);
+                            } else {
+                              handleNavigateToNovena(item.id);
+                            }
+                            setIsMenuOpen(false);
+                          }}
+                          className={cn(
+                            "w-full bg-white/90 backdrop-blur-sm p-3 rounded-xl shadow-sm border transition-all group cursor-pointer flex items-center justify-between gap-3 text-left",
+                            isBlue
+                              ? "border-blue-100/90 hover:border-blue-400 hover:shadow-md"
+                              : "border-emerald-100/90 hover:border-emerald-300 hover:shadow-md"
                           )}
-                          <div className="min-w-0">
-                            <h4 className="font-brand font-bold text-sm text-gray-800 group-hover:text-emerald-800 transition-colors truncate">
-                              {item.name}
-                            </h4>
-                            <p className="text-[11px] text-gray-500">
-                              {item.totalDays} dias concluídos
-                            </p>
+                        >
+                          <div className="flex items-center gap-2.5 min-w-0">
+                            {item.imageUrl ? (
+                              <Image
+                                src={getProxiedImageUrl(item.imageUrl)}
+                                alt={item.name}
+                                width={36}
+                                height={36}
+                                className={cn(
+                                  "w-9 h-9 rounded-full object-cover shadow-sm shrink-0",
+                                  isBlue
+                                    ? "border border-blue-500/40"
+                                    : "border border-emerald-500/40"
+                                )}
+                              />
+                            ) : (
+                              <div
+                                className={cn(
+                                  "w-9 h-9 rounded-full flex items-center justify-center font-bold text-xs shrink-0",
+                                  isBlue
+                                    ? "bg-blue-100 text-blue-700"
+                                    : "bg-emerald-100 text-emerald-700"
+                                )}
+                              >
+                                ✓
+                              </div>
+                            )}
+                            <div className="min-w-0">
+                              <h4
+                                className={cn(
+                                  "font-brand font-bold text-sm transition-colors truncate",
+                                  isBlue
+                                    ? "text-gray-800 group-hover:text-blue-800"
+                                    : "text-gray-800 group-hover:text-emerald-800"
+                                )}
+                              >
+                                {item.name}
+                              </h4>
+                              <p className="text-[11px] text-gray-500">
+                                {item.totalDays} dias concluídos
+                              </p>
+                            </div>
                           </div>
-                        </div>
 
-                        <span className="text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200/80 px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shrink-0 group-hover:bg-emerald-100 transition-colors">
-                          <RotateCcw className="w-3 h-3" /> Rezar
-                        </span>
-                      </div>
-                    ))}
+                          <span
+                            className={cn(
+                              "text-[11px] border px-2 py-0.5 rounded-full font-bold flex items-center gap-1 shrink-0 transition-colors",
+                              isBlue
+                                ? "bg-blue-50 text-blue-700 border-blue-200/80 group-hover:bg-blue-100"
+                                : "bg-emerald-50 text-emerald-700 border-emerald-200/80 group-hover:bg-emerald-100"
+                            )}
+                          >
+                            <RotateCcw className="w-3 h-3" /> Rezar
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 ) : (
                   <div className="bg-white/60 backdrop-blur-sm p-4 rounded-xl border border-dashed border-stone-300 text-center">
                     <p className="text-xs text-stone-500">
-                      Ao completar os dias de uma novena, seu progresso ficará registrado aqui.
+                      Ao completar os dias de uma novena ou consagração, seu progresso ficará registrado aqui.
                     </p>
                   </div>
                 )}

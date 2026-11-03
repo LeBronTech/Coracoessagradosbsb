@@ -35,6 +35,13 @@ export default function SaoJosePage() {
 
     React.useEffect(() => {
         setHydrated(true);
+        if (typeof window !== "undefined") {
+            const params = new URLSearchParams(window.location.search);
+            const sectionParam = params.get("secao") || params.get("section");
+            if (sectionParam === "consagracao" || window.location.hash === "#consagracao") {
+                setActiveSection("consagracao");
+            }
+        }
     }, []);
 
     const handleBackTransition = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -63,77 +70,77 @@ export default function SaoJosePage() {
 
     return (
         <React.Fragment>
-            <LoadingScreen 
-                isLoading={!hydrated || isNavigating} 
-                theme={isNavigating ? navigatingTheme : "sao-jose"} 
-                onFinished={() => setLoadingFinished(true)} 
+            <LoadingScreen
+                isLoading={!hydrated || isNavigating}
+                theme={isNavigating ? navigatingTheme : "sao-jose"}
+                onFinished={() => setLoadingFinished(true)}
             />
             <div className={cn("min-h-screen bg-gradient-to-br from-green-50 via-white to-emerald-50 dark:from-slate-950 dark:via-slate-900 dark:to-green-950 transition-opacity duration-700", hydrated && !isNavigating ? "opacity-100" : "opacity-0")}>
-            {/* Header / Hero Section */}
-            <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
-                <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
-                    style={{ backgroundImage: `url('${getProxiedImageUrl('https://iili.io/fj7jrtj.png')}')` }}
-                ></div>
-                <div className="container mx-auto max-w-7xl relative z-10">
-                    <Link href="/" onClick={handleBackTransition} className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors">
-                        <ChevronLeft className="mr-2 h-5 w-5" />
-                        Voltar ao Início
-                    </Link>
-                    <div className="text-center">
-                        <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight drop-shadow-lg">
-                            São José
-                        </h1>
-                        <p className="text-2xl text-green-100 max-w-3xl mx-auto mb-6">
-                            Esposo de Maria, Pai Nutrício de Jesus, Terror dos Demônios
-                        </p>
-                        <p className="text-lg text-green-50 italic">
-                            "Ite ad Joseph" - Ide a José
-                        </p>
+                {/* Header / Hero Section */}
+                <header className="bg-gradient-to-r from-green-800 via-green-700 to-green-800 text-white py-16 px-4 shadow-2xl relative overflow-hidden">
+                    <div
+                        className="absolute inset-0 bg-cover bg-center opacity-10 mix-blend-overlay"
+                        style={{ backgroundImage: `url('${getProxiedImageUrl('https://iili.io/fj7jrtj.png')}')` }}
+                    ></div>
+                    <div className="container mx-auto max-w-7xl relative z-10">
+                        <Link href="/" onClick={handleBackTransition} className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors">
+                            <ChevronLeft className="mr-2 h-5 w-5" />
+                            Voltar ao Início
+                        </Link>
+                        <div className="text-center">
+                            <h1 className="text-5xl md:text-6xl font-bold mb-4 tracking-tight drop-shadow-lg">
+                                São José
+                            </h1>
+                            <p className="text-2xl text-green-100 max-w-3xl mx-auto mb-6">
+                                Esposo de Maria, Pai Nutrício de Jesus, Terror dos Demônios
+                            </p>
+                            <p className="text-lg text-green-50 italic">
+                                "Ite ad Joseph" - Ide a José
+                            </p>
+                        </div>
+                    </div>
+                </header>
+
+                {/* Navigation Buttons — apenas 33 Dias */}
+                <div className="container mx-auto max-w-7xl px-4 py-8">
+                    <div className="flex flex-wrap gap-4 justify-center">
+                        <Button
+                            size="lg"
+                            onClick={() => setActiveSection("home")}
+                            className={activeSection === "home"
+                                ? "bg-green-700 text-white hover:bg-green-800 border-2 border-green-500 shadow-lg shadow-green-900/40"
+                                : "bg-white text-green-900 hover:bg-green-50 border-2 border-green-100 shadow-md"
+                            }
+                        >
+                            <Heart className="mr-2 h-5 w-5" />
+                            Início
+                        </Button>
+                        <Button
+                            size="lg"
+                            onClick={() => {
+                                handleConsagracaoClick();
+                                scrollToConsagracaoContent();
+                            }}
+                            className={activeSection === "consagracao"
+                                ? "bg-green-700 text-white hover:bg-green-800 border-2 border-green-500 shadow-lg shadow-green-900/40"
+                                : "bg-white text-green-900 hover:bg-green-50 border-2 border-green-100 shadow-md"
+                            }
+                        >
+                            <BookOpen className="mr-2 h-5 w-5" />
+                            Consagração 33 Dias
+                        </Button>
                     </div>
                 </div>
-            </header>
 
-            {/* Navigation Buttons — apenas 33 Dias */}
-            <div className="container mx-auto max-w-7xl px-4 py-8">
-                <div className="flex flex-wrap gap-4 justify-center">
-                    <Button
-                        size="lg"
-                        onClick={() => setActiveSection("home")}
-                        className={activeSection === "home"
-                            ? "bg-green-700 text-white hover:bg-green-800 border-2 border-green-500 shadow-lg shadow-green-900/40"
-                            : "bg-white text-green-900 hover:bg-green-50 border-2 border-green-100 shadow-md"
-                        }
-                    >
-                        <Heart className="mr-2 h-5 w-5" />
-                        Início
-                    </Button>
-                    <Button
-                        size="lg"
-                        onClick={() => {
-                            handleConsagracaoClick();
-                            scrollToConsagracaoContent();
-                        }}
-                        className={activeSection === "consagracao"
-                            ? "bg-green-700 text-white hover:bg-green-800 border-2 border-green-500 shadow-lg shadow-green-900/40"
-                            : "bg-white text-green-900 hover:bg-green-50 border-2 border-green-100 shadow-md"
-                        }
-                    >
-                        <BookOpen className="mr-2 h-5 w-5" />
-                        Consagração 33 Dias
-                    </Button>
-                </div>
+                {/* Main Content */}
+                <main className="container mx-auto max-w-7xl px-4 py-8">
+                    {activeSection === "home" && <HomePageSaoJose />}
+                    {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} loadingFinished={loadingFinished} />}
+                </main>
+
+                <Footer />
             </div>
-
-            {/* Main Content */}
-            <main className="container mx-auto max-w-7xl px-4 py-8">
-                {activeSection === "home" && <HomePageSaoJose />}
-                {activeSection === "consagracao" && <ConsagracaoSaoJose consagracaoContentRef={consagracaoContentRef} scrollToContent={scrollToConsagracaoContent} loadingFinished={loadingFinished} />}
-            </main>
-
-            <Footer />
-        </div>
-      </React.Fragment>
+        </React.Fragment>
     );
 }
 
@@ -231,7 +238,7 @@ function HomePageSaoJose() {
                             const count = Object.values(parsed).filter(Boolean).length;
                             if (count > maxCount) maxCount = count;
                         }
-                    } catch (e) {}
+                    } catch (e) { }
                 }
             }
             newMap[id] = maxCount;
@@ -524,9 +531,9 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
     const [activeTab, setActiveTab] = useState<string>("dia-1");
 
     const presets = getConsecrationPresets(year);
-    
+
     // Gerar preset customizado se selecionado
-    const selectedPreset = selectedGoalId === "custom" 
+    const selectedPreset = selectedGoalId === "custom"
         ? { id: "custom", name: "Escolha Livre (Personalizada)", feastDate: addDays(customStartDate, 32), startDate: customStartDate }
         : (presets.find(p => p.id === selectedGoalId) || presets[0]);
 
@@ -541,7 +548,7 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
         if (savedGoal) {
             setSelectedGoalId(savedGoal);
         }
-        
+
         const savedCustomDate = localStorage.getItem("sao-jose-consagracao-custom-date");
         if (savedCustomDate) {
             const parsed = new Date(savedCustomDate);
@@ -559,28 +566,116 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
         }
     }, []);
 
-    // Atualizar aba ativa baseada no dia sugerido ao carregar (se não houver interação prévia nesta sessão)
+    // Atualizar aba ativa baseada no dia sugerido ao carregar (onde parou na sessão anterior ou virada de 00h)
     const once = useRef(false);
     React.useEffect(() => {
-        if (!once.current && currentConsagracaoDay) {
-            setActiveTab(`dia-${currentConsagracaoDay}`);
-            
-            // Força centralização horizontal após o loading finalizar
-            if (loadingFinished) {
-                setTimeout(() => {
-                    const element = document.getElementById(`trigger-dia-${currentConsagracaoDay}`);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        if (!once.current) {
+            try {
+                const savedCurrentDay = localStorage.getItem("sao-jose-consagracao-current-day");
+                const savedCompleted = localStorage.getItem("sao-jose-consagracao-completed");
+                const savedDates = localStorage.getItem("sao-jose-consagracao-completed-dates");
+
+                let targetDay: number | null = null;
+
+                if (savedCurrentDay) {
+                    const parsed = parseInt(savedCurrentDay, 10);
+                    if (!isNaN(parsed) && parsed >= 1 && parsed <= 33) {
+                        targetDay = parsed;
                     }
-                }, 100);
-                once.current = true;
+                }
+
+                if (targetDay === null && savedCompleted) {
+                    const completedArr: number[] = JSON.parse(savedCompleted);
+                    if (Array.isArray(completedArr) && completedArr.length > 0) {
+                        const maxCompleted = Math.max(...completedArr);
+                        targetDay = maxCompleted < 33 ? maxCompleted + 1 : 33;
+                    }
+                }
+
+                if (targetDay === null) {
+                    targetDay = currentConsagracaoDay || 1;
+                }
+
+                // Lógica de virada de meia-noite (00h)
+                if (savedCompleted && savedDates && targetDay) {
+                    const completedArr: number[] = JSON.parse(savedCompleted);
+                    const datesObj: Record<string, string> = JSON.parse(savedDates);
+                    const todayStr = new Date().toLocaleDateString('en-CA');
+
+                    if (
+                        Array.isArray(completedArr) &&
+                        completedArr.includes(targetDay) &&
+                        datesObj[targetDay.toString()] &&
+                        datesObj[targetDay.toString()] < todayStr
+                    ) {
+                        if (targetDay + 1 <= 33) {
+                            targetDay = targetDay + 1;
+                            localStorage.setItem("sao-jose-consagracao-current-day", targetDay.toString());
+                        }
+                    }
+                }
+
+                if (targetDay) {
+                    setActiveTab(`dia-${targetDay}`);
+                    if (loadingFinished) {
+                        setTimeout(() => {
+                            const element = document.getElementById(`trigger-dia-${targetDay}`);
+                            if (element) {
+                                element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                            }
+                        }, 100);
+                        once.current = true;
+                    }
+                }
+            } catch (e) {
+                console.error("Erro ao carregar dia de São José", e);
             }
         }
     }, [currentConsagracaoDay, loadingFinished]);
 
+    // Timer de virada da meia-noite ao vivo
     React.useEffect(() => {
-        localStorage.setItem("sao-jose-consagracao-completed", JSON.stringify(completedDays));
-    }, [completedDays]);
+        if (typeof window === 'undefined') return;
+
+        let midnightTimeout: NodeJS.Timeout;
+
+        const scheduleMidnightCheck = () => {
+            const now = new Date();
+            const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+            const msUntilMidnight = Math.max(1000, nextMidnight.getTime() - now.getTime());
+
+            midnightTimeout = setTimeout(() => {
+                try {
+                    const currentDayStr = localStorage.getItem("sao-jose-consagracao-current-day");
+                    const savedCompleted = localStorage.getItem("sao-jose-consagracao-completed");
+                    const curDay = currentDayStr ? parseInt(currentDayStr, 10) : parseInt(activeTab.replace("dia-", ""), 10);
+
+                    if (!isNaN(curDay) && curDay >= 1 && curDay < 33 && savedCompleted) {
+                        const completedArr: number[] = JSON.parse(savedCompleted);
+                        if (Array.isArray(completedArr) && completedArr.includes(curDay)) {
+                            const nextDay = curDay + 1;
+                            localStorage.setItem("sao-jose-consagracao-current-day", nextDay.toString());
+                            setActiveTab(`dia-${nextDay}`);
+                            setTimeout(() => {
+                                const element = document.getElementById(`trigger-dia-${nextDay}`);
+                                if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                                }
+                            }, 200);
+                        }
+                    }
+                } catch (e) { }
+
+                scheduleMidnightCheck();
+            }, msUntilMidnight);
+        };
+
+        scheduleMidnightCheck();
+
+        return () => {
+            if (midnightTimeout) clearTimeout(midnightTimeout);
+        };
+    }, [activeTab]);
 
     React.useEffect(() => {
         localStorage.setItem("sao-jose-consagracao-goal", selectedGoalId);
@@ -591,9 +686,38 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
     }, [customStartDate]);
 
     const toggleDay = (day: number) => {
-        setCompletedDays(prev =>
-            prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]
-        );
+        setCompletedDays(prev => {
+            const isNowCompleted = !prev.includes(day);
+            const next = isNowCompleted ? [...prev, day] : prev.filter(d => d !== day);
+
+            try {
+                // Salva diretamente no localStorage sem risco de sobrescrita no mount
+                localStorage.setItem("sao-jose-consagracao-completed", JSON.stringify(next));
+
+                const savedDatesRaw = localStorage.getItem("sao-jose-consagracao-completed-dates");
+                let datesObj: Record<string, string> = {};
+                if (savedDatesRaw) {
+                    try {
+                        datesObj = JSON.parse(savedDatesRaw);
+                    } catch (e) { }
+                }
+                if (isNowCompleted) {
+                    datesObj[day.toString()] = new Date().toLocaleDateString('en-CA');
+                } else {
+                    delete datesObj[day.toString()];
+                }
+                localStorage.setItem("sao-jose-consagracao-completed-dates", JSON.stringify(datesObj));
+                localStorage.setItem("sao-jose-consagracao-current-day", day.toString());
+
+                if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent("novena-progress-updated", { detail: { type: "sao_jose_consecration" } }));
+                }
+            } catch (e) {
+                console.error("Erro ao salvar progresso de São José", e);
+            }
+
+            return next;
+        });
     };
 
     const isDayCompleted = (day: number) => completedDays.includes(day);
@@ -601,6 +725,15 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
     // Scroll para o título do dia
     const handleTabChange = (value: string) => {
         setActiveTab(value);
+        const dayMatch = value.match(/dia-(\d+)/);
+        if (dayMatch) {
+            try {
+                localStorage.setItem("sao-jose-consagracao-current-day", dayMatch[1]);
+                if (typeof window !== "undefined") {
+                    window.dispatchEvent(new CustomEvent("novena-progress-updated", { detail: { type: "sao_jose_consecration" } }));
+                }
+            } catch (e) { }
+        }
         setTimeout(() => {
             // Scroll horizontal para centralizar a tab
             const triggerElement = document.getElementById("trigger-" + value);
@@ -696,27 +829,27 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
                                     <SelectItem value="custom">Escolha Livre (Personalizada)</SelectItem>
                                 </SelectContent>
                             </Select>
-                            
+
                             {selectedGoalId === "custom" && (
                                 <div className="mt-4 p-4 bg-white dark:bg-slate-800 rounded-lg border-2 border-green-100 shadow-sm space-y-3">
                                     <p className="text-xs font-bold text-green-700 dark:text-green-400 uppercase tracking-tighter">Data de Início da Consagração:</p>
                                     <div className="flex gap-2">
-                                        <Input 
-                                            type="date" 
-                                            value={tempDate} 
+                                        <Input
+                                            type="date"
+                                            value={tempDate}
                                             onChange={(e) => setTempDate(e.target.value)}
                                             className="h-10 border-2 border-green-50 flex-1"
                                         />
-                                        <Button 
+                                        <Button
                                             onClick={handleConfirmCustomDate}
                                             className="bg-green-700 hover:bg-green-800 h-10 px-6 font-bold"
                                         >Confirmar</Button>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <p className="text-[10px] text-green-600 dark:text-green-400">Quer começar agora?</p>
-                                        <Button 
-                                            variant="ghost" 
-                                            size="sm" 
+                                        <Button
+                                            variant="ghost"
+                                            size="sm"
                                             onClick={() => {
                                                 const d = new Date();
                                                 setCustomStartDate(d);
@@ -745,7 +878,7 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
                             </div>
                         </div>
                     </div>
-                    
+
                     {currentConsagracaoDay && (
                         <div className="mt-4 p-3 bg-emerald-100 dark:bg-emerald-900/30 border-2 border-emerald-200 rounded-lg flex items-center justify-center gap-3 animate-pulse">
                             <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
@@ -857,24 +990,24 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
                             )}
                         </div>
                         <Tabs value={activeTab} className="w-full" onValueChange={handleTabChange}>
-                            <ScrollArea 
+                            <ScrollArea
                                 id="day-selection-bar"
-                                type="always" 
+                                type="always"
                                 className="w-full whitespace-nowrap rounded-xl border-2 border-green-100 bg-slate-50/50 dark:bg-slate-900/50 p-2 mb-6 shadow-inner scroll-mt-20"
                             >
                                 <TabsList className="flex w-fit h-auto p-0 bg-transparent flex-row relative mb-4">
                                     {diasConsagracao.map((diaInfo) => {
                                         const completed = isDayCompleted(diaInfo.dia);
                                         const isToday = currentConsagracaoDay === diaInfo.dia;
-                                        
+
                                         return (
                                             <TabsTrigger
                                                 key={diaInfo.dia}
                                                 id={`trigger-dia-${diaInfo.dia}`}
                                                 value={`dia-${diaInfo.dia}`}
                                                 className={`min-w-[100px] py-3 px-4 rounded-lg transition-all m-1 flex flex-col items-center justify-center gap-1 border-2 relative
-                                                    ${completed 
-                                                        ? 'bg-green-900 text-white border-green-900 hover:bg-green-800' 
+                                                    ${completed
+                                                        ? 'bg-green-900 text-white border-green-900 hover:bg-green-800'
                                                         : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:bg-green-50 shadow-sm'
                                                     }
                                                     ${isToday ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md scale-105' : ''}
@@ -888,8 +1021,8 @@ function ConsagracaoSaoJose({ consagracaoContentRef, scrollToContent, loadingFin
                                         );
                                     })}
                                 </TabsList>
-                                <ScrollBar 
-                                    orientation="horizontal" 
+                                <ScrollBar
+                                    orientation="horizontal"
                                     className="h-3 bg-green-100 dark:bg-green-900/30 rounded-full border-t border-green-200 dark:border-green-800"
                                     thumbClassName="bg-green-700 dark:bg-green-500 opacity-100"
                                 />
@@ -1078,11 +1211,11 @@ function ConsagracaoDayCard({
                         <CardDescription className="text-lg">{title}</CardDescription>
                     </div>
                     <div className="flex flex-col items-center gap-2 bg-green-100 dark:bg-green-900/40 p-3 rounded-xl border-2 border-green-200 dark:border-green-800">
-                        <Checkbox 
-                            id={`check-${dayNumber}`} 
-                            checked={isCompleted} 
+                        <Checkbox
+                            id={`check-${dayNumber}`}
+                            checked={isCompleted}
                             onCheckedChange={onToggle}
-                            className="h-6 w-6 border-2 border-green-600 data-[state=checked]:bg-green-700" 
+                            className="h-6 w-6 border-2 border-green-600 data-[state=checked]:bg-green-700"
                         />
                         <label htmlFor={`check-${dayNumber}`} className="text-[10px] font-bold uppercase text-green-800 dark:text-green-300">
                             Concluído
