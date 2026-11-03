@@ -525,6 +525,14 @@ export default function Home() {
       setShowNatalNovenaDialog(true);
       return;
     }
+    // Se clicar na novena já selecionada, desseleciona para voltar ao estado com o contorno pontilhado
+    if (selectedSaintId === id) {
+      setSelectedSaintId(null);
+      if (typeof window !== 'undefined') {
+        history.pushState(null, '', window.location.pathname);
+      }
+      return;
+    }
     setSelectedSaintId(id);
     const saint = saints.find(s => s.id === id);
     if (saint) {

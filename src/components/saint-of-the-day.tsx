@@ -9,10 +9,63 @@ import { resolveSaintsWithPriority, getDynamicLiturgicalDay } from '@/lib/liturg
 import { cn, formatSaintName, getProxiedImageUrl, getDropCapClass } from '@/lib/utils';
 import type { Theme as NovenaTheme } from '@/app/page';
 import { Button } from '@/components/ui/button';
-import { ChevronDown, ChevronLeft, ChevronRight, Loader2 } from 'lucide-react';
+import { ChevronDown, ChevronLeft, ChevronRight, Loader2, Info } from 'lucide-react';
 import { Skeleton } from '@/components/ui/skeleton';
+import { Popover, PopoverTrigger, PopoverContent } from '@/components/ui/popover';
 import useEmblaCarousel from 'embla-carousel-react';
 import type { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel';
+
+interface LiturgicalColorDetail {
+  title: string;
+  name: string;
+  meaning: string;
+  usage: string;
+  badgeClass: string;
+  dotClass: string;
+}
+
+const LITURGICAL_COLORS_INFO: Record<string, LiturgicalColorDetail> = {
+  Verde: {
+    title: 'Cor Litúrgica Verde',
+    name: 'Verde',
+    meaning: 'Simboliza a esperança cristã, a vida nova, a constância e o amadurecimento espiritual na graça de Deus.',
+    usage: 'Usada durante o Tempo Comum (a maior parte do ano litúrgico), recordando a caminhada fiel do discípulo que escuta e pratica a Palavra de Deus.',
+    badgeClass: 'border-green-500 text-green-700 bg-green-50 hover:bg-green-100/80',
+    dotClass: 'bg-green-600',
+  },
+  Branco: {
+    title: 'Cor Litúrgica Branca',
+    name: 'Branco',
+    meaning: 'Simboliza a pureza, a santidade, a alegria pascal, a luz divina e a vitória de Cristo sobre a morte.',
+    usage: 'Usada nos Tempos do Natal e da Páscoa; nas solenidades e festas do Senhor (exceto a Paixão), da Virgem Maria, dos Anjos e dos santos não mártires.',
+    badgeClass: 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50',
+    dotClass: 'bg-gray-400',
+  },
+  Vermelho: {
+    title: 'Cor Litúrgica Vermelha',
+    name: 'Vermelho',
+    meaning: 'Simboliza o ardor do amor de Deus, o fogo do Espírito Santo e o sangue derramado no martírio por fidelidade a Cristo.',
+    usage: 'Usada no Domingo de Ramos, Sexta-feira Santa, Domingo de Pentecostes, celebrações da Paixão do Senhor e nas festas dos Apóstolos, Evangelistas e Mártires.',
+    badgeClass: 'border-red-500 text-red-700 bg-red-50 hover:bg-red-100/80',
+    dotClass: 'bg-red-600',
+  },
+  Roxo: {
+    title: 'Cor Litúrgica Roxa',
+    name: 'Roxo',
+    meaning: 'Simboliza a penitência, a sobriedade, a conversão do coração, o recolhimento e a humilde preparação espiritual.',
+    usage: 'Usada no Tempo do Advento (espera pelo Natal), na Quaresma (preparação para a Páscoa) e nas celebrações e sufrágios pelos fiéis defuntos.',
+    badgeClass: 'border-purple-500 text-purple-700 bg-purple-50 hover:bg-purple-100/80',
+    dotClass: 'bg-purple-600',
+  },
+  Rosa: {
+    title: 'Cor Litúrgica Rosa',
+    name: 'Rosa',
+    meaning: 'Simboliza uma suave pausa jubiloso e o alívio espiritual antecipado em meio ao clima austero de penitência.',
+    usage: 'Usada apenas em dois domingos do ano: no 3º Domingo do Advento (Domingo Gaudete) e no 4º Domingo da Quaresma (Domingo Laetare).',
+    badgeClass: 'border-pink-500 text-pink-700 bg-pink-50 hover:bg-pink-100/80',
+    dotClass: 'bg-pink-600',
+  },
+};
 
 const MONTH_CAROUSEL_OPTIONS: EmblaOptionsType = { loop: true, align: 'center', containScroll: false };
 
@@ -263,6 +316,26 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
   const [selectedSaintInDayIndex, setSelectedSaintInDayIndex] = useState(0);
   const [hydrated, setHydrated] = useState(false);
   const [theme, setTheme] = useState<Theme>('light');
+  const [isLiturgicalColorInfoOpen, setIsLiturgicalColorInfoOpen] = useState(false);
+  const colorHoverTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleColorMouseEnter = () => {
+    if (colorHoverTimeoutRef.current) clearTimeout(colorHoverTimeoutRef.current);
+    setIsLiturgicalColorInfoOpen(true);
+  };
+
+  const handleColorMouseLeave = () => {
+    if (colorHoverTimeoutRef.current) clearTimeout(colorHoverTimeoutRef.current);
+    colorHoverTimeoutRef.current = setTimeout(() => {
+      setIsLiturgicalColorInfoOpen(false);
+    }, 150);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (colorHoverTimeoutRef.current) clearTimeout(colorHoverTimeoutRef.current);
+    };
+  }, []);
 
   const months = useMemo(() => ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], []);
   const [selectedMonth, setSelectedMonth] = useState<string | null>(null);
@@ -863,18 +936,74 @@ const SaintOfTheDay = forwardRef<SaintOfTheDayRef, SaintOfTheDayProps>(({ trigge
                               <p className="font-bold text-gray-900 text-lg font-brand">{liturgicalData.readings.gospel}</p>
                             </div>
                           )}
-                          <div className="mt-2 text-center">
-                            <span className={cn(
-                              "text-xs px-2 py-1 rounded-full border",
-                              liturgicalData.color === 'Roxo' ? "border-purple-500 text-purple-700 bg-purple-50" :
-                                liturgicalData.color === 'Branco' ? "border-gray-300 text-gray-600 bg-white" :
-                                  liturgicalData.color === 'Vermelho' ? "border-red-500 text-red-700 bg-red-50" :
-                                    liturgicalData.color === 'Verde' ? "border-green-500 text-green-700 bg-green-50" :
-                                      liturgicalData.color === 'Rosa' ? "border-pink-500 text-pink-700 bg-pink-50" :
-                                        "border-gray-300 text-gray-600"
-                            )}>
-                              Cor Litúrgica: {liturgicalData.color}
-                            </span>
+                          <div className="mt-2 flex justify-center">
+                            {(() => {
+                              const colorKey = liturgicalData.color || 'Verde';
+                              const colorDetail = LITURGICAL_COLORS_INFO[colorKey] || {
+                                title: `Cor Litúrgica ${colorKey}`,
+                                name: colorKey,
+                                meaning: 'Na Igreja Católica, as cores litúrgicas manifestam visualmente os mistérios da fé celebrados ao longo do ano.',
+                                usage: 'Conforme as orientações da Instrução Geral sobre o Missal Romano (IGMR).',
+                                badgeClass: 'border-gray-300 text-gray-700 bg-white hover:bg-gray-50',
+                                dotClass: 'bg-gray-400',
+                              };
+
+                              return (
+                                <Popover open={isLiturgicalColorInfoOpen} onOpenChange={setIsLiturgicalColorInfoOpen}>
+                                  <PopoverTrigger asChild>
+                                    <button
+                                      type="button"
+                                      onClick={() => setIsLiturgicalColorInfoOpen(prev => !prev)}
+                                      onMouseEnter={handleColorMouseEnter}
+                                      onMouseLeave={handleColorMouseLeave}
+                                      className={cn(
+                                        "text-xs px-2.5 py-1 rounded-full border inline-flex items-center gap-1.5 transition-all duration-200 cursor-pointer shadow-xs hover:scale-105 active:scale-95 group focus:outline-none focus:ring-2 focus:ring-primary/20",
+                                        colorDetail.badgeClass
+                                      )}
+                                      title="Clique ou passe o mouse para ver o significado da cor litúrgica"
+                                      aria-label={`Significado da cor litúrgica ${colorKey}`}
+                                    >
+                                      <span className={cn("w-1.5 h-1.5 rounded-full shrink-0", colorDetail.dotClass)} />
+                                      <span>Cor Litúrgica: <strong>{colorKey}</strong></span>
+                                      <Info className="w-3 h-3 opacity-60 group-hover:opacity-100 transition-opacity shrink-0" />
+                                    </button>
+                                  </PopoverTrigger>
+                                  <PopoverContent
+                                    side="top"
+                                    align="center"
+                                    sideOffset={8}
+                                    onMouseEnter={handleColorMouseEnter}
+                                    onMouseLeave={handleColorMouseLeave}
+                                    className="z-50 w-72 sm:w-80 p-3.5 bg-white/95 backdrop-blur-md border border-stone-200 shadow-xl rounded-xl text-stone-800 text-left animate-in fade-in-0 zoom-in-95"
+                                  >
+                                    <div className="space-y-2 text-left">
+                                      <div className="flex items-center gap-2 pb-1.5 border-b border-gray-100">
+                                        <span className={cn("w-2.5 h-2.5 rounded-full shrink-0", colorDetail.dotClass)} />
+                                        <h4 className="font-bold text-xs uppercase tracking-wider text-gray-900 font-brand">
+                                          {colorDetail.title}
+                                        </h4>
+                                      </div>
+                                      <div>
+                                        <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-0.5">
+                                          Significado Espiritual
+                                        </span>
+                                        <p className="text-xs text-gray-700 leading-relaxed">
+                                          {colorDetail.meaning}
+                                        </p>
+                                      </div>
+                                      <div className="pt-1.5 border-t border-gray-100">
+                                        <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-0.5">
+                                          Quando é usada
+                                        </span>
+                                        <p className="text-[11px] text-gray-600 leading-relaxed italic">
+                                          {colorDetail.usage}
+                                        </p>
+                                      </div>
+                                    </div>
+                                  </PopoverContent>
+                                </Popover>
+                              );
+                            })()}
                           </div>
                         </div>
                       </div>

@@ -944,10 +944,10 @@ export default function NovenaDisplay({ saint, novena, theme, setTheme }: Novena
 
   if (!novena || !saint) {
     return (
-      <main className="flex flex-col items-center justify-center p-16 text-center bg-transparent border-2 border-dashed rounded-2xl">
-        <div className="font-headline text-5xl text-primary/50 mb-4">✝</div>
-        <h2 className="font-headline text-2xl tracking-wide">Bem-vindo ao Portal Corações Sagrados</h2>
-        <p className="mt-2 text-muted-foreground max-w-md">
+      <main className="flex flex-col items-center justify-center p-12 md:p-16 text-center bg-white/50 dark:bg-stone-900/40 backdrop-blur-sm border-2 border-dashed border-stone-300 hover:border-stone-400 dark:border-stone-600 rounded-3xl shadow-xs transition-all duration-300">
+        <div className="font-headline text-5xl text-primary/60 mb-4 animate-pulse">✝</div>
+        <h2 className="font-headline text-2xl tracking-wide text-stone-800 dark:text-stone-100">Bem-vindo ao Portal Corações Sagrados</h2>
+        <p className="mt-2 text-muted-foreground max-w-md text-sm md:text-base text-stone-600 dark:text-stone-300">
           Selecione uma novena na barra acima para iniciar sua jornada de oração e reflexão.
         </p>
       </main>
