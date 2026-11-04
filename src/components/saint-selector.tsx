@@ -14,7 +14,7 @@ import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MartyrSymbol } from '@/components/martyr-symbol';
 
-const OPTIONS: EmblaOptionsType = { loop: true, align: 'center', containScroll: false };
+const OPTIONS: EmblaOptionsType = { loop: false, align: 'center', containScroll: false, dragFree: false };
 type EmblaApi = UseEmblaCarouselType[1];
 
 interface SaintSelectorProps {
@@ -32,23 +32,52 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
   const selectedMonthRef = useRef(selectedMonth);
   selectedMonthRef.current = selectedMonth;
 
+  // Rastreia referências dos botões internos para aplicar scale/opacity sem interferir no transform de posicionamento do Embla
+  const itemButtonRefs = useRef<(HTMLButtonElement | null)[]>([]);
+
   // Rastreia se o usuário está arrastando manualmente o MonthCarousel
   const isUserDragging = useRef(false);
   const scrollRaf = useRef<number | null>(null);
+
+  // Determina qual slide está mais próximo do centro do viewport
+  const getClosestSlideIndex = useCallback((api: EmblaApi) => {
+    if (!api) return -1;
+    const root = api.rootNode();
+    if (!root) return -1;
+    const parentRect = root.getBoundingClientRect();
+    const viewportCenter = parentRect.left + parentRect.width / 2;
+    const nodes = api.slideNodes();
+
+    let closestIdx = -1;
+    let minDistance = Infinity;
+
+    for (let i = 0; i < nodes.length; i++) {
+      const node = nodes[i];
+      if (!node) continue;
+      const rect = node.getBoundingClientRect();
+      const nodeCenter = rect.left + rect.width / 2;
+      const dist = Math.abs(viewportCenter - nodeCenter);
+      if (dist < minDistance) {
+        minDistance = dist;
+        closestIdx = i;
+      }
+    }
+    return closestIdx;
+  }, []);
 
   const onSelect = useCallback((api: EmblaApi) => {
     if (!api) return;
     if (!isUserDragging.current) return;
 
-    const newSelectedIndex = api.selectedScrollSnap();
-    const newMonth = months[newSelectedIndex];
+    const closestIndex = getClosestSlideIndex(api);
+    const newMonth = months[closestIndex];
     if (newMonth && newMonth !== selectedMonthRef.current) {
       selectedMonthRef.current = newMonth;
       onMonthChange(newMonth);
     }
-  }, [onMonthChange, months]);
+  }, [onMonthChange, months, getClosestSlideIndex]);
 
-  // Cálculo de escala e opacidade otimizado com leitura única de layout
+  // Cálculo de escala e opacidade aplicado diretamente no botão interno
   const onScroll = useCallback((api: EmblaApi) => {
     if (!api) return;
     const root = api.rootNode();
@@ -61,6 +90,9 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
 
     for (let i = 0; i < nodes.length; i++) {
       const node = nodes[i];
+      const btn = itemButtonRefs.current[i];
+      if (!node || !btn) continue;
+
       const nodeRect = node.getBoundingClientRect();
       const nodeCenter = nodeRect.left + nodeRect.width / 2;
       const relativeCenter = nodeCenter - parentLeft;
@@ -77,22 +109,23 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
         opacity = 0.8;
       }
 
-      node.style.transform = `scale(${scale})`;
-      node.style.opacity = `${opacity}`;
+      btn.style.transform = `scale(${scale})`;
+      btn.style.opacity = `${opacity}`;
     }
   }, []);
 
-  // Anima suavemente para o novo mês sem engasgar
+  // Centraliza no mês selecionado com rolagem suave
   useEffect(() => {
     if (!emblaApi) return;
-    const initialIndex = months.indexOf(selectedMonth);
-    const currentIndex = emblaApi.selectedScrollSnap();
+    const targetIndex = months.indexOf(selectedMonth);
+    const currentSnap = emblaApi.selectedScrollSnap();
 
-    if (initialIndex !== -1 && initialIndex !== currentIndex) {
+    if (targetIndex !== -1 && targetIndex !== currentSnap) {
       isUserDragging.current = false;
-      emblaApi.scrollTo(initialIndex, false);
+      emblaApi.scrollTo(targetIndex, false);
+      requestAnimationFrame(() => onScroll(emblaApi));
     }
-  }, [emblaApi, months, selectedMonth]);
+  }, [emblaApi, months, selectedMonth, onScroll]);
 
   useEffect(() => {
     if (!emblaApi) return;
@@ -130,6 +163,7 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
 
     const timer = setTimeout(() => {
       emblaApi.reInit();
+      onScroll(emblaApi);
     }, 100);
 
     return () => {
@@ -144,12 +178,16 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
     };
   }, [emblaApi, onSelect, onScroll]);
 
+  const selectedMonthIndex = months.indexOf(selectedMonth);
+
   const handlePrevMonth = useCallback(() => {
     if (!emblaApi) return;
+    const curIdx = months.indexOf(selectedMonthRef.current);
+    if (curIdx <= 0) return;
+    const targetIdx = curIdx - 1;
     isUserDragging.current = false;
-    emblaApi.scrollPrev();
-    const prevIdx = emblaApi.selectedScrollSnap();
-    const m = months[prevIdx];
+    emblaApi.scrollTo(targetIdx);
+    const m = months[targetIdx];
     if (m) {
       selectedMonthRef.current = m;
       onMonthChange(m);
@@ -158,10 +196,12 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
 
   const handleNextMonth = useCallback(() => {
     if (!emblaApi) return;
+    const curIdx = months.indexOf(selectedMonthRef.current);
+    if (curIdx >= months.length - 1) return;
+    const targetIdx = curIdx + 1;
     isUserDragging.current = false;
-    emblaApi.scrollNext();
-    const nextIdx = emblaApi.selectedScrollSnap();
-    const m = months[nextIdx];
+    emblaApi.scrollTo(targetIdx);
+    const m = months[targetIdx];
     if (m) {
       selectedMonthRef.current = m;
       onMonthChange(m);
@@ -170,7 +210,7 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
 
   const handleMonthClick = (index: number) => {
     isUserDragging.current = false;
-    if (emblaApi) emblaApi.scrollTo(index, false);
+    if (emblaApi) emblaApi.scrollTo(index);
     const clickedMonth = months[index];
     if (clickedMonth) {
       selectedMonthRef.current = clickedMonth;
@@ -178,13 +218,20 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
     }
   };
 
+  const isAtFirstMonth = selectedMonthIndex <= 0;
+  const isAtLastMonth = selectedMonthIndex >= months.length - 1;
+
   return (
     <div className="relative flex items-center justify-between w-full">
       <Button
         variant="ghost"
         size="icon"
         onClick={handlePrevMonth}
-        className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all"
+        disabled={isAtFirstMonth}
+        className={cn(
+          "h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all",
+          isAtFirstMonth && "opacity-30 pointer-events-none"
+        )}
         aria-label="Mês anterior"
       >
         <ChevronLeft className="h-5 w-5" />
@@ -196,12 +243,15 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
             <div
               className={cn('flex-[0_0_10rem] min-w-0 pl-4 relative embla__slide select-none')}
               key={month + index}
-              style={{ transform: 'scale(0.7)', opacity: 0.6 }}
             >
               <button
+                ref={(el) => {
+                  itemButtonRefs.current[index] = el;
+                }}
                 onClick={() => handleMonthClick(index)}
+                style={{ transform: 'scale(0.7)', opacity: 0.6, transition: 'transform 0.15s ease-out, opacity 0.15s ease-out' }}
                 className={cn(
-                  'month-nav-btn text-lg font-brand text-gray-600 w-full cursor-pointer',
+                  'month-nav-btn text-lg font-brand text-gray-600 w-full cursor-pointer will-change-transform',
                   selectedMonth === month && 'active'
                 )}
               >
@@ -216,7 +266,11 @@ const MonthCarousel = memo(({ months, selectedMonth, onMonthChange }: Pick<Saint
         variant="ghost"
         size="icon"
         onClick={handleNextMonth}
-        className="h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all"
+        disabled={isAtLastMonth}
+        className={cn(
+          "h-8 w-8 sm:h-9 sm:w-9 shrink-0 text-gray-500 hover:text-primary hover:bg-black/5 rounded-full transition-all",
+          isAtLastMonth && "opacity-30 pointer-events-none"
+        )}
         aria-label="Próximo mês"
       >
         <ChevronRight className="h-5 w-5" />
@@ -382,6 +436,7 @@ function SaintSelector({
   // Controle de rolagem programática vs manual
   const isProgrammaticScroll = useRef(false);
   const programmaticScrollTimer = useRef<NodeJS.Timeout | null>(null);
+  const isUserInteractingWithSaints = useRef(false);
   const lastScrollSpiedMonth = useRef<string>(selectedMonth);
   const scrollSpyRaf = useRef<number | null>(null);
 
@@ -392,6 +447,7 @@ function SaintSelector({
 
     lastScrollSpiedMonth.current = monthName;
     isProgrammaticScroll.current = true;
+    isUserInteractingWithSaints.current = false;
     if (programmaticScrollTimer.current) clearTimeout(programmaticScrollTimer.current);
 
     const firstSaintOfMonth = allSortedSaints.find((s) => s.monthIndex === targetIdx);
@@ -419,7 +475,7 @@ function SaintSelector({
 
     programmaticScrollTimer.current = setTimeout(() => {
       isProgrammaticScroll.current = false;
-    }, 600);
+    }, 800);
   }, [allSortedSaints, months]);
 
   // Monitorar mudança externa do selectedMonth (clique no MonthCarousel)
@@ -450,6 +506,7 @@ function SaintSelector({
       const scrollOffset = itemOffsetLeft - (containerWidth / 2 - itemWidth / 2);
 
       isProgrammaticScroll.current = true;
+      isUserInteractingWithSaints.current = false;
       container.scrollTo({
         left: Math.max(0, scrollOffset),
         behavior: 'smooth',
@@ -458,7 +515,7 @@ function SaintSelector({
       if (programmaticScrollTimer.current) clearTimeout(programmaticScrollTimer.current);
       programmaticScrollTimer.current = setTimeout(() => {
         isProgrammaticScroll.current = false;
-      }, 600);
+      }, 800);
     };
 
     const timer = setTimeout(performScroll, 60);
@@ -520,9 +577,11 @@ function SaintSelector({
     const handlePointerUp = () => {
       if (isPointerDownRef.current) {
         isPointerDownRef.current = false;
-        // Soltou o mouse/dedo: sincroniza imediatamente o mês e aciona a animação
+        // Soltou o mouse/dedo: sincroniza imediatamente o mês se estava interagindo com a lista de santos
         setTimeout(() => {
-          performScrollSpy();
+          if (isUserInteractingWithSaints.current && !isProgrammaticScroll.current) {
+            performScrollSpy();
+          }
         }, 40);
       }
     };
@@ -554,6 +613,7 @@ function SaintSelector({
   const handleArrowScroll = useCallback((direction: 'left' | 'right') => {
     const container = navContainerRef.current;
     if (!container) return;
+    isUserInteractingWithSaints.current = true;
     const scrollAmount = direction === 'left' ? -350 : 350;
     container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     setTimeout(checkScrollLimits, 300);
@@ -573,20 +633,20 @@ function SaintSelector({
     checkScrollLimits();
 
     if (isProgrammaticScroll.current) {
-      if (programmaticScrollTimer.current) clearTimeout(programmaticScrollTimer.current);
-      programmaticScrollTimer.current = setTimeout(() => {
-        isProgrammaticScroll.current = false;
-      }, 200);
       return;
     }
 
-    // Enquanto o usuário estiver rolando ou arrastando, limpa o timer anterior
+    if (!isUserInteractingWithSaints.current) {
+      return;
+    }
+
+    // Enquanto o usuário estiver rolando ou arrastando a lista de santos, limpa o timer anterior
     if (scrollEndTimer.current) clearTimeout(scrollEndTimer.current);
 
     // Se a rolagem cessar (ex: inércia, touchpad ou soltura do mouse),
     // aguarda 140ms de estabilização para disparar a animação do mês correspondente
     scrollEndTimer.current = setTimeout(() => {
-      if (!isPointerDownRef.current) {
+      if (!isPointerDownRef.current && !isProgrammaticScroll.current) {
         performScrollSpy();
       }
     }, 140);
@@ -633,6 +693,15 @@ function SaintSelector({
           id="saints-icons-container"
           ref={navContainerRef}
           onScroll={handleScroll}
+          onPointerDown={() => {
+            isUserInteractingWithSaints.current = true;
+          }}
+          onTouchStart={() => {
+            isUserInteractingWithSaints.current = true;
+          }}
+          onWheel={() => {
+            isUserInteractingWithSaints.current = true;
+          }}
           className="saints-nav-container flex items-start gap-x-4 overflow-x-auto pb-2 border-t border-gray-300 pt-4"
         >
           {allSortedSaints.length > 0 ? (
