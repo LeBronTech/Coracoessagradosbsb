@@ -39,12 +39,14 @@ import {
 } from "@/lib/utils/marian-consecration-dates";
 import {
   MARIAN_CONSECRATION_DAYS,
+  MARIAN_CONSECRATION_DAYS_30,
   MarianConsecrationDay,
   MARIAN_CONSECRATION_INTRO_VIDEO,
   MARIAN_VIDEOS_30_DAYS,
   MARIAN_VIDEOS_33_DAYS
 } from "@/lib/marian-consecration-days-data";
 import { getProxiedImageUrl, cn } from "@/lib/utils";
+import { ExternalLink } from "lucide-react";
 
 export function ConsecrationSection() {
   const [consecrationMode, setConsecrationMode] = useState<30 | 33>(30);
@@ -62,7 +64,7 @@ export function ConsecrationSection() {
   const [expandedPrayer, setExpandedPrayer] = useState<string | null>(null);
 
   const totalDays = consecrationMode;
-  const currentDaysList = MARIAN_CONSECRATION_DAYS.slice(0, totalDays);
+  const currentDaysList = consecrationMode === 33 ? MARIAN_CONSECRATION_DAYS : MARIAN_CONSECRATION_DAYS_30;
 
   const presets = getMarianConsecrationPresets(year, totalDays);
 
@@ -1545,9 +1547,26 @@ function ConsagracaoDayCard({
             <p className="font-bold text-blue-900 dark:text-blue-200 mb-0.5">📖 Palavra de Deus:</p>
             <p className="text-slate-700 dark:text-slate-300">{diaInfo.passagemBiblica}</p>
           </div>
-          <div className="p-3.5 bg-amber-50 dark:bg-amber-950/30 rounded-xl border-l-4 border-amber-500">
-            <p className="font-bold text-amber-900 dark:text-amber-200 mb-0.5">📜 Tratado / Leitura Espiritual:</p>
-            <p className="text-slate-700 dark:text-slate-300">{diaInfo.leituraTratado}</p>
+          <div className="p-3.5 bg-amber-50 dark:bg-amber-950/30 rounded-xl border-l-4 border-amber-500 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center justify-between gap-2 flex-wrap mb-0.5">
+                <p className="font-bold text-amber-900 dark:text-amber-200">📜 Tratado / Leitura Espiritual:</p>
+                <a
+                  href={diaInfo.paginaPdf 
+                    ? `https://drive.google.com/file/d/1aUT7Uznb7BmtrXlwEdoJnG5gyhNbsBrS/view#page=${diaInfo.paginaPdf}`
+                    : `https://drive.google.com/file/d/1aUT7Uznb7BmtrXlwEdoJnG5gyhNbsBrS/view`
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-[11px] font-bold text-amber-800 hover:text-amber-950 dark:text-amber-300 underline transition-all hover:scale-105"
+                  title="Abrir livro no Google Drive"
+                >
+                  <ExternalLink className="h-3 w-3" />
+                  📖 Ver no PDF {diaInfo.paginas ? `(Págs. ${diaInfo.paginas})` : ""}
+                </a>
+              </div>
+              <p className="text-slate-700 dark:text-slate-300">{diaInfo.leituraTratado}</p>
+            </div>
           </div>
         </div>
 
