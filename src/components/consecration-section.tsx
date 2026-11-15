@@ -39,11 +39,15 @@ import {
 } from "@/lib/utils/marian-consecration-dates";
 import {
   MARIAN_CONSECRATION_DAYS,
-  MarianConsecrationDay
+  MarianConsecrationDay,
+  MARIAN_CONSECRATION_INTRO_VIDEO,
+  MARIAN_VIDEOS_30_DAYS,
+  MARIAN_VIDEOS_33_DAYS
 } from "@/lib/marian-consecration-days-data";
 import { getProxiedImageUrl, cn } from "@/lib/utils";
 
 export function ConsecrationSection() {
+  const [consecrationMode, setConsecrationMode] = useState<30 | 33>(30);
   const [selectedGoalId, setSelectedGoalId] = useState<string>("aparecida");
   const [customStartDate, setCustomStartDate] = useState<Date>(new Date());
   const [tempDate, setTempDate] = useState<string>(format(new Date(), "yyyy-MM-dd"));
@@ -57,21 +61,31 @@ export function ConsecrationSection() {
   const [showPrayers, setShowPrayers] = useState(false);
   const [expandedPrayer, setExpandedPrayer] = useState<string | null>(null);
 
-  const presets = getMarianConsecrationPresets(year);
+  const totalDays = consecrationMode;
+  const currentDaysList = MARIAN_CONSECRATION_DAYS.slice(0, totalDays);
+
+  const presets = getMarianConsecrationPresets(year, totalDays);
 
   // Preset selecionado
   const selectedPreset: MarianConsecrationPreset = selectedGoalId === "custom"
-    ? getCustomMarianPreset(customStartDate)
+    ? getCustomMarianPreset(customStartDate, totalDays)
     : (presets.find(p => p.id === selectedGoalId) || presets[0]);
 
   // Identificar dia atual da consagração
   const today = startOfDay(new Date());
   const diffInDays = Math.floor((today.getTime() - startOfDay(selectedPreset.startDate).getTime()) / (1000 * 60 * 60 * 24));
-  const currentConsagracaoDay = diffInDays >= 0 && diffInDays < 33 ? diffInDays + 1 : null;
+  const currentConsagracaoDay = diffInDays >= 0 && diffInDays < totalDays ? diffInDays + 1 : null;
 
   // Persistência em localStorage
   useEffect(() => {
     try {
+      const savedMode = localStorage.getItem("mariano-consagracao-total-days");
+      if (savedMode === "33") {
+        setConsecrationMode(33);
+      } else if (savedMode === "30") {
+        setConsecrationMode(30);
+      }
+
       const savedGoal = localStorage.getItem("mariano-consagracao-goal");
       if (savedGoal) {
         setSelectedGoalId(savedGoal);
@@ -113,7 +127,7 @@ export function ConsecrationSection() {
       // 1. Tenta recuperar o dia salvo onde o devoto parou na sessão anterior
       if (savedCurrentDay) {
         const parsed = parseInt(savedCurrentDay, 10);
-        if (!isNaN(parsed) && parsed >= 1 && parsed <= 33) {
+        if (!isNaN(parsed) && parsed >= 1 && parsed <= totalDays) {
           targetDay = parsed;
         }
       }
@@ -123,7 +137,7 @@ export function ConsecrationSection() {
         const completedArr: number[] = JSON.parse(savedCompleted);
         if (Array.isArray(completedArr) && completedArr.length > 0) {
           const maxCompleted = Math.max(...completedArr);
-          targetDay = maxCompleted < 33 ? maxCompleted + 1 : 33;
+          targetDay = maxCompleted < totalDays ? maxCompleted + 1 : totalDays;
         }
       }
 
@@ -146,7 +160,7 @@ export function ConsecrationSection() {
           datesObj[targetDay.toString()] &&
           datesObj[targetDay.toString()] < todayStr
         ) {
-          if (targetDay + 1 <= 33) {
+          if (targetDay + 1 <= totalDays) {
             targetDay = targetDay + 1;
             localStorage.setItem("mariano-consagracao-current-day", targetDay.toString());
           }
@@ -186,7 +200,7 @@ export function ConsecrationSection() {
           const savedCompleted = localStorage.getItem("mariano-consagracao-completed");
           const curDay = currentDayStr ? parseInt(currentDayStr, 10) : parseInt(activeTab.replace("dia-", ""), 10);
 
-          if (!isNaN(curDay) && curDay >= 1 && curDay < 33 && savedCompleted) {
+          if (!isNaN(curDay) && curDay >= 1 && curDay < totalDays && savedCompleted) {
             const completedArr: number[] = JSON.parse(savedCompleted);
             if (Array.isArray(completedArr) && completedArr.includes(curDay)) {
               const nextDay = curDay + 1;
@@ -298,6 +312,23 @@ export function ConsecrationSection() {
     }
   };
 
+  const handleModeSwitch = (mode: 30 | 33) => {
+    setConsecrationMode(mode);
+    try {
+      localStorage.setItem("mariano-consagracao-total-days", mode.toString());
+      if (typeof window !== "undefined") {
+        window.dispatchEvent(new CustomEvent("novena-progress-updated", { detail: { type: "marian_consecration" } }));
+      }
+    } catch (e) {
+      console.error(e);
+    }
+    // Se o dia atual for maior que o novo modo, ajusta para o último dia
+    const curDay = parseInt(activeTab.replace("dia-", ""), 10);
+    if (!isNaN(curDay) && curDay > mode) {
+      setActiveTab(`dia-${mode}`);
+    }
+  };
+
   const handleConfirmCustomDate = () => {
     try {
       const parsed = parseISO(tempDate);
@@ -318,11 +349,74 @@ export function ConsecrationSection() {
           <span>Método de São Luís Maria Grignion de Montfort</span>
         </div>
         <h2 className="text-3xl sm:text-5xl font-bold font-brand text-blue-950 dark:text-blue-100">
-          33 Dias de Consagração a Jesus por Maria
+          {totalDays} Dias de Consagração a Jesus por Maria
         </h2>
         <p className="text-base text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
           A Santa Escravidão de Amor: o caminho mais perfeito, doce, rápido e seguro para se unir intimamente a Nosso Senhor Jesus Cristo pelas mãos puríssimas da Santíssima Virgem.
         </p>
+
+        {/* ── Pergunta Seletora: 30 Dias ou 33 Dias ── */}
+        <div className="pt-2 pb-1 flex flex-col items-center justify-center">
+          <div className="p-3 sm:p-4 bg-gradient-to-r from-blue-50 via-indigo-50 to-blue-50 dark:from-slate-800/80 dark:via-blue-950/40 dark:to-slate-800/80 border-2 border-blue-200 dark:border-blue-800 rounded-2xl shadow-sm inline-flex flex-col sm:flex-row items-center gap-3">
+            <span className="text-xs sm:text-sm font-bold text-blue-950 dark:text-blue-100 flex items-center gap-1.5">
+              <Sparkles className="w-4 h-4 text-amber-500" />
+              Você quer fazer 30 dias ou 33 dias de consagração?
+            </span>
+            <div className="inline-flex p-1 bg-white dark:bg-slate-900 rounded-xl border border-blue-200 dark:border-slate-700 shadow-inner">
+              <button
+                type="button"
+                onClick={() => handleModeSwitch(30)}
+                className={cn(
+                  "px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer",
+                  consecrationMode === 30
+                    ? "bg-blue-600 text-white shadow-md scale-102"
+                    : "text-slate-600 dark:text-slate-300 hover:text-blue-900 hover:bg-slate-100 dark:hover:bg-slate-800"
+                )}
+              >
+                30 Dias (Com Vídeos)
+              </button>
+              <button
+                type="button"
+                onClick={() => handleModeSwitch(33)}
+                className={cn(
+                  "px-4 py-1.5 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer",
+                  consecrationMode === 33
+                    ? "bg-blue-600 text-white shadow-md scale-102"
+                    : "text-slate-600 dark:text-slate-300 hover:text-blue-900 hover:bg-slate-100 dark:hover:bg-slate-800"
+                )}
+              >
+                33 Dias Tradicional
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── Vídeo Explicativo no Início da Aba ── */}
+      <div className="bg-gradient-to-br from-amber-50/90 via-white to-blue-50/90 dark:from-slate-900 dark:via-slate-800/70 dark:to-blue-950/40 p-5 sm:p-6 rounded-2xl border-2 border-amber-300/80 dark:border-amber-700/60 shadow-lg">
+        <div className="flex flex-col md:flex-row gap-5 items-center">
+          <div className="w-full md:w-1/2 aspect-video rounded-xl overflow-hidden shadow-md border-2 border-slate-200 dark:border-slate-700 relative bg-black shrink-0">
+            <iframe
+              src={`https://www.youtube.com/embed/${MARIAN_CONSECRATION_INTRO_VIDEO}`}
+              title="Vídeo Explicativo - Consagração a Nossa Senhora com Padre Mario Sartori"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="absolute top-0 left-0 w-full h-full"
+            />
+          </div>
+          <div className="space-y-2.5 flex-1 text-center md:text-left">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-900 dark:text-amber-200 font-bold text-xs border border-amber-300">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>Vídeo Explicativo com Padre Mario Sartori</span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-bold font-brand text-blue-950 dark:text-blue-100">
+              Esclarecendo Dúvidas sobre o Dia da Consagração
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-serif">
+              Antes de iniciar sua caminhada consagratória, assista a esta reflexão esclarecedora do Padre Mario Sartori. Compreenda o sentido da entrega total a Jesus por Maria, o que muda na vida do devoto e como se preparar dignamente para o grande dia.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* ── Botões de Auxílio / Recursos Rápidos no Topo ── */}
@@ -654,7 +748,7 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
             Planeje sua Consagração a Nossa Senhora
           </h3>
           <p className="text-xs sm:text-sm text-blue-100 mt-1">
-            Escolha uma festa mariana para concluir seus 33 dias ou defina sua data personalizada
+            Escolha uma festa mariana para concluir seus {totalDays} dias ou defina sua data personalizada
           </p>
         </div>
 
@@ -727,7 +821,7 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
               </div>
               <div className="h-10 w-[2px] bg-blue-200 dark:bg-blue-800" />
               <div>
-                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Festa (33º dia)</p>
+                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Festa ({totalDays}º dia)</p>
                 <p className="text-base sm:text-lg font-bold text-blue-950 dark:text-blue-100 capitalize">
                   {format(selectedPreset.feastDate, "dd 'de' MMMM", { locale: ptBR })}
                 </p>
@@ -761,9 +855,9 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
           <CardDescription>Baixe os livros e materiais essenciais para o seu retiro espiritual</CardDescription>
         </CardHeader>
         <CardContent className="pt-6">
-          <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-3.5">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3.5">
             <a
-              href="https://drive.google.com/file/d/1Knev27Ne-BgYV4cdQk11Yx__ZQo2D5da/view"
+              href="https://drive.google.com/file/d/1aUT7Uznb7BmtrXlwEdoJnG5gyhNbsBrS/view?usp=drive_link"
               target="_blank"
               rel="noopener noreferrer"
               className="p-3.5 rounded-xl border-2 border-blue-200 hover:border-blue-400 dark:border-blue-800 bg-blue-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between"
@@ -802,36 +896,20 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
                 ⛓️ Sacramental de Amor
               </p>
             </div>
-
-            <a
-              href="https://chat.whatsapp.com/LNU3BDbd2wK81q3RZ8QhK1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-3.5 rounded-xl border-2 border-emerald-200 hover:border-emerald-400 dark:border-emerald-800 bg-emerald-50/50 dark:bg-slate-800/70 hover:shadow-md transition-all flex flex-col justify-between"
-            >
-              <div>
-                <MessageCircle className="w-7 h-7 text-emerald-700 mb-2" />
-                <h4 className="font-bold text-sm text-emerald-950 dark:text-emerald-100 leading-tight">Grupo de Consagração</h4>
-                <p className="text-xs text-slate-600 dark:text-slate-400 mt-1">WhatsApp de oração diária</p>
-              </div>
-              <p className="text-[11px] font-bold text-emerald-700 dark:text-emerald-300 mt-3 flex items-center gap-1">
-                💬 Participar do Grupo
-              </p>
-            </a>
           </div>
         </CardContent>
       </Card>
 
-      {/* ── OS 33 DIAS DE PREPARAÇÃO: TABS E ACOMPANHAMENTO ── */}
+      {/* ── OS DIAS DE PREPARAÇÃO: TABS E ACOMPANHAMENTO ── */}
       <Card className="border-2 border-blue-200 dark:border-blue-900 shadow-xl bg-white dark:bg-slate-900">
         <CardHeader className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-blue-950/40 pb-3">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div>
               <CardTitle className="text-xl sm:text-2xl font-bold font-brand text-blue-900 dark:text-blue-100">
-                Os 33 Dias de Preparação
+                Os {totalDays} Dias de Preparação
               </CardTitle>
               <CardDescription className="text-xs sm:text-sm">
-                Acompanhe as leituras, meditações e as devoções marianas catalogadas para cada dia
+                Acompanhe as leituras, meditações, os vídeos do Padre Mario Sartori e as devoções marianas de cada dia
               </CardDescription>
             </div>
             {currentConsagracaoDay && (
@@ -845,11 +923,11 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
         <CardContent className="pt-6">
           <div className="flex justify-between items-center mb-1.5 px-1 text-[11px] font-bold uppercase tracking-wider text-blue-800 dark:text-blue-300">
             <span className="flex items-center gap-1">
-              <ChevronLeft className="w-3.5 h-3.5" /> Arraste para ver todos os 33 dias
+              <ChevronLeft className="w-3.5 h-3.5" /> Arraste para ver todos os {totalDays} dias
             </span>
             <div className="flex items-center gap-2">
               <span className="text-slate-500">
-                {completedDays.length} de 33 concluídos ({Math.round((completedDays.length / 33) * 100)}%)
+                {completedDays.length} de {totalDays} concluídos ({Math.round((completedDays.length / totalDays) * 100)}%)
               </span>
               {completedDays.length > 0 && (
                 <button
@@ -868,18 +946,18 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
           <div className="w-full bg-blue-100/80 dark:bg-blue-950/60 rounded-full h-1.5 mb-3 overflow-hidden border border-blue-200/50 dark:border-blue-900/50 shadow-xs">
             <div
               className="h-full bg-gradient-to-r from-blue-600 to-indigo-600 rounded-full transition-all duration-500 ease-out"
-              style={{ width: `${Math.min(100, (completedDays.length / 33) * 100)}%` }}
+              style={{ width: `${Math.min(100, (completedDays.length / totalDays) * 100)}%` }}
             />
           </div>
 
           <Tabs value={activeTab} onValueChange={handleTabChange} className="w-full">
-            {/* Barra de rolagem horizontal com os 33 botões */}
+            {/* Barra de rolagem horizontal com os botões de cada dia */}
             <ScrollArea
               id="marian-day-selection-bar"
               className="w-full whitespace-nowrap rounded-2xl border-2 border-blue-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-2 mb-6 shadow-inner [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               <TabsList className="flex w-fit h-auto p-0 bg-transparent flex-row relative mb-2">
-                {MARIAN_CONSECRATION_DAYS.map((diaInfo) => {
+                {currentDaysList.map((diaInfo) => {
                   const completed = isDayCompleted(diaInfo.dia);
                   const isToday = currentConsagracaoDay === diaInfo.dia;
                   const isSelected = activeTab === `dia-${diaInfo.dia}`;
@@ -918,11 +996,12 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
               <ScrollBar orientation="horizontal" className="h-1.5" />
             </ScrollArea>
 
-            {/* Conteúdo de cada dia dos 33 dias */}
-            {MARIAN_CONSECRATION_DAYS.map((diaInfo) => (
+            {/* Conteúdo de cada dia */}
+            {currentDaysList.map((diaInfo) => (
               <TabsContent key={diaInfo.dia} value={`dia-${diaInfo.dia}`}>
                 <ConsagracaoDayCard
                   diaInfo={diaInfo}
+                  totalDays={totalDays}
                   isCompleted={isDayCompleted(diaInfo.dia)}
                   onToggle={() => toggleDay(diaInfo.dia)}
                   onOpenFormula={() => {
@@ -1339,14 +1418,16 @@ function getMarianPrayer(name: string): MarianPrayerDetail {
   };
 }
 
-// ── Card do Dia da Consagração (integrado com a Devoção da Galeria) ──
+// ── Card do Dia da Consagração (integrado com a Devoção da Galeria e Vídeo do Dia) ──
 function ConsagracaoDayCard({
   diaInfo,
+  totalDays,
   isCompleted,
   onToggle,
   onOpenFormula
 }: {
   diaInfo: MarianConsecrationDay;
+  totalDays: number;
   isCompleted: boolean;
   onToggle: () => void;
   onOpenFormula: () => void;
@@ -1361,6 +1442,9 @@ function ConsagracaoDayCard({
   }, [diaInfo.dia]);
 
   const activePrayerData = activePrayerName ? getMarianPrayer(activePrayerName) : null;
+  const videoId = totalDays === 33
+    ? (MARIAN_VIDEOS_33_DAYS[diaInfo.dia] || diaInfo.videoId)
+    : (MARIAN_VIDEOS_30_DAYS[diaInfo.dia] || diaInfo.videoId);
 
   const handleTogglePrayer = (oracao: string) => {
     if (activePrayerName === oracao) {
@@ -1467,8 +1551,29 @@ function ConsagracaoDayCard({
           </div>
         </div>
 
-        {/* Meditação Diária */}
-        <div className="space-y-2">
+          {/* Vídeo do Dia */}
+          {videoId && (
+            <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
+              <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+                {totalDays === 33
+                  ? `Vídeo do ${diaInfo.dia}º Dia (Exercícios Espirituais de São Luís de Montfort):`
+                  : `Vídeo do ${diaInfo.dia}º Dia (Padre Mario Sartori):`}
+              </p>
+              <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md border-2 border-slate-200 dark:border-slate-700 bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${videoId}`}
+                  title={`Vídeo - ${diaInfo.dia}º Dia da Consagração`}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                  className="absolute top-0 left-0 w-full h-full"
+                />
+              </div>
+            </div>
+          )}
+
+          {/* Meditação Diária */}
+          <div className="space-y-2">
           <h4 className="font-bold text-sm uppercase tracking-wider text-blue-900 dark:text-blue-200 flex items-center gap-1.5">
             <BookOpen className="w-4 h-4 text-blue-600" />
             Meditação para a Alma:
@@ -1578,8 +1683,8 @@ function ConsagracaoDayCard({
           )}
         </div>
 
-        {/* Conclusão do 33º dia */}
-        {diaInfo.dia === 33 && (
+        {/* Conclusão do último dia (30º ou 33º dia) */}
+        {diaInfo.dia === totalDays && (
           <div className="p-6 bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-950/40 dark:to-slate-900 rounded-2xl border-2 border-amber-400 shadow-xl space-y-3 text-center">
             <p className="text-2xl font-bold font-brand text-amber-950 dark:text-amber-200 flex items-center justify-center gap-2">
               <Heart className="w-6 h-6 text-red-600 fill-red-500" />
@@ -1587,7 +1692,7 @@ function ConsagracaoDayCard({
               <Heart className="w-6 h-6 text-red-600 fill-red-500" />
             </p>
             <p className="text-sm text-slate-700 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Você completou os 33 dias de preparação. Hoje é o dia de participar da Santa Missa em estado de graça, comungar com fervor de amor e assinar solenemente a fórmula da Consagração a Jesus por Maria!
+              Você completou os {totalDays} dias de preparação. Hoje é o dia de participar da Santa Missa em estado de graça, comungar com fervor de amor e assinar solenemente a fórmula da Consagração a Jesus por Maria!
             </p>
             <Button
               onClick={onOpenFormula}

@@ -10,10 +10,11 @@ export type MarianConsecrationPreset = {
 };
 
 /**
- * Retorna os presets das principais festas marianas para a Consagração de 33 Dias
- * segundo o método de São Luís Maria Grignion de Montfort
+ * Retorna os presets das principais festas marianas para a Consagração Mariana
+ * Suporta o modo de 30 dias ou 33 dias segundo o método tradicional
  */
-export function getMarianConsecrationPresets(year: number): MarianConsecrationPreset[] {
+export function getMarianConsecrationPresets(year: number, totalDays: number = 30): MarianConsecrationPreset[] {
+  const daysOffset = totalDays - 1;
   const presets = [
     { id: "anunciacao", name: "Anunciação do Senhor (25 Mar)", feastTitle: "Solenidade da Anunciação do Senhor", feast: new Date(year, 2, 25) },
     { id: "fatima", name: "Nossa Senhora de Fátima (13 Mai)", feastTitle: "Festa de Nossa Senhora de Fátima", feast: new Date(year, 4, 13) },
@@ -38,18 +39,19 @@ export function getMarianConsecrationPresets(year: number): MarianConsecrationPr
     name: p.name,
     feastTitle: p.feastTitle,
     feastDate: p.feast,
-    // A preparação é de 33 dias, portanto o início é 32 dias antes da festa
-    startDate: subDays(p.feast, 32),
+    // O início ocorre (totalDays - 1) dias antes da festa
+    startDate: subDays(p.feast, daysOffset),
   }));
 }
 
-export function getCustomMarianPreset(startDate: Date): MarianConsecrationPreset {
+export function getCustomMarianPreset(startDate: Date, totalDays: number = 30): MarianConsecrationPreset {
+  const daysOffset = totalDays - 1;
   return {
     id: "custom",
     name: "Escolha Livre (Personalizada)",
     feastTitle: "Dia Escolhido da Consagração",
     startDate: startDate,
-    feastDate: addDays(startDate, 32),
+    feastDate: addDays(startDate, daysOffset),
     isCustom: true
   };
 }

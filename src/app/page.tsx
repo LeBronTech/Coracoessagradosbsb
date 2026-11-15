@@ -189,20 +189,22 @@ export default function Home() {
       });
     });
 
-    // 2. Consagração a Nossa Senhora (Espaço Mariano - 33 Dias)
+    // 2. Consagração a Nossa Senhora (Espaço Mariano - 30 ou 33 Dias)
     const marianSaved = localStorage.getItem("mariano-consagracao-completed");
+    const marianModeStr = localStorage.getItem("mariano-consagracao-total-days");
+    const marianTotalDays = marianModeStr === "33" ? 33 : 30;
     if (marianSaved) {
       try {
         const marianDays = JSON.parse(marianSaved);
         if (Array.isArray(marianDays) && marianDays.length > 0) {
           const daysDone = marianDays.length;
-          if (daysDone >= 33) {
+          if (daysDone >= marianTotalDays) {
             completedCount++;
             if (!completedItems.some(item => item.id === "consagracao_mariana")) {
               completedItems.push({
                 id: "consagracao_mariana",
-                name: "Consagração a Nossa Senhora",
-                totalDays: 33,
+                name: `Consagração a Nossa Senhora (${marianTotalDays} Dias)`,
+                totalDays: marianTotalDays,
                 imageUrl: "https://iili.io/KpYhaae.png",
                 path: "/espaco-mariano?secao=consagracao#consagracao",
                 colorTheme: "blue"
@@ -213,7 +215,7 @@ export default function Home() {
             const savedCurrentDay = localStorage.getItem("mariano-consagracao-current-day");
             if (savedCurrentDay) {
               const p = parseInt(savedCurrentDay, 10);
-              if (!isNaN(p) && p >= 1 && p <= 33) {
+              if (!isNaN(p) && p >= 1 && p <= marianTotalDays) {
                 activeMarianDay = p;
               }
             }
@@ -224,7 +226,7 @@ export default function Home() {
                 const datesObj = JSON.parse(savedDates);
                 const todayStr = new Date().toLocaleDateString('en-CA');
                 if (marianDays.includes(activeMarianDay) && datesObj[activeMarianDay.toString()] && datesObj[activeMarianDay.toString()] < todayStr) {
-                  if (activeMarianDay + 1 <= 33) {
+                  if (activeMarianDay + 1 <= marianTotalDays) {
                     activeMarianDay = activeMarianDay + 1;
                   }
                 }
@@ -234,9 +236,9 @@ export default function Home() {
             if (!ongoingItems.some(item => item.id === "consagracao_mariana")) {
               ongoingItems.push({
                 id: "consagracao_mariana",
-                name: "Consagração a Nossa Senhora",
-                day: Math.min(activeMarianDay, 33),
-                totalDays: 33,
+                name: `Consagração a Nossa Senhora (${marianTotalDays} Dias)`,
+                day: Math.min(activeMarianDay, marianTotalDays),
+                totalDays: marianTotalDays,
                 imageUrl: "https://iili.io/KpYhaae.png",
                 path: "/espaco-mariano?secao=consagracao#consagracao",
                 colorTheme: "blue"
