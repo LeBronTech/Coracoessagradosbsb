@@ -816,17 +816,19 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
             {/* Painel de Datas: Início e Festa */}
             <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-blue-950/40 rounded-2xl p-4 border-2 border-blue-200 dark:border-blue-800 flex justify-around items-center text-center shadow-inner">
               <div>
-                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Início (1º dia)</p>
+                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Início da Preparação (1º dia)</p>
                 <p className="text-base sm:text-lg font-bold text-blue-950 dark:text-blue-100 capitalize">
                   {format(selectedPreset.startDate, "dd 'de' MMMM", { locale: ptBR })}
                 </p>
+                <p className="text-[10px] text-slate-500 font-medium">Término: {format(addDays(selectedPreset.startDate, totalDays - 1), "dd/MM")} ({totalDays}º dia)</p>
               </div>
-              <div className="h-10 w-[2px] bg-blue-200 dark:bg-blue-800" />
+              <div className="h-12 w-[2px] bg-blue-200 dark:bg-blue-800" />
               <div>
-                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Festa ({totalDays}º dia)</p>
+                <p className="text-xs uppercase font-bold text-blue-700 dark:text-blue-400 mb-1">Festa / Consagração ({totalDays + 1}º dia)</p>
                 <p className="text-base sm:text-lg font-bold text-blue-950 dark:text-blue-100 capitalize">
                   {format(selectedPreset.feastDate, "dd 'de' MMMM", { locale: ptBR })}
                 </p>
+                <p className="text-[10px] text-emerald-700 dark:text-emerald-400 font-bold">✨ Dia Solene da Consagração</p>
               </div>
             </div>
           </div>
@@ -1435,6 +1437,7 @@ function ConsagracaoDayCard({
   onOpenFormula: () => void;
 }) {
   const [activePrayerName, setActivePrayerName] = useState<string | null>(null);
+  const [selectedPlaylistSource, setSelectedPlaylistSource] = useState<"mario" | "montfort">("mario");
   const [copied, setCopied] = useState(false);
   const prayerBoxRef = useRef<HTMLDivElement>(null);
 
@@ -1444,9 +1447,15 @@ function ConsagracaoDayCard({
   }, [diaInfo.dia]);
 
   const activePrayerData = activePrayerName ? getMarianPrayer(activePrayerName) : null;
-  const videoId = totalDays === 33
-    ? (MARIAN_VIDEOS_33_DAYS[diaInfo.dia] || diaInfo.videoId)
-    : (MARIAN_VIDEOS_30_DAYS[diaInfo.dia] || diaInfo.videoId);
+
+  const videoMario = MARIAN_VIDEOS_30_DAYS[diaInfo.dia];
+  const videoMontfort = MARIAN_VIDEOS_33_DAYS[diaInfo.dia];
+
+  // Nos dias após o dia 30 (dias 31, 32 e 33), exibe exclusivamente a playlist dos 33 dias
+  const isPostDay30 = diaInfo.dia > 30;
+  const currentVideoId = isPostDay30
+    ? videoMontfort
+    : (selectedPlaylistSource === "mario" ? (videoMario || videoMontfort) : (videoMontfort || videoMario));
 
   const handleTogglePrayer = (oracao: string) => {
     if (activePrayerName === oracao) {
@@ -1570,18 +1579,56 @@ function ConsagracaoDayCard({
           </div>
         </div>
 
-          {/* Vídeo do Dia */}
-          {videoId && (
+          {/* Vídeo do Dia com suporte a ambas as playlists */}
+          {currentVideoId && (
             <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-800/70 border border-slate-200 dark:border-slate-800 shadow-sm space-y-3">
-              <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
-                {totalDays === 33
-                  ? `Vídeo do ${diaInfo.dia}º Dia (Exercícios Espirituais de São Luís de Montfort):`
-                  : `Vídeo do ${diaInfo.dia}º Dia (Padre Mario Sartori):`}
-              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                <p className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
+                  Vídeo do {diaInfo.dia}º Dia:
+                </p>
+
+                {/* Se estiver nos dias 1 a 30, permite alternar entre as 2 playlists */}
+                {!isPostDay30 && videoMario && videoMontfort && (
+                  <div className="flex items-center gap-1.5 bg-slate-200/80 dark:bg-slate-700/80 p-1 rounded-xl self-start sm:self-auto">
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPlaylistSource("mario")}
+                      className={cn(
+                        "px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer",
+                        selectedPlaylistSource === "mario"
+                          ? "bg-white dark:bg-slate-900 text-blue-900 dark:text-blue-200 shadow-sm"
+                          : "text-slate-600 dark:text-slate-300 hover:text-slate-900"
+                      )}
+                    >
+                      Padre Mario Sartori
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedPlaylistSource("montfort")}
+                      className={cn(
+                        "px-2.5 py-1 text-xs font-bold rounded-lg transition-all cursor-pointer",
+                        selectedPlaylistSource === "montfort"
+                          ? "bg-white dark:bg-slate-900 text-blue-900 dark:text-blue-200 shadow-sm"
+                          : "text-slate-600 dark:text-slate-300 hover:text-slate-900"
+                      )}
+                    >
+                      São Luís de Montfort (33 Dias)
+                    </button>
+                  </div>
+                )}
+
+                {/* Nos dias 31 a 33, destaca que é da playlist dos 33 dias */}
+                {isPostDay30 && (
+                  <Badge variant="outline" className="border-blue-400 text-blue-800 dark:text-blue-300 text-[11px] font-semibold">
+                    Playlist São Luís de Montfort
+                  </Badge>
+                )}
+              </div>
+
               <div className="relative w-full aspect-video rounded-xl overflow-hidden shadow-md border-2 border-slate-200 dark:border-slate-700 bg-black">
                 <iframe
-                  src={`https://www.youtube.com/embed/${videoId}`}
+                  src={`https://www.youtube.com/embed/${currentVideoId}`}
                   title={`Vídeo - ${diaInfo.dia}º Dia da Consagração`}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen

@@ -11,10 +11,13 @@ export type MarianConsecrationPreset = {
 
 /**
  * Retorna os presets das principais festas marianas para a Consagração Mariana
- * Suporta o modo de 30 dias ou 33 dias segundo o método tradicional
+ * A preparação (30 ou 33 dias) termina 1 dia ANTES da festa, de modo que o
+ * Grande Dia da Consagração é celebrado na própria Festa Mariana (Dia 31 ou Dia 34).
  */
 export function getMarianConsecrationPresets(year: number, totalDays: number = 30): MarianConsecrationPreset[] {
-  const daysOffset = totalDays - 1;
+  // Para que o último dia da preparação termine na véspera da festa (ex: dia 30 ou 33),
+  // o dia 1 da preparação inicia exatamente totalDays dias antes da festa.
+  const daysOffset = totalDays;
   const presets = [
     { id: "anunciacao", name: "Anunciação do Senhor (25 Mar)", feastTitle: "Solenidade da Anunciação do Senhor", feast: new Date(year, 2, 25) },
     { id: "fatima", name: "Nossa Senhora de Fátima (13 Mai)", feastTitle: "Festa de Nossa Senhora de Fátima", feast: new Date(year, 4, 13) },
@@ -39,13 +42,14 @@ export function getMarianConsecrationPresets(year: number, totalDays: number = 3
     name: p.name,
     feastTitle: p.feastTitle,
     feastDate: p.feast,
-    // O início ocorre (totalDays - 1) dias antes da festa
+    // O dia 1 da preparação inicia totalDays dias antes da festa
     startDate: subDays(p.feast, daysOffset),
   }));
 }
 
 export function getCustomMarianPreset(startDate: Date, totalDays: number = 30): MarianConsecrationPreset {
-  const daysOffset = totalDays - 1;
+  // A festa / dia da consagração ocorre no dia seguinte ao término da preparação (dia 31 ou 34)
+  const daysOffset = totalDays;
   return {
     id: "custom",
     name: "Escolha Livre (Personalizada)",
