@@ -7026,7 +7026,7 @@ finalPrayer: "Ó Deus, que moldastes a Vossa serva Santa Gemma à semelhança de
         saintName: "São Maximiliano Kolbe",
         novenaTitle: "Novena a São Maximiliano Kolbe",
         description: "Novena em honra a São Maximiliano Kolbe, o mártir da caridade de Auschwitz.",
-        image: "https://bibliotecacatolica.com.br/wp-content/uploads/2024/08/Sao-Maximiliano-Maria-Kolbe-4-654x1024.jpg",
+        image: "/images/santos/sao-maximiliano-kolbe.jpg",
         imageObjectPosition: "top",
         initialPrayer: `<div class="prayer-block">
             <h4 class="section-title">Oração inicial para todos os dias</h4>

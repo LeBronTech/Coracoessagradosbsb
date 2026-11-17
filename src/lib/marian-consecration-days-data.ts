@@ -108,8 +108,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 1 a 13",
     paginas: "19-24",
     paginaPdf: 19,
-    paginas: 19-24,
-    paginaPdf: 19,
     meditacao: "Foi por intermédio da Santíssima Virgem Maria que Jesus Cristo veio ao mundo, e é também por Ela que Ele deve reinar no mundo. Maria viveu oculta aos olhos humanos, mas foi exaltada por Deus Altíssimo. Iniciar esta jornada é abrir o coração para que a Sabedoria Encarnada reine em nós.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -125,8 +123,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 1,46-55; João 2,1-5",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 14 a 22",
     paginas: "25-30",
-    paginaPdf: 25,
-    paginas: 25-30,
     paginaPdf: 25,
     meditacao: "Deus reuniu todas as águas e chamou-as de mar; reuniu todas as suas graças e chamou-as Maria. Deus Pai comunicou a Maria a sua fecundidade, Deus Filho transmitiu-lhe os seus méritos e Deus Espírito Santo tomou-a por Esposa inseparável para gerar os membros de Cristo.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -144,8 +140,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 23 a 36",
     paginas: "31-36",
     paginaPdf: 31,
-    paginas: 31-36,
-    paginaPdf: 31,
     meditacao: "A oração de Maria é a mais poderosa diante do Trono da Graça. Ela é a dispensadora de todos os tesouros do Rei celestial. Se queremos encontrar a graça de Deus, devemos necessariamente encontrar Maria, porque quem acha Maria, acha a Vida que é Jesus Cristo.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -161,8 +155,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Gênesis 3,15; Apocalipse 12,1-6",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 37 a 48",
     paginas: "37-43",
-    paginaPdf: 37,
-    paginas: 37-43,
     paginaPdf: 37,
     meditacao: "Nos últimos tempos, o poder de Maria há de resplandecer de modo incomparável contra o inferno e o demônio. Ela é a aurora que precede o Sol da Justiça. Aqueles que se consagrarem verdadeiramente a Ela serão protegidos sob o seu manto nas provações deste mundo.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -180,8 +172,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 49 a 54",
     paginas: "44-46",
     paginaPdf: 44,
-    paginas: 44-46,
-    paginaPdf: 44,
     meditacao: "São Luís profetiza os grandes santos que se levantarão no fim dos tempos: almas livres, totalmente desapegadas das coisas terrenas, cheias do fogo do Espírito Santo e dependentes de Maria, com a espada da Palavra de Deus nos lábios e o Rosário nas mãos.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -197,8 +187,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Salmo 23 (24),1-6; 1 Coríntios 1,26-31",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 55 a 59",
     paginas: "47-49",
-    paginaPdf: 47,
-    paginas: 47-49,
     paginaPdf: 47,
     meditacao: "Os verdadeiros servos de Maria não temerão os ataques das trevas, pois repousam nos braços maternais da Rainha do Céu. Eles deixarão após si apenas a glória de Deus e a salvação das almas. Peça hoje à Mãe Aparecida a graça da coragem e do zelo apostólico.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -216,8 +204,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 2, nn. 60 a 67",
     paginas: "50-55",
     paginaPdf: 50,
-    paginas: 50-55,
-    paginaPdf: 50,
     meditacao: "60. 'Até aqui dissemos alguma coisa sobre a necessidade da Devoção à Santíssima Virgem...'. A primeira verdade fundamental: Jesus Cristo, nosso Salvador, verdadeiro Deus e verdadeiro homem, deve ser o fim supremo de todas as nossas devoções. Se estabelecemos a sólida devoção a Nossa Senhora, é unicamente para estabelecer mais perfeitamente a de Jesus Cristo.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -233,8 +219,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Romanos 6,16-22; 1 Coríntios 6,19-20",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 2, nn. 68 a 77",
     paginas: "56-62",
-    paginaPdf: 56,
-    paginas: 56-62,
     paginaPdf: 56,
     meditacao: "Pertencemos a Jesus por direito de criação e por direito de redenção. Há três espécies de escravidão: da natureza, da força e de amor. A escravidão voluntária de amor é a mais nobre e gloriosa, pois entregamos livremente a Jesus, por Maria, tudo quanto somos e possuímos.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -252,8 +236,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 2, nn. 78 a 82",
     paginas: "63-66",
     paginaPdf: 63,
-    paginas: 63-66,
-    paginaPdf: 63,
     meditacao: "Nossas melhores ações são comumente manchadas e corrompidas pelo fundo mau que existe em nós. Para nos esvaziarmos de nós mesmos, devemos morrer diariamente para nosso egoísmo e colocar nossas obras nas mãos puríssimas de Maria para que Ela as purifique diante de Deus.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -269,8 +251,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "1 Timóteo 2,5; Hebreus 7,25; João 19,26-27",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 2, nn. 83 a 89",
     paginas: "67-70",
-    paginaPdf: 67,
-    paginas: 67-70,
     paginaPdf: 67,
     meditacao: "Jesus é o único Mediador de redenção; mas diante de sua majestade infinita, Deus nos deu Maria como Medianeira de intercessão e ternura. Aproximar-se de Jesus por Maria é caminho de profunda humildade e confiança filial.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -288,8 +268,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 3, nn. 90 a 104",
     paginas: "71-79",
     paginaPdf: 71,
-    paginas: 71-79,
-    paginaPdf: 71,
     meditacao: "São Luís desmascara as sete falsas devoções: os devotos críticos, escrupulosos, exteriores, presunçosos, inconstantes, hipócritas e interesseiros. Devemos examinar com sinceridade nosso coração para não viver uma devoção ilusória.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -305,8 +283,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 8,15; João 14,21-24",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 3, nn. 105 a 119",
     paginas: "80-88",
-    paginaPdf: 80,
-    paginas: 80-88,
     paginaPdf: 80,
     meditacao: "A verdadeira devoção a Nossa Senhora tem cinco caracteres essenciais: é interior, terna, santa, constante e desinteressada. Ela não busca favores egoístas, mas unicamente amar a Deus e agradar à sua Santíssima Mãe.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -324,8 +300,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 120 a 130",
     paginas: "89-94",
     paginaPdf: 89,
-    paginas: 89-94,
-    paginaPdf: 89,
     meditacao: "A perfeita consagração consiste em entregar-se inteiramente a Maria, para por Ela pertencer inteiramente a Jesus Cristo. Entregamos: nosso corpo, nossos sentidos, nossa alma, nossos bens exteriores e até o valor de nossas boas ações passadas, presentes e futuras.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
   },
@@ -341,8 +315,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Romanos 6,3-11; 1 Pedro 3,21-22",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 131 a 134",
     paginas: "95-98",
-    paginaPdf: 95,
-    paginas: 95-98,
     paginaPdf: 95,
     meditacao: "Antes do Batismo éramos escravos do demônio; no Batismo nos tornamos escravos de Cristo. A Consagração é uma renovação solene das promessas batismais, feita de modo mais maduro, consciente e seguro pelas mãos imaculadas de Maria.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
@@ -360,8 +332,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 135 a 143",
     paginas: "99-104",
     paginaPdf: 99,
-    paginas: 99-104,
-    paginaPdf: 99,
     meditacao: "Nada há no mundo mais sublime do que servir a Deus. Consagrar-se a Maria é dar a Deus o que de mais precioso temos: a posse total de nossa vontade, para que Ele disponha de nossa vida em vista da sua santa vontade.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
   },
@@ -378,8 +348,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 144 a 151",
     paginas: "105-110",
     paginaPdf: 105,
-    paginas: 105-110,
-    paginaPdf: 105,
     meditacao: "Jesus Cristo passou trinta anos submisso e dependente de Maria, mais tempo do que o dedicado à sua vida pública! Se o próprio Filho de Deus quis depender de Maria para nos salvar, como nós teríamos receio de imitá-Lo?",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
   },
@@ -395,8 +363,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Provérbios 8,32-36; Lucas 11,27-28",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 152 a 168",
     paginas: "111-118",
-    paginaPdf: 111,
-    paginas: 111-118,
     paginaPdf: 111,
     meditacao: "Maria jamais se deixa vencer em generosidade. Quando alguém se entrega todo a Ela, Ela se dá toda inteira a essa alma, cobrindo-a de graças, purificando suas intenções e defendendo-a dos ardis do demônio.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
@@ -415,8 +381,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 169 a 172",
     paginas: "119-122",
     paginaPdf: 119,
-    paginas: 119-122,
-    paginaPdf: 119,
     meditacao: "Dar tudo pelas mãos de Maria rende a Deus uma glória incomparável, porque a Santíssima Virgem purifica todas as nossas obras, orações e sacrifícios na sua caridade imaculada antes de apresentá-las ao Pai.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
   },
@@ -432,8 +396,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Provérbios 3,17; João 14,6",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 173 a 182",
     paginas: "123-128",
-    paginaPdf: 123,
-    paginas: 123-128,
     paginaPdf: 123,
     meditacao: "Esta devoção é um caminho fácil, pois Maria adoça todas as nossas cruzes; é um caminho curto, pois avança-se mais em pouco tempo sob sua proteção do que em anos de esforços isolados; é perfeito e imensamente seguro contra as quedas.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
@@ -451,8 +413,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 183 a 190",
     paginas: "129-132",
     paginaPdf: 129,
-    paginas: 129-132,
-    paginaPdf: 129,
     meditacao: "A escravidão de amor a Maria não acorrenta a alma com medo servil, mas dilata o coração na verdadeira liberdade dos filhos de Deus. O amor filial substitui a angústia dos escravos do mundo.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha de Nossa Senhora"]
   },
@@ -468,8 +428,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Gênesis 27,1-29; Romanos 9,10-13",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 191 a 200",
     paginas: "133-136",
-    paginaPdf: 133,
-    paginas: 133-136,
     paginaPdf: 133,
     meditacao: "Assim como Rebeca vestiu Jacó com as roupas perfumadas do primogênito e preparou o banquete para que ele recebesse a bênção do pai Isaac, Maria nos reveste com as vestes santas de Jesus para obtermos a bênção do Pai Celeste.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -487,8 +445,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 201 a 212",
     paginas: "137-142",
     paginaPdf: 137,
-    paginas: 137-142,
-    paginaPdf: 137,
     meditacao: "Esaú vendeu sua primogenitura por um prato de lentilhas; Jacó guardou a bênção com paciência e docilidade à sua mãe. Os filhos do mundo trocam a eternidade pelos prazeres passageiros; os filhos de Maria acolhem a docilidade e o amor eterno.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -504,8 +460,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "João 15,4-7; Filipenses 4,13",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 5, nn. 213 a 217",
     paginas: "143-146",
-    paginaPdf: 143,
-    paginas: 143-146,
     paginaPdf: 143,
     meditacao: "O primeiro efeito admirável desta consagração é o conhecimento e desprezo do próprio eu à luz de Maria. A alma abandona a vanglória, reconhece sua pequenez e experimenta a doçura do descanso no Coração Imaculado.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -523,8 +477,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 5, nn. 218 a 225",
     paginas: "147-150",
     paginaPdf: 147,
-    paginas: 147-150,
-    paginaPdf: 147,
     meditacao: "Maria comunicará à sua alma uma parcela de sua fé admirável, mais pura e inabalável que a de todos os patriarcas e profetas. A alma deixa de viver de si mesma para viver no Espírito de Maria, que glorifica o Senhor.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -540,8 +492,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 6,36-38; Salmo 102 (103),8-13",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 6, nn. 226 a 233",
     paginas: "151-154",
-    paginaPdf: 151,
-    paginas: 151-154,
     paginaPdf: 151,
     meditacao: "São Luís orienta os dias de preparação, os exercícios espirituais, as orações vocais prescritas e a renovação solene anual desta santa escravidão de amor. A perseverança diária consolida a graça na alma.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -559,8 +509,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 6, nn. 234 a 242",
     paginas: "155-157",
     paginaPdf: 155,
-    paginas: 155-157,
-    paginaPdf: 155,
     meditacao: "A recitação da Coroinha da Santíssima Virgem (composta de três Pai-Nossos e doze Ave-Marias em honra dos doze privilégios da Rainha do Céu) é uma das práticas mais amadas pelos santos consagrados.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -576,8 +524,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "Eclesiástico (Sirácida) 6,24-31; Lucas 18,1-8",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 6, nn. 243 a 256",
     paginas: "158-161",
-    paginaPdf: 158,
-    paginas: 158-161,
     paginaPdf: 158,
     meditacao: "O uso das pequenas cadeias de ferro no pulso ou pescoço lembra que quebramos as cadeias do pecado para nos atarmos para sempre aos laços de amor de Jesus e Maria. Rezar diariamente o Santo Rosário com amor é a garantia da vitória.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -595,8 +541,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 6, nn. 257 a 265",
     paginas: "162-166",
     paginaPdf: 162,
-    paginas: 162-166,
-    paginaPdf: 162,
     meditacao: "Esta é a alma de toda a consagração: fazer todas as coisas POR Maria (obedecendo ao seu espírito), COM Maria (olhando para o seu modelo), EM Maria (unindo-se ao seu Coração) e PARA Maria (dedicando tudo à sua glória e à glória de Cristo).",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -613,8 +557,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 7, nn. 266 a 273",
     paginas: "167-170",
     paginaPdf: 167,
-    paginas: 167-170,
-    paginaPdf: 167,
     meditacao: "Antes da Comunhão, peça a Maria seu coração virginal para acolher Jesus; na Comunhão, introduza Jesus no coração de sua Mãe; após a Comunhão, permaneça em adoração silenciosa deixando Maria amar e agradecer a Jesus em seu lugar.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -630,8 +572,6 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
     passagemBiblica: "João 19,25-27; Romanos 12,1-2",
     leituraTratado: "Fórmula Solene de Consagração de São Luís Maria Grignion de Montfort",
     paginas: "171-174",
-    paginaPdf: 171,
-    paginas: 171-174,
     paginaPdf: 171,
     meditacao: "Você concluiu os 30 dias de preparação! Hoje você sela diante do altar a sua consagração total a Jesus pelas mãos de Maria. Participe da Santa Missa, confesse-se, receba a Sagrada Eucaristia, assine o documento solene e viva plenamente como escravo de amor da Mãe de Deus!",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella", "Magnificat", "Fórmula Solene de Consagração"]
@@ -654,8 +594,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 227-228",
     paginas: "19-24",
     paginaPdf: 19,
-    paginas: 19-24,
-    paginaPdf: 19,
     meditacao: "Iniciamos a nossa jornada consagratória renunciando ao espírito do mundo, que é egoísta, soberbo e rebelde a Deus. Contemplemos a docilidade da Santíssima Virgem diante do Arcanjo Gabriel: para acolher Jesus, Maria esvaziou-se de si e disse: 'Faça-se em mim segundo a tua palavra'. Peça hoje a coragem de renunciar aos apegos mundanos.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -671,8 +609,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 9,23; João 14,15-24; Mateus 7,21",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 229-230",
     paginas: "25-30",
-    paginaPdf: 25,
-    paginas: 25-30,
     paginaPdf: 25,
     meditacao: "Nossa Senhora em Fátima nos alertou com maternal solicitude: 'Não ofendam mais a Deus Nosso Senhor, que já está muito ofendido'. Fugir do pecado mortal e venial deliberado é a primeira exigência de quem deseja ser escravo de amor de Jesus e Maria. Reze com fervor o terço e examine suas inclinações.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -690,8 +626,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 231-233",
     paginas: "31-36",
     paginaPdf: 31,
-    paginas: 31-36,
-    paginaPdf: 31,
     meditacao: "Na gruta de Massabielle, Maria pediu a Santa Bernadette: 'Penitência, penitência, penitência! Rogai a Deus pela conversão dos pecadores'. O santo temor de Deus não é pavor, mas o zelo filial de não magoar Aquele que nos amou até o fim. Busquemos a fonte de água viva da confissão e da graça.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -707,8 +641,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Mateus 6,24; Lucas 9,62; Lucas 16,10",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 37 a 48",
     paginas: "37-43",
-    paginaPdf: 37,
-    paginas: 37-43,
     paginaPdf: 37,
     meditacao: "Ninguém pode servir a dois senhores. Muitas vezes nossa alma está atada a nós de maus hábitos, ressentimentos e vaidades humanas. Entregue à Virgem Desatadora cada fita embaraçada do seu coração; pela intercessão dela, Deus restaura a pureza e a fidelidade da sua aliança batismal.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -726,8 +658,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 49 a 54",
     paginas: "44-46",
     paginaPdf: 44,
-    paginas: 44-46,
-    paginaPdf: 44,
     meditacao: "A vida de oração é o ar que sustenta a alma cristã. Nossa Senhora do Carmo nos convida à intimidade silenciosa com Deus, representados pelo santo escapulário. Rezar não é apenas pedir favores, mas estar com o Senhor em comunhão filial, confiando inteiramente na proteção do Manto de Maria.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -743,8 +673,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 5,1-11; João 8,31-32; Mateus 11,25",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 55 a 59",
     paginas: "47-49",
-    paginaPdf: 47,
-    paginas: 47-49,
     paginaPdf: 47,
     meditacao: "Assim como a imagem pequenina de Aparecida foi encontrada partida nas redes de homens simples, a verdade de Deus é acolhida apenas pelos corações humildes. O mundo idolatra o poder e o orgulho; Jesus e Maria nos ensinam que a graça de Deus brota onde há simplicidade, quebrantamento e oração contrita.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -762,8 +690,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 2, nn. 60 a 67",
     paginas: "50-55",
     paginaPdf: 50,
-    paginas: 50-55,
-    paginaPdf: 50,
     meditacao: "A Virgem Moreninha do Tepeyac disse a São Juan Diego: 'Não temas enfermidade alguma, nem te aflijas... Acaso não estou eu aqui que sou tua Mãe? Não estás sob minha sombra e amparo?'. A verdadeira humildade liberta a alma de todo medo e amargura, permitindo repousar no colo da Mãe Celeste.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -779,8 +705,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Mateus 7,1-5; Mateus 18,10-14; 1 Coríntios 13,1-8",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 37 a 488",
     paginas: "56-62",
-    paginaPdf: 56,
-    paginas: 56-62,
     paginaPdf: 56,
     meditacao: "Das mãos de Nossa Senhora das Graças saem feixes de luz resplandecentes: são as graças que Deus concede por seu intermédio àqueles que pedem com fé. Se queremos receber as graças divinas, devemos abrir o coração à caridade fraterna, perdoando ofensas, acolhendo os necessitados e não julgando ninguém.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -798,8 +722,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 49 a 545",
     paginas: "63-66",
     paginaPdf: 63,
-    paginas: 63-66,
-    paginaPdf: 63,
     meditacao: "No ícone do Perpétuo Socorro, o Menino Jesus corre para os braços da Mãe ao avistar os anjos com a cruz e a lança, soltando até a sandália. Em nossas tentações e sofrimentos, devemos correr prontamente para o colo de Maria, mortificando as inclinações da carne para viver segundo o Espírito.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -815,8 +737,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Mateus 5,10-12; Lucas 6,22-23; João 15,18-21",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 50-59",
     paginas: "67-70",
-    paginaPdf: 67,
-    paginas: 67-70,
     paginaPdf: 67,
     meditacao: "São João Bosco contemplou a Igreja guiada pelas duas colunas da salvação: a Sagrada Eucaristia e Maria Auxiliadora. O mundo ridiculariza os fiéis e persegue os que vivem o Evangelho. Maria é a muralha inexpugnável dos cristãos, concedendo intrepidez, pureza aos jovens e perseverança aos lares.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -834,8 +754,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 3, nn. 90 a 104",
     paginas: "71-79",
     paginaPdf: 71,
-    paginas: 71-79,
-    paginaPdf: 71,
     meditacao: "Ao pé da Cruz, Maria viu seu Filho Divino despojado de tudo, até das próprias vestes, oferecendo a vida pela nossa salvação. Ela permaneceu de pé, sem murmurar. Desapegar-se de tudo significa não colocar o coração em honrarias, riquezas passageiras ou confortos humanos, escolhendo a Cristo como o único Bem.",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
   },
@@ -852,8 +770,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 12,22-31; Filipenses 3,20-21; Apocalipse 12,1",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 78-82",
     paginas: "80-88",
-    paginaPdf: 80,
-    paginas: 80-88,
     paginaPdf: 80,
     meditacao: "Encerramos os 12 dias preliminares fitando os olhos no Céu, para onde Maria foi elevada em corpo e alma. Nossa morada definitiva não é este mundo passageiro. Se Deus veste os lírios do campo e cuida das aves do céu, quanto mais cuidará daqueles que se consagram inteiramente à Sua Santíssima Mãe!",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella"]
@@ -873,8 +789,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 78-82",
     paginas: "89-94",
     paginaPdf: 89,
-    paginas: 89-94,
-    paginaPdf: 89,
     meditacao: "Para que a graça habite em nós, é necessário esvaziar a alma do orgulho e da vaidade. Diante da Virgem dos Pobres, reconheçamos nossa miséria espiritual, nossa inconstância e nossa fraqueza. Sem a graça de Deus, nada somos; com Maria, nossa fraqueza encontra um refúgio de misericórdia.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
   },
@@ -890,8 +804,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 2,29-35; João 1,4-9; Salmo 138 (139)",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 131 a 134",
     paginas: "95-98",
-    paginaPdf: 95,
-    paginas: 95-98,
     paginaPdf: 95,
     meditacao: "Peçamos a Nossa Senhora da Luz que ilumine as trevas da nossa consciência, para que enxerguemos com clareza os nossos pecados ocultos, as más inclinações e as faltas de caridade. Não para nos desesperar, mas para correr arrependidos aos braços misericordiosos de Jesus.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
@@ -909,8 +821,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 135 a 143",
     paginas: "99-104",
     paginaPdf: 99,
-    paginas: 99-104,
-    paginaPdf: 99,
     meditacao: "Quantas vezes prometemos fidelidade a Deus pela manhã e à tarde caímos novamente na mesma tibieza? O Santo Rosário é o espelho onde contemplamos a santidade de Cristo e de Maria contraposta às nossas tibiezas diárias. Cada Ave-Maria rezada com devoção dissipa o amor próprio em nossa alma.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
   },
@@ -926,8 +836,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Provérbios 3,5-7; Tiago 1,5-8; Salmo 24 (25)",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 144 a 151",
     paginas: "105-110",
-    paginaPdf: 105,
-    paginas: 105-110,
     paginaPdf: 105,
     meditacao: "Cada ser humano possui uma paixão dominante: orgulho, ira, sensualidade, preguiça, inveja, avareza ou gula. Recorramos a Nossa Senhora do Bom Conselho para que ela nos aconselhe e revele onde o inimigo mais ataca a nossa alma, capacitando-nos a combater o pecado pela raiz.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
@@ -945,8 +853,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 152 a 168",
     paginas: "111-118",
     paginaPdf: 111,
-    paginas: 111-118,
-    paginaPdf: 111,
     meditacao: "A verdadeira paz da alma não é a ausência de lutas exteriores, mas a consciência purificada pelo Sangue do Cordeiro. Quando confessamos nossos pecados e depomos as armas do orgulho, a Rainha da Paz derrama em nós uma alegria celeste que o mundo não pode conceder.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
   },
@@ -962,8 +868,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Lucas 1,39-56; 1 João 4,16-21",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 83-89",
     paginas: "119-122",
-    paginaPdf: 119,
-    paginas: 119-122,
     paginaPdf: 119,
     meditacao: "Concluímos a semana do Conhecimento Próprio com o Magnificat: 'A minha alma engrandece o Senhor e o meu espírito se alegra em Deus meu Salvador, porque olhou para a humildade de sua serva'. Toda a energia que antes gastávamos com a autoafirmação e vaidade, passemos a dedicar no serviço humilde ao próximo por amor a Maria.",
     oracoes: ["Ladainha do Espírito Santo", "Ladainha de Nossa Senhora", "Ave Maris Stella"]
@@ -983,8 +887,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 1-12",
     paginas: "123-128",
     paginaPdf: 123,
-    paginas: 123-128,
-    paginaPdf: 123,
     meditacao: "Iniciamos a semana do Conhecimento de Maria contemplando sua divina maternidade e fortaleza. Ela foi desterrada no Egito, suportando frio e penúrias sem murmurar. São Luís ensina que Maria é o 'Paraíso terrestre do novo Adão'. Conhecer Maria é descobrir a mais bela, humilde e fiel de todas as criaturas de Deus.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
   },
@@ -1000,8 +902,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "João 2,1-11; Eclesiástico (Sirácida) 24",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 13-28",
     paginas: "129-132",
-    paginaPdf: 129,
-    paginas: 129-132,
     paginaPdf: 129,
     meditacao: "Nas Bodas de Caná, Maria antecipou a 'hora' de Jesus pela sua intercessão amorosa. Ela é a Medianeira de todas as graças, que nos ensina com amor: 'Fazei tudo o que Ele vos disser'. Entregar-se a Maria é a garantia segura de nunca faltar o vinho novo da alegria, do fervor e da fidelidade em nossas vidas.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
@@ -1019,8 +919,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 85-89",
     paginas: "133-136",
     paginaPdf: 133,
-    paginas: 133-136,
-    paginaPdf: 133,
     meditacao: "São Bernardo escreveu que o nome de Maria é 'mel nos lábios, cântico nos ouvidos e júbilo no coração'. Sob o título de Nossa Senhora do Mel, contemplamos a extraordinária compaixão maternal da Mãe de Deus, que derrama sobre nossas amarguras o doce consolo de Jesus, curando feridas profundas da nossa alma.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
   },
@@ -1036,8 +934,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Isaías 7,14; Miqueias 5,1-4; Lucas 1,35",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 140-143",
     paginas: "137-142",
-    paginaPdf: 137,
-    paginas: 137-142,
     paginaPdf: 137,
     meditacao: "Nossa Senhora do Bom Parto (Expectação / Ó) nos lembra que por nove meses Maria foi o verdadeiro Santo dos Santos, carregando a Salvação do mundo em seu ventre sagrado. Ela é a protetora da vida desde a concepção e a mãe que cuida de cada filho que está para nascer para a vida da graça.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
@@ -1055,8 +951,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 152-168",
     paginas: "143-146",
     paginaPdf: 143,
-    paginas: 143-146,
-    paginaPdf: 143,
     meditacao: "O nascimento de Maria Santíssima foi a aurora que anunciou o Sol da Justiça, Jesus Cristo. Deus Pai a amou com amor singular desde toda a eternidade. Consagrar-se a Maria é entrar no mesmo desígnio de amor pelo qual o Pai a escolheu para ser a Mãe do Seu Filho Unigênito.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
   },
@@ -1072,8 +966,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Atos 1,12-14; João 19,26-27; Apocalipse 12,17",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 169-172",
     paginas: "147-150",
-    paginaPdf: 147,
-    paginas: 147-150,
     paginaPdf: 147,
     meditacao: "Ao pé da Cruz, Jesus nos entregou o tesouro mais precioso do Seu Coração: 'Eis aí a tua mãe'. E ao entregar João a Maria, fomos todos nós, os batizados, adotados como seus filhos espirituais. Maria não é apenas Rainha majestosa, mas Mãe atenta que cuida dos nossos passos dia e noite.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço"]
@@ -1093,8 +985,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 61-67",
     paginas: "151-154",
     paginaPdf: 151,
-    paginas: 151-154,
-    paginaPdf: 151,
     meditacao: "Iniciamos a semana do Conhecimento de Jesus Cristo. Como profetizou o justo Simeão, Jesus é a 'Luz para iluminar as nações'. Todo o fim da devoção a Maria é conduzir-nos a Jesus, conhecê-Lo profundamente, amá-Lo ardentemente e imitá-Lo com fidelidade até a vida eterna.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -1110,8 +1000,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Mateus 7,24-27; 1 Coríntios 10,4; Salmo 17 (18)",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 68-77",
     paginas: "155-157",
-    paginaPdf: 155,
-    paginas: 155-157,
     paginaPdf: 155,
     meditacao: "Assim como os santuários da Penha se erguem sobre penhascos firmes e visíveis de longe, a nossa vida espiritual deve ser edificada sobre a rocha viva que é Jesus Cristo. Pelas mãos de Maria, somos firmados na verdadeira doutrina da Igreja Católica e livres das tempestades de ilusões.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -1129,8 +1017,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 201 a 212",
     paginas: "158-161",
     paginaPdf: 158,
-    paginas: 158-161,
-    paginaPdf: 158,
     meditacao: "'Vinde a mim todos vós que estais cansados e sobrecarregados, e Eu vos aliviarei'. Contemplemos a infinita ternura do Coração de Jesus, que não rejeita nenhum pecador arrependido. Maria é o refúgio seguro onde os cansados encontram o refrigério do amor misericordioso de Cristo.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -1146,8 +1032,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "Isaías 53,1-12; Lucas 19,41-44; João 11,33-36",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 135-139",
     paginas: "162-166",
-    paginaPdf: 162,
-    paginas: 162-166,
     paginaPdf: 162,
     meditacao: "Jesus chorou sobre Jerusalém e no Horto das Oliveiras suou sangue pela humanidade. Nossa Senhora chora ao ver tantos corações insensíveis ao sacrifício de seu Filho. Meditemos no peso do sofrimento de Cristo na Cruz e peçamos a graça da contrição perfeita de nossos pecados.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -1165,8 +1049,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 6, nn. 257 a 265",
     paginas: "167-170",
     paginaPdf: 167,
-    paginas: 167-170,
-    paginaPdf: 167,
     meditacao: "Cristo é o Farol supremo que ilumina a nossa escuridão. Quando os ventos das tempestades soprarem e o desespero rondar o horizonte, 'olha para a estrela, invoca Maria!'. Ela nos conduz sem desvios diretamente aos pés do seu Filho Jesus.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
   },
@@ -1182,8 +1064,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "João 4,10-14; João 7,37-39; Apocalipse 21,6",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 7, nn. 266 a 273",
     paginas: "171-174",
-    paginaPdf: 171,
-    paginas: 171-174,
     paginaPdf: 171,
     meditacao: "Do lado aberto de Cristo na Cruz jorrou sangue e água, fonte inesgotável da Igreja e dos Sacramentos. Em Caravaggio, Nossa Senhora fez brotar água pura para saciar a sede dos que se arrependem. Aproximemo-nos com reverência da Sagrada Eucaristia, presença real de Jesus no meio de nós.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Ladainha do Santíssimo Nome de Jesus"]
@@ -1203,8 +1083,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 213-225",
     paginas: "162-166",
     paginaPdf: 162,
-    paginas: 171-174,
-    paginaPdf: 171,
     meditacao: "Estamos a poucos passos do dia mais solene da nossa vida espiritual. Faça uma boa Confissão Sacramental para lavar todas as culpas passadas. Proclame com toda a Igreja: Santa Maria, Mãe de Deus, rogai por nós, pecadores! Prepare seu coração como um presépio puro para receber o Reinado de Jesus.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Santo Terço", "Veni Creator Spiritus"]
   },
@@ -1221,8 +1099,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 226-233",
     paginas: "167-170",
     paginaPdf: 167,
-    paginas: 171-174,
-    paginaPdf: 171,
     meditacao: "Amanhã será o dia da Consagração Total! Maria é a Imaculada, a criatura mais amada pela Santíssima Trindade. Dar-se a ela é colocar nosso corpo, nossa alma, nossos bens materiais e espirituais sob a posse da Rainha dos Anjos, para que tudo em nós pertença integralmente a Jesus Cristo.",
     oracoes: ["Ladainha do Espírito Santo", "Ave Maris Stella", "Magnificat", "Ladainha de Nossa Senhora"]
   },
@@ -1238,8 +1114,6 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     passagemBiblica: "João 19,25-27; Romanos 12,1-2; Efésios 5,1-2",
     leituraTratado: "Fórmula Solene de Consagração de São Luís Maria Grignion de Montfort",
     paginas: "171-174",
-    paginaPdf: 171,
-    paginas: 171-174,
     paginaPdf: 171,
     meditacao: "Você venceu a preparação dos 33 dias! Hoje você sela a mais perfeita consagração batismal: entregar-se de corpo e alma, com todos os seus bens interiores e exteriores, passados, presentes e futuros, às mãos puríssimas da Mãe de Deus. Participe da Santa Missa, comungue com fervor, assine a fórmula solene e viva doravante em Maria, por Maria, com Maria e para Maria, a fim de viver perfeitamente para Jesus!",
     oracoes: ["Veni Creator Spiritus", "Ave Maris Stella", "Magnificat", "Fórmula Solene de Consagração"]
