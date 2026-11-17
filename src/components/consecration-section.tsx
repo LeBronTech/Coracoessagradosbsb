@@ -45,6 +45,8 @@ import {
   MARIAN_VIDEOS_30_DAYS,
   MARIAN_VIDEOS_33_DAYS
 } from "@/lib/marian-consecration-days-data";
+import { devotions as marianGalleryDevotions, DevotionDialog, MarianDevotion } from "@/components/marian-gallery";
+import { Dialog } from "@/components/ui/dialog";
 import { getProxiedImageUrl, cn } from "@/lib/utils";
 import { ExternalLink } from "lucide-react";
 
@@ -960,40 +962,54 @@ Recebei, ó Virgem benigna, esta pequena oferta da minha escravidão, em honra e
               id="marian-day-selection-bar"
               className="w-full whitespace-nowrap rounded-2xl border-2 border-blue-100 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-900/50 p-2 mb-6 shadow-inner [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
-              <TabsList className="flex w-fit h-auto p-0 bg-transparent flex-row relative mb-2">
-                {currentDaysList.map((diaInfo) => {
+              <TabsList className="flex w-fit h-auto p-0 bg-transparent flex-row relative mb-2 items-center">
+                {currentDaysList.map((diaInfo, index) => {
                   const completed = isDayCompleted(diaInfo.dia);
                   const isToday = currentConsagracaoDay === diaInfo.dia;
                   const isSelected = activeTab === `dia-${diaInfo.dia}`;
 
+                  // Identifica quando começa um novo período da consagração
+                  const isFirstOfPeriod = index === 0 || diaInfo.semana !== currentDaysList[index - 1].semana;
+
                   return (
-                    <TabsTrigger
-                      key={diaInfo.dia}
-                      id={`trigger-dia-${diaInfo.dia}`}
-                      value={`dia-${diaInfo.dia}`}
-                      className={cn(
-                        "min-w-[95px] sm:min-w-[105px] py-2.5 px-3 rounded-xl transition-all m-1 flex flex-col items-center justify-center gap-1 border-2 relative cursor-pointer",
-                        completed
-                          ? "bg-blue-900 text-white border-blue-900 hover:bg-blue-800 font-bold"
-                          : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-blue-300 shadow-sm",
-                        // Contorno azul destacado no dia selecionado para indicar em qual dia o devoto está
-                        isSelected && "border-blue-600 ring-2 ring-blue-500 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900 shadow-lg scale-105 z-10",
-                        isSelected && !completed && "bg-blue-50/90 dark:bg-blue-950/70 text-blue-950 dark:text-blue-100 font-bold border-blue-600",
-                        isSelected && completed && "bg-blue-800 text-white border-blue-400 ring-blue-400",
-                        isToday && !isSelected && "ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md",
-                        // Suporte aos atributos data-state do Radix UI
-                        "data-[state=active]:border-blue-600 data-[state=active]:ring-2 data-[state=active]:ring-blue-500 data-[state=active]:ring-offset-2 dark:data-[state=active]:ring-offset-slate-900 data-[state=active]:shadow-lg data-[state=active]:scale-105 data-[state=active]:z-10"
+                    <React.Fragment key={diaInfo.dia}>
+                      {isFirstOfPeriod && (
+                        <div className="flex flex-col items-center justify-center self-stretch px-3 py-1.5 mx-1.5 select-none shrink-0 border border-blue-200/80 dark:border-blue-800/80 bg-gradient-to-b from-blue-50/90 to-indigo-50/80 dark:from-slate-800 dark:to-blue-950/60 rounded-xl shadow-xs">
+                          <span className="text-[10px] font-extrabold uppercase tracking-wider text-blue-900 dark:text-blue-200 font-brand whitespace-nowrap">
+                            {diaInfo.semana}
+                          </span>
+                          <span className="text-[9px] text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap">
+                            {diaInfo.fase}
+                          </span>
+                        </div>
                       )}
-                    >
-                      {completed && <Check className="h-3.5 w-3.5 text-emerald-300 mb-0.5" />}
-                      <span className="font-bold text-xs sm:text-sm">Dia {diaInfo.dia}</span>
-                      {isToday && (
-                        <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
-                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
-                        </span>
-                      )}
-                    </TabsTrigger>
+                      <TabsTrigger
+                        id={`trigger-dia-${diaInfo.dia}`}
+                        value={`dia-${diaInfo.dia}`}
+                        className={cn(
+                          "min-w-[95px] sm:min-w-[105px] py-2.5 px-3 rounded-xl transition-all m-1 flex flex-col items-center justify-center gap-1 border-2 relative cursor-pointer",
+                          completed
+                            ? "bg-blue-900 text-white border-blue-900 hover:bg-blue-800 font-bold"
+                            : "bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 hover:border-blue-300 shadow-sm",
+                          // Contorno azul destacado no dia selecionado para indicar em qual dia o devoto está
+                          isSelected && "border-blue-600 ring-2 ring-blue-500 ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900 shadow-lg scale-105 z-10",
+                          isSelected && !completed && "bg-blue-50/90 dark:bg-blue-950/70 text-blue-950 dark:text-blue-100 font-bold border-blue-600",
+                          isSelected && completed && "bg-blue-800 text-white border-blue-400 ring-blue-400",
+                          isToday && !isSelected && "ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 shadow-md",
+                          // Suporte aos atributos data-state do Radix UI
+                          "data-[state=active]:border-blue-600 data-[state=active]:ring-2 data-[state=active]:ring-blue-500 data-[state=active]:ring-offset-2 dark:data-[state=active]:ring-offset-slate-900 data-[state=active]:shadow-lg data-[state=active]:scale-105 data-[state=active]:z-10"
+                        )}
+                      >
+                        {completed && <Check className="h-3.5 w-3.5 text-emerald-300 mb-0.5" />}
+                        <span className="font-bold text-xs sm:text-sm">Dia {diaInfo.dia}</span>
+                        {isToday && (
+                          <span className="absolute -top-1 -right-1 flex h-2.5 w-2.5">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+                          </span>
+                        )}
+                      </TabsTrigger>
+                    </React.Fragment>
                   );
                 })}
               </TabsList>
@@ -1441,6 +1457,28 @@ function ConsagracaoDayCard({
   const [copied, setCopied] = useState(false);
   const prayerBoxRef = useRef<HTMLDivElement>(null);
 
+  const [selectedDevotionModal, setSelectedDevotionModal] = useState<MarianDevotion | null>(null);
+
+  // Busca devoção correspondente na Galeria de Devoções Marianas
+  const matchingDevotion = marianGalleryDevotions.find((d) => {
+    if (diaInfo.devocaoId && d.id.toLowerCase() === diaInfo.devocaoId.toLowerCase()) return true;
+    if (d.name.toLowerCase() === diaInfo.devocaoNome.toLowerCase()) return true;
+    return false;
+  }) || (diaInfo.devocaoId ? {
+    id: diaInfo.devocaoId,
+    name: diaInfo.devocaoNome,
+    date: `Dia ${diaInfo.dia}`,
+    month: "Consagração",
+    imageUrl: diaInfo.devocaoImagem,
+    objectPosition: diaInfo.devocaoObjectPosition || "center",
+    description: diaInfo.devocaoDescricao,
+    fullDescription: `<p>${diaInfo.devocaoDescricao}</p><p class="mt-3"><strong>Meditação do Dia:</strong> ${diaInfo.meditacao}</p>`,
+    status: "traditional",
+    statusNote: "Devoção Mariana Inspiradora da Consagração"
+  } as MarianDevotion : null);
+
+  const imageObjPos = diaInfo.devocaoObjectPosition || (matchingDevotion?.objectPosition) || (diaInfo.devocaoId === "assuncao" ? "top" : "center");
+
   // Fecha o texto da oração aberta caso o usuário troque de dia
   useEffect(() => {
     setActivePrayerName(null);
@@ -1519,15 +1557,29 @@ function ConsagracaoDayCard({
       </CardHeader>
 
       <CardContent className="pt-6 space-y-6">
-        {/* ── CARD DA DEVOÇÃO MARIANA DA GALERIA HOMENAGEADA NO DIA ── */}
-        <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-sky-50/80 dark:from-slate-800/90 dark:via-slate-800 dark:to-blue-950/40 border-2 border-blue-200/80 dark:border-blue-800 shadow-sm">
+        {/* ── CARD DA DEVOÇÃO MARIANA DA GALERIA HOMENAGEADA NO DIA (CLICÁVEL PARA MODAL DE DETALHES) ── */}
+        <div
+          onClick={() => {
+            if (matchingDevotion) {
+              setSelectedDevotionModal(matchingDevotion);
+            }
+          }}
+          className={cn(
+            "p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-white to-sky-50/80 dark:from-slate-800/90 dark:via-slate-800 dark:to-blue-950/40 border-2 border-blue-200/80 dark:border-blue-800 shadow-sm transition-all group",
+            matchingDevotion ? "cursor-pointer hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-md active:scale-[0.99]" : ""
+          )}
+          role="button"
+          tabIndex={0}
+          title="Clique para ver os detalhes da Devoção Mariana"
+        >
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-blue-400 shadow-md shrink-0">
+            <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-2xl overflow-hidden border-2 border-blue-400 group-hover:border-blue-500 shadow-md shrink-0 transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={getProxiedImageUrl(diaInfo.devocaoImagem)}
                 alt={diaInfo.devocaoNome}
                 fill
-                className="object-cover object-center"
+                className="object-cover"
+                style={{ objectPosition: imageObjPos }}
                 sizes="96px"
               />
             </div>
@@ -1536,19 +1588,29 @@ function ConsagracaoDayCard({
                 <span className="text-[11px] font-bold uppercase tracking-wider text-blue-700 dark:text-blue-300">
                   Devoção Mariana Inspiradora do Dia:
                 </span>
-                <Badge variant="outline" className="text-amber-800 dark:text-amber-300 border-amber-300 text-[10px] font-bold">
-                  Galeria de Devoções
+                <Badge variant="outline" className="text-amber-800 dark:text-amber-300 border-amber-300 text-[10px] font-bold group-hover:bg-amber-100 dark:group-hover:bg-amber-950/40 transition-colors">
+                  Galeria de Devoções 🔍
                 </Badge>
               </div>
-              <h4 className="text-lg sm:text-xl font-bold font-brand text-blue-950 dark:text-blue-100">
+              <h4 className="text-lg sm:text-xl font-bold font-brand text-blue-950 dark:text-blue-100 group-hover:text-blue-600 dark:group-hover:text-blue-300 transition-colors">
                 {diaInfo.devocaoNome}
               </h4>
               <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-snug">
                 {diaInfo.devocaoDescricao}
               </p>
+              <div className="pt-1 flex items-center justify-center sm:justify-start text-xs text-blue-600 dark:text-blue-400 font-semibold group-hover:underline">
+                Toque para ver a história e detalhes completos →
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Modal de Detalhes da Devoção Mariana */}
+        {selectedDevotionModal && (
+          <Dialog open={!!selectedDevotionModal} onOpenChange={(open) => !open && setSelectedDevotionModal(null)}>
+            <DevotionDialog devotion={selectedDevotionModal} />
+          </Dialog>
+        )}
 
         {/* Leitura Bíblica e do Tratado */}
         <div className="grid sm:grid-cols-2 gap-3.5 text-xs sm:text-sm">

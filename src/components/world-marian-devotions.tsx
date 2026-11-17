@@ -436,9 +436,13 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
     const hasMultipleImages = allImages.length > 1;
 
     const handleScroll = (e: React.UIEvent<HTMLDivElement>) => {
-        const isScrolled = e.currentTarget.scrollTop > 50;
-        setScrolled(isScrolled);
-        if (isScrolled && isExpanded) setIsExpanded(false);
+        const top = e.currentTarget.scrollTop;
+        if (!scrolled && top > 40) {
+            setScrolled(true);
+            if (isExpanded) setIsExpanded(false);
+        } else if (scrolled && top < 10) {
+            setScrolled(false);
+        }
     };
 
     const openLightbox = () => { setPaused(true); setLightboxOpen(true); };
@@ -566,8 +570,8 @@ function WorldDevotionDialog({ devotion }: { devotion: MarianDevotion }) {
                     </div>
                 </DialogHeader>
 
-                <div className="flex-1 overflow-y-auto px-3 sm:px-6 custom-scrollbar scroll-smooth" onScroll={handleScroll}>
-                    <div className="space-y-6 pb-24 animate-in fade-in duration-700">
+                <div className="flex-1 overflow-y-auto px-3 sm:px-6 custom-scrollbar" onScroll={handleScroll}>
+                    <div className="space-y-6 pb-24 min-h-[55vh] animate-in fade-in duration-700">
                         <div className="bg-blue-50/50 dark:bg-blue-900/10 p-4 sm:p-6 rounded-2xl border border-blue-100 dark:border-blue-900/20">
                             <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-center italic text-sm sm:text-base break-words">
                                 "{devotion.description}"

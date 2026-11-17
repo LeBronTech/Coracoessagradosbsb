@@ -6,6 +6,7 @@ export interface MarianConsecrationDay {
   devocaoId: string;
   devocaoNome: string;
   devocaoImagem: string;
+  devocaoObjectPosition?: string;
   devocaoDescricao: string;
   passagemBiblica: string;
   leituraTratado: string;
@@ -97,8 +98,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 1,
     titulo: "A Necessidade da Devoção à Santíssima Virgem",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "anunciacao",
     devocaoNome: "Nossa Senhora da Anunciação",
     devocaoImagem: "https://i.postimg.cc/rsh03kKj/ns-anunciacao.jpg",
@@ -115,8 +116,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 2,
     titulo: "A Vontade de Deus sobre a Santíssima Virgem",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "fatima",
     devocaoNome: "Nossa Senhora de Fátima",
     devocaoImagem: "https://i.postimg.cc/cH0vJH31/ns-fatima.jpg",
@@ -133,8 +134,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 3,
     titulo: "A Obra da Santíssima Trindade em Maria",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "lourdes",
     devocaoNome: "Nossa Senhora de Lourdes",
     devocaoImagem: "https://i.postimg.cc/RF4W0Ftw/ns-lourdes.jpg",
@@ -151,8 +152,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 4,
     titulo: "Consequências da Devoção e os Últimos Tempos",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "desatadora",
     devocaoNome: "Nossa Senhora Desatadora dos Nós",
     devocaoImagem: "https://i.postimg.cc/pTCp5HQB/ns-desatadora.jpg",
@@ -169,8 +170,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 5,
     titulo: "Os Apóstolos e Servos dos Últimos Tempos",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "carmo",
     devocaoNome: "Nossa Senhora do Carmo",
     devocaoImagem: "https://iili.io/fjGdG4I.jpg",
@@ -187,8 +188,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 6,
     titulo: "A Missão e a Fortaleza dos Filhos de Maria",
-    semana: "1ª Semana",
-    fase: "Introdução e Princípios Fundamentais",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "aparecida",
     devocaoNome: "Nossa Senhora Aparecida",
     devocaoImagem: "https://i.postimg.cc/Lsyj4XMh/4011bde1376c5422265a41f3a652c540.jpg",
@@ -205,8 +206,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 7,
     titulo: "Capítulo II: Verdades Fundamentais (1ª Verdade - Jesus Cristo, Nosso Fim)",
-    semana: "2ª Semana",
-    fase: "Verdades Fundamentais da Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "guadalupe",
     devocaoNome: "Nossa Senhora de Guadalupe",
     devocaoImagem: "https://iili.io/ffgFDXV.png",
@@ -223,8 +224,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 8,
     titulo: "2ª Verdade Fundamental: Pertencemos a Jesus e a Maria como Escravos",
-    semana: "2ª Semana",
-    fase: "Verdades Fundamentais da Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "gracas",
     devocaoNome: "Nossa Senhora das Graças",
     devocaoImagem: "https://i.postimg.cc/SsBDK7HJ/Design-sem-nome-2.png",
@@ -241,8 +242,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 9,
     titulo: "3ª Verdade Fundamental: Desapego de Si Mesmo e de Nossas Imperfeições",
-    semana: "2ª Semana",
-    fase: "Verdades Fundamentais da Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "perpetuo_socorro",
     devocaoNome: "Nossa Senhora do Perpétuo Socorro",
     devocaoImagem: "https://i.postimg.cc/G3jkv0hd/ns-perpetuo-socorro.jpg",
@@ -259,8 +260,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 10,
     titulo: "4ª Verdade Fundamental: A Necessidade de um Mediador Junto do Mediador",
-    semana: "2ª Semana",
-    fase: "Verdades Fundamentais da Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "salete",
     devocaoNome: "Nossa Senhora da Salette",
     devocaoImagem: "https://i.postimg.cc/9F7K9YqB/ns-salette.jpg",
@@ -277,8 +278,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 11,
     titulo: "Capítulo III: Falsas Devoções à Santíssima Virgem",
-    semana: "2ª Semana",
-    fase: "Escolha da Verdadeira Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "auxiliadora",
     devocaoNome: "Nossa Senhora Auxiliadora",
     devocaoImagem: "https://i.postimg.cc/vB2Lz8P1/ns-auxiliadora.jpg",
@@ -295,8 +296,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 12,
     titulo: "Os Sinais da Verdadeira Devoção à Santíssima Virgem",
-    semana: "2ª Semana",
-    fase: "Escolha da Verdadeira Devoção",
+    semana: "12 Dias Preliminares",
+    fase: "Desapego do Espírito do Mundo",
     devocaoId: "saude",
     devocaoNome: "Nossa Senhora da Saúde",
     devocaoImagem: "https://iili.io/fjGd8xe.png",
@@ -313,8 +314,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 13,
     titulo: "Capítulo IV: A Natureza da Perfeita Consagração",
-    semana: "3ª Semana",
-    fase: "A Perfeita Consagração a Jesus por Maria",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "pilar",
     devocaoNome: "Nossa Senhora do Pilar",
     devocaoImagem: "https://i.postimg.cc/qBF51b3Z/ns-pilar.jpg",
@@ -331,8 +332,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 14,
     titulo: "Uma Perfeita Renovação dos Votos do Batismo",
-    semana: "3ª Semana",
-    fase: "A Perfeita Consagração a Jesus por Maria",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "penha",
     devocaoNome: "Nossa Senhora da Penha",
     devocaoImagem: "https://i.postimg.cc/y8r7HSmG/ns-penha.jpg",
@@ -349,8 +350,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 15,
     titulo: "1º Motivo da Consagração: Total Dedicação ao Serviço de Deus",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "rosario",
     devocaoNome: "Nossa Senhora do Rosário",
     devocaoImagem: "https://i.postimg.cc/Wb71yYc2/ns-rosario.jpg",
@@ -367,8 +368,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 16,
     titulo: "2º Motivo: Imitar o Exemplo Adorável de Jesus Cristo",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "monteserrat",
     devocaoNome: "Nossa Senhora de Montserrat",
     devocaoImagem: "https://i.postimg.cc/W12pP7mQ/ns-montserrat.jpg",
@@ -385,8 +386,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 17,
     titulo: "3º Motivo: Os Admiráveis Benefícios Maternais de Maria",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "candelaria",
     devocaoNome: "Nossa Senhora da Candelária",
     devocaoImagem: "https://i.postimg.cc/9F7K9YqL/ns-candelaria.jpg",
@@ -403,11 +404,12 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 18,
     titulo: "4º Motivo: A Maior Glória de Deus",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "assuncao",
     devocaoNome: "Nossa Senhora da Assunção",
-    devocaoImagem: "https://i.postimg.cc/s2FjH6s8/ns-assuncao.jpg",
+    devocaoImagem: "https://i.pinimg.com/736x/68/ae/53/68ae533a2ee7848b55ad14301a45bb72.jpg",
+    devocaoObjectPosition: "top",
     devocaoDescricao: "Elevada de corpo e alma à glória celeste, esperança certa de nossa ressurreição.",
     passagemBiblica: "1 Coríntios 10,31; João 15,8",
     leituraTratado: "Tratado da Verdadeira Devoção, Cap. 4, nn. 169 a 172",
@@ -421,8 +423,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 19,
     titulo: "5º Motivo: Um Caminho Fácil, Curto, Perfeito e Seguro",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "guia",
     devocaoNome: "Nossa Senhora da Guia",
     devocaoImagem: "https://i.postimg.cc/Vv5Y34g8/ns-guia.jpg",
@@ -439,8 +441,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 20,
     titulo: "6º Motivo: A Verdadeira Liberdade dos Filhos de Deus",
-    semana: "3ª Semana",
-    fase: "Motivos da Consagração",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "dias_montfort",
     devocaoNome: "Coração Imaculado de Maria",
     devocaoImagem: "https://i.postimg.cc/J0bL9g1v/coracao-imaculado.jpg",
@@ -457,8 +459,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 21,
     titulo: "A Figura Bíblica de Rebeca e Jacó: Mãe dos Predestinados",
-    semana: "4ª Semana",
-    fase: "Figuras Bíblicas da Consagração",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "nazare",
     devocaoNome: "Nossa Senhora de Nazaré",
     devocaoImagem: "https://iili.io/fjGd8xe.png",
@@ -475,8 +477,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 22,
     titulo: "Jacó e Esaú: O Discernimento entre os Fiéis e os Amantes do Mundo",
-    semana: "4ª Semana",
-    fase: "Figuras Bíblicas da Consagração",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "lapa",
     devocaoNome: "Nossa Senhora da Lapa",
     devocaoImagem: "https://i.postimg.cc/rsh03kKj/ns-anunciacao.jpg",
@@ -493,8 +495,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 23,
     titulo: "Capítulo V: Maravilhosos Efeitos da Devoção na Alma Fiel",
-    semana: "4ª Semana",
-    fase: "Efeitos Interiores e Espirituais",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "piedade",
     devocaoNome: "Nossa Senhora da Piedade",
     devocaoImagem: "https://i.postimg.cc/769fJk1V/ns-caravaggio.jpg",
@@ -511,8 +513,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 24,
     titulo: "Participação na Fé Viva de Maria e na Transformação Interior",
-    semana: "4ª Semana",
-    fase: "Efeitos Interiores e Espirituais",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "penedo",
     devocaoNome: "Nossa Senhora do Penedo",
     devocaoImagem: "https://i.postimg.cc/RF4W0Ftw/ns-lourdes.jpg",
@@ -529,8 +531,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 25,
     titulo: "Capítulo VI: Práticas Exteriores da Consagração",
-    semana: "4ª Semana",
-    fase: "Práticas da Verdadeira Devoção",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "misericordia",
     devocaoNome: "Nossa Senhora da Misericórdia",
     devocaoImagem: "https://i.postimg.cc/cH0vJH31/ns-fatima.jpg",
@@ -547,8 +549,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 26,
     titulo: "A Recitação da Coroinha e o Ofício da Virgem",
-    semana: "4ª Semana",
-    fase: "Práticas da Verdadeira Devoção",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "bom_parto",
     devocaoNome: "Nossa Senhora do Bom Parto",
     devocaoImagem: "https://i.postimg.cc/pTCp5HQB/ns-desatadora.jpg",
@@ -565,8 +567,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 27,
     titulo: "As Cadeias da Consagração e a Devoção ao Santo Rosário",
-    semana: "4ª Semana",
-    fase: "Práticas da Verdadeira Devoção",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "silva",
     devocaoNome: "Nossa Senhora da Conceição Aparecida",
     devocaoImagem: "https://iili.io/ffgFDXV.png",
@@ -583,8 +585,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 28,
     titulo: "Práticas Interiores: Agir Por Maria, Com Maria, Em Maria e Para Maria",
-    semana: "4ª Semana",
-    fase: "Práticas Interiores da Consagração",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "estrela",
     devocaoNome: "Nossa Senhora Estrela do Mar",
     devocaoImagem: "https://i.postimg.cc/NMD52c8V/ns-estrela.jpg",
@@ -601,8 +603,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 29,
     titulo: "Capítulo VII: Como Praticar esta Devoção na Santa Comunhão",
-    semana: "Semana da Consagração",
-    fase: "Prática na Sagrada Eucaristia",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "caravaggio",
     devocaoNome: "Nossa Senhora de Caravaggio",
     devocaoImagem: "https://i.postimg.cc/769fJk1V/ns-caravaggio.jpg",
@@ -619,8 +621,8 @@ export const MARIAN_CONSECRATION_DAYS_30: MarianConsecrationDay[] = [
   {
     dia: 30,
     titulo: "O Grande Dia da Consagração Solene a Jesus por Maria",
-    semana: "Semana da Consagração",
-    fase: "O Grande Dia da Consagração",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "imaculada",
     devocaoNome: "Consagração Total à Santíssima Virgem",
     devocaoImagem: "https://iili.io/KpAtISf.png",
@@ -844,7 +846,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
     fase: "Desapego do Espírito do Mundo",
     devocaoId: "assuncao",
     devocaoNome: "Assunção de Nossa Senhora",
-    devocaoImagem: "https://i.postimg.cc/Qd94L5Y3/assuncao-ns.jpg",
+    devocaoImagem: "https://i.pinimg.com/736x/68/ae/53/68ae533a2ee7848b55ad14301a45bb72.jpg",
+    devocaoObjectPosition: "top",
     devocaoDescricao: "Elevada em corpo e alma à Glória Celeste, nossa esperança infalível.",
     passagemBiblica: "Lucas 12,22-31; Filipenses 3,20-21; Apocalipse 12,1",
     leituraTratado: "Tratado da Verdadeira Devoção, nn. 78-82",
@@ -860,7 +863,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 13,
     titulo: "Conhecimento Próprio e o Reconhecimento da Nossa Pobreza",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "pobres",
     devocaoNome: "Nossa Senhora dos Pobres",
@@ -878,7 +881,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 14,
     titulo: "A Luz da Verdade sobre as Manchas do Nosso Passado",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "luz",
     devocaoNome: "Nossa Senhora da Luz",
@@ -896,7 +899,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 15,
     titulo: "Exame das Nossas Inconstâncias e Meditação no Rosário",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "rosario_outubro",
     devocaoNome: "Nossa Senhora do Rosário",
@@ -914,7 +917,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 16,
     titulo: "Discernimento contra a Paixão Dominante e Mau Hábito",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "bom_conselho",
     devocaoNome: "Nossa Senhora do Bom Conselho",
@@ -932,7 +935,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 17,
     titulo: "A Paz Verdadeira que Nasce do Arrependimento",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "rainha_paz",
     devocaoNome: "Rainha da Paz",
@@ -950,7 +953,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 18,
     titulo: "Transposição do Amor Próprio para o Amor a Deus",
-    semana: "Primeira Semana",
+    semana: "1ª Semana",
     fase: "Conhecimento de Si Mesmo",
     devocaoId: "visitacao",
     devocaoNome: "Visitação de Nossa Senhora",
@@ -970,8 +973,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 19,
     titulo: "Maria, o Paraíso de Deus e Refúgio dos Peregrinos",
-    semana: "Segunda Semana",
-    fase: "Conhecimento da Santíssima Virgem",
+    semana: "1ª Semana",
+    fase: "Conhecimento de Si Mesmo",
     devocaoId: "desterro",
     devocaoNome: "Nossa Senhora do Desterro",
     devocaoImagem: "https://i.postimg.cc/nLvsZ7Cy/ns-desterro.jpg",
@@ -988,7 +991,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 20,
     titulo: "Maria, Onipotência Suplicante: 'Fazei Tudo o que Ele vos Disser'",
-    semana: "Segunda Semana",
+    semana: "2ª Semana",
     fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "cana",
     devocaoNome: "Nossa Senhora de Caná",
@@ -1006,7 +1009,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 21,
     titulo: "A Doçura e a Ternura Consoladora do Coração Maternal",
-    semana: "Segunda Semana",
+    semana: "2ª Semana",
     fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "mel",
     devocaoNome: "Nossa Senhora do Mel",
@@ -1024,7 +1027,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 22,
     titulo: "Maria, a Arca da Nova Aliança e Esperança da Boa Hora",
-    semana: "Segunda Semana",
+    semana: "2ª Semana",
     fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "bom_parto",
     devocaoNome: "Nossa Senhora do Bom Parto",
@@ -1042,7 +1045,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 23,
     titulo: "A Natividade de Maria e a Aurora da Salvação",
-    semana: "Segunda Semana",
+    semana: "2ª Semana",
     fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "natividade",
     devocaoNome: "Natividade de Nossa Senhora",
@@ -1060,7 +1063,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 24,
     titulo: "Maria, Mãe da Igreja e Mãe Espiritual dos Homens",
-    semana: "Segunda Semana",
+    semana: "2ª Semana",
     fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "mae_igreja",
     devocaoNome: "Maria Mãe da Igreja",
@@ -1080,8 +1083,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 25,
     titulo: "Jesus Cristo, a Luz Eterna que Ilumina as Nações",
-    semana: "Terceira Semana",
-    fase: "Conhecimento de Jesus Cristo",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "candeias",
     devocaoNome: "Nossa Senhora das Candeias",
     devocaoImagem: "https://i.postimg.cc/d1wh01Cn/ns-candeias.jpg",
@@ -1098,8 +1101,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 26,
     titulo: "Jesus, a Rocha Inabalável da Nossa Salvação",
-    semana: "Terceira Semana",
-    fase: "Conhecimento de Jesus Cristo",
+    semana: "2ª Semana",
+    fase: "Conhecimento da Santíssima Virgem",
     devocaoId: "penha",
     devocaoNome: "Nossa Senhora da Penha",
     devocaoImagem: "https://i.postimg.cc/cCdwPhh5/ns-penha.jpg",
@@ -1116,7 +1119,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 27,
     titulo: "O Amor Redentor de Cristo e a Misericórdia Divina",
-    semana: "Terceira Semana",
+    semana: "3ª Semana",
     fase: "Conhecimento de Jesus Cristo",
     devocaoId: "consolacao_maio",
     devocaoNome: "Nossa Senhora da Consolação",
@@ -1134,7 +1137,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 28,
     titulo: "A Paixão de Cristo e as Lágrimas da Compaixão",
-    semana: "Terceira Semana",
+    semana: "3ª Semana",
     fase: "Conhecimento de Jesus Cristo",
     devocaoId: "lagrimas",
     devocaoNome: "Nossa Senhora das Lágrimas",
@@ -1152,7 +1155,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 29,
     titulo: "Jesus Cristo, Estrela Radiante da Manhã",
-    semana: "Terceira Semana",
+    semana: "3ª Semana",
     fase: "Conhecimento de Jesus Cristo",
     devocaoId: "estrela",
     devocaoNome: "Nossa Senhora da Estrela / Luján",
@@ -1170,7 +1173,7 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 30,
     titulo: "A Fonte de Água Viva que Brota do Coração de Jesus",
-    semana: "Terceira Semana",
+    semana: "3ª Semana",
     fase: "Conhecimento de Jesus Cristo",
     devocaoId: "caravaggio",
     devocaoNome: "Nossa Senhora de Caravaggio",
@@ -1190,8 +1193,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 31,
     titulo: "Vésperas da Consagração: Purificação Sacramental",
-    semana: "Semana da Consagração",
-    fase: "Entrega Total",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "mae_deus",
     devocaoNome: "Santa Maria, Mãe de Deus",
     devocaoImagem: "https://i.postimg.cc/5jcQ5mG4/santa-maria-mae-de-deus.jpg",
@@ -1208,8 +1211,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 32,
     titulo: "Acolher o Reinado da Imaculada na Alma",
-    semana: "Semana da Consagração",
-    fase: "Entrega Total",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "imaculada",
     devocaoNome: "Imaculada Conceição",
     devocaoImagem: "https://iili.io/KpAtISf.png",
@@ -1226,8 +1229,8 @@ export const MARIAN_CONSECRATION_DAYS: MarianConsecrationDay[] = [
   {
     dia: 33,
     titulo: "O Grande Dia da Consagração Total a Jesus por Maria",
-    semana: "Semana da Consagração",
-    fase: "O Grande Dia da Consagração",
+    semana: "3ª Semana",
+    fase: "Conhecimento de Jesus Cristo",
     devocaoId: "anunciacao",
     devocaoNome: "Consagração a Jesus por Maria (São Luís de Montfort)",
     devocaoImagem: "https://i.postimg.cc/rsh03kKj/ns-anunciacao.jpg",
